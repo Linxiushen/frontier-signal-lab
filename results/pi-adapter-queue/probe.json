@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "experiment": "pinned pi SQLite adapter queue primitive",
+  "config": {
+    "randomness": "none",
+    "node_version": "v24.19.0",
+    "sqlite_version": "3.53.3",
+    "storage": "node:sqlite DatabaseSync :memory: stand-in",
+    "scenario_deadline_ms": 2000,
+    "overall_deadline_ms": 20000,
+    "source_path": "third_party/pi/cloudflare.ts",
+    "source_sha256": "428b68034173066227c8d2beff111e3a9852afd9b4215e30bc4ff6c315f47b20",
+    "source_commit": "f7e3cb5433ba9500d4381d201e628bb5301c9924",
+    "source_url": "https://github.com/earendil-works/pi/blob/f7e3cb5433ba9500d4381d201e628bb5301c9924/packages/durable/src/storage/sqlite/cloudflare.ts",
+    "license": "MIT",
+    "license_sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+  },
+  "dependency_substitution": {
+    "specifier": "./storage.ts",
+    "scope": "Only imports from the exact pinned adapter URL",
+    "implementation": "fail-closed SqliteStorage.open getter sentinel via node:module registerHooks",
+    "factory_open_attempts": 0,
+    "unused_factory_confirmed": true
+  },
+  "all_passed": true,
+  "limitations": [
+    "Executes the unmodified pinned DurableObjectSqliteDatabase class, with the unused higher-level storage factory dependency substituted. This is not the full pi/Pico storage contract.",
+    "Local synchronous SQLite SQL and BEGIN/COMMIT/ROLLBACK approximate the structural storage interface; Cloudflare runtime scheduling, isolation and durability are not reproduced.",
+    "No power loss, process crash, namespace migration, network service, real external effect or production exactly-once guarantee is tested.",
+    "Adapter instances share a queue only when given the same storage object. Direct storage calls bypass it; the negative control demonstrates a completed direct write rolling back with the enclosing transaction.",
+    "Promise settlement and exact final SQL rows measure bounded local progress. Six deterministic traces do not establish general liveness or production reliability.",
+    "The upstream test suite already contains related queue and direct-write cases; this independent integration probe does not claim to invent them.",
+    "No network API is called by the probe or reviewed adapter. This is a source/import restriction, not an operating-system network sandbox."
+  ],
+  "runs": [
+    {
+      "scenario": "queued_write_commit",
+      "expected_rows": [
+        {
+          "id": "inside",
+          "value": 1
+        },
+        {
+          "id": "queued",
+          "value": 2
+        }
+      ],
+      "transaction_outcome": {
+        "status": "fulfilled"
+      },
+      "queued_outcome": {
+        "status": "fulfilled"
+      },
+      "queued_settled_before_release": false,
+      "rows_before_release": [
+        {
+          "id": "inside",
+          "value": 1
+        }
+      ],
+      "checks": {
+        "queued_waited": true,
+        "queued_row_absent_before_release": true,
+        "queued_completed": true,
+        "transaction_settlement": true
+      },
+      "actual_rows": [
+        {
+          "id": "inside",
+          "value": 1
+        },
+        {
+          "id": "queued",
+          "value": 2
+        }
+      ],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "callback.entered",
+        "queued.submitted",
+        "release.requested",
+        "callback.released",
+        "storage.commit",
+        "transaction.fulfilled",
+        "queued.fulfilled"
+      ]
+    },
+    {
+      "scenario": "queued_write_abort",
+      "expected_rows": [
+        {
+          "id": "queued",
+          "value": 2
+        }
+      ],
+      "transaction_outcome": {
+        "status": "rejected",
+        "error": "intentional transaction abort"
+      },
+      "queued_outcome": {
+        "status": "fulfilled"
+      },
+      "queued_settled_before_release": false,
+      "rows_before_release": [
+        {
+          "id": "inside",
+          "value": 1
+        }
+      ],
+      "checks": {
+        "queued_waited": true,
+        "queued_row_absent_before_release": true,
+        "queued_completed": true,
+        "transaction_settlement": true
+      },
+      "actual_rows": [
+        {
+          "id": "queued",
+          "value": 2
+        }
+      ],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "callback.entered",
+        "queued.submitted",
+        "release.requested",
+        "callback.released",
+        "storage.rollback",
+        "transaction.rejected",
+        "queued.fulfilled"
+      ]
+    },
+    {
+      "scenario": "direct_write_abort_control",
+      "expected_rows": [],
+      "transaction_outcome": {
+        "status": "rejected",
+        "error": "intentional transaction abort"
+      },
+      "rows_before_release": [
+        {
+          "id": "direct",
+          "value": 3
+        },
+        {
+          "id": "inside",
+          "value": 1
+        }
+      ],
+      "direct_write_completed_before_abort": true,
+      "completed_direct_write_missing_after_abort": true,
+      "control_role": "Negative control: direct underlying-storage writes bypass the adapter queue.",
+      "checks": {
+        "transaction_rejected": true,
+        "direct_write_was_visible": true,
+        "direct_write_rolled_back": true
+      },
+      "actual_rows": [],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "direct.write.returned",
+        "storage.rollback",
+        "transaction.rejected"
+      ]
+    },
+    {
+      "scenario": "transaction_after_abort",
+      "expected_rows": [
+        {
+          "id": "after_abort",
+          "value": 4
+        }
+      ],
+      "first_outcome": {
+        "status": "rejected",
+        "error": "intentional transaction abort"
+      },
+      "next_outcome": {
+        "status": "fulfilled"
+      },
+      "checks": {
+        "first_rejected": true,
+        "next_completed": true
+      },
+      "actual_rows": [
+        {
+          "id": "after_abort",
+          "value": 4
+        }
+      ],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "storage.rollback",
+        "first_transaction.rejected",
+        "storage.begin",
+        "storage.commit",
+        "next_transaction.fulfilled"
+      ]
+    },
+    {
+      "scenario": "retained_handle_after_commit",
+      "expected_rows": [
+        {
+          "id": "kept",
+          "value": 5
+        }
+      ],
+      "transaction_outcome": {
+        "status": "fulfilled"
+      },
+      "retained_handle_outcome": {
+        "status": "rejected",
+        "error": "SQLite transaction handle is no longer active"
+      },
+      "checks": {
+        "transaction_settlement": true,
+        "retained_handle_rejected": true
+      },
+      "actual_rows": [
+        {
+          "id": "kept",
+          "value": 5
+        }
+      ],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "storage.commit",
+        "transaction.fulfilled",
+        "retained.rejected"
+      ]
+    },
+    {
+      "scenario": "retained_handle_after_abort",
+      "expected_rows": [],
+      "transaction_outcome": {
+        "status": "rejected",
+        "error": "intentional transaction abort"
+      },
+      "retained_handle_outcome": {
+        "status": "rejected",
+        "error": "SQLite transaction handle is no longer active"
+      },
+      "checks": {
+        "transaction_settlement": true,
+        "retained_handle_rejected": true
+      },
+      "actual_rows": [],
+      "rows_match_oracle": true,
+      "passed": true,
+      "deadline_ms": 2000,
+      "events": [
+        "storage.begin",
+        "storage.rollback",
+        "transaction.rejected",
+        "retained.rejected"
+      ]
+    }
+  ],
+  "result_sha256": "7b5df023acea9c596764f779776a411c5382f8300a3071a36d6f2df675fd9d7d"
+}

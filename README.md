@@ -16,15 +16,18 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 本日跟进：Peter 的 OpenClaw 未合并 PR 新增异常 binding 诊断与保留测试；本项目据此完成独立的真实 SQLite 迁移/崩溃恢复实验。静默跳过与报警两组都保留原记录，但“诊断干净”与“工作完成”不能等同。时间线、来源变化及边界见 [H2 跟进](research/2026-10-15-h2-sqlite.md)。
 
+最新跟进：pi 的事务队列 PR 已合并。本项目固定该 commit，执行未修改的数据库适配器代码，在本地 SQLite stand-in 上验证 6 条轨迹：排队写入能在前一事务回滚后完成，直接底层写入则随事务回滚。不是完整 harness 或 Cloudflare 生产验证；详见[适配器实验与新证据](research/2026-10-15-pi-adapter.md)。
+
 ## 快速运行
 
-需要 Python 3.11+；在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。
+需要 Python 3.11+；pi 适配器实验、完整测试和一键复现另需 Node.js 24.19+。在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。
 
 ```bash
 python -m pip install -r requirements.txt
 python experiments/attnres_budget_probe.py --output results/attnres-budget
 python experiments/recovery_contract_probe.py --output results/recovery-contract
 python experiments/sqlite_migration_probe.py --output results/sqlite-migration
+node experiments/pi_adapter_queue_probe.mjs --output results/pi-adapter-queue
 python -m unittest discover -s tests -v
 
 # 明确最近 7 天的有界采样；失败和截断会记录在报告中
@@ -52,8 +55,9 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 | AttnRes budget | 2 深度 × 3 分布 × 2 query × 3 seeds × 7 策略，252 条测量 | [完整表格](results/attnres-budget.md) / [原始 JSON](results/attnres-budget.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
+| pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
 
-一键重跑测试、三个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、配置和 SHA256。
+一键重跑测试、四个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 
@@ -77,6 +81,6 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 
 - GitHub Actions 运行测试，并每 6 小时采样一次公开数据，保存为 workflow artifact；失败显示为失败，不补造覆盖。
 - 人工/代理复核后更新研究判断和实验。任何预测都要写出后续观察条件与失效条件。
-- 不自动给研究者发消息、发 issue 或 PR。仅此仓库的新代码使用 MIT；外部材料的权利归原作者。
+- 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi 适配器保留[上游 MIT 许可与来源](third_party/pi/README.md)，其他外部材料的权利归原作者。
 
 欢迎提交能复现的负结果、反例、真实显存/吞吐数据，以及新的一手来源。

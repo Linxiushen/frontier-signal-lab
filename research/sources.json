@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-15T12:42:53.355667Z",
-  "observation_note": "Initial pass sources lack individual fetch timestamps. The 12:31 UTC follow-up records exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times.",
+  "last_updated_at": "2026-10-15T14:44:18.916239Z",
+  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -281,7 +281,79 @@
       "repository_public": true,
       "license_metadata": "MIT",
       "pr_url": "https://github.com/earendil-works/pi/pull/10937",
-      "test_path": "packages/durable/test/sqlite-cloudflare.test.ts"
+      "test_path": "packages/durable/test/sqlite-cloudflare.test.ts",
+      "subsequent_event_id": "pi-sqlite-merged"
+    },
+    {
+      "id": "pi-sqlite-merged",
+      "url": "https://github.com/earendil-works/pi/commit/f7e3cb5433ba9500d4381d201e628bb5301c9924",
+      "type": "collaborator_merged_commit",
+      "author": "christianklotz",
+      "published_at": "2026-10-15T13:02:27Z",
+      "pr_url": "https://github.com/earendil-works/pi/pull/10937",
+      "merged_at": "2026-10-15T13:02:28Z",
+      "merged_by": "christianklotz",
+      "observed_interval": {
+        "start": "2026-10-15T14:31:08.7526002Z",
+        "end": "2026-10-15T14:31:10.7277587Z"
+      },
+      "claim": "PR #10937 merged. The database adapter queue and prior direct-write/queued-write tests are now in main; those mechanisms predate this heartbeat. Not a Mario-authored change.",
+      "status": "merge_and_source_verified_adapter_primitive_executed_with_explicit_substitution",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "execution_record": "results/pi-adapter-queue/probe.json"
+    },
+    {
+      "id": "openclaw-uncertain-retirement",
+      "url": "https://github.com/openclaw/openclaw/commit/105f2db64eaf9119eac00ee739b1f54154ec16e4",
+      "type": "author_commit_in_unmerged_pr",
+      "author": "steipete",
+      "published_at": "2026-10-15T13:36:49Z",
+      "observed_interval": {
+        "start": "2026-10-15T14:32:31.7939316Z",
+        "end": "2026-10-15T14:32:33.4259745Z"
+      },
+      "claim": "Repeated same-owner undelivered retirement can succeed when the assignment is already absent after authority checks. Test patch covers repeat/owner mismatch/reopen helpers. PR remains unmerged at this observation.",
+      "status": "code_and_tests_read_not_executed_upstream",
+      "repository_public": true,
+      "license_metadata": "MIT"
+    },
+    {
+      "id": "verifiers-unified-errors",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/565b63377d8810caa690f42db290772582cecaf9",
+      "type": "member_commit_in_unmerged_pr",
+      "author": "hallerite",
+      "published_at": "2026-10-15T13:15:55Z",
+      "observed_interval": {
+        "start": "2026-10-15T14:32:31.6310521Z",
+        "end": "2026-10-15T14:32:33.1625392Z"
+      },
+      "claim": "Replaces separate scoring_attempts/ScoringAttempt proposal with trace.errors and Error.details, and identity-based error-record deduplication at outer failure boundaries. Added delta test reconstructs manually appended details; genuine scoring retries were not executed here.",
+      "status": "proposal_changed_source_checked_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT"
+    },
+    {
+      "id": "verifiers-timeout-review",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2857#discussion_r4283455262",
+      "type": "automated_inline_review_of_open_pr",
+      "author": "cursor[bot]",
+      "author_type": "Bot",
+      "author_association": "NONE",
+      "event_id": 4283455262,
+      "published_at": "2026-10-15T13:19:22Z",
+      "updated_at": "2026-10-15T13:19:22Z",
+      "original_commit_id": "565b63377d8810caa690f42db290772582cecaf9",
+      "path": "verifiers/v1/grading.py",
+      "original_line": 187,
+      "observed_interval": {
+        "start": "2026-10-15T14:32:31.6887415Z",
+        "end": "2026-10-15T14:32:33.2276363Z"
+      },
+      "claim": "Bot raises possible timeout-stopped successful trace with non-empty error history/last_error. Static catch/timeout/finalization paths support investigating intended semantics; no runtime reproduction or maintainer acceptance established.",
+      "status": "source_supported_semantic_concern_not_reproduced",
+      "repository_public": true,
+      "license_metadata": "MIT"
     }
   ]
 }

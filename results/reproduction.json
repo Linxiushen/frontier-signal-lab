@@ -2,6 +2,7 @@
   "python": "3.12.14",
   "numpy": "2.3.5",
   "sqlite": "3.53.1",
+  "node": "v24.19.0",
   "platform": "Windows",
   "commands": [
     [
@@ -30,10 +31,17 @@
       "experiments/sqlite_migration_probe.py",
       "--output",
       "results/sqlite-migration"
+    ],
+    [
+      "node",
+      "experiments/pi_adapter_queue_probe.mjs",
+      "--output",
+      "results/pi-adapter-queue"
     ]
   ],
   "sha256": {
     "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
+    "experiments/pi_adapter_queue_probe.mjs": "cb22a9abd1e751dfb13366d1e7a9fc352de7338c0e9fd54d2c9f85a2e9b93166",
     "experiments/recovery_contract_probe.py": "2b6b97366f75d0321bee72e3ee1013a2cb8225a0be1ed4eab67df7005f01f1ac",
     "experiments/sqlite_migration_probe.py": "24fc901874b13a5693fcbefb22ce0f400f5db5a976af223ce9ce1478a667ed29",
     "frontier_radar/__init__.py": "743b647805bb69aaca088c6c37e6aeab69386594f5e38a069eaa8376f3bf4274",
@@ -42,6 +50,8 @@
     "requirements.txt": "99f43573522565d7c480efd1f954892948033915df6a4e685327e995d3396eb6",
     "results/attnres-budget.json": "cbcc95a9788f1120dc9341a6dd490e05023dbe88ba9421e061e29bf4dcc8ed05",
     "results/attnres-budget.md": "bdf37348e8144038d3018eb342b2050df4ac0ca2aadb63c9dcb4fb1dab226119",
+    "results/pi-adapter-queue/probe.json": "27a4de8c7fbfb975cbe7d330bd94c6b2f5728ee750e867148fd4599931bd33d4",
+    "results/pi-adapter-queue/report.md": "30d2a20d6a58a0b2cd757bd255d34570d3387158f54b95bae595ba2adfbccebd",
     "results/recovery-contract/counterexamples/durable_log_persist_before_hook--compaction_overlap.json": "a26b7a2104b68d834ffd310a72d783ad293a2281eb1192ad2484308d4e1d9da3",
     "results/recovery-contract/counterexamples/durable_log_persist_before_hook--duplicate_completion_after_restart.json": "8886184e7348522b8ec57aa36332a0b065ec2fa28998841e289c0321650b42c4",
     "results/recovery-contract/counterexamples/durable_log_persist_before_hook--scoring_failure_then_success.json": "c4c1d1562db598e1a0859b6b3a585e59645c010f84b90d5b2ee2d07e881048f7",
@@ -82,11 +92,16 @@
     "results/sqlite-migration/sql/warn_preserve--before_commit--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
     "results/sqlite-migration/sql/warn_preserve--none--after_fault.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
     "results/sqlite-migration/sql/warn_preserve--none--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
-    "scripts/reproduce.py": "40a6436793fe21b0079d36ee3a39e2ee20fd9d0702a123bd9d5ca2f916ce928e",
+    "scripts/reproduce.py": "6881ae6c8d3a1c2f833e160f6e63363c4bfaade5d78e6bae29b163a62bdc2024",
     "tests/test_attnres_budget_probe.py": "f464f78f551ec618cd97a9919dad120183c5d83c6ad57122e9e55e9c1a5075d2",
+    "tests/test_pi_adapter_queue.py": "dad1727f3ab6267183511df3925bf798daa34e3bb70b63c7f0477d01d5251f99",
     "tests/test_recovery_contract_probe.py": "d5c24f03c0e3abf09c4ddd1b76b7453576804ea79fcf3a4c4ac598e68f795503",
     "tests/test_scan.py": "51f57d8dbeb95055b8236a4c051a78fc72f597fd4a65759ee00da6d4483eeb97",
-    "tests/test_sqlite_migration.py": "7688d33ef44f8f5eab42dca4d9fb2d0cd4df8ff066f07fa2c5991d2097fd2398"
+    "tests/test_sqlite_migration.py": "7688d33ef44f8f5eab42dca4d9fb2d0cd4df8ff066f07fa2c5991d2097fd2398",
+    "third_party/pi/cloudflare.ts": "428b68034173066227c8d2beff111e3a9852afd9b4215e30bc4ff6c315f47b20",
+    "third_party/pi/LICENSE": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48",
+    "third_party/pi/provenance.json": "29db3017866e177376fd9fbb3656f87edd64b4cc49b42ad9d419d9c95b339e8a",
+    "third_party/pi/README.md": "ab14034b80fbd32e893ead7ab7e4e17db49ce07235dfd99f3884cce8d999f5fe"
   },
-  "scope": "Exact local checks, synthetic probes and an independent real-SQLite migration contract experiment; excludes live GitHub data and upstream execution. Float rounding can differ across NumPy/BLAS platforms."
+  "scope": "Exact local checks and probes, including an independent SQLite fixture and a pinned pi database adapter primitive with a substituted unused factory dependency over a Node SQLite stand-in. Excludes full upstream harness/Cloudflare execution and live data. Float rounding can differ across NumPy/BLAS platforms."
 }

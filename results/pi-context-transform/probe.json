@@ -1,0 +1,2064 @@
+{
+  "schema_version": 1,
+  "experiment": "complete pinned pi context transformation primitive",
+  "config": {
+    "randomness": "none",
+    "fixed_fixture_timestamps": true,
+    "fixture_sha256": "040408dac172d1396c1d0c3a90448acece1cb6a5d08f6cde490fe22890104ec9",
+    "probe_sha256": "3480d3c4b46d9754e9c2b4b28ed4c28f03eb170bb02460a7ce1331d8c102b550",
+    "provenance_sha256": "c8ebe3c3b4f70eef86582a682dafb11b03ddfa2c845c18b2c416fd5cdcde9725",
+    "license": "MIT",
+    "license_sha256": "4f6a1985796db5225e3b1e59972bd47e07a27a0748427cb3d3c8fbf39f9311f0",
+    "sources": {
+      "parent": {
+        "path": "third_party/pi-context/parent-transform-messages.ts",
+        "commit": "5ab7fe74c400097b386662205cd93900695b8a71",
+        "source_sha256": "b22883af43b5dd7fdaca84e5a86e035553865e5049b4beb2212768d4fefd9148",
+        "source_url": "https://raw.githubusercontent.com/earendil-works/pi/5ab7fe74c400097b386662205cd93900695b8a71/packages/ai/src/api/transform-messages.ts"
+      },
+      "merged": {
+        "path": "third_party/pi-context/merged-transform-messages.ts",
+        "commit": "911309429175254550837167baee245d5f9dbcb6",
+        "source_sha256": "1afe70d8ab9ac24fcfc7ee46bf002b24f9557396ffe3c61e44d3e35c692e27f4",
+        "source_url": "https://raw.githubusercontent.com/earendil-works/pi/911309429175254550837167baee245d5f9dbcb6/packages/ai/src/api/transform-messages.ts"
+      }
+    },
+    "execution": "Direct full-file native TypeScript imports; transformMessages(input, model); no third argument",
+    "runtime_dependency_substitution": false,
+    "module_hooks": false
+  },
+  "scope": "Only transformMessages context transformation. No provider requests, full harness, signature validation or model behavior measured.",
+  "limitations": [
+    "Opaque signatures and redaction flags are synthetic sentinels; retaining them does not establish cryptographic or provider validity.",
+    "The authentic parent intentionally fails the desired no-foreign-thinking-as-visible-text boundary on four traces; that expected negative result is preserved.",
+    "Every successful tool-call fixture has matching results. Orphan synthesis, its Date.now timestamp and optional ID normalizer are not exercised.",
+    "The complete modules also export splitErrorToolResultImages; that separate helper and image downgrade/null normalization branches are not exercised.",
+    "Eight bounded fixtures do not establish transport acceptance, actual model handoff, persistence, liveness, quality, token cost or production reliability.",
+    "The upstream fix predates this pass and is not a new merge or our algorithmic invention."
+  ],
+  "source_files_unchanged": {
+    "parent": true,
+    "merged": true
+  },
+  "runs": [
+    {
+      "scenario": "same_identity_opaque_reasoning",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "question",
+          "timestamp": 1
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "SAME_READABLE"
+            },
+            {
+              "type": "thinking",
+              "thinking": "",
+              "thinkingSignature": "opaque-fixture-signed-empty"
+            },
+            {
+              "type": "thinking",
+              "thinking": "",
+              "redacted": true
+            },
+            {
+              "type": "text",
+              "text": "visible answer",
+              "textSignature": "opaque-fixture-text"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 2
+        }
+      ],
+      "input_sha256": "ca5f42957ba8883988622cee3782c74f639753946d22a0b92a139732a856980f",
+      "foreign_reasoning_markers": [],
+      "parent_expected_negative_control": false,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "question",
+            "timestamp": 1
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_READABLE"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-fixture-signed-empty"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "redacted": true
+              },
+              {
+                "type": "text",
+                "text": "visible answer",
+                "textSignature": "opaque-fixture-text"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 2
+          }
+        ],
+        "output_sha256": "ca5f42957ba8883988622cee3782c74f639753946d22a0b92a139732a856980f",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "question",
+            "timestamp": 1
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_READABLE"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-fixture-signed-empty"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "redacted": true
+              },
+              {
+                "type": "text",
+                "text": "visible answer",
+                "textSignature": "opaque-fixture-text"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 2
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "2eed0af82edc85d0d24693496a10a574794788a2418e6b0e24f5c59f7080e687",
+        "input_and_model_sha256_after": "2eed0af82edc85d0d24693496a10a574794788a2418e6b0e24f5c59f7080e687",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "question",
+            "timestamp": 1
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_READABLE"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-fixture-signed-empty"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "redacted": true
+              },
+              {
+                "type": "text",
+                "text": "visible answer",
+                "textSignature": "opaque-fixture-text"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 2
+          }
+        ],
+        "output_sha256": "ca5f42957ba8883988622cee3782c74f639753946d22a0b92a139732a856980f",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "question",
+            "timestamp": 1
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_READABLE"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-fixture-signed-empty"
+              },
+              {
+                "type": "thinking",
+                "thinking": "",
+                "redacted": true
+              },
+              {
+                "type": "text",
+                "text": "visible answer",
+                "textSignature": "opaque-fixture-text"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 2
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "2eed0af82edc85d0d24693496a10a574794788a2418e6b0e24f5c59f7080e687",
+        "input_and_model_sha256_after": "2eed0af82edc85d0d24693496a10a574794788a2418e6b0e24f5c59f7080e687",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "model_identity_change_tools",
+      "model": {
+        "id": "fixture-model-b",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "look up the item",
+          "timestamp": 10
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "FOREIGN_MODEL_REASONING"
+            },
+            {
+              "type": "thinking",
+              "thinking": "",
+              "thinkingSignature": "opaque-foreign-signed"
+            },
+            {
+              "type": "thinking",
+              "thinking": "",
+              "redacted": true
+            },
+            {
+              "type": "text",
+              "text": "performing lookup",
+              "textSignature": "opaque-foreign-text"
+            },
+            {
+              "type": "toolCall",
+              "id": "call|foreign:1",
+              "name": "lookup",
+              "arguments": {
+                "query": "visible query",
+                "options": {
+                  "limit": 2
+                }
+              },
+              "thoughtSignature": "opaque-foreign-tool"
+            }
+          ],
+          "stopReason": "toolUse",
+          "timestamp": 11
+        },
+        {
+          "role": "toolResult",
+          "toolCallId": "call|foreign:1",
+          "toolName": "lookup",
+          "content": [
+            {
+              "type": "text",
+              "text": "lookup result"
+            }
+          ],
+          "isError": false,
+          "timestamp": 12
+        },
+        {
+          "role": "user",
+          "content": "continue",
+          "timestamp": 13
+        }
+      ],
+      "input_sha256": "3315f8e72ea5322dd8f08f123ec122274f063851d01fcbad8594d30b7157b672",
+      "foreign_reasoning_markers": [
+        "FOREIGN_MODEL_REASONING"
+      ],
+      "parent_expected_negative_control": true,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "look up the item",
+            "timestamp": 10
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_MODEL_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "performing lookup"
+              },
+              {
+                "type": "toolCall",
+                "id": "call|foreign:1",
+                "name": "lookup",
+                "arguments": {
+                  "query": "visible query",
+                  "options": {
+                    "limit": 2
+                  }
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 11
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "call|foreign:1",
+            "toolName": "lookup",
+            "content": [
+              {
+                "type": "text",
+                "text": "lookup result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 12
+          },
+          {
+            "role": "user",
+            "content": "continue",
+            "timestamp": 13
+          }
+        ],
+        "output_sha256": "7a2b9e6985e201874311e0f9a8c7a8ebbe20be2ac30fb08111fde0ac2b2f7388",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "look up the item",
+            "timestamp": 10
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_MODEL_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "performing lookup"
+              },
+              {
+                "type": "toolCall",
+                "id": "call|foreign:1",
+                "name": "lookup",
+                "arguments": {
+                  "query": "visible query",
+                  "options": {
+                    "limit": 2
+                  }
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 11
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "call|foreign:1",
+            "toolName": "lookup",
+            "content": [
+              {
+                "type": "text",
+                "text": "lookup result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 12
+          },
+          {
+            "role": "user",
+            "content": "continue",
+            "timestamp": 13
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "d3661b8fabe7de0869735a20960851fde44ebad235155e5128e0e02b5555317b",
+        "input_and_model_sha256_after": "d3661b8fabe7de0869735a20960851fde44ebad235155e5128e0e02b5555317b",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [
+          "FOREIGN_MODEL_REASONING"
+        ],
+        "desired_foreign_reasoning_boundary": false
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "look up the item",
+            "timestamp": 10
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "performing lookup"
+              },
+              {
+                "type": "toolCall",
+                "id": "call|foreign:1",
+                "name": "lookup",
+                "arguments": {
+                  "query": "visible query",
+                  "options": {
+                    "limit": 2
+                  }
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 11
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "call|foreign:1",
+            "toolName": "lookup",
+            "content": [
+              {
+                "type": "text",
+                "text": "lookup result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 12
+          },
+          {
+            "role": "user",
+            "content": "continue",
+            "timestamp": 13
+          }
+        ],
+        "output_sha256": "6261f2058511d31fc696791ff289217c84b69d7ebf1ed6807bd3598aad97f3df",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "look up the item",
+            "timestamp": 10
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "performing lookup"
+              },
+              {
+                "type": "toolCall",
+                "id": "call|foreign:1",
+                "name": "lookup",
+                "arguments": {
+                  "query": "visible query",
+                  "options": {
+                    "limit": 2
+                  }
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 11
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "call|foreign:1",
+            "toolName": "lookup",
+            "content": [
+              {
+                "type": "text",
+                "text": "lookup result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 12
+          },
+          {
+            "role": "user",
+            "content": "continue",
+            "timestamp": 13
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "d3661b8fabe7de0869735a20960851fde44ebad235155e5128e0e02b5555317b",
+        "input_and_model_sha256_after": "d3661b8fabe7de0869735a20960851fde44ebad235155e5128e0e02b5555317b",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "provider_identity_change",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-b",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "handoff",
+          "timestamp": 20
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "FOREIGN_PROVIDER_REASONING"
+            },
+            {
+              "type": "text",
+              "text": "public answer"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 21
+        }
+      ],
+      "input_sha256": "0062c91ee9dae1dcaef5a2310284d31ee5a0ac38928f5c790644619754f4c314",
+      "foreign_reasoning_markers": [
+        "FOREIGN_PROVIDER_REASONING"
+      ],
+      "parent_expected_negative_control": true,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_PROVIDER_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "output_sha256": "2273a9165f163fc8ffdf7b95da9555ec30264f3db5a724aff203575427ec9c34",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_PROVIDER_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "c2a324232e3e2c08f03e0bdc7b338463a2a5ed2a1d4b0ed883d715cbb3e216a2",
+        "input_and_model_sha256_after": "c2a324232e3e2c08f03e0bdc7b338463a2a5ed2a1d4b0ed883d715cbb3e216a2",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [
+          "FOREIGN_PROVIDER_REASONING"
+        ],
+        "desired_foreign_reasoning_boundary": false
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "output_sha256": "7c8b52cbe5390915e42720867f82669e84fc2dff56f4f25fbc06ec7b25bcc437",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "c2a324232e3e2c08f03e0bdc7b338463a2a5ed2a1d4b0ed883d715cbb3e216a2",
+        "input_and_model_sha256_after": "c2a324232e3e2c08f03e0bdc7b338463a2a5ed2a1d4b0ed883d715cbb3e216a2",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "api_identity_change",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-b",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "handoff",
+          "timestamp": 20
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "FOREIGN_API_REASONING"
+            },
+            {
+              "type": "text",
+              "text": "public answer"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 21
+        }
+      ],
+      "input_sha256": "25a75f6d32d539fbc2ef99f14d58c0975dbecd41a314cf686a25266801144a0d",
+      "foreign_reasoning_markers": [
+        "FOREIGN_API_REASONING"
+      ],
+      "parent_expected_negative_control": true,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_API_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "output_sha256": "158f39aa7eeec6a5e50574f403aab903ff6600673e5f14ba06b55279df0991ad",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_API_REASONING"
+              },
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "9f5591b65ba20e733d5467ee4b0b3f6b42fd6694c17a045cdeab8e117906d95c",
+        "input_and_model_sha256_after": "9f5591b65ba20e733d5467ee4b0b3f6b42fd6694c17a045cdeab8e117906d95c",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [
+          "FOREIGN_API_REASONING"
+        ],
+        "desired_foreign_reasoning_boundary": false
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "output_sha256": "7c8b52cbe5390915e42720867f82669e84fc2dff56f4f25fbc06ec7b25bcc437",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "handoff",
+            "timestamp": 20
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "public answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 21
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "9f5591b65ba20e733d5467ee4b0b3f6b42fd6694c17a045cdeab8e117906d95c",
+        "input_and_model_sha256_after": "9f5591b65ba20e733d5467ee4b0b3f6b42fd6694c17a045cdeab8e117906d95c",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "alternating_models_a_b_a",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "first",
+          "timestamp": 30
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "SAME_A_FIRST"
+            },
+            {
+              "type": "text",
+              "text": "A first"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 31
+        },
+        {
+          "role": "user",
+          "content": "second",
+          "timestamp": 32
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-b",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "FOREIGN_B_MIDDLE"
+            },
+            {
+              "type": "text",
+              "text": "B middle"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 33
+        },
+        {
+          "role": "user",
+          "content": "third",
+          "timestamp": 34
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "",
+              "thinkingSignature": "opaque-A-return"
+            },
+            {
+              "type": "text",
+              "text": "A final"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 35
+        }
+      ],
+      "input_sha256": "25dfa928385d5daf322b9156849e1c25d253b0b365ffb88ca7c64e23651090b8",
+      "foreign_reasoning_markers": [
+        "FOREIGN_B_MIDDLE"
+      ],
+      "parent_expected_negative_control": true,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "first",
+            "timestamp": 30
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_A_FIRST"
+              },
+              {
+                "type": "text",
+                "text": "A first"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 31
+          },
+          {
+            "role": "user",
+            "content": "second",
+            "timestamp": 32
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-b",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_B_MIDDLE"
+              },
+              {
+                "type": "text",
+                "text": "B middle"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 33
+          },
+          {
+            "role": "user",
+            "content": "third",
+            "timestamp": 34
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-A-return"
+              },
+              {
+                "type": "text",
+                "text": "A final"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 35
+          }
+        ],
+        "output_sha256": "22bcc7e66bca546f81c474c4f9efe41f96b4f38b713baf135354586bde71142d",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "first",
+            "timestamp": 30
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_A_FIRST"
+              },
+              {
+                "type": "text",
+                "text": "A first"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 31
+          },
+          {
+            "role": "user",
+            "content": "second",
+            "timestamp": 32
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-b",
+            "content": [
+              {
+                "type": "text",
+                "text": "FOREIGN_B_MIDDLE"
+              },
+              {
+                "type": "text",
+                "text": "B middle"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 33
+          },
+          {
+            "role": "user",
+            "content": "third",
+            "timestamp": 34
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-A-return"
+              },
+              {
+                "type": "text",
+                "text": "A final"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 35
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "e5c77253fcaf11dcc0462c81123a6611c45be20708c2cb6dbcd3c4d387257244",
+        "input_and_model_sha256_after": "e5c77253fcaf11dcc0462c81123a6611c45be20708c2cb6dbcd3c4d387257244",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [
+          "FOREIGN_B_MIDDLE"
+        ],
+        "desired_foreign_reasoning_boundary": false
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "first",
+            "timestamp": 30
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_A_FIRST"
+              },
+              {
+                "type": "text",
+                "text": "A first"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 31
+          },
+          {
+            "role": "user",
+            "content": "second",
+            "timestamp": 32
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-b",
+            "content": [
+              {
+                "type": "text",
+                "text": "B middle"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 33
+          },
+          {
+            "role": "user",
+            "content": "third",
+            "timestamp": 34
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-A-return"
+              },
+              {
+                "type": "text",
+                "text": "A final"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 35
+          }
+        ],
+        "output_sha256": "b6cc4db4f5a38ea3dd7025d4dd5c8feec5b9f0941a552263c49471f14c99fa20",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "first",
+            "timestamp": 30
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_A_FIRST"
+              },
+              {
+                "type": "text",
+                "text": "A first"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 31
+          },
+          {
+            "role": "user",
+            "content": "second",
+            "timestamp": 32
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-b",
+            "content": [
+              {
+                "type": "text",
+                "text": "B middle"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 33
+          },
+          {
+            "role": "user",
+            "content": "third",
+            "timestamp": 34
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "",
+                "thinkingSignature": "opaque-A-return"
+              },
+              {
+                "type": "text",
+                "text": "A final"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 35
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "e5c77253fcaf11dcc0462c81123a6611c45be20708c2cb6dbcd3c4d387257244",
+        "input_and_model_sha256_after": "e5c77253fcaf11dcc0462c81123a6611c45be20708c2cb6dbcd3c4d387257244",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "error_and_aborted_turns",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "retryable request",
+          "timestamp": 40
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "PARTIAL_ERROR"
+            },
+            {
+              "type": "toolCall",
+              "id": "never-error",
+              "name": "never",
+              "arguments": {}
+            }
+          ],
+          "stopReason": "error",
+          "timestamp": 41,
+          "errorMessage": "fixture error"
+        },
+        {
+          "role": "user",
+          "content": "retry after error",
+          "timestamp": 42
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "PARTIAL_ABORT"
+            },
+            {
+              "type": "toolCall",
+              "id": "never-abort",
+              "name": "never",
+              "arguments": {}
+            }
+          ],
+          "stopReason": "aborted",
+          "timestamp": 43
+        },
+        {
+          "role": "user",
+          "content": "retry after abort",
+          "timestamp": 44
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "text",
+              "text": "completed answer"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 45
+        }
+      ],
+      "input_sha256": "7fa0d085fdce56b5302a7133242636d3c04bbb04fd38dcc4d7a196d4424b0fa1",
+      "foreign_reasoning_markers": [],
+      "parent_expected_negative_control": false,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "retryable request",
+            "timestamp": 40
+          },
+          {
+            "role": "user",
+            "content": "retry after error",
+            "timestamp": 42
+          },
+          {
+            "role": "user",
+            "content": "retry after abort",
+            "timestamp": 44
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "completed answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 45
+          }
+        ],
+        "output_sha256": "147c8b8b8c86b87e68f0c5b77654960fab4f7f7cb69bfad226b5ebe9adc70f8e",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "retryable request",
+            "timestamp": 40
+          },
+          {
+            "role": "user",
+            "content": "retry after error",
+            "timestamp": 42
+          },
+          {
+            "role": "user",
+            "content": "retry after abort",
+            "timestamp": 44
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "completed answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 45
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "1a4b54ae6b67742e972f891ee78d8053c6331427afc4aa54372cd505c917a924",
+        "input_and_model_sha256_after": "1a4b54ae6b67742e972f891ee78d8053c6331427afc4aa54372cd505c917a924",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "retryable request",
+            "timestamp": 40
+          },
+          {
+            "role": "user",
+            "content": "retry after error",
+            "timestamp": 42
+          },
+          {
+            "role": "user",
+            "content": "retry after abort",
+            "timestamp": 44
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "completed answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 45
+          }
+        ],
+        "output_sha256": "147c8b8b8c86b87e68f0c5b77654960fab4f7f7cb69bfad226b5ebe9adc70f8e",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "retryable request",
+            "timestamp": 40
+          },
+          {
+            "role": "user",
+            "content": "retry after error",
+            "timestamp": 42
+          },
+          {
+            "role": "user",
+            "content": "retry after abort",
+            "timestamp": 44
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "completed answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 45
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "1a4b54ae6b67742e972f891ee78d8053c6331427afc4aa54372cd505c917a924",
+        "input_and_model_sha256_after": "1a4b54ae6b67742e972f891ee78d8053c6331427afc4aa54372cd505c917a924",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "complete_tools_with_system_message",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "two tools",
+          "timestamp": 50
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "SAME_TOOL_REASONING"
+            },
+            {
+              "type": "toolCall",
+              "id": "literal|call:1",
+              "name": "first",
+              "arguments": {
+                "value": 1
+              },
+              "thoughtSignature": "opaque-same-tool"
+            },
+            {
+              "type": "toolCall",
+              "id": "literal|call:2",
+              "name": "second",
+              "arguments": {
+                "value": 2
+              }
+            }
+          ],
+          "stopReason": "toolUse",
+          "timestamp": 51
+        },
+        {
+          "role": "system",
+          "content": "interposed system instruction"
+        },
+        {
+          "role": "toolResult",
+          "toolCallId": "literal|call:2",
+          "toolName": "second",
+          "content": [
+            {
+              "type": "text",
+              "text": "second result"
+            }
+          ],
+          "isError": false,
+          "timestamp": 52
+        },
+        {
+          "role": "toolResult",
+          "toolCallId": "literal|call:1",
+          "toolName": "first",
+          "content": [
+            {
+              "type": "text",
+              "text": "first result"
+            }
+          ],
+          "isError": false,
+          "timestamp": 53
+        },
+        {
+          "role": "user",
+          "content": "finish",
+          "timestamp": 54
+        }
+      ],
+      "input_sha256": "e4ba7363badb3717ca6f31ccb302aac312a686e347d1a488645ebd48df8b61c8",
+      "foreign_reasoning_markers": [],
+      "parent_expected_negative_control": false,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "two tools",
+            "timestamp": 50
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_TOOL_REASONING"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:1",
+                "name": "first",
+                "arguments": {
+                  "value": 1
+                },
+                "thoughtSignature": "opaque-same-tool"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:2",
+                "name": "second",
+                "arguments": {
+                  "value": 2
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 51
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:2",
+            "toolName": "second",
+            "content": [
+              {
+                "type": "text",
+                "text": "second result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 52
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:1",
+            "toolName": "first",
+            "content": [
+              {
+                "type": "text",
+                "text": "first result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 53
+          },
+          {
+            "role": "system",
+            "content": "interposed system instruction"
+          },
+          {
+            "role": "user",
+            "content": "finish",
+            "timestamp": 54
+          }
+        ],
+        "output_sha256": "0bb8f39061931b967f8bfee2bedcc8189011c1638e8d324a48c12145d1e14c6d",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "two tools",
+            "timestamp": 50
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_TOOL_REASONING"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:1",
+                "name": "first",
+                "arguments": {
+                  "value": 1
+                },
+                "thoughtSignature": "opaque-same-tool"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:2",
+                "name": "second",
+                "arguments": {
+                  "value": 2
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 51
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:2",
+            "toolName": "second",
+            "content": [
+              {
+                "type": "text",
+                "text": "second result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 52
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:1",
+            "toolName": "first",
+            "content": [
+              {
+                "type": "text",
+                "text": "first result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 53
+          },
+          {
+            "role": "system",
+            "content": "interposed system instruction"
+          },
+          {
+            "role": "user",
+            "content": "finish",
+            "timestamp": 54
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "23647a92af917359db0f3832ec744c13e6c24dbc8ed2f9acda850f1a4f9c5eab",
+        "input_and_model_sha256_after": "23647a92af917359db0f3832ec744c13e6c24dbc8ed2f9acda850f1a4f9c5eab",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "two tools",
+            "timestamp": 50
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_TOOL_REASONING"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:1",
+                "name": "first",
+                "arguments": {
+                  "value": 1
+                },
+                "thoughtSignature": "opaque-same-tool"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:2",
+                "name": "second",
+                "arguments": {
+                  "value": 2
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 51
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:2",
+            "toolName": "second",
+            "content": [
+              {
+                "type": "text",
+                "text": "second result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 52
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:1",
+            "toolName": "first",
+            "content": [
+              {
+                "type": "text",
+                "text": "first result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 53
+          },
+          {
+            "role": "system",
+            "content": "interposed system instruction"
+          },
+          {
+            "role": "user",
+            "content": "finish",
+            "timestamp": 54
+          }
+        ],
+        "output_sha256": "0bb8f39061931b967f8bfee2bedcc8189011c1638e8d324a48c12145d1e14c6d",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "two tools",
+            "timestamp": 50
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "SAME_TOOL_REASONING"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:1",
+                "name": "first",
+                "arguments": {
+                  "value": 1
+                },
+                "thoughtSignature": "opaque-same-tool"
+              },
+              {
+                "type": "toolCall",
+                "id": "literal|call:2",
+                "name": "second",
+                "arguments": {
+                  "value": 2
+                }
+              }
+            ],
+            "stopReason": "toolUse",
+            "timestamp": 51
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:2",
+            "toolName": "second",
+            "content": [
+              {
+                "type": "text",
+                "text": "second result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 52
+          },
+          {
+            "role": "toolResult",
+            "toolCallId": "literal|call:1",
+            "toolName": "first",
+            "content": [
+              {
+                "type": "text",
+                "text": "first result"
+              }
+            ],
+            "isError": false,
+            "timestamp": 53
+          },
+          {
+            "role": "system",
+            "content": "interposed system instruction"
+          },
+          {
+            "role": "user",
+            "content": "finish",
+            "timestamp": 54
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "23647a92af917359db0f3832ec744c13e6c24dbc8ed2f9acda850f1a4f9c5eab",
+        "input_and_model_sha256_after": "23647a92af917359db0f3832ec744c13e6c24dbc8ed2f9acda850f1a4f9c5eab",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    },
+    {
+      "scenario": "unsigned_blank_thinking",
+      "model": {
+        "id": "fixture-model-a",
+        "provider": "fixture-provider-a",
+        "api": "fixture-api-a",
+        "input": [
+          "text",
+          "image"
+        ]
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "blank thinking",
+          "timestamp": 60
+        },
+        {
+          "role": "assistant",
+          "provider": "fixture-provider-a",
+          "api": "fixture-api-a",
+          "model": "fixture-model-a",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": ""
+            },
+            {
+              "type": "thinking",
+              "thinking": "  \t  "
+            },
+            {
+              "type": "text",
+              "text": "ordinary answer"
+            }
+          ],
+          "stopReason": "stop",
+          "timestamp": 61
+        }
+      ],
+      "input_sha256": "34cdbe55cd1820e422616ff918bbc7d2f4d6c4f5234c010a30ff2ba82c527bda",
+      "foreign_reasoning_markers": [],
+      "parent_expected_negative_control": false,
+      "parent_control_matches_expectation": true,
+      "parent": {
+        "output": [
+          {
+            "role": "user",
+            "content": "blank thinking",
+            "timestamp": 60
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "ordinary answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 61
+          }
+        ],
+        "output_sha256": "ce4dab5157b71b1c6e4469b17017ea1a0135c611603497ae0064d79f444ef7d6",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "blank thinking",
+            "timestamp": 60
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "ordinary answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 61
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "0eaf2abd78e886d675a7bedfe0b1c3397f0ff1f331edd9995f2fad897f638b3c",
+        "input_and_model_sha256_after": "0eaf2abd78e886d675a7bedfe0b1c3397f0ff1f331edd9995f2fad897f638b3c",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "merged": {
+        "output": [
+          {
+            "role": "user",
+            "content": "blank thinking",
+            "timestamp": 60
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "ordinary answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 61
+          }
+        ],
+        "output_sha256": "ce4dab5157b71b1c6e4469b17017ea1a0135c611603497ae0064d79f444ef7d6",
+        "expected_output": [
+          {
+            "role": "user",
+            "content": "blank thinking",
+            "timestamp": 60
+          },
+          {
+            "role": "assistant",
+            "provider": "fixture-provider-a",
+            "api": "fixture-api-a",
+            "model": "fixture-model-a",
+            "content": [
+              {
+                "type": "text",
+                "text": "ordinary answer"
+              }
+            ],
+            "stopReason": "stop",
+            "timestamp": 61
+          }
+        ],
+        "exact_output_matches": true,
+        "input_and_model_sha256_before": "0eaf2abd78e886d675a7bedfe0b1c3397f0ff1f331edd9995f2fad897f638b3c",
+        "input_and_model_sha256_after": "0eaf2abd78e886d675a7bedfe0b1c3397f0ff1f331edd9995f2fad897f638b3c",
+        "input_and_model_unchanged": true,
+        "visible_foreign_reasoning": [],
+        "desired_foreign_reasoning_boundary": true
+      },
+      "passed": true
+    }
+  ],
+  "summary": {
+    "traces": 8,
+    "module_executions": 16,
+    "parent_negative_control_traces": 4,
+    "parent_desired_boundary_failures": 4,
+    "merged_desired_boundary_failures": 0
+  },
+  "all_passed": true,
+  "result_sha256": "515d9b4ed33baf53af338946ffe2c2d633ea1081b3308cc2b34a284ced9f2cab"
+}

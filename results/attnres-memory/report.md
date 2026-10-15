@@ -2,23 +2,23 @@
 
 Fresh processes execute our NumPy inference diagnostic over prepacked synthetic banks. These are observed CPU process peaks and wall times.
 
-Observed UTC: 2026-10-15T18:47:54.640247+00:00 to 2026-10-15T18:48:09.713767+00:00.
+Observed UTC: 2026-10-15T20:50:34.625215+00:00 to 2026-10-15T20:50:48.018859+00:00.
 
 | Dense bank | Method | Repeats | Median operator ms | Median process peak MiB | Median post-import peak MiB | Median post-load peak MiB | Median post-load RSS MiB |
 |---:|---|---:|---:|---:|---:|---:|---:|
-| 32 MiB | dense_float32 | 3 | 38.74 | 97.08 | 32.80 | 64.88 | 64.88 |
-| 32 MiB | int8_full_dequantize | 3 | 64.27 | 105.01 | 32.52 | 40.70 | 40.69 |
-| 32 MiB | int8_tiled | 3 | 157.15 | 50.02 | 32.67 | 40.82 | 40.82 |
-| 64 MiB | dense_float32 | 3 | 76.10 | 161.30 | 32.70 | 96.76 | 96.75 |
-| 64 MiB | int8_full_dequantize | 3 | 128.11 | 177.44 | 32.59 | 48.88 | 48.87 |
-| 64 MiB | int8_tiled | 3 | 246.91 | 58.17 | 32.73 | 49.05 | 49.05 |
+| 32 MiB | dense_float32 | 3 | 36.58 | 96.98 | 32.80 | 64.80 | 64.80 |
+| 32 MiB | int8_full_dequantize | 3 | 52.70 | 105.03 | 32.60 | 40.71 | 40.71 |
+| 32 MiB | int8_tiled | 3 | 112.39 | 49.94 | 32.70 | 40.75 | 40.74 |
+| 64 MiB | dense_float32 | 3 | 73.17 | 161.15 | 32.60 | 96.66 | 96.65 |
+| 64 MiB | int8_full_dequantize | 3 | 106.51 | 177.51 | 32.64 | 48.94 | 48.94 |
+| 64 MiB | int8_tiled | 3 | 227.44 | 58.20 | 32.72 | 49.00 | 48.99 |
 
 Numerical checks: **True**; int8 tiled/full tolerance rtol=0.0001, atol=1e-05. Quantization error against dense mixing is recorded separately; this does not measure model quality.
 
 Raw per-process phase peaks/RSS, load/persist/subprocess time, parent preparation/quantization cost, numerical errors and hashes are in probe.json and workers/. Outputs are retained in outputs/; temporary input fixtures can be regenerated from the recorded configuration and hashes.
 
 Stable numerical/config/code SHA256: `ff533302cb5a285de903d5c7ef4fcd93d75fdee5945a17068dbe9f343fd706b9`
-Full variable observation SHA256: `9cbf53df6e3c899381f4ef72c862ff45d168ba7cd11124bbe95f8dd71be3b793`
+Full variable observation SHA256: `9c72fd7540b4d04f8212096bcc1b94fb419581fc7920195e750f188e976029b4`
 
 ## Limits
 

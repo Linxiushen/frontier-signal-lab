@@ -22,6 +22,8 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 随后完成 **AttnRes memory probe**：用独立进程实测 dense、完整 int8 反量化与分块 int8 的 CPU 内存峰值和耗时，并对照输出误差。测量包含解释器、输入和分配器；预先打包的合成 bank 不包含训练、反向或 GPU 成本。pi / OpenClaw 的新上下文修复与可复查边界见[内存实测与上下文跟进](research/2026-10-16-memory-and-context.md)。
 
+最新跟进：执行 pi 修复前后两个完整、未修改的上下文转换模块，检查模型身份切换、thinking 和工具消息边界；无运行时依赖替身。Peter 新合并的停机恢复实现让 H2 进一步聚焦未完成任务的持久归属、停止/重置语义与跨进程进度。上游 CI 的失败和已核验测试日志单独记录，见[上下文实验与停机恢复证据](research/2026-10-16-context-and-shutdown.md)。
+
 ## 快速运行
 
 需要 Python 3.11+；pi 适配器实验、完整测试和一键复现另需 Node.js 24.19+。在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。
@@ -33,6 +35,7 @@ python experiments/attnres_memory_probe.py --output results/attnres-memory
 python experiments/recovery_contract_probe.py --output results/recovery-contract
 python experiments/sqlite_migration_probe.py --output results/sqlite-migration
 node experiments/pi_adapter_queue_probe.mjs --output results/pi-adapter-queue
+node experiments/pi_context_transform_probe.mjs --output results/pi-context-transform
 python -m unittest discover -s tests -v
 
 # 明确最近 7 天的有界采样；失败和截断会记录在报告中
@@ -62,8 +65,9 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 | pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
+| pi context transform | 修复前后完整模块；确定性消息、模型身份及工具调用边界，未发起 provider 请求 | [结果](results/pi-context-transform/report.md) / [输入输出与 hash](results/pi-context-transform/probe.json) |
 
-一键重跑测试、五个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
+一键重跑测试、六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 
@@ -87,6 +91,6 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 
 - GitHub Actions 运行测试，并每 6 小时采样一次公开数据，保存为 workflow artifact；失败显示为失败，不补造覆盖。
 - 人工/代理复核后更新研究判断和实验。任何预测都要写出后续观察条件与失效条件。
-- 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi 适配器保留[上游 MIT 许可与来源](third_party/pi/README.md)，其他外部材料的权利归原作者。
+- 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi [适配器](third_party/pi/README.md)及[上下文模块](third_party/pi-context/README.md)保留上游 MIT 许可与来源，其他外部材料的权利归原作者。
 
 欢迎提交能复现的负结果、反例、真实显存/吞吐数据，以及新的一手来源。

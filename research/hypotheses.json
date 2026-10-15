@@ -15,7 +15,9 @@
         "attnres-block-discussion",
         "fla-cp-reference-and-layout",
         "fla-kda-indexed-state-storage",
-        "fla-kda-dense-output-allocation"
+        "fla-kda-dense-output-allocation",
+        "fla-kda-value-tiling-validation",
+        "fla-gdp-guarded-normalization"
       ],
       "status": "synthetic_operator_and_cpu_process_memory_executed_training_unverified",
       "experiment": "experiments/attnres_budget_probe.py",
@@ -45,18 +47,28 @@
         "openclaw-recovery-head-ci",
         "verifiers-session-lifetime",
         "pi-foreign-model-thinking",
-        "openclaw-same-thread-recovery"
+        "openclaw-same-thread-recovery",
+        "openclaw-shutdown-custody",
+        "openclaw-shutdown-public-ci"
       ],
-      "status": "independent_sqlite_and_pinned_adapter_primitives_executed_full_harness_unverified",
+      "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
       "additional_experiments": [
         "experiments/sqlite_migration_probe.py",
-        "experiments/pi_adapter_queue_probe.mjs"
+        "experiments/pi_adapter_queue_probe.mjs",
+        "experiments/pi_context_transform_probe.mjs"
       ],
-      "supporting_observation": "Independent SQLite traces distinguish preserved rows, false-clean diagnostics and unresolved work. The merged pi adapter primitive additionally completes queued writes after abort, allows a subsequent transaction, and rejects expired handles in six deterministic Node SQLite traces. Direct host writes can be rolled back with the active transaction. Full pi storage and Cloudflare runtime were not executed. OpenClaw recovery/repair is now merged at 275c611e with the previously read PR head unchanged. Upstream CI job status is verified, but synthetic unit fixtures do not establish old-release upgrade or persistent task completion. Newly merged pi foreign-model-thinking filtering and OpenClaw exact same-thread restart recovery already implement concrete context compatibility/authority checks; source read, not executed here.",
-      "falsifier": "A real harness already covers these contracts or does not exhibit the relevant failure; assumptions fail under concurrent writers, torn storage or external effects.",
-      "next_gate": "Generate released Gateway-written state and execute real locked Doctor backup/exact-row compare-and-apply/reopen plus durable task progress. The inspected unchanged official upgrade fixture hard-requires core/codex2026.9.4; 10.3 needs an explicitly disclosed adaptation. Test model identity changes and exact known-rejection versus uncertain transport boundaries against the accepted implementations, rather than proposing their existing fixes again.",
-      "review_record": "research/2026-10-16-memory-and-context.md"
+      "supporting_observation": "Prior independent SQLite and pinned adapter primitives remain bounded evidence. This pass executes both complete unchanged pi context-transform modules before/after9113094 with deterministic synthetic messages, without runtime stubs or provider requests. OpenClaw173342 now implements ordinary-stop custody and typed interruption. Public logs verify one controlled Linux four-process E2E pass on the synthetic PR merge; five inspected blobs match the squash. Overall CI remains failed, with matching main typecheck diagnostics. These cover existing contracts and do not prove general liveness, arbitrary external-effect exactly-once, provider acceptance or released-state upgrades.",
+      "falsifier": "Full-harness tests already satisfy the remaining contracts without consequential failures, or the controlled assumptions fail under real providers, concurrent writers, torn storage or external-effect receipts.",
+      "next_gate": "Reuse upstream shutdown fixture and extend its existing status-inspection/reset assertions to real provider, effect-receipt and persistent-storage-failure combinations. Verify bounded progress as well as safety, and record custody-marking failure. Separately generate authentic released Gateway state and run real locked Doctor backup/exact-row compare-and-apply/reopen/task-progress integration; unchanged official seed requires9.4 and10.3 needs disclosed adaptation. Context primitive success does not clear provider serialization/request/full-harness integration.",
+      "review_record": "research/2026-10-16-context-and-shutdown.md",
+      "alternative_explanation": "These changes may be routine repair of already known integration bugs, without establishing a new research program or any individual private plan.",
+      "forecast": {
+        "claim": "Further public agent engineering adds regressions asserting recovery progress, lifecycle revocation and external effects.",
+        "review_by": "2026-10-30",
+        "scope": "Project work forecast, not a personal/institutional private roadmap.",
+        "stopping_condition": "Reduce evidence strength if subsequent bounded samples give no independent support; retain coverage gaps rather than claiming global absence."
+      }
     },
     {
       "id": "H3",
@@ -83,14 +95,15 @@
         "verifiers-unified-errors",
         "verifiers-timeout-review",
         "verifiers-session-lifetime",
-        "verifiers-session-e2e-claim"
+        "verifiers-session-e2e-claim",
+        "verifiers-isolated-runtime-policy"
       ],
       "status": "planned_not_executed",
       "experiment": null,
-      "supporting_observation": "A versioned failure ledger exposes reward inconsistencies hidden by retries or final-success-only reporting.",
+      "supporting_observation": "Public unmerged proposals retain failure history and change service lifetime around scoring; their aggregate quality claims remain unaudited. A separate merged runtime-policy fix resolves isolated grading from original agent policy, adding an explicit configuration-identity boundary. No scoring experiment was executed here.",
       "falsifier": "Repeated deterministic scoring and perturbation tests find no consequential inconsistencies.",
       "next_gate": "Obtain exact task/model/harness/baseline configuration and per-rollout raw artifacts for PR2866 claims. Execute normal/inter-segment versus timeout/stopped and same-box/isolated scoring with real close-managed services in a supported runtime. Inspected Windows/POSIX/dependency blockers remain; fake close flags or callbacks do not establish service lifetime. Also reproduce the unmerged unified error-history timeout/ok contract.",
-      "review_record": "research/2026-10-16-memory-and-context.md"
+      "review_record": "research/2026-10-16-context-and-shutdown.md"
     }
   ]
 }

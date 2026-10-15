@@ -28,6 +28,7 @@ jobs:
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract
       - run: python experiments/sqlite_migration_probe.py --output results/sqlite-migration
       - run: node experiments/pi_adapter_queue_probe.mjs --output results/pi-adapter-queue
+      - run: node experiments/pi_context_transform_probe.mjs --output results/pi-context-transform
       - uses: actions/upload-artifact@v4
         with:
           name: reproducible-experiments

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-15T18:45:18.525292+00:00",
-  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution. The 18:30 UTC pass adds one original CPU process-memory/timing probe; upstream kernel/harness claims remain source evidence, not our runtime results.",
+  "last_updated_at": "2026-10-15T20:51:32.779186+00:00",
+  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution. The 18:30 UTC pass adds one original CPU process-memory/timing probe. The 20:35 UTC pass executes complete unchanged pi context modules against their authentic parent without runtime stubs, and independently audits public OpenClaw process-test logs; no local Gateway execution. Upstream kernel/harness claims remain separately classified.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -471,10 +471,14 @@
         "end": "2026-10-15T18:38:04.8032549Z"
       },
       "claim": "Cross-model handoff drops foreign thinking blocks; text and tool calls/results remain. Same model requires equal provider, API and model ID. Signed/redacted same-model blocks remain even with empty text.",
-      "status": "immutable_source_and_regression_tests_read_not_executed",
+      "status": "complete_unchanged_module_executed_against_authentic_parent_provider_unverified",
       "repository_public": true,
       "license_metadata": "MIT",
-      "attribution_note": "Contribution belongs to davidbrai; not attributed to the watchlist person solely through repository membership."
+      "attribution_note": "Contribution belongs to davidbrai; not attributed to the watchlist person solely through repository membership.",
+      "prior_status": "immutable_source_and_regression_tests_read_not_executed",
+      "execution_record": "results/pi-context-transform/probe.json",
+      "execution_observed_at": "2026-10-15T20:51:32.779186+00:00",
+      "review_record": "research/2026-10-16-context-and-shutdown.md"
     },
     {
       "id": "openclaw-same-thread-recovery",
@@ -595,6 +599,133 @@
         "state": "open",
         "merged_at": null
       }
+    },
+    {
+      "id": "openclaw-shutdown-custody",
+      "url": "https://github.com/openclaw/openclaw/commit/7ee9c27cd427b455ae39e3a81644bb406b7a0755",
+      "type": "author_squash_merged_commit",
+      "author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "published_at": "2026-10-15T20:35:51Z",
+      "merged_at": "2026-10-15T20:35:52Z",
+      "merged_by": "steipete",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173342",
+      "head_sha": "647d29fe15b72dc2403f35d5499740a2c17698d9",
+      "observed_interval": {
+        "start": "2026-10-15T20:38:01.6855293Z",
+        "end": "2026-10-15T20:38:03.1826161Z"
+      },
+      "classification": "Merge after fixed scanner cutoff, independently targeted supplement; PR/head existed earlier.",
+      "claim": "Ordinary shutdown awaits existing custody marking then applies typed restart interruption; explicit Stop stays terminal and reset revokes lifecycle. Marker failure warns and teardown proceeds. Public Linux CI executes one controlled four-process recovery fixture; arbitrary external effects and storage failures are not guaranteed.",
+      "status": "immutable_source_read_public_ci_fixture_logs_verified_not_locally_executed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-context-and-shutdown.md"
+    },
+    {
+      "id": "openclaw-shutdown-public-ci",
+      "url": "https://github.com/openclaw/openclaw/actions/runs/38795468794",
+      "type": "public_ci_execution_log_and_metadata",
+      "event_id": 38795468794,
+      "published_at": "2026-10-15T19:37:52Z",
+      "observed_at": "2026-10-15T20:45:21.217848+00:00",
+      "head_sha": "647d29fe15b72dc2403f35d5499740a2c17698d9",
+      "tested_checkout": "8ad31f9343fdaee483b07024e77f7304da7735fd",
+      "claim": "Actual changed-7 log reports one shutdown fixture pass (80476ms, file duration120.26s, exit0). Checkout is synthetic PR merge8ad31f93, not later squash; five inspected blobs match. Overall CI failed43success/25skip/2failure. Exact typecheck diagnostic/config/exit match scheduled main; selected scope was not compared by CI gate.",
+      "status": "public_logs_and_metadata_verified_controlled_linux_integration_only",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-context-and-shutdown.md"
+    },
+    {
+      "id": "verifiers-isolated-runtime-policy",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/e3c28634ce1f6243ac4b9758dce2c715b1861bed",
+      "type": "member_merged_commit",
+      "author": "xeophon",
+      "author_association": "MEMBER",
+      "merged_by": "xeophon",
+      "published_at": "2026-10-15T19:48:06Z",
+      "merged_at": "2026-10-15T19:48:06Z",
+      "pr_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2869",
+      "observed_interval": {
+        "start": "2026-10-15T20:38:01.7212920Z",
+        "end": "2026-10-15T20:38:03.1564562Z"
+      },
+      "claim": "Resolve isolated verifier from original agent runtime policy, not solver-resolved task requirements; removes deployment verifier_config forwarding. Explicit operator/scoring overrides retain precedence by PR account; source patch read, not executed.",
+      "status": "immutable_patch_read_not_executed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-context-and-shutdown.md",
+      "attribution_note": "xeophon contribution, not attributed to Will solely through repository membership."
+    },
+    {
+      "id": "fla-kda-value-tiling-validation",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1415",
+      "type": "third_party_restored_pr_new_validation_claims_only",
+      "author": "ZenAlexa",
+      "author_association": "CONTRIBUTOR",
+      "created_at": "2026-10-15T17:44:46Z",
+      "updated_at": "2026-10-15T18:56:45Z",
+      "state": "open",
+      "merged_at": null,
+      "head_sha": "66e8e5fa6a1fda674f09bd6d4974255d0cae6ab2",
+      "head_author_login": "ZenAlexa",
+      "head_author_date": "2026-10-15T17:08:22Z",
+      "head_committer_date": "2026-10-15T17:08:22Z",
+      "head_message": "[Misc] Sync current main for restored KDA contribution",
+      "observed_interval": {
+        "start": "2026-10-15T20:39:43.677999Z",
+        "end": "2026-10-15T20:39:45.637444Z"
+      },
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "execution": "not_executed_by_this_project",
+      "author_performance_and_test_claims": "read_from_PR_body_only_not_independently_run_or_log_verified",
+      "restores": 1308,
+      "novelty_boundary": "Same head as prior heartbeat; head17:08:22Z predates baseline. New18:56:45Z public body/comment validation claims replace previously pending consumer/performance results; no fresh code or new architecture.",
+      "claim": "Author reports30 recurrent tests, two candidate/two-main cached layer controls, and10 registry benchmarks; seven active CUDA Graph workloads9.37–20.35% faster, all-empty packed+0.192us(+7.65%) slower on stated H200 runtime.",
+      "measurement_boundary": "Graph replay includes captured zeros; excludes host allocation, compilation, Python cache handling, and serving. Operators/Triton3.5.0; focused cached-layer run uses3.7.1 overlay. No direct training/backward or actual activation evidence.",
+      "relation_to_h1": "Strided-state correctness and dtype/tile/empty-input contracts remain useful adjacent gates, but these decode claims do not validate AttnRes memory or training."
+    },
+    {
+      "id": "fla-gdp-guarded-normalization",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1402",
+      "type": "third_party_adjacent_delta_product_new_correctness_commit",
+      "author": "gregghy",
+      "author_association": "NONE",
+      "created_at": "2026-10-15T15:13:01Z",
+      "updated_at": "2026-10-15T20:33:24Z",
+      "state": "open",
+      "merged_at": null,
+      "head_sha": "dd38d6ed71904ce5e86f3feb8b0c80f1a00114bd",
+      "head_author_login": "gregghy",
+      "head_author_date": "2026-10-15T20:32:59Z",
+      "head_committer_date": "2026-10-15T20:32:59Z",
+      "head_message": "[Fix] Move compact DeltaProduct l2norm behind the input guard\n\nl2norm_fwd views its input, so normalizing before the route's\ninput_guard broke non-contiguous q/k on the compact path. Pass\nuse_qk_l2norm_in_kernel through and normalize inside, like the\ngrad-enabled path. Also isolate TRITON_F32_DEFAULT in\ntest_chunk_no_grad (earlier varlen tests leave it at ieee) and\nadd a non-contiguous q/k case.",
+      "observed_interval": {
+        "start": "2026-10-15T20:39:43.678998Z",
+        "end": "2026-10-15T20:39:45.647444Z"
+      },
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "execution": "not_executed_by_this_project",
+      "author_performance_and_test_claims": "read_from_PR_body_only_not_independently_run_or_log_verified",
+      "restores": 1380,
+      "novelty_boundary": "Original compact affine-summary algorithm commit1fc5a34c is2026-10-12. Newdd38d6ed commit20:32:59Z lies inside exact window and implements a correctness fix and regression coverage, not a newly invented architecture.",
+      "diff_read_interval": {
+        "start": "2026-10-15T20:40:23.370177Z",
+        "end": "2026-10-15T20:40:24.482221Z"
+      },
+      "diff_file_count": 3,
+      "claim": "Move q/k l2norm from pre-guard routing into @input_guard compact forward, so the guard makes strided inputs contiguous before l2norm views them. Forward normalization flag; add noncontiguous fp16 test; monkeypatch-clears TRITON_F32_DEFAULT for production-default compilation.",
+      "implementation_reading": [
+        "Immutable chunk_compact.py has @input_guard at398 and l2norm at420–422.",
+        "Immutable fla/utils/decorators.py processes positional/keyword tensor inputs through _contiguous_if_needed before invoking the decorated function.",
+        "Fresh commit touches3files with29 additions and16 deletions; full proposal has705 additions and1 deletion, so patch evidence is not a full numerical audit."
+      ],
+      "current_validation_limit": "PR body says prior27-case pre-review suite passed and28-case rerun is pending. Existing speed/memory tables predate this correction and are author claims.",
+      "routing_and_tradeoff": "No-gradient NVIDIA sm80+,nh>=2,K<=64,V<=128 only; training,CP,default layerK256/V512 excluded. Author reports1.35–2.1x extra workspace despite faster selected forward; no general memory reduction.",
+      "relation_to_h1": "Adjacent gated-DeltaProduct correctness signal, not KDA-original-author work or H1 matched-training evidence."
     }
   ]
 }

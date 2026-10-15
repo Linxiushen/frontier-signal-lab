@@ -1,0 +1,162 @@
+{
+  "protocol": "durable_log_persist_before_hook",
+  "scenario": "compaction_overlap",
+  "metrics": {
+    "acknowledged_message_loss": 0,
+    "stale_context": 1,
+    "duplicate_effect": 0,
+    "resurrected_retry": 0,
+    "missing_failure_evidence": 0
+  },
+  "events": [
+    {
+      "action": "compact_start"
+    },
+    {
+      "action": "turn_start"
+    },
+    {
+      "action": "compact_finish"
+    },
+    {
+      "action": "turn_commit"
+    }
+  ],
+  "trace": [
+    {
+      "index": 0,
+      "action": "compact_start",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": true,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    },
+    {
+      "index": 1,
+      "action": "turn_start",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": true,
+        "context_version": 0,
+        "turns": {
+          "t1": 0
+        },
+        "queued": []
+      }
+    },
+    {
+      "index": 2,
+      "action": "compact_finish",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 1,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 1,
+        "turns": {
+          "t1": 0
+        },
+        "queued": []
+      }
+    },
+    {
+      "index": 3,
+      "action": "turn_commit",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 1,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 1,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 1,
+        "turns": {},
+        "queued": []
+      }
+    }
+  ],
+  "oracle": {
+    "generated": [],
+    "acknowledged": [],
+    "terminal": [],
+    "failures": []
+  },
+  "unacknowledged_message_loss": 0
+}

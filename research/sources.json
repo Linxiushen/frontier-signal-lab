@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-15T10:17:36Z",
+  "last_updated_at": "2026-10-15T10:29:02.220058Z",
+  "observation_note": "Curated sources read during the first research pass; per-source exact fetch timestamps were not captured. The dated live snapshot separately records its scan interval.",
+  "timezone": "Asia/Shanghai",
+  "sources": [
+    {
+      "id": "nathan-departure",
+      "url": "https://x.com/nathancgy4/status/2110522061953327565",
+      "type": "author_announcement",
+      "published_at": "2026-10-15T00:04:05Z",
+      "claim": "Author announced leaving Kimi; recalls KDA kernels, Attention Residuals and optimizers; no Anthropic joining announcement in this post.",
+      "verification": "Read original English in authenticated browser; timestamp corroborated by X syndication.",
+      "status": "verified_public_statement"
+    },
+    {
+      "id": "nathan-bay-area",
+      "url": "https://x.com/nathancgy4/status/2110632923208819193",
+      "type": "author_reply",
+      "published_at": null,
+      "claim": "Reply says heading to the Bay Area; this does not identify an employer.",
+      "verification": "Read in original post conversation; exact timestamp not separately captured.",
+      "status": "verified_public_statement_time_incomplete"
+    },
+    {
+      "id": "nathan-profile",
+      "url": "https://nathanchen.me/",
+      "type": "author_profile",
+      "published_at": null,
+      "claim": "Public interests: LLM scaling/pretraining, architectures, optimizers and hardware-aligned algorithms/kernels; old Kimi role may lag departure.",
+      "status": "verified_self_report_profile_can_lag"
+    },
+    {
+      "id": "nathan-github",
+      "url": "https://github.com/Nathancgy",
+      "type": "author_github_profile",
+      "published_at": null,
+      "claim": "Personal site and GitHub link identity; old forks are not fresh original research.",
+      "status": "verified_profile_crosslink"
+    },
+    {
+      "id": "nathan-blog-index",
+      "url": "https://nathanchen.me/public/blog.html",
+      "type": "author_blog_index",
+      "published_at": null,
+      "claim": "Lists Attention Residuals, Gram-Space Manifold Muon and MoMoE. Tilde linked article bodies inaccessible in this run; no detailed claims based on their contents.",
+      "status": "verified_index_only"
+    },
+    {
+      "id": "attnres",
+      "url": "https://github.com/MoonshotAI/Attention-Residuals",
+      "type": "official_repository",
+      "published_at": "2026-03-15T13:29:15Z",
+      "claim": "Official depth attention formulation and block-level memory motivation; license not identified by GitHub API.",
+      "status": "verified_repository_and_readme"
+    },
+    {
+      "id": "attnres-paper",
+      "url": "https://arxiv.org/abs/2603.15031",
+      "type": "paper_link",
+      "published_at": null,
+      "claim": "Paper linked from official repository; current experiment is an independent operator diagnostic, not a reproduction.",
+      "status": "linked_from_official_repository"
+    },
+    {
+      "id": "nathan-kda-pr",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/688",
+      "type": "merged_author_pr",
+      "published_at": null,
+      "claim": "Nathan-authored KDA backward fusion contribution, merged 2025-12-20.",
+      "status": "verified_author_and_merge"
+    },
+    {
+      "id": "attnres-block-discussion",
+      "url": "https://github.com/MoonshotAI/Attention-Residuals/issues/9",
+      "type": "third_party_issue",
+      "published_at": "2026-03-25T05:09:34Z",
+      "claim": "Question about nonuniform block grouping; not an author commitment.",
+      "status": "verified_discussion_only"
+    },
+    {
+      "id": "attnres-routing-discussion",
+      "url": "https://github.com/MoonshotAI/Attention-Residuals/issues/2",
+      "type": "third_party_issue",
+      "published_at": "2026-03-16T13:19:08Z",
+      "claim": "Alternative routing formulation proposed by a third party; not adopted work.",
+      "status": "verified_discussion_only"
+    },
+    {
+      "id": "guangxuan-profile",
+      "url": "https://guangxuanx.com/",
+      "type": "author_profile",
+      "published_at": null,
+      "claim": "Self-reported Thinking Machines Lab pretraining role; no newly joined date inferred.",
+      "status": "verified_self_report"
+    },
+    {
+      "id": "guangxuan-swa",
+      "url": "https://guangxuanx.com/blog/stacking-swa.html",
+      "type": "author_technical_post",
+      "published_at": "2025-08-25",
+      "claim": "Long-range information propagation under sliding-window attention; historical theory under stated assumptions.",
+      "status": "verified_historical_source"
+    },
+    {
+      "id": "guangxuan-memory",
+      "url": "https://guangxuanx.com/blog/attn-capacity.html",
+      "type": "author_technical_post",
+      "published_at": "2025-09-01",
+      "claim": "Attention memory capacity is an existing public research line, not a newly discovered 2026 direction.",
+      "status": "verified_historical_source"
+    },
+    {
+      "id": "will-profile",
+      "url": "https://willcb.com/",
+      "type": "author_profile",
+      "published_at": null,
+      "claim": "Prime Intellect Applied Research role and verifiers project.",
+      "status": "verified_self_report"
+    },
+    {
+      "id": "verifiers-diagnostics",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2857",
+      "type": "third_party_open_pr_at_observation",
+      "published_at": "2026-10-14T22:05:41Z",
+      "claim": "Preserve failed isolated scoring attempt diagnostics; authored by hallerite, not Will Brown.",
+      "status": "verified_proposal_not_deployment"
+    },
+    {
+      "id": "will-cancellation",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/15a73cbbf27a5998707a4c1045095fbebe1da4c2",
+      "type": "author_commit",
+      "published_at": null,
+      "claim": "Cancellation/cleanup behavior is a concrete engineering signal.",
+      "status": "verified_commit"
+    },
+    {
+      "id": "lange-profile",
+      "url": "https://roberttlange.com/",
+      "type": "author_profile",
+      "published_at": null,
+      "claim": "Self-reported SakanaAI research role, crosschecked GitHub Meta-Discovery bio.",
+      "status": "verified_self_report"
+    },
+    {
+      "id": "ai-scientist-v3",
+      "url": "https://github.com/SakanaAI/AI-Scientist-v3",
+      "type": "official_repository",
+      "published_at": "2026-10-11T13:20:48Z",
+      "claim": "New public repository; README includes sealed final evaluation, immutable task snapshots, ablations and optimizer memory. These mechanisms already exist publicly.",
+      "status": "verified_repository_and_readme"
+    },
+    {
+      "id": "peter-joining",
+      "url": "https://steipete.me/posts/2026/openclaw",
+      "type": "author_announcement",
+      "published_at": "2026-02-14",
+      "claim": "Announced joining OpenAI; not a 2026-10-15 hiring event.",
+      "status": "verified_public_statement"
+    },
+    {
+      "id": "openclaw-recovery",
+      "url": "https://github.com/openclaw/openclaw/pull/173018",
+      "type": "author_open_pr_at_observation",
+      "published_at": "2026-10-15T10:05:09Z",
+      "claim": "Stop resurrecting undeliverable child completions. Proposed code, not a verified deployed fix.",
+      "status": "verified_proposal_not_deployment"
+    },
+    {
+      "id": "mario-joining",
+      "url": "https://mariozechner.at/posts/2026-04-08-ive-sold-out/",
+      "type": "author_announcement",
+      "published_at": "2026-04-08",
+      "claim": "Announced Earendil role; tracked as an open-source author, not labelled a frontier-lab researcher or prodigy.",
+      "status": "verified_public_statement"
+    },
+    {
+      "id": "pi-persistence",
+      "url": "https://github.com/earendil-works/pi/issues/10979",
+      "type": "third_party_issue",
+      "published_at": "2026-10-15T06:09:28Z",
+      "claim": "Report of extension message_end hang before persistence. Auto-closed by new-contributor policy; a public reply says this should be fixed in the extension. Not independently reproduced.",
+      "status": "verified_report_not_reproduced"
+    },
+    {
+      "id": "pi-compaction",
+      "url": "https://github.com/earendil-works/pi/issues/10982",
+      "type": "third_party_issue",
+      "published_at": "2026-10-15T08:57:39Z",
+      "claim": "Report of manual compaction overlapping a new turn with stale context. Auto-closed by new-contributor policy; closure alone does not prove a fix.",
+      "status": "verified_report_not_reproduced"
+    },
+    {
+      "id": "carlini-profile",
+      "url": "https://nicholas.carlini.com/",
+      "type": "author_profile",
+      "published_at": null,
+      "claim": "Author self-identifies as Anthropic research scientist; GitHub bio alone does not name the employer.",
+      "status": "verified_self_report"
+    },
+    {
+      "id": "carlini-joining",
+      "url": "https://nicholas.carlini.com/writing/2025/career-update.html",
+      "type": "author_announcement",
+      "published_at": "2025-03-05",
+      "claim": "Historical Anthropic joining announcement, not a new hiring event today.",
+      "status": "verified_public_statement"
+    },
+    {
+      "id": "carlini-personal-benchmark",
+      "url": "https://github.com/carlini/yet-another-applied-llm-benchmark",
+      "type": "author_repository",
+      "published_at": "2023-12-18T02:06:35Z",
+      "claim": "Historical personal applied-task benchmark; last push observed 2025-04-27. GPL-3.0; no source copied into this project.",
+      "status": "verified_historical_repository"
+    },
+    {
+      "id": "fla-kda-causality",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/3995fd79a49210e1f1cb0b90b3bf3df9fef63707",
+      "type": "upstream_commit",
+      "published_at": "2026-10-15T03:16:48Z",
+      "claim": "Commit by xy200303 addresses KDA safe_gate diagonal dependence on future gates according to its title/message. Captured in dated live snapshot; not attributed to Nathan, not independently validated here.",
+      "status": "verified_commit_message_only"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "platform": "Windows",
+  "commands": [
+    [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    [
+      "python",
+      "experiments/attnres_budget_probe.py",
+      "--output",
+      "results/attnres-budget"
+    ],
+    [
+      "python",
+      "experiments/recovery_contract_probe.py",
+      "--output",
+      "results/recovery-contract"
+    ]
+  ],
+  "sha256": {
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
+    "experiments/recovery_contract_probe.py": "7a0570d657dd215356c9ac53c99aacb5c6ab6aba1e9bf3f1b43df05d77829727",
+    "frontier_radar/__init__.py": "743b647805bb69aaca088c6c37e6aeab69386594f5e38a069eaa8376f3bf4274",
+    "frontier_radar/__main__.py": "4119c6278f4c05f63229163559d7dcb9f22c2278a5c9831429f626be3318910f",
+    "frontier_radar/scan.py": "6e2759c72463086229e50fd49ea6081ae8572a5ecb09d56080d566411eafb509",
+    "requirements.txt": "99f43573522565d7c480efd1f954892948033915df6a4e685327e995d3396eb6",
+    "results/attnres-budget.json": "cbcc95a9788f1120dc9341a6dd490e05023dbe88ba9421e061e29bf4dcc8ed05",
+    "results/attnres-budget.md": "bdf37348e8144038d3018eb342b2050df4ac0ca2aadb63c9dcb4fb1dab226119",
+    "results/recovery-contract/counterexamples/durable_log_persist_before_hook--compaction_overlap.json": "a26b7a2104b68d834ffd310a72d783ad293a2281eb1192ad2484308d4e1d9da3",
+    "results/recovery-contract/counterexamples/durable_log_persist_before_hook--duplicate_completion_after_restart.json": "8886184e7348522b8ec57aa36332a0b065ec2fa28998841e289c0321650b42c4",
+    "results/recovery-contract/counterexamples/durable_log_persist_before_hook--scoring_failure_then_success.json": "c4c1d1562db598e1a0859b6b3a585e59645c010f84b90d5b2ee2d07e881048f7",
+    "results/recovery-contract/counterexamples/durable_log_persist_before_hook--terminal_retry_after_restart.json": "7a7b0ce35c5733b6d6c21a09d6e1f5ad6676d78d4ba1f887ce8c7ec3915beddb",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--compaction_overlap.json": "f8dcad496a14d8ecd68954eda1f27519e26e561976bf1f5acf38838c5d3712cc",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--duplicate_completion_after_restart.json": "1932e8f5d654c58dd687ab6e9b7e33c778938d71399f525af49653080c455a90",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--hook_hangs_then_restart.json": "ca9aa964fa9fbd22356d522b8060fe052099e20ef16a86f517b0028e2c40d7e9",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--message_crash_cut_2.json": "c7a78e3ebc37b52fc9f15a0d16717a88c61494022ddf01923f924bb41bf23b03",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--message_crash_cut_3.json": "b29bb7cd44af9f43a7791d08dc3221d1c3e41c624e6d2c6db722c5fced66c406",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--scoring_failure_then_success.json": "e467cb5fa2300e66999e91058a3b4ddf9d3f5774442858ba94e806017e53ac08",
+    "results/recovery-contract/counterexamples/naive_callback_before_persist--terminal_retry_after_restart.json": "097938099a6364675e30d42109bbdb0fdbd55ae900aaeb7975aedd7a53a04671",
+    "results/recovery-contract/probe.json": "7d310bfad61641fe5757344caf1eb830e7fbb6446828f9161707b1152abe7285",
+    "results/recovery-contract/report.md": "7dce13707a7a645e5d0f96009e21c7ea715079d54ad9ca2b0b98b8a61b65a82f",
+    "scripts/reproduce.py": "8ffff613f90ca1422506d6dd58dc728e5ffbeede2609171326121fc473b5a8d9",
+    "tests/test_attnres_budget_probe.py": "f464f78f551ec618cd97a9919dad120183c5d83c6ad57122e9e55e9c1a5075d2",
+    "tests/test_recovery_contract_probe.py": "d5c24f03c0e3abf09c4ddd1b76b7453576804ea79fcf3a4c4ac598e68f795503",
+    "tests/test_scan.py": "51f57d8dbeb95055b8236a4c051a78fc72f597fd4a65759ee00da6d4483eeb97"
+  },
+  "scope": "Exact local checks and synthetic probes; excludes live GitHub data. Float rounding can differ across NumPy/BLAS platforms."
+}

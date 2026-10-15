@@ -1,0 +1,219 @@
+{
+  "protocol": "durable_log_persist_before_hook",
+  "scenario": "duplicate_completion_after_restart",
+  "metrics": {
+    "acknowledged_message_loss": 0,
+    "stale_context": 0,
+    "duplicate_effect": 1,
+    "resurrected_retry": 0,
+    "missing_failure_evidence": 0
+  },
+  "events": [
+    {
+      "action": "child_complete"
+    },
+    {
+      "action": "crash"
+    },
+    {
+      "action": "restart"
+    },
+    {
+      "action": "child_complete"
+    },
+    {
+      "action": "child_complete",
+      "data": {
+        "child_turn": "child1:turn2"
+      }
+    }
+  ],
+  "trace": [
+    {
+      "index": 0,
+      "action": "child_complete",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    },
+    {
+      "index": 1,
+      "action": "crash",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    },
+    {
+      "index": 2,
+      "action": "restart",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    },
+    {
+      "index": 3,
+      "action": "child_complete",
+      "data": {},
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1",
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    },
+    {
+      "index": 4,
+      "action": "child_complete",
+      "data": {
+        "child_turn": "child1:turn2"
+      },
+      "durable_before": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1",
+          "child1:turn1"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "durable_after": {
+        "messages": {},
+        "context_version": 0,
+        "effects": [
+          "child1:turn1",
+          "child1:turn1",
+          "child1:turn2"
+        ],
+        "assignments": {},
+        "receipts": [],
+        "failures": [],
+        "score": null
+      },
+      "volatile": {
+        "pending": null,
+        "blocked": false,
+        "compacting": false,
+        "context_version": 0,
+        "turns": {},
+        "queued": []
+      }
+    }
+  ],
+  "oracle": {
+    "generated": [],
+    "acknowledged": [],
+    "terminal": [],
+    "failures": []
+  },
+  "unacknowledged_message_loss": 0
+}

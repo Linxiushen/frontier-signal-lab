@@ -1,0 +1,6469 @@
+{
+  "schema_version": 1,
+  "sources": [
+    "https://github.com/earendil-works/pi/issues/10979",
+    "https://github.com/earendil-works/pi/issues/10982",
+    "https://github.com/openclaw/openclaw/pull/173018",
+    "https://github.com/PrimeIntellect-ai/verifiers/pull/2857"
+  ],
+  "assumptions": [
+    "Synthetic protocols; no upstream implementation is executed or reproduced.",
+    "Single-process fail-stop crashes; durable writes are atomic and never torn.",
+    "The versioned receipt and effect update is atomic in one local store; external exactly-once effects require their own transaction or idempotency key.",
+    "Only acknowledged messages are covered by the loss metric. All protocols may lose generated messages crashed before persistence.",
+    "A stale turn means committing after compaction using the previous context version.",
+    "Scoring failure evidence is required only after an observed score_fail event; a pre-journal crash has no magical evidence recovery.",
+    "Counts summarize this finite deterministic scenario suite; they are not real-world failure rates or model capability scores."
+  ],
+  "totals": {
+    "naive_callback_before_persist": {
+      "acknowledged_message_loss": 3,
+      "stale_context": 1,
+      "duplicate_effect": 1,
+      "resurrected_retry": 1,
+      "missing_failure_evidence": 1
+    },
+    "durable_log_persist_before_hook": {
+      "acknowledged_message_loss": 0,
+      "stale_context": 1,
+      "duplicate_effect": 1,
+      "resurrected_retry": 1,
+      "missing_failure_evidence": 1
+    },
+    "versioned_idempotent_journal": {
+      "acknowledged_message_loss": 0,
+      "stale_context": 0,
+      "duplicate_effect": 0,
+      "resurrected_retry": 0,
+      "missing_failure_evidence": 0
+    }
+  },
+  "runs": [
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_crash_cut_0",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_crash_cut_1",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 1
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_crash_cut_2",
+      "metrics": {
+        "acknowledged_message_loss": 1,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_crash_cut_3",
+      "metrics": {
+        "acknowledged_message_loss": 1,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_crash_cut_4",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "message_no_fault",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        },
+        {
+          "action": "persist"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "hook_hangs_then_restart",
+      "metrics": {
+        "acknowledged_message_loss": 1,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": true
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "hook",
+          "data": {
+            "hangs": true
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": true,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "compaction_overlap",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 1,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "compact_start"
+        },
+        {
+          "action": "turn_start"
+        },
+        {
+          "action": "compact_finish"
+        },
+        {
+          "action": "turn_commit"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "compact_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "turn_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {
+              "t1": 0
+            },
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "compact_finish",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {
+              "t1": 0
+            },
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "turn_commit",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "duplicate_completion_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 1,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          }
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1",
+              "child1:turn2"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "terminal_retry_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 1,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "assign"
+        },
+        {
+          "action": "give_up"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "retry"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "assign",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "give_up",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "retry",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [
+          "child1:turn1"
+        ],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "naive_callback_before_persist",
+      "scenario": "scoring_failure_then_success",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 1
+      },
+      "events": [
+        {
+          "action": "score_start"
+        },
+        {
+          "action": "score_diagnostic"
+        },
+        {
+          "action": "score_fail"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          }
+        },
+        {
+          "action": "score_success"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "score_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "score_diagnostic",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "score_fail",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 6,
+          "action": "score_success",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": 1
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": [
+          {
+            "attempt": "a1",
+            "diagnostics": {
+              "reason": "timeout"
+            }
+          }
+        ]
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_crash_cut_0",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_crash_cut_1",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 1
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_crash_cut_2",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_crash_cut_3",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_crash_cut_4",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "message_no_fault",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "hook_hangs_then_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": true
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": true
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": true,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "compaction_overlap",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 1,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "compact_start"
+        },
+        {
+          "action": "turn_start"
+        },
+        {
+          "action": "compact_finish"
+        },
+        {
+          "action": "turn_commit"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "compact_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "turn_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {
+              "t1": 0
+            },
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "compact_finish",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {
+              "t1": 0
+            },
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "turn_commit",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "duplicate_completion_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 1,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          }
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn1",
+              "child1:turn2"
+            ],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "terminal_retry_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 1,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "assign"
+        },
+        {
+          "action": "give_up"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "retry"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "assign",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "give_up",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "retry",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [
+          "child1:turn1"
+        ],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "durable_log_persist_before_hook",
+      "scenario": "scoring_failure_then_success",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 1
+      },
+      "events": [
+        {
+          "action": "score_start"
+        },
+        {
+          "action": "score_diagnostic"
+        },
+        {
+          "action": "score_fail"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          }
+        },
+        {
+          "action": "score_success"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "score_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "score_diagnostic",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "score_fail",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 6,
+          "action": "score_success",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": 1
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": [
+          {
+            "attempt": "a1",
+            "diagnostics": {
+              "reason": "timeout"
+            }
+          }
+        ]
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_crash_cut_0",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_crash_cut_1",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 1
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_crash_cut_2",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_crash_cut_3",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_crash_cut_4",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "message_no_fault",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": false
+          }
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": false
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "hook_hangs_then_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "generate"
+        },
+        {
+          "action": "persist"
+        },
+        {
+          "action": "ack"
+        },
+        {
+          "action": "hook",
+          "data": {
+            "hangs": true
+          }
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "generate",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "persist",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "ack",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "hook",
+          "data": {
+            "hangs": true
+          },
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": "m1",
+            "blocked": true,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {
+              "m1": "assistant result"
+            },
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [
+          "m1"
+        ],
+        "acknowledged": [
+          "m1"
+        ],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "compaction_overlap",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "compact_start"
+        },
+        {
+          "action": "turn_start"
+        },
+        {
+          "action": "compact_finish"
+        },
+        {
+          "action": "turn_commit"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "compact_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "turn_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": true,
+            "context_version": 0,
+            "turns": {},
+            "queued": [
+              "t1"
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "action": "compact_finish",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {
+              "t1": 1
+            },
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "turn_commit",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 1,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 1,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "duplicate_completion_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "child_complete"
+        },
+        {
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          }
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "child_complete",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "child_complete",
+          "data": {
+            "child_turn": "child1:turn2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [
+              "child1:turn1",
+              "child1:turn2"
+            ],
+            "assignments": {},
+            "receipts": [
+              "child1:turn1",
+              "child1:turn2"
+            ],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "terminal_retry_after_restart",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "assign"
+        },
+        {
+          "action": "give_up"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "retry"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "assign",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "give_up",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "pending"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "retry",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {
+              "child1:turn1": "retired"
+            },
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [
+          "child1:turn1"
+        ],
+        "failures": []
+      },
+      "unacknowledged_message_loss": 0
+    },
+    {
+      "protocol": "versioned_idempotent_journal",
+      "scenario": "scoring_failure_then_success",
+      "metrics": {
+        "acknowledged_message_loss": 0,
+        "stale_context": 0,
+        "duplicate_effect": 0,
+        "resurrected_retry": 0,
+        "missing_failure_evidence": 0
+      },
+      "events": [
+        {
+          "action": "score_start"
+        },
+        {
+          "action": "score_diagnostic"
+        },
+        {
+          "action": "score_fail"
+        },
+        {
+          "action": "crash"
+        },
+        {
+          "action": "restart"
+        },
+        {
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          }
+        },
+        {
+          "action": "score_success"
+        }
+      ],
+      "trace": [
+        {
+          "index": 0,
+          "action": "score_start",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 1,
+          "action": "score_diagnostic",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 2,
+          "action": "score_fail",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 3,
+          "action": "crash",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 4,
+          "action": "restart",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 5,
+          "action": "score_start",
+          "data": {
+            "attempt": "a2"
+          },
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        },
+        {
+          "index": 6,
+          "action": "score_success",
+          "data": {},
+          "durable_before": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": null
+          },
+          "durable_after": {
+            "messages": {},
+            "context_version": 0,
+            "effects": [],
+            "assignments": {},
+            "receipts": [],
+            "failures": [
+              {
+                "attempt": "a1",
+                "diagnostics": {
+                  "reason": "timeout"
+                }
+              }
+            ],
+            "score": 1
+          },
+          "volatile": {
+            "pending": null,
+            "blocked": false,
+            "compacting": false,
+            "context_version": 0,
+            "turns": {},
+            "queued": []
+          }
+        }
+      ],
+      "oracle": {
+        "generated": [],
+        "acknowledged": [],
+        "terminal": [],
+        "failures": [
+          {
+            "attempt": "a1",
+            "diagnostics": {
+              "reason": "timeout"
+            }
+          }
+        ]
+      },
+      "unacknowledged_message_loss": 0
+    }
+  ]
+}

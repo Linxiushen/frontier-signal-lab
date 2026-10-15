@@ -12,13 +12,14 @@
         "nathan-departure",
         "attnres",
         "nathan-kda-pr",
-        "attnres-block-discussion"
+        "attnres-block-discussion",
+        "fla-cp-reference-and-layout"
       ],
       "status": "operator_probe_executed_training_unverified",
       "experiment": "experiments/attnres_budget_probe.py",
       "supporting_observation": "Low-error approximation with lower persistent storage at multiple depth/distribution settings, followed by matched-budget training and measured GPU memory.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Real activation traces and matched token/time small-model training; no GPU spending authorized or performed."
+      "next_gate": "Real activation traces and matched token/time small-model training; separately validate serial/CP forward and gradient parity, state-layout tuning and reference scaling on supported hardware before counting practical gains. Maintainer branch commits are not our training result; no GPU spending authorized or performed."
     },
     {
       "id": "H2",
@@ -33,7 +34,10 @@
         "openclaw-malformed-fix",
         "pi-sqlite-transaction-boundary",
         "pi-sqlite-merged",
-        "openclaw-uncertain-retirement"
+        "openclaw-uncertain-retirement",
+        "openclaw-recovery-merged",
+        "openclaw-recovery-head-ci",
+        "verifiers-session-lifetime"
       ],
       "status": "independent_sqlite_and_pinned_adapter_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -41,10 +45,10 @@
         "experiments/sqlite_migration_probe.py",
         "experiments/pi_adapter_queue_probe.mjs"
       ],
-      "supporting_observation": "Independent SQLite traces distinguish preserved rows, false-clean diagnostics and unresolved work. The merged pi adapter primitive additionally completes queued writes after abort, allows a subsequent transaction, and rejects expired handles in six deterministic Node SQLite traces. Direct host writes can be rolled back with the active transaction. Full pi storage and Cloudflare runtime were not executed.",
+      "supporting_observation": "Independent SQLite traces distinguish preserved rows, false-clean diagnostics and unresolved work. The merged pi adapter primitive additionally completes queued writes after abort, allows a subsequent transaction, and rejects expired handles in six deterministic Node SQLite traces. Direct host writes can be rolled back with the active transaction. Full pi storage and Cloudflare runtime were not executed. OpenClaw recovery/repair is now merged at 275c611e with the previously read PR head unchanged. Upstream CI job status is verified, but synthetic unit fixtures do not establish old-release upgrade or persistent task completion.",
       "falsifier": "A real harness already covers these contracts or does not exhibit the relevant failure; assumptions fail under concurrent writers, torn storage or external effects.",
-      "next_gate": "Integrate an actual harness old-database fixture with its full storage dependency and maintenance owner, including concurrent writers and restart-persistent work. Measure repaired tasks reaching business completion under a finite fair schedule. The current adapter queue and bounded promise progress are not persistent task recovery or general liveness.",
-      "review_record": "research/2026-10-15-pi-adapter.md"
+      "next_gate": "Generate an actual old-release state fixture and run accepted Doctor repair through its real locked-SQLite maintenance owner, including backup, exact-row compare-and-apply, reopen, concurrent owners and persistent task progress. For grading/collection, observe real close-managed service lifetime and stopped-path negative controls in a supported harness. Surrogate callbacks and bounded promise settlement do not satisfy these gates.",
+      "review_record": "research/2026-10-16-lifecycle-and-cp.md"
     },
     {
       "id": "H3",
@@ -69,13 +73,14 @@
         "verifiers-diagnostics",
         "will-cancellation",
         "verifiers-unified-errors",
-        "verifiers-timeout-review"
+        "verifiers-timeout-review",
+        "verifiers-session-lifetime"
       ],
       "status": "planned_not_executed",
       "experiment": null,
       "supporting_observation": "A versioned failure ledger exposes reward inconsistencies hidden by retries or final-success-only reporting.",
       "falsifier": "Repeated deterministic scoring and perturbation tests find no consequential inconsistencies.",
-      "next_gate": "Execute a small public environment with format, timeout and retry perturbations plus independent final scoring. First distinguish unified trace.errors history from terminal failure/ok and timeout status in the revised unmerged proposal; the bot concern remains source-supported but not reproduced."
+      "next_gate": "Execute supported real harness scoring with normal/inter-segment versus timeout/stopped, same-box versus isolated grading, real close-managed process/HTTP-service lifetime and independent final scoring. Also test the unmerged unified error-history timeout/ok contract. Neither PR has been executed here; fake cleanup callbacks are insufficient."
     }
   ]
 }

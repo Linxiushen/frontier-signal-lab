@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-15T14:44:18.916239Z",
+  "last_updated_at": "2026-10-15T16:38:25.259794Z",
   "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -262,7 +262,8 @@
       "repository_public": true,
       "license_metadata": "MIT",
       "code_url": "https://github.com/openclaw/openclaw/blob/4d51eea133af27455ef3355be62150b034d861b1/extensions/codex/src/migration/native-assignment-repair.ts#L24",
-      "pr_url": "https://github.com/openclaw/openclaw/pull/173018"
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173018",
+      "subsequent_event_id": "openclaw-recovery-merged"
     },
     {
       "id": "pi-sqlite-transaction-boundary",
@@ -316,7 +317,8 @@
       "claim": "Repeated same-owner undelivered retirement can succeed when the assignment is already absent after authority checks. Test patch covers repeat/owner mismatch/reopen helpers. PR remains unmerged at this observation.",
       "status": "code_and_tests_read_not_executed_upstream",
       "repository_public": true,
-      "license_metadata": "MIT"
+      "license_metadata": "MIT",
+      "subsequent_event_id": "openclaw-recovery-merged"
     },
     {
       "id": "verifiers-unified-errors",
@@ -352,6 +354,84 @@
       },
       "claim": "Bot raises possible timeout-stopped successful trace with non-empty error history/last_error. Static catch/timeout/finalization paths support investigating intended semantics; no runtime reproduction or maintainer acceptance established.",
       "status": "source_supported_semantic_concern_not_reproduced",
+      "repository_public": true,
+      "license_metadata": "MIT"
+    },
+    {
+      "id": "openclaw-recovery-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/275c611ead7a010e544ce5337e0588ec593e8087",
+      "type": "author_squash_merged_commit",
+      "author": "steipete",
+      "published_at": "2026-10-15T16:09:21Z",
+      "merged_at": "2026-10-15T16:09:21Z",
+      "merged_by": "steipete",
+      "observed_interval": {
+        "start": "2026-10-15T16:28:34.9640794Z",
+        "end": "2026-10-15T16:28:36.0921404Z"
+      },
+      "claim": "PR173018 merged. Its prepared head db2ca7ef is unchanged from the prior observation; the new event is landing the existing recovery/repair implementation, not a new branch implementation. This does not establish released-state upgrade or deployment.",
+      "status": "merged_source_read_actual_release_upgrade_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT"
+    },
+    {
+      "id": "openclaw-recovery-head-ci",
+      "url": "https://github.com/openclaw/openclaw/actions/runs/38751786059",
+      "type": "upstream_ci_metadata",
+      "event_id": 38751786059,
+      "published_at": "2026-10-15T14:48:56Z",
+      "head_sha": "db2ca7ef0cbfa8b5a33f9b35b02d94e6e8159fb6",
+      "observed_interval": {
+        "start": "2026-10-15T16:29:42.7624673Z",
+        "end": "2026-10-15T16:29:48.0587863Z"
+      },
+      "claim": "Upstream pull-request CI metadata reports success: 42 successful jobs and 26 skipped jobs, all on db2ca7ef. Exact 213/14 test counts remain author claims; no test logs or real old-release upgrade were verified here.",
+      "status": "ci_run_and_all_job_metadata_verified_not_local_execution",
+      "repository_public": true,
+      "license_metadata": "MIT"
+    },
+    {
+      "id": "fla-cp-reference-and-layout",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/7571b6fcfd5bdf30fb012bc640d889e33e7e31b9",
+      "type": "maintainer_commits_referenced_in_closed_unmerged_pr",
+      "author": "yzhangcs",
+      "author_association": "MEMBER",
+      "published_at": "2026-10-15T16:02:16Z",
+      "observed_interval": {
+        "start": "2026-10-15T16:34:24.851863Z",
+        "end": "2026-10-15T16:36:38.299987Z"
+      },
+      "pr_url": "https://github.com/fla-org/flash-linear-attention/pull/1390",
+      "recorded_pr_head": "4056b9dece258d0e114196855a5559a0752e3cd3",
+      "referenced_tip": "7571b6fcfd5bdf30fb012bc640d889e33e7e31b9",
+      "compare_url": "https://github.com/fla-org/flash-linear-attention/compare/4056b9dece258d0e114196855a5559a0752e3cd3...7571b6fcfd5bdf30fb012bc640d889e33e7e31b9",
+      "claim": "Four new immutable maintainer commits compare serial/CP outputs and gradients, separate merge tuning by layout, preserve pipeline choices, and correct GDP reference scaling. PR1390 is closed/unmerged and its API-recorded head remains 4056b9de; the newer tip is referenced in its body. Not Nathan authored, not a merged default-branch result or measured model-quality/speed result.",
+      "status": "immutable_commit_patches_read_no_kernel_or_training_execution",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "commit_observed_interval": {
+        "start": "2026-10-15T16:34:24.851863Z",
+        "end": "2026-10-15T16:34:26.233170Z"
+      },
+      "pr_metadata_observed_interval": {
+        "start": "2026-10-15T16:36:36.651270Z",
+        "end": "2026-10-15T16:36:38.299987Z"
+      }
+    },
+    {
+      "id": "verifiers-session-lifetime",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/f144485317dd96863ab096b8251b26482b55b346",
+      "type": "member_commit_in_unmerged_pr",
+      "author": "hallerite",
+      "author_association": "MEMBER",
+      "published_at": "2026-10-15T16:05:14Z",
+      "observed_interval": {
+        "start": "2026-10-15T16:34:36.3147531Z",
+        "end": "2026-10-15T16:34:37.6845825Z"
+      },
+      "pr_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2866",
+      "claim": "PR2866 proposes normal same-box finalize/collect/score before harness close, isolated collection before close and independent grading afterward, and close-first on timeout/stop. Three changed files contain rollout/docs and no regression-test changes. Source read, no runtime execution or accepted design established.",
+      "status": "proposal_and_full_changed_file_list_read_not_executed",
       "repository_public": true,
       "license_metadata": "MIT"
     }

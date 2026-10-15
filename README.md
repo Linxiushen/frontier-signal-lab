@@ -14,9 +14,11 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 - 第二个可运行实验：**Recovery contract probe**。用明确的事件轨迹注入崩溃、重复回执和上下文压缩并发，比较三种恢复协议。
 - 其他优先切口：自动研究的封闭终评、RL 环境的可验证奖励。详见[研究判断与证伪条件](research/2026-10-15-frontier.md)。
 
-本日跟进：Peter 的 OpenClaw 未合并 PR 新增异常 binding 诊断与保留测试；本项目据此完成独立的真实 SQLite 迁移/崩溃恢复实验。静默跳过与报警两组都保留原记录，但“诊断干净”与“工作完成”不能等同。时间线、来源变化及边界见 [H2 跟进](research/2026-10-15-h2-sqlite.md)。
+10 月 15 日早期跟进：Peter 的 OpenClaw PR 当时未合并，新增异常 binding 诊断与保留测试；本项目据此完成独立的真实 SQLite 迁移/崩溃恢复实验。静默跳过与报警两组都保留原记录，但“诊断干净”与“工作完成”不能等同。时间线、来源变化及边界见 [H2 跟进](research/2026-10-15-h2-sqlite.md)。
 
-最新跟进：pi 的事务队列 PR 已合并。本项目固定该 commit，执行未修改的数据库适配器代码，在本地 SQLite stand-in 上验证 6 条轨迹：排队写入能在前一事务回滚后完成，直接底层写入则随事务回滚。不是完整 harness 或 Cloudflare 生产验证；详见[适配器实验与新证据](research/2026-10-15-pi-adapter.md)。
+此前适配器实验：pi 的事务队列 PR 已合并。本项目固定该 commit，执行未修改的数据库适配器代码，在本地 SQLite stand-in 上验证 6 条轨迹：排队写入能在前一事务回滚后完成，直接底层写入则随事务回滚。不是完整 harness 或 Cloudflare 生产验证；详见[适配器实验与新证据](research/2026-10-15-pi-adapter.md)。
+
+北京时间 10 月 16 日跟进：OpenClaw 恢复 PR 已合并；FLA 的公开 commit 新增 CP 输出/梯度与布局对照；verifiers 新提案细化取证、评分与关闭 session 的顺序。本轮更新真实旧态升级和服务生命周期的验证门槛，新增实验为 0。见[研究判断与证据边界](research/2026-10-16-lifecycle-and-cp.md)。
 
 ## 快速运行
 

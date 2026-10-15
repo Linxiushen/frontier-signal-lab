@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-15T16:38:25.259794Z",
-  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution.",
+  "last_updated_at": "2026-10-15T18:45:18.525292+00:00",
+  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution. The 18:30 UTC pass adds one original CPU process-memory/timing probe; upstream kernel/harness claims remain source evidence, not our runtime results.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -434,6 +434,167 @@
       "status": "proposal_and_full_changed_file_list_read_not_executed",
       "repository_public": true,
       "license_metadata": "MIT"
+    },
+    {
+      "id": "verifiers-session-e2e-claim",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2866",
+      "type": "member_updated_pr_body_author_reported_results",
+      "author": "hallerite",
+      "author_association": "MEMBER",
+      "published_at": null,
+      "pr_updated_at": "2026-10-15T16:45:21Z",
+      "observed_interval": {
+        "start": "2026-10-15T18:31:51.4699076Z",
+        "end": "2026-10-15T18:31:53.8556694Z"
+      },
+      "head_sha": "f144485317dd96863ab096b8251b26482b55b346",
+      "claim_excerpt_sha256": "f2c1657f10981e0f321e2180826776c09eccd35806b8c1c7b19243edb49b3e55",
+      "claim": "Unchanged PR2866 head now accompanies author claims from 150 selected previously failing live-service tasks x2 rollouts: 88% rollout pass and 147/150 tasks at least one pass. Bounded body/comments/reviews and CI artifact metadata do not establish raw E2E evidence; exact model/harness revision, task IDs, baseline and per-rollout results remain missing.",
+      "status": "author_aggregate_unverified_bounded_artifact_audit",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-memory-and-context.md"
+    },
+    {
+      "id": "pi-foreign-model-thinking",
+      "url": "https://github.com/earendil-works/pi/commit/911309429175254550837167baee245d5f9dbcb6",
+      "type": "member_merged_commit",
+      "author": "davidbrai",
+      "author_association": "MEMBER",
+      "published_at": "2026-10-15T17:38:33Z",
+      "merged_at": "2026-10-15T17:38:33Z",
+      "merged_by": "davidbrai",
+      "pr_url": "https://github.com/earendil-works/pi/pull/11000",
+      "head_sha": "6c6522e63bdb603b11e090e415a2fe881fbab48c",
+      "observed_interval": {
+        "start": "2026-10-15T18:38:03.3709868Z",
+        "end": "2026-10-15T18:38:04.8032549Z"
+      },
+      "claim": "Cross-model handoff drops foreign thinking blocks; text and tool calls/results remain. Same model requires equal provider, API and model ID. Signed/redacted same-model blocks remain even with empty text.",
+      "status": "immutable_source_and_regression_tests_read_not_executed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "attribution_note": "Contribution belongs to davidbrai; not attributed to the watchlist person solely through repository membership."
+    },
+    {
+      "id": "openclaw-same-thread-recovery",
+      "url": "https://github.com/openclaw/openclaw/commit/9fe4372390be59f5d55c4e9e5c3701cf98661229",
+      "type": "member_merged_commit",
+      "author": "RomneyDa",
+      "author_association": "MEMBER",
+      "published_at": "2026-10-15T18:25:09Z",
+      "merged_at": "2026-10-15T18:25:10Z",
+      "merged_by": "RomneyDa",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/172705",
+      "head_sha": "eae6255ce87ad033684ac832f561a3131d247fde",
+      "observed_interval": {
+        "start": "2026-10-15T18:37:11.3411872Z",
+        "end": "2026-10-15T18:37:12.7382862Z"
+      },
+      "claim": "For a non-incognito bound conversation, retry only exact typed turn/start rejection code -32600 and message matching thread not found before input acceptance. Resume same persisted thread via existing ownership and retry once; preserve binding and visible failure for uncertain transport, authentication, deleted history or changed binding/policy.",
+      "status": "immutable_source_and_regression_tests_read_not_executed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "attribution_note": "Contribution belongs to RomneyDa; not attributed to the watchlist person solely through repository membership."
+    },
+    {
+      "id": "fla-kda-indexed-state-storage",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1414",
+      "type": "third_party_restored_unmerged_pull_request",
+      "author": "ZenAlexa",
+      "author_association": "CONTRIBUTOR",
+      "created_at": "2026-10-15T17:44:32Z",
+      "updated_at": "2026-10-15T18:27:31Z",
+      "state": "open",
+      "merged_at": null,
+      "head_sha": "87186e359c5ce16037c017ad0651e217ef3956e8",
+      "head_author_login": "ZenAlexa",
+      "head_author_date": "2026-10-15T17:08:22Z",
+      "head_committer_date": "2026-10-15T17:08:22Z",
+      "head_message": "[Misc] Sync current main for restored KDA contribution",
+      "observed_interval": {
+        "start": "2026-10-15T18:36:11.541823Z",
+        "end": "2026-10-15T18:36:13.724257Z"
+      },
+      "diff_read_interval": {
+        "start": "2026-10-15T18:36:34.708250Z",
+        "end": "2026-10-15T18:36:35.983039Z"
+      },
+      "diff_file_count": 5,
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "execution": "not_executed_by_this_project",
+      "author_performance_and_test_claims": "read_from_PR_body_only_not_independently_run_or_log_verified",
+      "novelty_boundary": "PR body explicitly restores an older PR from the same branch after mistaken maintainer history force-push. Current head syncs main; a new PR number is not a new algorithm or original-author research disclosure.",
+      "restores": 1313,
+      "claim": "Indexed recurrent KDA honors token index strides, sizes separate output states per flattened token, and avoids state writes when state output is disabled. CUDA and Ascend paths are changed.",
+      "implementation_reading": [
+        "CUDA initial/final index loads multiply i_t by stride_indices_tok.",
+        "Separate final_state allocation uses B*T instead of sequence count N when ssm_state_indices is supplied, protecting per-token storage bounds.",
+        "Continuous-batching writes additionally require STORE_FINAL_STATE, preserving a borrowed initial state pool when output is disabled.",
+        "Ascend uses corresponding per-token allocation and block-pointer boundary checks plus ascend_compile_kwargs; present-head Ascend runtime remains an author-disclosed gap."
+      ],
+      "memory_implication": "Correct storage can require MORE allocated memory (B*T state records rather than N). No lower-memory benefit is established; preserving aliased pools and correct state capacity precedes allocation optimization.",
+      "tests_read": "48 parametrized indexed cases span dense/packed, state orientations, stride1/2, accepted token1/2, in-place/separate/disabled output; compare naive outputs/states, untouched pool slots, returned shapes and resumed decoding. Tests not executed locally.",
+      "post_diff_head_recheck": {
+        "interval": {
+          "start": "2026-10-15T18:39:40.001974Z",
+          "end": "2026-10-15T18:39:41.998793Z"
+        },
+        "head_sha": "87186e359c5ce16037c017ad0651e217ef3956e8",
+        "same_head": true,
+        "state": "open",
+        "merged_at": null
+      }
+    },
+    {
+      "id": "fla-kda-dense-output-allocation",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1416",
+      "type": "third_party_restored_unmerged_pull_request",
+      "author": "ZenAlexa",
+      "author_association": "CONTRIBUTOR",
+      "created_at": "2026-10-15T17:44:56Z",
+      "updated_at": "2026-10-15T18:27:04Z",
+      "state": "open",
+      "merged_at": null,
+      "head_sha": "23f75177bdc8b0d715f2ddd9241a85a7b1b52315",
+      "head_author_login": "ZenAlexa",
+      "head_author_date": "2026-10-15T17:08:22Z",
+      "head_committer_date": "2026-10-15T17:08:22Z",
+      "head_message": "[Misc] Sync current main for restored KDA contribution",
+      "observed_interval": {
+        "start": "2026-10-15T18:36:11.542822Z",
+        "end": "2026-10-15T18:36:13.800771Z"
+      },
+      "diff_read_interval": {
+        "start": "2026-10-15T18:36:34.708250Z",
+        "end": "2026-10-15T18:36:36.013652Z"
+      },
+      "diff_file_count": 2,
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "execution": "not_executed_by_this_project",
+      "author_performance_and_test_claims": "read_from_PR_body_only_not_independently_run_or_log_verified",
+      "novelty_boundary": "PR body explicitly restores an older PR from the same branch after mistaken maintainer history force-push. Current head syncs main; a new PR number is not a new algorithm or original-author research disclosure.",
+      "restores": 1301,
+      "claim": "Only default dense recurrent output allocation changes from zeros_like(v) to empty_like(v); packed allocation retains zeros_like(v), and caller-supplied out remains the same buffer.",
+      "implementation_reading": [
+        "Single production-line conditional: empty_like(v) if cu_seqlens is None else zeros_like(v).",
+        "Caller-provided out validation/identity route is retained; no kernel arithmetic, launch geometry or state-allocation change in this diff."
+      ],
+      "memory_implication": "Removing dense initialization saves a write pass, not the output tensor bytes. Correctness requires complete writes of every dense output element; packed unused capacity still needs zeros and supplied-buffer suffix must retain its original contents. No GPU peak-memory reduction is shown.",
+      "tests_read": "Four dense/packed x allocated/supplied scenarios use non-power-of-two width60 and grouped value heads; check finite output, output buffer identity, untouched packed suffix, unchanged borrowed input state, and naive output/final-state parity. Allocation-poisoning assertion context is described by author; tests not executed locally.",
+      "hardware_boundary": "PR author reports H200 CUDA Graph replay timing and limited cached-layer tests. Host allocation/compile/end-to-end serving excluded; current Ascend/AMD/XPU not run. No local speed result.",
+      "post_diff_head_recheck": {
+        "interval": {
+          "start": "2026-10-15T18:39:40.001974Z",
+          "end": "2026-10-15T18:39:41.849136Z"
+        },
+        "head_sha": "23f75177bdc8b0d715f2ddd9241a85a7b1b52315",
+        "same_head": true,
+        "state": "open",
+        "merged_at": null
+      }
     }
   ]
 }

@@ -16,6 +16,7 @@ def main():
     commands = [
         [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
         [sys.executable, "experiments/attnres_budget_probe.py", "--output", "results/attnres-budget"],
+        [sys.executable, "experiments/attnres_memory_probe.py", "--output", "results/attnres-memory"],
         [sys.executable, "experiments/recovery_contract_probe.py", "--output", "results/recovery-contract"],
         [sys.executable, "experiments/sqlite_migration_probe.py", "--output", "results/sqlite-migration"],
         ["node", "experiments/pi_adapter_queue_probe.mjs", "--output", "results/pi-adapter-queue"],
@@ -31,6 +32,7 @@ def main():
         + list((ROOT / "results").rglob("*.json"))
         + list((ROOT / "results").rglob("*.md"))
         + list((ROOT / "results").rglob("*.sql"))
+        + list((ROOT / "results").rglob("*.npy"))
         + list((ROOT / "third_party/pi").glob("*"))
     )
     hashes = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
@@ -42,7 +44,7 @@ def main():
         "platform": platform.system(),
         "commands": [["python" if c[0] == sys.executable else c[0], *c[1:]] for c in commands],
         "sha256": hashes,
-        "scope": "Exact local checks and probes, including an independent SQLite fixture and a pinned pi database adapter primitive with a substituted unused factory dependency over a Node SQLite stand-in. Excludes full upstream harness/Cloudflare execution and live data. Float rounding can differ across NumPy/BLAS platforms.",
+        "scope": "Exact local checks and probes, including synthetic CPU residual-bank process-memory/timing measurements, an independent SQLite fixture and a pinned pi database adapter primitive with a substituted unused factory dependency over a Node SQLite stand-in. Excludes training, GPU memory, full upstream harness/Cloudflare execution and live data. Memory and timing vary per run; float rounding can differ across NumPy/BLAS platforms.",
     }
     (ROOT / "results/reproduction.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")

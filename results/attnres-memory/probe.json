@@ -1,0 +1,1668 @@
+{
+  "schema_version": 1,
+  "experiment": "synthetic prepacked residual-bank CPU inference memory and wall time",
+  "started_utc": "2026-10-15T18:47:54.640247+00:00",
+  "completed_utc": "2026-10-15T18:48:09.713767+00:00",
+  "config": {
+    "depths": [
+      128,
+      256
+    ],
+    "tokens": 256,
+    "dim": 256,
+    "seeds": [
+      7
+    ],
+    "repeats": 3,
+    "tile_depth": 16,
+    "methods": [
+      "dense_float32",
+      "int8_full_dequantize",
+      "int8_tiled"
+    ],
+    "temperature": 1.0,
+    "worker_order_seed": 1729,
+    "worker_timeout_seconds": 60,
+    "rtol": 0.0001,
+    "atol": 1e-05,
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    }
+  },
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "machine": "AMD64",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "byteorder": "little"
+  },
+  "stable_results": {
+    "config_sha256": "d0d3fdee320dbfc85082ee20716988e516728cfbb0adc2eeb897439850f8d085",
+    "code_sha256": {
+      "attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+      "attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+    },
+    "fixtures": [
+      {
+        "case_id": "d128-t256-f256-s7",
+        "depth": 128,
+        "tokens": 256,
+        "dim": 256,
+        "seed": 7,
+        "distribution": "random",
+        "query": "fixed_random_shared_not_learned",
+        "files": {
+          "bank": {
+            "filename": "bank.npy",
+            "sha256": "15043d29b000254cc10feeb73e9e0b398b5f57045f45bde678fa08f6c1a8b7ce",
+            "array_nbytes": 33554432,
+            "shape": [
+              128,
+              256,
+              256
+            ],
+            "dtype": "float32"
+          },
+          "query": {
+            "filename": "query.npy",
+            "sha256": "89153519e576c6ca71b5142290ba09ce0614ad62691503dfe21bebef97aca435",
+            "array_nbytes": 262144,
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "float32"
+          },
+          "packed": {
+            "filename": "packed.npy",
+            "sha256": "8c4fa174dc5293c1d42dee9f2d2a7f51298575b6e271298a6c324a65e1da570a",
+            "array_nbytes": 8388608,
+            "shape": [
+              128,
+              256,
+              256
+            ],
+            "dtype": "int8"
+          },
+          "scales": {
+            "filename": "scales.npy",
+            "sha256": "f8a80faa1ff42b0418ee2e96ab7d47562e8d014384d65dc5c22d8b680e3d7728",
+            "array_nbytes": 131072,
+            "shape": [
+              128,
+              256,
+              1
+            ],
+            "dtype": "float32"
+          }
+        },
+        "reference_dense_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+        "reference_quantized_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b"
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "depth": 256,
+        "tokens": 256,
+        "dim": 256,
+        "seed": 7,
+        "distribution": "random",
+        "query": "fixed_random_shared_not_learned",
+        "files": {
+          "bank": {
+            "filename": "bank.npy",
+            "sha256": "771331752705edc170f351341b2b6a69d090e15d3c88b0a2f432597a6ae9ea11",
+            "array_nbytes": 67108864,
+            "shape": [
+              256,
+              256,
+              256
+            ],
+            "dtype": "float32"
+          },
+          "query": {
+            "filename": "query.npy",
+            "sha256": "89153519e576c6ca71b5142290ba09ce0614ad62691503dfe21bebef97aca435",
+            "array_nbytes": 262144,
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "float32"
+          },
+          "packed": {
+            "filename": "packed.npy",
+            "sha256": "8e14bb3ea8a7968dae31fd7c43c14e1396c4c01366f0ecd9d870a9e47f05410a",
+            "array_nbytes": 16777216,
+            "shape": [
+              256,
+              256,
+              256
+            ],
+            "dtype": "int8"
+          },
+          "scales": {
+            "filename": "scales.npy",
+            "sha256": "e61db8df2636c9a235fabd854af49f9bbf9296ba8ad45b835f51922079058f52",
+            "array_nbytes": 262144,
+            "shape": [
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32"
+          }
+        },
+        "reference_dense_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+        "reference_quantized_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893"
+      }
+    ],
+    "numerical_results": [
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 1,
+        "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+        "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.022677429020404816,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05825949087738991
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 2,
+        "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+        "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+        "versus_dense": {
+          "relative_l2": 0.022667521610856056,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739527568221092
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 2,
+        "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+        "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+        "versus_dense": {
+          "relative_l2": 0.022667529061436653,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739530920982361
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.2055150477863208e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.2494776885650936e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 1,
+        "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+        "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+        "versus_dense": {
+          "relative_l2": 0.022667529061436653,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739530920982361
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.2055150477863208e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.2494776885650936e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 0,
+        "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+        "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+        "versus_dense": {
+          "relative_l2": 0.022667529061436653,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739530920982361
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.2055150477863208e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.2494776885650936e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 0,
+        "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+        "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.022677429020404816,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05825949087738991
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 2,
+        "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+        "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.022677429020404816,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05825949087738991
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 1,
+        "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+        "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+        "versus_dense": {
+          "relative_l2": 0.022667521610856056,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739527568221092
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d128-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 0,
+        "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+        "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+        "versus_dense": {
+          "relative_l2": 0.022667521610856056,
+          "mean_token_cosine": 0.9996877908706665,
+          "p95_token_relative_l2": 0.05739527568221092
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 1,
+        "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+        "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08235142379999161
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 0,
+        "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+        "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08235142379999161
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 0,
+        "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+        "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117021560669,
+          "p95_token_relative_l2": 0.0823514312505722
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.1970442415076832e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.269380843245017e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_full_dequantize",
+        "repeat": 2,
+        "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+        "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08235142379999161
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 0,
+        "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+        "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.02827431447803974,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08351974189281464
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 2,
+        "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+        "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.02827431447803974,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08351974189281464
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "dense_float32",
+        "repeat": 1,
+        "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+        "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+        "versus_dense": {
+          "relative_l2": 0.0,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 0.0
+        },
+        "versus_quantized_full": {
+          "relative_l2": 0.02827431447803974,
+          "mean_token_cosine": 0.9994117617607117,
+          "p95_token_relative_l2": 0.08351974189281464
+        },
+        "quantized_full_equivalent": null,
+        "dense_reference_equivalent": true
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 2,
+        "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+        "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117021560669,
+          "p95_token_relative_l2": 0.0823514312505722
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.1970442415076832e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.269380843245017e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      },
+      {
+        "case_id": "d256-t256-f256-s7",
+        "method": "int8_tiled",
+        "repeat": 1,
+        "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+        "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+        "versus_dense": {
+          "relative_l2": 0.028268495574593544,
+          "mean_token_cosine": 0.9994117021560669,
+          "p95_token_relative_l2": 0.0823514312505722
+        },
+        "versus_quantized_full": {
+          "relative_l2": 1.1970442415076832e-07,
+          "mean_token_cosine": 1.0,
+          "p95_token_relative_l2": 2.269380843245017e-07
+        },
+        "quantized_full_equivalent": true,
+        "dense_reference_equivalent": null
+      }
+    ]
+  },
+  "stable_result_sha256": "ff533302cb5a285de903d5c7ef4fcd93d75fdee5945a17068dbe9f343fd706b9",
+  "parent_preparation_measurements": [
+    {
+      "case_id": "d128-t256-f256-s7",
+      "generation_wall_seconds": 0.19202130008488894,
+      "quantization_wall_seconds": 0.08012320008128881,
+      "fixture_write_and_hash_wall_seconds": 0.19691519998013973,
+      "parent_reference_wall_seconds": 0.14974819996859878
+    },
+    {
+      "case_id": "d256-t256-f256-s7",
+      "generation_wall_seconds": 0.2590158999664709,
+      "quantization_wall_seconds": 0.11354310007300228,
+      "fixture_write_and_hash_wall_seconds": 0.9969707999844104,
+      "parent_reference_wall_seconds": 0.22179049998521805
+    }
+  ],
+  "worker_measurements": [
+    {
+      "method": "dense_float32",
+      "pid": 30012,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:47:55.942246+00:00",
+      "completed_utc": "2026-10-15T18:47:56.291248+00:00",
+      "loaded_input_array_bytes": 33816576,
+      "load_and_input_hash_wall_seconds": 0.1092818999895826,
+      "operator_wall_seconds": 0.043712500017136335,
+      "output_persist_and_hash_wall_seconds": 0.0033491000067442656,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34127872,
+          "resident_bytes": 33800192,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 67715072,
+          "resident_bytes": 67710976,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 101593088,
+          "resident_bytes": 68452352,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 101593088,
+          "resident_bytes": 68526080,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 101593088,
+      "resident_after_operator_bytes": 68452352,
+      "high_water_increment_from_post_import_bytes": 67465216,
+      "high_water_increment_from_post_load_bytes": 33878016,
+      "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+      "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 0,
+      "subprocess_wall_seconds": 1.0348493999335915,
+      "output_file": "outputs\\d128-t256-f256-s7--dense_float32--r1.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--dense_float32--r1.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 55880,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:47:56.748833+00:00",
+      "completed_utc": "2026-10-15T18:47:56.979832+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.02667520008981228,
+      "operator_wall_seconds": 0.06426730006933212,
+      "output_persist_and_hash_wall_seconds": 0.00373820005916059,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34082816,
+          "resident_bytes": 33787904,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42659840,
+          "resident_bytes": 42655744,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 110100480,
+          "resident_bytes": 76959744,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 110100480,
+          "resident_bytes": 77094912,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 110100480,
+      "resident_after_operator_bytes": 76959744,
+      "high_water_increment_from_post_import_bytes": 76017664,
+      "high_water_increment_from_post_load_bytes": 67440640,
+      "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+      "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 1,
+      "subprocess_wall_seconds": 0.6542668000329286,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_full_dequantize--r2.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_full_dequantize--r2.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 19936,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:47:57.407833+00:00",
+      "completed_utc": "2026-10-15T18:47:57.714833+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.026023800019174814,
+      "operator_wall_seconds": 0.16487139998935163,
+      "output_persist_and_hash_wall_seconds": 0.003310699947178364,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34258944,
+          "resident_bytes": 33939456,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42807296,
+          "resident_bytes": 42803200,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 52445184,
+          "resident_bytes": 43196416,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 52445184,
+          "resident_bytes": 43589632,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 52445184,
+      "resident_after_operator_bytes": 43196416,
+      "high_water_increment_from_post_import_bytes": 18186240,
+      "high_water_increment_from_post_load_bytes": 9637888,
+      "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+      "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 2,
+      "subprocess_wall_seconds": 0.740440099965781,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_tiled--r2.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_tiled--r2.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 42408,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:47:58.131832+00:00",
+      "completed_utc": "2026-10-15T18:47:58.441833+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.02505390008445829,
+      "operator_wall_seconds": 0.15714610007125884,
+      "output_persist_and_hash_wall_seconds": 0.004147699917666614,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34021376,
+          "resident_bytes": 33701888,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42586112,
+          "resident_bytes": 42582016,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 52150272,
+          "resident_bytes": 42967040,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 52150272,
+          "resident_bytes": 43294720,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 52150272,
+      "resident_after_operator_bytes": 42967040,
+      "high_water_increment_from_post_import_bytes": 18128896,
+      "high_water_increment_from_post_load_bytes": 9564160,
+      "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+      "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 3,
+      "subprocess_wall_seconds": 0.7191530999261886,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_tiled--r1.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_tiled--r1.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 28400,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:47:58.914833+00:00",
+      "completed_utc": "2026-10-15T18:47:59.239901+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.024417600012384355,
+      "operator_wall_seconds": 0.1384338999632746,
+      "output_persist_and_hash_wall_seconds": 0.0036761999363079667,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34377728,
+          "resident_bytes": 34054144,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42921984,
+          "resident_bytes": 42917888,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 52555776,
+          "resident_bytes": 43311104,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 52555776,
+          "resident_bytes": 43704320,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 52555776,
+      "resident_after_operator_bytes": 43311104,
+      "high_water_increment_from_post_import_bytes": 18178048,
+      "high_water_increment_from_post_load_bytes": 9633792,
+      "output_file_sha256": "dd976df7d0c2e1009667d53bb66783af022d44a5c8f16b03906107acdb0d7be5",
+      "output_array_sha256": "ef48763819528e759d6d1915c4cc95261f66371bc5363c7cc44866e5061cd48b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 4,
+      "subprocess_wall_seconds": 0.7791203999659047,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_tiled--r0.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_tiled--r0.json"
+    },
+    {
+      "method": "dense_float32",
+      "pid": 28876,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:47:59.631487+00:00",
+      "completed_utc": "2026-10-15T18:47:59.872103+00:00",
+      "loaded_input_array_bytes": 33816576,
+      "load_and_input_hash_wall_seconds": 0.09825229994021356,
+      "operator_wall_seconds": 0.038740199990570545,
+      "output_persist_and_hash_wall_seconds": 0.0030152000254020095,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34398208,
+          "resident_bytes": 34070528,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 68034560,
+          "resident_bytes": 68030464,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 101847040,
+          "resident_bytes": 68706304,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 101847040,
+          "resident_bytes": 68907008,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 101847040,
+      "resident_after_operator_bytes": 68706304,
+      "high_water_increment_from_post_import_bytes": 67448832,
+      "high_water_increment_from_post_load_bytes": 33812480,
+      "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+      "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 5,
+      "subprocess_wall_seconds": 0.6242983000120148,
+      "output_file": "outputs\\d128-t256-f256-s7--dense_float32--r0.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--dense_float32--r0.json"
+    },
+    {
+      "method": "dense_float32",
+      "pid": 22432,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:48:00.228103+00:00",
+      "completed_utc": "2026-10-15T18:48:00.440104+00:00",
+      "loaded_input_array_bytes": 33816576,
+      "load_and_input_hash_wall_seconds": 0.07911629998125136,
+      "operator_wall_seconds": 0.034157600020989776,
+      "output_persist_and_hash_wall_seconds": 0.00296920002438128,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34435072,
+          "resident_bytes": 34144256,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 68063232,
+          "resident_bytes": 68059136,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 101793792,
+          "resident_bytes": 68653056,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 101793792,
+          "resident_bytes": 68993024,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 101793792,
+      "resident_after_operator_bytes": 68653056,
+      "high_water_increment_from_post_import_bytes": 67358720,
+      "high_water_increment_from_post_load_bytes": 33730560,
+      "output_file_sha256": "afeac5cc7faca98ab9434397e3f7d52ec15fad762b929c8b43b3fed6f9544e62",
+      "output_array_sha256": "8950c634770d342ac00a036f4dca743cb9fbba59d57ff72ebd68d63524beb43b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 6,
+      "subprocess_wall_seconds": 0.5633642000611871,
+      "output_file": "outputs\\d128-t256-f256-s7--dense_float32--r2.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--dense_float32--r2.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 33832,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:00.796102+00:00",
+      "completed_utc": "2026-10-15T18:48:01.008102+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.026014999952167273,
+      "operator_wall_seconds": 0.06628000002820045,
+      "output_persist_and_hash_wall_seconds": 0.003818000084720552,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34230272,
+          "resident_bytes": 33923072,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42790912,
+          "resident_bytes": 42786816,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 110231552,
+          "resident_bytes": 77090816,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 110231552,
+          "resident_bytes": 77160448,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 110231552,
+      "resident_after_operator_bytes": 77090816,
+      "high_water_increment_from_post_import_bytes": 76001280,
+      "high_water_increment_from_post_load_bytes": 67440640,
+      "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+      "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 7,
+      "subprocess_wall_seconds": 0.5721916999900714,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_full_dequantize--r1.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_full_dequantize--r1.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 53452,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:01.395105+00:00",
+      "completed_utc": "2026-10-15T18:48:01.581102+00:00",
+      "loaded_input_array_bytes": 8781824,
+      "load_and_input_hash_wall_seconds": 0.023246499942615628,
+      "operator_wall_seconds": 0.05399229994509369,
+      "output_persist_and_hash_wall_seconds": 0.0028667000588029623,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34099200,
+          "resident_bytes": 33804288,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 42672128,
+          "resident_bytes": 42668032,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 110112768,
+          "resident_bytes": 76972032,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 110112768,
+          "resident_bytes": 77041664,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 110112768,
+      "resident_after_operator_bytes": 76972032,
+      "high_water_increment_from_post_import_bytes": 76013568,
+      "high_water_increment_from_post_load_bytes": 67440640,
+      "output_file_sha256": "0c240982ccd3ad403673e4fe72e51783c5af2b3bef499a0580547b7c029b322c",
+      "output_array_sha256": "428f38dd8fab928618dec9739cbcc02730191e9f35fdac0407b601295c9beb5b",
+      "case_id": "d128-t256-f256-s7",
+      "depth": 128,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 8,
+      "subprocess_wall_seconds": 0.5607036999426782,
+      "output_file": "outputs\\d128-t256-f256-s7--int8_full_dequantize--r0.npy",
+      "worker_record_file": "workers\\d128-t256-f256-s7--int8_full_dequantize--r0.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 38096,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:03.556741+00:00",
+      "completed_utc": "2026-10-15T18:48:03.834742+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.042928699986077845,
+      "operator_wall_seconds": 0.13494299992453307,
+      "output_persist_and_hash_wall_seconds": 0.0029946999857202172,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34160640,
+          "resident_bytes": 33861632,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51249152,
+          "resident_bytes": 51245056,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 186060800,
+          "resident_bytes": 119234560,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 186060800,
+          "resident_bytes": 119304192,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 186060800,
+      "resident_after_operator_bytes": 119234560,
+      "high_water_increment_from_post_import_bytes": 151900160,
+      "high_water_increment_from_post_load_bytes": 134811648,
+      "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+      "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 0,
+      "subprocess_wall_seconds": 0.6479131999658421,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_full_dequantize--r1.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_full_dequantize--r1.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 57476,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:04.215832+00:00",
+      "completed_utc": "2026-10-15T18:48:04.492659+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.05032099992968142,
+      "operator_wall_seconds": 0.12811059993691742,
+      "output_persist_and_hash_wall_seconds": 0.003382700029760599,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34168832,
+          "resident_bytes": 33845248,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51236864,
+          "resident_bytes": 51232768,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 186048512,
+          "resident_bytes": 119222272,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 186048512,
+          "resident_bytes": 119291904,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 186048512,
+      "resident_after_operator_bytes": 119222272,
+      "high_water_increment_from_post_import_bytes": 151879680,
+      "high_water_increment_from_post_load_bytes": 134811648,
+      "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+      "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 1,
+      "subprocess_wall_seconds": 0.6519641000777483,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_full_dequantize--r0.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_full_dequantize--r0.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 2752,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:04.876659+00:00",
+      "completed_utc": "2026-10-15T18:48:05.307660+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.04949110001325607,
+      "operator_wall_seconds": 0.2746035000309348,
+      "output_persist_and_hash_wall_seconds": 0.003322299919091165,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34246656,
+          "resident_bytes": 33943552,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51331072,
+          "resident_bytes": 51326976,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 60907520,
+          "resident_bytes": 51724288,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 60907520,
+          "resident_bytes": 52051968,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 60907520,
+      "resident_after_operator_bytes": 51724288,
+      "high_water_increment_from_post_import_bytes": 26660864,
+      "high_water_increment_from_post_load_bytes": 9576448,
+      "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+      "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 2,
+      "subprocess_wall_seconds": 0.8053701999597251,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_tiled--r0.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_tiled--r0.json"
+    },
+    {
+      "method": "int8_full_dequantize",
+      "pid": 24160,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:05.667264+00:00",
+      "completed_utc": "2026-10-15T18:48:05.928266+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.04319170000962913,
+      "operator_wall_seconds": 0.11480730003677309,
+      "output_persist_and_hash_wall_seconds": 0.0030860999831929803,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34242560,
+          "resident_bytes": 33947648,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51343360,
+          "resident_bytes": 51339264,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 186155008,
+          "resident_bytes": 119328768,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 186155008,
+          "resident_bytes": 119398400,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 186155008,
+      "resident_after_operator_bytes": 119328768,
+      "high_water_increment_from_post_import_bytes": 151912448,
+      "high_water_increment_from_post_load_bytes": 134811648,
+      "output_file_sha256": "2fd20dd897d306a9dbf041b7faa4fd7929e59cec8017eb8d2fbef550003b490f",
+      "output_array_sha256": "f676925b6f6981ca594f7e38b921cb2852d26cd8cfac64bb2c1d4fa725dc0893",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 3,
+      "subprocess_wall_seconds": 0.6234510999638587,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_full_dequantize--r2.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_full_dequantize--r2.json"
+    },
+    {
+      "method": "dense_float32",
+      "pid": 30140,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:48:06.325268+00:00",
+      "completed_utc": "2026-10-15T18:48:06.702264+00:00",
+      "loaded_input_array_bytes": 67371008,
+      "load_and_input_hash_wall_seconds": 0.18385799997486174,
+      "operator_wall_seconds": 0.07610499998554587,
+      "output_persist_and_hash_wall_seconds": 0.003110600053332746,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34385920,
+          "resident_bytes": 34091008,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 101609472,
+          "resident_bytes": 101605376,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 169238528,
+          "resident_bytes": 102412288,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 169238528,
+          "resident_bytes": 102486016,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 169238528,
+      "resident_after_operator_bytes": 102412288,
+      "high_water_increment_from_post_import_bytes": 134852608,
+      "high_water_increment_from_post_load_bytes": 67629056,
+      "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+      "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 0,
+      "case_job_order": 4,
+      "subprocess_wall_seconds": 0.7654317999258637,
+      "output_file": "outputs\\d256-t256-f256-s7--dense_float32--r0.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--dense_float32--r0.json"
+    },
+    {
+      "method": "dense_float32",
+      "pid": 2728,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:48:07.083264+00:00",
+      "completed_utc": "2026-10-15T18:48:07.442264+00:00",
+      "loaded_input_array_bytes": 67371008,
+      "load_and_input_hash_wall_seconds": 0.17051580001134425,
+      "operator_wall_seconds": 0.08252280007582158,
+      "output_persist_and_hash_wall_seconds": 0.0028798000421375036,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34197504,
+          "resident_bytes": 33894400,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 101412864,
+          "resident_bytes": 101408768,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 169041920,
+          "resident_bytes": 102215680,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 169041920,
+          "resident_bytes": 102289408,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 169041920,
+      "resident_after_operator_bytes": 102215680,
+      "high_water_increment_from_post_import_bytes": 134844416,
+      "high_water_increment_from_post_load_bytes": 67629056,
+      "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+      "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 5,
+      "subprocess_wall_seconds": 0.7359277999494225,
+      "output_file": "outputs\\d256-t256-f256-s7--dense_float32--r2.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--dense_float32--r2.json"
+    },
+    {
+      "method": "dense_float32",
+      "pid": 30196,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "bank"
+      ],
+      "started_utc": "2026-10-15T18:48:07.841264+00:00",
+      "completed_utc": "2026-10-15T18:48:08.201191+00:00",
+      "loaded_input_array_bytes": 67371008,
+      "load_and_input_hash_wall_seconds": 0.1712277999613434,
+      "operator_wall_seconds": 0.07512319996021688,
+      "output_persist_and_hash_wall_seconds": 0.003081799950450659,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34291712,
+          "resident_bytes": 33988608,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 101457920,
+          "resident_bytes": 101453824,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 169136128,
+          "resident_bytes": 102309888,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 169136128,
+          "resident_bytes": 102383616,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 169136128,
+      "resident_after_operator_bytes": 102309888,
+      "high_water_increment_from_post_import_bytes": 134844416,
+      "high_water_increment_from_post_load_bytes": 67678208,
+      "output_file_sha256": "e4b52770866b9909bb2e51ee2c204665934e07f7a16b59540591beb25e693ba6",
+      "output_array_sha256": "eee8bfb2d5a952214488fe220040e276948021e4c86699730c22a0c0e49d04c9",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 6,
+      "subprocess_wall_seconds": 0.7473659000825137,
+      "output_file": "outputs\\d256-t256-f256-s7--dense_float32--r1.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--dense_float32--r1.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 59388,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:08.555799+00:00",
+      "completed_utc": "2026-10-15T18:48:08.926800+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.04234570008702576,
+      "operator_wall_seconds": 0.2284176000393927,
+      "output_persist_and_hash_wall_seconds": 0.003035500063560903,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34320384,
+          "resident_bytes": 34037760,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51433472,
+          "resident_bytes": 51429376,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 60997632,
+          "resident_bytes": 51814400,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 60997632,
+          "resident_bytes": 51568640,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 60997632,
+      "resident_after_operator_bytes": 51814400,
+      "high_water_increment_from_post_import_bytes": 26677248,
+      "high_water_increment_from_post_load_bytes": 9564160,
+      "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+      "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 2,
+      "case_job_order": 7,
+      "subprocess_wall_seconds": 0.7160561999771744,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_tiled--r2.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_tiled--r2.json"
+    },
+    {
+      "method": "int8_tiled",
+      "pid": 10652,
+      "platform": {
+        "system": "Windows",
+        "release": "10",
+        "machine": "AMD64",
+        "python": "3.12.14",
+        "numpy": "2.3.5",
+        "byteorder": "little"
+      },
+      "loaded_arrays": [
+        "query",
+        "packed",
+        "scales"
+      ],
+      "started_utc": "2026-10-15T18:48:09.277799+00:00",
+      "completed_utc": "2026-10-15T18:48:09.666770+00:00",
+      "loaded_input_array_bytes": 17301504,
+      "load_and_input_hash_wall_seconds": 0.04329089995007962,
+      "operator_wall_seconds": 0.24691450002137572,
+      "output_persist_and_hash_wall_seconds": 0.003122700029052794,
+      "memory": {
+        "post_import_before_input": {
+          "peak_bytes": 34451456,
+          "resident_bytes": 34156544,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_input_load": {
+          "peak_bytes": 51544064,
+          "resident_bytes": 51539968,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_operator": {
+          "peak_bytes": 61108224,
+          "resident_bytes": 51924992,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        },
+        "after_output_persist": {
+          "peak_bytes": 61108224,
+          "resident_bytes": 51699712,
+          "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+          "native_peak_units": "bytes"
+        }
+      },
+      "process_peak_bytes": 61108224,
+      "resident_after_operator_bytes": 51924992,
+      "high_water_increment_from_post_import_bytes": 26656768,
+      "high_water_increment_from_post_load_bytes": 9564160,
+      "output_file_sha256": "b7ace6875b1b1b23f1552647e56b4b1c52cb0d7a5fc4a48cadb6a1f5f6af5d3b",
+      "output_array_sha256": "eef3908a85a8831dcfb69b53c1ccb0bee7ee96eff35f142f516eff0cc6014cc5",
+      "case_id": "d256-t256-f256-s7",
+      "depth": 256,
+      "seed": 7,
+      "repeat": 1,
+      "case_job_order": 8,
+      "subprocess_wall_seconds": 0.7350861999439076,
+      "output_file": "outputs\\d256-t256-f256-s7--int8_tiled--r1.npy",
+      "worker_record_file": "workers\\d256-t256-f256-s7--int8_tiled--r1.json"
+    }
+  ],
+  "all_numerical_checks_passed": true,
+  "limitations": [
+    "Synthetic random inference-only banks and one seeded shared query. No real activations, learned pseudo-query, training/backward, model quality, GPU or upstream AttnRes implementation is measured.",
+    "Inputs are prepacked once in the parent. Worker timing excludes fixture generation, quantization, input loading and output persistence; these costs are recorded separately. This is not per-step quantization or a deployable activation/retention system.",
+    "Every method/case/repeat uses a fresh Python process. Int8 workers load only packed values, scales and query, never the dense float bank. No memory mapping is used.",
+    "Process peak is an OS lifetime high-water resident/working-set measurement sampled after output persistence, before final metadata serialization/exit. It includes Python/NumPy imports, input buffers, allocator behavior, temporaries and output storage; it is not precise operator-only allocation or GPU peak memory.",
+    "Post-import and post-load high-water increments are differences between lifetime maxima, not isolated operator peaks. Freed or cached allocations, page residency, OS scheduling and system load affect observations.",
+    "Linux uses procfs VmHWM/VmRSS in KiB converted to bytes; ru_maxrss is retained only as a diagnostic. If procfs is unavailable, the fallback ru_maxrss can contain an inherited pre-exec high-water and current RSS is unavailable. Darwin ru_maxrss uses bytes. Windows uses GetProcessMemoryInfo PeakWorkingSetSize and WorkingSetSize in bytes.",
+    "The full-int8 path retains packed inputs and creates a complete float32 dequantized bank before the existing full_mix; construction/quantization was excluded. The tiled path makes two passes, recomputes RMSNorm/logits, and accumulates weighted sums in float64. No latency or memory improvement threshold is assumed.",
+    "Worker order is deterministically shuffled within each shape/seed to interleave methods and repeats. This reduces simple fixed-order bias but does not control temperature, background work or OS allocator differences. At most three repeats are descriptive, not statistical performance guarantees.",
+    "Fixture/output and code/config hashes identify numerical evidence. The stable result hash excludes timing, memory, process IDs and platform scheduling; the full observation hash includes variable measurements. Exact numerical hashes can differ across NumPy/platform versions even when tolerance checks pass."
+  ],
+  "observation_sha256": "9cbf53df6e3c899381f4ef72c862ff45d168ba7cd11124bbe95f8dd71be3b793"
+}

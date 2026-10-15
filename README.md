@@ -20,6 +20,8 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 北京时间 10 月 16 日跟进：OpenClaw 恢复 PR 已合并；FLA 的公开 commit 新增 CP 输出/梯度与布局对照；verifiers 新提案细化取证、评分与关闭 session 的顺序。本轮更新真实旧态升级和服务生命周期的验证门槛，新增实验为 0。见[研究判断与证据边界](research/2026-10-16-lifecycle-and-cp.md)。
 
+随后完成 **AttnRes memory probe**：用独立进程实测 dense、完整 int8 反量化与分块 int8 的 CPU 内存峰值和耗时，并对照输出误差。测量包含解释器、输入和分配器；预先打包的合成 bank 不包含训练、反向或 GPU 成本。pi / OpenClaw 的新上下文修复与可复查边界见[内存实测与上下文跟进](research/2026-10-16-memory-and-context.md)。
+
 ## 快速运行
 
 需要 Python 3.11+；pi 适配器实验、完整测试和一键复现另需 Node.js 24.19+。在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。
@@ -27,6 +29,7 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 ```bash
 python -m pip install -r requirements.txt
 python experiments/attnres_budget_probe.py --output results/attnres-budget
+python experiments/attnres_memory_probe.py --output results/attnres-memory
 python experiments/recovery_contract_probe.py --output results/recovery-contract
 python experiments/sqlite_migration_probe.py --output results/sqlite-migration
 node experiments/pi_adapter_queue_probe.mjs --output results/pi-adapter-queue
@@ -55,11 +58,12 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 | 实验 | 已运行的范围 | 可复查结果 |
 | --- | --- | --- |
 | AttnRes budget | 2 深度 × 3 分布 × 2 query × 3 seeds × 7 策略，252 条测量 | [完整表格](results/attnres-budget.md) / [原始 JSON](results/attnres-budget.json) |
+| AttnRes memory | 预打包合成 bank；每个方法/形状/seed 在独立进程中测 CPU 内存与耗时 | [实测报告](results/attnres-memory/report.md) / [轨迹与 hash](results/attnres-memory/probe.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 | pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
 
-一键重跑测试、四个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。
+一键重跑测试、五个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-15T20:51:32.779186+00:00",
-  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution. The 18:30 UTC pass adds one original CPU process-memory/timing probe. The 20:35 UTC pass executes complete unchanged pi context modules against their authentic parent without runtime stubs, and independently audits public OpenClaw process-test logs; no local Gateway execution. Upstream kernel/harness claims remain separately classified.",
+  "last_updated_at": "2026-10-15T22:40:39.432575+00:00",
+  "observation_note": "Initial pass sources lack individual fetch timestamps. Follow-ups record exact intervals where instrumented and explicit broad bounds otherwise; source event dates are never substituted for fetch times. The 14:31 UTC pass executes only the pinned pi adapter primitive under an explicit unused-dependency substitution. The 18:30 UTC pass adds one original CPU process-memory/timing probe. The 20:35 UTC pass executes complete unchanged pi context modules against their authentic parent without runtime stubs, and independently audits public OpenClaw process-test logs; no local Gateway execution. Upstream kernel/harness claims remain separately classified. The22:32UTC pass verifies newly merged2866 and three OpenClaw lifecycle/lease patches, with source/test assertions only and zero new local experiments; author benchmark aggregates and old-head CI remain separate.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -430,10 +430,12 @@
         "end": "2026-10-15T16:34:37.6845825Z"
       },
       "pr_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2866",
-      "claim": "PR2866 proposes normal same-box finalize/collect/score before harness close, isolated collection before close and independent grading afterward, and close-first on timeout/stop. Three changed files contain rollout/docs and no regression-test changes. Source read, no runtime execution or accepted design established.",
+      "claim": "At the original16:34UTC observation: PR2866 proposes normal same-box finalize/collect/score before harness close, isolated collection before close and independent grading afterward, and close-first on timeout/stop. Three changed files contain rollout/docs and no regression-test changes. Source read, no runtime execution or accepted design established.",
       "status": "proposal_and_full_changed_file_list_read_not_executed",
       "repository_public": true,
-      "license_metadata": "MIT"
+      "license_metadata": "MIT",
+      "historical_observation": true,
+      "superseded_by": "verifiers-session-lifetime-merged"
     },
     {
       "id": "verifiers-session-e2e-claim",
@@ -726,6 +728,118 @@
       "current_validation_limit": "PR body says prior27-case pre-review suite passed and28-case rerun is pending. Existing speed/memory tables predate this correction and are author claims.",
       "routing_and_tradeoff": "No-gradient NVIDIA sm80+,nh>=2,K<=64,V<=128 only; training,CP,default layerK256/V512 excluded. Author reports1.35–2.1x extra workspace despite faster selected forward; no general memory reduction.",
       "relation_to_h1": "Adjacent gated-DeltaProduct correctness signal, not KDA-original-author work or H1 matched-training evidence."
+    },
+    {
+      "id": "verifiers-session-lifetime-merged",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/2a3ddf7725f655cb7ea14fc9f10195221fa3ed1a",
+      "type": "merged_commit_and_current_source",
+      "author": "hallerite",
+      "author_association": "MEMBER",
+      "merged_by": "xeophon",
+      "published_at": "2026-10-15T21:17:48Z",
+      "published_at_kind": "PR merged_at; commit timestamp recorded separately in immutable commit API",
+      "observed_interval": {
+        "start": "2026-10-15T22:33:58.869220Z",
+        "end": "2026-10-15T22:36:14.873684Z"
+      },
+      "pr_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2866",
+      "head_sha": "f144485317dd96863ab096b8251b26482b55b346",
+      "merge_commit": "2a3ddf7725f655cb7ea14fc9f10195221fa3ed1a",
+      "claim": "PR2866 is merged. Current merged source implements completion-dependent finalize/collection/scoring/close order; all three changed-file patches read. Four lifecycle methods equal the old PR head, but the whole rollout module differs by inherited original-runtime-policy resolution. Close errors are logged; quiescence is not independently established. No new test file or local upstream execution. Old-head CI metadata and unchanged author150task aggregate are not final-tree or benchmark validation.",
+      "status": "merged_source_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
+      "pr_metadata_observed_interval": {
+        "start": "2026-10-15T22:33:58.869220Z",
+        "end": "2026-10-15T22:34:00.494233Z"
+      },
+      "observed_interval_note": "Instrumented source retrieval interval including PR metadata and relevant merge/module reads; individual review reasoning times are not measured.",
+      "commit_committer_at": "2026-10-15T21:17:47Z"
+    },
+    {
+      "id": "openclaw-advisor-stale-guidance",
+      "url": "https://github.com/openclaw/openclaw/commit/330c27ed6342b371c18839d895d12adb83780192",
+      "type": "merged_commit_and_current_source",
+      "author": "obviyus",
+      "author_association": "COLLABORATOR",
+      "merged_by": "obviyus",
+      "published_at": "2026-10-15T22:05:11Z",
+      "published_at_kind": "PR merged_at; commit timestamp recorded separately in immutable commit API",
+      "observed_interval": {
+        "start": "2026-10-15T22:34:38.301976Z",
+        "end": "2026-10-15T22:35:20.582297Z"
+      },
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173459",
+      "head_sha": "1fac8ffa6712a750e19ceca75cd3eaa755bd5323",
+      "merge_commit": "330c27ed6342b371c18839d895d12adb83780192",
+      "claim": "Merged source cancels old Advisor review on aborted terminal events or a successor user run; duplicate steering is a terminal no-op rather than fallback queueing. Patch/test assertions read, no local execution or independent campaign audit.",
+      "status": "merged_source_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
+      "pr_metadata_observed_interval": {
+        "start": "2026-10-15T22:34:38.301976Z",
+        "end": "2026-10-15T22:34:40.069966Z"
+      },
+      "observed_interval_note": "Instrumented source retrieval interval including PR metadata and relevant merge/module reads; individual review reasoning times are not measured.",
+      "commit_committer_at": "2026-10-15T22:05:10Z"
+    },
+    {
+      "id": "openclaw-fork-preparation-continuity",
+      "url": "https://github.com/openclaw/openclaw/commit/4d1320586e4574b0d207031531d7cb791b9fb9e0",
+      "type": "merged_commit_and_current_source",
+      "author": "obviyus",
+      "author_association": "COLLABORATOR",
+      "merged_by": "obviyus",
+      "published_at": "2026-10-15T22:04:49Z",
+      "published_at_kind": "PR merged_at; commit timestamp recorded separately in immutable commit API",
+      "observed_interval": {
+        "start": "2026-10-15T22:34:38.317978Z",
+        "end": "2026-10-15T22:35:20.802238Z"
+      },
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173489",
+      "head_sha": "5912dc932993a10a97f869d53acfc3c505e1432d",
+      "merge_commit": "4d1320586e4574b0d207031531d7cb791b9fb9e0",
+      "claim": "Merged source retains the last committed prepared snapshot during asynchronous replacement within the same run/transport. New run/transport and reset still revoke stale preparation. Controlled deferred-transport test assertions read, no local execution or campaign validation.",
+      "status": "merged_source_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
+      "pr_metadata_observed_interval": {
+        "start": "2026-10-15T22:34:38.317978Z",
+        "end": "2026-10-15T22:34:40.069966Z"
+      },
+      "observed_interval_note": "Instrumented source retrieval interval including PR metadata and relevant merge/module reads; individual review reasoning times are not measured.",
+      "commit_committer_at": "2026-10-15T22:04:48Z"
+    },
+    {
+      "id": "openclaw-lease-maintenance-release",
+      "url": "https://github.com/openclaw/openclaw/commit/5a56a45999dff95591b5ada6e87ecebfff17b558",
+      "type": "merged_commit_and_current_source",
+      "author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "published_at": "2026-10-15T22:18:06Z",
+      "published_at_kind": "PR merged_at; commit timestamp recorded separately in immutable commit API",
+      "observed_interval": {
+        "start": "2026-10-15T22:34:38.320976Z",
+        "end": "2026-10-15T22:35:21.721940Z"
+      },
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173213",
+      "head_sha": "f6b20e0c2d37eb51193ca4c5352f130593b7f535",
+      "merge_commit": "5a56a45999dff95591b5ada6e87ecebfff17b558",
+      "claim": "Merged source adds typed maintenance contention to the existing bounded lease-release retry condition. It retries release without replaying the operation callback; mixed/nonqualifying errors remain refusal controls. Source tests use controlled clock/callback fixtures; no local upstream run or whole Gateway/UI incident reconstruction.",
+      "status": "merged_source_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
+      "pr_metadata_observed_interval": {
+        "start": "2026-10-15T22:34:38.320976Z",
+        "end": "2026-10-15T22:34:40.087763Z"
+      },
+      "observed_interval_note": "Instrumented source retrieval interval including PR metadata and relevant merge/module reads; individual review reasoning times are not measured.",
+      "commit_committer_at": "2026-10-15T22:18:05Z"
     }
   ]
 }

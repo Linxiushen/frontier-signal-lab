@@ -22,7 +22,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 随后完成 **AttnRes memory probe**：用独立进程实测 dense、完整 int8 反量化与分块 int8 的 CPU 内存峰值和耗时，并对照输出误差。测量包含解释器、输入和分配器；预先打包的合成 bank 不包含训练、反向或 GPU 成本。pi / OpenClaw 的新上下文修复与可复查边界见[内存实测与上下文跟进](research/2026-10-16-memory-and-context.md)。
 
-最新跟进：执行 pi 修复前后两个完整、未修改的上下文转换模块，检查模型身份切换、thinking 和工具消息边界；无运行时依赖替身。Peter 新合并的停机恢复实现让 H2 进一步聚焦未完成任务的持久归属、停止/重置语义与跨进程进度。上游 CI 的失败和已核验测试日志单独记录，见[上下文实验与停机恢复证据](research/2026-10-16-context-and-shutdown.md)。
+上一轮跟进：执行 pi 修复前后两个完整、未修改的上下文转换模块，检查模型身份切换、thinking 和工具消息边界；无运行时依赖替身。Peter 新合并的停机恢复实现让 H2 进一步聚焦未完成任务的持久归属、停止/重置语义与跨进程进度。上游 CI 的失败和已核验测试日志单独记录，见[上下文实验与停机恢复证据](research/2026-10-16-context-and-shutdown.md)。
+
+最新跟进：verifiers 的服务生命周期 PR2866 已合并，H4 从提案跟踪转入实际合并版本的评分/失败分支验证。OpenClaw 的旧建议撤销、同轮次快照替换和 lease 释放重试进一步细化 H2 的版本与活性边界。本轮新增实验为 0，作者汇总效果仍待独立验证；见[服务生命周期与下一实验门槛](research/2026-10-16-verifier-service-lifetime.md)。
 
 ## 快速运行
 

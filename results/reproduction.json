@@ -1,6 +1,7 @@
 {
   "python": "3.12.14",
   "numpy": "2.3.5",
+  "sqlite": "3.53.1",
   "platform": "Windows",
   "commands": [
     [
@@ -23,11 +24,18 @@
       "experiments/recovery_contract_probe.py",
       "--output",
       "results/recovery-contract"
+    ],
+    [
+      "python",
+      "experiments/sqlite_migration_probe.py",
+      "--output",
+      "results/sqlite-migration"
     ]
   ],
   "sha256": {
     "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
-    "experiments/recovery_contract_probe.py": "7a0570d657dd215356c9ac53c99aacb5c6ab6aba1e9bf3f1b43df05d77829727",
+    "experiments/recovery_contract_probe.py": "2b6b97366f75d0321bee72e3ee1013a2cb8225a0be1ed4eab67df7005f01f1ac",
+    "experiments/sqlite_migration_probe.py": "24fc901874b13a5693fcbefb22ce0f400f5db5a976af223ce9ce1478a667ed29",
     "frontier_radar/__init__.py": "743b647805bb69aaca088c6c37e6aeab69386594f5e38a069eaa8376f3bf4274",
     "frontier_radar/__main__.py": "4119c6278f4c05f63229163559d7dcb9f22c2278a5c9831429f626be3318910f",
     "frontier_radar/scan.py": "6e2759c72463086229e50fd49ea6081ae8572a5ecb09d56080d566411eafb509",
@@ -45,12 +53,40 @@
     "results/recovery-contract/counterexamples/naive_callback_before_persist--message_crash_cut_3.json": "b29bb7cd44af9f43a7791d08dc3221d1c3e41c624e6d2c6db722c5fced66c406",
     "results/recovery-contract/counterexamples/naive_callback_before_persist--scoring_failure_then_success.json": "e467cb5fa2300e66999e91058a3b4ddf9d3f5774442858ba94e806017e53ac08",
     "results/recovery-contract/counterexamples/naive_callback_before_persist--terminal_retry_after_restart.json": "097938099a6364675e30d42109bbdb0fdbd55ae900aaeb7975aedd7a53a04671",
-    "results/recovery-contract/probe.json": "7d310bfad61641fe5757344caf1eb830e7fbb6446828f9161707b1152abe7285",
-    "results/recovery-contract/report.md": "7dce13707a7a645e5d0f96009e21c7ea715079d54ad9ca2b0b98b8a61b65a82f",
-    "scripts/reproduce.py": "8ffff613f90ca1422506d6dd58dc728e5ffbeede2609171326121fc473b5a8d9",
+    "results/recovery-contract/probe.json": "c9e59ea83bcf2dd8b116bda2ef947aef122df3758f59867a5fc603967ca6a664",
+    "results/recovery-contract/report.md": "1ddffd5f0ec1d24d9d14de55d415ac692c2f61ca8af884fd854d51e81f025e46",
+    "results/sqlite-migration/counterexamples/silent_skip--after_commit.json": "94ce254ca191f6a4d34a4bfd338d9ba3fc1fa437a3da4b853b58ef37bff73c93",
+    "results/sqlite-migration/counterexamples/silent_skip--after_diagnostic_step.json": "488322285ebfd3aa984b29a8fe4073374980cbde575c9f67aac1460c9b680f85",
+    "results/sqlite-migration/counterexamples/silent_skip--after_row_write.json": "a635e5902d954ab2bb9af370390f72de963fa7be8fbca26ecb977803b5b65dae",
+    "results/sqlite-migration/counterexamples/silent_skip--before_commit.json": "e660ff842ca6394142173ea66f428dd247cbb7bcfc5ae57ee5b1bb39ebfbee53",
+    "results/sqlite-migration/counterexamples/silent_skip--none.json": "9327cff8ac849c04b79cc57f7d48cc60d4315d3c084e572bdccef5ecf1e58ab5",
+    "results/sqlite-migration/probe.json": "f6813cd75416fc26670269dad20df42d55e059250e3f494ff358dd13877dde68",
+    "results/sqlite-migration/report.md": "5832806d716b31f1dc5b12858d97dac35accc93cd534c113ade01fc1d54080b2",
+    "results/sqlite-migration/sql/silent_skip--after_commit--after_fault.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--after_commit--after_recovery.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--after_diagnostic_step--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/silent_skip--after_diagnostic_step--after_recovery.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--after_row_write--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/silent_skip--after_row_write--after_recovery.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--before_commit--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/silent_skip--before_commit--after_recovery.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--none--after_fault.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/silent_skip--none--after_recovery.sql": "af0bc62b5214acbda17fd9a5ced50487e0e8021f46611ff7627228421c4a2947",
+    "results/sqlite-migration/sql/warn_preserve--after_commit--after_fault.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--after_commit--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--after_diagnostic_step--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/warn_preserve--after_diagnostic_step--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--after_row_write--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/warn_preserve--after_row_write--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--before_commit--after_fault.sql": "23a0392b7a19f39b93343b5b9352356c632d2381eb68cafe2f58425f72de0f16",
+    "results/sqlite-migration/sql/warn_preserve--before_commit--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--none--after_fault.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "results/sqlite-migration/sql/warn_preserve--none--after_recovery.sql": "82775473656a214e817ea6446c310395843a876c6acf87b9e050b2166ae73015",
+    "scripts/reproduce.py": "40a6436793fe21b0079d36ee3a39e2ee20fd9d0702a123bd9d5ca2f916ce928e",
     "tests/test_attnres_budget_probe.py": "f464f78f551ec618cd97a9919dad120183c5d83c6ad57122e9e55e9c1a5075d2",
     "tests/test_recovery_contract_probe.py": "d5c24f03c0e3abf09c4ddd1b76b7453576804ea79fcf3a4c4ac598e68f795503",
-    "tests/test_scan.py": "51f57d8dbeb95055b8236a4c051a78fc72f597fd4a65759ee00da6d4483eeb97"
+    "tests/test_scan.py": "51f57d8dbeb95055b8236a4c051a78fc72f597fd4a65759ee00da6d4483eeb97",
+    "tests/test_sqlite_migration.py": "7688d33ef44f8f5eab42dca4d9fb2d0cd4df8ff066f07fa2c5991d2097fd2398"
   },
-  "scope": "Exact local checks and synthetic probes; excludes live GitHub data. Float rounding can differ across NumPy/BLAS platforms."
+  "scope": "Exact local checks, synthetic probes and an independent real-SQLite migration contract experiment; excludes live GitHub data and upstream execution. Float rounding can differ across NumPy/BLAS platforms."
 }

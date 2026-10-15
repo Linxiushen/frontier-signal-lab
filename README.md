@@ -14,6 +14,8 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 - 第二个可运行实验：**Recovery contract probe**。用明确的事件轨迹注入崩溃、重复回执和上下文压缩并发，比较三种恢复协议。
 - 其他优先切口：自动研究的封闭终评、RL 环境的可验证奖励。详见[研究判断与证伪条件](research/2026-10-15-frontier.md)。
 
+本日跟进：Peter 的 OpenClaw 未合并 PR 新增异常 binding 诊断与保留测试；本项目据此完成独立的真实 SQLite 迁移/崩溃恢复实验。静默跳过与报警两组都保留原记录，但“诊断干净”与“工作完成”不能等同。时间线、来源变化及边界见 [H2 跟进](research/2026-10-15-h2-sqlite.md)。
+
 ## 快速运行
 
 需要 Python 3.11+；在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。
@@ -22,6 +24,7 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 python -m pip install -r requirements.txt
 python experiments/attnres_budget_probe.py --output results/attnres-budget
 python experiments/recovery_contract_probe.py --output results/recovery-contract
+python experiments/sqlite_migration_probe.py --output results/sqlite-migration
 python -m unittest discover -s tests -v
 
 # 明确最近 7 天的有界采样；失败和截断会记录在报告中
@@ -48,12 +51,15 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 | --- | --- | --- |
 | AttnRes budget | 2 深度 × 3 分布 × 2 query × 3 seeds × 7 策略，252 条测量 | [完整表格](results/attnres-budget.md) / [原始 JSON](results/attnres-budget.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
+| SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 
-一键重跑测试、两个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、配置和 SHA256。
+一键重跑测试、三个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、配置和 SHA256。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 
 恢复实验中，持久化先于 ACK / hook 消除了所枚举的已确认消息丢失，但单独这一步没有解决旧上下文、重复完成、终止重试复活和失败证据丢失。带版本、幂等回执与终止记录的协议通过本次有限场景；这不是生产可靠性证明。
+
+该状态机也没有完整的已接受任务/完成结果账本，五项安全指标可能漏掉任务进度丢失。SQLite 实验另外报告未分类、阻塞与未完成工作；报警不会自动修复坏数据，runnable 也不是已完成。
 
 ## 证据规则
 

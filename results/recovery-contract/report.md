@@ -17,6 +17,7 @@ These are violation counts across enumerated traces, not estimated probabilities
 - The versioned receipt and effect update is atomic in one local store; external exactly-once effects require their own transaction or idempotency key.
 - Only acknowledged messages are covered by the loss metric. All protocols may lose generated messages crashed before persistence.
 - A stale turn means committing after compaction using the previous context version.
+- No durable accepted-turn/completed-result ledger is modeled. A discarded or crash-lost queued turn can escape all five safety metrics; zero violations does not establish liveness.
 - Scoring failure evidence is required only after an observed score_fail event; a pre-journal crash has no magical evidence recovery.
 - Counts summarize this finite deterministic scenario suite; they are not real-world failure rates or model capability scores.
 

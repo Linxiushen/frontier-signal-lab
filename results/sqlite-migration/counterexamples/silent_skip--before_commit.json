@@ -1,0 +1,380 @@
+{
+  "policy": "silent_skip",
+  "crashpoint": "before_commit",
+  "worker_exit_code": 86,
+  "transaction_atomic": true,
+  "replay_idempotent": true,
+  "metrics": {
+    "accepted_obligations_total": 6,
+    "visible_obligations": 6,
+    "missing_obligations": 0,
+    "accepted_obligations_current": 3,
+    "runnable_obligations": 1,
+    "blocked_obligations": 2,
+    "done_obligations": 0,
+    "unresolved_obligations": 6,
+    "invalid_binding_rows": 3,
+    "invalid_rows_without_warning": 3,
+    "invalid_rows_accepted_into_bindings": 0,
+    "false_clean": true,
+    "original_rows_preserved": true,
+    "original_rows_sha256": "8bc1f78f578a5081e6a7f42e330b37067afe012ed5b2e2ee78b49f876c925b37",
+    "unknown_evidence_newly_retired": 0,
+    "diagnostic_status": "clean",
+    "schema_version": 1
+  },
+  "snapshots": {
+    "before": {
+      "legacy_bindings": [
+        {
+          "binding_id": "01-valid",
+          "value_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "02-missing",
+          "value_json": "{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "03-truncated",
+          "value_json": "{\"version\":1,\"assignment_id\":"
+        },
+        {
+          "binding_id": "04-version",
+          "value_json": "{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "value_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "value_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "obligations": [
+        {
+          "task_id": "task-missing",
+          "binding_id": "02-missing",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-terminal",
+          "binding_id": "06-terminal",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-truncated",
+          "binding_id": "03-truncated",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-unknown",
+          "binding_id": "05-unknown",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-valid",
+          "binding_id": "01-valid",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-version",
+          "binding_id": "04-version",
+          "state": "accepted",
+          "reason": null
+        }
+      ],
+      "bindings": [],
+      "warnings": [],
+      "migration_state": [
+        {
+          "id": 1,
+          "version": 0,
+          "diagnostic_status": "not_run",
+          "policy": null
+        }
+      ]
+    },
+    "after_fault": {
+      "legacy_bindings": [
+        {
+          "binding_id": "01-valid",
+          "value_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "02-missing",
+          "value_json": "{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "03-truncated",
+          "value_json": "{\"version\":1,\"assignment_id\":"
+        },
+        {
+          "binding_id": "04-version",
+          "value_json": "{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "value_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "value_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "obligations": [
+        {
+          "task_id": "task-missing",
+          "binding_id": "02-missing",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-terminal",
+          "binding_id": "06-terminal",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-truncated",
+          "binding_id": "03-truncated",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-unknown",
+          "binding_id": "05-unknown",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-valid",
+          "binding_id": "01-valid",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-version",
+          "binding_id": "04-version",
+          "state": "accepted",
+          "reason": null
+        }
+      ],
+      "bindings": [],
+      "warnings": [],
+      "migration_state": [
+        {
+          "id": 1,
+          "version": 0,
+          "diagnostic_status": "not_run",
+          "policy": null
+        }
+      ]
+    },
+    "after_recovery": {
+      "legacy_bindings": [
+        {
+          "binding_id": "01-valid",
+          "value_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "02-missing",
+          "value_json": "{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "03-truncated",
+          "value_json": "{\"version\":1,\"assignment_id\":"
+        },
+        {
+          "binding_id": "04-version",
+          "value_json": "{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "value_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "value_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "obligations": [
+        {
+          "task_id": "task-missing",
+          "binding_id": "02-missing",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-terminal",
+          "binding_id": "06-terminal",
+          "state": "blocked",
+          "reason": "terminal_binding"
+        },
+        {
+          "task_id": "task-truncated",
+          "binding_id": "03-truncated",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-unknown",
+          "binding_id": "05-unknown",
+          "state": "blocked",
+          "reason": "unknown_requester_evidence"
+        },
+        {
+          "task_id": "task-valid",
+          "binding_id": "01-valid",
+          "state": "runnable",
+          "reason": null
+        },
+        {
+          "task_id": "task-version",
+          "binding_id": "04-version",
+          "state": "accepted",
+          "reason": null
+        }
+      ],
+      "bindings": [
+        {
+          "binding_id": "01-valid",
+          "assignment_id": "task-valid",
+          "state": "active",
+          "payload_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "assignment_id": "task-unknown",
+          "state": "active",
+          "payload_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "assignment_id": "task-terminal",
+          "state": "retired",
+          "payload_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "warnings": [],
+      "migration_state": [
+        {
+          "id": 1,
+          "version": 1,
+          "diagnostic_status": "clean",
+          "policy": "silent_skip"
+        }
+      ]
+    },
+    "after_replay": {
+      "legacy_bindings": [
+        {
+          "binding_id": "01-valid",
+          "value_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "02-missing",
+          "value_json": "{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "03-truncated",
+          "value_json": "{\"version\":1,\"assignment_id\":"
+        },
+        {
+          "binding_id": "04-version",
+          "value_json": "{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "value_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "value_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "obligations": [
+        {
+          "task_id": "task-missing",
+          "binding_id": "02-missing",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-terminal",
+          "binding_id": "06-terminal",
+          "state": "blocked",
+          "reason": "terminal_binding"
+        },
+        {
+          "task_id": "task-truncated",
+          "binding_id": "03-truncated",
+          "state": "accepted",
+          "reason": null
+        },
+        {
+          "task_id": "task-unknown",
+          "binding_id": "05-unknown",
+          "state": "blocked",
+          "reason": "unknown_requester_evidence"
+        },
+        {
+          "task_id": "task-valid",
+          "binding_id": "01-valid",
+          "state": "runnable",
+          "reason": null
+        },
+        {
+          "task_id": "task-version",
+          "binding_id": "04-version",
+          "state": "accepted",
+          "reason": null
+        }
+      ],
+      "bindings": [
+        {
+          "binding_id": "01-valid",
+          "assignment_id": "task-valid",
+          "state": "active",
+          "payload_json": "{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "05-unknown",
+          "assignment_id": "task-unknown",
+          "state": "active",
+          "payload_json": "{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}"
+        },
+        {
+          "binding_id": "06-terminal",
+          "assignment_id": "task-terminal",
+          "state": "retired",
+          "payload_json": "{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}"
+        }
+      ],
+      "warnings": [],
+      "migration_state": [
+        {
+          "id": 1,
+          "version": 1,
+          "diagnostic_status": "clean",
+          "policy": "silent_skip"
+        }
+      ]
+    }
+  },
+  "snapshot_sha256": {
+    "before": "bd3eb9f04d38eda447e85e14f290e7054afffe15c909de24c74ecbc12ab565cb",
+    "after_fault": "bd3eb9f04d38eda447e85e14f290e7054afffe15c909de24c74ecbc12ab565cb",
+    "after_recovery": "5bff17cb93d23730454563ca2f56d4a3bbac74834e0ff6a9f787c632c9b82b54",
+    "after_replay": "5bff17cb93d23730454563ca2f56d4a3bbac74834e0ff6a9f787c632c9b82b54"
+  },
+  "sql_snapshots": {
+    "after_fault": "BEGIN TRANSACTION;\nCREATE TABLE bindings(binding_id TEXT PRIMARY KEY, assignment_id TEXT NOT NULL UNIQUE,\n          state TEXT NOT NULL CHECK(state IN ('active','retired')), payload_json TEXT NOT NULL,\n          FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nCREATE TABLE legacy_bindings(binding_id TEXT PRIMARY KEY, value_json TEXT NOT NULL);\nINSERT INTO \"legacy_bindings\" VALUES('01-valid','{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('02-missing','{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('03-truncated','{\"version\":1,\"assignment_id\":');\nINSERT INTO \"legacy_bindings\" VALUES('04-version','{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}');\nINSERT INTO \"legacy_bindings\" VALUES('05-unknown','{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('06-terminal','{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nCREATE TABLE migration_state(id INTEGER PRIMARY KEY CHECK(id=1), version INTEGER NOT NULL,\n          diagnostic_status TEXT NOT NULL, policy TEXT);\nINSERT INTO \"migration_state\" VALUES(1,0,'not_run',NULL);\nCREATE TABLE obligations(task_id TEXT PRIMARY KEY, binding_id TEXT NOT NULL,\n          state TEXT NOT NULL CHECK(state IN ('accepted','runnable','blocked','done')),\n          reason TEXT, FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nINSERT INTO \"obligations\" VALUES('task-valid','01-valid','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-missing','02-missing','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-truncated','03-truncated','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-version','04-version','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-unknown','05-unknown','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-terminal','06-terminal','accepted',NULL);\nCREATE TABLE warnings(binding_id TEXT PRIMARY KEY, code TEXT NOT NULL,\n          original_sha256 TEXT NOT NULL, FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nCOMMIT;\n",
+    "after_recovery": "BEGIN TRANSACTION;\nCREATE TABLE bindings(binding_id TEXT PRIMARY KEY, assignment_id TEXT NOT NULL UNIQUE,\n          state TEXT NOT NULL CHECK(state IN ('active','retired')), payload_json TEXT NOT NULL,\n          FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nINSERT INTO \"bindings\" VALUES('01-valid','task-valid','active','{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"bindings\" VALUES('05-unknown','task-unknown','active','{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"bindings\" VALUES('06-terminal','task-terminal','retired','{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nCREATE TABLE legacy_bindings(binding_id TEXT PRIMARY KEY, value_json TEXT NOT NULL);\nINSERT INTO \"legacy_bindings\" VALUES('01-valid','{\"assignment_id\":\"task-valid\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('02-missing','{\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('03-truncated','{\"version\":1,\"assignment_id\":');\nINSERT INTO \"legacy_bindings\" VALUES('04-version','{\"assignment_id\":\"task-version\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":99}');\nINSERT INTO \"legacy_bindings\" VALUES('05-unknown','{\"assignment_id\":\"task-unknown\",\"delivery_evidence\":\"retryable\",\"requester_evidence\":\"unknown\",\"state\":\"active\",\"version\":1}');\nINSERT INTO \"legacy_bindings\" VALUES('06-terminal','{\"assignment_id\":\"task-terminal\",\"delivery_evidence\":\"terminal\",\"requester_evidence\":\"confirmed\",\"state\":\"active\",\"version\":1}');\nCREATE TABLE migration_state(id INTEGER PRIMARY KEY CHECK(id=1), version INTEGER NOT NULL,\n          diagnostic_status TEXT NOT NULL, policy TEXT);\nINSERT INTO \"migration_state\" VALUES(1,1,'clean','silent_skip');\nCREATE TABLE obligations(task_id TEXT PRIMARY KEY, binding_id TEXT NOT NULL,\n          state TEXT NOT NULL CHECK(state IN ('accepted','runnable','blocked','done')),\n          reason TEXT, FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nINSERT INTO \"obligations\" VALUES('task-valid','01-valid','runnable',NULL);\nINSERT INTO \"obligations\" VALUES('task-missing','02-missing','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-truncated','03-truncated','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-version','04-version','accepted',NULL);\nINSERT INTO \"obligations\" VALUES('task-unknown','05-unknown','blocked','unknown_requester_evidence');\nINSERT INTO \"obligations\" VALUES('task-terminal','06-terminal','blocked','terminal_binding');\nCREATE TABLE warnings(binding_id TEXT PRIMARY KEY, code TEXT NOT NULL,\n          original_sha256 TEXT NOT NULL, FOREIGN KEY(binding_id) REFERENCES legacy_bindings(binding_id));\nCOMMIT;\n"
+  }
+}

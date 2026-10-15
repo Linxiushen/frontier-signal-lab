@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "prepared_at": "2026-10-15T12:42:53.355667Z",
+  "purpose": "Reviewed selected public evidence; raw rolling snapshots and local state stay ignored.",
+  "scan": {
+    "scan_start": "2026-10-15T12:31:23.131780Z",
+    "scan_completed": "2026-10-15T12:35:37.014066Z",
+    "event_cutoff": "2026-10-15T12:31:23.128781+00:00",
+    "status": "complete",
+    "errors": [],
+    "sample_counts": {
+      "commits": 117,
+      "issues": 35,
+      "pull_requests": 90,
+      "discussions": 5
+    },
+    "windows": {
+      "24h": {
+        "commits": 57,
+        "issues": 34,
+        "pull_requests": 61,
+        "discussions": 2
+      },
+      "72h": {
+        "commits": 83,
+        "issues": 35,
+        "pull_requests": 90,
+        "discussions": 5
+      },
+      "168h": {
+        "commits": 117,
+        "issues": 35,
+        "pull_requests": 90,
+        "discussions": 5
+      }
+    },
+    "truncation": [
+      "fla-org/flash-linear-attention:issues",
+      "fla-org/flash-linear-attention:pull_requests",
+      "fla-org/flash-linear-attention:discussions",
+      "PrimeIntellect-ai/verifiers:commits",
+      "PrimeIntellect-ai/verifiers:issues",
+      "PrimeIntellect-ai/verifiers:pull_requests",
+      "PrimeIntellect-ai/verifiers:discussions",
+      "openclaw/openclaw:commits",
+      "openclaw/openclaw:issues",
+      "openclaw/openclaw:pull_requests",
+      "earendil-works/pi:commits",
+      "earendil-works/pi:issues",
+      "earendil-works/pi:pull_requests",
+      "earendil-works/pi:discussions"
+    ]
+  },
+  "scan_snapshot_sha256": "e94537b3be786aa173bd072342470a1728da1479eb3bf99b78be3a252652f643",
+  "new_or_updated_top_level_events": 68,
+  "limits": [
+    "Counts describe bounded samples by commit or update timestamp, not newly published research.",
+    "OpenClaw target PR, inline review and PR-branch commits were separately checked; they are not guaranteed to appear in scanner samples.",
+    "No upstream tests, production upgrades, researcher messages or upstream writes were performed."
+  ],
+  "selected_sources": [
+    {
+      "id": "openclaw-malformed-review",
+      "url": "https://github.com/openclaw/openclaw/pull/173018#discussion_r4282004743",
+      "type": "automated_inline_review_of_open_pr",
+      "published_at": "2026-10-15T10:45:31Z",
+      "updated_at": "2026-10-15T10:45:31Z",
+      "event_id": 4282004743,
+      "author": "chatgpt-codex-connector[bot]",
+      "author_type": "Bot",
+      "author_association": "CONTRIBUTOR",
+      "original_commit_id": "4d1d5b8232c87e23830a104fca53d910231fb160",
+      "original_line": 26,
+      "api_reanchored_commit_id": "4d51eea133af27455ef3355be62150b034d861b1",
+      "observed_interval": {
+        "start": "2026-10-15T12:38:02.7672814Z",
+        "end": "2026-10-15T12:38:04.4068609Z"
+      },
+      "claim": "Historical bot review identifies silent diagnostic omission on malformed assignment-bearing binding rows; original rows are retained. Later cba56e9 adds the requested warning. This is not a current production defect assertion.",
+      "status": "historical_review_condition_static_checked_warning_fix_subsequently_observed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "verification": "Read comment, original anchor, old pinned source, codec and newer pinned source. No upstream execution."
+    },
+    {
+      "id": "openclaw-malformed-fix",
+      "url": "https://github.com/openclaw/openclaw/commit/cba56e96724523658ae188db085bf6158feeae6e",
+      "type": "author_commit_in_unmerged_pr",
+      "published_at": "2026-10-15T12:27:32Z",
+      "author": "steipete",
+      "authored_at": "2026-10-15T12:27:32Z",
+      "observed_interval": {
+        "start": "2026-10-15T12:38:02.6763921Z",
+        "end": "2026-10-15T12:38:04.4664704Z"
+      },
+      "claim": "Peter adds a recoverable warning for undecodable assignment-bearing bindings, preserving original rows; new tests cover missing cwd and valid cleared bindings. Included in observed head 4d51eea; PR still unmerged at metadata check.",
+      "status": "source_and_test_assertions_read_not_executed_or_deployed",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "code_url": "https://github.com/openclaw/openclaw/blob/4d51eea133af27455ef3355be62150b034d861b1/extensions/codex/src/migration/native-assignment-repair.ts#L24",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173018"
+    },
+    {
+      "id": "pi-sqlite-transaction-boundary",
+      "url": "https://github.com/earendil-works/pi/commit/9ad09501ff6ce4f0e9e3e78752b9314c5a421378",
+      "type": "collaborator_commit_in_unmerged_pr",
+      "published_at": "2026-10-15T11:38:05Z",
+      "author": "christianklotz",
+      "author_association": "COLLABORATOR",
+      "observation_bounds": {
+        "started_after_clock_anchor": "2026-10-15T12:31:22Z",
+        "completed_before_instrumented_recheck": "2026-10-15T12:38:07Z",
+        "note": "Initial source requests were not individually timed; exact intervals below are available for the warning fix and review recheck only."
+      },
+      "claim": "New test and documentation show direct storage calls bypassing the adapter queue can be rolled back by the active adapter transaction in a node:sqlite-backed test stand-in. Principal namespace/queue implementation predates this run. Not Mario authored.",
+      "status": "source_and_test_assertions_read_not_locally_reproduced",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "pr_url": "https://github.com/earendil-works/pi/pull/10937",
+      "test_path": "packages/durable/test/sqlite-cloudflare.test.ts"
+    }
+  ],
+  "openclaw_head_observations": [
+    {
+      "observation_batch": "initial-uninstrumented-source-checks",
+      "observed_at": null,
+      "head_sha": "38957274ee954baccc722a6c7c063cf2cdb54f69",
+      "base_sha": "c243733dcf35810d3339f8d13f8ed1bbc60af846",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "updated_at": "2026-10-15T12:10:53Z",
+      "temporal_limit": "A historical API observation, not the head at completion of this evidence record."
+    },
+    {
+      "observation_batch": "guard-and-openclaw-head-recheck",
+      "observed_at": null,
+      "head_sha": "4d51eea133af27455ef3355be62150b034d861b1",
+      "base_sha": "42ee153c0950fabb940b3fcd7d796f066777050a",
+      "head_ref": "fix/codex-native-assignment-retirement",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "updated_at": "2026-10-15T12:32:58Z",
+      "temporal_limit": "Last mutable PR metadata observed in the 12:37 UTC batch; no claim it remains current later."
+    }
+  ],
+  "head_evolution": {
+    "api_url": "https://api.github.com/repos/openclaw/openclaw/compare/38957274ee954baccc722a6c7c063cf2cdb54f69...4d51eea133af27455ef3355be62150b034d861b1",
+    "observed_start": "2026-10-15T12:38:02.7167601Z",
+    "observed_end": "2026-10-15T12:38:06.9970499Z",
+    "status": "ahead",
+    "ahead_by": 77,
+    "behind_by": 0,
+    "merge_base_sha": "38957274ee954baccc722a6c7c063cf2cdb54f69",
+    "new_head_commit": {
+      "sha": "4d51eea133af27455ef3355be62150b034d861b1",
+      "github_author_login": "steipete",
+      "authored_at": "2026-10-15T12:31:45Z",
+      "committed_at": "2026-10-15T12:31:45Z",
+      "message": "Merge branch 'main' of https://github.com/openclaw/openclaw into fix/codex-native-assignment-retirement",
+      "parents": [
+        "cba56e96724523658ae188db085bf6158feeae6e",
+        "42ee153c0950fabb940b3fcd7d796f066777050a"
+      ]
+    },
+    "interpretation": "The compared commits show an ancestor-preserving forward evolution including a warning fix and a merge from main. There is no evidence here of a force push. The exact server-side head-change time was not separately observed; updated_at is a mutable PR timestamp, not a push timestamp."
+  },
+  "read_warning_test_assertions": [
+    {
+      "path": "extensions/codex/src/migration/native-assignment-repair.test.ts",
+      "diff_context_old_line": 119,
+      "test_name": "warns and preserves an active assignment row missing binding.cwd",
+      "assertions": [
+        "detectLegacyState is non-null",
+        "stored value equals original",
+        "changes is empty",
+        "warningDisposition is recoverable",
+        "warning contains binding could not be decoded"
+      ]
+    },
+    {
+      "path": "extensions/codex/src/migration/native-assignment-repair.test.ts",
+      "diff_context_old_line": 119,
+      "test_name": "skips valid cleared bindings without warnings",
+      "assertions": [
+        "detectLegacyState is null",
+        "changes and warnings are empty",
+        "stored value equals original"
+      ]
+    }
+  ],
+  "pi_boundary_test_sequence": [
+    "Begin transaction through adapter and insert id=1 using its transaction handle",
+    "Suspend the callback on a gate",
+    "Direct underlying storage.sql.exec inserts id=2 while the transaction is active",
+    "Release gate and throw abort",
+    "Assert the table is empty: both inserts rolled back"
+  ],
+  "repository_guards": [
+    {
+      "repository": "openclaw/openclaw",
+      "api_url": "https://api.github.com/repos/openclaw/openclaw",
+      "private": false,
+      "license_spdx": "MIT",
+      "license_metadata_url": "https://api.github.com/licenses/mit",
+      "observation_batch": "guard-and-openclaw-head-recheck",
+      "observed_at": null
+    },
+    {
+      "repository": "earendil-works/pi",
+      "api_url": "https://api.github.com/repos/earendil-works/pi",
+      "private": false,
+      "license_spdx": "MIT",
+      "license_metadata_url": "https://api.github.com/licenses/mit",
+      "observation_batch": "guard-and-openclaw-head-recheck",
+      "observed_at": null
+    },
+    {
+      "repository": "PrimeIntellect-ai/verifiers",
+      "api_url": "https://api.github.com/repos/PrimeIntellect-ai/verifiers",
+      "private": false,
+      "license_spdx": "MIT",
+      "license_metadata_url": "https://api.github.com/licenses/mit",
+      "observation_batch": "guard-and-openclaw-head-recheck",
+      "observed_at": null
+    }
+  ],
+  "repository_guard_timing": {
+    "id": "guard-and-openclaw-head-recheck",
+    "observed_at": null,
+    "clock_anchor_at_batch_start": "2026-10-15T12:37:00Z",
+    "note": "Clock call and public repository/PR GETs were dispatched in the same parallel batch. No exact per-GET timestamp was captured."
+  }
+}

@@ -37,26 +37,29 @@
         "fla-gdn2-ascend-dispatch-and-backward-update",
         "fla-activation-noncanonical-strides-draft",
         "fla-loglinear-partial-chunk-scales-draft",
-        "pythia14m-fixed-gradient-attention-boundary"
+        "pythia14m-fixed-gradient-attention-boundary",
+        "pythia14m-first-step-adamw-update-fidelity"
       ],
-      "status": "fixed_parameter_attention_save_diagnostic_executed_half_error_gate_passed_optimizer_fidelity_unverified",
+      "status": "fresh_state_adamw_update_gate_failed_all_batches_despite_attention_gradient_gate_pass",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "Prior actual training still has worse CPU time/OSpeak and both holdout regressions. Exact CE and named LayerNorm save interventions previously failed their half-error gates. With exact CE+all13actual LayerNorm forward scopes fixed in allarms, preserving all saves within6actual GPTNeoXAttention forwards gives full-gradient relativeL2 ratios0.005354/0.005281/0.008508 versus norm-onlyint8,with cosine0.999169/0.999173/0.999406;all3predeclared half-error gatespass. Dense and norm-only per-parameter records/hashes exactly match the previous diagnostic on this platform. This supports sensitivity of this broad saved-operand scope at these fixed pretrained batches,not one operand,a general cause,faithful optimizer updates,quality or savings. Current public FLA draft source changes reinforce actual Ascend dispatch,noncanonical-stride and partial-chunk full-backward validation;authors hardware counts or host checks are not fresh independent validation or Nathan work.",
+      "supporting_observation": "Attention-preserved fixed-point gradient cosine about0.999 did not establish faithful actual updates: fresh-state AdamW delta relativeL2 0.119295/0.116722/0.108971 exceeds predeclared0.10 in all3 overlapping batches. Relative improvement and cosine conditions pass; independent NumPy parameter/moment/step controls pass and all prior gradient records match. Earlier CPU cost and both synthetic holdout regressions remain negative. SaveScope exposes this workflow as a reusable CPU diagnostic, not a new compression algorithm or efficiency result.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Before any further training,predeclare actual AdamW update fidelity at the identical pretrained weights and fixed training batches,comparing dense/norm-onlyint8/norm+attentionpreservedint8 on fresh cloned optimizer/parameter states with exact CE,named scopes,independent update reference,all-parameter update metrics and immutable source/data/seed pins. Do not infer optimizer fidelity from gradient cosine alone or retune these3batches. Preserve failed CE/LayerNorm gates and prior cost/holdout regressions. Remaining individual saved operands/general rotary backward,learned depth routing/AttnRes,matched-time training,sealed broader quality and measured currentGPU/hardware/compiler/dispatch/backward capacity remain unexecuted. The public FLA drafts have not been merged or independently device-validated.",
+      "next_gate": "Separately predeclare accumulated-state AdamW fidelity with matched cloned parameter/moment/step states and independent numerical reference before more training. No retuning on these3overlapping synthetic batches. Individual saved operands/general rotary backward, learned depth routing/AttnRes, matched-time training, sealed broader quality and measured currentGPU/hardware/compiler/dispatch/backward remain unexecuted. Public researcher signals do not establish private plans or endorsement.",
       "additional_experiments": [
         "experiments/attnres_memory_probe.py",
         "experiments/real_activation_autograd_probe.py",
         "experiments/activation_training_probe.py",
         "experiments/activation_gradient_probe.py",
         "experiments/activation_norm_gradient_probe.py",
-        "experiments/activation_attention_gradient_probe.py"
+        "experiments/activation_attention_gradient_probe.py",
+        "experiments/activation_update_probe.py"
       ],
-      "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
+      "review_record": "research/2026-10-16-savescope.md",
       "previous_review_records": [
         "research/2026-10-16-training-and-replay-boundaries.md",
         "research/2026-10-16-gradient-and-authority.md",
-        "research/2026-10-16-norm-saves-and-execution.md"
+        "research/2026-10-16-norm-saves-and-execution.md",
+        "research/2026-10-16-attention-saves-and-continuation.md"
       ]
     },
     {

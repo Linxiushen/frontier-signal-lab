@@ -1,0 +1,970 @@
+{
+  "schema": "savescope.channel-evidence.v1",
+  "prepared_at": "2026-10-16T09:22:02.566914+00:00",
+  "purpose": "Read-only first-party channel-fit/eligibility audit plus unpublished launch drafts for a reusable CPU saved-tensor audit tool.",
+  "scope": {
+    "outbound_publication": false,
+    "messages_sent": false,
+    "issues_or_prs_created": false,
+    "hf_repositories_created": false,
+    "runtime_experiments_executed_by_channel_auditor": false
+  },
+  "observations": {
+    "from": "2026-10-16T09:09:04.497207+00:00",
+    "until": "2026-10-16T09:13:54.728617+00:00",
+    "requests": 32,
+    "successful": 30,
+    "failures": [
+      {
+        "key": "hf-guidelines",
+        "http_status": null,
+        "error": "URLError(ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+      },
+      {
+        "key": "hf-community-blog",
+        "http_status": 404,
+        "error": "HTTP Error 404: Not Found"
+      }
+    ],
+    "bounds": "Max 3 concurrent read-only GETs, 30s urllib / 35s gh timeout, 2MB web response cap. No exhaustive crawl; failures retained.",
+    "raw_storage": "Ignored local-state/project-launch/channel-raw/. Exact response bodies, request observations, response headers and stderr retained locally; hashes below. No raw responses committed.",
+    "hash_definition": "body_sha256 hashes exact body bytes; transport_output_sha256 hashes gh api --include stdout or urllib response bytes. Not a packet capture or claim of independent archival persistence."
+  },
+  "repository_at_observation": {
+    "url": "https://github.com/Linxiushen/frontier-signal-lab",
+    "public": true,
+    "license": "MIT",
+    "description": "Public AI research signals, falsifiable hypotheses, and reproducible CPU experiments for attention budgets and agent recovery.",
+    "has_issues": true,
+    "has_discussions": false,
+    "homepage": null,
+    "pushed_at": "2026-10-16T09:00:24Z",
+    "stars": 0,
+    "forks": 0,
+    "open_issues": 0,
+    "repo_local_community_files": {
+      "readme": true,
+      "license": true,
+      "contributing": false,
+      "code_of_conduct": false,
+      "issue_template": false,
+      "pull_request_template": false
+    },
+    "dotgithub_observed_entries": [
+      "workflows"
+    ],
+    "boundary": "Snapshot before the new SaveScope/product/contribution files were published. No claim about inherited account-level community defaults or final release readiness."
+  },
+  "positioning": {
+    "name": "SaveScope",
+    "persona": "PyTorch users experimenting with backward saved-tensor compression",
+    "problem": "Forward agreement or lower logical saved bytes does not establish faithful gradients or optimizer updates.",
+    "value": "Scope-aware inventory, dense-reference gradients, actual first-step fresh-moment AdamW parameter deltas, inspectable reproducible reports and explicit failures.",
+    "supported_initial_target": "CPU float32; actual release behavior must be checked against SAVESCOPE.md and executed reports.",
+    "prior_art": {
+      "url": "https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html",
+      "request_key": "torch-hooks-tutorial",
+      "claim": "PyTorch already provides saved-tensor packing/unpacking hooks and selective offload examples. SaveScope claims audit/control/report utility, not invention of saved-tensor hooks."
+    },
+    "existing_case": "Fixed Pythia-14m, exact CE and 13 LayerNorm scopes; additional preservation inside 6 actual attention forwards changes full-gradient relativeL2 from 4.05–7.70 to 0.034–0.041 across 3 batches. Broad execution scope, not one-operand attribution.",
+    "adamw_result": {
+      "status": "Executed by the implementation/experiment task; local report/protocol read by channel auditor, not re-executed here.",
+      "report_path": "results/activation-update/report.json",
+      "report_url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md",
+      "protocol_url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/fixtures/activation-update/README.md",
+      "publication_pin": "Replace main with final published commit before outreach; no remote verification of this new report by channel auditor.",
+      "file_sha256": "5fdaeca50029a81073634e6e718e0ca3aecacca41e72d5363ef40f49711710e5",
+      "stable_result_sha256": "7774616b29f3cf7756b328a00f78add1a48fde874dae98690d1f1da962ae0c06",
+      "observation_sha256": "63038ac915790b29cbedd04b0f170482611ed71a46a99e0aabcc9f5f39d6ec93",
+      "model_id": "EleutherAI/pythia-14m",
+      "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+      "conditions": "CPU float32, pinned Pythia-14m, 3 overlapping synthetic first batches / 320 unique target positions, fresh zero moments, lr1e-4, betas(.9,.999), epsilon1e-8, weight_decay.01, 1 native step per arm, no clipping/schedule/holdout.",
+      "rows": [
+        {
+          "seed": 11,
+          "gradient_cosine": 0.9991689453133682,
+          "gradient_relative_l2": 0.040761816135484075,
+          "actual_update_relative_l2": 0.11929500147017448,
+          "actual_update_cosine": 0.9928842805954708,
+          "joint_gate": {
+            "absolute_error_passed": false,
+            "absolute_direction_passed": true,
+            "relative_dominance_passed": true,
+            "treatment_to_norm_only_relative_l2_ratio": 0.2453002055846301,
+            "passed": false
+          }
+        },
+        {
+          "seed": 29,
+          "gradient_cosine": 0.9991730766114869,
+          "gradient_relative_l2": 0.04066239583205829,
+          "actual_update_relative_l2": 0.11672208010224432,
+          "actual_update_cosine": 0.9931877941033869,
+          "joint_gate": {
+            "absolute_error_passed": false,
+            "absolute_direction_passed": true,
+            "relative_dominance_passed": true,
+            "treatment_to_norm_only_relative_l2_ratio": 0.23704703599373342,
+            "passed": false
+          }
+        },
+        {
+          "seed": 47,
+          "gradient_cosine": 0.9994056596976424,
+          "gradient_relative_l2": 0.034482240309802674,
+          "actual_update_relative_l2": 0.10897079236820928,
+          "actual_update_cosine": 0.994062730049712,
+          "joint_gate": {
+            "absolute_error_passed": false,
+            "absolute_direction_passed": true,
+            "relative_dominance_passed": true,
+            "treatment_to_norm_only_relative_l2_ratio": 0.22276664431931897,
+            "passed": false
+          }
+        }
+      ],
+      "all_joint_gates_passed": false,
+      "interpretation": "About0.999 gradient cosine coexists with10.9–11.9% actual first-step update relativeL2. Absolute <=.10 fails in each batch although updatecos>=.99 and relative dominance pass. No general or stateful-training conclusion.",
+      "reference_checks": "All76parameter/moment native updates per arm passed independent NumPy equations within declared float32 rounding bounds; same-runtime gradient records match the prior attention case."
+    },
+    "nonclaims": [
+      "Training quality gains",
+      "Measured GPU memory savings",
+      "Throughput gains",
+      "FLA operator validation",
+      "Large-model/general architecture support",
+      "Researcher endorsement",
+      "Private-roadmap knowledge"
+    ],
+    "negative_evidence": "Prior small training case lowered logical saved inventory 54% but ran slower on CPU with higher process peak and worse-than-initial holdout NLL for both arms; retained publicly.",
+    "source_commit": "4c9683a408625817500843161e40383527c30455"
+  },
+  "channels": [
+    {
+      "id": "pytorch-forums",
+      "priority": "first technical launch candidate",
+      "destinations": [
+        "https://discuss.pytorch.org/c/projects/33",
+        "https://discuss.pytorch.org/c/autograd/7"
+      ],
+      "verified": "Public categories and first-party forum/category guidance read.",
+      "not_verified": [
+        "Our posting account/permissions",
+        "Moderator acceptance",
+        "Full historical topic search"
+      ],
+      "rules": [
+        {
+          "url": "https://discuss.pytorch.org/t/about-the-projects-category/117648",
+          "request_key": "torch-projects-about",
+          "short_quote": "Tell the community how you’re using PyTorch!",
+          "application": "Projects fits a runnable audit and technical experience report."
+        },
+        {
+          "url": "https://discuss.pytorch.org/t/about-the-autograd-category/2932",
+          "request_key": "torch-autograd-about",
+          "short_quote": "A category of posts relating to the autograd engine itself.",
+          "application": "Use only for a specific minimal technical question, not a duplicate launch."
+        },
+        {
+          "url": "https://discuss.pytorch.org/guidelines",
+          "request_key": "torch-guidelines",
+          "short_quote": "Don’t cross-post the same thing in multiple topics.",
+          "application": "Read existing discussion; add substantive value; choose one category; no spam or hijacking."
+        }
+      ],
+      "suitable": "Installable CPU example, exact scope inventory, dense-reference gradient/update report, concrete independent reproducer request.",
+      "poor_fit": "Repeated announcements in Projects/Autograd, vague promotion, or unmeasured VRAM/speed claims.",
+      "readiness_gate": "Public package/docs and actual tiny run verified; scope/cleanup controls and missing support explicit.",
+      "contributor_question": "Can a minimal repeated-module/nested-hook/exception example reveal a scope-restoration error against reference gradients?"
+    },
+    {
+      "id": "huggingface-forum",
+      "priority": "first Transformers community candidate",
+      "destinations": [
+        "https://discuss.huggingface.co/c/show-and-tell/65",
+        "https://discuss.huggingface.co/c/research/7"
+      ],
+      "verified": "Public category metadata, Show and Tell/Research guidance, forum guidelines read.",
+      "not_verified": [
+        "Our forum identity and posting permissions",
+        "Moderator acceptance",
+        "Any Space deployment or linked account"
+      ],
+      "rules": [
+        {
+          "url": "https://discuss.huggingface.co/t/about-the-show-and-tell-category/30513",
+          "request_key": "hf-showtell-about",
+          "short_quote": "We encourage detailed contributions focusing on open-source insights and the technical intricacies of your work, rather than promotional content.",
+          "application": "Publish a technical artifact and one precise adapter question."
+        },
+        {
+          "url": "https://discuss.huggingface.co/t/about-the-research-category/26",
+          "request_key": "hf-research-about",
+          "short_quote": "Use this category for any research question or to coordinate on a project with other users.",
+          "application": "Research is for a distinct research question; do not duplicate an announcement."
+        },
+        {
+          "url": "https://discuss.huggingface.co/guidelines",
+          "request_key": "hf-guidelines-retry",
+          "short_quote": "Don’t cross-post the same thing in multiple topics.",
+          "application": "No category duplication or topic hijacking; initial failed fetch is retained."
+        }
+      ],
+      "suitable": "Pythia motivation plus no-model-download tiny demo, architecture/module-type controls, reproducible open-source adapter ask.",
+      "poor_fit": "Claims about model quality, FLA validation, or measured GPU benefit from a CPU gradient case.",
+      "readiness_gate": "Same as PyTorch, with clearly licensed/revision-pinned optional HF model artifacts.",
+      "contributor_question": "Can a second small HF architecture reproduce the audit using actual module types and identical weights/data/RNG/optimizer state?"
+    },
+    {
+      "id": "huggingface-articles",
+      "priority": "optional long-form after account eligibility",
+      "destinations": [
+        "https://huggingface.co/new-blog",
+        "https://huggingface.co/blog/community"
+      ],
+      "verified": "First-party current article docs and public community article listing read. Creating an article was not attempted.",
+      "not_verified": [
+        "Confirmed email",
+        "PRO subscription or qualifying organization role",
+        "Managed-user status",
+        "Our publishing permissions",
+        "Featured placement"
+      ],
+      "rules": [
+        {
+          "url": "https://huggingface.co/docs/hub/en/blog-articles",
+          "request_key": "hf-blog-articles-docs",
+          "short_quote": "Announce the release of an open source artifact, such as a model, dataset, or tool.",
+          "application": "SaveScope tool release or engineering tutorial is an explicitly supported topic."
+        },
+        {
+          "url": "https://huggingface.co/docs/hub/en/blog-articles",
+          "request_key": "hf-blog-articles-docs",
+          "short_quote": "To publish under your personal namespace, you need a confirmed email and must satisfy at least one of the following:",
+          "application": "The following listed options are active PRO or Team/Enterprise membership with write/admin; managed users cannot publish personally. Organization publishing needs Team/Enterprise plus write/admin."
+        },
+        {
+          "url": "https://huggingface.co/content-policy",
+          "request_key": "hf-content-policy",
+          "short_quote": "Content that infringes the intellectual property rights of a third party.",
+          "application": "Use original evidence/code and preserve model/source licenses."
+        },
+        {
+          "url": "https://huggingface.co/content-policy",
+          "request_key": "hf-content-policy",
+          "short_quote": "Spam (e.g., advertising products/services, excessive bulk activity, or disrupting user experience).",
+          "application": "Publish useful technical evidence, not bulk promotional content."
+        }
+      ],
+      "suitable": "Careful engineering concept explanation or open-source release with exact scope and failures.",
+      "poor_fit": "Assuming that the public article listing means any free account can publish or obtain main-page placement.",
+      "readiness_gate": "User chooses account/namespace; eligibility and publication authorization verified; source release/run verified."
+    },
+    {
+      "id": "huggingface-static-space",
+      "priority": "optional artifact mirror",
+      "destinations": [
+        "https://huggingface.co/new-space"
+      ],
+      "verified": "First-party Static HTML and Spaces overview documentation, public Spaces category guidance, and content policy read.",
+      "not_verified": [
+        "Our HF account namespace/write permissions",
+        "Creation/build permissions",
+        "Actual deployed URL/build",
+        "Any paid-plan eligibility"
+      ],
+      "rules": [
+        {
+          "url": "https://huggingface.co/docs/hub/en/spaces-sdks-static",
+          "request_key": "hf-spaces-static",
+          "short_quote": "Set sdk: static inside the YAML block at the top of your Spaces README.md file.",
+          "application": "Use index.html with app_file metadata; no backend compute expected."
+        },
+        {
+          "url": "https://huggingface.co/docs/hub/en/spaces-sdks-static",
+          "request_key": "hf-spaces-static",
+          "short_quote": "Static Spaces are free for everyone",
+          "application": "Free static hosting is documented; this does not prove our account can create one."
+        },
+        {
+          "url": "https://huggingface.co/docs/hub/en/spaces-overview",
+          "request_key": "hf-spaces-overview",
+          "short_quote": "Gradio and Docker Spaces run on compute and require a paid plan to create",
+          "application": "Current docs specify personal PRO or organization Team/Enterprise; free personal accounts in good standing may have up to two ZeroGPU Gradio Spaces. Do not assume free CPU Gradio creation."
+        },
+        {
+          "url": "https://discuss.huggingface.co/t/about-the-spaces-category/10965",
+          "request_key": "hf-spaces-about",
+          "short_quote": "Use this category to ask any questions about Spaces or to share your work.",
+          "application": "Use for a distinct deployment question, not a duplicate Show and Tell post."
+        }
+      ],
+      "suitable": "Static report explorer, bundled recorded case, source/release links and execution-mode label.",
+      "poor_fit": "Presenting the static viewer as browser-executed PyTorch training or including secrets/private tensor data.",
+      "readiness_gate": "User selects account/namespace; deployment authorized; actual public build and evidence correspondence verified.",
+      "proposed_files": [
+        "README.md with sdk: static and app_file: index.html",
+        "index.html",
+        "optional matching report.json",
+        "LICENSE and applicable third-party notices"
+      ],
+      "creation_attempted": false
+    },
+    {
+      "id": "fla-organization-discussions",
+      "priority": "conditional integration audience",
+      "destinations": [
+        "https://github.com/orgs/fla-org/discussions/categories/show-and-tell",
+        "https://github.com/orgs/fla-org/discussions/categories/ideas"
+      ],
+      "verified": "Repository discussions URL redirects to organization hub. Show and tell category exists; category prose read. CONTRIBUTING and PR template read. Discussion 133 is RWKV7 Q&A, not a policy/welcome post.",
+      "not_verified": [
+        "Authenticated discussion creation permissions",
+        "Complete discussion inventory; public page had partial loading errors",
+        "Discord rules/access",
+        "Any FLA operator runtime support"
+      ],
+      "rules": [
+        {
+          "url": "https://github.com/orgs/fla-org/discussions/categories/show-and-tell",
+          "request_key": "fla-showtell-category",
+          "short_quote": "Show off something you've made",
+          "application": "Category fit only after a real FLA-relevant artifact; not moderator endorsement."
+        },
+        {
+          "url": "https://github.com/fla-org/flash-linear-attention/blob/main/CONTRIBUTING.md",
+          "request_key": "fla-contributing",
+          "short_quote": "FLA_CI_ENV=0",
+          "application": "Strict local checks matter; green warning-only CI does not establish numerical equivalence."
+        },
+        {
+          "url": "https://github.com/fla-org/flash-linear-attention/blob/main/.github/pull_request_template.md",
+          "request_key": "fla-pr-template",
+          "short_quote": "",
+          "application": "Template requires evidence/actual commands and reference checks; separate failed, skipped and unrun checks."
+        }
+      ],
+      "suitable": "Pinned operator and differentiable reference, supported outputs/gradients, optimizer controls, one focused integration question.",
+      "poor_fit": "Advertising the generic Pythia result as FLA validation; pings to famous authors; unrelated bug issues; relaxed tolerances to claim success.",
+      "readiness_gate": "Implement and validate a true FLA adapter/reference first. Discuss numerical/API changes under upstream RFC/draft rules; benchmark claims need matched hardware/software evidence.",
+      "contributor_question": "Which one pinned operator/reference is appropriate for a small audit without changing strict numerical tolerances?",
+      "discord": {
+        "url": "https://discord.gg/vDaJTmKNcS",
+        "source": "fla-readme",
+        "status": "README link verified; server rules/access not read; no join or message."
+      }
+    },
+    {
+      "id": "x",
+      "priority": "optional short evidence thread",
+      "destinations": [
+        "https://x.com/"
+      ],
+      "verified": "Only existing author-source links in research/sources.json; no X publication rules/access audited in this channel research.",
+      "not_verified": [
+        "User account",
+        "Posting integration/capability",
+        "Current X posting policies",
+        "Publication authorization"
+      ],
+      "suitable": "Concise artifact/evidence thread with a concrete question and source links, no tags required.",
+      "poor_fit": "Researcher/institution tagging, employer claims, guessed private roadmaps, promised attention, or bulk replies.",
+      "readiness_gate": "Verified public release, account identity, channel rules and authorization before any send.",
+      "draft": "distribution/x-thread.en.md"
+    },
+    {
+      "id": "show-hn",
+      "priority": "deferred; user writes personally",
+      "destinations": [
+        "https://news.ycombinator.com/showhn.html"
+      ],
+      "verified": "Current first-party Show HN and HN guidelines read.",
+      "not_verified": [
+        "User account and contribution history",
+        "Submission permissions",
+        "Moderator acceptance"
+      ],
+      "rules": [
+        {
+          "url": "https://news.ycombinator.com/showhn.html",
+          "request_key": "hn-show-guidelines",
+          "short_quote": "Show HN is for something you've made that other people can play with.",
+          "application": "Use a runnable substantial artifact with low-friction access; blog posts, newsletters, lists and signup pages are not Show HN artifacts."
+        },
+        {
+          "url": "https://news.ycombinator.com/newsguidelines.html",
+          "request_key": "hn-guidelines",
+          "short_quote": "Don't post generated text or AI-edited text.",
+          "application": "No ready-to-post HN prose or AI editing. User must personally write submission/comments."
+        },
+        {
+          "url": "https://news.ycombinator.com/newsguidelines.html",
+          "request_key": "hn-guidelines",
+          "short_quote": "please don't automate posting",
+          "application": "No automated publication."
+        },
+        {
+          "url": "https://news.ycombinator.com/newsguidelines.html",
+          "request_key": "hn-guidelines",
+          "short_quote": "Don't solicit upvotes, comments, or submissions.",
+          "application": "No coordinated engagement, vote requests, or repost-for-visibility."
+        }
+      ],
+      "suitable": "User-authored discussion of a verified runnable artifact the user actually helped make and can explain.",
+      "poor_fit": "An AI-generated launch post, research reading list, inaccessible demo, generated comments, or coordinated promotion.",
+      "readiness_gate": "Usable artifact plus user personally writes, posts, and discusses; facts checklist only in distribution/README.md.",
+      "generated_post_provided": false
+    }
+  ],
+  "reader_matches": [
+    {
+      "reader": "PyTorch autograd practitioners",
+      "match": "direct",
+      "source_urls": [
+        "https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html"
+      ],
+      "ask": "Minimal independent scope/cleanup correctness reproducer."
+    },
+    {
+      "reader": "FLA training/operator contributors",
+      "match": "conditional on validated adapter",
+      "source_urls": [
+        "https://github.com/fla-org/flash-linear-attention/blob/main/CONTRIBUTING.md"
+      ],
+      "ask": "One pinned differentiable operator/reference with strict supported output/gradient checks and matched optimizer state."
+    },
+    {
+      "reader": "Nathan Chen public backward/depth-routing lineage",
+      "match": "topic-level, not private roadmap or employer inference",
+      "source_urls": [
+        "https://github.com/fla-org/flash-linear-attention/pull/688",
+        "https://github.com/MoonshotAI/Attention-Residuals"
+      ],
+      "source_basis": "Previously verified research/sources.json entries nathan-kda-pr and attnres; not freshly re-fetched as part of this channel audit.",
+      "ask": "An independently implemented tiny depth-routing/attention-reference case for saved-scope and update comparisons; current Pythia case is not AttnRes reproduction."
+    },
+    {
+      "reader": "Guangxuan Xiao public attention-budget lineage",
+      "match": "secondary; training vs inference mismatch explicit",
+      "source_urls": [
+        "https://guangxuanx.com/blog/attn-capacity.html"
+      ],
+      "source_basis": "Previously verified historical research/sources.json entry guangxuan-memory; not freshly re-fetched here.",
+      "ask": "Small open training example that distinguishes saved-backward compression from KV-cache/inference compression."
+    },
+    {
+      "reader": "HF Transformers/Pythia practitioners",
+      "match": "direct",
+      "source_urls": [
+        "https://discuss.huggingface.co/t/about-the-show-and-tell-category/30513"
+      ],
+      "ask": "A second licensed revision-pinned architecture and actual module types with a reproducible dense-reference report."
+    }
+  ],
+  "sequence": [
+    "Verify source release/install/replay/actual tiny demo and contribution interface.",
+    "Verify chosen account/channel permissions and user publication authorization.",
+    "One tailored substantive PyTorch Projects or HF Show and Tell post, with exact evidence and one community-specific reproduction ask.",
+    "Respond to real reproductions and provide small reviewable adapter tasks.",
+    "FLA only after actual operator/reference fit; static Space optional after account/build verification.",
+    "X optional evidence thread; HN only user-written and manually posted."
+  ],
+  "success_metrics": [
+    "Independent installs and successful reproductions",
+    "Concrete negative results and bug reports",
+    "Reviewed architecture/operator adapters",
+    "Merged useful contributions"
+  ],
+  "anti_patterns": [
+    "Celebrity/institution tag campaigns",
+    "Unrelated issues or mass author pings",
+    "Duplicate forum category cross-posts",
+    "Solicited stars/likes/upvotes/comments",
+    "Private-roadmap or unannounced-employer claims",
+    "Unmeasured performance claims"
+  ],
+  "publication_state": "Drafts prepared; no external publication. User account preferences and non-GitHub access are pending, not inferred.",
+  "requests": [
+    {
+      "key": "lab-community",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/Linxiushen/frontier-signal-lab/community/profile",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:04.497207+00:00",
+      "observed_until": "2026-10-16T09:09:05.916510+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 734,
+      "body_sha256": "883659822e945d7243d2a52a5e6cf46f8f123d93b42d1500b09243dff539a9a6",
+      "transport_output_sha256": "c06d8b11705eea1d384a145044067d407f7c823f43e3f83e698d6c1ec453dedc"
+    },
+    {
+      "key": "lab-repo",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/Linxiushen/frontier-signal-lab",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:04.497207+00:00",
+      "observed_until": "2026-10-16T09:09:05.861209+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 6619,
+      "body_sha256": "adb5e9909567bdb51b342f6a68fc946adcf80cda28e1dce0acb7d9157ded1f0f",
+      "transport_output_sha256": "2eac4e3f78a865390cab0baafffb5355c292d67660d85d30dd095d7610af77af"
+    },
+    {
+      "key": "lab-readme",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/Linxiushen/frontier-signal-lab/readme",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:04.498208+00:00",
+      "observed_until": "2026-10-16T09:09:05.861209+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 25901,
+      "body_sha256": "e7d573d6d5b0e58aa51e97d43d66a39c00c90ea96d21f23f954e42042920e52d",
+      "transport_output_sha256": "48dae52c4c77ecae9737cd11f8c1a72bfbfec20a3fb8f52691a79e33a065ae48"
+    },
+    {
+      "key": "fla-repo",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:05.865209+00:00",
+      "observed_until": "2026-10-16T09:09:07.160782+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 6965,
+      "body_sha256": "d9a224bbc6c3d14cbbf2d3ff4b814eb5e530b345ab3aa817c805297643eeb885",
+      "transport_output_sha256": "9843f03b60edfaa5a34630954cc19648528f01144451f2ebcf9b1c03c85a780f"
+    },
+    {
+      "key": "fla-community",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention/community/profile",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:05.866210+00:00",
+      "observed_until": "2026-10-16T09:09:07.160782+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 1160,
+      "body_sha256": "fd3ba9503690c5338bc8087ef347286c2dd0ff8fe0287f8b778cca1f63835667",
+      "transport_output_sha256": "ba2198d2bee5abdfe3d680198c81b6d50c921d72ccdb6d8277fb599a7e5201b9"
+    },
+    {
+      "key": "fla-readme",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention/readme",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:05.920513+00:00",
+      "observed_until": "2026-10-16T09:09:07.485847+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 59031,
+      "body_sha256": "003f47a3ae3a531117d4db93d25762dea20594dcb7d717712cebd64a71836bf4",
+      "transport_output_sha256": "e2f33ad7a384cad997d8c43614a34d332dabd98f652e0560fb304721a05b1780"
+    },
+    {
+      "key": "torch-guidelines",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.pytorch.org/guidelines",
+      "final_url": "https://discuss.pytorch.org/guidelines",
+      "observed_from": "2026-10-16T09:09:07.164782+00:00",
+      "observed_until": "2026-10-16T09:09:08.446341+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 14225,
+      "body_sha256": "ca40980dd33bd5a3c04bda6310b0260040a5eb29e572b82ade1981e1cef7b631",
+      "transport_output_sha256": "ca40980dd33bd5a3c04bda6310b0260040a5eb29e572b82ade1981e1cef7b631"
+    },
+    {
+      "key": "torch-categories",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.pytorch.org/categories.json",
+      "final_url": "https://discuss.pytorch.org/categories.json",
+      "observed_from": "2026-10-16T09:09:07.165782+00:00",
+      "observed_until": "2026-10-16T09:09:08.992294+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 142913,
+      "body_sha256": "32dcdb797f0c36601771212b81c659f9de4d2c863ae7cd167dd65710fb41c348",
+      "transport_output_sha256": "32dcdb797f0c36601771212b81c659f9de4d2c863ae7cd167dd65710fb41c348"
+    },
+    {
+      "key": "hf-guidelines",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/guidelines",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:09:07.490824+00:00",
+      "observed_until": "2026-10-16T09:09:08.126188+00:00",
+      "http_status": null,
+      "exit_code": 1,
+      "error": "URLError(ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "body_bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transport_output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "key": "hf-categories",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/categories.json",
+      "final_url": "https://discuss.huggingface.co/categories.json",
+      "observed_from": "2026-10-16T09:09:08.129187+00:00",
+      "observed_until": "2026-10-16T09:09:09.447002+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 114251,
+      "body_sha256": "ecd553ee11ffb3fa89b1ec7135891aad9d4877cda68b431045df2a59c04b8f0c",
+      "transport_output_sha256": "ecd553ee11ffb3fa89b1ec7135891aad9d4877cda68b431045df2a59c04b8f0c"
+    },
+    {
+      "key": "hn-show-guidelines",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://news.ycombinator.com/showhn.html",
+      "final_url": "https://news.ycombinator.com/showhn.html",
+      "observed_from": "2026-10-16T09:09:08.450312+00:00",
+      "observed_until": "2026-10-16T09:09:09.201453+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 2682,
+      "body_sha256": "5354d8ed9b3fd61d50b1141c023aaaf16f30391e3cc09c49461da54e344956c4",
+      "transport_output_sha256": "5354d8ed9b3fd61d50b1141c023aaaf16f30391e3cc09c49461da54e344956c4"
+    },
+    {
+      "key": "hn-guidelines",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://news.ycombinator.com/newsguidelines.html",
+      "final_url": "https://news.ycombinator.com/newsguidelines.html",
+      "observed_from": "2026-10-16T09:09:09.004296+00:00",
+      "observed_until": "2026-10-16T09:09:09.565793+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 5864,
+      "body_sha256": "47dbe61e3db0e10ba11597196caf714a4e0172fc9f46e245a3181a3d9871a7fa",
+      "transport_output_sha256": "47dbe61e3db0e10ba11597196caf714a4e0172fc9f46e245a3181a3d9871a7fa"
+    },
+    {
+      "key": "fla-contributing",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention/contents/CONTRIBUTING.md",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:10:08.720880+00:00",
+      "observed_until": "2026-10-16T09:10:10.759651+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 63587,
+      "body_sha256": "048bca956215b38f6c5263a9b77c4b11792ef11c5e0fac229e68df1b1cf6f558",
+      "transport_output_sha256": "33cec7741a48f7c45728e26745745be7a0971e38ce5dd2428c25ea8617de8e40"
+    },
+    {
+      "key": "fla-dotgithub",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention/contents/.github",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:10:08.721879+00:00",
+      "observed_until": "2026-10-16T09:10:10.300680+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 4238,
+      "body_sha256": "624df87339907f8e0bde6914d928db8b56ba600852a76ada25b941da11d8642c",
+      "transport_output_sha256": "c715308007708075da67510ef4a329068eeb7a6fe7fcef17402ce61b305abcaf"
+    },
+    {
+      "key": "fla-pr-template",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/fla-org/flash-linear-attention/contents/.github/pull_request_template.md",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:10:08.721879+00:00",
+      "observed_until": "2026-10-16T09:10:11.438006+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 4743,
+      "body_sha256": "8dc281f02051c11e309bb3c039c7048229939c40933b1163865d227e9d781716",
+      "transport_output_sha256": "94ac17871fe95555c94b91486bbfa9355f2daf4ad0fd1890d16b77497353dfcf"
+    },
+    {
+      "key": "lab-dotgithub",
+      "method": "GET",
+      "transport": "gh",
+      "target": "repos/Linxiushen/frontier-signal-lab/contents/.github",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:10:10.306677+00:00",
+      "observed_until": "2026-10-16T09:10:11.447310+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 780,
+      "body_sha256": "8134442f887cd42ae3b4ecfb01130e1d477c7ccf8ebacc418fc398e0c51a6ba0",
+      "transport_output_sha256": "97c9afdc45d5bf3e033baa4fbb106bb6c061a402ae2ac475437895cffe279069"
+    },
+    {
+      "key": "fla-discussions",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://github.com/fla-org/flash-linear-attention/discussions",
+      "final_url": "https://github.com/orgs/fla-org/discussions",
+      "observed_from": "2026-10-16T09:10:10.768483+00:00",
+      "observed_until": "2026-10-16T09:10:13.280269+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 292328,
+      "body_sha256": "ef3052732661d8385c0ae11b8c7ab0976bcf2420c57ef8fed13d8655e96f61fb",
+      "transport_output_sha256": "ef3052732661d8385c0ae11b8c7ab0976bcf2420c57ef8fed13d8655e96f61fb"
+    },
+    {
+      "key": "torch-projects-about",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.pytorch.org/t/about-the-projects-category/117648.json",
+      "final_url": "https://discuss.pytorch.org/t/about-the-projects-category/117648.json",
+      "observed_from": "2026-10-16T09:10:11.443508+00:00",
+      "observed_until": "2026-10-16T09:10:12.127338+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 8794,
+      "body_sha256": "064ac17d06fa55ba2c126bc13df40b46eaed9c2c3168a53aa856dcd13cce2d09",
+      "transport_output_sha256": "064ac17d06fa55ba2c126bc13df40b46eaed9c2c3168a53aa856dcd13cce2d09"
+    },
+    {
+      "key": "torch-autograd-about",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.pytorch.org/t/about-the-autograd-category/2932.json",
+      "final_url": "https://discuss.pytorch.org/t/about-the-autograd-category/2932.json",
+      "observed_from": "2026-10-16T09:10:11.450344+00:00",
+      "observed_until": "2026-10-16T09:10:12.145895+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 9262,
+      "body_sha256": "7b9fbbe255ea993cb3fdd3cbbd8d1a377931679d25e57621379e3ac40810c790",
+      "transport_output_sha256": "7b9fbbe255ea993cb3fdd3cbbd8d1a377931679d25e57621379e3ac40810c790"
+    },
+    {
+      "key": "hf-showtell-about",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/t/about-the-show-and-tell-category/30513.json",
+      "final_url": "https://discuss.huggingface.co/t/about-the-show-and-tell-category/30513.json",
+      "observed_from": "2026-10-16T09:10:12.132335+00:00",
+      "observed_until": "2026-10-16T09:10:13.372882+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 11239,
+      "body_sha256": "2d3e8c8d4ed3f7787a9574be4dbf673d103108010832350499b42023cfe465cb",
+      "transport_output_sha256": "2d3e8c8d4ed3f7787a9574be4dbf673d103108010832350499b42023cfe465cb"
+    },
+    {
+      "key": "hf-research-about",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/t/about-the-research-category/26.json",
+      "final_url": "https://discuss.huggingface.co/t/about-the-research-category/26.json",
+      "observed_from": "2026-10-16T09:10:12.150893+00:00",
+      "observed_until": "2026-10-16T09:10:13.368883+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 12340,
+      "body_sha256": "98bfa9ae86d1007ea41863d378c4e8abf6fb860bf49cba1458c0a7a0b7a778dd",
+      "transport_output_sha256": "98bfa9ae86d1007ea41863d378c4e8abf6fb860bf49cba1458c0a7a0b7a778dd"
+    },
+    {
+      "key": "hf-guidelines-retry",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/guidelines",
+      "final_url": "https://discuss.huggingface.co/guidelines",
+      "observed_from": "2026-10-16T09:10:13.286269+00:00",
+      "observed_until": "2026-10-16T09:10:14.057713+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 17545,
+      "body_sha256": "62915148ddc0c472652a80ba0e5879f545497a00226127956c2af26029abf3a0",
+      "transport_output_sha256": "62915148ddc0c472652a80ba0e5879f545497a00226127956c2af26029abf3a0"
+    },
+    {
+      "key": "torch-hooks-tutorial",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html",
+      "final_url": "https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html",
+      "observed_from": "2026-10-16T09:10:13.373884+00:00",
+      "observed_until": "2026-10-16T09:10:14.841065+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 220543,
+      "body_sha256": "82ae82311258349d28685812b5cdfa7d2544cd568835aedba3d3fb5a2f7d353b",
+      "transport_output_sha256": "82ae82311258349d28685812b5cdfa7d2544cd568835aedba3d3fb5a2f7d353b"
+    },
+    {
+      "key": "fla-welcome-133",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://github.com/orgs/fla-org/discussions/133",
+      "final_url": "https://github.com/orgs/fla-org/discussions/133",
+      "observed_from": "2026-10-16T09:13:10.560879+00:00",
+      "observed_until": "2026-10-16T09:13:13.530665+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 437958,
+      "body_sha256": "2c91170eea39c6514bb7ffbd29e208566a0c22e0df97cefff0b0f10debc31ebc",
+      "transport_output_sha256": "2c91170eea39c6514bb7ffbd29e208566a0c22e0df97cefff0b0f10debc31ebc"
+    },
+    {
+      "key": "fla-showtell-category",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://github.com/orgs/fla-org/discussions/categories/show-and-tell",
+      "final_url": "https://github.com/orgs/fla-org/discussions/categories/show-and-tell",
+      "observed_from": "2026-10-16T09:13:10.561881+00:00",
+      "observed_until": "2026-10-16T09:13:12.926746+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 244497,
+      "body_sha256": "19cfef49713e6f27e0836ca1c6f7190699f3c906017924a1dd6e17cd1755e89c",
+      "transport_output_sha256": "19cfef49713e6f27e0836ca1c6f7190699f3c906017924a1dd6e17cd1755e89c"
+    },
+    {
+      "key": "hf-community-blog",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/docs/hub/en/blog-explorers",
+      "final_url": null,
+      "observed_from": "2026-10-16T09:13:10.561881+00:00",
+      "observed_until": "2026-10-16T09:13:12.039949+00:00",
+      "http_status": 404,
+      "exit_code": 1,
+      "error": "HTTP Error 404: Not Found",
+      "body_bytes": 52372,
+      "body_sha256": "1344b369e790273ba38965c6ed2e4ac30ba7f960c2081513da224854b9ea2551",
+      "transport_output_sha256": "1344b369e790273ba38965c6ed2e4ac30ba7f960c2081513da224854b9ea2551"
+    },
+    {
+      "key": "hf-blog-editor",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/blog/community",
+      "final_url": "https://huggingface.co/blog/community",
+      "observed_from": "2026-10-16T09:13:12.043919+00:00",
+      "observed_until": "2026-10-16T09:13:13.200408+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 138164,
+      "body_sha256": "40b04c87ac3a6292f3d8d05658d499491a2e70435811a64b3230e758de217612",
+      "transport_output_sha256": "40b04c87ac3a6292f3d8d05658d499491a2e70435811a64b3230e758de217612"
+    },
+    {
+      "key": "hf-spaces-overview",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/docs/hub/en/spaces-overview",
+      "final_url": "https://huggingface.co/docs/hub/en/spaces-overview",
+      "observed_from": "2026-10-16T09:13:12.931747+00:00",
+      "observed_until": "2026-10-16T09:13:14.157583+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 223296,
+      "body_sha256": "31ddfdd261491b0c0ba9711b055244eeb74cb6bb9cdf8ac288114171630e0994",
+      "transport_output_sha256": "31ddfdd261491b0c0ba9711b055244eeb74cb6bb9cdf8ac288114171630e0994"
+    },
+    {
+      "key": "hf-spaces-static",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/docs/hub/en/spaces-sdks-static",
+      "final_url": "https://huggingface.co/docs/hub/en/spaces-sdks-static",
+      "observed_from": "2026-10-16T09:13:13.204409+00:00",
+      "observed_until": "2026-10-16T09:13:14.438883+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 186738,
+      "body_sha256": "72974635d5eebe1cafbe6bb28c84cb6ea13386457c79f79ffa3f074dde3ccf30",
+      "transport_output_sha256": "72974635d5eebe1cafbe6bb28c84cb6ea13386457c79f79ffa3f074dde3ccf30"
+    },
+    {
+      "key": "hf-content-policy",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/content-policy",
+      "final_url": "https://huggingface.co/content-policy",
+      "observed_from": "2026-10-16T09:13:13.536635+00:00",
+      "observed_until": "2026-10-16T09:13:14.500884+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 85266,
+      "body_sha256": "25f245ff317286946fefa77d1ef63148b71063bceddb98b392abd6cb55f22ffe",
+      "transport_output_sha256": "25f245ff317286946fefa77d1ef63148b71063bceddb98b392abd6cb55f22ffe"
+    },
+    {
+      "key": "hf-spaces-about",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://discuss.huggingface.co/t/about-the-spaces-category/10965.json",
+      "final_url": "https://discuss.huggingface.co/t/about-the-spaces-category/10965.json",
+      "observed_from": "2026-10-16T09:13:14.161584+00:00",
+      "observed_until": "2026-10-16T09:13:14.959887+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 9604,
+      "body_sha256": "167edfe8c7792e6ef33b4f14364a29b922485f21ff81160d182594365722fc10",
+      "transport_output_sha256": "167edfe8c7792e6ef33b4f14364a29b922485f21ff81160d182594365722fc10"
+    },
+    {
+      "key": "hf-blog-articles-docs",
+      "method": "GET",
+      "transport": "web",
+      "target": "https://huggingface.co/docs/hub/en/blog-articles",
+      "final_url": "https://huggingface.co/docs/hub/en/blog-articles",
+      "observed_from": "2026-10-16T09:13:53.401734+00:00",
+      "observed_until": "2026-10-16T09:13:54.728617+00:00",
+      "http_status": 200,
+      "exit_code": 0,
+      "error": null,
+      "body_bytes": 190225,
+      "body_sha256": "fabb75101155a5ab19d811bd76faad60110a952da2c0c8a01d28167de1fa8e36",
+      "transport_output_sha256": "fabb75101155a5ab19d811bd76faad60110a952da2c0c8a01d28167de1fa8e36"
+    }
+  ]
+}

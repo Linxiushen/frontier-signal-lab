@@ -1,0 +1,48 @@
+name: SaveScope package and audit
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  portable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip wheel . --no-deps --wheel-dir dist
+      - run: python -m pip install dist/*.whl
+      - run: python -m unittest discover -s tests -p test_savescope_report.py -v
+      - run: python -m savescope replay --output reports/package-replay
+      - run: python -m savescope inspect reports/package-replay/report.json
+      - name: Prove replay works from the installed wheel, away from checkout
+        working-directory: ${{ runner.temp }}
+        run: |
+          python -I -m savescope replay --output installed-replay
+          python -I -m savescope inspect installed-replay/report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: savescope-wheel-and-replay
+          path: |
+            dist/*.whl
+            reports/package-replay/
+  tiny-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.9.1+cpu
+      - run: python -m pip install numpy==2.3.5
+      - run: python -m pip install . --no-deps
+      - run: python -m unittest discover -s tests -p 'test_savescope*.py' -v
+      - run: python -m savescope demo --output reports/tiny-audit
+      - run: python -m savescope inspect reports/tiny-audit/report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: savescope-tiny-execution
+          path: reports/tiny-audit/

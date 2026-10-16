@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T08:56:55.049798+00:00",
-  "observation_note": "Append-only current H1/H2 public source observations and one fixed-point LayerNorm saved-operand diagnostic; historical dates/authorship and prior failed CE/training results retained.",
+  "last_updated_at": "2026-10-16T09:23:12.514270+00:00",
+  "observation_note": "Original source objects retained; one predeclared first-step AdamW negative result and SaveScope product release added.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -2740,6 +2740,24 @@
       },
       "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
       "evidence_record": "research/evidence/2026-10-16-attention-saves-and-continuation.json"
+    },
+    {
+      "id": "pythia14m-first-step-adamw-update-fidelity",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/activation_update_probe.py",
+      "type": "original_local_predeclared_optimizer_diagnostic",
+      "author": "Frontier Signal Lab (original protocol/code); EleutherAI (historical model)",
+      "published_at": null,
+      "observed_at": "2026-10-16T09:18:11.440220+00:00",
+      "repository_public": true,
+      "license_metadata": "Original protocol/code MIT; pinned Pythia assets Apache-2.0; no weights/gradient arrays bundled.",
+      "status": "executed_valid_controls_joint_update_gate_failed_all_three_batches",
+      "claim": "Nine actual fresh-state AdamW clone steps; unchanged Pythia-14m model, 76 parameters, fixed overlapping synthetic batches; independent NumPy theta/m/v/step reference.",
+      "result": "Attention-preserved gradient cosine about0.999 still yields actual delta relativeL2 0.119295/0.116722/0.108971. All3 predeclared joint gates fail the0.10 absolute limit; cosine>=0.99 and half-baseline/no-worse-cosine conditions pass. Native reference controls pass and all gradient records match previous same-runtime attention records.",
+      "limitations": "One fresh-state step, weight_decay0.01; not accumulated state, convergence, quality, cost, GPU or AttnRes. Three overlapping batches,320 unique target positions.",
+      "stable_result_sha256": "7774616b29f3cf7756b328a00f78add1a48fde874dae98690d1f1da962ae0c06",
+      "result_file_sha256": "5fdaeca50029a81073634e6e718e0ca3aecacca41e72d5363ef40f49711710e5",
+      "protocol_sha256": "921b20ec10d5c0e4436ae7ebff3a832c148de0da2ad9a44181d313855cfe7a67",
+      "review_record": "research/2026-10-16-savescope.md"
     }
   ]
 }

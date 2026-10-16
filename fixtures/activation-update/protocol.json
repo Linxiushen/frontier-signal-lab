@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "predeclared_at": "2026-10-16T09:12:01.039779+00:00",
+  "preparation_status": "protocol_written_before_implementation_tests_or_new_model_execution",
+  "question": "After preserving actual attention-forward saved tensors improves fixed-point gradients, does the same intervention preserve actual zero-state AdamW first-step parameter updates against dense updates?",
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "methods_in_order": [
+      "dense",
+      "model_except_norm_saved_int8",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "schedule_steps": 24,
+    "schedule_selection": "first batch only",
+    "dtype": "float32",
+    "attention": "eager",
+    "threads": 1,
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 180,
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+    "norm_preservation_scope": "torch.nn.LayerNorm forward saves",
+    "expected_named_layernorm_modules": 13,
+    "attention_preservation_scope": "transformers.models.gpt_neox.modeling_gpt_neox.GPTNeoXAttention forward saves",
+    "expected_named_attention_modules": 6,
+    "optimizer": {
+      "name": "AdamW",
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false,
+      "amsgrad": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false
+    },
+    "optimizer_context": "zero-state first step only; all parameters including bias/norm share one group",
+    "optimizer_initial_step": 0,
+    "optimizer_steps_per_arm": 1,
+    "gradient_clipping": false,
+    "learning_rate_schedule": false,
+    "numpy_reference_dtype": "float64",
+    "numpy_reference_elementwise_tolerance": {
+      "float32_epsilon_multiplier": 8,
+      "float32_tiny_multiplier": 8
+    },
+    "update_gate": {
+      "max_relative_l2_to_dense": 0.1,
+      "min_cosine_to_dense": 0.99,
+      "max_treatment_to_norm_only_relative_l2": 0.5,
+      "cosine_no_worse_than_norm_only": true,
+      "require_all_seeds": true
+    }
+  },
+  "config_sha256": "71ad9e7d6b2c4c26c29a526411543be44d658d9167f99752ac68f7312391b759",
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "training_manifest_sha256": "1ef9779024091875d28959165c84c7ac390875df3bb9ea8b5a892dc43db17280",
+  "attention_protocol_sha256": "46d29186eecdb17369004bac921cc65a8077086779dc0b79961b34f57e9096e3",
+  "source_files_sha256": {
+    "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  },
+  "baseline_attention_report": "results/activation-attention-gradient/report.json",
+  "baseline_attention_report_sha256": "5c86f13e522bf09f8fe269f580026eabaeede7a437989c854aac09c5badc8d51",
+  "baseline_rule": "Same-runtime gradient method fields including all76 per-parameter statistics and gradient hashes must equal the frozen attention diagnostic. A different platform must supply a same-runtime replay of that existing protocol; no cross-platform exact hash claim.",
+  "batch_selection": "batch_schedule(8,24,2,seed)[0]; same first batches as previous loss-boundary diagnostic; overlapping examples,320 unique target positions across three batches",
+  "target_positions_per_method_worker": 128,
+  "scope": "One predeclared experiment,3workers,3policies,9fixed-point backwards and9actual torch.optim.AdamW steps on detached full-parameter clones. The original model never updates. No stateful/history context in this experiment.",
+  "numpy_reference": "Independent float64 equations: m1=beta1*m0+(1-beta1)*g;v1=beta2*v0+(1-beta2)*g^2;t1=t0+1;mhat=m1/(1-beta1^t1);vhat=v1/(1-beta2^t1);theta1=theta0*(1-lr*weight_decay)-lr*mhat/(sqrt(vhat)+epsilon). Zero m/v and step0, cloned identically per arm. Validate native theta1,m1,v1 and step against NumPy, accounting explicitly for float32 operation rounding.",
+  "reference_tolerance": "Every element finite. For theta: abs(native-reference64)<=8*eps32*(abs(theta0)+abs(reference64-theta0))+8*tiny32. For m/v: abs(native-reference64)<=8*eps32*abs(reference64)+8*tiny32. No relative-to-weight metric substitutes for update fidelity.",
+  "controls": [
+    "Exact unchanged model parameter hash before/after each backward and optimizer clone step; all clone/gradient/state storages disjoint from original model.",
+    "All76 finite gradient tensors/14067712elements; same logits/loss and analytic CE relativeL2<=1e-5; exact13LayerNorm and actual6attention coverage inherited unchanged.",
+    "Every arm clones identical initial parameters and zero m/v/step0; native optimizer step is1; full theta/m/v/delta hashes retained.",
+    "Dense and both compressed gradients exactly match each corresponding frozen attention method record in the same runtime.",
+    "Independent NumPy tiny mixed-sign/zero/tiny/large-gradient control detects wrong epsilon placement and coupled decay; grad=None skips parameter/state while explicit zero gradient applies decoupled decay and increments step.",
+    "Actual float32 delta=theta_after-theta_before; every one of76 parameters contributes to aggregate squared norms,dot products,max error and cosine. Raw weights-relative error is descriptive only."
+  ],
+  "gate": "All3batches: treatment actual update relativeL2<=0.10,cosine>=0.99,and treatment/norm-only update relativeL2<=0.5 with cosine no worse. Zero/undefined/nonfinite denominator,nonfinite ratio or incomplete controls cannot pass. A valid scientific gate failure is retained as a completed result; controls failure is invalid/incomplete. No tuning or extra candidate after results.",
+  "execution": "Sequential3fresh workers,180second comparison-loop cap after model loading,300second parent cap. Fixed method order. Reuse fixed gradients only within their own worker optimizer comparison; no extra training forward,holdout,scheduler,clipping,stateful trajectory or second experiment.",
+  "implementation_freeze": "The new experiment and test source hashes are recorded after implementation and before tests/model execution in an ignored implementation-freeze receipt; dependency hashes above are already frozen. Parent receives protocol hashes before implementation begins.",
+  "limitations": [
+    "First-step AdamW is strongly sign/epsilon sensitive; a gradient-relativeL2 improvement need not preserve update direction.",
+    "Only zero optimizer state; resumed or accumulated-moment AdamW behavior remains unverified.",
+    "Weight_decay0.01 is a new explicit numerical-diagnostic condition; prior training used0 and its cost/holdout negatives remain unchanged.",
+    "Three overlapping synthetic first batches,320unique target positions; no independent statistical-replicate claim.",
+    "Cloned weights,moments,dense gradients/updates and NumPy references add memory/CPU cost; timings are descriptive,no efficiency comparison.",
+    "No quality,holdout,convergence,learnedrouting,AttnRes,GPU or novelty claim."
+  ]
+}

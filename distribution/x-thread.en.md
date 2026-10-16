@@ -1,0 +1,44 @@
+# X thread draft — not posted
+
+Review against the released commit before use. Account identity, posting access, and X policy review are unverified. No tags, mentions, or guaranteed reach. Do not reuse this AI-generated draft on Hacker News.
+
+Each numbered block below is one proposed post. The new Pythia update-report link must be pinned to the published commit before use. The conditions in post 1 are part of the result, not optional fine print.
+
+## 1
+
+A 0.999 gradient cosine still left ~11–12% AdamW update error in our fixed Pythia-14m diagnostic. Three overlapping synthetic batches; CPU float32, fresh moments, weight decay 0.01. This is why we built SaveScope.
+
+## 2
+
+The measured error is relative L2 of actual float32 first-step parameter deltas vs dense: 0.1193 / 0.1167 / 0.1090. All three predeclared joint gates failed the 0.10 absolute limit. A high gradient cosine was insufficient.
+
+## 3
+
+We kept exact CE, 13 LayerNorm scopes and six attention forwards. Gradient error fell sharply, but the update gate still failed. Broad scopes, 320 unique target positions; no stateful-training, quality, VRAM or speed conclusion.
+
+## 4
+
+Evidence, controls and failed gate:
+https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md
+SaveScope compares saved scopes, reference gradients and actual first-step updates. Native parameter/moment updates also passed independent NumPy rounding bounds.
+
+## 5
+
+Try `python -m savescope replay --output replay` to inspect recorded observations, or `python -m savescope demo --output tiny-run` for an actual tiny run after CPU dependencies. No model download.
+https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md
+
+## 6
+
+We would value one independent reproducer or small architecture adapter: identical weights/data/optimizer state, actual module scopes, reference gradients + parameter deltas, and all failed gates retained.
+https://github.com/Linxiushen/frontier-signal-lab/blob/main/CONTRIBUTING.md
+
+## Evidence links for replies, if relevant
+
+- [Product and support boundary](https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md)
+- [Fixed Pythia gradient report](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-attention-gradient/report.md)
+- [Actual first-step update result; pin after release](https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md)
+- [Predeclared update protocol; pin after release](https://github.com/Linxiushen/frontier-signal-lab/blob/main/fixtures/activation-update/README.md)
+- [Negative training result](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-training/report.md)
+- [PyTorch's existing saved-tensor hook tutorial](https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html)
+
+Use only a verified live demo URL. Do not add GPU claims, affiliation claims, or suggestions that a named researcher endorsed the tool. The earlier training run cut logical saved inventory by 54% but ran slower on CPU with higher process peak; it remains a negative result.

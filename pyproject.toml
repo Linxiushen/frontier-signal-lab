@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frontier-savescope"
+version = "0.1.0"
+description = "Audit saved-tensor compression through gradients and actual AdamW updates"
+readme = "SAVESCOPE.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Linxiushen"}]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+audit = ["torch>=2.9,<3", "numpy>=1.26,<3"]
+
+[project.scripts]
+savescope = "savescope.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/Linxiushen/frontier-signal-lab"
+Demo = "https://linxiushen.github.io/frontier-signal-lab/"
+Issues = "https://github.com/Linxiushen/frontier-signal-lab/issues"
+
+[tool.setuptools]
+packages = ["savescope"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+savescope = ["data/*.json", "templates/*.html"]

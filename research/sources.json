@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T09:23:12.514270+00:00",
+  "last_updated_at": "2026-10-16T11:04:01.032783+00:00",
   "observation_note": "Original source objects retained; one predeclared first-step AdamW negative result and SaveScope product release added.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -2758,6 +2758,184 @@
       "result_file_sha256": "5fdaeca50029a81073634e6e718e0ca3aecacca41e72d5363ef40f49711710e5",
       "protocol_sha256": "921b20ec10d5c0e4436ae7ebff3a832c148de0da2ad9a44181d313855cfe7a67",
       "review_record": "research/2026-10-16-savescope.md"
+    },
+    {
+      "id": "fla-activation-singleton-stride-regression",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1490",
+      "type": "public_draft_test_proposal",
+      "author": "Aphelios183 (not Nathan Chen)",
+      "published_at": "2026-10-16T08:56:17Z",
+      "published_at_kind": "PR creation; underlying commit08:30:12 predates prior cutoff",
+      "observed_at": "2026-10-16T10:46:19.609814+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or upstream implementation copied",
+      "status": "draft_unmerged_source_review_only_depends_on_unmerged_1487",
+      "commit_sha": "39fd6d9005aee849132cd01f30de3276f36de5dd",
+      "claim": "7 activation functions x4 noncanonical singleton-stride layouts x3 dtypes =84 cases. Compares output and all input gradients to float32 references cast to dtype with existing1e-3 tolerance and finite checks. NaN-padded inputs/incoming gradients and a monkeypatched empty_like deliberately keep erroneous baseline accesses inside larger allocations. Tests only; product fix is not included.",
+      "third_party_validation": "Body says L40/SM89, Python3.11.15, Torch2.7.1+cu126, Triton3.3.1: main+newtests7fail/1pass for selectedFP32 subset; manually combined1487+identical regression84pass. No raw linked validation logs or exact immutable combined tree were audited.",
+      "limitations": "Draft/unmerged, depends on unmerged1487. Full file/upstream CI/other accelerators/compute-sanitizer explicitly unrun for main-based commit. Padded allocation regression is not proof of original-allocation memory safety. No performance, quality, author-employer, Nathan-contribution or private-roadmap claim.",
+      "our_inference": "Retain canonical-layout plus all-input-backward checks and authentic base-fail/head-pass/hardware-dispatch evidence for future activation-compression work. Does not directly support saved-attention dominance or clear any local AdamW gate.",
+      "evidence_record": "research/evidence/2026-10-16-singleton-stride-regression.json"
+    },
+    {
+      "id": "openclaw-restored-requester-authority",
+      "url": "https://github.com/openclaw/openclaw/pull/173873",
+      "type": "known_public_proposal_new_merge_source_review",
+      "author": "steipete / Peter Steinberger",
+      "published_at": "2026-10-16T08:43:16Z",
+      "proposal_created_at": "2026-10-16T06:00:14Z",
+      "published_at_kind": "New merge of earlier proposal, not first publication of idea",
+      "observed_at": "2026-10-16T10:45:42.679751Z",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or copied upstream implementation",
+      "status": "merged_source_and_ci_metadata_only_not_independently_executed",
+      "commit_sha": "37d210e4aaf3811c27d5d7191027cf9f0da08425",
+      "parent_shas": [
+        "ce35625937bcfe988d361dea1ca8c7678baaab05"
+      ],
+      "prepared_pr_head": "88b29015f147565490795ae492df0ce3c18ae33e",
+      "changed_patches_read": 14,
+      "changed_files_total": 63,
+      "claim": [
+        "#173873 adds durable operatorRecoverySource evidence with canonical bounded65,536-byte decoding, tied to requester agent/session/incarnation/lifecycle/sourceRun; snapshot scopes are bounded by admitted scopes.",
+        "Recovery evidence does not itself confer execution authority. Gateway owner restoration verifies stored/current requester identity and current policy/grant through restoreGatewayOperatorSource, with current owner/Gateway/lifecycle checks across awaits and no system fallback for missing or revoked evidence.",
+        "Restoration first restricts the row. Only overloaded WorkerTaskError re-arms the retry marker; successful restore or permanent refusal clears it. A revoked source is not a transient retry.",
+        "The selected exact-merge state code advances24->25 as a metadata-only compatibility fence for older readers. This does not assert latest-main schema is25; other commits may subsequently change it."
+      ],
+      "third_party_validation": [
+        "#173873 reports129focused tests and9cold variants; requester dispatch with SQLite reload but intercepted announcement and no live model/external delivery. Native full subprocess proof is delegated to CI. Source-less system-originated children intentionally do not auto-wake; children themselves are not auto-relaunched.",
+        "#173873 reports synthetic storage cost+643bytes/row, write time+50.1%, database7.99->14.15MB. This is reported overhead, not a measured performance improvement by this audit.",
+        "#173873 calls red CI failures inherited; cause attribution not inspected. The verified run conclusion remains failure."
+      ],
+      "our_inference": "The newly merged work supports public-project focus on crash-safe continuation under current authority and bounded recovery progress. It adds a useful implementation target for H2, without establishing full-harness readiness or any private employer roadmap.",
+      "limitations": "14 of63 changed patches fully read. Prepared-head CI failure retained; inherited attribution unverified. No CI logs/upstream tests/local Gateway execution. The24->25fence describes this exact merge, not latest main.",
+      "review_record": "research/2026-10-16-recovery-concurrency-and-harness-root.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-concurrency-and-harness-root.json",
+      "ci_metadata": {
+        "id": 38872939453,
+        "name": "CI",
+        "event": "pull_request",
+        "head_branch": "steipete/perf-micro-subagent-restart-authority-20260919",
+        "head_sha": "88b29015f147565490795ae492df0ce3c18ae33e",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-10-16T08:19:40Z",
+        "updated_at": "2026-10-16T08:40:26Z",
+        "run_started_at": "2026-10-16T08:19:40Z",
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38872939453",
+        "run_attempt": 1,
+        "head_matches_prepared_pr_head": true,
+        "jobs_or_logs_fetched": false,
+        "independent_local_execution": false,
+        "failure_attribution_audited": false,
+        "scope": "API run metadata on prepared PR head; neither exact-merge local execution nor per-test pass evidence"
+      }
+    },
+    {
+      "id": "openclaw-bounded-concurrent-recovery",
+      "url": "https://github.com/openclaw/openclaw/pull/173924",
+      "type": "known_public_proposal_new_merge_source_review",
+      "author": "steipete / Peter Steinberger",
+      "published_at": "2026-10-16T09:00:05Z",
+      "proposal_created_at": "2026-10-16T06:42:09Z",
+      "published_at_kind": "New merge of earlier proposal, not first publication of idea",
+      "observed_at": "2026-10-16T10:45:42.679751Z",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or copied upstream implementation",
+      "status": "merged_source_and_ci_metadata_only_not_independently_executed",
+      "commit_sha": "f7f3b9ca184c12c0b56c28f5cffbc789dc635b57",
+      "parent_shas": [
+        "35b769240bb14a7f400292936fbaf1c3e32196ef"
+      ],
+      "prepared_pr_head": "ce148c0c06ac8c8885db1aa81a705bb028ae47f8",
+      "changed_patches_read": 16,
+      "changed_files_total": 16,
+      "claim": [
+        "#173924 puts unattended recovery on dedicated RestartRecovery command lane, default concurrency4; visible demand-triggered recovery remains Main. It globally orders claimed candidates by endedAt or updatedAt with storePath/sessionKey ties, while keeping per-session serialization and existing ownership/admission deadlines.",
+        "Candidate preparation failure increments failed and continues to healthy candidates without clearing the failed interruption claim; abort still propagates. Maintenance waits for RestartRecovery queue. Four long-running recoveries can occupy all slots and backlog still progresses in waves.",
+        "Changed tests include8sessions/twostores FIFO, blocked background plus live Main control, startup/preparation capacity retry without charging/clearing marks, repeated interruption, and a Gateway-process fixture extended to5interrupted sessions with peak4 held provider responses and fifth starting after release."
+      ],
+      "third_party_validation": [
+        "#173924 claims75green CI jobs and a71second process fixture across rawSIGTERM/managed restart/SIGKILL/Stop/revoked authority/second restart. CI run success is verified as metadata only; jobs/logs and local test execution were not performed. Author local owner attempts stalled before assertions, not passes."
+      ],
+      "our_inference": "The newly merged work supports public-project focus on crash-safe continuation under current authority and bounded recovery progress. It adds a useful implementation target for H2, without establishing full-harness readiness or any private employer roadmap.",
+      "limitations": "All16 changed patches read. Prepared-head CI success is metadata only, not independent test execution. Process-fixture source owns Gateway subprocesses with a synthetic provider/tool process, not live-model or external-delivery proof; progress assumes an eligible slot is released.",
+      "review_record": "research/2026-10-16-recovery-concurrency-and-harness-root.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-concurrency-and-harness-root.json",
+      "ci_metadata": {
+        "id": 38870946535,
+        "name": "CI",
+        "event": "pull_request",
+        "head_branch": "steipete/team-replyrestore",
+        "head_sha": "ce148c0c06ac8c8885db1aa81a705bb028ae47f8",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-16T08:01:36Z",
+        "updated_at": "2026-10-16T08:17:34Z",
+        "run_started_at": "2026-10-16T08:01:36Z",
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38870946535",
+        "run_attempt": 1,
+        "head_matches_prepared_pr_head": true,
+        "jobs_or_logs_fetched": false,
+        "independent_local_execution": false,
+        "failure_attribution_audited": false,
+        "scope": "API run metadata on prepared PR head; neither exact-merge local execution nor per-test pass evidence"
+      }
+    },
+    {
+      "id": "verifiers-harness-git-metadata-removal",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2874",
+      "type": "known_public_proposal_new_merge_source_review",
+      "author": "hallerite / Konstantin Dunas",
+      "published_at": "2026-10-16T09:19:36Z",
+      "proposal_created_at": "2026-10-15T23:38:39Z",
+      "published_at_kind": "New merge of earlier proposal, not first publication of idea",
+      "observed_at": "2026-10-16T10:45:42.679751Z",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or copied upstream implementation",
+      "status": "merged_source_only_not_independently_executed",
+      "commit_sha": "a681caefb5228fa74c247890a5b9d3e02816559e",
+      "parent_shas": [
+        "0976c3073f903d3449163d473e31c7e278b4a042"
+      ],
+      "prepared_pr_head": "22dec0dd109066408dc442bcb4bb1d17cc505d7e",
+      "changed_patches_read": 1,
+      "changed_files_total": 1,
+      "claim": [
+        "At a681caefb5228fa74c247890a5b9d3e02816559e, RLM setup removes the harness checkout/.git after checkout of configured version and before install.sh; editable-install source files stay present. Entire changed patch is3added lines in1file.",
+        "This is a harness installation change by GitHub author hallerite, Git author Konstantin Dunas, not a new Will Brown contribution. The existing merged replay-view parent is0976c3073f903d3449163d473e31c7e278b4a042.",
+        "The proposal had already been recorded at2026-10-15T23:39:03Z and2026-10-16T07:32:55Z. New information within this window is merge09:19:36Z and immutable merged source, not a newly surfaced idea."
+      ],
+      "third_party_validation": [
+        "PR says MCP-Atlas agents on composed GLM-5.3HT/nano-rlm77c3489 searched task project history but used harness checkout git log/AGENTS/authors instead of task git_git_log.",
+        "PR reports selectively rerun4timeouts atcoverage.03-.08 became4completions at.96-.97 in12-34minutes; harness git usage33/2716mainrun tasks vs0/630rerun. Different sample sizes and targeted timeout reruns do not establish an unbiased overall gain or a controlled causal estimate.",
+        "No test added by this patch; PR discloses Claude Code generation. Source change is verified, behavior and benchmark results are author reports."
+      ],
+      "our_inference": "Effective evaluation identity can include install artifacts and filesystem affordances such as harness VCS metadata, in addition to task/model/runtime versions. This adds a source-only H4 environment-control gate, without proving training/reward consistency or H3 adaptive evaluation bias.",
+      "limitations": "Entire3-added-line/1-file patch read, plus installation context. No added test; no benchmark/model run here. Claimed4timeout reruns and unequal main/rerun denominators do not establish controlled overall gain.",
+      "review_record": "research/2026-10-16-recovery-concurrency-and-harness-root.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-concurrency-and-harness-root.json"
+    },
+    {
+      "id": "pythia14m-matched-state-adamw-update-fidelity",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/activation_state_update_probe.py",
+      "type": "original_local_predeclared_accumulated_state_diagnostic",
+      "author": "Frontier Signal Lab (original protocol/code); EleutherAI (historical model)",
+      "published_at": null,
+      "published_at_kind": "Local diagnostic completion; no new upstream researcher publication",
+      "observed_at": "2026-10-16T11:01:47.596323+00:00",
+      "repository_public": true,
+      "license_metadata": "Original tooling MIT; pinned historical Pythia assets Apache-2.0; no weights/gradient/moment arrays committed",
+      "status": "executed_valid_controls_matched_state_joint_gate_passed_all_three_fresh_secondary_failed",
+      "claim": "Three fixed schedules, four actual dense warmup steps each, fifth batch probe at fixed warmed weights; 12warmup and18clone native AdamW updates with complete theta/m/v/step controls",
+      "result": "Matched actual m/v/step4 gives treatment update relL2 0.008563226/0.007663672/0.007763336 and cosine0.999963338/0.999970635/0.999969868: all3primary joint gates pass. Identical per-policy gradients at same warmed weights with zero m/v/step0 yield0.109041819/0.105082811/0.109491334: all3secondary gates fail absolute0.10 only. No primary rescue or retuning.",
+      "limitations": "Four dense history steps and overlapping synthetic schedules; contexts differ in both moments and counter. Not a compressed training trajectory, sealed quality, convergence, cost, peakGPU or AttnRes result. Prior negative results preserved; SaveScope v0.1 API fresh-state only. Hash receipts cannot independently recompute unpublished raw-array NumPy references.",
+      "stable_result_sha256": "27f898785bb8e0c5f7460dc9670e95a03aa73cb06fcc47a39656c6bf13f337bc",
+      "observation_sha256": "11a8e19cc6cff92ef2dbeec3ed9dc3dd90790ca7200ae63d4f9e34b931e2288b",
+      "result_file_sha256": "0cc65219b0a6beea5f68b3ce8b0001f72f93fc3dee92855ae4b0c727a9b0c61d",
+      "protocol_sha256": "9b3a45c205defd8d1211c3f2ad2c60a447e057438a219e4f38e2cc1371706cca",
+      "implementation_freeze_sha256": "cb89d0c1cbb0151e48d6fd6ca5e7859e848c08d14b1ad01a268d1551eec32a08",
+      "review_record": "research/2026-10-16-accumulated-state-update.md"
     }
   ]
 }

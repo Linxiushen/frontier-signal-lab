@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "predeclared_at": "2026-10-16T10:46:17.734195+00:00",
+  "preparation_status": "written_before_new_implementation_tests_or_model_execution",
+  "question": "At the same four-dense-step warmed parameter point and identical per-policy gradients, does preserving actual attention save scopes pass actual next AdamW update fidelity with matched nonzero moments? Fresh-state clones are secondary controls only.",
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "methods_in_order": [
+      "dense",
+      "model_except_norm_saved_int8",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "schedule_steps": 24,
+    "schedule_selection": "dense warmup batches 0..3, fixed probe batch 4; no holdout",
+    "dtype": "float32",
+    "attention": "eager",
+    "threads": 1,
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 360,
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+    "norm_preservation_scope": "torch.nn.LayerNorm forward saves",
+    "expected_named_layernorm_modules": 13,
+    "attention_preservation_scope": "transformers.models.gpt_neox.modeling_gpt_neox.GPTNeoXAttention forward saves",
+    "expected_named_attention_modules": 6,
+    "warmup_steps": 4,
+    "optimizer": {
+      "name": "AdamW",
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false,
+      "amsgrad": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false
+    },
+    "optimizer_contexts_in_order": [
+      "matched_step4",
+      "fresh_step0"
+    ],
+    "primary_context": "matched_step4",
+    "secondary_context": "fresh_step0",
+    "primary_gate": {
+      "max_relative_l2_to_dense": 0.1,
+      "min_cosine_to_dense": 0.99,
+      "max_treatment_to_norm_only_relative_l2": 0.5,
+      "cosine_no_worse_than_norm_only": true,
+      "require_all_seeds": true
+    },
+    "gradient_clipping": false,
+    "learning_rate_schedule": false,
+    "optimizer_group": "all 76 trainable tensors in one group, including biases/norms",
+    "parent_worker_timeout_seconds": 420,
+    "native_expected_steps": {
+      "warmup": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "matched_step4": 5,
+      "fresh_step0": 1
+    },
+    "expected_counts": {
+      "workers": 3,
+      "dense_warmup_backwards": 12,
+      "probe_backwards": 9,
+      "native_warmup_steps": 12,
+      "native_clone_steps": 18
+    },
+    "reference": "independent float64 NumPy AdamW from each actual pre-step theta/gradient/m/v/t; input-scale moment bounds and propagated parameter interval",
+    "reference_bounds": {
+      "float32_epsilon_multiplier": 8,
+      "float32_tiny_multiplier": 8,
+      "m_scale": "abs(beta1*m0)+abs((1-beta1)*g)",
+      "v_scale": "abs(beta2*v0)+abs((1-beta2)*g*g)",
+      "parameter_interval": "evaluate all 4 corners of m1 +/- m_tolerance and max(0,v1 +/- v_tolerance), include bias correction; enlarge by 8*eps32*(abs(theta0)+max(abs(corner_updates)))+8*tiny32"
+    },
+    "execution": "CPU float32 eager, single thread deterministic; dense forward, CE outside save hooks; fixed parameter point after warmup"
+  },
+  "config_sha256": "556eab737f2e4d6c18449da20ed9e57ab6dc50f449dc73b4b60797172ba6fd3a",
+  "schedules": {
+    "11": {
+      "all_steps_sha256": "a79b2dc92e436576d803006c5d3184a64474bd0db83cb2b45abbba6a3003b9c4",
+      "warmup": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "probe": [
+        2,
+        5
+      ]
+    },
+    "29": {
+      "all_steps_sha256": "62656b8983d0fc8a059b5db3ac57e5789172bc08eefa7073656af13ab20ac8a8",
+      "warmup": [
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "probe": [
+        1,
+        3
+      ]
+    },
+    "47": {
+      "all_steps_sha256": "f2b6dc40549694731d3daa1a6f03f29c25e2d1af43305540586fab56df9f4c6b",
+      "warmup": [
+        [
+          7,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "probe": [
+        5,
+        6
+      ]
+    }
+  },
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "training_manifest_sha256": "1ef9779024091875d28959165c84c7ac390875df3bb9ea8b5a892dc43db17280",
+  "prior_first_step_report_sha256": "5fdaeca50029a81073634e6e718e0ca3aecacca41e72d5363ef40f49711710e5",
+  "frozen_dependencies_sha256": {
+    "experiments/activation_update_probe.py": "630a109da3f260c3a8b31346ac839cf2901edab6d8b7bce82609d7a3105169f3",
+    "tests/test_activation_update.py": "9308d69df167c52fe5a8ba52c4460216921075a8a9a559533a37be2d6189149b",
+    "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  },
+  "new_source_paths": [
+    "experiments/adamw_state_reference.py",
+    "experiments/activation_state_update_probe.py",
+    "tests/test_adamw_state_reference.py",
+    "tests/test_activation_state_update.py"
+  ],
+  "controls": [
+    "Every native warmup and clone step has independent theta/m/v/step receipts; all 76 parameters require finite gradients",
+    "Each context has identical complete cloned theta/m/v/step across policies; each tensor including step storage is disjoint from source and siblings",
+    "Probe weights and warm optimizer state hashes are unchanged across all policies/contexts; original pretrained weights change only during the declared dense warmup",
+    "Exact CE analytic control, 13 norm and 6 actual attention scopes are checked; no policy/threshold/seed selection after outcomes",
+    "Primary requires all seeds matched_step4 joint gate; fresh_step0 cannot rescue primary",
+    "Reports retain raw worker metrics/hash chains and failed scientific gates; control failures/timeout mean incomplete, never a valid science failure"
+  ],
+  "stop_conditions": [
+    "Any numerical/state/hash/coverage/scope/control failure stops publication of a completed scientific result",
+    "360 second measured worker budget and 420 second parent wall cap including startup; nonzero exit/timeout retained as incomplete",
+    "Exactly one declared run; no threshold/policy/seed/batch retuning or additional state counts on these results"
+  ],
+  "limitations": [
+    "Three fixed synthetic schedules overlap; not independent statistical replicates or a sealed quality benchmark",
+    "Four dense warmup steps are only a short generated state trajectory, not general optimizer-history coverage",
+    "Fresh state at warmed weights is not a reproduction of the earlier pretrained first-step report",
+    "No compressed training trajectory, holdout evaluation, convergence, model quality, matched-time efficiency, peak-memory/GPU, AttnRes or operand-level causality claim",
+    "The reusable SaveScope v0.1 API remains fresh-state only; this is a separate original experimental probe, not an API compatibility promise"
+  ]
+}

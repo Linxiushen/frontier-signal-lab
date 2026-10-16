@@ -75,7 +75,7 @@ jobs:
           if-no-files-found: warn
   activation-gradient:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -124,6 +124,18 @@ jobs:
         with:
           name: activation-update-diagnostic
           path: reports/update-ci/
+          if-no-files-found: warn
+      - name: Check accumulated-state numerical and protocol controls
+        run: |
+          python -m unittest discover -s tests -p test_adamw_state_reference.py -v
+          python -m unittest discover -s tests -p test_activation_state_update.py -v
+      - name: Reproduce the frozen accumulated-state diagnostic
+        run: python experiments/activation_state_update_probe.py --model-dir local-state/gradient-model --output reports/state-update-ci/replay
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: activation-state-update-diagnostic
+          path: reports/state-update-ci/
           if-no-files-found: warn
   public-radar:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

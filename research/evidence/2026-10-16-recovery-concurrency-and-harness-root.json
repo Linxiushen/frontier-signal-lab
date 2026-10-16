@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T103954Z",
+  "kind": "original_source_analysis_and_falsifiable_experiment_gates",
+  "event_window": {
+    "after_utc": "2026-10-16T08:35:32.730428Z",
+    "through_utc": "2026-10-16T10:39:54Z",
+    "since_query": "2026-10-16T08:35:32Z",
+    "until_query": "2026-10-16T10:39:54Z",
+    "lower_overlap_seconds": 0.730428,
+    "strict_committer_dates_checked": true,
+    "root_radar_owns_coverage_cutoff": true
+  },
+  "observation_interval": {
+    "start_utc": "2026-10-16T10:42:26.322483Z",
+    "end_utc": "2026-10-16T10:45:42.679751Z"
+  },
+  "coverage": {
+    "get_requests": 30,
+    "http200": 30,
+    "request_failures": 0,
+    "pagination_links_returned": 0,
+    "default_branch_commit_counts": {
+      "openclaw/openclaw": 83,
+      "earendil-works/pi": 2,
+      "PrimeIntellect-ai/verifiers": 1,
+      "SakanaAI/AI-Scientist-v3": 0
+    },
+    "boundary": "One page100 for four default branches, selected immutable commits/PRs/contents and5old-followup issue-comment lists. Not all83OpenClaw changes deeply audited; excludes other branches, inline reviews, general discussions and CI jobs/logs. Empty AI-Scientist-v3 list is bounded absence only.",
+    "issue_comments": "173579/173454/2857/2864/2866 returned zero issue comments since floored cutoff, no next Link; not all followups or inline reviews."
+  },
+  "public_license_identity": [
+    {
+      "repository": "openclaw/openclaw",
+      "public": true,
+      "license_spdx": "MIT",
+      "default_branch": "main",
+      "scope": "repository metadata observed after cutoff; no per-file license audit"
+    },
+    {
+      "repository": "PrimeIntellect-ai/verifiers",
+      "public": true,
+      "license_spdx": "MIT",
+      "default_branch": "main",
+      "scope": "repository metadata observed after cutoff; no per-file license audit"
+    }
+  ],
+  "clusters": [
+    {
+      "id": "H2-recovery-authority-and-bounded-progress",
+      "evidence_level": "source_and_ci_metadata_only",
+      "sources": [
+        {
+          "url": "https://github.com/openclaw/openclaw/pull/173873",
+          "title": "fix(subagents): restore requester authority after Gateway restarts",
+          "created_at_utc": "2026-10-16T06:00:14Z",
+          "merged_at_utc": "2026-10-16T08:43:16Z",
+          "updated_at_utc": "2026-10-16T08:43:49Z",
+          "new_proposal_in_window": false,
+          "new_merge_in_window": true,
+          "pr_author": "steipete",
+          "author_association": "CONTRIBUTOR",
+          "merged_by": "steipete",
+          "commit_author_login": "steipete",
+          "git_author": {
+            "name": "Peter Steinberger",
+            "email": "steipete@gmail.com",
+            "date": "2026-10-16T08:43:15Z"
+          },
+          "git_committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-10-16T08:43:15Z"
+          },
+          "merge_commit": "37d210e4aaf3811c27d5d7191027cf9f0da08425",
+          "actual_parents": [
+            "ce35625937bcfe988d361dea1ca8c7678baaab05"
+          ],
+          "prepared_pr_head": "88b29015f147565490795ae492df0ce3c18ae33e",
+          "files_changed": 63,
+          "changed_patches_fully_read": 14,
+          "read_files": [
+            "src/agents/subagents/registry/subagent-parent-recovery.restart-integration.test.ts",
+            "src/agents/subagents/registry/subagent-registry-gateway-owner.ts",
+            "src/agents/subagents/registry/subagent-registry-memory.ts",
+            "src/agents/subagents/registry/subagent-registry-run-launch.ts",
+            "src/agents/subagents/registry/subagent-registry.store.codec.ts",
+            "src/agents/subagents/registry/subagent-registry.types.ts",
+            "src/gateway/operator-run-authority.ts",
+            "src/gateway/operator-run-recovery-source.ts",
+            "src/gateway/operator-run-recovery.ts",
+            "src/state/openclaw-state-db-contract.ts",
+            "src/state/openclaw-state-db-engine.ts",
+            "src/state/openclaw-state-db-maintenance.ts",
+            "src/state/openclaw-state-db-schema-repair.ts",
+            "src/state/postgres-schema.generated/state-v24-v25.postgres.sql"
+          ]
+        },
+        {
+          "url": "https://github.com/openclaw/openclaw/pull/173924",
+          "title": "fix: resume interrupted replies concurrently after restart",
+          "created_at_utc": "2026-10-16T06:42:09Z",
+          "merged_at_utc": "2026-10-16T09:00:05Z",
+          "updated_at_utc": "2026-10-16T09:00:13Z",
+          "new_proposal_in_window": false,
+          "new_merge_in_window": true,
+          "pr_author": "steipete",
+          "author_association": "CONTRIBUTOR",
+          "merged_by": "steipete",
+          "commit_author_login": "steipete",
+          "git_author": {
+            "name": "Peter Steinberger",
+            "email": "steipete@gmail.com",
+            "date": "2026-10-16T09:00:04Z"
+          },
+          "git_committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-10-16T09:00:04Z"
+          },
+          "merge_commit": "f7f3b9ca184c12c0b56c28f5cffbc789dc635b57",
+          "actual_parents": [
+            "35b769240bb14a7f400292936fbaf1c3e32196ef"
+          ],
+          "prepared_pr_head": "ce148c0c06ac8c8885db1aa81a705bb028ae47f8",
+          "files_changed": 16,
+          "changed_patches_fully_read": 16,
+          "read_files": [
+            "docs/gateway/restart-recovery.md",
+            "src/agents/main-session-recovery/main-session-recovery-admission.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery-admission.test.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery-resume-policy.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery-runtime.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery-store.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery.memory.test.ts",
+            "src/agents/main-session-recovery/main-session-restart-recovery.test.ts",
+            "src/auto-reply/reply/reply-turn-admission.recovery.test.ts",
+            "src/auto-reply/reply/reply-turn-admission.ts",
+            "src/gateway/server-methods/diagnostics.test.ts",
+            "src/gateway/server-runtime-services.ts",
+            "src/process/command-queue.state.ts",
+            "src/process/command-queue.ts",
+            "src/process/lanes.ts",
+            "test/gateway-process-shutdown-recovery.e2e.test.ts"
+          ]
+        }
+      ],
+      "attribution": "Both PRs are steipete/Peter Steinberger contributions. They are newly merged in this window, proposed earlier. Public-project work does not establish an employer research roadmap.",
+      "source_facts": [
+        "#173873 adds durable operatorRecoverySource evidence with canonical bounded65,536-byte decoding, tied to requester agent/session/incarnation/lifecycle/sourceRun; snapshot scopes are bounded by admitted scopes.",
+        "Recovery evidence does not itself confer execution authority. Gateway owner restoration verifies stored/current requester identity and current policy/grant through restoreGatewayOperatorSource, with current owner/Gateway/lifecycle checks across awaits and no system fallback for missing or revoked evidence.",
+        "Restoration first restricts the row. Only overloaded WorkerTaskError re-arms the retry marker; successful restore or permanent refusal clears it. A revoked source is not a transient retry.",
+        "The selected exact-merge state code advances24->25 as a metadata-only compatibility fence for older readers. This does not assert latest-main schema is25; other commits may subsequently change it.",
+        "#173924 puts unattended recovery on dedicated RestartRecovery command lane, default concurrency4; visible demand-triggered recovery remains Main. It globally orders claimed candidates by endedAt or updatedAt with storePath/sessionKey ties, while keeping per-session serialization and existing ownership/admission deadlines.",
+        "Candidate preparation failure increments failed and continues to healthy candidates without clearing the failed interruption claim; abort still propagates. Maintenance waits for RestartRecovery queue. Four long-running recoveries can occupy all slots and backlog still progresses in waves.",
+        "Changed tests include8sessions/twostores FIFO, blocked background plus live Main control, startup/preparation capacity retry without charging/clearing marks, repeated interruption, and a Gateway-process fixture extended to5interrupted sessions with peak4 held provider responses and fifth starting after release."
+      ],
+      "ci_metadata": [
+        {
+          "id": 38872939453,
+          "name": "CI",
+          "event": "pull_request",
+          "head_branch": "steipete/perf-micro-subagent-restart-authority-20260919",
+          "head_sha": "88b29015f147565490795ae492df0ce3c18ae33e",
+          "status": "completed",
+          "conclusion": "failure",
+          "created_at": "2026-10-16T08:19:40Z",
+          "updated_at": "2026-10-16T08:40:26Z",
+          "run_started_at": "2026-10-16T08:19:40Z",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38872939453",
+          "run_attempt": 1,
+          "head_matches_prepared_pr_head": true,
+          "jobs_or_logs_fetched": false,
+          "independent_local_execution": false,
+          "failure_attribution_audited": false,
+          "scope": "API run metadata on prepared PR head; neither exact-merge local execution nor per-test pass evidence"
+        },
+        {
+          "id": 38870946535,
+          "name": "CI",
+          "event": "pull_request",
+          "head_branch": "steipete/team-replyrestore",
+          "head_sha": "ce148c0c06ac8c8885db1aa81a705bb028ae47f8",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-16T08:01:36Z",
+          "updated_at": "2026-10-16T08:17:34Z",
+          "run_started_at": "2026-10-16T08:01:36Z",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38870946535",
+          "run_attempt": 1,
+          "head_matches_prepared_pr_head": true,
+          "jobs_or_logs_fetched": false,
+          "independent_local_execution": false,
+          "failure_attribution_audited": false,
+          "scope": "API run metadata on prepared PR head; neither exact-merge local execution nor per-test pass evidence"
+        }
+      ],
+      "author_claims": [
+        "#173873 reports129focused tests and9cold variants; requester dispatch with SQLite reload but intercepted announcement and no live model/external delivery. Native full subprocess proof is delegated to CI. Source-less system-originated children intentionally do not auto-wake; children themselves are not auto-relaunched.",
+        "#173873 reports synthetic storage cost+643bytes/row, write time+50.1%, database7.99->14.15MB. This is reported overhead, not a measured performance improvement by this audit.",
+        "#173873 calls red CI failures inherited; cause attribution not inspected. The verified run conclusion remains failure.",
+        "#173924 claims75green CI jobs and a71second process fixture across rawSIGTERM/managed restart/SIGKILL/Stop/revoked authority/second restart. CI run success is verified as metadata only; jobs/logs and local test execution were not performed. Author local owner attempts stalled before assertions, not passes."
+      ],
+      "source_test_boundary": "173873 selected14/63patches read; generated-runtime and other49patches not fully read. 173924 all16patches read, including tests. Its process-fixture source owns Gateway subprocesses and a synthetic loopback provider/owned tool process; it is not live-model or external-delivery proof. No upstream code/tests were run here.",
+      "our_inference": "The newly merged work supports public-project focus on crash-safe continuation under current authority and bounded recovery progress. It adds a useful implementation target for H2, without establishing full-harness readiness or any private employer roadmap.",
+      "next_falsifiable_gate": {
+        "status": "planned_not_executed",
+        "pin": "Freeze actual packaged Gateway and dependencies at an exact commit after both merges, plus relevant authentic parent controls; do not combine loosely pinned source proofs.",
+        "procedure": "Own real Gateway subprocesses and current operator/device/role authority. Seed>=8interrupted sessions across>=2stores, hold4recoveries, prove5th starts only after release and healthy Main work still runs. Inject preparation overload then remove it. Reopen SQLite and restart twice. Withdraw original temporary/grant authority while recovery is awaiting; include valid allowed-effect control and forbidden-effect controls for revoked/missing/malformed/stale session/lifecycle/incarnation sources.",
+        "independent_receipts": "Persist PID birth/exit, lifecycle/sourceRun/receipt identity, current authority policy, monotonic event times, exact provider transport and durable allowed/denied effect records; verify failed candidates retain uncharged claims and no duplicate effects or privilege widening.",
+        "falsifier": "Any forbidden effect, lost uncharged claim, stale authority reuse, changed receipt on identical replay, duplicate effect after second restart, global Main starvation or capacity above4 fails the gate. Liveness measured only while an eligible slot is released; no claim of progress when all4slots remain held."
+      },
+      "unchanged_older_gates": "Actual current device/role authority and durable receipts; exact JSON/SQLite receipt identity; long full-turn checkpoint tail beyond20messages/256KiB; cancellation-request/pre-settlement crash; second restart; producer ceiling, nonrenewable drain and fail-closed provider I/O. New merges and CI metadata do not clear these."
+    },
+    {
+      "id": "H4-harness-root-history-affordance",
+      "evidence_level": "source_only_known_proposal_new_merge",
+      "sources": [
+        {
+          "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2874",
+          "title": "Remove the rlm checkout's git history after install",
+          "created_at_utc": "2026-10-15T23:38:39Z",
+          "merged_at_utc": "2026-10-16T09:19:36Z",
+          "updated_at_utc": "2026-10-16T09:19:39Z",
+          "new_proposal_in_window": false,
+          "new_merge_in_window": true,
+          "pr_author": "hallerite",
+          "author_association": "MEMBER",
+          "merged_by": "hallerite",
+          "commit_author_login": "hallerite",
+          "git_author": {
+            "name": "Konstantin Dunas",
+            "email": "git@hallerite.com",
+            "date": "2026-10-16T09:19:35Z"
+          },
+          "git_committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-10-16T09:19:35Z"
+          },
+          "merge_commit": "a681caefb5228fa74c247890a5b9d3e02816559e",
+          "actual_parents": [
+            "0976c3073f903d3449163d473e31c7e278b4a042"
+          ],
+          "prepared_pr_head": "22dec0dd109066408dc442bcb4bb1d17cc505d7e",
+          "files_changed": 1,
+          "changed_patches_fully_read": 1,
+          "read_files": [
+            "verifiers/v1/harnesses/rlm/harness.py"
+          ]
+        }
+      ],
+      "attribution": "hallerite/Konstantin Dunas is the actual author; this is ecosystem evidence, not a Will Brown contribution. No age or employment claim is made.",
+      "prior_seen_proposal_updates_utc": [
+        "2026-10-15T23:39:03Z",
+        "2026-10-16T07:32:55Z"
+      ],
+      "source_facts": [
+        "At a681caefb5228fa74c247890a5b9d3e02816559e, RLM setup removes the harness checkout/.git after checkout of configured version and before install.sh; editable-install source files stay present. Entire changed patch is3added lines in1file.",
+        "This is a harness installation change by GitHub author hallerite, Git author Konstantin Dunas, not a new Will Brown contribution. The existing merged replay-view parent is0976c3073f903d3449163d473e31c7e278b4a042.",
+        "The proposal had already been recorded at2026-10-15T23:39:03Z and2026-10-16T07:32:55Z. New information within this window is merge09:19:36Z and immutable merged source, not a newly surfaced idea."
+      ],
+      "author_claims": [
+        "PR says MCP-Atlas agents on composed GLM-5.3HT/nano-rlm77c3489 searched task project history but used harness checkout git log/AGENTS/authors instead of task git_git_log.",
+        "PR reports selectively rerun4timeouts atcoverage.03-.08 became4completions at.96-.97 in12-34minutes; harness git usage33/2716mainrun tasks vs0/630rerun. Different sample sizes and targeted timeout reruns do not establish an unbiased overall gain or a controlled causal estimate.",
+        "No test added by this patch; PR discloses Claude Code generation. Source change is verified, behavior and benchmark results are author reports."
+      ],
+      "source_test_boundary": "Entire3-added-line/1-file patch read, plus installation context. No added test; no benchmark/model run here. Claimed4timeout reruns and unequal main/rerun denominators do not establish controlled overall gain.",
+      "our_inference": "Effective evaluation identity can include install artifacts and filesystem affordances such as harness VCS metadata, in addition to task/model/runtime versions. This adds a source-only H4 environment-control gate, without proving training/reward consistency or H3 adaptive evaluation bias.",
+      "next_falsifiable_gate": {
+        "status": "planned_not_executed",
+        "pin": "Parent0976c3073f903d3449163d473e31c7e278b4a042/head a681caefb5228fa74c247890a5b9d3e02816559e plus exact nano-rlm/model/task/runtime/deployment/budget; verify installed revision before deleting metadata.",
+        "procedure": "Predeclare full task population and randomized paired arms with harness .git retained/removed. Include a task that legitimately needs task-repository history as healthy control. Keep trace/tool/result/reward versions and installed file hashes, and count selected and unselected tasks, failures and timeouts.",
+        "independent_receipts": "Environment/tool discovery and filesystem metadata, actual wire/tool traces, harness-vs-task git use, final scores/coverage/timeouts, tokens and budgets, installed revision/file hashes and reward version.",
+        "falsifier": "No reduction in harness-history distraction on paired tasks, loss of legitimate task-history success, or reward/trace version drift rejects the proposed benefit. Do not use timeout-only reruns as overall benchmark evidence."
+      },
+      "unchanged_older_gates": "H3 remains sealed-evaluation planned only. H4 still requires pinned real Pi/ACP/MCP replay with appropriate POSIX/Prime prerequisites, actual scoring/close/finalize/deadline branches and token/trace/reward version consistency. No API purchases or external jobs."
+    }
+  ],
+  "old_checkpoint_and_requested_kill_not_upgraded": [
+    {
+      "file": "src/gateway/session-recovery-service.ts",
+      "cutoff_ref": "ab1d3b9e094c0a52928246c038d825f71930c72d",
+      "previous_blob": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+      "current_blob": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+      "unchanged": true,
+      "current_source_sha256": "fd26618e7cb1aea6583559c9617880b7df5d6554ace5f4c830d73fe047693a67",
+      "previous_evidence": "reports/runs/20261016T083523Z/frontier-raw/oc-recovery-current.json",
+      "boundary": "Blob identity is unchanged from prior audited source; this is not a new whole-source or runtime proof. Long checkpoint-tail and cancellation-request/pre-settlement crash windows remain unmet."
+    },
+    {
+      "file": "src/agents/bash-tools.process.ts",
+      "cutoff_ref": "ab1d3b9e094c0a52928246c038d825f71930c72d",
+      "previous_blob": "4aac65c346765fb5463cc2736725b2782aba6465",
+      "current_blob": "4aac65c346765fb5463cc2736725b2782aba6465",
+      "unchanged": true,
+      "current_source_sha256": "bddb0b87a0b3642e6439992cbc70d01689cd29b51bb2027e7b48147db4004dda",
+      "previous_evidence": "reports/runs/20261016T083523Z/frontier-raw/oc-process-current.json",
+      "boundary": "Blob identity is unchanged from prior audited source; this is not a new whole-source or runtime proof. Long checkpoint-tail and cancellation-request/pre-settlement crash windows remain unmet."
+    }
+  ],
+  "raw_witnesses": {
+    "definition": "Exact gh api --include GET stdout and body bytes plus stderr, not a network packet capture. Raw files remain local/ignored; hashes are witnesses, not a public archival copy.",
+    "full_request_manifest": {
+      "local_run_path": "reports/runs/20261016T103954Z/h234-request-manifest.json",
+      "sha256": "1d6823c764be9132843360bf639873f3eeaf2fab8800eb7ac912c88beeab8450"
+    },
+    "patch_read_manifest": {
+      "local_run_path": "reports/runs/20261016T103954Z/h234-patches.json",
+      "sha256": "b1b5a09baff4499234e8002d3f0638a17bbd74a92b10ed41fe34708d71b6bf28"
+    },
+    "selected_requests": [
+      {
+        "key": "oc-process-at-cutoff",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/contents/src/agents/bash-tools.process.ts?ref=ab1d3b9e094c0a52928246c038d825f71930c72d",
+        "start": "2026-10-16T10:45:40.849455Z",
+        "end": "2026-10-16T10:45:42.422848Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "73290ed8a1c305aa857e906d72886d55f720b5f0bca99339a706c946e29a9429",
+        "body_sha256": "a6bf50f734468268c6239cab5e6bb7fbe11e1f8d803cdeff887a83df56b6d928",
+        "body_bytes": 36482,
+        "pagination_link": null
+      },
+      {
+        "key": "oc-recovery-at-cutoff",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/contents/src/gateway/session-recovery-service.ts?ref=ab1d3b9e094c0a52928246c038d825f71930c72d",
+        "start": "2026-10-16T10:45:39.525865Z",
+        "end": "2026-10-16T10:45:41.351044Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "a00c0d9c7c9a3924dc0fe7e5023821d9e063e64ad4ecf643b0d64a1515090052",
+        "body_sha256": "06e315151e8fd95d4b1299c9a420d50b2c6fd3760c42cc20c54aca353ca710c4",
+        "body_bytes": 41776,
+        "pagination_link": null
+      },
+      {
+        "key": "oc-repo",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw",
+        "start": "2026-10-16T10:42:26.322483Z",
+        "end": "2026-10-16T10:42:27.668892Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "68a9b521e485f0111b1af555dcd9b2918dac97c1007d7d00a7f532105e395bdc",
+        "body_sha256": "c8a89250bc2b22228a1a276bf5aa70379385f61a7eb7703f09ab4a92a3ee0e72",
+        "body_bytes": 6363,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173873-ci",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/actions/runs/38872939453",
+        "start": "2026-10-16T10:45:39.524867Z",
+        "end": "2026-10-16T10:45:40.843455Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "0b869c694163f8c83fb450c1dcce951eac94b909656a3a0ac71e97518c6bd9fb",
+        "body_sha256": "6d1bb0898989d05bb9cafeb98c1d712dfd592226c2ceab9713e046e8c59cd49a",
+        "body_bytes": 12753,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173873-commit",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/commits/37d210e4aaf3811c27d5d7191027cf9f0da08425?per_page=100&page=1",
+        "start": "2026-10-16T10:43:12.917356Z",
+        "end": "2026-10-16T10:43:14.800153Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "a2daf74499221f31288c4d945d433cbf3a246d55ad67fa14ac1ca4d7b663629f",
+        "body_sha256": "1d8ea3bb5d6e3471ff00f309a825dd52bf829c37bf6b1ab51c22d0a2a0d8f1e6",
+        "body_bytes": 299271,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173873-pr",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/pulls/173873",
+        "start": "2026-10-16T10:43:15.619255Z",
+        "end": "2026-10-16T10:43:17.007379Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "5e6cd8eecd6e25df26fc796c034ed65ca82d4c8e08748e013a53b9bfd2026b75",
+        "body_sha256": "e6a4d54df6bff00c2552d2705ac5ea910138eeb8c2bd8695fb7ede545905ce7a",
+        "body_bytes": 29779,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173924-ci",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/actions/runs/38870946535",
+        "start": "2026-10-16T10:45:39.525865Z",
+        "end": "2026-10-16T10:45:41.001086Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "98e55998cea1fbb3f8cbe96ceed33a56d2ded1b1d8cfee91d680631950830341",
+        "body_sha256": "9bb405c9ca5747567ab7af7f76f19b68d36d1b8a2fdd4a8fc0c6e6138730080e",
+        "body_bytes": 12912,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173924-commit",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/commits/f7f3b9ca184c12c0b56c28f5cffbc789dc635b57?per_page=100&page=1",
+        "start": "2026-10-16T10:43:12.918324Z",
+        "end": "2026-10-16T10:43:14.495804Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "efce7d8ff4d5fab22ab12a0f3eedeea63717e07afe391b8aa17cdfbf7b396be3",
+        "body_sha256": "f014433ce37e9da149b547d6466f74d343224b769cf2b259ccba5efd4d6f4be8",
+        "body_bytes": 58157,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173924-e2e-source",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/contents/test/gateway-process-shutdown-recovery.e2e.test.ts?ref=f7f3b9ca184c12c0b56c28f5cffbc789dc635b57",
+        "start": "2026-10-16T10:45:41.009331Z",
+        "end": "2026-10-16T10:45:42.564906Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "3969a091a25ad35f5c0aed20c7247fd8f2876eb8142122b6e88c55f76542c4d1",
+        "body_sha256": "c4a8593e3656bdfd78f740150cfd8ba1f52ce1978901dbf798c132c45b21d7c9",
+        "body_bytes": 36458,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173924-pr",
+        "method": "GET",
+        "endpoint": "repos/openclaw/openclaw/pulls/173924",
+        "start": "2026-10-16T10:43:15.687960Z",
+        "end": "2026-10-16T10:43:17.060813Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "1d48e838d703b553d051af0f6e71c835d11675ea9f06bda609bcee0d13845388",
+        "body_sha256": "55bc8ceee084f4faf4fd7b0b630cd84dc4b9df00fa94696cc50bdcb85b82b21f",
+        "body_bytes": 24851,
+        "pagination_link": null
+      },
+      {
+        "key": "vf-repo",
+        "method": "GET",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers",
+        "start": "2026-10-16T10:42:26.323528Z",
+        "end": "2026-10-16T10:42:27.645993Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "11ad3198b8b03906b86e4eeedb9364a4649468d6ba87e0ac2a99257aa9bdce4c",
+        "body_sha256": "e64242c529d2d2f77108e0bff6d32179d16cd5a361f8396ebffa6a2005e5b3db",
+        "body_bytes": 6855,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2874-commit",
+        "method": "GET",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/commits/a681caefb5228fa74c247890a5b9d3e02816559e?per_page=100&page=1",
+        "start": "2026-10-16T10:43:14.502803Z",
+        "end": "2026-10-16T10:43:15.682031Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "c9f6e4ce86b14532eb66568cebe150d7b50c953df9e33a2b64267dcf2c3713fa",
+        "body_sha256": "d413a52e8964612b2a4c2b104d87bb0d2cfcedc7803752ed30b81294c42329ba",
+        "body_bytes": 8856,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2874-pr",
+        "method": "GET",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2874",
+        "start": "2026-10-16T10:43:17.067670Z",
+        "end": "2026-10-16T10:43:18.483821Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "737e893da24e5bb461b8be650f28481fa447241a043a9ed731aa15c93fd6bfcf",
+        "body_sha256": "208945b8d69bb1e2174630d5a37d1ad94db7ba9c48ead368c5f5d1d4fd9b52f4",
+        "body_bytes": 21562,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2874-source",
+        "method": "GET",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/contents/verifiers/v1/harnesses/rlm/harness.py?ref=a681caefb5228fa74c247890a5b9d3e02816559e",
+        "start": "2026-10-16T10:45:41.356044Z",
+        "end": "2026-10-16T10:45:42.679751Z",
+        "http_status": 200,
+        "exit_code": 0,
+        "raw_sha256": "0277af7618924039304ed7e3e4ef6ed2c70e04a980ffaa9aa1036b00baeae33b",
+        "body_sha256": "3aa0162eb8d5ee96bceeebc3de0f2e32fe0cbfe39f1cb6438f923c6cc0e8680c",
+        "body_bytes": 20609,
+        "pagination_link": null
+      }
+    ]
+  },
+  "failures_and_limitations": {
+    "http_failures": [],
+    "truncation": "Initial large multi-patch output was truncated; selected patches were re-read before marked fully_read. Truncated OC164445 body remains triage-only.",
+    "local_tool_errors": [
+      "A root monitor.json path was initially wrong; corrected to local-state/monitor.json.",
+      "An inspection attempted nonexistent src/process/diagnostics.test.ts patch; corrected to actual src/gateway/server-methods/diagnostics.test.ts.",
+      "Initial git-check-ignore verification used Windows translated CRLF and failed an output equality assertion; corrected to binary NUL-delimited verification.",
+      "A guessed older evidence sample filename did not exist; read the actual continuation-and-fail-closed sample. These are local lookup/artifact verification errors, not HTTP request failures."
+    ],
+    "unselected": "pi retry is davidbrai, not badlogic; other fetched OpenClaw items are triage, no third highlighted cluster. No X/personal site or private-announcement verification in this audit."
+  },
+  "execution_and_mutation_boundary": {
+    "upstream_tests_models_providers_executed": 0,
+    "new_harness_experiments_executed": 0,
+    "upstream_social_or_repository_mutations": 0,
+    "h2_runtime_upgrade": false,
+    "h3_h4_executed": false,
+    "ledger_updates": "Not performed by this source worker; root owns source/hypothesis ledgers and H1 experiment."
+  },
+  "decision": "Keep H2/H3/H4 states and all unmet/failed gates. Original proposed experiments may falsify our inference. These merges support a public-project focus, not private personal/institutional research forecasts."
+}

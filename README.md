@@ -40,12 +40,17 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | --- | --- |
 | [Full-gradient scope diagnostic](results/activation-attention-gradient/report.md) | All three attention-scope gradient gates passed |
 | [Actual AdamW update diagnostic](results/activation-update/report.md) | All three joint update gates failed; controls passed |
+| [Separate accumulated-state follow-up](results/activation-state-update/report.md) | Four dense warmup steps; matched-state gates pass, fresh-state controls at warmed weights fail |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
 It does not demonstrate better model quality, GPU performance, peak-memory
 reduction or a new architecture. Logical saved payload bytes are not allocator
 peak memory. CPU float32, eager, first-order execution only in v0.
+
+The [accumulated-state research probe](research/2026-10-16-accumulated-state-update.md)
+checks optimizer-history sensitivity at three fixed warmed points. It does not
+extend v0.1's fresh-state API or establish compression training quality.
 
 ## Bring one counterexample
 

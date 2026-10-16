@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "kind": "selected_public_source_review_not_execution",
+  "observed_interval": {
+    "started_at": "2026-10-16T10:42:40.686841+00:00",
+    "completed_at": "2026-10-16T10:46:19.609814+00:00"
+  },
+  "event_window": {
+    "since_exclusive": "2026-10-16T08:35:32.730428Z",
+    "until_inclusive": "2026-10-16T10:39:54Z"
+  },
+  "new_cluster": {
+    "id": "activation-singleton-stride-regression",
+    "public_event_at": "2026-10-16T08:56:17Z",
+    "sources": [
+      "https://github.com/fla-org/flash-linear-attention/pull/1487",
+      "https://github.com/fla-org/flash-linear-attention/pull/1490"
+    ],
+    "new_source": "New public draft1490 by Aphelios183 (not Nathan) adds one76-line regression function. Commit authored/committed08:30:12Z predates cutoff; PR publication08:56:17Z is the fresh discovery event.",
+    "patch_observation": "7 activation functions x4 noncanonical singleton-stride layouts x3 dtypes =84 cases. Compares output and all input gradients to float32 references cast to dtype with existing1e-3 tolerance and finite checks. NaN-padded inputs/incoming gradients and a monkeypatched empty_like deliberately keep erroneous baseline accesses inside larger allocations. Tests only; product fix is not included.",
+    "author_validation_assertions": "Body says L40/SM89, Python3.11.15, Torch2.7.1+cu126, Triton3.3.1: main+newtests7fail/1pass for selectedFP32 subset; manually combined1487+identical regression84pass. No raw linked validation logs or exact immutable combined tree were audited.",
+    "limits": "Draft/unmerged, depends on unmerged1487. Full file/upstream CI/other accelerators/compute-sanitizer explicitly unrun for main-based commit. Padded allocation regression is not proof of original-allocation memory safety. No performance, quality, author-employer, Nathan-contribution or private-roadmap claim.",
+    "h1_implication": "Retain canonical-layout plus all-input-backward checks and authentic base-fail/head-pass/hardware-dispatch evidence for future activation-compression work. Does not directly support saved-attention dominance or clear any local AdamW gate."
+  },
+  "source": {
+    "number": 1490,
+    "url": "https://github.com/fla-org/flash-linear-attention/pull/1490",
+    "title": "[Test] Expand activation singleton-stride regression coverage",
+    "author_login": "Aphelios183",
+    "state": "open",
+    "draft": true,
+    "merged_at": null,
+    "created_at": "2026-10-16T08:56:17Z",
+    "updated_at": "2026-10-16T09:02:07Z",
+    "head_sha": "39fd6d9005aee849132cd01f30de3276f36de5dd",
+    "repository_public": true,
+    "license_metadata": "MIT"
+  },
+  "status_only_events": [
+    {
+      "pr": 1487,
+      "event": "ready_for_review",
+      "actor": "zhiyuan1i",
+      "at": "2026-10-16T09:18:54Z",
+      "head_changed": false,
+      "merged": false,
+      "body_change": "Only dependent-tests checkbox unchecked→checked. Body still states accelerator kernels/compute-sanitizer have not run.",
+      "ci_meaning": "Current H100 smoke/test and replacement A2 test/benchmark jobs remain queued; old A2 jobs cancelled. Metadata/title/lint successes are not device execution proof."
+    }
+  ],
+  "ci_attribution": "Current hardware jobs queued or previous jobs cancelled; metadata title/lint successes are not hardware validation. Historical body claims retained as claims.",
+  "local_audit_file_sha256": "4b22d166a3b2f84081d4a55103cc6f9154c41ab920bfa8eeba54cf2366c4c44d",
+  "new_patch_sha256": "70af7fa2e5f80dbf0e124ce11efe30745654c53f460495896431fc07b65db6f7",
+  "new_patch_bytes": 3553,
+  "coverage": {
+    "http_requests": 38,
+    "failures": [],
+    "has_next_pages": [],
+    "search_incomplete": [],
+    "patches_missing": [],
+    "bounded_scope": "Four requested FLA PRs plus one linked new layout-test draft, exact-head CI metadata and Nathan samples. No repeat of root seven-day radar. Commit API patch pagination bounded to one100-file page per tiny selected head; each selected diff has <=4files. GitHub may omit/truncate diff strings; supplied new1490 patch fully inspected; no truncated/missing patch observed."
+  },
+  "raw_witnesses": [
+    {
+      "key": "1487-action-runs",
+      "endpoint": "repos/fla-org/flash-linear-attention/actions/runs?head_sha=039a3d0134b39a4a3147578205acbd32d780981a&per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:55.518114+00:00",
+      "completed_at": "2026-10-16T10:43:57.188943+00:00",
+      "response_sha256": "c3d12ebe9d0454e184ed343ec8d8dd7f5702c4dc4d14d316e5b5eeee5a02fc9b",
+      "body_sha256": "fbf61524d62448e5dd0c4d2a3affc2d3bdc8b1abcefbeb76da0f79304310f5f5",
+      "raw_path": "h1-raw/1487-action-runs.http.txt"
+    },
+    {
+      "key": "1487-check-runs",
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/039a3d0134b39a4a3147578205acbd32d780981a/check-runs?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:55.496049+00:00",
+      "completed_at": "2026-10-16T10:43:57.018504+00:00",
+      "response_sha256": "9865875a615c488f5df617c7a12cb179f6b255d47aef5378591d9bb5f7a0f1d5",
+      "body_sha256": "25bfb1a53ffcec9f37405dee3b65f20a00ce087c297680d19af6c50ef327a283",
+      "raw_path": "h1-raw/1487-check-runs.http.txt"
+    },
+    {
+      "key": "1487-comments",
+      "endpoint": "repos/fla-org/flash-linear-attention/issues/1487/comments?since=2026-10-16T08:35:32.730428Z&per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:53.163342+00:00",
+      "completed_at": "2026-10-16T10:43:54.286671+00:00",
+      "response_sha256": "92a4860ba567166fa28ebf0f1f2be35f11e4eb97cd548d4e672a161fb7fec384",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_path": "h1-raw/1487-comments.http.txt"
+    },
+    {
+      "key": "1487-commits",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1487/commits?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:53.104040+00:00",
+      "completed_at": "2026-10-16T10:43:54.340124+00:00",
+      "response_sha256": "f4d11ed76b118bba071ada8ac7bea08001a0f4487ebad89465d4dcc454084341",
+      "body_sha256": "2c350102b76e8c9c47903e43d3c0d402fee32276804c43e06db4114d7911778f",
+      "raw_path": "h1-raw/1487-commits.http.txt"
+    },
+    {
+      "key": "1487-inline",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1487/comments?since=2026-10-16T08:35:32.730428Z&per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:54.167136+00:00",
+      "completed_at": "2026-10-16T10:43:55.275240+00:00",
+      "response_sha256": "d5a3d7a6fb80cf3d5ddaf202dfe71179cf2a557404fb676759e3fbc7003d3335",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_path": "h1-raw/1487-inline.http.txt"
+    },
+    {
+      "key": "1487-timeline",
+      "endpoint": "repos/fla-org/flash-linear-attention/issues/1487/timeline?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:43:55.277258+00:00",
+      "completed_at": "2026-10-16T10:43:56.681086+00:00",
+      "response_sha256": "438506ba6d0050ca878f9b8d3a5909d42cda4d8f4996ed55746f68e31d5b56af",
+      "body_sha256": "31062175272589c47143c528e8dae5190e0826b484ed0957b620f6a5f4c3421d",
+      "raw_path": "h1-raw/1487-timeline.http.txt"
+    },
+    {
+      "key": "1490-comments",
+      "endpoint": "repos/fla-org/flash-linear-attention/issues/1490/comments?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:45:53.839075+00:00",
+      "completed_at": "2026-10-16T10:45:55.248388+00:00",
+      "response_sha256": "0657cdfb55293470a496dbe26f4db69ad78109d4bc1d01c84fb68370168412d6",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_path": "h1-raw/1490-comments.http.txt"
+    },
+    {
+      "key": "1490-commits",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1490/commits?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:45:53.839075+00:00",
+      "completed_at": "2026-10-16T10:45:55.326258+00:00",
+      "response_sha256": "e34b2c20dfa9c70ad73e788113c021e5709b3fd5e1c7c3355c33a1c94e8eec55",
+      "body_sha256": "a116e4ac66afabdce6010c5650792da0315c54859fbf373636b3667b98c5fe05",
+      "raw_path": "h1-raw/1490-commits.http.txt"
+    },
+    {
+      "key": "1490-inline",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1490/comments?per_page=100&page=1",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:45:53.840078+00:00",
+      "completed_at": "2026-10-16T10:45:55.231995+00:00",
+      "response_sha256": "60f7bca6f0af07c8b4716d9c2dc965d74580dedb304aeb9ce13aa02c17568dff",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_path": "h1-raw/1490-inline.http.txt"
+    },
+    {
+      "key": "fla-pr1487",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1487",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:42:43.349820+00:00",
+      "completed_at": "2026-10-16T10:42:45.019077+00:00",
+      "response_sha256": "a12ba013e0870e4774f7a895e375d9a97c4e11f5d7e2944b7b2e0f1b09979a2e",
+      "body_sha256": "5cd610742d262ad68586c5848ccdc5ebd5d23d2a9b90d58ce4d02060d7ebedb5",
+      "raw_path": "h1-raw/fla-pr1487.http.txt"
+    },
+    {
+      "key": "fla-pr1490",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1490",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:45:53.838075+00:00",
+      "completed_at": "2026-10-16T10:45:55.685300+00:00",
+      "response_sha256": "b403bb4085c7f2798f5b8c6cc1fd03f4c44e8851c0c22daf76437a394c75a8e5",
+      "body_sha256": "5fb4e1330a0aa5a5bda98e8757911aaf064b7fa314753d92ec82216026477136",
+      "raw_path": "h1-raw/fla-pr1490.http.txt"
+    },
+    {
+      "key": "head-1487",
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/039a3d0134b39a4a3147578205acbd32d780981a",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:45:05.092369+00:00",
+      "completed_at": "2026-10-16T10:45:06.535424+00:00",
+      "response_sha256": "985483e41b5560986eec5d2349c43abf65bd99299ef3f012110406ca570b275c",
+      "body_sha256": "916b40cfdbf469693346f579169ae41801925a632a891a581a2cf4816f07d177",
+      "raw_path": "h1-raw/head-1487.http.txt"
+    },
+    {
+      "key": "head-1490",
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/39fd6d9005aee849132cd01f30de3276f36de5dd",
+      "http_status": 200,
+      "started_at": "2026-10-16T10:46:18.390610+00:00",
+      "completed_at": "2026-10-16T10:46:19.609814+00:00",
+      "response_sha256": "b2dfbfba4f0b3c735070b2991d9aebe9bfffd0dbd1338a8635d58f976fae24b4",
+      "body_sha256": "0feb41617c5d8e0997a0f6af12cc6a26626e28953e4f71833d3c67a17f2b011f",
+      "raw_path": "h1-raw/head-1490.http.txt"
+    }
+  ],
+  "limits": [
+    "No upstream code/test/kernel/accelerator execution or CI log audit.",
+    "Repository public/MIT metadata checked; no per-file license audit or copied upstream implementation.",
+    "Original event time differs from first discovery; no Nathan contribution or private roadmap inference.",
+    "Raw request bodies retained locally in ignored run directory; hashes are local observation receipts, not a public raw archive."
+  ]
+}

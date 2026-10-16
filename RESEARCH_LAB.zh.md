@@ -34,7 +34,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前实验：在精确 CE 下，进一步保留 13 个实际 LayerNorm 内的全部保存值；三个批次的完整梯度误差仍未减半，cosine 略降，对照梯度 hash 与前次完全相同。下一步预声明隔离其余保存范围，再验证实际更新保真度。FLA 硬件/版本/分派修复与 OpenClaw 收据身份、维护期限、策略重新准入的新证据见[本轮研究报告](research/2026-10-16-norm-saves-and-execution.md)。
 
-最新实验：在精确 CE 与13个实际 LayerNorm 模块内保存值固定时，再保留6个实际注意力模块 forward 内的保存值，三个批次完整梯度相对误差从4.05–7.70降至0.034–0.041，cosine约0.999，全部预声明门槛通过。下一步验证实际优化器更新；训练质量与成本仍未获收益结论。公开草稿和会话延续新证据见[本轮报告](research/2026-10-16-attention-saves-and-continuation.md)。
+此前实验：在精确 CE 与13个实际 LayerNorm 模块内保存值固定时，再保留6个实际注意力模块 forward 内的保存值，三个批次完整梯度相对误差从4.05–7.70降至0.034–0.041，cosine约0.999，全部预声明门槛通过。下一步验证实际优化器更新；训练质量与成本仍未获收益结论。公开草稿和会话延续新证据见[本轮报告](research/2026-10-16-attention-saves-and-continuation.md)。
+
+最新实验：先保留了预训练权重上实际 AdamW 首步误差10.9%–11.9%的失败结果，并发布可安装的 [SaveScope](SAVESCOPE.md)。本轮另行预登记四步真实稠密暖启动：匹配 m/v/step4 的下一步更新误差0.77%–0.86%，三个主门槛均通过；同一暖启动权重上的零状态对照仍全部失败（10.51%–10.95%）。30次实际原生更新的数值/状态控制通过。它表明这组诊断对优化器状态敏感，不是压缩训练质量、成本或GPU收益。见[结果与复现](research/2026-10-16-accumulated-state-update.md)。恢复并发和评测工作区的公开源码信号见[独立证据记录](research/2026-10-16-recovery-concurrency-and-harness-root.md)。
 
 ## 快速运行
 

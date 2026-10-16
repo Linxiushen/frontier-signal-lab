@@ -12,10 +12,10 @@ Conditions matter: CPU float32, three overlapping synthetic batches with 320 uni
 
 SaveScope packages this inspection workflow: saved-scope inventories, dense-reference gradients, actual fresh-moment AdamW updates on parameter clones, and per-parameter reports. PyTorch's [saved-tensor hooks](https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html) are established functionality; the contribution here is audit tooling and reproducible controls.
 
-Inspect the bundled recorded case without Torch or model downloads:
+With Python 3.11+, inspect the bundled recorded case without Torch or model downloads:
 
 ```bash
-git clone https://github.com/Linxiushen/frontier-signal-lab.git
+git clone --branch savescope-v0.1.0 --depth 1 https://github.com/Linxiushen/frontier-signal-lab.git
 cd frontier-signal-lab
 python -m pip install .
 python -m savescope replay --output replay
@@ -31,6 +31,7 @@ result = audit(
     model, forward_fn=lambda m: m(x),
     loss_fn=lambda y: (y - target).square().mean(),
     exact_module_types=(MyAttention,),
+    optimizer_kwargs={"lr": 1e-4, "weight_decay": 0.01},
 )
 ```
 

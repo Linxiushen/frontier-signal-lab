@@ -1,12 +1,17 @@
 # X thread draft — not posted
 
-Review against the released commit before use. Account identity, posting access, and X policy review are unverified. No tags, mentions, or guaranteed reach. Do not reuse this AI-generated draft on Hacker News.
+The release is public; see [publication status](publication.md). An existing X session is available; the user's channel-account choice is pending. No post has been sent. No tags, mentions, or guaranteed reach. Do not reuse this AI-generated draft on Hacker News.
 
 Each numbered block below is one proposed post. Evidence links target the SaveScope v0.1.0 release tag; confirm the release exists before posting. The conditions in post 1 are part of the result, not optional fine print.
 
+Post 1 works as a standalone launch post (269 weighted characters, counting the
+URL as 23). Attach [the result figure](../docs/assets/first-step-fidelity.png).
+The following blocks are optional technical follow-ups. A draft is not a post.
+
 ## 1
 
-A 0.999 gradient cosine still left ~11–12% AdamW update error in our fixed Pythia-14m diagnostic. Three overlapping synthetic batches; CPU float32, fresh moments, weight decay 0.01. This is why we built SaveScope.
+SaveScope: Pythia-14m, CPU float32, 3 overlapping synthetic batches, fresh moments, lr=1e-4, wd=0.01. Gradient cosine ~0.999, but actual first-step AdamW deltas had 10.9–11.9% relative L2 error vs dense; all 3 failed the predeclared 10% ceiling.
+https://github.com/Linxiushen/frontier-signal-lab/releases/tag/savescope-v0.1.0
 
 ## 2
 

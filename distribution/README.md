@@ -2,6 +2,12 @@
 
 Prepared 2026-10-16. These are reviewable drafts and a channel research record. At preparation time no external post, message, issue, PR, Hugging Face repository, or Space had been created. Actual publication status is tracked separately; prepared copy is not proof of posting.
 
+**Update 2026-10-16:** [SaveScope v0.1.0](https://github.com/Linxiushen/frontier-signal-lab/releases/tag/savescope-v0.1.0)
+and the [interactive case](https://linxiushen.github.io/frontier-signal-lab/) are
+public and verified. The package/audit and model-reproduction CI passed on the
+release commit. Community posts remain unsent. See [publication.md](publication.md)
+for verified URLs, hashes, account readiness and the first distribution steps.
+
 ## Lead with a problem another engineer can reproduce
 
 SaveScope is a CPU float32 toolkit for auditing saved-tensor compression against a dense reference: saved-tensor scope inventory, parameter-gradient fidelity, and actual first-step AdamW update fidelity with fresh moments. The product entry point is [SAVESCOPE.md](../SAVESCOPE.md). PyTorch already provides [saved-tensor hooks](https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html); our useful contribution is an inspectable audit workflow, controls, and reports. Stateful optimizer trajectories are outside this initial contract.

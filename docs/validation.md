@@ -43,3 +43,11 @@ FP64 norm reductions in one engineering assertion. That assertion now allows
 at most four FP64 ULPs while checking each cloned gradient element exactly
 against the original direct-autograd gradient snapshot. The audit implementation,
 recorded scientific results and wheel above are unchanged.
+
+Remote validation passed on release commit
+`ad126b57c4dbd5492b0f6cb07eba578fb40fafa7`:
+[package, installed replay and executed tiny audit](https://github.com/Linxiushen/frontier-signal-lab/actions/runs/38882050400),
+and [model experiments including the actual-update diagnostic](https://github.com/Linxiushen/frontier-signal-lab/actions/runs/38882050415).
+The scientific update gate remains a failed result; the CI success verifies
+execution and controls. Public release-wheel and Pages downloads returned HTTP
+200 on 2026-10-16 at 09:45 UTC, with hashes matching the local reviewed artifacts.

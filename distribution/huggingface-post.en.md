@@ -30,10 +30,10 @@ Our [earlier small training experiment](https://github.com/Linxiushen/frontier-s
 
 PyTorch already provides [saved-tensor hooks](https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html). SaveScope's purpose is to make policy comparisons, scope boundaries, reference controls, and failures easier to inspect and reproduce.
 
-To inspect the bundled recorded case without installing Torch or downloading weights:
+With Python 3.11+, inspect the bundled recorded case without installing Torch or downloading weights:
 
 ```bash
-git clone https://github.com/Linxiushen/frontier-signal-lab.git
+git clone --branch savescope-v0.1.0 --depth 1 https://github.com/Linxiushen/frontier-signal-lab.git
 cd frontier-signal-lab
 python -m pip install .
 python -m savescope replay --output replay

@@ -54,13 +54,18 @@
         "fla-dynamic-length-compile-cache-proposals",
         "fla-conv-varlen-fix-closed-dense-offset-regression",
         "fla-shared-attention-checkpointing-helpers-merged",
-        "windows-torch-workload-observer-engineering-v1"
+        "windows-torch-workload-observer-engineering-v1",
+        "fla-gdn2-fixed-anchor-causality-merged",
+        "fla-gdn2-large-decay-graph-followup",
+        "fla-activation-stacked-a2-runtime",
+        "fla-token-shift-a2-selected-runtime",
+        "windows-pinned-pythia-training-observer-integration-v1"
       ],
       "status": "natural_text_cost_and_final_quality_screens_failed_parent_RSS_invalid_native_self_peak_observations_retained",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "Prior fresh-state AdamW10.9–11.9% gates fail; four-dense-step matched-state and12short-history common-anchor gates pass, with descriptive moment drift up to0.861/1.955. New separately frozen natural-text12endpoint study: all6joint screens fail, equal-token INT8wall+5.4–12.2%, all12finalNLL above initial4.4575425573. Approx60s dense322steps vs INT8299/300/301, all6time controls valid. Native token lifetime peak differences+167936/-290816/0bytes, no general memory benefit. Parent RSS observer invalid, actual-interpreter memory caps unestablished; samevenv engineering PIDcheck supports launcher explanation but originalPIDs unrecorded. Original report retained;598receiptchecks consistency only. Prior CPU/synthetic-holdout negatives remain; no quality/efficiency/AttnRes/GPU claim. The separate frozen Torch/native-descendant engineering integration reports 6/6 controlled gates; see research/2026-10-16-workload-observer.md. This does not validate the original training observer or clear the scientific cost/quality status.",
+      "supporting_observation": "Prior fresh-state AdamW10.9–11.9% gates fail; four-dense-step matched-state and12short-history common-anchor gates pass, with descriptive moment drift up to0.861/1.955. New separately frozen natural-text12endpoint study: all6joint screens fail, equal-token INT8wall+5.4–12.2%, all12finalNLL above initial4.4575425573. Approx60s dense322steps vs INT8299/300/301, all6time controls valid. Native token lifetime peak differences+167936/-290816/0bytes, no general memory benefit. Parent RSS observer invalid, actual-interpreter memory caps unestablished; samevenv engineering PIDcheck supports launcher explanation but originalPIDs unrecorded. Original report retained;598receiptchecks consistency only. Prior CPU/synthetic-holdout negatives remain; no quality/efficiency/AttnRes/GPU claim. The separate frozen Torch/native-descendant engineering integration reports 6/6 controlled gates; see research/2026-10-16-workload-observer.md. This does not validate the original training observer or clear the scientific cost/quality status. The next frozen pretrained-loader integration then failed at preimport on4cases with2unknown descendants each, exact37pass and all21retained handles exited/job0. Actual model loads/updates0; source integration is unvalidated and unknown child images remain unresolved. See research/2026-10-16-pretrained-training-observer.md.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Do not present unchanged compression policy as demonstrated CPU optimization or run a same-setting seed/lr rescue sweep. The standalone observer5case and controlled CPU Torch/native6case integration gates pass; neither validates pretrained loading or the actual training harness. Before any new cost science pin a NEW real pretrained-loader/training-harness version, verify actual worker identity plus thread/native/provider descendants, healthy/prehandshake/import-failure/liveness/cleanup controls, isolate training-stage memory and measure parent sampler overhead. sys.executable file hashes are launcher-path receipts, not actual-worker OS image queries. Preserve all historical frozen probes/results and invalid parent RSS. Only then separately predeclare an independently justified data/training/final-quality/cost study retaining all negatives. GPU/full-backward/dispatch/learnedrouting/AttnRes remain unexecuted; SaveScopev0.1 API remains fresh-state only.",
+      "next_gate": "No same-setting compression rescue sweep or historical measurement repair. New pinned pretrained integration failed before imports on4of5cases: exact known-process-set assumption rejected2unknown children per authenticated case; images unrecorded. A NEW separately declared version must capture every observed child OSimage/hash/creation/job relationship, justify any narrow identity policy, retain unknown-child rejection and bounded all-retained cleanup, then actually execute original loader/thread/two-update/healthy/import38/busy/private/overhead gates. Do not whitelist by count or retry/replace frozen results. Current actual-worker baseOSimage checks passed only beforeML, not provider/GPU behavior. Training-stage isolated peak and causal sampler overhead remain unvalidated. Preserve all historical negative cost/quality/fresh-state and invalidparentRSS receipts; SaveScopev0.1 stays fresh-state only.",
       "additional_experiments": [
         "experiments/attnres_memory_probe.py",
         "experiments/real_activation_autograd_probe.py",
@@ -73,7 +78,8 @@
         "experiments/activation_history_probe.py",
         "experiments/activation_cost_probe.py",
         "experiments/process_observer_probe.py",
-        "experiments/workload_observer_probe.py"
+        "experiments/workload_observer_probe.py",
+        "experiments/training_observer_probe.py"
       ],
       "review_record": "research/2026-10-16-training-cost-and-final-evaluation.md",
       "previous_review_records": [
@@ -85,10 +91,11 @@
         "research/2026-10-16-accumulated-state-update.md"
       ],
       "latest_upstream_review": {
-        "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
-        "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
-        "status": "source_only_no_runtime_upgrade",
-        "observation": "New1494/1495 proposals target cold-cache dynamic-length specialization;1495code predates window. Fresh1470rejection exposes duplicate dense offsets in a historical fix.1493shared checkpoint refactor raises Transformers minimum4.52.4; selected H100cancelled/log404 and author-reported12fail retained. NotNathan; no new training/kernel-performance gate passed."
+        "record": "research/2026-10-16-causal-prefix-and-worker-custody.md",
+        "evidence_record": "research/receipts/20261016T204339Z-reviewed-sources.json",
+        "status": "selected_upstream_logs_and_source_only_no_local_scientific_upgrade",
+        "observation": "1496new causal first-row/fixed-shift merge has GPU-only future-gate prefix/gradient tests; GB200128/60pass andCP8fail baseline attribution remain author assertions. CancelledNPUtestlogs noGDN2outcome, NPUbenchmark not GPUcausality.1490newselectedA2stacked84singleton passes and1494newA2compatibility do not prove H100/coldcache.1404adjacentgraph tests only.",
+        "next_gate": "Test causal prefix output/all supported gradients under future perturbation separately from recurrent-reference numerical agreement, mutable graph state and hardware compile/runtime cost. Preserve author/backend/synthetic-merge distinctions and all current failed cost/quality screens."
       },
       "previous_runtime_reviews": [
         {
@@ -117,35 +124,46 @@
           "record": "research/2026-10-16-a2-runtime-boundaries.md",
           "status": "selected_upstream_npu_runtime_logs_reviewed_not_locally_executed",
           "observation": "A2 selected1617pass409skip plus graph15pass16skip; CPUfallback/Gluon/HGRNcoverage gaps retained. NotNathan; oldH100failure and missing1492log unresolved."
+        },
+        {
+          "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
+          "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
+          "status": "source_only_no_runtime_upgrade",
+          "observation": "New1494/1495 proposals target cold-cache dynamic-length specialization;1495code predates window. Fresh1470rejection exposes duplicate dense offsets in a historical fix.1493shared checkpoint refactor raises Transformers minimum4.52.4; selected H100cancelled/log404 and author-reported12fail retained. NotNathan; no new training/kernel-performance gate passed."
         }
       ],
       "latest_engineering_validation": {
-        "status": "six_controlled_torch_workload_cases_passed_training_harness_and_historical_memory_unvalidated",
+        "status": "frozen_pretrained_integration_failed_preimport_unknown_descendants_no_model_or_updates",
         "result": {
-          "report_file_sha256": "e4de046a3653b7a7f16006344ce9b43556097c67d00bfbb10da07bd907a2837c",
-          "acceptance_passed": true,
-          "cases": 6,
-          "cases_passed": 6,
-          "wall_seconds": 27.545342299970798,
-          "memory_brackets": 8,
-          "maximum_absolute_parent_self_difference_bytes": 4096,
-          "authenticated_interpreters": 5,
-          "distinct_launcher_interpreter_pairs": 5,
-          "native_descendants_os_verified": 5,
-          "all_cases_verified_cleanup": true,
-          "workload_single_updates_observed": 4,
-          "receipt_audit_passed": true,
-          "receipt_audit_checks": 9316,
+          "report_file_sha256": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+          "acceptance_passed": false,
+          "cases_passed": 1,
+          "wall_seconds": 3.224649100098759,
           "acceptance_attempts": 1,
           "retries": 0,
-          "pretrained_model_runs": 0,
+          "authenticated_interpreters": 4,
+          "unknown_processes_observed": 8,
+          "actual_pretrained_model_loads": 0,
+          "actual_optimizer_updates": 0,
+          "import38_injection_executed": false,
+          "training_overhead_windows_executed": false,
+          "all_cases_verified_cleanup": true,
+          "retained_processes_across_cases": 21,
+          "maximum_cleanup_seconds": 0.02102230000309646,
+          "maximum_absolute_parent_self_difference_bytes": 4096,
+          "cases": 5,
+          "frozen_success_audit_passed": false,
+          "frozen_success_audit_failed_checks": 14,
+          "post_hoc_failure_receipt_checks": 492,
+          "post_hoc_audit_is_preregistered": false,
           "historical_parent_RSS_valid": false,
-          "training_harness_integrated": false
+          "training_harness_integrated": false,
+          "summary": "results/training-observer/summary.json"
         },
-        "protocol_sha256": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
-        "implementation_freeze_sha256": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
-        "result_file_sha256": "e4de046a3653b7a7f16006344ce9b43556097c67d00bfbb10da07bd907a2837c",
-        "review_record": "research/2026-10-16-workload-observer.md"
+        "protocol_sha256": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+        "implementation_freeze_sha256": "c7a6d3be59947a45547043ecb70a2610f4d79b4b72282a5c2aeaa25dc3d7251a",
+        "result_file_sha256": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+        "review_record": "research/2026-10-16-pretrained-training-observer.md"
       },
       "previous_engineering_validations": [
         {
@@ -166,6 +184,34 @@
           "implementation_freeze_sha256": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
           "result_file_sha256": "303da062f1f0a5eaf4560dc2e5c259ce24462e48af22fbb9dafc83635faf9f85",
           "review_record": "research/2026-10-16-process-observer.md"
+        },
+        {
+          "status": "six_controlled_torch_workload_cases_passed_training_harness_and_historical_memory_unvalidated",
+          "result": {
+            "report_file_sha256": "e4de046a3653b7a7f16006344ce9b43556097c67d00bfbb10da07bd907a2837c",
+            "acceptance_passed": true,
+            "cases": 6,
+            "cases_passed": 6,
+            "wall_seconds": 27.545342299970798,
+            "memory_brackets": 8,
+            "maximum_absolute_parent_self_difference_bytes": 4096,
+            "authenticated_interpreters": 5,
+            "distinct_launcher_interpreter_pairs": 5,
+            "native_descendants_os_verified": 5,
+            "all_cases_verified_cleanup": true,
+            "workload_single_updates_observed": 4,
+            "receipt_audit_passed": true,
+            "receipt_audit_checks": 9316,
+            "acceptance_attempts": 1,
+            "retries": 0,
+            "pretrained_model_runs": 0,
+            "historical_parent_RSS_valid": false,
+            "training_harness_integrated": false
+          },
+          "protocol_sha256": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+          "implementation_freeze_sha256": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+          "result_file_sha256": "e4de046a3653b7a7f16006344ce9b43556097c67d00bfbb10da07bd907a2837c",
+          "review_record": "research/2026-10-16-workload-observer.md"
         }
       ]
     },
@@ -220,7 +266,13 @@
         "openclaw-stop-before-queue-drain",
         "openclaw-explicit-launcher-maintenance-lifetime",
         "openclaw-quiet-archive-delivery-settlement",
-        "openclaw-auxiliary-model-physical-reservations"
+        "openclaw-auxiliary-model-physical-reservations",
+        "openclaw-retained-preparation-worker-close-custody",
+        "openclaw-shared-intake-agent-preparation-isolation",
+        "openclaw-exact-native-close-bounded-resume",
+        "openclaw-windows-pipe-acceptance-boundary",
+        "openclaw-pressure-protection-without-observation",
+        "pi-live-host-model-settings-inputs"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -249,11 +301,11 @@
         "research/2026-10-16-continuation-and-fail-closed.md"
       ],
       "latest_source_review": {
-        "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
-        "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
+        "record": "research/2026-10-16-causal-prefix-and-worker-custody.md",
+        "evidence_record": "research/receipts/20261016T204339Z-reviewed-sources.json",
         "status": "source_only_no_runtime_upgrade",
-        "observation": "174442supersedes prior archive notice behavior: exact archived identities quietly withdraw/cancel pending input without notice; replacement still requires durable notice. VincentKoc174262/174295retain observer/recap reservations through per-work-scope drain, not OS extinction.174480packagingfix CIred; oldfourreds and kill-request branch retained. No runtime upgrade.",
-        "next_gate": "Independently restart archive/replacement controls with durable cancelled-input/no-replay/no-notice versus replacement notice, plus storage/permission retry controls. Hold observer6/recap2 reservations through logical abort and physical tracked-scope cleanup; verify pending resumption, no late outputs or shutdown self-deadlock. Keep actual provider/OS extinction and full-harness gates separate."
+        "observation": "Preparation close retains accepted work/resources/captures; intake independence retains shared32/32 budgets and current failedCI. Exact native close/nonadmission replay keeps original deadline/authority. Silent pressure, pipe acceptance/consumption/identity and live config getters have separate gates; no Gateway/provider execution.",
+        "next_gate": "Use authentic packaged adjacent parents for held preparation/close failure, exact worker retirement, shared durable intake, physical writer ownership, bounded active/deferred budgets and shutdown. Independently require exact thread close/nonadmission replay and current authority under original deadline; test coherent config versions across await/effect and durable reopen. Keep two-restart/checkpoint/kill/real effect gates."
       },
       "previous_source_reviews": [
         {
@@ -275,6 +327,13 @@
           "status": "source_only_no_runtime_upgrade",
           "observation": "New merges separate durable notice/replay withdrawal, native stop-before-drain and explicitly bound launcher cancellation with maintenance custody. Prepared278CIgreen;312/268/395/359CIred retained. Source/author reports are not current local runtime proof.",
           "next_gate": "Pin authentic adjacent packaged trees and two-process crash/reopen controls: notice-before-withdrawal boundary, cross-generation refusal, transient/storage retries, exact-lifetime producer, live owner lease through settlement, actual descendant extinction and detached app survival. Never infer physical death from timeout or lost launcher. Earlier two-restart/fullharness gates remain."
+        },
+        {
+          "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
+          "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
+          "status": "source_only_no_runtime_upgrade",
+          "observation": "174442supersedes prior archive notice behavior: exact archived identities quietly withdraw/cancel pending input without notice; replacement still requires durable notice. VincentKoc174262/174295retain observer/recap reservations through per-work-scope drain, not OS extinction.174480packagingfix CIred; oldfourreds and kill-request branch retained. No runtime upgrade.",
+          "next_gate": "Independently restart archive/replacement controls with durable cancelled-input/no-replay/no-notice versus replacement notice, plus storage/permission retry controls. Hold observer6/recap2 reservations through logical abort and physical tracked-scope cleanup; verify pending resumption, no late outputs or shutdown self-deadlock. Keep actual provider/OS extinction and full-harness gates separate."
         }
       ]
     },
@@ -311,7 +370,9 @@
         "pi-provider-summary-output-budget",
         "openclaw-live-replay-tool-envelope-identity",
         "verifiers-compose-tool-service-placement",
-        "verifiers-stream-error-retry-identity"
+        "verifiers-stream-error-retry-identity",
+        "pi-live-host-model-settings-inputs",
+        "verifiers-deepseek-minimal-native-acp-gate"
       ],
       "status": "planned_not_executed",
       "experiment": null,
@@ -325,11 +386,11 @@
         "research/2026-10-16-resume-and-replay.md"
       ],
       "latest_source_review": {
-        "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
-        "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
+        "record": "research/2026-10-16-causal-prefix-and-worker-custody.md",
+        "evidence_record": "research/receipts/20261016T204339Z-reviewed-sources.json",
         "status": "source_only_no_runtime_upgrade",
-        "observation": "verifiers2881byhallerite preserves Anthropic in-band SSEerror identity after committedHTTP200 and passes eventual status; mapping is not retry execution or reward correctness. Exact-head TestsCIfailed/causeunknown; author165unit claim unreplicated.",
-        "next_gate": "Replay normal/error streams before/after keepalive and each status, bounded retry eligibility and no duplicated effect/token/reward. Resolve failed CI. Keep ComposeVM-wide policy and real live/replay scoring gate unchanged."
+        "observation": "MinimalDeepSeek nativeACP merge with oldpreparedCI/author claims does not execute wire/token/mask/reward consistency. Live model/settings getters require coherent version tests across awaits. PriorVF2881failed Tests and realPi/ACP/MCP gate unchanged.",
+        "next_gate": "Run pinned actual native/MCP allow/deny, per-trace state, cancel/compaction/restart and usage/SSE rewrites with wire/store/token/mask/reward/effect receipts. Keep failed VF2881 Tests and unmet realPi/ACP/MCP prerequisites explicit."
       },
       "previous_source_reviews": [
         {
@@ -343,6 +404,13 @@
           "status": "source_only_no_runtime_upgrade",
           "observation": "Current merged source distinguishes shared2-slot background catch-up from dedicated4-slot recovery, checks database owner under writer lock, relocates history imports, stabilizes live/replayed tool envelopes and adds namedCompose tool placement with VM-level policy. All32selectedpatches read; source tests/author rigs/prepared-head success metadata do not establish current runtime or reward consistency. Oldcheckpoint/kill blobs unchanged.",
           "next_gate": "Pin authentic adjacent packaged trees: simultaneous catch-up/healthy-client reads, retained roots/old-owner limiter/current authority and actual drain; independent two-process SQLite writer barrier/reopen; real tool-turn transcript/wire/effect receipts and current Compose runtime placement/policy/reward/teardown controls. No cloud/API purchase. Existing full-harness/two-restart/checkpoint/kill gaps retained."
+        },
+        {
+          "record": "research/2026-10-16-compile-and-recovery-boundaries.md",
+          "evidence_record": "research/receipts/20261016T184605Z-reviewed-sources.json",
+          "status": "source_only_no_runtime_upgrade",
+          "observation": "verifiers2881byhallerite preserves Anthropic in-band SSEerror identity after committedHTTP200 and passes eventual status; mapping is not retry execution or reward correctness. Exact-head TestsCIfailed/causeunknown; author165unit claim unreplicated.",
+          "next_gate": "Replay normal/error streams before/after keepalive and each status, bounded retry eligibility and no duplicated effect/token/reward. Resolve failed CI. Keep ComposeVM-wide policy and real live/replay scoring gate unchanged."
         }
       ]
     }

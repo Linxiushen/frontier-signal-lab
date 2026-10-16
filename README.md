@@ -45,6 +45,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Natural-text training cost and final evaluation](research/2026-10-16-training-cost-and-final-evaluation.md) | All six joint screens fail; slower CPU training, all endpoints regress; parent RSS observer invalid |
 | [Windows process observer](results/process-observer/report.md) | Five controlled engineering cases pass; training integration still pending |
 | [CPU Torch workload integration](results/workload-observer/report.md) | Six controlled engineering cases pass, including native descendants; pretrained training harness remains unvalidated |
+| [Pinned pretrained training integration](results/training-observer/report.md) | Failed at preimport: unexpected descendants; zero model loads or updates, all recorded processes cleaned up |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -82,6 +83,13 @@ six fixed engineering cases, including one CPU backward/SGD update per workload,
 native descendant identity, busy timeout/private threshold and precise failure
 controls. Its portable auditor launches no processes. Pretrained training,
 observer overhead and historical scientific measurements retain separate gates.
+
+The next [frozen pretrained integration](fixtures/training-observer/README.md)
+failed before model import: each authenticated case found two unexpected
+descendants. Only the deliberate exit37 control passed. Actual model loads and
+updates were zero; all recorded handles exited and each Job became empty.
+The failed receipt and rejection audit are preserved. Complete child image
+identity is the next gate before another separately declared training attempt.
 
 ## Bring one counterexample
 

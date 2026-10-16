@@ -1,0 +1,1398 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v1",
+  "started_at": "2026-10-16T21:03:56.676205+00:00",
+  "started_perf_counter": 842340.6088174,
+  "passed": false,
+  "cases": [
+    {
+      "id": "healthy_dense2",
+      "mode": "healthy",
+      "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+      "manual_allocation_bytes": 67108864,
+      "started_at": "2026-10-16T21:03:56.981902+00:00",
+      "started_perf_counter": 842340.9144488,
+      "passed": false,
+      "samples": [
+        {
+          "pid": 49264,
+          "creation_filetime": 134366582370697485,
+          "memory": {
+            "resident_bytes": 26324992,
+            "private_bytes": 17858560,
+            "peak_resident_bytes": 27639808,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842341.5162637,
+          "native_cpu_seconds": 0.34375
+        },
+        {
+          "pid": 49264,
+          "creation_filetime": 134366582370697485,
+          "memory": {
+            "resident_bytes": 26324992,
+            "private_bytes": 17858560,
+            "peak_resident_bytes": 27639808,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842341.5224041,
+          "native_cpu_seconds": 0.34375
+        }
+      ],
+      "parent_query_costs": [
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842341.5162248,
+          "completed_perf_counter": 842341.5162736,
+          "wall_seconds": 4.880002234131098e-05,
+          "started_process_cpu_seconds": 0.65625,
+          "completed_process_cpu_seconds": 0.65625,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842341.5223328,
+          "completed_perf_counter": 842341.5224233,
+          "wall_seconds": 9.049999061971903e-05,
+          "started_process_cpu_seconds": 0.671875,
+          "completed_process_cpu_seconds": 0.671875,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "Toolhelp_process_tree_snapshot",
+          "started_perf_counter": 842341.5439366,
+          "completed_perf_counter": 842341.5565794,
+          "wall_seconds": 0.012642799993045628,
+          "started_process_cpu_seconds": 0.671875,
+          "completed_process_cpu_seconds": 0.6875,
+          "parent_process_cpu_seconds": 0.015625
+        }
+      ],
+      "outcome": null,
+      "launcher": {
+        "pid": 2628,
+        "creation_filetime": 134366582369842332,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 2628,
+          "creation_filetime": 134366582369842332,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842341.3659663
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+          "role": "worker",
+          "pid": 49264,
+          "parent_pid": 2628,
+          "creation_filetime": 134366582370697485,
+          "memory": {
+            "resident_bytes": 26161152,
+            "private_bytes": 17858560,
+            "peak_resident_bytes": 26165248,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842341.3254156,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 49264,
+            "creation_filetime": 134366582370697485,
+            "parent_pid": 2628,
+            "job_member": true
+          },
+          {
+            "pid": 2628,
+            "creation_filetime": 134366582369842332,
+            "parent_pid": 49348,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 49264,
+          "creation_filetime": 134366582370697485,
+          "basename": "python.exe",
+          "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842341.3637037
+        }
+      },
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+          "role": "worker",
+          "pid": 49264,
+          "native_pid": 17588,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 17588,
+          "creation_filetime": 134366582374453857,
+          "parent_pid": 49264
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "stages": {
+        "preimport": {
+          "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+          "role": "worker",
+          "pid": 49264,
+          "stage": "preimport",
+          "native_thread_count": 4,
+          "torch_imported": false,
+          "transformers_imported": false
+        }
+      },
+      "memory_brackets": {
+        "preimport": {
+          "self_before": {
+            "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+            "role": "worker",
+            "pid": 49264,
+            "creation_filetime": 134366582370697485,
+            "memory": {
+              "resident_bytes": 26324992,
+              "private_bytes": 17858560,
+              "peak_resident_bytes": 27639808,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842341.5058027
+          },
+          "parent": {
+            "pid": 49264,
+            "creation_filetime": 134366582370697485,
+            "memory": {
+              "resident_bytes": 26324992,
+              "private_bytes": 17858560,
+              "peak_resident_bytes": 27639808,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842341.5162637,
+            "native_cpu_seconds": 0.34375
+          },
+          "self_after": {
+            "nonce": "665b49f98bb0cc2ac93202e044482ceb6f14d4ff047590306ab2dd063fbc3576",
+            "role": "worker",
+            "pid": 49264,
+            "creation_filetime": 134366582370697485,
+            "memory": {
+              "resident_bytes": 26324992,
+              "private_bytes": 17858560,
+              "peak_resident_bytes": 27639808,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842341.532875
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "stage_process_inventories": [
+        {
+          "label": "preimport",
+          "perf_counter": 842341.5566616,
+          "processes": [
+            {
+              "pid": 2628,
+              "parent_pid": 49348,
+              "creation_filetime": 134366582369842332,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 7684,
+              "parent_pid": 17588,
+              "creation_filetime": 134366582375508185,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 17588,
+              "parent_pid": 49264,
+              "creation_filetime": 134366582374453857,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 49264,
+              "parent_pid": 2628,
+              "creation_filetime": 134366582370697485,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 56260,
+              "parent_pid": 2628,
+              "creation_filetime": 134366582370204501,
+              "job_member": true,
+              "alive": true
+            }
+          ],
+          "expected_live_pids": [
+            2628,
+            17588,
+            49264
+          ],
+          "observed_pids": [
+            2628,
+            7684,
+            17588,
+            49264,
+            56260
+          ],
+          "unknown_descendants": [
+            7684,
+            56260
+          ],
+          "boundary": "one stage snapshot; short-lived or between-snapshot children may be missed; no provider-absence proof"
+        }
+      ],
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 2628,
+            "creation_filetime": 134366582369842332,
+            "exit_code": 57347
+          },
+          {
+            "pid": 49264,
+            "creation_filetime": 134366582370697485,
+            "exit_code": 57347
+          },
+          {
+            "pid": 17588,
+            "creation_filetime": 134366582374453857,
+            "exit_code": 57347
+          },
+          {
+            "pid": 7684,
+            "creation_filetime": 134366582375508185,
+            "exit_code": 57347
+          },
+          {
+            "pid": 56260,
+            "creation_filetime": 134366582370204501,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 842341.560053,
+        "completed_perf_counter": 842341.581033,
+        "wall_seconds": 0.020980000030249357,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T21:03:57.648901+00:00",
+      "completed_perf_counter": 842341.5811787,
+      "wall_seconds": 0.6667298999382183
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "mode": "timeout",
+      "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+      "manual_allocation_bytes": 0,
+      "started_at": "2026-10-16T21:03:57.652906+00:00",
+      "started_perf_counter": 842341.5852039,
+      "passed": false,
+      "samples": [
+        {
+          "pid": 14180,
+          "creation_filetime": 134366582377407603,
+          "memory": {
+            "resident_bytes": 26230784,
+            "private_bytes": 17772544,
+            "peak_resident_bytes": 27541504,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.1231523,
+          "native_cpu_seconds": 0.34375
+        },
+        {
+          "pid": 14180,
+          "creation_filetime": 134366582377407603,
+          "memory": {
+            "resident_bytes": 26230784,
+            "private_bytes": 17772544,
+            "peak_resident_bytes": 27541504,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.129486,
+          "native_cpu_seconds": 0.34375
+        }
+      ],
+      "parent_query_costs": [
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842342.1231223,
+          "completed_perf_counter": 842342.1231592,
+          "wall_seconds": 3.6899931728839874e-05,
+          "started_process_cpu_seconds": 0.734375,
+          "completed_process_cpu_seconds": 0.734375,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842342.1294507,
+          "completed_perf_counter": 842342.1294935,
+          "wall_seconds": 4.279997665435076e-05,
+          "started_process_cpu_seconds": 0.734375,
+          "completed_process_cpu_seconds": 0.734375,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "Toolhelp_process_tree_snapshot",
+          "started_perf_counter": 842342.1506558,
+          "completed_perf_counter": 842342.1636228,
+          "wall_seconds": 0.01296700001694262,
+          "started_process_cpu_seconds": 0.734375,
+          "completed_process_cpu_seconds": 0.75,
+          "parent_process_cpu_seconds": 0.015625
+        }
+      ],
+      "outcome": null,
+      "launcher": {
+        "pid": 54108,
+        "creation_filetime": 134366582376551520,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 54108,
+          "creation_filetime": 134366582376551520,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842341.9926721
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+          "role": "worker",
+          "pid": 14180,
+          "parent_pid": 54108,
+          "creation_filetime": 134366582377407603,
+          "memory": {
+            "resident_bytes": 26046464,
+            "private_bytes": 17772544,
+            "peak_resident_bytes": 26050560,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842341.9673965,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 14180,
+            "creation_filetime": 134366582377407603,
+            "parent_pid": 54108,
+            "job_member": true
+          },
+          {
+            "pid": 54108,
+            "creation_filetime": 134366582376551520,
+            "parent_pid": 49348,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 14180,
+          "creation_filetime": 134366582377407603,
+          "basename": "python.exe",
+          "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842341.9905813
+        }
+      },
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+          "role": "worker",
+          "pid": 14180,
+          "native_pid": 47864,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 47864,
+          "creation_filetime": 134366582380873463,
+          "parent_pid": 14180
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "stages": {
+        "preimport": {
+          "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+          "role": "worker",
+          "pid": 14180,
+          "stage": "preimport",
+          "native_thread_count": 4,
+          "torch_imported": false,
+          "transformers_imported": false
+        }
+      },
+      "memory_brackets": {
+        "preimport": {
+          "self_before": {
+            "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+            "role": "worker",
+            "pid": 14180,
+            "creation_filetime": 134366582377407603,
+            "memory": {
+              "resident_bytes": 26226688,
+              "private_bytes": 17772544,
+              "peak_resident_bytes": 27541504,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.1058136
+          },
+          "parent": {
+            "pid": 14180,
+            "creation_filetime": 134366582377407603,
+            "memory": {
+              "resident_bytes": 26230784,
+              "private_bytes": 17772544,
+              "peak_resident_bytes": 27541504,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.1231523,
+            "native_cpu_seconds": 0.34375
+          },
+          "self_after": {
+            "nonce": "146720016d09592f1d4504f406453fdb0c774c22da52f02f8cce04570bcea16f",
+            "role": "worker",
+            "pid": 14180,
+            "creation_filetime": 134366582377407603,
+            "memory": {
+              "resident_bytes": 26230784,
+              "private_bytes": 17772544,
+              "peak_resident_bytes": 27541504,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.1335746
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "stage_process_inventories": [
+        {
+          "label": "preimport",
+          "perf_counter": 842342.1637054,
+          "processes": [
+            {
+              "pid": 13984,
+              "parent_pid": 47864,
+              "creation_filetime": 134366582381510421,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 14180,
+              "parent_pid": 54108,
+              "creation_filetime": 134366582377407603,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 46348,
+              "parent_pid": 54108,
+              "creation_filetime": 134366582376900660,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 47864,
+              "parent_pid": 14180,
+              "creation_filetime": 134366582380873463,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 54108,
+              "parent_pid": 49348,
+              "creation_filetime": 134366582376551520,
+              "job_member": true,
+              "alive": true
+            }
+          ],
+          "expected_live_pids": [
+            14180,
+            47864,
+            54108
+          ],
+          "observed_pids": [
+            13984,
+            14180,
+            46348,
+            47864,
+            54108
+          ],
+          "unknown_descendants": [
+            13984,
+            46348
+          ],
+          "boundary": "one stage snapshot; short-lived or between-snapshot children may be missed; no provider-absence proof"
+        }
+      ],
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 54108,
+            "creation_filetime": 134366582376551520,
+            "exit_code": 57347
+          },
+          {
+            "pid": 14180,
+            "creation_filetime": 134366582377407603,
+            "exit_code": 57347
+          },
+          {
+            "pid": 47864,
+            "creation_filetime": 134366582380873463,
+            "exit_code": 57347
+          },
+          {
+            "pid": 13984,
+            "creation_filetime": 134366582381510421,
+            "exit_code": 57347
+          },
+          {
+            "pid": 46348,
+            "creation_filetime": 134366582376900660,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 842342.16709,
+        "completed_perf_counter": 842342.1877403,
+        "wall_seconds": 0.02065029996447265,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T21:03:58.255544+00:00",
+      "completed_perf_counter": 842342.1879419,
+      "wall_seconds": 0.6027379999868572
+    },
+    {
+      "id": "dense2_private_cap64",
+      "mode": "private_cap",
+      "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+      "manual_allocation_bytes": 67108864,
+      "started_at": "2026-10-16T21:03:58.259517+00:00",
+      "started_perf_counter": 842342.191987,
+      "passed": false,
+      "samples": [
+        {
+          "pid": 32740,
+          "creation_filetime": 134366582383436382,
+          "memory": {
+            "resident_bytes": 26435584,
+            "private_bytes": 17965056,
+            "peak_resident_bytes": 27750400,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.7076944,
+          "native_cpu_seconds": 0.28125
+        },
+        {
+          "pid": 32740,
+          "creation_filetime": 134366582383436382,
+          "memory": {
+            "resident_bytes": 26439680,
+            "private_bytes": 17965056,
+            "peak_resident_bytes": 27750400,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.7294254,
+          "native_cpu_seconds": 0.28125
+        },
+        {
+          "pid": 32740,
+          "creation_filetime": 134366582383436382,
+          "memory": {
+            "resident_bytes": 26439680,
+            "private_bytes": 17965056,
+            "peak_resident_bytes": 27750400,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.7348955,
+          "native_cpu_seconds": 0.28125
+        }
+      ],
+      "parent_query_costs": [
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842342.7076656,
+          "completed_perf_counter": 842342.7077022,
+          "wall_seconds": 3.660004585981369e-05,
+          "started_process_cpu_seconds": 0.828125,
+          "completed_process_cpu_seconds": 0.828125,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842342.72939,
+          "completed_perf_counter": 842342.7294323,
+          "wall_seconds": 4.229997284710407e-05,
+          "started_process_cpu_seconds": 0.828125,
+          "completed_process_cpu_seconds": 0.828125,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842342.7348675,
+          "completed_perf_counter": 842342.7349023,
+          "wall_seconds": 3.4800032153725624e-05,
+          "started_process_cpu_seconds": 0.828125,
+          "completed_process_cpu_seconds": 0.828125,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "Toolhelp_process_tree_snapshot",
+          "started_perf_counter": 842342.7567519,
+          "completed_perf_counter": 842342.7694111,
+          "wall_seconds": 0.012659200001507998,
+          "started_process_cpu_seconds": 0.828125,
+          "completed_process_cpu_seconds": 0.828125,
+          "parent_process_cpu_seconds": 0.0
+        }
+      ],
+      "outcome": null,
+      "launcher": {
+        "pid": 57608,
+        "creation_filetime": 134366582382616173,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 57608,
+          "creation_filetime": 134366582382616173,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842342.5996231
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+          "role": "worker",
+          "pid": 32740,
+          "parent_pid": 57608,
+          "creation_filetime": 134366582383436382,
+          "memory": {
+            "resident_bytes": 26267648,
+            "private_bytes": 17965056,
+            "peak_resident_bytes": 26271744,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842342.5706626,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 32740,
+            "creation_filetime": 134366582383436382,
+            "parent_pid": 57608,
+            "job_member": true
+          },
+          {
+            "pid": 57608,
+            "creation_filetime": 134366582382616173,
+            "parent_pid": 49348,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 32740,
+          "creation_filetime": 134366582383436382,
+          "basename": "python.exe",
+          "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842342.5974079
+        }
+      },
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+          "role": "worker",
+          "pid": 32740,
+          "native_pid": 56740,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 56740,
+          "creation_filetime": 134366582386913599,
+          "parent_pid": 32740
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "stages": {
+        "preimport": {
+          "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+          "role": "worker",
+          "pid": 32740,
+          "stage": "preimport",
+          "native_thread_count": 4,
+          "torch_imported": false,
+          "transformers_imported": false
+        }
+      },
+      "memory_brackets": {
+        "preimport": {
+          "self_before": {
+            "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+            "role": "worker",
+            "pid": 32740,
+            "creation_filetime": 134366582383436382,
+            "memory": {
+              "resident_bytes": 26435584,
+              "private_bytes": 17965056,
+              "peak_resident_bytes": 27750400,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.7118631
+          },
+          "parent": {
+            "pid": 32740,
+            "creation_filetime": 134366582383436382,
+            "memory": {
+              "resident_bytes": 26439680,
+              "private_bytes": 17965056,
+              "peak_resident_bytes": 27750400,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.7294254,
+            "native_cpu_seconds": 0.28125
+          },
+          "self_after": {
+            "nonce": "b376f5cb88821b844d192e5786413fbc67688ea84b209862f9a940580705358b",
+            "role": "worker",
+            "pid": 32740,
+            "creation_filetime": 134366582383436382,
+            "memory": {
+              "resident_bytes": 26439680,
+              "private_bytes": 17965056,
+              "peak_resident_bytes": 27750400,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842342.7386057
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "stage_process_inventories": [
+        {
+          "label": "preimport",
+          "perf_counter": 842342.7694905,
+          "processes": [
+            {
+              "pid": 32740,
+              "parent_pid": 57608,
+              "creation_filetime": 134366582383436382,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 38876,
+              "parent_pid": 56740,
+              "creation_filetime": 134366582387549541,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 52088,
+              "parent_pid": 57608,
+              "creation_filetime": 134366582382956492,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 56740,
+              "parent_pid": 32740,
+              "creation_filetime": 134366582386913599,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 57608,
+              "parent_pid": 49348,
+              "creation_filetime": 134366582382616173,
+              "job_member": true,
+              "alive": true
+            }
+          ],
+          "expected_live_pids": [
+            32740,
+            56740,
+            57608
+          ],
+          "observed_pids": [
+            32740,
+            38876,
+            52088,
+            56740,
+            57608
+          ],
+          "unknown_descendants": [
+            38876,
+            52088
+          ],
+          "boundary": "one stage snapshot; short-lived or between-snapshot children may be missed; no provider-absence proof"
+        }
+      ],
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 57608,
+            "creation_filetime": 134366582382616173,
+            "exit_code": 57347
+          },
+          {
+            "pid": 32740,
+            "creation_filetime": 134366582383436382,
+            "exit_code": 57347
+          },
+          {
+            "pid": 56740,
+            "creation_filetime": 134366582386913599,
+            "exit_code": 57347
+          },
+          {
+            "pid": 38876,
+            "creation_filetime": 134366582387549541,
+            "exit_code": 57347
+          },
+          {
+            "pid": 52088,
+            "creation_filetime": 134366582382956492,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 842342.7728483,
+        "completed_perf_counter": 842342.7936166,
+        "wall_seconds": 0.020768299931660295,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T21:03:58.861495+00:00",
+      "completed_perf_counter": 842342.7938154,
+      "wall_seconds": 0.601828399929218
+    },
+    {
+      "id": "prehandshake_exit37",
+      "mode": "prehandshake_fail",
+      "nonce": "3563e846a400c48a96c9e7b197052b439c971f26b45c0f9a182dc6a2753d65f2",
+      "manual_allocation_bytes": 0,
+      "started_at": "2026-10-16T21:03:58.865494+00:00",
+      "started_perf_counter": 842342.7979055,
+      "passed": true,
+      "samples": [],
+      "parent_query_costs": [],
+      "outcome": "expected_prehandshake_exit37",
+      "launcher": {
+        "pid": 27444,
+        "creation_filetime": 134366582388674614,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "prehandshake_control": {
+        "exit_code": 37,
+        "handshake_absent": true,
+        "actual_interpreter_identity_unavailable": true
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 27444,
+            "creation_filetime": 134366582388674614,
+            "exit_code": 37
+          }
+        ],
+        "started_perf_counter": 842343.2073651,
+        "completed_perf_counter": 842343.2277839,
+        "wall_seconds": 0.020418799947947264,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T21:03:59.295671+00:00",
+      "completed_perf_counter": 842343.2279093,
+      "wall_seconds": 0.4300037999637425
+    },
+    {
+      "id": "injected_import_failure38",
+      "mode": "import_fail",
+      "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+      "manual_allocation_bytes": 0,
+      "started_at": "2026-10-16T21:03:59.299672+00:00",
+      "started_perf_counter": 842343.232033,
+      "passed": false,
+      "samples": [
+        {
+          "pid": 13452,
+          "creation_filetime": 134366582393850826,
+          "memory": {
+            "resident_bytes": 26517504,
+            "private_bytes": 18046976,
+            "peak_resident_bytes": 27832320,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842343.7686424,
+          "native_cpu_seconds": 0.34375
+        },
+        {
+          "pid": 13452,
+          "creation_filetime": 134366582393850826,
+          "memory": {
+            "resident_bytes": 26517504,
+            "private_bytes": 18046976,
+            "peak_resident_bytes": 27832320,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842343.7743236,
+          "native_cpu_seconds": 0.34375
+        }
+      ],
+      "parent_query_costs": [
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842343.7686134,
+          "completed_perf_counter": 842343.7686496,
+          "wall_seconds": 3.6199926398694515e-05,
+          "started_process_cpu_seconds": 0.890625,
+          "completed_process_cpu_seconds": 0.890625,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "actual_interpreter_memory_and_cpu_query",
+          "started_perf_counter": 842343.7742798,
+          "completed_perf_counter": 842343.7743315,
+          "wall_seconds": 5.170004442334175e-05,
+          "started_process_cpu_seconds": 0.890625,
+          "completed_process_cpu_seconds": 0.890625,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "Toolhelp_process_tree_snapshot",
+          "started_perf_counter": 842343.7959389,
+          "completed_perf_counter": 842343.8086853,
+          "wall_seconds": 0.01274640008341521,
+          "started_process_cpu_seconds": 0.890625,
+          "completed_process_cpu_seconds": 0.90625,
+          "parent_process_cpu_seconds": 0.015625
+        }
+      ],
+      "outcome": null,
+      "launcher": {
+        "pid": 58512,
+        "creation_filetime": 134366582393015427,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 58512,
+          "creation_filetime": 134366582393015427,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842343.6605569
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+          "role": "worker",
+          "pid": 13452,
+          "parent_pid": 58512,
+          "creation_filetime": 134366582393850826,
+          "memory": {
+            "resident_bytes": 26349568,
+            "private_bytes": 18046976,
+            "peak_resident_bytes": 26353664,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 842343.6266344,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 13452,
+            "creation_filetime": 134366582393850826,
+            "parent_pid": 58512,
+            "job_member": true
+          },
+          {
+            "pid": 58512,
+            "creation_filetime": 134366582393015427,
+            "parent_pid": 49348,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 13452,
+          "creation_filetime": 134366582393850826,
+          "basename": "python.exe",
+          "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 842343.6584008
+        }
+      },
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+          "role": "worker",
+          "pid": 13452,
+          "native_pid": 40516,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 40516,
+          "creation_filetime": 134366582397463996,
+          "parent_pid": 13452
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "stages": {
+        "preimport": {
+          "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+          "role": "worker",
+          "pid": 13452,
+          "stage": "preimport",
+          "native_thread_count": 4,
+          "torch_imported": false,
+          "transformers_imported": false
+        }
+      },
+      "memory_brackets": {
+        "preimport": {
+          "self_before": {
+            "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+            "role": "worker",
+            "pid": 13452,
+            "creation_filetime": 134366582393850826,
+            "memory": {
+              "resident_bytes": 26517504,
+              "private_bytes": 18046976,
+              "peak_resident_bytes": 27832320,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842343.7622324
+          },
+          "parent": {
+            "pid": 13452,
+            "creation_filetime": 134366582393850826,
+            "memory": {
+              "resident_bytes": 26517504,
+              "private_bytes": 18046976,
+              "peak_resident_bytes": 27832320,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842343.7686424,
+            "native_cpu_seconds": 0.34375
+          },
+          "self_after": {
+            "nonce": "304faee3c87b64da42ace4400c53b3d23373adf8a5e0763ed0cbd771a2f2079f",
+            "role": "worker",
+            "pid": 13452,
+            "creation_filetime": 134366582393850826,
+            "memory": {
+              "resident_bytes": 26517504,
+              "private_bytes": 18046976,
+              "peak_resident_bytes": 27832320,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 842343.7899074
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "stage_process_inventories": [
+        {
+          "label": "preimport",
+          "perf_counter": 842343.8087666,
+          "processes": [
+            {
+              "pid": 13452,
+              "parent_pid": 58512,
+              "creation_filetime": 134366582393850826,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 31924,
+              "parent_pid": 40516,
+              "creation_filetime": 134366582398087302,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 40516,
+              "parent_pid": 13452,
+              "creation_filetime": 134366582397463996,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 58512,
+              "parent_pid": 49348,
+              "creation_filetime": 134366582393015427,
+              "job_member": true,
+              "alive": true
+            },
+            {
+              "pid": 59216,
+              "parent_pid": 58512,
+              "creation_filetime": 134366582393356469,
+              "job_member": true,
+              "alive": true
+            }
+          ],
+          "expected_live_pids": [
+            13452,
+            40516,
+            58512
+          ],
+          "observed_pids": [
+            13452,
+            31924,
+            40516,
+            58512,
+            59216
+          ],
+          "unknown_descendants": [
+            31924,
+            59216
+          ],
+          "boundary": "one stage snapshot; short-lived or between-snapshot children may be missed; no provider-absence proof"
+        }
+      ],
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 58512,
+            "creation_filetime": 134366582393015427,
+            "exit_code": 57347
+          },
+          {
+            "pid": 13452,
+            "creation_filetime": 134366582393850826,
+            "exit_code": 57347
+          },
+          {
+            "pid": 40516,
+            "creation_filetime": 134366582397463996,
+            "exit_code": 57347
+          },
+          {
+            "pid": 31924,
+            "creation_filetime": 134366582398087302,
+            "exit_code": 57347
+          },
+          {
+            "pid": 59216,
+            "creation_filetime": 134366582393356469,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 842343.8122267,
+        "completed_perf_counter": 842343.833249,
+        "wall_seconds": 0.02102230000309646,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T21:03:59.901063+00:00",
+      "completed_perf_counter": 842343.8334424,
+      "wall_seconds": 0.6014093999983743
+    }
+  ],
+  "no_fallback": true,
+  "kind": "pinned offline pretrained loader and two-dense-step harness engineering; no new cost/quality/compression science",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "os_name": "nt",
+  "planned_model_loads": 3,
+  "planned_optimizer_updates": 6,
+  "boundaries": [
+    "stage snapshots bound child discovery; no provider behavior validated",
+    "OS thread counts describe processes; no exact kernel thread ownership proof",
+    "current stage memory and process lifetime peaks are distinct; no isolated backward peak or memory saving claim",
+    "private cap is sampled post-training threshold, permits overshoot, not an import/training hard cap",
+    "held overhead windows are descriptive; no causal estimate of training slowdown",
+    "historical RSS/cap and scientific negatives remain unchanged"
+  ],
+  "protocol_sha256": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+  "implementation_sha256": "c7a6d3be59947a45547043ecb70a2610f4d79b4b72282a5c2aeaa25dc3d7251a",
+  "source_sha256": {
+    "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+    "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb"
+  },
+  "frozen_dependencies_sha256": {
+    "experiments/activation_cost_probe.py": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+    "fixtures/activation-cost/train.json": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "fixtures/activation-cost/manifest.json": "0d08ba2574148924da713a40a66e49f3a7adc4d280a6d8f2e0d5135aae5148eb",
+    "fixtures/activation-cost/protocol.json": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+    "fixtures/activation-cost/implementation.json": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5"
+  },
+  "launch_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+  "actual_worker_expected_os_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+  "native_executable_sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+  "model_id": "EleutherAI/pythia-14m",
+  "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+  "model_assets": {
+    "README.md": {
+      "bytes": 10560,
+      "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+    },
+    "config.json": {
+      "bytes": 698,
+      "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+    },
+    "generation_config.json": {
+      "bytes": 111,
+      "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+    },
+    "model.safetensors": {
+      "bytes": 28143920,
+      "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+    },
+    "special_tokens_map.json": {
+      "bytes": 441,
+      "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+    },
+    "tokenizer.json": {
+      "bytes": 2114042,
+      "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+    },
+    "tokenizer_config.json": {
+      "bytes": 4834,
+      "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+    }
+  },
+  "protocol_predeclared_at": "2026-10-16T20:51:52.931119+00:00",
+  "implementation_frozen_at": "2026-10-16T21:03:39.632411+00:00",
+  "completed_at": "2026-10-16T21:03:59.901063+00:00",
+  "completed_perf_counter": 842343.8334665,
+  "wall_seconds": 3.224649100098759
+}

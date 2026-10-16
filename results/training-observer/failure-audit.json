@@ -1,0 +1,2168 @@
+{
+  "schema_version": 1,
+  "audit_kind": "post_hoc_failure_receipt_consistency",
+  "preregistered": false,
+  "failure_receipt_consistency_passed": true,
+  "experiment_acceptance_passed": false,
+  "original_report_declared_passed": false,
+  "frozen_success_auditor_acceptance_passed": false,
+  "frozen_success_auditor_failures": [
+    "reported_acceptance_pass_not_laundered",
+    "healthy_dense2:no_hidden_failure",
+    "healthy_dense2:exact_stage_inventory",
+    "healthy_dense2:invalid_or_incomplete_receipt:'postimport'",
+    "dense2_busy_deadline:no_hidden_failure",
+    "dense2_busy_deadline:exact_stage_inventory",
+    "dense2_busy_deadline:invalid_or_incomplete_receipt:'postimport'",
+    "dense2_private_cap64:no_hidden_failure",
+    "dense2_private_cap64:exact_stage_inventory",
+    "dense2_private_cap64:invalid_or_incomplete_receipt:'postimport'",
+    "injected_import_failure38:no_hidden_failure",
+    "injected_import_failure38:snapshot_descendants_exact",
+    "injected_import_failure38:snapshot_retained_members",
+    "injected_import_failure38:invalid_or_incomplete_receipt:'cleanup'"
+  ],
+  "check_count": 492,
+  "checks_passed": 492,
+  "failures": [],
+  "checks": [
+    {
+      "check": "exact_original_failed_report_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_protocol_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "exact_implementation_freeze_hash",
+      "passed": true
+    },
+    {
+      "check": "frozen_success_auditor_and_tests_unchanged",
+      "passed": true
+    },
+    {
+      "check": "implementation_pins_original_review_tools",
+      "passed": true
+    },
+    {
+      "check": "frozen_source_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "frozen_dependency_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "report_identity",
+      "passed": true
+    },
+    {
+      "check": "original_experiment_stays_failed",
+      "passed": true
+    },
+    {
+      "check": "frozen_success_auditor_preserves_exact_rejection",
+      "passed": true
+    },
+    {
+      "check": "success_audit_uses_same_saved_bytes",
+      "passed": true
+    },
+    {
+      "check": "no_optional_local_remeasurement_claim",
+      "passed": true
+    },
+    {
+      "check": "suite:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "suite:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "original_suite_180s_bound",
+      "passed": true
+    },
+    {
+      "check": "original_protocol_freeze_run_chronology",
+      "passed": true
+    },
+    {
+      "check": "suite_UTC_monotonic_consistency",
+      "passed": true
+    },
+    {
+      "check": "five_original_cases_in_order",
+      "passed": true
+    },
+    {
+      "check": "four_failures_one_exit37_success",
+      "passed": true
+    },
+    {
+      "check": "unique_original_nonces",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:original_case_spec",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:case:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:case_order_and_60s_bound",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:UTC_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:no_hidden_cleanup_error",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:no_import_failure_model_or_training_receipts",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:launcher:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:launcher_job_custody",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exact_preimport_discovery_failure_preserved",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:only_preimport_stage_reached",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:worker:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:worker:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ready:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ready:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ready:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ready:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:actual_interpreter_separate_from_launcher",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:self_launcher_image_claim_kept_separate",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:authenticated_actual_ancestry",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:OS_image_queries_after_authentication",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:native:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:native_launch:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:native_direct_child_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:native_image_hash",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:native_control_command",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:preimport:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:authenticated_no_ML_at_preimport",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:before:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:before:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:before:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:before:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:before:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:after:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:after:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:after:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:after:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:after:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:preimport_memory_bracket_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:memory_comparison_independently_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:actual_parent_sample_retained",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample_clock_CPU_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:all_sample_and_single_discovery_query_costs",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:single_failed_preimport_discovery",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:discovery_after_held_bracket",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:three_known_five_observed_retained_members",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exact_two_unknown_descendants_preserved",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:all_five_observed_live_same_job",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:known_inventory_identity_parent_links",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:cleanup:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:cleanup_after_receipts_within_4s",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:all_exited_job_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:every_retained_identity_has_exact_exit",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:exact_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "healthy_dense2:unknown_identities_retained_through_exit",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:original_case_spec",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:case:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:case_order_and_60s_bound",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:UTC_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:no_hidden_cleanup_error",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:no_import_failure_model_or_training_receipts",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:launcher:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:launcher_job_custody",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exact_preimport_discovery_failure_preserved",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:only_preimport_stage_reached",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:worker:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:worker:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ready:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ready:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ready:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ready:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:actual_interpreter_separate_from_launcher",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:self_launcher_image_claim_kept_separate",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:authenticated_actual_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:OS_image_queries_after_authentication",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:native:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:native_launch:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:native_direct_child_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:native_image_hash",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:native_control_command",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:preimport:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:authenticated_no_ML_at_preimport",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:before:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:before:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:before:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:before:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:before:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:after:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:after:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:after:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:after:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:after:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:preimport_memory_bracket_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:memory_comparison_independently_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:actual_parent_sample_retained",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample_clock_CPU_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:all_sample_and_single_discovery_query_costs",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:single_failed_preimport_discovery",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:discovery_after_held_bracket",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:three_known_five_observed_retained_members",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exact_two_unknown_descendants_preserved",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:all_five_observed_live_same_job",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:known_inventory_identity_parent_links",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:cleanup:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:cleanup_after_receipts_within_4s",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:all_exited_job_zero",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:every_retained_identity_has_exact_exit",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:exact_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "dense2_busy_deadline:unknown_identities_retained_through_exit",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:original_case_spec",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:case:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:case_order_and_60s_bound",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:UTC_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:no_hidden_cleanup_error",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:no_import_failure_model_or_training_receipts",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:launcher:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:launcher_job_custody",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exact_preimport_discovery_failure_preserved",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:only_preimport_stage_reached",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:worker:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:worker:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ready:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ready:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ready:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ready:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:actual_interpreter_separate_from_launcher",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:self_launcher_image_claim_kept_separate",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:authenticated_actual_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:OS_image_queries_after_authentication",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:native:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:native_launch:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:native_direct_child_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:native_image_hash",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:native_control_command",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:preimport:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:authenticated_no_ML_at_preimport",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:before:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:before:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:before:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:before:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:before:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:after:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:after:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:after:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:after:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:after:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:preimport_memory_bracket_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:memory_comparison_independently_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:actual_parent_sample_retained",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample_clock_CPU_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample_clock_CPU_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:all_sample_and_single_discovery_query_costs",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:single_failed_preimport_discovery",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:discovery_after_held_bracket",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:three_known_five_observed_retained_members",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exact_two_unknown_descendants_preserved",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:all_five_observed_live_same_job",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:known_inventory_identity_parent_links",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:cleanup:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:cleanup_after_receipts_within_4s",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:all_exited_job_zero",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:every_retained_identity_has_exact_exit",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:exact_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "dense2_private_cap64:unknown_identities_retained_through_exit",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:original_case_spec",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:case:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:case_order_and_60s_bound",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:UTC_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:no_hidden_cleanup_error",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:no_import_failure_model_or_training_receipts",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:launcher:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:launcher_job_custody",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:only_expected_exit37_passes",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:precise_absent_identity_exit37_control",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:no_substituted_interpreter_or_work",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:cleanup:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:cleanup_after_receipts_within_4s",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:all_exited_job_zero",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:every_retained_identity_has_exact_exit",
+      "passed": true
+    },
+    {
+      "check": "prehandshake_exit37:exact_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:original_case_spec",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:case:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:case_order_and_60s_bound",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:UTC_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:no_hidden_cleanup_error",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:no_import_failure_model_or_training_receipts",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:launcher:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:launcher_job_custody",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exact_preimport_discovery_failure_preserved",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:only_preimport_stage_reached",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:worker:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:worker:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ready:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ready:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ready:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ready:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:actual_interpreter_separate_from_launcher",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:self_launcher_image_claim_kept_separate",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:ancestor:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:authenticated_actual_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:OS_image:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:retained_OS_image_hash_path_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:OS_image_queries_after_authentication",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:native:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:native_launch:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:native_direct_child_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:native_image_hash",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:native_control_command",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:preimport:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:authenticated_no_ML_at_preimport",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:before:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:before:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:before:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:before:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:before:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:after:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:after:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:after:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:after:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:after:nonce_role_actual_pid",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:preimport_memory_bracket_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:memory_comparison_independently_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:actual_parent_sample_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:same_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:memory_backend_and_values",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample:native_CPU",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample_clock_CPU_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:query_monotonic_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:parent_CPU_cost_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:all_sample_and_single_discovery_query_costs",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:sample_inside_query_cost_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:single_failed_preimport_discovery",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:discovery_after_held_bracket",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:observed:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:three_known_five_observed_retained_members",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exact_two_unknown_descendants_preserved",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:all_five_observed_live_same_job",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:known_inventory_identity_parent_links",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:cleanup:contained_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:cleanup_after_receipts_within_4s",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:all_exited_job_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exit:positive_pid_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:every_retained_identity_has_exact_exit",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:exact_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "injected_import_failure38:unknown_identities_retained_through_exit",
+      "passed": true
+    },
+    {
+      "check": "four_authenticated_preimport_failures_eight_unknowns_21_exits",
+      "passed": true
+    }
+  ],
+  "report_file_sha256": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+  "protocol_file_sha256": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+  "implementation_freeze_file_sha256": "c7a6d3be59947a45547043ecb70a2610f4d79b4b72282a5c2aeaa25dc3d7251a",
+  "frozen_success_auditor_sha256": "0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22",
+  "case_summaries": [
+    {
+      "id": "healthy_dense2",
+      "acceptance_passed": false,
+      "observed_stage": "preimport_discovery_failed",
+      "authenticated_worker": true,
+      "preimport_torch_imported": false,
+      "preimport_transformers_imported": false,
+      "unknown_descendants": [
+        {
+          "pid": 7684,
+          "creation_filetime": 134366582375508185,
+          "parent_pid": 17588
+        },
+        {
+          "pid": 56260,
+          "creation_filetime": 134366582370204501,
+          "parent_pid": 2628
+        }
+      ],
+      "retained_exit_receipts": 5,
+      "unknown_exit_receipts": [
+        {
+          "pid": 7684,
+          "creation_filetime": 134366582375508185,
+          "exit_code": 57347
+        },
+        {
+          "pid": 56260,
+          "creation_filetime": 134366582370204501,
+          "exit_code": 57347
+        }
+      ],
+      "job_active_count": 0,
+      "model_load_receipts": 0,
+      "optimizer_update_receipts": 0,
+      "expected_import_failure38_reached": false
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "acceptance_passed": false,
+      "observed_stage": "preimport_discovery_failed",
+      "authenticated_worker": true,
+      "preimport_torch_imported": false,
+      "preimport_transformers_imported": false,
+      "unknown_descendants": [
+        {
+          "pid": 13984,
+          "creation_filetime": 134366582381510421,
+          "parent_pid": 47864
+        },
+        {
+          "pid": 46348,
+          "creation_filetime": 134366582376900660,
+          "parent_pid": 54108
+        }
+      ],
+      "retained_exit_receipts": 5,
+      "unknown_exit_receipts": [
+        {
+          "pid": 13984,
+          "creation_filetime": 134366582381510421,
+          "exit_code": 57347
+        },
+        {
+          "pid": 46348,
+          "creation_filetime": 134366582376900660,
+          "exit_code": 57347
+        }
+      ],
+      "job_active_count": 0,
+      "model_load_receipts": 0,
+      "optimizer_update_receipts": 0,
+      "expected_import_failure38_reached": false
+    },
+    {
+      "id": "dense2_private_cap64",
+      "acceptance_passed": false,
+      "observed_stage": "preimport_discovery_failed",
+      "authenticated_worker": true,
+      "preimport_torch_imported": false,
+      "preimport_transformers_imported": false,
+      "unknown_descendants": [
+        {
+          "pid": 38876,
+          "creation_filetime": 134366582387549541,
+          "parent_pid": 56740
+        },
+        {
+          "pid": 52088,
+          "creation_filetime": 134366582382956492,
+          "parent_pid": 57608
+        }
+      ],
+      "retained_exit_receipts": 5,
+      "unknown_exit_receipts": [
+        {
+          "pid": 38876,
+          "creation_filetime": 134366582387549541,
+          "exit_code": 57347
+        },
+        {
+          "pid": 52088,
+          "creation_filetime": 134366582382956492,
+          "exit_code": 57347
+        }
+      ],
+      "job_active_count": 0,
+      "model_load_receipts": 0,
+      "optimizer_update_receipts": 0,
+      "expected_import_failure38_reached": false
+    },
+    {
+      "id": "prehandshake_exit37",
+      "acceptance_passed": true,
+      "observed_stage": "prehandshake_exit37",
+      "authenticated_worker": false,
+      "retained_exit_receipts": 1,
+      "job_active_count": 0,
+      "model_load_receipts": 0,
+      "optimizer_update_receipts": 0
+    },
+    {
+      "id": "injected_import_failure38",
+      "acceptance_passed": false,
+      "observed_stage": "preimport_discovery_failed",
+      "authenticated_worker": true,
+      "preimport_torch_imported": false,
+      "preimport_transformers_imported": false,
+      "unknown_descendants": [
+        {
+          "pid": 31924,
+          "creation_filetime": 134366582398087302,
+          "parent_pid": 40516
+        },
+        {
+          "pid": 59216,
+          "creation_filetime": 134366582393356469,
+          "parent_pid": 58512
+        }
+      ],
+      "retained_exit_receipts": 5,
+      "unknown_exit_receipts": [
+        {
+          "pid": 31924,
+          "creation_filetime": 134366582398087302,
+          "exit_code": 57347
+        },
+        {
+          "pid": 59216,
+          "creation_filetime": 134366582393356469,
+          "exit_code": 57347
+        }
+      ],
+      "job_active_count": 0,
+      "model_load_receipts": 0,
+      "optimizer_update_receipts": 0,
+      "expected_import_failure38_reached": false
+    }
+  ],
+  "observed_authenticated_preimport_failures": 4,
+  "observed_unknown_descendants": 8,
+  "observed_retained_exit_receipts": 21,
+  "model_load_receipts": 0,
+  "training_update_receipts": 0,
+  "scope": "Post-hoc saved negative-receipt/hash consistency only, not preregistered acceptance, fresh OS measurement, ML execution or historical correction. Frozen success auditor still rejects. Four authenticated workers report Torch/Transformers absent at preimport; discovery failed before import release, so no load/update/timeout/cap/overhead or injected38 validation is established. Eight unknown descendants retain recorded identities and exit receipts; their executable images and purpose are unverified. Job0/handle exits are saved receipts, not a fresh liveness query or exclusive kill-cause proof. No quality/compression/cost benefit or prior scientific/RSS upgrade."
+}

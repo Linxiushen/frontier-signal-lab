@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T204339Z",
+  "reviewer": "/root/verify_chen",
+  "reviewed_at": "2026-10-16T21:11:00Z",
+  "review_kind": "Scoped independent read-only failed-report audit, guarded pure saved-receipt tests and documentation consistency review",
+  "disposition": "No blocking implementation or factual documentation finding in the assigned scope. The original training acceptance remains FAILED; only post-hoc consistency of its negative saved receipts passes.",
+  "blocking_findings": [],
+  "documentation_misstatements_found": [],
+  "reviewed_hashes": {
+    "scripts/audit_training_observer_failure.py": "af5dff7ffd5e948bae6431bb0ec745bce4e6401c06204c167ee046e79586ba32",
+    "tests/test_training_observer_failure.py": "ca145fbfeb9171be47eb7eff3b1df177aef93c4956248890765f8423f2156e8c",
+    "results/training-observer/report.json": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+    "research/2026-10-16-pretrained-training-observer.md": "babc9f35111e1e9e2d5766703b5d554b345cb30a77210bddce66fa6b0c90b621",
+    "README.md": "aaec59e1db08af9091de2e906ace8875f4cc6a3743bebb3b35cf1333d0798310",
+    "OPERATIONS.md": "76dea097b4afde19e6c9989555caa7cc676f149e18ba76fbdc85886811b3d4c7",
+    "scripts/audit_training_observer.py": "0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22",
+    "tests/test_training_observer_auditor.py": "13ed205cfdc0466563536a707721d2a0ac7f7172f781f12867b6eff49132ade6",
+    "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+    "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb",
+    "fixtures/training-observer/protocol.json": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+    "fixtures/training-observer/implementation.json": "c7a6d3be59947a45547043ecb70a2610f4d79b4b72282a5c2aeaa25dc3d7251a"
+  },
+  "guarded_tests": {
+    "tests_run": 7,
+    "successful": true,
+    "unit_failures": 0,
+    "unit_errors": 0,
+    "unit_skipped": 0,
+    "test_output": "test_actual_file_rewrite_is_rejected_by_exact_report_pin (test_training_observer_failure.TrainingFailureAuditTests.test_actual_file_rewrite_is_rejected_by_exact_report_pin) ... ok\ntest_cleanup_exit37_and_whole_interval_shifts_rejected (test_training_observer_failure.TrainingFailureAuditTests.test_cleanup_exit37_and_whole_interval_shifts_rejected) ... ok\ntest_identity_bracket_and_query_cost_mutations_rejected (test_training_observer_failure.TrainingFailureAuditTests.test_identity_bracket_and_query_cost_mutations_rejected) ... ok\ntest_original_negative_report_preserves_acceptance_rejection (test_training_observer_failure.TrainingFailureAuditTests.test_original_negative_report_preserves_acceptance_rejection) ... ok\ntest_pins_and_frozen_success_audit_cannot_be_rewritten (test_training_observer_failure.TrainingFailureAuditTests.test_pins_and_frozen_success_audit_cannot_be_rewritten) ... ok\ntest_success_or_training_receipts_cannot_be_invented (test_training_observer_failure.TrainingFailureAuditTests.test_success_or_training_receipts_cannot_be_invented) ... ok\ntest_unknown_descendants_and_retained_exits_cannot_be_dropped (test_training_observer_failure.TrainingFailureAuditTests.test_unknown_descendants_and_retained_exits_cannot_be_dropped) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.102s\n\nOK\n",
+    "hashes_unchanged_during_review": true,
+    "reviewed_hashes": {
+      "scripts/audit_training_observer_failure.py": "af5dff7ffd5e948bae6431bb0ec745bce4e6401c06204c167ee046e79586ba32",
+      "tests/test_training_observer_failure.py": "ca145fbfeb9171be47eb7eff3b1df177aef93c4956248890765f8423f2156e8c",
+      "results/training-observer/report.json": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+      "research/2026-10-16-pretrained-training-observer.md": "babc9f35111e1e9e2d5766703b5d554b345cb30a77210bddce66fa6b0c90b621",
+      "README.md": "aaec59e1db08af9091de2e906ace8875f4cc6a3743bebb3b35cf1333d0798310",
+      "OPERATIONS.md": "76dea097b4afde19e6c9989555caa7cc676f149e18ba76fbdc85886811b3d4c7",
+      "scripts/audit_training_observer.py": "0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22",
+      "tests/test_training_observer_auditor.py": "13ed205cfdc0466563536a707721d2a0ac7f7172f781f12867b6eff49132ade6",
+      "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+      "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb",
+      "fixtures/training-observer/protocol.json": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+      "fixtures/training-observer/implementation.json": "c7a6d3be59947a45547043ecb70a2610f4d79b4b72282a5c2aeaa25dc3d7251a"
+    },
+    "negative_receipt_result": {
+      "audit_kind": "post_hoc_failure_receipt_consistency",
+      "preregistered": false,
+      "failure_receipt_consistency_passed": true,
+      "experiment_acceptance_passed": false,
+      "original_report_declared_passed": false,
+      "frozen_success_auditor_acceptance_passed": false,
+      "frozen_success_auditor_failures": [
+        "reported_acceptance_pass_not_laundered",
+        "healthy_dense2:no_hidden_failure",
+        "healthy_dense2:exact_stage_inventory",
+        "healthy_dense2:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_busy_deadline:no_hidden_failure",
+        "dense2_busy_deadline:exact_stage_inventory",
+        "dense2_busy_deadline:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_private_cap64:no_hidden_failure",
+        "dense2_private_cap64:exact_stage_inventory",
+        "dense2_private_cap64:invalid_or_incomplete_receipt:'postimport'",
+        "injected_import_failure38:no_hidden_failure",
+        "injected_import_failure38:snapshot_descendants_exact",
+        "injected_import_failure38:snapshot_retained_members",
+        "injected_import_failure38:invalid_or_incomplete_receipt:'cleanup'"
+      ],
+      "check_count": 492,
+      "checks_passed": 492,
+      "failures": [],
+      "observed_authenticated_preimport_failures": 4,
+      "observed_unknown_descendants": 8,
+      "observed_retained_exit_receipts": 21,
+      "model_load_receipts": 0,
+      "training_update_receipts": 0,
+      "scope": "Post-hoc saved negative-receipt/hash consistency only, not preregistered acceptance, fresh OS measurement, ML execution or historical correction. Frozen success auditor still rejects. Four authenticated workers report Torch/Transformers absent at preimport; discovery failed before import release, so no load/update/timeout/cap/overhead or injected38 validation is established. Eight unknown descendants retain recorded identities and exit receipts; their executable images and purpose are unverified. Job0/handle exits are saved receipts, not a fresh liveness query or exclusive kill-cause proof. No quality/compression/cost benefit or prior scientific/RSS upgrade."
+    },
+    "experiment_or_ML_loaded": false,
+    "guards": [
+      "no experiments/torch/transformers imports",
+      "ctypes.WinDLL blocked",
+      "subprocess.Popen/run blocked",
+      "socket.socket blocked",
+      "os.system blocked"
+    ],
+    "execution_scope": "saved JSON/source hashes and pure receipt algebra only; no worker, real suite, model or native OS process query"
+  },
+  "independent_saved_report_summary": {
+    "report_sha256": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+    "passed": false,
+    "wall_seconds": 3.224649100098759,
+    "started_at": "2026-10-16T21:03:56.676205+00:00",
+    "completed_at": "2026-10-16T21:03:59.901063+00:00",
+    "cases": [
+      {
+        "id": "healthy_dense2",
+        "passed": false,
+        "outcome": null,
+        "stages": [
+          "preimport"
+        ],
+        "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+        "unknown_pids": [
+          7684,
+          56260
+        ],
+        "cleanup_exit_count": 5,
+        "cleanup_job_active": 0,
+        "all_retained_exited": true,
+        "exit_codes": [
+          57347
+        ],
+        "cleanup_seconds": 0.020980000030249357,
+        "unknown_parent_roles": [
+          "native_cmd",
+          "launcher"
+        ]
+      },
+      {
+        "id": "dense2_busy_deadline",
+        "passed": false,
+        "outcome": null,
+        "stages": [
+          "preimport"
+        ],
+        "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+        "unknown_pids": [
+          13984,
+          46348
+        ],
+        "cleanup_exit_count": 5,
+        "cleanup_job_active": 0,
+        "all_retained_exited": true,
+        "exit_codes": [
+          57347
+        ],
+        "cleanup_seconds": 0.02065029996447265,
+        "unknown_parent_roles": [
+          "native_cmd",
+          "launcher"
+        ]
+      },
+      {
+        "id": "dense2_private_cap64",
+        "passed": false,
+        "outcome": null,
+        "stages": [
+          "preimport"
+        ],
+        "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+        "unknown_pids": [
+          38876,
+          52088
+        ],
+        "cleanup_exit_count": 5,
+        "cleanup_job_active": 0,
+        "all_retained_exited": true,
+        "exit_codes": [
+          57347
+        ],
+        "cleanup_seconds": 0.020768299931660295,
+        "unknown_parent_roles": [
+          "native_cmd",
+          "launcher"
+        ]
+      },
+      {
+        "id": "prehandshake_exit37",
+        "passed": true,
+        "outcome": "expected_prehandshake_exit37",
+        "stages": [],
+        "error": null,
+        "unknown_pids": [],
+        "cleanup_exit_count": 1,
+        "cleanup_job_active": 0,
+        "all_retained_exited": true,
+        "exit_codes": [
+          37
+        ],
+        "cleanup_seconds": 0.020418799947947264
+      },
+      {
+        "id": "injected_import_failure38",
+        "passed": false,
+        "outcome": null,
+        "stages": [
+          "preimport"
+        ],
+        "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+        "unknown_pids": [
+          31924,
+          59216
+        ],
+        "cleanup_exit_count": 5,
+        "cleanup_job_active": 0,
+        "all_retained_exited": true,
+        "exit_codes": [
+          57347
+        ],
+        "cleanup_seconds": 0.02102230000309646,
+        "unknown_parent_roles": [
+          "native_cmd",
+          "launcher"
+        ]
+      }
+    ],
+    "total_retained_exits": 21,
+    "total_unknown": 8,
+    "unknown_images_present": false,
+    "maximum_cleanup_seconds": 0.02102230000309646,
+    "max_bracket_resident_difference_bytes": 4096,
+    "max_bracket_private_difference_bytes": 0,
+    "postload_stage_receipts": 0,
+    "postupdate_stage_receipts": 0,
+    "import38_receipt_present": false
+  },
+  "conclusions": [
+    {
+      "topic": "Acceptance status is preserved",
+      "finding": "New audit_kind is explicitly post_hoc_failure_receipt_consistency and preregistered=false. Both original_report_declared_passed and frozen_success_auditor_acceptance_passed remain false. experiment_acceptance_passed is always false. The new 492/492 result certifies only saved negative-receipt/hash consistency; it cannot substitute for successful frozen acceptance."
+    },
+    {
+      "topic": "Frozen successful-path rules are unchanged",
+      "finding": "Original success auditor and its tests retain0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22/13ed205cfdc0466563536a707721d2a0ac7f7172f781f12867b6eff49132ade6. Producer and producer tests retain39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728/26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb. Original protocol and implementation bytes match their pins. New auditor computes the frozen original audit afresh and requires its exact14failures,447/461portable counts and explicit lack of optional local file remeasurement."
+    },
+    {
+      "topic": "Exact saved failed report is pinned",
+      "finding": "Actual results/training-observer/report.json SHA25629213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab matches the new audit pin. audit_files computes this hash from file bytes, so field-only helper mutation tests cannot bypass the CLI exact-report gate. The new CLI writes a separate one-use output and does not alter the producer report."
+    },
+    {
+      "topic": "Unknown process identities are preserved without attribution",
+      "finding": "Four authenticated cases each retain exactly five observed live same-job identities: launcher,actual interpreter,native cmd plus two unknown descendants. Recorded parent links show one unknown child of launcher and one of cmd in each case. All eight unknown PID/creation/parent identities persist through exact exit receipts. Unknown executable images and purpose were not recorded; neither code nor reviewed docs labels them conhost,Python helper,provider or harmless."
+    },
+    {
+      "topic": "Cleanup is local saved evidence",
+      "finding": "Recorded retained exit counts are5+5+5+1+5=21; all five job active counts are0 and all retained-handle-exited flags are true. Four failed cases record exit57347 for all retained identities; prehandshake control records37. Maximum cleanup duration is0.02102230000309646s. New auditor ties cleanup start to the known saved image/bracket/sample/query/discovery clocks and enforces exact retained identity/exit sets. It makes no fresh OS query or exclusive kill-cause claim."
+    },
+    {
+      "topic": "No model or update execution is established",
+      "finding": "Four non-prehandshake cases contain only preimport stage/bracket, Torch and Transformers absent, and the exact discovery error. In the unchanged frozen producer, this read_stage failure occurs before preimport-continue release and before import_packages/load_model/training. Postload and postupdate receipts are0; no actual load/update result is upgraded. Planned3loads/6updates remain plans."
+    },
+    {
+      "topic": "Exit37 passes and exit38 was not executed",
+      "finding": "Case flags arefalse,false,false,true,false. Only exact prehandshake exit37 with absent worker identity passes. The injected-import-failure38 case fails at the same preimport discovery gate and has no import-failure38 receipt, so precise38 validation remains unexecuted."
+    },
+    {
+      "topic": "Documentation accurately states boundaries",
+      "finding": "research/2026-10-16-pretrained-training-observer.md,README.md training sections and OPERATIONS.md current H1 paragraph correctly report failure,zero actual model loads/updates,eight unknown images unverified,twenty-one saved cleanup exits,only37success and38/later stages/busy/cap/overhead not reached. Research3.225s,maximum4096-byte resident bracket difference/private0,and maximum cleanup0.021023s agree with independent JSON recomputation. It explicitly requires a newly declared future version and rejects count-based whitelisting and historical scientific upgrades."
+    }
+  ],
+  "limitations": [
+    "This review performed only local source/JSON/hash reads and pure receipt algebra/tests. No producer worker, real suite, model import/load/update, native Windows API process query, child process or network request ran.",
+    "Saved job0/exit receipts do not prove current OS state, continuous child discovery, complete lifecycle or production isolation. Eight unknown executable images and purposes remain unknown.",
+    "Pretrained loader/thread behavior,postimport/postload/postupdate memory,busy liveness,private cap,held sampler overhead and exact injected38 remain unvalidated by the failed run.",
+    "The post-hoc failure auditor was added after the result; its passing consistency checks are not preregistered acceptance and do not repair the failure or any historical RSS/cap/cost/quality negative.",
+    "Review was limited to the explicitly assigned new failure auditor/tests,original saved report and relevant new research/README/OPERATIONS sections; no horizontal follow-up or retry was performed."
+  ]
+}

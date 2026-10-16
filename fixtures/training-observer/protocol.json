@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v1",
+  "predeclared_at": "2026-10-16T20:51:52.931119+00:00",
+  "kind": "Engineering acceptance of offline pinned Pythia loader and exactly two dense AdamW steps; no quality/compression/cost rescue study.",
+  "platform": "Windows JobObject only; no uncontained/platform fallback.",
+  "source_paths": [
+    "experiments/training_observer_probe.py",
+    "tests/test_training_observer.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/capture_real_activation.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/activation-cost/train.json",
+    "fixtures/activation-cost/manifest.json",
+    "fixtures/activation-cost/protocol.json",
+    "fixtures/activation-cost/implementation.json"
+  ],
+  "config": {
+    "torch_version": "2.9.1+cpu",
+    "transformers_version": "4.57.3",
+    "seed": 503,
+    "optimizer_steps": 2,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "train_blocks": 128,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "trainable_parameter_count": 14067712,
+    "parameter_tensors": 76,
+    "manual_allocation_bytes": 67108864,
+    "private_cap_increment_bytes": 50331648,
+    "minimum_allocation_delta_bytes": 58720256,
+    "memory_bracket_tolerance_bytes": 4194304,
+    "sampler_interval_seconds": 0.02,
+    "maximum_recorded_sample_gap_seconds": 0.5,
+    "handshake_timeout_seconds": 5.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "training_timeout_seconds": 15.0,
+    "barrier_timeout_seconds": 5.0,
+    "overhead_window_seconds": 0.4,
+    "busy_timeout_seconds": 1.5,
+    "busy_minimum_cpu_seconds": 0.25,
+    "busy_backstop_seconds": 10.0,
+    "cap_ready_to_termination_maximum_seconds": 1.0,
+    "cleanup_timeout_seconds": 4.0,
+    "case_timeout_seconds": 60.0,
+    "total_timeout_seconds": 180.0,
+    "prehandshake_expected_exit_code": 37,
+    "import_failure_expected_exit_code": 38
+  },
+  "cases_in_order": [
+    {
+      "id": "healthy_dense2",
+      "mode": "healthy",
+      "manual_allocation_bytes": 67108864
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "mode": "timeout",
+      "manual_allocation_bytes": 0
+    },
+    {
+      "id": "dense2_private_cap64",
+      "mode": "private_cap",
+      "manual_allocation_bytes": 67108864
+    },
+    {
+      "id": "prehandshake_exit37",
+      "mode": "prehandshake_fail",
+      "manual_allocation_bytes": 0
+    },
+    {
+      "id": "injected_import_failure38",
+      "mode": "import_fail",
+      "manual_allocation_bytes": 0
+    }
+  ],
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "assets": {
+      "README.md": {
+        "bytes": 10560,
+        "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+      },
+      "config.json": {
+        "bytes": 698,
+        "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+      },
+      "generation_config.json": {
+        "bytes": 111,
+        "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+      },
+      "model.safetensors": {
+        "bytes": 28143920,
+        "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+      },
+      "special_tokens_map.json": {
+        "bytes": 441,
+        "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+      },
+      "tokenizer.json": {
+        "bytes": 2114042,
+        "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+      },
+      "tokenizer_config.json": {
+        "bytes": 4834,
+        "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+      }
+    },
+    "load_model_helper": "unchanged experiments.activation_cost_probe.load_model",
+    "planned_model_loads": 3,
+    "planned_optimizer_updates": 6,
+    "dense_only": true,
+    "no_download_install_or_GPU": true
+  },
+  "training": {
+    "fixture": "fixtures/activation-cost",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "schedule": [
+      [
+        116,
+        73
+      ],
+      [
+        14,
+        52
+      ]
+    ],
+    "schedule_sha256": "6669c93b80a0ed4edf521463a92516ed068611eea85b20fb067bff5972e65c6c",
+    "seed": 503,
+    "steps": 2,
+    "batch_shape": [
+      2,
+      65
+    ],
+    "input_tokens_per_batch": 128,
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "helpers": [
+      "load_model",
+      "optimizer_for",
+      "training_loop",
+      "final_validity",
+      "parameter_hash"
+    ],
+    "method": "dense",
+    "arm": "token",
+    "holdout_opened": false,
+    "checkpoint_written": false,
+    "interpretation": "Two finite engineering updates with exact AdamW counters and changed parameter digest; losses are trajectory receipts, not final quality or training efficiency evidence."
+  },
+  "identity": "Start frozen venv launcher -S suspended, assign job before resume, authenticate worker nonce/PID/creation/Toolhelp ancestry/live job. Before import release, QueryFullProcessImageNameW on retained actual interpreter handle and check explicit frozen base interpreter path/hash plus PID/creation; independently query frozen launcher image. sys.executable self hash remains a launcher claim, not the actual-worker OS image gate. Parent CLI paths are local only; public report retains basename/hash.",
+  "native_child": "Reuse frozen workload observer launch and identity contract for System32 cmd.exe /d /q /c and literal set /p workload_observer_gate=, anonymous stdin pipe, no inherited job handle, close_fds, shell=False and CREATE_NO_WINDOW. Healthy release writes nonempty done line and checks exit0; retained live worker/native handles checked before healthy finish and busy termination. EOF after worker termination may contribute to child exit; no exclusive kill-cause claim.",
+  "stages": "Authenticated held self-before/parent/self-after memory brackets at preimport, postimport, postload (model+optimizer object+two fixed batches+initial digest), postupdate (two updates+postvalidation+final digest), then allocated control. Parent waits fixed stage budgets; four primary stages preserve current resident/private and process lifetime peak separately. Postupdate includes validation/digest temporary history, not an isolated backward peak. No new peak/cost benefit claim. Retain exact unchanged load_model start/end/wall inside enclosing prepare interval (asset/train verification, schedule, load, optimizer/batches, initial digest); these descriptive engineering clocks are not comparative model-loading cost science.",
+  "process_discovery": "Native Toolhelp snapshots at each held stage and pretermination, bounded16level subtree from retained launcher. Known set launcher/actual interpreter/native cmd must be live same-job; unexpected observed descendant fails. Snapshot inventory is not continuous coverage and cannot prove no ephemeral child or validate arbitrary provider behavior. Raw OS thread counts are descriptive; configured Torch1/1 does not prove exact thread ownership.",
+  "overhead": "Healthy worker remains held at postupdate while parent records fixed0.4s nonsampling then0.4s sampling windows. Preserve raw OS parent CPU start/end and clocks plus sample/query index spans. Sampled window performs actual-worker handle memory/CPU query and Toolhelp snapshot every20ms; record each query and scan wall/process CPU costs, as well as active-stage polling query costs. OS CPU quantization/instrumentation/wake scheduling apply; no claim of causal training slowdown or observer noninterference. All new producer polling and bracket parent memory/CPU samples use the timed wrapper. Costs exclude authentication/image hashing, job/liveness/cleanup, worker-side thread scans, and the parent-CPU queries themselves; neither sum nor window is total observer overhead.",
+  "timeout_and_private_threshold": "After actual load/two updates, timeout case performs repeated model no_grad forward, at least one completed, no extra backward/optimizer. Sample actual worker for1.5s, max recorded sample gap including boundaries<=0.5s and native CPU progress>=0.25s, verify known subtree live, then terminate whole job. Private threshold uses postupdate private+48MiB, holds touched64MiB, compares parent/self, proves at least one no_grad model forward and sampled crossing, then termination return within1s of allocated self-before. Healthy also holds64MiB with threshold disabled. This is a post-training sampled threshold with overshoot, not a hard import/training/all-descendant cap.",
+  "expected_failures": "Prehandshake deliberate exit37 has absent handshake and actual interpreter identity unavailable. Import38 occurs only after authenticated preimport bracket/native child, nonce-named missing module exact ModuleNotFoundError, no Torch/Transformers/model/update; actual interpreter and launcher exact38. Other exceptions never satisfy these controls. Cleanup retained handles exited and job0 within4s required for all cases.",
+  "freeze_and_execution": "Root reviews protocol, exact new source/dependency/Python/base-Python/cmd hashes and pure mocked tests, then writes implementation.json before exactly one acceptance suite in fresh directory. No real model/acceptance preflight, retry, replacement or adaptive threshold change after results. Preserve every case in fixed order and negative result. Each deadline clamps stage/case60s/suite180s; no launch beyond suite deadline; cleanup fits4s and remaining case/suite budget. Three model loads and six dense updates maximum planned. No historical files or results changed.",
+  "scientific_boundary": "Does not repair historical parent RSS/cap measurements, validate pretrained compression, isolate an actual backward peak, clear failed natural-text joint cost/quality screens, validate external providers/GPU/production, or justify same-setting seed/lr rescue sweeps."
+}

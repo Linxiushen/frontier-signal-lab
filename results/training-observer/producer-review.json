@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T204339Z",
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v1",
+  "reviewer": "/root/verify_chen",
+  "reviewed_at": "2026-10-16T20:56:54Z",
+  "review_kind": "Independent read-only source/protocol inspection and guarded pure stdlib mock tests",
+  "disposition": "No blocking finding in reviewed static/mock scope. Root must separately review/freeze exact hashes and inspect actual single-suite receipts.",
+  "blocking_findings": [],
+  "reviewed_hashes": {
+    "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+    "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb",
+    "experiments/activation_cost_probe.py": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+    "fixtures/activation-cost/train.json": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "fixtures/activation-cost/manifest.json": "0d08ba2574148924da713a40a66e49f3a7adc4d280a6d8f2e0d5135aae5148eb",
+    "fixtures/activation-cost/protocol.json": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+    "fixtures/activation-cost/implementation.json": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5",
+    "fixtures/training-observer/protocol.json": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715"
+  },
+  "source_mutation_by_reviewer": false,
+  "guarded_test_result": {
+    "tests_run": 24,
+    "successful": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "hashes_unchanged_during_tests": true,
+    "torch_loaded": false,
+    "transformers_loaded": false,
+    "guards": [
+      "stdlib unittest.mock preloaded before socket guard",
+      "meta_path rejects torch/transformers",
+      "ctypes.WinDLL blocked",
+      "subprocess.Popen/run blocked",
+      "socket.socket blocked",
+      "os.system blocked",
+      "WindowsBackend/WindowsJob constructors blocked unless tests replace with mocks",
+      "producer.worker/acceptance blocked"
+    ],
+    "reviewed_hashes": {
+      "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+      "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb",
+      "experiments/activation_cost_probe.py": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+      "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+      "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+      "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+      "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+      "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+      "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+      "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+      "fixtures/activation-cost/train.json": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+      "fixtures/activation-cost/manifest.json": "0d08ba2574148924da713a40a66e49f3a7adc4d280a6d8f2e0d5135aae5148eb",
+      "fixtures/activation-cost/protocol.json": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+      "fixtures/activation-cost/implementation.json": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5",
+      "fixtures/training-observer/protocol.json": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715"
+    },
+    "test_output": "test_dense_training_reuses_fixed_historical_helpers_only (test_training_observer.ContractTests.test_dense_training_reuses_fixed_historical_helpers_only) ... ok\ntest_descendant_snapshot_is_bounded_and_keeps_transitive_children (test_training_observer.ContractTests.test_descendant_snapshot_is_bounded_and_keeps_transitive_children) ... ok\ntest_fixed_protocol_matches_cases_steps_and_dependencies (test_training_observer.ContractTests.test_fixed_protocol_matches_cases_steps_and_dependencies) ... ok\ntest_model_contract_rejects_remote_loading_device_threads_or_changed_data (test_training_observer.ContractTests.test_model_contract_rejects_remote_loading_device_threads_or_changed_data) ... ok\ntest_stage_deadlines_clamp_without_renewing_case_or_suite (test_training_observer.ContractTests.test_stage_deadlines_clamp_without_renewing_case_or_suite) ... ok\ntest_update_contract_rejects_wrong_optimizer_nonfinite_or_unchanged_parameters (test_training_observer.ContractTests.test_update_contract_rejects_wrong_optimizer_nonfinite_or_unchanged_parameters) ... ok\ntest_base_interpreter_hash_is_a_required_freeze_gate (test_training_observer.FreezeTests.test_base_interpreter_hash_is_a_required_freeze_gate) ... ok\ntest_freeze_requires_exact_new_source_dependency_set_and_case_order (test_training_observer.FreezeTests.test_freeze_requires_exact_new_source_dependency_set_and_case_order) ... ok\ntest_inventory_preserves_unknown_observed_process_before_failing (test_training_observer.IdentityAndSamplingTests.test_inventory_preserves_unknown_observed_process_before_failing) ... ok\ntest_os_image_uses_retained_handle_and_rejects_wrong_path_hash_pid_or_creation (test_training_observer.IdentityAndSamplingTests.test_os_image_uses_retained_handle_and_rejects_wrong_path_hash_pid_or_creation) ... ok\ntest_overhead_windows_preserve_fixed_hold_order_and_raw_cpu_indices (test_training_observer.IdentityAndSamplingTests.test_overhead_windows_preserve_fixed_hold_order_and_raw_cpu_indices) ... ok\ntest_read_stage_bracket_goes_through_instrumented_parent_sample (test_training_observer.IdentityAndSamplingTests.test_read_stage_bracket_goes_through_instrumented_parent_sample) ... ok\ntest_read_stage_rejects_nonce_sender_thread_or_bracket_failure (test_training_observer.IdentityAndSamplingTests.test_read_stage_rejects_nonce_sender_thread_or_bracket_failure) ... ok\ntest_timed_call_records_parent_cpu_and_wall_without_renaming_as_worker (test_training_observer.IdentityAndSamplingTests.test_timed_call_records_parent_cpu_and_wall_without_renaming_as_worker) ... ok\ntest_busy_deadline_requires_forward_and_cpu_progress_then_whole_job_termination (test_training_observer.LifecycleTests.test_busy_deadline_requires_forward_and_cpu_progress_then_whole_job_termination) ... ok\ntest_busy_extra_backward_is_unrelated_failure (test_training_observer.LifecycleTests.test_busy_extra_backward_is_unrelated_failure) ... ok\ntest_busy_private_cap_uses_postupdate_baseline_and_fixed_latency (test_training_observer.LifecycleTests.test_busy_private_cap_uses_postupdate_baseline_and_fixed_latency) ... ok\ntest_cleanup_failure_retained_and_cannot_pass (test_training_observer.LifecycleTests.test_cleanup_failure_retained_and_cannot_pass) ... ok\ntest_failed_loader_contract_stops_before_postupdate_release (test_training_observer.LifecycleTests.test_failed_loader_contract_stops_before_postupdate_release) ... ok\ntest_healthy_actual_loader_updates_release_and_job_cleanup (test_training_observer.LifecycleTests.test_healthy_actual_loader_updates_release_and_job_cleanup) ... ok\ntest_healthy_nonzero_exit_never_passes_and_preserves_failure_cleanup (test_training_observer.LifecycleTests.test_healthy_nonzero_exit_never_passes_and_preserves_failure_cleanup) ... ok\ntest_import_failure_requires_precise_module_and_actual_exit38 (test_training_observer.LifecycleTests.test_import_failure_requires_precise_module_and_actual_exit38) ... ok\ntest_prehandshake_preserves_identity_unavailable_and_no_import (test_training_observer.LifecycleTests.test_prehandshake_preserves_identity_unavailable_and_no_import) ... ok\ntest_unrelated_import_failure_never_satisfies_exact_control (test_training_observer.LifecycleTests.test_unrelated_import_failure_never_satisfies_exact_control) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.085s\n\nOK\n"
+  },
+  "reviewer_runner_setup_error": {
+    "producer_tests_executed": 0,
+    "description": "First review runner replaced socket.socket before unittest.mock lazily imported ssl; SSLSocket class definition failed before producer test execution. Corrected review runner preloads stdlib unittest.mock, then applies guards. Source/dependency hashes were unchanged. This is a review runner setup error, not a producer acceptance/scientific result.",
+    "real_ml_children_native_jobs_or_network_executed": false
+  },
+  "reviewed_contracts": [
+    {
+      "area": "Import and authentication",
+      "finding": "Imports are stdlib-only; torch/transformers are imported only in the released worker. Frozen launcher starts -S suspended and is job-assigned before resume. Nonce/PID/creation/native ancestry/live job authentication precedes retained-handle QueryFullProcessImageNameW path/hash/PID/creation checks for actual base interpreter and launcher. Only then is native child creation released. Authenticated preimport bracket confirms ML absent before import release."
+    },
+    {
+      "area": "Native child",
+      "finding": "Frozen workload helper verifies exact direct cmd.exe arguments and launch flags, retained native PID/creation, direct parent, live same-job membership and OS image path/hash. Healthy worker writes nonempty done CRLF, closes stdin and checks normal child exit0. Protocol explicitly allows EOF after worker termination to contribute to busy-child exit, with no exclusive kill-cause claim."
+    },
+    {
+      "area": "Loader and threads",
+      "finding": "Offline environment is set before site.main/import. Existing cost.load_model is reused without modification and sets Torch intraop1/interop1 once before local-only trust_remote_code=False eager CPU float32 Pythia-14m load, followed by frozen 76-tensor/14,067,712-trainable-parameter and zero-dropout checks. validate_model checks versions indirectly at postimport, actual Torch thread/determinism getters, fixed manifest hash, schedule and dimensions."
+    },
+    {
+      "area": "Loader timing",
+      "finding": "New exact model_load_timing encloses only the unchanged cost.load_model call. Broader preparation_timing encloses asset/train-fixture checks, schedule, load, optimizer/batches and initial digest. Both use finite ordered self-consistent durations <=25s and nesting checks. These are engineering durations, without comparative loading-cost inference."
+    },
+    {
+      "area": "Training helpers and counts",
+      "finding": "One seed503 schedule uses train128 blocks of65 tokens, fixed batches[[116,73],[14,52]], two batch2 tensors, 64 input-token positions per row. two_dense_updates invokes unchanged dense/token cost.training_loop with two-step config and15s loop deadline, then unchanged final_validity and parameter_hash. Acceptance requires2 steps,256 target positions,two finite losses,[2]*76 native AdamW counters,finite final parameter/gradient/moments and changed parameter digest. Three normal cases plan at most3 model loads/6 optimizer updates. No holdout file opening, checkpoint or compression method occurs in this path."
+    },
+    {
+      "area": "Stage brackets and discovery",
+      "finding": "Preimport/postimport/postload/postupdate/allocated held self-before,parent,self-after use frozen comparator with retained actual identity and4MiB tolerance. Every new producer parent sample, including bracket sample and polling, uses timed sample wrapper. Each stage inventories native Toolhelp launcher subtree, retains each observed process, requires live same-job membership and rejects missing/unexpected known set. Protocol accurately limits discovery to snapshots, permits missed ephemeral children and treats OS thread counts descriptively."
+    },
+    {
+      "area": "Deadline budget",
+      "finding": "Stage deadlines clamp to case60s/suite180s. Import/load/train ready waits use20/25/15s, held barriers5s. Existing work helpers reused here have matching20ms sampling/5s barriers/4s cleanup/0.5s recorded-gap gates. No new case starts after suite deadline. Synchronous OS/file operation latency is not itself preempted; receipt/final wall checks can fail after an overrun."
+    },
+    {
+      "area": "Parent sampling overhead",
+      "finding": "Healthy worker held at postupdate receives fixed0.4s nonsampling then0.4s sampling windows, raw parent native CPU start/end and query/sample indices. Timed actual-worker memory/CPU and Toolhelp calls record parent process CPU/wall. Startup authentication/image hashing, job/liveness/cleanup, worker scans and parent-CPU queries are excluded explicitly. Quantization/instrumentation/scheduling apply; neither summed query costs nor idle windows claim total observer overhead, causal training slowdown or noninterference."
+    },
+    {
+      "area": "Busy timeout and private threshold",
+      "finding": "Busy workers finish two updates before repeated no_grad model forwards; at least one forward completes and receipts require zero extra backward/optimizer updates. Timeout samples for1.5s with0.5s max gap including boundaries and>=0.25s native worker CPU delta before verified live subtree and whole-job termination. Private control uses postupdate actual-worker private baseline+48MiB, touched64MiB bracket and>=56MiB resident/private delta, sampled crossing, first forward, and<=1s allocated-self-before to termination-return. It is a sampled post-training threshold with overshoot, not a hard load/training/all-descendant cap."
+    },
+    {
+      "area": "Exact failures and cleanup",
+      "finding": "Five cases remain fixed order healthy,timeout,private,prehandshake37,injected-import38. Prehandshake requires launcher exit37 and absent handshake, with actual interpreter identity explicitly unavailable. Injected nonce-named module requires exact ModuleNotFoundError/name before ML/load/update plus actual and launcher exit38. Unrelated exceptions fail. Every success requires retained handles exited and job active count0 in bounded cleanup; exceptional paths attempt whole-job termination/verified cleanup, then job/ref closes; cleanup/close errors cannot pass."
+    },
+    {
+      "area": "Freeze scope",
+      "finding": "Training validates exact new-source/dependency sets and protocol hash, frozen launcher/base-interpreter/cmd hashes, timezone-aware chronology, frozen local assets and exact activation-cost fixture. Existing scientific/observer/workload dependencies were inspected read-only and their bytes matched their stored hashes during tests."
+    }
+  ],
+  "verification_limits": [
+    "No real Torch/Transformers import, pretrained model load, optimizer update, producer worker, native WindowsBackend/WindowsJob, native OS query, subprocess or network request was executed by this reviewer.",
+    "24 successful pure mocks verify logic and regression controls; they do not establish actual five-case acceptance, actual resource enforcement, Windows API correctness, numerical fidelity or runtime model behavior.",
+    "Actual single-suite receipts, implementation.json and any independent output auditor remain root responsibilities; this report was written before inspecting any real training acceptance output.",
+    "Historical parent RSS and actual-worker-cap defects remain unchanged; existing failed natural-text joint cost/final-quality screens remain negative.",
+    "This engineering review supplies no compressed-pretrained cost/quality result, isolated backward peak, GPU/provider/production validation or support for rescue sweeps."
+  ]
+}

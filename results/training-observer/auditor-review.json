@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T204339Z",
+  "reviewer": "/root/verify_chen",
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v1",
+  "reviewed_at": "2026-10-16T21:01:48Z",
+  "review_kind": "Read-only independent auditor source/protocol pin review, guarded pure synthetic unit tests, and independent mutation replay",
+  "disposition": "No remaining blocking finding in the frozen review scope on the exact reviewed hashes. Four reproduced temporal-consistency defects were corrected by the author and all four are independently rejected now.",
+  "blocking_findings": [],
+  "reviewed_hashes": {
+    "scripts/audit_training_observer.py": "0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22",
+    "tests/test_training_observer_auditor.py": "13ed205cfdc0466563536a707721d2a0ac7f7172f781f12867b6eff49132ade6"
+  },
+  "actual_root_pin_verification": {
+    "protocol_pin_matches_actual": true,
+    "source_pins_match_actual": true,
+    "dependency_pins_match_actual": true,
+    "pinned_protocol_sha256": "b3ac0d419eeb2965bc6a5472ae3e0e800eaf6c6c20b3c515c366daaf0d740715",
+    "source_pins": {
+      "experiments/training_observer_probe.py": "39fca84fc9c2eef2abf7f967f70b7d5752faccddf6f5456c9965ed3f9a06d728",
+      "tests/test_training_observer.py": "26c18d7f1f2d9952b320a068d91e0aef42685595d2d0ef26bc90a7fbab2111eb"
+    },
+    "dependency_pins": {
+      "experiments/activation_cost_probe.py": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+      "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+      "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+      "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+      "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+      "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+      "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+      "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+      "fixtures/activation-cost/train.json": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+      "fixtures/activation-cost/manifest.json": "0d08ba2574148924da713a40a66e49f3a7adc4d280a6d8f2e0d5135aae5148eb",
+      "fixtures/activation-cost/protocol.json": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+      "fixtures/activation-cost/implementation.json": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5"
+    }
+  },
+  "reviewer_edited_author_files": false,
+  "real_training_acceptance_executed_or_inspected": false,
+  "test_results": {
+    "tests_run": 14,
+    "unit_success": true,
+    "unit_failures": 0,
+    "unit_errors": 0,
+    "unit_skipped": 0,
+    "unit_output": "test_busy_deadline_cap_and_no_extra_update_mutations (test_training_observer_auditor.TrainingAuditorTests.test_busy_deadline_cap_and_no_extra_update_mutations) ... ok\ntest_complete_synthetic_receipts (test_training_observer_auditor.TrainingAuditorTests.test_complete_synthetic_receipts) ... ok\ntest_duplicate_nonfinite_and_oversize_JSON_rejected (test_training_observer_auditor.TrainingAuditorTests.test_duplicate_nonfinite_and_oversize_JSON_rejected) ... ok\ntest_failed_report_is_never_upgraded (test_training_observer_auditor.TrainingAuditorTests.test_failed_report_is_never_upgraded) ... ok\ntest_held_overhead_window_mutations (test_training_observer_auditor.TrainingAuditorTests.test_held_overhead_window_mutations) ... ok\ntest_identity_OS_image_and_native_mutations (test_training_observer_auditor.TrainingAuditorTests.test_identity_OS_image_and_native_mutations) ... ok\ntest_memory_bracket_and_allocation_mutations (test_training_observer_auditor.TrainingAuditorTests.test_memory_bracket_and_allocation_mutations) ... ok\ntest_optional_file_hashes_are_explicit (test_training_observer_auditor.TrainingAuditorTests.test_optional_file_hashes_are_explicit) ... ok\ntest_partial_receipts_fail_without_crash (test_training_observer_auditor.TrainingAuditorTests.test_partial_receipts_fail_without_crash) ... ok\ntest_precise_failure_controls_and_cleanup_mutations (test_training_observer_auditor.TrainingAuditorTests.test_precise_failure_controls_and_cleanup_mutations) ... ok\ntest_protocol_and_file_hash_mutations (test_training_observer_auditor.TrainingAuditorTests.test_protocol_and_file_hash_mutations) ... ok\ntest_query_and_snapshot_mutations (test_training_observer_auditor.TrainingAuditorTests.test_query_and_snapshot_mutations) ... ok\ntest_real_training_contract_mutations (test_training_observer_auditor.TrainingAuditorTests.test_real_training_contract_mutations) ... ok\ntest_shifted_cleanup_and_snapshot_intervals_rejected (test_training_observer_auditor.TrainingAuditorTests.test_shifted_cleanup_and_snapshot_intervals_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.140s\n\nOK\n",
+    "baseline_passed": true,
+    "baseline_checks": 1536,
+    "baseline_failures": [],
+    "independent_mutations": [
+      {
+        "mutation": "healthy_cleanup_before_snapshot_and_live",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:cleanup_after_all_known_live_and_work_receipts"
+        ]
+      },
+      {
+        "mutation": "import_cleanup_before_snapshot",
+        "accepted": false,
+        "failures": [
+          "injected_import_failure38:snapshot_before_next_stage_or_release",
+          "injected_import_failure38:cleanup_after_all_known_live_and_work_receipts"
+        ]
+      },
+      {
+        "mutation": "OS_image_before_worker_identity",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:actual_OS_image:image_query_clock"
+        ]
+      },
+      {
+        "mutation": "parent_native_CPU_backwards",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:overhead_native_CPU_clock"
+        ]
+      },
+      {
+        "mutation": "cleanup_whole_interval_outside_case",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:cleanup_after_all_known_live_and_work_receipts",
+          "healthy_dense2:cleanup:within_case_clock",
+          "healthy_dense2:cleanup_after_recorded_work"
+        ]
+      },
+      {
+        "mutation": "windows_whole_interval_outside_hold",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:overhead:within_case_clock",
+          "healthy_dense2:held_0point4s_overhead_clock",
+          "healthy_dense2:overhead:within_case_clock",
+          "healthy_dense2:held_0point4s_overhead_clock",
+          "healthy_dense2:overhead_slices_inside_hold",
+          "healthy_dense2:overhead_complete_slices"
+        ]
+      },
+      {
+        "mutation": "actual_image_after_launcher_image",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:launcher_OS_image:image_query_clock"
+        ]
+      },
+      {
+        "mutation": "sample_PID_substitution",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:sample:actual_interpreter_identity",
+          "healthy_dense2:preimport:bracket_parent_in_samples"
+        ]
+      },
+      {
+        "mutation": "sample_creation_substitution",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:sample:actual_interpreter_identity",
+          "healthy_dense2:preimport:bracket_parent_in_samples"
+        ]
+      },
+      {
+        "mutation": "cleanup_creation_substitution",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:all_retained_exit_identities"
+        ]
+      },
+      {
+        "mutation": "optimizer_one_step",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:exact_two_updates_256_targets"
+        ]
+      },
+      {
+        "mutation": "optimizer_float_steps",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:exact_two_updates_256_targets"
+        ]
+      },
+      {
+        "mutation": "targets_missing",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:exact_two_updates_256_targets"
+        ]
+      },
+      {
+        "mutation": "losses_missing",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:invalid_or_incomplete_receipt:'preupdate_batch_losses_recorded_after_updates'"
+        ]
+      },
+      {
+        "mutation": "losses_nonfinite",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:two_finite_loss_diagnostics"
+        ]
+      },
+      {
+        "mutation": "final_hash_unchanged",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:parameter_change_without_checkpoint_holdout"
+        ]
+      },
+      {
+        "mutation": "final_hash_missing",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:parameter_change_without_checkpoint_holdout"
+        ]
+      },
+      {
+        "mutation": "optimizer_counter_one",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:76_finite_parameter_gradient_moment_counters"
+        ]
+      },
+      {
+        "mutation": "raw_sample_clock_outside_cost",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:sample_clock_cpu_order",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:preimport:bracket_parent_in_samples"
+        ]
+      },
+      {
+        "mutation": "raw_memory_sample_removed",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:every_parent_sample_has_cost_record",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:preimport:bracket_parent_in_samples",
+          "healthy_dense2:overhead_slices_inside_hold",
+          "healthy_dense2:overhead_complete_slices"
+        ]
+      },
+      {
+        "mutation": "query_cost_removed",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:every_parent_sample_has_cost_record",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:sample_inside_cost_clock",
+          "healthy_dense2:overhead_slices_inside_hold",
+          "healthy_dense2:overhead_complete_slices",
+          "healthy_dense2:enabled_query_sampling_counts"
+        ]
+      },
+      {
+        "mutation": "window_cost_indices_replaced",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:overhead_complete_slices",
+          "healthy_dense2:enabled_query_sampling_counts",
+          "healthy_dense2:adjacent_overhead_slices"
+        ]
+      },
+      {
+        "mutation": "report_pass_false_laundering",
+        "accepted": false,
+        "failures": [
+          "reported_acceptance_pass_not_laundered"
+        ]
+      },
+      {
+        "mutation": "case_pass_false_laundering",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:no_hidden_failure"
+        ]
+      },
+      {
+        "mutation": "case_error_with_pass_true",
+        "accepted": false,
+        "failures": [
+          "healthy_dense2:no_hidden_failure"
+        ]
+      }
+    ],
+    "all_independent_mutations_rejected": true,
+    "hashes_unchanged": true,
+    "reviewed_hashes": {
+      "scripts/audit_training_observer.py": "0f0b5b0fc2e0de283262bbd46d20908981159a4f5d2edf237e9f6782c4415a22",
+      "tests/test_training_observer_auditor.py": "13ed205cfdc0466563536a707721d2a0ac7f7172f781f12867b6eff49132ade6"
+    },
+    "experiment_or_ML_imported": false,
+    "root_pins_set": true
+  },
+  "independent_mutation_fixture": "Each fixture is round-tripped through JSON before mutation, so shared Python-object aliases cannot accidentally synchronize independently serialized report copies.",
+  "resolved_findings": [
+    {
+      "issue": "Healthy cleanup interval could finish before recorded final snapshot/prefinish live checks",
+      "initial_provisional_result": "accepted",
+      "current_result": "rejected",
+      "fix_reviewed": "cleanup start is anchored after all known inventory, live-verification, sample and query end clocks; held stage snapshots are also bounded before their next stage or release"
+    },
+    {
+      "issue": "Injected-import cleanup interval could finish before preimport snapshot",
+      "initial_provisional_result": "accepted",
+      "current_result": "rejected",
+      "fix_reviewed": "same total cleanup anchor and final import-stage snapshot upper bound"
+    },
+    {
+      "issue": "Actual and launcher OS-image verification clocks could precede worker identity",
+      "initial_provisional_result": "accepted",
+      "current_result": "rejected",
+      "fix_reviewed": "actual image clock starts at worker-ready clock, launcher image clock starts at actual-image clock, both precede preimport bracket"
+    },
+    {
+      "issue": "First overhead window native parent CPU clock could be shifted forward and then reverse in second window",
+      "initial_provisional_result": "accepted",
+      "current_result": "rejected",
+      "fix_reviewed": "native CPU clocks are nondecreasing across held windows, deltas are recomputed and bounded by held wall duration plus declared quantization allowance"
+    }
+  ],
+  "static_findings": [
+    "Auditor imports only stdlib and independently duplicates fixed protocol/model/optimizer/schedule constants. It does not import producer/experiment code, Torch or Transformers.",
+    "Root protocol, both producer-source and thirteen frozen dependency pins are present and were independently checked against actual current file bytes by AST literal extraction and SHA256.",
+    "Identity checks connect nonce/role/PID/creation, ancestry, frozen actual/launcher/native image metadata, raw samples, brackets, inventories, live checks and cleanup retained exit identities. Self-reported launcher hash is kept distinct from retained-handle actual image evidence.",
+    "Two dense updates require exact integer step and target counts, two finite loss diagnostics, finite final validity, seventy-six exact integer AdamW counters, changed valid parameter hash, fixed optimizer, timing/throughput recomputation and no checkpoint/holdout claims.",
+    "Raw parent samples have ordered identity/CPU clocks and one corresponding memory-query cost interval each. Stage bracket parents must exist in raw samples; memory brackets and allocation/cap deltas are independently recomputed.",
+    "Held off/on windows require complete query/sample index slices in their clocks, enabled sample/query kind counts and zero disabled-window work; raw CPU deltas are recomputed. Busy gaps/CPU progress, sampled crossing, termination/cap latency and cleanup are cross-checked.",
+    "Failed top-level/case reports and retained error/cleanup fields fail audit. Audit never overwrites or upgrades the producer report; only a separate new output path is written by CLI.",
+    "JSON reader rejects duplicate keys and nonfinite constants, with frozen pre-execution report16MiB and protocol/implementation1MiB limits. Optional executable/model file checks remain explicitly listed as unperformed unless paths are supplied."
+  ],
+  "execution_guards": [
+    "meta_path rejected imports rooted at experiments, torch or transformers",
+    "ctypes.WinDLL, subprocess.Popen/run, socket.socket and os.system blocked",
+    "Only scripts.audit_training_observer and the synthetic test module were imported",
+    "No real acceptance output, real model asset execution, producer worker or native Windows job was used"
+  ],
+  "limitations": [
+    "Successful fourteen-unit-test/1,536-baseline-check and twenty-five independent-mutation results are synthetic receipt/algebra checks, not actual training or five-case engineering acceptance.",
+    "Offline consistency cannot authenticate coherently rewritten evidence or remeasure Windows processes, memory, thread ownership, package behavior or model computation. It relies on the exact frozen producer/historical helper semantics.",
+    "Optional local executable/model hashes were synthetic inputs in these tests; real-file audit is a separate root action. The root producer/protocol/dependency pin check here did read actual current source/fixture bytes.",
+    "Two-step counters are not independent per-call tracing. Snapshot discovery can miss short-lived children; memory peaks remain process-lifetime; cap remains sampled after training with overshoot; ordered idle overhead windows do not establish causal training slowdown.",
+    "Historical RSS/cap defects and failed natural-text joint cost/final-quality screens remain unchanged. No quality, compression or training-efficiency improvement follows from this review.",
+    "Scope was frozen after replaying the four reported defects and required identity/count/loss/hash/raw-sample/index/failure mutations, per root instruction. No additional horizontal review or real/model execution was performed."
+  ]
+}

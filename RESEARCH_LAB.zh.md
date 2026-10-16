@@ -40,7 +40,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前实验：在新固定数据上分别执行8步dense/INT8历史，各在第4/8步以自己的完整theta/m/v/t审计实际更新，12个共同锚点全部通过（误差1.335%–1.564%）。但seed211第8步的跨历史m/v相对L2差异为0.861/1.955，局部通过不能推出轨迹接近或训练收益。84次原生更新的6384个参数步控制通过，公开无Torch收据核验器完成213926项检查。此前首步失败和训练成本/保留集负结果保留；见[完整结果、漂移与复现](research/2026-10-16-short-history-update.md)。恢复义务与摘要预算的[公开源码信号](research/2026-10-16-recovery-settlement-and-summary-budget.md)单列，H2/H4运行状态不升级。
 
-最新工程产出：独立 Windows 真实解释器观察器的5个固定场景全部通过，包含32/64MiB健康对照、private阈值、超时和Job-close后代退出；1170项离线收据检查通过。旧成本研究六组负结果与无效parent RSS保留，观察器尚未接入训练。见[工程结果与下一门槛](research/2026-10-16-process-observer.md)、[可复现代码与命令](fixtures/process-observer/README.md)。
+此前工程产出：独立 Windows 真实解释器观察器的5个固定场景全部通过，包含32/64MiB健康对照、private阈值、超时和Job-close后代退出；1170项离线收据检查通过。旧成本研究六组负结果与无效parent RSS保留。见[工程结果与下一门槛](research/2026-10-16-process-observer.md)、[可复现代码与命令](fixtures/process-observer/README.md)。
+
+最新工程产出：真实预训练加载/训练集成代码已冻结并执行一次，**在模型导入前失败**。四个已认证场景各发现两个未知后代而停止，只有exit37对照通过；实际模型加载和训练更新均为0。21个保留handle全部退出、五个Job归零；未知进程缺少image证据，下一版本须先查明完整进程身份。原始失败与14项成功审计拒绝结果完整公开，没有放宽规则重试。见[结果和下一门槛](research/2026-10-16-pretrained-training-observer.md)、[代码和复现命令](fixtures/training-observer/README.md)。本轮另有[因果前缀、配置版本和退出责任的公开证据](research/2026-10-16-causal-prefix-and-worker-custody.md)，不代表任何人的私下研究计划。
 
 ## 快速运行
 

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "derived_at": "2026-10-16T21:05:38.926543+00:00",
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v1",
+  "report_file_sha256": "29213227dbc96d700d73bef4a82eea272b28506d977f5f3d90a3c482c2d397ab",
+  "acceptance_passed": false,
+  "started_at": "2026-10-16T21:03:56.676205+00:00",
+  "completed_at": "2026-10-16T21:03:59.901063+00:00",
+  "wall_seconds": 3.224649100098759,
+  "acceptance_attempts": 1,
+  "retries": 0,
+  "cases": [
+    {
+      "id": "healthy_dense2",
+      "passed": false,
+      "wall_seconds": 0.6667298999382183,
+      "outcome": null,
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "stages_recorded": [
+        "preimport"
+      ],
+      "unknown_descendants": [
+        7684,
+        56260
+      ],
+      "retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.020980000030249357,
+      "retained_processes": 5,
+      "actual_worker_os_image_verified": true
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "passed": false,
+      "wall_seconds": 0.6027379999868572,
+      "outcome": null,
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "stages_recorded": [
+        "preimport"
+      ],
+      "unknown_descendants": [
+        13984,
+        46348
+      ],
+      "retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.02065029996447265,
+      "retained_processes": 5,
+      "actual_worker_os_image_verified": true
+    },
+    {
+      "id": "dense2_private_cap64",
+      "passed": false,
+      "wall_seconds": 0.601828399929218,
+      "outcome": null,
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "stages_recorded": [
+        "preimport"
+      ],
+      "unknown_descendants": [
+        38876,
+        52088
+      ],
+      "retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.020768299931660295,
+      "retained_processes": 5,
+      "actual_worker_os_image_verified": true
+    },
+    {
+      "id": "prehandshake_exit37",
+      "passed": true,
+      "wall_seconds": 0.4300037999637425,
+      "outcome": "expected_prehandshake_exit37",
+      "error": null,
+      "stages_recorded": [],
+      "unknown_descendants": [],
+      "retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.020418799947947264,
+      "retained_processes": 1,
+      "actual_worker_os_image_verified": false
+    },
+    {
+      "id": "injected_import_failure38",
+      "passed": false,
+      "wall_seconds": 0.6014093999983743,
+      "outcome": null,
+      "error": "ObserverError: stage process snapshot has missing or unexpected descendants",
+      "stages_recorded": [
+        "preimport"
+      ],
+      "unknown_descendants": [
+        31924,
+        59216
+      ],
+      "retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.02102230000309646,
+      "retained_processes": 5,
+      "actual_worker_os_image_verified": true
+    }
+  ],
+  "cases_passed": 1,
+  "authenticated_interpreters": 4,
+  "distinct_launcher_worker_pairs": 4,
+  "native_cmd_images_verified": 4,
+  "unknown_processes_observed": 8,
+  "unknown_images_recorded": false,
+  "actual_pretrained_model_loads": 0,
+  "actual_optimizer_updates": 0,
+  "no_ML_release_sent": true,
+  "import38_injection_executed": false,
+  "training_overhead_windows_executed": false,
+  "busy_timeout_executed": false,
+  "private_cap_executed": false,
+  "memory_brackets_recorded": 4,
+  "maximum_absolute_parent_self_difference_bytes": 4096,
+  "all_cases_verified_cleanup": true,
+  "retained_processes_across_cases": 21,
+  "maximum_cleanup_seconds": 0.02102230000309646,
+  "frozen_success_audit": {
+    "local": {
+      "passed": false,
+      "check_count": 465,
+      "checks_passed": 451,
+      "failures": [
+        "reported_acceptance_pass_not_laundered",
+        "healthy_dense2:no_hidden_failure",
+        "healthy_dense2:exact_stage_inventory",
+        "healthy_dense2:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_busy_deadline:no_hidden_failure",
+        "dense2_busy_deadline:exact_stage_inventory",
+        "dense2_busy_deadline:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_private_cap64:no_hidden_failure",
+        "dense2_private_cap64:exact_stage_inventory",
+        "dense2_private_cap64:invalid_or_incomplete_receipt:'postimport'",
+        "injected_import_failure38:no_hidden_failure",
+        "injected_import_failure38:snapshot_descendants_exact",
+        "injected_import_failure38:snapshot_retained_members",
+        "injected_import_failure38:invalid_or_incomplete_receipt:'cleanup'"
+      ]
+    },
+    "portable": {
+      "passed": false,
+      "check_count": 461,
+      "checks_passed": 447,
+      "failures": [
+        "reported_acceptance_pass_not_laundered",
+        "healthy_dense2:no_hidden_failure",
+        "healthy_dense2:exact_stage_inventory",
+        "healthy_dense2:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_busy_deadline:no_hidden_failure",
+        "dense2_busy_deadline:exact_stage_inventory",
+        "dense2_busy_deadline:invalid_or_incomplete_receipt:'postimport'",
+        "dense2_private_cap64:no_hidden_failure",
+        "dense2_private_cap64:exact_stage_inventory",
+        "dense2_private_cap64:invalid_or_incomplete_receipt:'postimport'",
+        "injected_import_failure38:no_hidden_failure",
+        "injected_import_failure38:snapshot_descendants_exact",
+        "injected_import_failure38:snapshot_retained_members",
+        "injected_import_failure38:invalid_or_incomplete_receipt:'cleanup'"
+      ]
+    }
+  },
+  "interpretation": "Observed preimport unexpected-descendant rejection and cleanup; pretrained loader/training and other planned acceptance gates remain unexecuted. Do not assign image identities to the eight unknown observed processes. This is not compression quality/cost, historical RSS repair or production proof.",
+  "post_hoc_failure_receipt_audit": {
+    "preregistered": false,
+    "failure_receipt_consistency_passed": true,
+    "experiment_acceptance_passed": false,
+    "check_count": 492,
+    "record": "results/training-observer/failure-audit.json"
+  }
+}

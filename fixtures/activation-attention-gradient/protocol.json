@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "design_registration_at": "2026-10-16T08:41:03.534775+00:00",
+  "question": "At identical pretrained parameters/batches and exact CE plus13 actual LayerNorm saves in all arms, do exact saves within6 actual GPTNeoXAttention forwards halve full-parameter gradient relativeL2 without reducing cosine in all3 batches?",
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "methods_in_order": [
+      "dense",
+      "model_except_norm_saved_int8",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "schedule_steps": 24,
+    "schedule_selection": "first batch only",
+    "dtype": "float32",
+    "attention": "eager",
+    "threads": 1,
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 180,
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+    "norm_preservation_scope": "torch.nn.LayerNorm forward saves",
+    "expected_named_layernorm_modules": 13,
+    "attention_preservation_scope": "transformers.models.gpt_neox.modeling_gpt_neox.GPTNeoXAttention forward saves",
+    "expected_named_attention_modules": 6,
+    "attention_save_dominance": {
+      "max_attention_preserved_to_norm_only_relative_l2": 0.5,
+      "cosine_no_worse": true,
+      "require_all_seeds": true
+    }
+  },
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "training_manifest_sha256": "1ef9779024091875d28959165c84c7ac390875df3bb9ea8b5a892dc43db17280",
+  "batch_selection": "batch_schedule(8,24,2,seed)[0]; same first batches as previous loss-boundary diagnostic; overlapping examples,320 unique target positions across three batches",
+  "target_positions_per_method_worker": 128,
+  "scope": "Actual class selection, per-instance nested saved_tensors_hooks; all arms equally wrapped; baseline attention saves int8, dense/treatment exact. Includes QKV,RoPE,attention and output projection. No tensor shape/name heuristic. Exact restore in finally.",
+  "controls": [
+    "Identical logits hashes and forward loss across policies per batch.",
+    "Unchanged full parameter hashes before/after every backward; no optimizer.",
+    "Finite gradients for76 tensors/14067712 elements.",
+    "All13 actual LayerNorm modules and6 actual attention modules called once, with nonempty eligible pack/unpack inventories; exact norm saves in every arm; compressed=decoded=eligible only for baseline attention saves.",
+    "Identical local dense/norm-only full per-parameter records/hashes versus previous LayerNorm diagnostic.",
+    "Observed versus analytical CE relativeL2<=1e-5; cloned detached dense reference; zero_grad each backward.",
+    "Independent NumPy tiny actual-class attention forward and VJP covering input,QKV/output weights and biases with head-interleaved layout,explicit causal mask,identityRoPE,dropout0."
+  ],
+  "execution": "Three fresh sequential workers;180second comparison-loop cap after loading;300second parent subprocess cap. Fixed policy order. Dense references make cost/timing descriptive only.",
+  "evaluation": "No optimizer updates, holdout forward/evaluation or hyperparameter/checkpoint selection. Shared loader validates both committed splits.",
+  "gate": "Treatment/baseline full-parameter gradient relativeL2<=0.5 and cosine no worse,all3seeds; zero/undefined/nonfinite denominator or incomplete control fails. No tuning after failure.",
+  "limitations": [
+    "Overlapping fixed synthetic batches;320unique target positions,not independent statistical replicates.",
+    "Broad actual attention-forward saved-operand scope,not single operation or operand attribution.",
+    "Scope inventories exclude exact CE;not total backward memory,peak allocation or measured hardware cost.",
+    "No optimizer/holdout/efficiency/training-quality/GPU/AttnRes/learned-routing/novelty conclusion."
+  ],
+  "config_sha256": "037c29772eea667eabea7c3507e81fe1d9cfcb18a654af27070a90dd8f036342",
+  "predeclared_at": "2026-10-16T08:45:40.125525+00:00",
+  "preparation_status": "frozen_before_tests_and_actual_model_comparison",
+  "source_files_sha256": {
+    "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  }
+}

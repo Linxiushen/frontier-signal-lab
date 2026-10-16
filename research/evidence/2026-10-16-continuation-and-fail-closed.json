@@ -1,0 +1,3491 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T083523Z",
+  "baseline": {
+    "published_commit": "457dc7242cce005f678ed4f554f3dd46ab987c28",
+    "previous_successful_cutoff": "2026-10-16T06:37:11.159628+00:00"
+  },
+  "independent_commit_event_window": {
+    "since_query": "2026-10-16T06:37:11Z",
+    "until_query": "2026-10-16T08:35:23Z",
+    "inclusive": true,
+    "lower_bound_overlap_seconds": 0.159628,
+    "note": "Independent targeted interval ends at floored run start; root owns radar cutoff. Observations may postdate interval and do not advance coverage."
+  },
+  "observation_interval": {
+    "start": "2026-10-16T08:36:42.612238Z",
+    "end": "2026-10-16T08:44:04.900193Z"
+  },
+  "raw_definition": "Exact stdout bytes of gh api --include GET plus stderr; not network packet capture.",
+  "requests_successful": 78,
+  "requests_unsuccessful": 0,
+  "repositories": [
+    {
+      "full_name": "openclaw/openclaw",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "PrimeIntellect-ai/verifiers",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "earendil-works/pi",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    }
+  ],
+  "default_branch_commits": [
+    {
+      "repo": "openclaw/openclaw",
+      "count": 90,
+      "pages": [
+        {
+          "key": "oc-commits-p1",
+          "count": 90
+        }
+      ],
+      "pagination_boundary": "One page; no next link."
+    },
+    {
+      "repo": "PrimeIntellect-ai/verifiers",
+      "count": 0,
+      "pages": [
+        {
+          "key": "vf-commits-p1",
+          "count": 0
+        }
+      ],
+      "pagination_boundary": "One page; no next link."
+    },
+    {
+      "repo": "earendil-works/pi",
+      "count": 3,
+      "pages": [
+        {
+          "key": "pi-commits-p1",
+          "count": 3
+        }
+      ],
+      "pagination_boundary": "One page; no next link."
+    }
+  ],
+  "sources": [
+    {
+      "id": "openclaw-persistent-restricted-continuation",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173383",
+      "title": "fix(codex): preserve persistent restricted continuation",
+      "pr_author": "YuriyPopovDev",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "vincentkoc",
+      "created_at": "2026-10-15T18:21:55Z",
+      "merged_at": "2026-10-16T08:07:39Z",
+      "updated_at_at_fetch": "2026-10-16T08:07:48Z",
+      "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+      "merge_commit": "50982158d0883504d381db0a930948c0214de86a",
+      "authentic_parents": [
+        "d5342a4275b64a93b6addf022ed3bca3357ae5b7"
+      ],
+      "commit_author_login": "YuriyPopovDev",
+      "commit_author_name": "Yuriy",
+      "commit_committer_at": "2026-10-16T08:07:38Z",
+      "stats": {
+        "total": 1437,
+        "additions": 1335,
+        "deletions": 102
+      },
+      "body_sha256": "40a537626f5ba378d08c6c0678f99001af909a9c4e8a70f11884909ab3cd2590",
+      "files": [
+        {
+          "path": "docs/plugins/codex-harness-reference/restricted-turns.md",
+          "blob_sha": "38066afa65bf87040c3a84247cb1d9be9aa3a071",
+          "additions": 7,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness-reference_restricted-turns.md.patch",
+          "patch_sha256": "653359165f11fa7ed06450481c7bc45c19d15228f26b3bbc6039bea1b6f03e5e",
+          "patch_bytes": 1189,
+          "patch_fully_read": true
+        },
+        {
+          "path": "docs/plugins/codex-harness/configuration.md",
+          "blob_sha": "1f4fcfd78c62c433acfef8543ef6cc2dcee732f4",
+          "additions": 13,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness_configuration.md.patch",
+          "patch_sha256": "6fdb62fd08fdb6f5d953dbcb075d68df77274741d25afcbb6143bff2f067f28b",
+          "patch_bytes": 1494,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/attempt-startup.test.ts",
+          "blob_sha": "ec7630edebd048ce6163968765dad1749ce12f27",
+          "additions": 26,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+          "patch_sha256": "f63d643167e08235cc6fe12b3e57f69398a873e0de142a3ff33e78a195949ae9",
+          "patch_bytes": 2943,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/compact.client-ownership.test.ts",
+          "blob_sha": "b88a025035472b82f1a31d89b679b7cb0a9e82c5",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_compact.client-ownership.test.ts.patch",
+          "patch_sha256": "2370bb724d349dcbbbbc3b2b066e42afc4640dc53b5bf01864951b1d797d1e3c",
+          "patch_bytes": 239,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt-prompt.ts",
+          "blob_sha": "f267dbbcacd1c14c7e5cb53acbb3afa7f055a2a4",
+          "additions": 48,
+          "deletions": 18,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt-prompt.ts.patch",
+          "patch_sha256": "9df27e333bc96347a3a1cf43db7a37c85f493a4b03c6b4b7592466d40c377671",
+          "patch_bytes": 4848,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.configured-mcp.test.ts",
+          "blob_sha": "eef0054ce4c5e17e70e60835686b404dff8f602c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.configured-mcp.test.ts.patch",
+          "patch_sha256": "25d4737adfa21f03935a9d1b8ac4ceeb41a1da4af98b51294ce8d6a91d29bd6b",
+          "patch_bytes": 460,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.restricted-context-continuity.test.ts",
+          "blob_sha": "1681f0757ce1203f2672af727dd448d5d887b7dc",
+          "additions": 212,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.restricted-context-continuity.test.ts.patch",
+          "patch_sha256": "89829c710bec37f17bbc865b80722192ec4cd09587a04db9eacde9c0cf69d4ba",
+          "patch_bytes": 9363,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding-record-codec.ts",
+          "blob_sha": "85fcfe1c690867f260dec87986377cb41ef9995f",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding-record-codec.ts.patch",
+          "patch_sha256": "5508041ed7774f67c6a87e87fa88e80372a884bddb0a03e026993539cee385bb",
+          "patch_bytes": 587,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding.test.ts",
+          "blob_sha": "b7797a6c001924e9a815ab86969958fbe36fa963",
+          "additions": 43,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding.test.ts.patch",
+          "patch_sha256": "b19453e6d195532e2a12feab87644fefef08cb3dcff3a87e78b661e00523b9f2",
+          "patch_bytes": 2198,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-binding-policy.ts",
+          "blob_sha": "daf6c0d60fffd48146dde4cb7af6f270ecf2f867",
+          "additions": 1,
+          "deletions": 10,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-binding-policy.ts.patch",
+          "patch_sha256": "8646199bad6cf28ba9dc72def399f860ef10fbb53ab17cfa82656f54b2888b2f",
+          "patch_bytes": 962,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-fingerprints.ts",
+          "blob_sha": "c3bc0e0d87a53d4292531e26887f6decc2973f16",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-fingerprints.ts.patch",
+          "patch_sha256": "7d5018b1bde2589662268440e6f1a7b86429ad6b995133e83f16e37c87973c58",
+          "patch_bytes": 2309,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-io.ts",
+          "blob_sha": "9b9eb348358d8ed515ed055f133cb02039f6e688",
+          "additions": 21,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-io.ts.patch",
+          "patch_sha256": "2289a4d46dc748341f370010477b8fb3490ff45e0bf5928d6be18a0fd9613694",
+          "patch_bytes": 3463,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-run.ts",
+          "blob_sha": "7712bd6d55b46a07cc08ff5b327dad31175d2639",
+          "additions": 53,
+          "deletions": 32,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+          "patch_sha256": "7fa15488332734b10014f5ca060fb32fc0a7a764ae69bad75d326ce38d599624",
+          "patch_bytes": 6537,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-warm.ts",
+          "blob_sha": "04b026efb37cab5297f25b334d92f255ea3e9e9f",
+          "additions": 34,
+          "deletions": 9,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+          "patch_sha256": "3334c50035cbfcc2f17fadbd6004720434523ea1aa3e2572316357e82075421b",
+          "patch_bytes": 2925,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-web-search.test-support.ts",
+          "blob_sha": "bc5df878856e08465c8a6d5f81316760fa71729f",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-web-search.test-support.ts.patch",
+          "patch_sha256": "3dbba364b546a117aa0e1f8207f651944869d73d9920ccc9fc15516cc642e7f6",
+          "patch_bytes": 352,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.adoption.test.ts",
+          "blob_sha": "40823eef0c8de0f5437b1f081aa0a1191b4d07d3",
+          "additions": 5,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.adoption.test.ts.patch",
+          "patch_sha256": "d23bd0092f279d487cc6df9a60ffe9f49112769d7fcdbfe08eb8e1bbb0f0bf2e",
+          "patch_bytes": 2000,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.assignment-rotation.test.ts",
+          "blob_sha": "5cc72c03e4e6348be8549cce897ae071a3eac49c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.assignment-rotation.test.ts.patch",
+          "patch_sha256": "6ac5737ca56d990eab6efb5ac63757c3ec591c33e263cce15195b3e71645958a",
+          "patch_bytes": 334,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.binding.test.ts",
+          "blob_sha": "b8999334f070c28715f8d554e52bdad8201ad4a5",
+          "additions": 4,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.binding.test.ts.patch",
+          "patch_sha256": "c6e5edbd87308ac5c6d0c6abe81617e1ef2cd30d59e57bcc39da177cea908736",
+          "patch_bytes": 423,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.configured-mcp-ownership.test.ts",
+          "blob_sha": "ead8038150b5224880b4878d8b694f26406858cd",
+          "additions": 2,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+          "patch_sha256": "ac60e8137816cf2f5f738b7c1c4c671faebcea3338e95feb145314cc3aaa3c02",
+          "patch_bytes": 819,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.native.test.ts",
+          "blob_sha": "9af57476ecc5efebbd5459dec09e73f53de34584",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.native.test.ts.patch",
+          "patch_sha256": "3d9ed28c3b7115f833a772415e0a8f74af7de621dc12d11de5b7318f1a585c14",
+          "patch_bytes": 369,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.restricted-continuation.test.ts",
+          "blob_sha": "689ad58a7eb511106c9e3a224afa7ea519db16be",
+          "additions": 468,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.restricted-continuation.test.ts.patch",
+          "patch_sha256": "ab76c8c66081c256bc7713edf7f2aec97cdff3129c40e3eee6394d5be104d350",
+          "patch_bytes": 19018,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.test.ts",
+          "blob_sha": "9e144efb8b92d55c2ec952e718d0b18b527a8c1c",
+          "additions": 3,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.test.ts.patch",
+          "patch_sha256": "e548b33d1ee361572de2cf2e0440eca1294f74f9e1db7a3fa31a8111d562cc40",
+          "patch_bytes": 657,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.user-mcp-servers.test.ts",
+          "blob_sha": "0a92e3f27aaff98072c7b3c2dfb84d58ebee6729",
+          "additions": 1,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.user-mcp-servers.test.ts.patch",
+          "patch_sha256": "531f1d6a6b4a8abf79f1e428568327ab5dd46b6cee15ab56fb0b3eafbe8b3391",
+          "patch_bytes": 319,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-restricted-resume.ts",
+          "blob_sha": "e90dedd402a3272040fac116046ce02128bc10d9",
+          "additions": 92,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-restricted-resume.ts.patch",
+          "patch_sha256": "55bbac022d06a28b52ef6e68f25cdc14290e73f5dfec3144ab1d4034fabb4efd",
+          "patch_bytes": 3516,
+          "patch_fully_read": true
+        },
+        {
+          "path": "scripts/lib/ci-proof-test-inventory.mts",
+          "blob_sha": "e02988b7606418e6a2b5b11ce4a39ae878228f6e",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--scripts_lib_ci-proof-test-inventory.mts.patch",
+          "patch_sha256": "3d50ae96b100a82251851765c1ed67f7ce0716154ff6c19798f36ee1a041b641",
+          "patch_bytes": 1253,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/embedded-agent-runner/run/types.ts",
+          "blob_sha": "288f59ee1582088ebf015a993652e635e367fb02",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_embedded-agent-runner_run_types.ts.patch",
+          "patch_sha256": "8e8ad4869dfbf60e00f92e9ecd6a1498f74f91d29dd376d02343edcaf77adb3b",
+          "patch_bytes": 645,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.test.ts",
+          "blob_sha": "bbb6e2153c77acfafd841e0c4f4c5a49935654bc",
+          "additions": 166,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.test.ts.patch",
+          "patch_sha256": "858aa59f3f01969c17c49a3eb18ec5d1521580b73882fc99835ec8660dd5e9d9",
+          "patch_bytes": 5751,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.ts",
+          "blob_sha": "7714d500c58fbcad236a5f9695eb87649d9fd55b",
+          "additions": 29,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.ts.patch",
+          "patch_sha256": "9a0b42413ce3915d0282c41c0365f1f27df8f5204e1227e5947da81387358f96",
+          "patch_bytes": 2966,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.test.ts",
+          "blob_sha": "46a87bd2ed40c05665cab414a4cf65522bb7348b",
+          "additions": 41,
+          "deletions": 4,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.test.ts.patch",
+          "patch_sha256": "56543dfd8939f8342a72f455fe5df9566c6da19d142c542e7f7365b4137993be",
+          "patch_bytes": 5058,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.ts",
+          "blob_sha": "694f852de5cd0400214b21293b54005e1ab25d52",
+          "additions": 4,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.ts.patch",
+          "patch_sha256": "b67fda559da8f65551c9c931a91462c8fe323e1a9738940acc833357c7009ec7",
+          "patch_bytes": 2524,
+          "patch_fully_read": true
+        },
+        {
+          "path": "test/vitest/vitest.extension-database-workers-paths.mjs",
+          "blob_sha": "f31f69963c628288a63d760d6159888306593a39",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--test_vitest_vitest.extension-database-workers-paths.mjs.patch",
+          "patch_sha256": "5ab2416dbff23a3931792dbd60b12a84898381f07b1d06e946c84614b9f880d6",
+          "patch_bytes": 1218,
+          "patch_fully_read": true
+        }
+      ],
+      "mechanism": "Core distinguishes conversation versus turn policy lifetime, including additive grants. Compatible restricted owners persist an exact creation-policy hash and resume warm/cold; temporary first/subsequent turns preserve durable ownership. Changed/unattested managed policy selects a guarded successor; failed startup preserves predecessor. Context-engine successor projection reuses the admitted assembly, not a fresh background snapshot.",
+      "acceptance_delta": "Require actual native/Gateway restart with current authority, stable restrictive owner continuity, one-time legacy transition, temporary/additive-grant withdrawal, sender isolation, permitted and denied effect receipts, protected-owner refusal, failed successor preservation and prepared-assembly consistency.",
+      "proof_boundary": "All31 immutable merge patches fully read. Main lifecycle suite explicitly uses synthetic native replies and in-memory bindings; separate SQLite reopen and file-backed context-engine tests exercise actual storage with synthetic native transport. Current-head CI success is run metadata only. Historical contributor archives/12turn24request/6allowed6denied/ABA proofs refer to older head27e2843f and were not downloaded or independently audited. Overlapping author counts are not additive. No live-model, memory, recall or latency claim.",
+      "known_residual": "Does not solve148329: authority/client-dependent dynamic tool schema, descriptions and membership can still change the fingerprint. Foundation attributed in body to mywondvision156651@7e56f0b802b8fe9deb3d5ed95b469fb50aa69278.",
+      "prepared_head_ci": {
+        "id": 38870439836,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38870439836",
+        "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T08:05:12Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Exact prepared-head CI completed/success; no jobs, logs or artifacts audited. Historic bot review refers to27e2843f. Maintainer vincentkoc explicitly accepted automatic guarded successors on2026-10-16T06:59:07Z; subsequent merge is metadata, not independent runtime proof.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false,
+      "discussion_boundary": "Full issue8/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query."
+    },
+    {
+      "id": "openclaw-fail-closed-recovery-reads",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173970",
+      "title": "fix(agents): surface credential, history, and catalog read failures",
+      "pr_author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T07:21:04Z",
+      "merged_at": "2026-10-16T08:13:19Z",
+      "updated_at_at_fetch": "2026-10-16T08:13:21Z",
+      "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+      "merge_commit": "fee013dd6a3dc0cbac29c2090e4dcd8b225e7c02",
+      "authentic_parents": [
+        "d5f9a1eafe973438bc9fbb06674224799932f93a"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T08:13:18Z",
+      "stats": {
+        "total": 355,
+        "additions": 309,
+        "deletions": 46
+      },
+      "body_sha256": "e869810a4961ace3ce7c9ac70e505004bd66865e21bd09afe43c58d08c1baadd",
+      "files": [
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.degraded-fallback.test.ts",
+          "blob_sha": "c340557745ffa5ea1a7d7a3273f396307146e626",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.degraded-fallback.test.ts.patch",
+          "patch_sha256": "8fce1657d42fe243ac43a747cbcda8dfba0f18954bd2113fea90b8449674bd5b",
+          "patch_bytes": 2317,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.ts",
+          "blob_sha": "4073a2ba299d849d5adc3d91d70f711010f75584",
+          "additions": 37,
+          "deletions": 37,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.ts.patch",
+          "patch_sha256": "2a8aebef6be63c5d1acd1210d229ece9827b96022ab5654770d810cec3b8125e",
+          "patch_bytes": 4846,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth-provider.ts",
+          "blob_sha": "08fb2b00faf1b25b326d09935532c7c52d2005e5",
+          "additions": 10,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth-provider.ts.patch",
+          "patch_sha256": "13066ce78d21f6c8f18ca06b7b0e44a1d7fbc5f706c2e9153a6690923aebbc0b",
+          "patch_bytes": 602,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.oauth-refresh-fail-closed.test.ts",
+          "blob_sha": "803f8a105f13ab1373024e6c219fbbdeef7a3d9e",
+          "additions": 42,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.oauth-refresh-fail-closed.test.ts.patch",
+          "patch_sha256": "ba87bfbc7fc7f2f7f52e7941749043bdb0867327d93ac2c68a824beb106ece37",
+          "patch_bytes": 2341,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.synthetic-fail-closed.test.ts",
+          "blob_sha": "5e3cf613a19e779c0fb06bbdadcc3526835f64b3",
+          "additions": 77,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.synthetic-fail-closed.test.ts.patch",
+          "patch_sha256": "b3636dfa0fc5ae900e094484f7148d873688794cbb49d77ad8c42c16e07e84b3",
+          "patch_bytes": 2878,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.root-authorship.test.ts",
+          "blob_sha": "f1e775a065c4cab042703c84e74aa9a3f9fae99b",
+          "additions": 90,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.root-authorship.test.ts.patch",
+          "patch_sha256": "c7fe99229a651cc952132f381eaabad25b903fafb06531cd64f44d959ba1d9c4",
+          "patch_bytes": 4344,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.ts",
+          "blob_sha": "1906943cef7f24239e170f6b758577f661ab79e4",
+          "additions": 4,
+          "deletions": 3,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.ts.patch",
+          "patch_sha256": "b8f6c9ad721a1549dcb82a44dcdb9ef21ed77241601f4c9c0eb5b939c6435059",
+          "patch_bytes": 633,
+          "patch_fully_read": true
+        }
+      ],
+      "mechanism": "Synthetic auth delegation rethrows unavailable-secret-owner and OAuth-refresh failures. Failed branch/context projection explicitly cancels compaction instead of pretending history is empty. Catalog filesystem read occurs outside malformed-JSON fallback so unreadable authored bytes are not planned over; genuine missing/malformed controls retain rebuild behavior.",
+      "acceptance_delta": "Require production request transport proof that unavailable credential owners and failed refresh produce no provider I/O, with healthy marker-only control. Inject history inspection faults at owning registered hook and preserve transcript bytes; inject catalog read I/O failure and preserve original bytes. Add stable-upgrade and base-fail/head-pass controls.",
+      "proof_boundary": "All7 immutable merge patches fully read. Registered-hook tests assert cancel and no summary/auth lookup after synthetic branch/projection faults; catalog regression injectsFsSafeError/EIO through actual private-file store and preserves real bytes. Auth resolver tests do not prove final provider transport. Local focused/type/lint runs and new catalog pre-fix baseline did not finish; not passes or source regression failures. No live provider/deployment/execution here.",
+      "known_residual": "Public exact-head bot review still asks final transport/upgrade and baseline proof and gives P3 cancellation recovery-action finding. Author defers P3. Merge does not establish those requests completed.",
+      "prepared_head_ci": {
+        "id": 38866728949,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38866728949",
+        "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T07:33:28Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Exact prepared-head CI completed/failure. Complete69job metadata has check-lint-core-2 and aggregate openclaw/ci-gate failure. Author attributes lint to inheriteddebug-overlay consistent-return and admin-merge exception; we did not read logs, confirm cause/authority or turn red into green.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false,
+      "discussion_boundary": "Full issue6/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query."
+    },
+    {
+      "id": "pi-model-specific-compaction-policy",
+      "url": "https://github.com/earendil-works/pi/commit/6085986e4b4a55a36a872df9e438e1a55ffcba35",
+      "author": "badlogic",
+      "author_name": "Mario Zechner",
+      "commits": [
+        {
+          "sha": "6085986e4b4a55a36a872df9e438e1a55ffcba35",
+          "message": "fix(durable): type ToolControl.terminate as boolean\n\nThe type change and changelog entry landed in 1de1b98e7; this adds the\nregression test for terminate: false.\n\ncloses #10858",
+          "authentic_parents": [
+            "4954d760504c11df9b2cbdc040346107b6a8153d"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:19:56Z",
+          "stats": {
+            "total": 146,
+            "additions": 132,
+            "deletions": 14
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 12,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "0a13a8489f13febc9681cfc9822155a50f986321f77634add82db1b0ae38377f",
+              "patch_bytes": 928,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 7,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_README.md.patch",
+              "patch_sha256": "b125255ef1c062baad954a0a5b4a7337bd069513c0f856bfc0dbae58cb794d19",
+              "patch_bytes": 3431,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/docs/spec.md",
+              "blob_sha": "74fe6193cb526a1c51fe66c528c961878cb0edad",
+              "additions": 13,
+              "deletions": 4,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_docs_spec.md.patch",
+              "patch_sha256": "9d513734763caf2c6301d38faf49ab226a707b5462a7b000d29af56ce5c50e49",
+              "patch_bytes": 3816,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/compaction.ts",
+              "blob_sha": "4cf1966ca5e96334003b13f72bf5b2e734ce3d10",
+              "additions": 15,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_compaction.ts.patch",
+              "patch_sha256": "892d37404d4a1c5d033ee6f823419d065797f2c5c5aad05b964396f4a1ac29bb",
+              "patch_bytes": 1915,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/generation.ts",
+              "blob_sha": "005436ce5b6511987b17a3a0d8729609124ac80e",
+              "additions": 5,
+              "deletions": 5,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_generation.ts.patch",
+              "patch_sha256": "4233cb2fae58c7f382ba0e088456d587e7861b67ad5c17aa8e8ee3657a89f6f9",
+              "patch_bytes": 1955,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 13,
+              "deletions": 3,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "174bbfa95687376a63686fff4421260e941f13ca4d4f9cf94bb18ba6e14131f5",
+              "patch_bytes": 2022,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/index.ts",
+              "blob_sha": "546c6ffa6db024b48a5a25ada0311a03bd542a8c",
+              "additions": 1,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_index.ts.patch",
+              "patch_sha256": "9ce2cf2b583637137cbe0b6e393fbb281de91fba91d22f2fde58f161f7652189",
+              "patch_bytes": 173,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-compaction.test.ts",
+              "blob_sha": "ebea5e8a898e6a242bdbc44599e954e774b01d0c",
+              "additions": 49,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-compaction.test.ts.patch",
+              "patch_sha256": "ac7306d73a4604b3b52122902bb3a52abfd32de6a9409d0cf4479c02aeeceef6",
+              "patch_bytes": 2291,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "c4cf7957b4e6698a182925f4393240c1e3b23f41",
+          "message": "feat(durable): per-model compaction settings via compaction.modelOverrides\n\nOverrides keyed by provider/modelId apply at the threshold check, overflow\nrecovery, and compaction range selection.\n\ncloses #10942",
+          "authentic_parents": [
+            "6085986e4b4a55a36a872df9e438e1a55ffcba35"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:12Z",
+          "stats": {
+            "total": 30,
+            "additions": 2,
+            "deletions": 28
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "83cf7c08b8cec753e433e87c56251a72cc2d1d3c",
+              "additions": 0,
+              "deletions": 8,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "232764ca2588a7695197407ee571434e92390fb7d00fe1671a01e5c9fdc6360a",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "7b137cbee6cd19971016372965773a7c0748689e",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_README.md.patch",
+              "patch_sha256": "45e5a63bc1a1ea4532fb0d32298600f15495a73685ce3ec0491fa67c02f0a8ca",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "6c30aa3b7eca6254a02d3190991650be4647d1fe",
+              "additions": 1,
+              "deletions": 2,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "a33fdacc9b000e7a9d9e428719af222e27a5e709dcc0210030373ccd71a14e8c",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "75b8a9bd7a431308ac7cbf2c1b845175e13e078d",
+              "additions": 0,
+              "deletions": 17,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "a17cb346ab98202e30ac9607cc1ab7004fa344c29a97958e784b922f8098b54a",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "790271cd0218b27068211771704f9e2d42500e9a",
+          "message": "fix(durable): restore ToolControl.terminate changes dropped by c4cf7957b\n\nc4cf7957b was built from a tree that predates 6085986e4 and reverted its\nterminate type change, regression test, and changelog entries.",
+          "authentic_parents": [
+            "c4cf7957b4e6698a182925f4393240c1e3b23f41"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:58Z",
+          "stats": {
+            "total": 30,
+            "additions": 28,
+            "deletions": 2
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 8,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "ce5ab1a9f7ff1cc711cdf7904c29abdc5d5405b7c21b737cb7f6cd67fafd3c37",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_README.md.patch",
+              "patch_sha256": "daefd520e164e26adf95464d79b9e7e45d0b76db87453cf5853ada346445d3ec",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 2,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "69562210929fce426ab504a9453d04187f0769ac72d6b4295b186aef234be9cb",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        }
+      ],
+      "published_at": "2026-10-16T08:19:56Z",
+      "body_sha256": "5927eea38baed077fdb890e6f7f002807996a4999e0970c31c40ff330c8266c0",
+      "mechanism": "Exact provider/modelId overrides replace enabled/reserveTokens/keepRecentTokens/backgroundTokens field by field. Generation threshold resolves current model; overflow recovery resolves the checkpointed request model; compaction selection/cut/summary sizing resolves its selected model. Terminate boolean type/noop regression and read-only StorageRequestError documentation are companion changes, not new termination/storage runtime implementation.",
+      "acceptance_delta": "Pin and record policy/model snapshots for threshold, request-overflow and compaction selection/retries across model changes and restarts. Test matching/nonmatching override, enabledfalse and zero values, summary sizing, changed policy across phases, with real final effects before full-harness status upgrade.",
+      "proof_boundary": "All17 patches across3true-parent commits read; first6085986e introduces all9final changed files despite terminate title; c4cf7957 erroneously drops type/test/storage doc;790271cd restores them. Aggregate parent4954d760..head790271cd has9file blob SHAs exactly equal to6085986e tree. Three faux-provider regression cases; no local or upstream test execution.",
+      "prepared_head_ci": {
+        "id": 38873093464,
+        "html_url": "https://github.com/earendil-works/pi/actions/runs/38873093464",
+        "head_sha": "790271cd0218b27068211771704f9e2d42500e9a",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T08:23:31Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "True CI38873093464 at restoredhead790271cd completed/failure. Other successful label/catalog/Nix workflows do not replace it. No jobs/logs or failure cause audited.",
+      "discussion_boundary": "Both issue bodies and full3comments each read; original requests byfinnvoor10942 andjpenilla10858. badlogic collaborator closure comments explicitly AI-generated by/wr and corroborate collision/restore; source patches are primary evidence.",
+      "known_residual": "No independent provider/model-switch/restart proof or measured quality/token/cost improvement.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false,
+      "net_final_changed_files": 9
+    }
+  ],
+  "prior_pr_comparisons": [
+    {
+      "key": "oc173579",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc173454",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc170336",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc173580",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc173241",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc173878",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc173788",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "oc169529",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "vf2864",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "vf2866",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "vf2857",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "vf2875",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "pi11000",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha",
+        "head.sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "pi11012-issue",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha"
+      ],
+      "changed_fields": []
+    },
+    {
+      "key": "pi9602-issue",
+      "previous_run": "20261016T063624Z",
+      "unchanged_fields": [
+        "state",
+        "merged_at",
+        "updated_at",
+        "body",
+        "comments",
+        "review_comments",
+        "merge_commit_sha"
+      ],
+      "changed_fields": []
+    }
+  ],
+  "full_comment_arrays": [
+    {
+      "key": "oc169529-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc169529-issue-p1",
+      "count": 22,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T04:49:01Z",
+      "latest_updated_at": "2026-10-16T04:57:49Z"
+    },
+    {
+      "key": "oc170336-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc170336-issue-p1",
+      "count": 5,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-14T01:30:33Z",
+      "latest_updated_at": "2026-10-14T02:36:10Z"
+    },
+    {
+      "key": "oc173241-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc173241-issue-p1",
+      "count": 7,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T04:25:23Z",
+      "latest_updated_at": "2026-10-16T04:25:23Z"
+    },
+    {
+      "key": "oc173383-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc173383-issue-p1",
+      "count": 8,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-16T08:07:47Z",
+      "latest_updated_at": "2026-10-16T08:07:47Z"
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "count": 2,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-15T21:44:03Z",
+      "latest_updated_at": "2026-10-15T21:44:03Z"
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "count": 4,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-15T23:20:00Z",
+      "latest_updated_at": "2026-10-15T23:20:00Z"
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "count": 6,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T01:55:37Z",
+      "latest_updated_at": "2026-10-16T01:55:38Z"
+    },
+    {
+      "key": "oc173579-issue-p1",
+      "count": 7,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T02:22:16Z",
+      "latest_updated_at": "2026-10-16T02:22:16Z"
+    },
+    {
+      "key": "oc173580-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc173580-issue-p1",
+      "count": 6,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T03:58:26Z",
+      "latest_updated_at": "2026-10-16T03:59:11Z"
+    },
+    {
+      "key": "oc173788-inline-p1",
+      "count": 2,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T04:36:14Z",
+      "latest_updated_at": "2026-10-16T04:36:14Z"
+    },
+    {
+      "key": "oc173788-issue-p1",
+      "count": 3,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T04:52:02Z",
+      "latest_updated_at": "2026-10-16T04:52:02Z"
+    },
+    {
+      "key": "oc173878-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc173878-issue-p1",
+      "count": 4,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T06:24:31Z",
+      "latest_updated_at": "2026-10-16T06:24:31Z"
+    },
+    {
+      "key": "oc173970-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "oc173970-issue-p1",
+      "count": 6,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-16T08:13:15Z",
+      "latest_updated_at": "2026-10-16T08:13:15Z"
+    },
+    {
+      "key": "pi10858-comments-p1",
+      "count": 3,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-16T08:22:42Z",
+      "latest_updated_at": "2026-10-16T08:38:11Z"
+    },
+    {
+      "key": "pi10942-comments-p1",
+      "count": 3,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-16T08:18:58Z",
+      "latest_updated_at": "2026-10-16T08:38:35Z"
+    },
+    {
+      "key": "pi11000-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "pi11000-issue-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "pi11012-comments-p1",
+      "count": 2,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T03:56:52Z",
+      "latest_updated_at": "2026-10-16T03:56:52Z"
+    },
+    {
+      "key": "pi9602-comments-p1",
+      "count": 10,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-16T02:59:23Z",
+      "latest_updated_at": "2026-10-16T02:59:23Z"
+    },
+    {
+      "key": "vf2857-inline-p1",
+      "count": 1,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-15T13:19:22Z",
+      "latest_updated_at": "2026-10-15T13:19:22Z"
+    },
+    {
+      "key": "vf2857-issue-p1",
+      "count": 1,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": "2026-10-14T22:19:51Z",
+      "latest_updated_at": "2026-10-15T13:20:14Z"
+    },
+    {
+      "key": "vf2864-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "vf2864-issue-p1",
+      "count": 1,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-15T16:48:57Z",
+      "latest_updated_at": "2026-10-15T19:22:12Z"
+    },
+    {
+      "key": "vf2866-inline-p1",
+      "count": 4,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-15T16:05:24Z",
+      "latest_updated_at": "2026-10-15T16:05:25Z"
+    },
+    {
+      "key": "vf2866-issue-p1",
+      "count": 1,
+      "pagination_link": null,
+      "prior_full_array_available": false,
+      "entire_array_equal_to_previous": null,
+      "latest_created_at": "2026-10-15T15:57:26Z",
+      "latest_updated_at": "2026-10-15T16:08:26Z"
+    },
+    {
+      "key": "vf2875-inline-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    },
+    {
+      "key": "vf2875-issue-p1",
+      "count": 0,
+      "pagination_link": null,
+      "prior_full_array_available": true,
+      "entire_array_equal_to_previous": true,
+      "latest_created_at": null,
+      "latest_updated_at": null
+    }
+  ],
+  "retained_unreplicated_source_concerns": [
+    {
+      "key": "oc-recovery-current",
+      "path": "src/gateway/session-recovery-service.ts",
+      "current_ref": "62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "previous_ref": "785f2467d88c18c57aac91fe387442ed583dd474",
+      "blob_sha": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+      "equal_to_previous": true,
+      "independently_reproduced": false
+    },
+    {
+      "key": "oc-process-current",
+      "path": "src/agents/bash-tools.process.ts",
+      "current_ref": "62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "previous_ref": "785f2467d88c18c57aac91fe387442ed583dd474",
+      "blob_sha": "4aac65c346765fb5463cc2736725b2782aba6465",
+      "equal_to_previous": true,
+      "independently_reproduced": false
+    },
+    {
+      "key": "oc-followup-current",
+      "path": "src/auto-reply/reply/followup-turn-execution.ts",
+      "current_ref": "62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "previous_ref": "785f2467d88c18c57aac91fe387442ed583dd474",
+      "blob_sha": "a21bdb7c788257b8274389280e02d91ca2f58b63",
+      "equal_to_previous": true,
+      "independently_reproduced": false
+    },
+    {
+      "key": "oc-handoff-current",
+      "path": "src/auto-reply/reply/session-event-handoff.ts",
+      "current_ref": "62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "previous_ref": "785f2467d88c18c57aac91fe387442ed583dd474",
+      "blob_sha": "ca08deaf4aca060859ff3868358665b186f61157",
+      "equal_to_previous": true,
+      "independently_reproduced": false
+    }
+  ],
+  "retained_concerns_summary": "Recovery remains recent20/max256KiB withoutreadMainSessionRecoveryCheckpoint; requested kill clears notification before supervisor settlement. Policy publication withinadmitUserTurn awaits remains a negative control; followup/handoff blobs unchanged. No local reproduction or authoritative resolved-state query.",
+  "saved_patches": [
+    {
+      "path": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness-reference_restricted-turns.md.patch",
+      "sha256": "653359165f11fa7ed06450481c7bc45c19d15228f26b3bbc6039bea1b6f03e5e",
+      "bytes": 1189,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness_configuration.md.patch",
+      "sha256": "6fdb62fd08fdb6f5d953dbcb075d68df77274741d25afcbb6143bff2f067f28b",
+      "bytes": 1494,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+      "sha256": "f63d643167e08235cc6fe12b3e57f69398a873e0de142a3ff33e78a195949ae9",
+      "bytes": 2943,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_compact.client-ownership.test.ts.patch",
+      "sha256": "2370bb724d349dcbbbbc3b2b066e42afc4640dc53b5bf01864951b1d797d1e3c",
+      "bytes": 239,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt-prompt.ts.patch",
+      "sha256": "9df27e333bc96347a3a1cf43db7a37c85f493a4b03c6b4b7592466d40c377671",
+      "bytes": 4848,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.configured-mcp.test.ts.patch",
+      "sha256": "25d4737adfa21f03935a9d1b8ac4ceeb41a1da4af98b51294ce8d6a91d29bd6b",
+      "bytes": 460,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.restricted-context-continuity.test.ts.patch",
+      "sha256": "89829c710bec37f17bbc865b80722192ec4cd09587a04db9eacde9c0cf69d4ba",
+      "bytes": 9363,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding-record-codec.ts.patch",
+      "sha256": "5508041ed7774f67c6a87e87fa88e80372a884bddb0a03e026993539cee385bb",
+      "bytes": 587,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding.test.ts.patch",
+      "sha256": "b19453e6d195532e2a12feab87644fefef08cb3dcff3a87e78b661e00523b9f2",
+      "bytes": 2198,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-binding-policy.ts.patch",
+      "sha256": "8646199bad6cf28ba9dc72def399f860ef10fbb53ab17cfa82656f54b2888b2f",
+      "bytes": 962,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-fingerprints.ts.patch",
+      "sha256": "7d5018b1bde2589662268440e6f1a7b86429ad6b995133e83f16e37c87973c58",
+      "bytes": 2309,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-io.ts.patch",
+      "sha256": "2289a4d46dc748341f370010477b8fb3490ff45e0bf5928d6be18a0fd9613694",
+      "bytes": 3463,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+      "sha256": "7fa15488332734b10014f5ca060fb32fc0a7a764ae69bad75d326ce38d599624",
+      "bytes": 6537,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+      "sha256": "3334c50035cbfcc2f17fadbd6004720434523ea1aa3e2572316357e82075421b",
+      "bytes": 2925,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-web-search.test-support.ts.patch",
+      "sha256": "3dbba364b546a117aa0e1f8207f651944869d73d9920ccc9fc15516cc642e7f6",
+      "bytes": 352,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.adoption.test.ts.patch",
+      "sha256": "d23bd0092f279d487cc6df9a60ffe9f49112769d7fcdbfe08eb8e1bbb0f0bf2e",
+      "bytes": 2000,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.assignment-rotation.test.ts.patch",
+      "sha256": "6ac5737ca56d990eab6efb5ac63757c3ec591c33e263cce15195b3e71645958a",
+      "bytes": 334,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.binding.test.ts.patch",
+      "sha256": "c6e5edbd87308ac5c6d0c6abe81617e1ef2cd30d59e57bcc39da177cea908736",
+      "bytes": 423,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+      "sha256": "ac60e8137816cf2f5f738b7c1c4c671faebcea3338e95feb145314cc3aaa3c02",
+      "bytes": 819,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.native.test.ts.patch",
+      "sha256": "3d9ed28c3b7115f833a772415e0a8f74af7de621dc12d11de5b7318f1a585c14",
+      "bytes": 369,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.restricted-continuation.test.ts.patch",
+      "sha256": "ab76c8c66081c256bc7713edf7f2aec97cdff3129c40e3eee6394d5be104d350",
+      "bytes": 19018,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.test.ts.patch",
+      "sha256": "e548b33d1ee361572de2cf2e0440eca1294f74f9e1db7a3fa31a8111d562cc40",
+      "bytes": 657,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.user-mcp-servers.test.ts.patch",
+      "sha256": "531f1d6a6b4a8abf79f1e428568327ab5dd46b6cee15ab56fb0b3eafbe8b3391",
+      "bytes": 319,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-restricted-resume.ts.patch",
+      "sha256": "55bbac022d06a28b52ef6e68f25cdc14290e73f5dfec3144ab1d4034fabb4efd",
+      "bytes": 3516,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--scripts_lib_ci-proof-test-inventory.mts.patch",
+      "sha256": "3d50ae96b100a82251851765c1ed67f7ce0716154ff6c19798f36ee1a041b641",
+      "bytes": 1253,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--src_agents_embedded-agent-runner_run_types.ts.patch",
+      "sha256": "8e8ad4869dfbf60e00f92e9ecd6a1498f74f91d29dd376d02343edcaf77adb3b",
+      "bytes": 645,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.test.ts.patch",
+      "sha256": "858aa59f3f01969c17c49a3eb18ec5d1521580b73882fc99835ec8660dd5e9d9",
+      "bytes": 5751,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.ts.patch",
+      "sha256": "9a0b42413ce3915d0282c41c0365f1f27df8f5204e1227e5947da81387358f96",
+      "bytes": 2966,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.test.ts.patch",
+      "sha256": "56543dfd8939f8342a72f455fe5df9566c6da19d142c542e7f7365b4137993be",
+      "bytes": 5058,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.ts.patch",
+      "sha256": "b67fda559da8f65551c9c931a91462c8fe323e1a9738940acc833357c7009ec7",
+      "bytes": 2524,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173383-merge--test_vitest_vitest.extension-database-workers-paths.mjs.patch",
+      "sha256": "5ab2416dbff23a3931792dbd60b12a84898381f07b1d06e946c84614b9f880d6",
+      "bytes": 1218,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.degraded-fallback.test.ts.patch",
+      "sha256": "8fce1657d42fe243ac43a747cbcda8dfba0f18954bd2113fea90b8449674bd5b",
+      "bytes": 2317,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.ts.patch",
+      "sha256": "2a8aebef6be63c5d1acd1210d229ece9827b96022ab5654770d810cec3b8125e",
+      "bytes": 4846,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_model-auth-provider.ts.patch",
+      "sha256": "13066ce78d21f6c8f18ca06b7b0e44a1d7fbc5f706c2e9153a6690923aebbc0b",
+      "bytes": 602,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.oauth-refresh-fail-closed.test.ts.patch",
+      "sha256": "ba87bfbc7fc7f2f7f52e7941749043bdb0867327d93ac2c68a824beb106ece37",
+      "bytes": 2341,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.synthetic-fail-closed.test.ts.patch",
+      "sha256": "b3636dfa0fc5ae900e094484f7148d873688794cbb49d77ad8c42c16e07e84b3",
+      "bytes": 2878,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_models-config.root-authorship.test.ts.patch",
+      "sha256": "c7fe99229a651cc952132f381eaabad25b903fafb06531cd64f44d959ba1d9c4",
+      "bytes": 4344,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/oc173970-merge--src_agents_models-config.ts.patch",
+      "sha256": "b8f6c9ad721a1549dcb82a44dcdb9ef21ed77241601f4c9c0eb5b939c6435059",
+      "bytes": 633,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-compaction-commit--packages_durable_CHANGELOG.md.patch",
+      "sha256": "232764ca2588a7695197407ee571434e92390fb7d00fe1671a01e5c9fdc6360a",
+      "bytes": 896,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-compaction-commit--packages_durable_README.md.patch",
+      "sha256": "45e5a63bc1a1ea4532fb0d32298600f15495a73685ce3ec0491fa67c02f0a8ca",
+      "bytes": 1910,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-compaction-commit--packages_durable_src_harness_types.ts.patch",
+      "sha256": "a33fdacc9b000e7a9d9e428719af222e27a5e709dcc0210030373ccd71a14e8c",
+      "bytes": 401,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-compaction-commit--packages_durable_test_harness-tools.test.ts.patch",
+      "sha256": "a17cb346ab98202e30ac9607cc1ab7004fa344c29a97958e784b922f8098b54a",
+      "bytes": 707,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_CHANGELOG.md.patch",
+      "sha256": "ce5ab1a9f7ff1cc711cdf7904c29abdc5d5405b7c21b737cb7f6cd67fafd3c37",
+      "bytes": 896,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_README.md.patch",
+      "sha256": "daefd520e164e26adf95464d79b9e7e45d0b76db87453cf5853ada346445d3ec",
+      "bytes": 1910,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_src_harness_types.ts.patch",
+      "sha256": "69562210929fce426ab504a9453d04187f0769ac72d6b4295b186aef234be9cb",
+      "bytes": 401,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_test_harness-tools.test.ts.patch",
+      "sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+      "bytes": 707,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_CHANGELOG.md.patch",
+      "sha256": "0a13a8489f13febc9681cfc9822155a50f986321f77634add82db1b0ae38377f",
+      "bytes": 928,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_docs_spec.md.patch",
+      "sha256": "9d513734763caf2c6301d38faf49ab226a707b5462a7b000d29af56ce5c50e49",
+      "bytes": 3816,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_README.md.patch",
+      "sha256": "b125255ef1c062baad954a0a5b4a7337bd069513c0f856bfc0dbae58cb794d19",
+      "bytes": 3431,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_compaction.ts.patch",
+      "sha256": "892d37404d4a1c5d033ee6f823419d065797f2c5c5aad05b964396f4a1ac29bb",
+      "bytes": 1915,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_generation.ts.patch",
+      "sha256": "4233cb2fae58c7f382ba0e088456d587e7861b67ad5c17aa8e8ee3657a89f6f9",
+      "bytes": 1955,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_types.ts.patch",
+      "sha256": "174bbfa95687376a63686fff4421260e941f13ca4d4f9cf94bb18ba6e14131f5",
+      "bytes": 2022,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_index.ts.patch",
+      "sha256": "9ce2cf2b583637137cbe0b6e393fbb281de91fba91d22f2fde58f161f7652189",
+      "bytes": 173,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-compaction.test.ts.patch",
+      "sha256": "ac7306d73a4604b3b52122902bb3a52abfd32de6a9409d0cf4479c02aeeceef6",
+      "bytes": 2291,
+      "fully_read": true
+    },
+    {
+      "path": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-tools.test.ts.patch",
+      "sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+      "bytes": 707,
+      "fully_read": true
+    }
+  ],
+  "material_decision": {
+    "selected_deep_signal_clusters": 3,
+    "changed_hypotheses": [
+      "H2"
+    ],
+    "unchanged_hypotheses": [
+      "H4"
+    ],
+    "h2_runtime_status_unchanged": true,
+    "deferred_metadata_only": [
+      "OC173914 interactive recovery lane",
+      "OC174012 committed receipt test-only ordering"
+    ]
+  },
+  "experiments_executed_by_source_worker": 0,
+  "coverage_gaps": [
+    "No X/private discussion/personal-site or exhaustive author activity coverage.",
+    "Bounded tracked GitHub records only;90OpenClaw commits not all patched.",
+    "No upstream install/runtime/model/test execution, CI logs/artifacts or user-attachment archives audited.",
+    "Public identities denote contribution, not employment, age or private roadmap."
+  ],
+  "request_fingerprints": [
+    {
+      "key": "oc-commits-p1",
+      "endpoint": "repos/openclaw/openclaw/commits?since=2026-10-16T06%3A37%3A11Z&until=2026-10-16T08%3A35%3A23Z&per_page=100&page=1",
+      "start": "2026-10-16T08:36:43.963244Z",
+      "end": "2026-10-16T08:36:45.994069Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "b823579cac22610d8d108502be32efc1c592b76a3114c6163eb0b70a2f166719",
+      "body_sha256": "274c4dd0e48f72d47ed10d955ea2fa35aa53bbc57f4a76e93a037a899dada288",
+      "returned_count": 90,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-followup-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/auto-reply/reply/followup-turn-execution.ts?ref=62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "start": "2026-10-16T08:38:23.066463Z",
+      "end": "2026-10-16T08:38:24.401058Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "b3e2a27904057d2ed0ae2ee22d535249b8a8199d80e46f3da219271d61f99ada",
+      "body_sha256": "a7d46d0c3316250e7b883e0908722746b66afa886afd1990df705a06881ac760",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-followup-previous",
+      "endpoint": "repos/openclaw/openclaw/contents/src/auto-reply/reply/followup-turn-execution.ts?ref=785f2467d88c18c57aac91fe387442ed583dd474",
+      "start": "2026-10-16T08:38:23.977694Z",
+      "end": "2026-10-16T08:38:25.637056Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "fa70b601d16874febab1531593d4336749e87f23fead5e46c07ef460cc210df3",
+      "body_sha256": "96b8e73b35d6631b2a7f7921b30bc6d72596d12e4d749f7c4d4a750ba87a6f9e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-handoff-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/auto-reply/reply/session-event-handoff.ts?ref=62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "start": "2026-10-16T08:38:24.408053Z",
+      "end": "2026-10-16T08:38:26.443612Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "d6138e2c15eabb9e30d70e19c5163289872345f41aa75b9986679be02affe2ae",
+      "body_sha256": "6d3a837e4e43d000fcb80944ba0949daf9908096a0ef4a3051171a6233ae50e9",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-handoff-previous",
+      "endpoint": "repos/openclaw/openclaw/contents/src/auto-reply/reply/session-event-handoff.ts?ref=785f2467d88c18c57aac91fe387442ed583dd474",
+      "start": "2026-10-16T08:38:25.642057Z",
+      "end": "2026-10-16T08:38:27.161706Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "556c19768243fe8a552dec2b2b520fae8d7b8c07c2fd3bfc5ebca12d57910ce1",
+      "body_sha256": "87dc0ac43f15a72c89315fd37b278b317621fffaa866b70fdbfde55da63f9ead",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-process-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/agents/bash-tools.process.ts?ref=62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "start": "2026-10-16T08:38:22.585346Z",
+      "end": "2026-10-16T08:38:25.827632Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "8b1f920e010c26e16fe0cff3bdd4a4d2c6fbcb9629bcdd6d3f16874342311d6b",
+      "body_sha256": "039093a572a88ce8dd3ab525d85fd076198423256dc7c6e47d73790543f61ae2",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-recovery-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/gateway/session-recovery-service.ts?ref=62240dbc4fa6dc86a126788b10b6378c4d3546c2",
+      "start": "2026-10-16T08:38:22.454883Z",
+      "end": "2026-10-16T08:38:23.972086Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "b5cc93f78d873fc8d98a828264d0eec86b0ff0022151edfd7aa9a3dfc58e5ced",
+      "body_sha256": "fba4a7ec272ce06e679f45b64c66758e355b8f4c1872ad74b10be40387d9d147",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-repo",
+      "endpoint": "repos/openclaw/openclaw",
+      "start": "2026-10-16T08:36:42.612238Z",
+      "end": "2026-10-16T08:36:44.032671Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "9af8b876ef3d21a3fb1bf24044bdaf7ac1b2e3cdcfc82473be9deab7933d7a59",
+      "body_sha256": "3651ac0c5b5262bd42dcbf0a74ac4762e10f260ca8f852c1242c0252b4912a7b",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/169529/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:12.703100Z",
+      "end": "2026-10-16T08:38:13.875171Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6f5ebfbf61e145b785a1bcb704006894a8c8e57310a191420d30ef33183d4992",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/169529/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:11.456936Z",
+      "end": "2026-10-16T08:38:13.026959Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "fa3a560bed20638ba2cc27c934251cf2a869bf61c6ef79c6fe0b1a555ed8f706",
+      "body_sha256": "7544240c5946b2b0c8d84ea97674045d1924f91fd1dfbf8c9cc5e78a56f8fa88",
+      "returned_count": 22,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529",
+      "endpoint": "repos/openclaw/openclaw/pulls/169529",
+      "start": "2026-10-16T08:36:50.164110Z",
+      "end": "2026-10-16T08:36:52.042046Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "dfe55404759bcef08447731e6389a94e6221be5c659d863e6b10fb6b75e48ce5",
+      "body_sha256": "b8e8df66cbf0f3f92eb4fcdf6df6c3a6cc3d748fd4ac65d485477403153f3de4",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:07.768990Z",
+      "end": "2026-10-16T08:38:08.861641Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "8e9e364d8f96a456738d0f6c8446a94ce8d343f2ff12d94cd28bca98af2ce889",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:07.601179Z",
+      "end": "2026-10-16T08:38:08.862649Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "062bb04b948f57f9439f03c0f187a7e4995e005a7973393c1ca9409371a10b2a",
+      "body_sha256": "efa8a33ef4de2592b0abec3801dddd31f50be31be304808a59ac563f69b541e3",
+      "returned_count": 5,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336",
+      "start": "2026-10-16T08:36:46.015244Z",
+      "end": "2026-10-16T08:36:49.598509Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "be53836f0a2db57af7760da06d9fe5a6e4e90cd6c18c4c2be938b02d54b27b38",
+      "body_sha256": "9c6fdbd5e84261425c78819f1c53d8a0ee3643b1cf39c97a024a7f33e8ac6744",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:10.150597Z",
+      "end": "2026-10-16T08:38:11.359100Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6797b019c63845f5d1aa0edd0ac08e3b110038e55681dbbf8b4bb1af01388565",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:08.885252Z",
+      "end": "2026-10-16T08:38:10.214823Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "c34d8bb9f5414bf345b16cc28cff213308b060dc989dbb6d49ad0abcf6f0d8b3",
+      "body_sha256": "b17436bd8fdee585856dd6cd6c9f5993c740075730073ece1e361a2abdc26f3b",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241",
+      "start": "2026-10-16T08:36:48.032293Z",
+      "end": "2026-10-16T08:36:49.739494Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "3ae28ae757950373e398c55e640b27b689f833b71aec51de61b34ba69a42826d",
+      "body_sha256": "4dcf6fcefb37823cae3bf18f5cfcec25669aa78f216940bfbae862012219649e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173383-ci",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38870439836",
+      "start": "2026-10-16T08:39:48.777353Z",
+      "end": "2026-10-16T08:39:49.979783Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "305af4d534b0e8d55a2d83ad7b0935502f6df7c55b6a14d1aa9c7e2d140c401b",
+      "body_sha256": "e34607cbcc212a795974c321816dbd8f0958c3d034f8038bfd3658c7b69cee53",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173383-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173383/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:47.633278Z",
+      "end": "2026-10-16T08:39:48.772351Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "9a4b7cb4225e5dffb08ee64044e8ebfae70b0bb058dd9d5e515f15997540acf0",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173383-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173383/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:46.334156Z",
+      "end": "2026-10-16T08:39:47.640275Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "910770273e15126db4f6640353f019f4f8b5a4468317da4af698ba2009933f54",
+      "body_sha256": "4ef355502ccdb3fe5265102550534cd5cc1469d26c6c9d28d60410efbb00992c",
+      "returned_count": 8,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173383-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/50982158d0883504d381db0a930948c0214de86a",
+      "start": "2026-10-16T08:39:46.334156Z",
+      "end": "2026-10-16T08:39:48.050385Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "a5aea35b6203426313d19a7d41d50fb5ce07372d3ba7d496032d5aaad65d3b97",
+      "body_sha256": "80a08435127d0a845bd82dc6a01ec4d28cfd12d40c5fb692e77f0a9f7d259440",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173383",
+      "endpoint": "repos/openclaw/openclaw/pulls/173383",
+      "start": "2026-10-16T08:38:18.496928Z",
+      "end": "2026-10-16T08:38:20.227674Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "f617c1c882d1d16931cee9fca48bd3c864cffe2ba9d2e98e26f116e74b991256",
+      "body_sha256": "f9ba7a844267c4d4b9e6701cdabb19a01e34013a2b49f0d8e615497328ec1c2b",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:07.592175Z",
+      "end": "2026-10-16T08:38:08.873299Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "68660aebb000f46979aab188bd580079559b0322084ad48a2d6ef9adb7d1411e",
+      "body_sha256": "f94ec5da72b14e2c2884d9ac191a90468e0627cc2d955d9bbdf273ea9122dd8d",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:06.287966Z",
+      "end": "2026-10-16T08:38:07.583101Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "a69afdd8d8f406eb8addc6d3d5c89c6c08466f5f8132653dfe5f6ca9c5f71812",
+      "body_sha256": "f53d898f9d3b3ad80331276021d164d0b08e7ec7ada2611ef86aebeb12e91ac8",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454",
+      "start": "2026-10-16T08:36:45.461827Z",
+      "end": "2026-10-16T08:36:48.025264Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "90850186323aa0b0a898f79b7761c919a3ae1b0e4142e1f5cafd2ca92685c001",
+      "body_sha256": "c9981ff7d30534e8fc17af115023a78080672f768e0a2634deaae454aeb3cc3b",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:06.287966Z",
+      "end": "2026-10-16T08:38:07.594174Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "f89ba91ca905bd4e44470381edd2d84e35730a6f9427ae1584ee2427961a5aaf",
+      "body_sha256": "bd1c63856270cd095d8fa6c8cb53a8f9a9e958c8b4740dc4daa725deb421470a",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:06.287966Z",
+      "end": "2026-10-16T08:38:07.761888Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6ae74b2665d09a2db82355e6805010dab19023468cef65fc07d65ff91a54c7ce",
+      "body_sha256": "536f8e7262d974cd9ca7b1739b066ee2fae44e9c6f2d91c8ecd72bbba9ae54f9",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579",
+      "start": "2026-10-16T08:36:45.355584Z",
+      "end": "2026-10-16T08:36:47.378235Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "dedf51fe4c43775a3bf19eba6718dd909a64c3e801649656d98f59250da17850",
+      "body_sha256": "d239f9d66df73b1cbf62f9594d0b52b7146e8df246dc5513d9f97c45c117d7ff",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:08.879031Z",
+      "end": "2026-10-16T08:38:10.144168Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "e6b46a75edc84547167363c85dfa28e2e825727c39207bc2a47e8874be863897",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:08.875637Z",
+      "end": "2026-10-16T08:38:10.161604Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "7118345c77e19a4769911530bf4fcec33a6ad098ff055d061a4d2a262a8b4019",
+      "body_sha256": "fe5360956a4f7a6bfc62d90e26153421c8fb01f524b0ff3e03ea18d7cbb76a6f",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580",
+      "start": "2026-10-16T08:36:47.384235Z",
+      "end": "2026-10-16T08:36:50.157388Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "27f853a759bfe2a12e0dbdd7fdb3d5d21955045f5dcc83a7dfc7248d7bce971a",
+      "body_sha256": "03feda932f677903ad056482f8784b4902db0f559bed871054cb54c98fe1f96d",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173788/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:11.404030Z",
+      "end": "2026-10-16T08:38:12.762346Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "33e79ac16812f0b1c16a5c8077b5e5c2f9bf10fd087b35284a85d90b5237f1ea",
+      "body_sha256": "96b7c9f41058cd21d940c8fca8e4112a32e7ff05a67461c06f595905313a6f23",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173788/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:11.365098Z",
+      "end": "2026-10-16T08:38:12.695101Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "f2e0cf71d1077eadb30e4032478bc26311c5ab4a791c30c5cb3ad7fbee474ec1",
+      "body_sha256": "a0f8a6df060b1d73562aedd31113905f7fdf41761815285b53ecf69633db5583",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788",
+      "endpoint": "repos/openclaw/openclaw/pulls/173788",
+      "start": "2026-10-16T08:36:49.745582Z",
+      "end": "2026-10-16T08:36:51.467479Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6f2ae43ac298032b46985a10cb1d89be808e57be2a24c05f0a8d665edefc5b94",
+      "body_sha256": "708cac2862de0c3e8fa396c7b87c87244bb70404427c9a71f9933d1a8a0dd027",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173878/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:10.222659Z",
+      "end": "2026-10-16T08:38:11.397029Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "d8e51a8b4b2f9a1f356fd7938ece8497434fbf7566071c54604904fc08631f03",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173878/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:10.168606Z",
+      "end": "2026-10-16T08:38:11.449527Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "88bf0c43c3607e42dfc5e20a707c1859c690d727525130cfd48339c74c3333a0",
+      "body_sha256": "f9a48186593afbe5ad49b8c25ececb2357ac26ce9fd62ae75031b9f81ee0f93e",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878",
+      "endpoint": "repos/openclaw/openclaw/pulls/173878",
+      "start": "2026-10-16T08:36:49.603510Z",
+      "end": "2026-10-16T08:36:51.249645Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "7174e6989507fb4b61ec5b80c312a991902ba4fda8d1bcc1f5d360fa742ff9cc",
+      "body_sha256": "0ca34393cef2012c5b61f8656581f3c46b4e1d169aed2a19548057cb9af06f0d",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173914",
+      "endpoint": "repos/openclaw/openclaw/pulls/173914",
+      "start": "2026-10-16T08:38:18.612453Z",
+      "end": "2026-10-16T08:38:20.269702Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "5fcea7537a4d18d550d2894c4633c496c03dbf0b96d39b630e85c2045a4e7d95",
+      "body_sha256": "5727cb1fe43a9a4faf63642e8299b9f401fe9722ef76e13b6d4450edf2e4e6d0",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970-ci-jobs-p1",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38866728949/jobs?per_page=100&page=1",
+      "start": "2026-10-16T08:43:59.587489Z",
+      "end": "2026-10-16T08:44:04.900193Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "b14d3ccc4ad3478f27d9e3f6bdf0c34a1e1cbae2f50eb3850da39a2c10d1ff0e",
+      "body_sha256": "777d13e046464c51e0ceb76c0ae829c61fd628e7ebea8c7b0cee4d6227ccaae6",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970-ci",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38866728949",
+      "start": "2026-10-16T08:39:48.858203Z",
+      "end": "2026-10-16T08:39:50.019842Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "54eaab9c45b9fee57ca8c7c5e498ac4f54efa35100ad16fd8f139cf03a6e78c8",
+      "body_sha256": "afdba1cb7a4b33bce524e9221993977ec612efe2299263a8b4b983400e8f3d67",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173970/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:48.058384Z",
+      "end": "2026-10-16T08:39:49.137542Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "41c7ba91716de7782eaaee7d199c862e7266738b8a1ab10df8483463f0753aba",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173970/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:47.647967Z",
+      "end": "2026-10-16T08:39:48.851875Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "8c3adaee2409d9d59e080c4ba1890dbaa595223609bd23de3673659c259b64ee",
+      "body_sha256": "b7873a7cb6ba11850c7b9e7524c407a69aae11d78645f36a2e221928ca6ee9a2",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/fee013dd6a3dc0cbac29c2090e4dcd8b225e7c02",
+      "start": "2026-10-16T08:39:46.333156Z",
+      "end": "2026-10-16T08:39:47.624759Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "fd264589fdb29a151f9a47ccb7efeb8d6f9d42877cefc5497d0f393f443f4f00",
+      "body_sha256": "b4949958b4e46be4aa579fd77d8212eb1aa61408f8b863a8578cbbfc246b1b59",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173970",
+      "endpoint": "repos/openclaw/openclaw/pulls/173970",
+      "start": "2026-10-16T08:38:20.232674Z",
+      "end": "2026-10-16T08:38:23.059327Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6eb4d98118f8b543000453cdaf76eb89c4893fde04d3f6b2cafdaa630d614225",
+      "body_sha256": "554756a4653de9f4f79320e630acf0d229a724ca9a18bc6ab0a104165b68c36f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc174012",
+      "endpoint": "repos/openclaw/openclaw/pulls/174012",
+      "start": "2026-10-16T08:38:18.731231Z",
+      "end": "2026-10-16T08:38:20.319696Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "636f56e0eb0e197abc1857b54cfaeb9794ca4ef43f81c84939956a923e9ead34",
+      "body_sha256": "93097fb23e48eced0b0bc344bd99e0b48e9318d719b1a5c909af4dd55d254cfd",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-commits-p1",
+      "endpoint": "repos/earendil-works/pi/commits?since=2026-10-16T06%3A37%3A11Z&until=2026-10-16T08%3A35%3A23Z&per_page=100&page=1",
+      "start": "2026-10-16T08:36:44.038561Z",
+      "end": "2026-10-16T08:36:45.348580Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "4ce7e9f93d6213cac58eaa2053831818870ce3106da43a3d685b59a10e33584a",
+      "body_sha256": "f06b8a0bfb34fe124d7fade69971a9ada8fa76befa0bb8aedd06e72f77b31dbe",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-compaction-commit",
+      "endpoint": "repos/earendil-works/pi/commits/c4cf7957b4e6698a182925f4393240c1e3b23f41",
+      "start": "2026-10-16T08:38:20.274706Z",
+      "end": "2026-10-16T08:38:21.438042Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "b311ec19df5abfdc66273a7f98ddc91aae02addf0cc62e5ea5f91eb9e675f504",
+      "body_sha256": "57e4f15243ab4fd0eb5f1305ca1b33f8fd2480918b19d87fabb7c7c53a05fe60",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-current-runs",
+      "endpoint": "repos/earendil-works/pi/actions/runs?head_sha=790271cd0218b27068211771704f9e2d42500e9a&per_page=100&page=1",
+      "start": "2026-10-16T08:39:51.269575Z",
+      "end": "2026-10-16T08:39:52.992674Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "f4e7b74fa061528b1efc1fd42910c44f34128d276fa0e9495f86a5b991033166",
+      "body_sha256": "3891c14eb2c5391092c3d448f1a34d827c6d23602030b3d64de7047f4d710927",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-repo",
+      "endpoint": "repos/earendil-works/pi",
+      "start": "2026-10-16T08:36:42.612745Z",
+      "end": "2026-10-16T08:36:43.973369Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "91064a0578ae7ff8877969396b1866cd45198218da0787fd9959c4ab5ea326ee",
+      "body_sha256": "e142fa0199950d5676c5baf8120de0df2bf436fec7e47bacb4d4c70605bc85e5",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-terminate-restore-commit",
+      "endpoint": "repos/earendil-works/pi/commits/790271cd0218b27068211771704f9e2d42500e9a",
+      "start": "2026-10-16T08:38:21.443045Z",
+      "end": "2026-10-16T08:38:22.579779Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "be8414e6f355ab381397c78e90412c4755d9f431dafe9952d9254cafaf0854b1",
+      "body_sha256": "70c2055eec513a270e8cffb62ed156b36af0b5e478f03bf6e90b791107c54a7f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-terminate-type-commit",
+      "endpoint": "repos/earendil-works/pi/commits/6085986e4b4a55a36a872df9e438e1a55ffcba35",
+      "start": "2026-10-16T08:38:20.693549Z",
+      "end": "2026-10-16T08:38:22.448465Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "01068dc37925799347047de2551e0280a03b414f199bebfa07e281ba7401f27d",
+      "body_sha256": "1266dc5bc44a36179570a6906611ad4ba80ee901822d3822661c630362abad97",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi10858-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/10858/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:50.333385Z",
+      "end": "2026-10-16T08:39:51.613254Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "8e66bd918bfd54bb18631bbee4d240270bbc47639122a93bb595917073c1f8ce",
+      "body_sha256": "8a4235a0192036c68097c2bf186e8ac0d7c545883f11dc9c2eac9468a5d7878b",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "pi10858-issue",
+      "endpoint": "repos/earendil-works/pi/issues/10858",
+      "start": "2026-10-16T08:39:50.025844Z",
+      "end": "2026-10-16T08:39:51.285145Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "184a748740682de466a3e5804f91ae5d3244097a68e7a8ca96c833770d752746",
+      "body_sha256": "a18de9e9fb4d52fb44ca553b2925153425e345e45e8f98079728b26589f42d26",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi10942-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/10942/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:39:49.985783Z",
+      "end": "2026-10-16T08:39:51.264576Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "9cc5a76fd884577715ae9ca444da43b0308236474dfbcd9d1a95d88e1b4b83f3",
+      "body_sha256": "3d4e1c73cf3658b270d1027f5ebba979573c684faa36a1343d1f9f7f6c87708e",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "pi10942-issue",
+      "endpoint": "repos/earendil-works/pi/issues/10942",
+      "start": "2026-10-16T08:39:49.142538Z",
+      "end": "2026-10-16T08:39:50.328385Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "314f6d1e887c7915e3cd257461898a14fe2760c5a2d7ced6d72f52570c530632",
+      "body_sha256": "0ebd0c5f108b69abb13da01abc5ebb17c5162d2b6f119da8dd9db712180bb9af",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11000-inline-p1",
+      "endpoint": "repos/earendil-works/pi/pulls/11000/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:16.419606Z",
+      "end": "2026-10-16T08:38:17.603171Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "ce2d0dd97df5b63cf03fd2b4c71135606c2bff1997773d4b5e7820799cb63f66",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11000-issue-p1",
+      "endpoint": "repos/earendil-works/pi/issues/11000/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:16.330424Z",
+      "end": "2026-10-16T08:38:18.492161Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "d01c573cc3f2356d0226d7abb504fecba35c3554727bbd8c3e881aff5c9df4a8",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11000",
+      "endpoint": "repos/earendil-works/pi/pulls/11000",
+      "start": "2026-10-16T08:36:53.458047Z",
+      "end": "2026-10-16T08:36:54.987797Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "2b96355d77dabcced56368500e2af99ec0f65d0823b2c9ba076d94c12fa509f8",
+      "body_sha256": "e5916059b0cc1ea204b74a524fa0cb6e724a71712c87b2988dc3f7bf76bc0df2",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/11012/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:17.432664Z",
+      "end": "2026-10-16T08:38:18.606618Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "4307e710b8b063459f1b91f157e4a07224de105a3f522dea46e76d1023a24f06",
+      "body_sha256": "6d88eb8653e90f557553ccd2c01c38002aa03fea5dddee4afe852a06bd82e75a",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-issue",
+      "endpoint": "repos/earendil-works/pi/issues/11012",
+      "start": "2026-10-16T08:36:53.835489Z",
+      "end": "2026-10-16T08:36:55.032659Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "11d3f923287a56d40505fc7fc37574dac98e3094e42fc187342cc8ff38835de1",
+      "body_sha256": "f903a2a0fc2b72fe0fe0b42d75d3648fee74e528c1ff3d2bd39062c11e08d77a",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi790-ci",
+      "endpoint": "repos/earendil-works/pi/actions/runs/38873093464",
+      "start": "2026-10-16T08:43:59.588492Z",
+      "end": "2026-10-16T08:44:01.022432Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "276dad535a6778d4364a84471584fcfff28aa976740cc156680952cf722e7774",
+      "body_sha256": "2fe2bd0a5885db61c5c6bacb769aed0dcc75873f6b76a3cea19bb375d2bbab4a",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi790-net",
+      "endpoint": "repos/earendil-works/pi/compare/4954d760504c11df9b2cbdc040346107b6a8153d...790271cd0218b27068211771704f9e2d42500e9a",
+      "start": "2026-10-16T08:43:59.589491Z",
+      "end": "2026-10-16T08:44:01.058151Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "d9997b645952b468463cfe8d94198fc1543563c014224108e789231cfcafffc4",
+      "body_sha256": "1cc9796f593a52d27059c591327ec3b2c5df5b69751044ccca81bf726532a89f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/9602/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:17.611431Z",
+      "end": "2026-10-16T08:38:18.724435Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "6576527effdc9680c812ce6e2e1e8802e717314876ac52dd041ecaee819646a8",
+      "body_sha256": "54e0ae7cbb0e78b7f67d552ba86a567f10305b4a468845005791a908502e15e7",
+      "returned_count": 10,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-issue",
+      "endpoint": "repos/earendil-works/pi/issues/9602",
+      "start": "2026-10-16T08:36:54.583694Z",
+      "end": "2026-10-16T08:36:55.781757Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "affa7b3b387c88d916e3e1c224e21d3f4abf0631e713d684afc3dcc623769da9",
+      "body_sha256": "23b196c4f73e52fac42ce69aabef282b4d711b5eed63f50410563b00c1bad4a9",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-commits-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/commits?since=2026-10-16T06%3A37%3A11Z&until=2026-10-16T08%3A35%3A23Z&per_page=100&page=1",
+      "start": "2026-10-16T08:36:43.978584Z",
+      "end": "2026-10-16T08:36:45.455382Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "f701cd189907cfbf1cf6d06ad7e90633b75d89b6f6d5aa06d9331635fe2386e9",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-repo",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers",
+      "start": "2026-10-16T08:36:42.612238Z",
+      "end": "2026-10-16T08:36:43.955370Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "5ee8cf132baa6c01390fdd6e49fbc4519deee0505022ffbe2665214371d387d2",
+      "body_sha256": "542ae32c653b9e5fd04b91673f774aae95c1d6c1403691ed0c124b7639bb721c",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:15.136342Z",
+      "end": "2026-10-16T08:38:16.325390Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "665c61234eaba6ee75ea164e8fd00bd8d3a933ab4ab9596fb8a08a7fa0f46f27",
+      "body_sha256": "9901b72306128e000ecf26ebdeac5a891cff8d5b8387b0325fac4a80eebccb12",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:14.153055Z",
+      "end": "2026-10-16T08:38:15.287301Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "a0782d29df2f8ab1df3485590edfe70750ce2d1a33adedf81455e7284e194a96",
+      "body_sha256": "6f651ae924761f7e8d4687c2fdfe9b3159025f07328753877c45465a9efa841c",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857",
+      "start": "2026-10-16T08:36:52.049047Z",
+      "end": "2026-10-16T08:36:53.829491Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "38a72b27b61be67ef4df93dc453864a3a8743d8ac35a1b6f547b3ebe61cdbc47",
+      "body_sha256": "e57e32b9097899458d5725fd8ef2aef046a4dff1d51c6c97668b2d4a1f3844d3",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2864-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2864/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:13.036958Z",
+      "end": "2026-10-16T08:38:14.144346Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "17665d1382bf2f97b921ba3b50c741220a0aebf14a1465f7433f63ef99f1561a",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2864-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2864/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:12.769001Z",
+      "end": "2026-10-16T08:38:13.988883Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "11c8082c936a5792eb8b6abcff6eef24fc9c1fbb707495d0078ff9e3001ae8c1",
+      "body_sha256": "f16ae1fa34da7d17ecd767c29139639075062885a23783a83e7e9760c6c30aeb",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2864",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2864",
+      "start": "2026-10-16T08:36:51.256645Z",
+      "end": "2026-10-16T08:36:52.796527Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "e53d53afd0a6a481838bd970346658725e64e8d65f2ebdf36a2aabd6887e632a",
+      "body_sha256": "53d8137d43b364352ecbe764f0375de153becfcb77185a494a41b86ba8223398",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2866-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2866/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:13.995889Z",
+      "end": "2026-10-16T08:38:15.222800Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "942d8aabc6ba36d35cb3cffa3d9efc7f5c931eb0f61777779ff4bcb474b6c086",
+      "body_sha256": "7d828a4056de51a677a9f6f0b773835b07069202e097ecf1337f1ad963be42af",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2866-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2866/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:13.881952Z",
+      "end": "2026-10-16T08:38:15.129344Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "7e49c4b8254c1642ea716181778433ea61ce11c35b675a832b63eaa17690f74f",
+      "body_sha256": "93447640ee987ad948cc3bcf95efed7aeb04250196de61007a650e138b1cf404",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2866",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2866",
+      "start": "2026-10-16T08:36:51.474490Z",
+      "end": "2026-10-16T08:36:53.451048Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "ff3bc3f44b239384045673c4a4293a5853838201162d0e5032a31e07f08d852c",
+      "body_sha256": "612a29f3ad56bfe798ad7df6676d2fe8eb762104c48190ce4efeda321545ddb6",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:15.295211Z",
+      "end": "2026-10-16T08:38:16.412606Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "a17882e8694ccc4e358f88bca534cdc4b7975fa07f5fead288ca640c3b522dde",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2875/comments?per_page=100&page=1",
+      "start": "2026-10-16T08:38:15.230799Z",
+      "end": "2026-10-16T08:38:17.427315Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "902602a8b852d8996d03d71faad764e13c57ce0ce841357e40b1d66dd605c851",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875",
+      "start": "2026-10-16T08:36:52.802761Z",
+      "end": "2026-10-16T08:36:54.576387Z",
+      "exit_code": 0,
+      "error": null,
+      "parse_error": null,
+      "raw_sha256": "af9ffb43c1a4adcb0abf5bc833bbe69bbd5d5005fe9b111c75240d06222f21cb",
+      "body_sha256": "b725e4e51730f8caf5e3549a0e40db767a0b8b44a6b6b262d655fd80f82114a1",
+      "returned_count": null,
+      "pagination_link": null
+    }
+  ],
+  "frozen_audit": {
+    "path": "reports/runs/20261016T083523Z/frontier-checks.json",
+    "sha256": "a788703a02d8509dfafa1ca264d5ab69737d2ffdf47f9e2684f465f617826c86"
+  },
+  "ledger_entries": [
+    {
+      "id": "openclaw-persistent-restricted-continuation",
+      "url": "https://github.com/openclaw/openclaw/pull/173383",
+      "type": "merged_public_source_and_test_contract",
+      "author": "YuriyPopovDev",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "40a537626f5ba378d08c6c0678f99001af909a9c4e8a70f11884909ab3cd2590",
+      "claim": "Core distinguishes conversation versus turn policy lifetime, including additive grants. Compatible restricted owners persist an exact creation-policy hash and resume warm/cold; temporary first/subsequent turns preserve durable ownership. Changed/unattested managed policy selects a guarded successor; failed startup preserves predecessor. Context-engine successor projection reuses the admitted assembly, not a fresh background snapshot.",
+      "acceptance_delta": "Require actual native/Gateway restart with current authority, stable restrictive owner continuity, one-time legacy transition, temporary/additive-grant withdrawal, sender isolation, permitted and denied effect receipts, protected-owner refusal, failed successor preservation and prepared-assembly consistency.",
+      "validation_limits": "All31 immutable merge patches fully read. Main lifecycle suite explicitly uses synthetic native replies and in-memory bindings; separate SQLite reopen and file-backed context-engine tests exercise actual storage with synthetic native transport. Current-head CI success is run metadata only. Historical contributor archives/12turn24request/6allowed6denied/ABA proofs refer to older head27e2843f and were not downloaded or independently audited. Overlapping author counts are not additive. No live-model, memory, recall or latency claim.",
+      "known_residual": "Does not solve148329: authority/client-dependent dynamic tool schema, descriptions and membership can still change the fingerprint. Foundation attributed in body to mywondvision156651@7e56f0b802b8fe9deb3d5ed95b469fb50aa69278.",
+      "prepared_head_ci": {
+        "id": 38870439836,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38870439836",
+        "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T08:05:12Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact prepared-head CI completed/success; no jobs, logs or artifacts audited. Historic bot review refers to27e2843f. Maintainer vincentkoc explicitly accepted automatic guarded successors on2026-10-16T06:59:07Z; subsequent merge is metadata, not independent runtime proof.",
+      "discussion_limits": "Full issue8/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "vincentkoc",
+      "created_at": "2026-10-15T18:21:55Z",
+      "merged_at": "2026-10-16T08:07:39Z",
+      "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+      "merge_commit": "50982158d0883504d381db0a930948c0214de86a",
+      "authentic_parents": [
+        "d5342a4275b64a93b6addf022ed3bca3357ae5b7"
+      ],
+      "commit_author_login": "YuriyPopovDev",
+      "commit_author_name": "Yuriy",
+      "commit_committer_at": "2026-10-16T08:07:38Z",
+      "published_at": "2026-10-16T08:07:39Z",
+      "published_at_kind": "Current merge of existing public contribution; original proposal date retained.",
+      "files": [
+        {
+          "path": "docs/plugins/codex-harness-reference/restricted-turns.md",
+          "blob_sha": "38066afa65bf87040c3a84247cb1d9be9aa3a071",
+          "additions": 7,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness-reference_restricted-turns.md.patch",
+          "patch_sha256": "653359165f11fa7ed06450481c7bc45c19d15228f26b3bbc6039bea1b6f03e5e",
+          "patch_bytes": 1189,
+          "patch_fully_read": true
+        },
+        {
+          "path": "docs/plugins/codex-harness/configuration.md",
+          "blob_sha": "1f4fcfd78c62c433acfef8543ef6cc2dcee732f4",
+          "additions": 13,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness_configuration.md.patch",
+          "patch_sha256": "6fdb62fd08fdb6f5d953dbcb075d68df77274741d25afcbb6143bff2f067f28b",
+          "patch_bytes": 1494,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/attempt-startup.test.ts",
+          "blob_sha": "ec7630edebd048ce6163968765dad1749ce12f27",
+          "additions": 26,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+          "patch_sha256": "f63d643167e08235cc6fe12b3e57f69398a873e0de142a3ff33e78a195949ae9",
+          "patch_bytes": 2943,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/compact.client-ownership.test.ts",
+          "blob_sha": "b88a025035472b82f1a31d89b679b7cb0a9e82c5",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_compact.client-ownership.test.ts.patch",
+          "patch_sha256": "2370bb724d349dcbbbbc3b2b066e42afc4640dc53b5bf01864951b1d797d1e3c",
+          "patch_bytes": 239,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt-prompt.ts",
+          "blob_sha": "f267dbbcacd1c14c7e5cb53acbb3afa7f055a2a4",
+          "additions": 48,
+          "deletions": 18,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt-prompt.ts.patch",
+          "patch_sha256": "9df27e333bc96347a3a1cf43db7a37c85f493a4b03c6b4b7592466d40c377671",
+          "patch_bytes": 4848,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.configured-mcp.test.ts",
+          "blob_sha": "eef0054ce4c5e17e70e60835686b404dff8f602c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.configured-mcp.test.ts.patch",
+          "patch_sha256": "25d4737adfa21f03935a9d1b8ac4ceeb41a1da4af98b51294ce8d6a91d29bd6b",
+          "patch_bytes": 460,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.restricted-context-continuity.test.ts",
+          "blob_sha": "1681f0757ce1203f2672af727dd448d5d887b7dc",
+          "additions": 212,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.restricted-context-continuity.test.ts.patch",
+          "patch_sha256": "89829c710bec37f17bbc865b80722192ec4cd09587a04db9eacde9c0cf69d4ba",
+          "patch_bytes": 9363,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding-record-codec.ts",
+          "blob_sha": "85fcfe1c690867f260dec87986377cb41ef9995f",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding-record-codec.ts.patch",
+          "patch_sha256": "5508041ed7774f67c6a87e87fa88e80372a884bddb0a03e026993539cee385bb",
+          "patch_bytes": 587,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding.test.ts",
+          "blob_sha": "b7797a6c001924e9a815ab86969958fbe36fa963",
+          "additions": 43,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding.test.ts.patch",
+          "patch_sha256": "b19453e6d195532e2a12feab87644fefef08cb3dcff3a87e78b661e00523b9f2",
+          "patch_bytes": 2198,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-binding-policy.ts",
+          "blob_sha": "daf6c0d60fffd48146dde4cb7af6f270ecf2f867",
+          "additions": 1,
+          "deletions": 10,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-binding-policy.ts.patch",
+          "patch_sha256": "8646199bad6cf28ba9dc72def399f860ef10fbb53ab17cfa82656f54b2888b2f",
+          "patch_bytes": 962,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-fingerprints.ts",
+          "blob_sha": "c3bc0e0d87a53d4292531e26887f6decc2973f16",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-fingerprints.ts.patch",
+          "patch_sha256": "7d5018b1bde2589662268440e6f1a7b86429ad6b995133e83f16e37c87973c58",
+          "patch_bytes": 2309,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-io.ts",
+          "blob_sha": "9b9eb348358d8ed515ed055f133cb02039f6e688",
+          "additions": 21,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-io.ts.patch",
+          "patch_sha256": "2289a4d46dc748341f370010477b8fb3490ff45e0bf5928d6be18a0fd9613694",
+          "patch_bytes": 3463,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-run.ts",
+          "blob_sha": "7712bd6d55b46a07cc08ff5b327dad31175d2639",
+          "additions": 53,
+          "deletions": 32,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+          "patch_sha256": "7fa15488332734b10014f5ca060fb32fc0a7a764ae69bad75d326ce38d599624",
+          "patch_bytes": 6537,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-warm.ts",
+          "blob_sha": "04b026efb37cab5297f25b334d92f255ea3e9e9f",
+          "additions": 34,
+          "deletions": 9,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+          "patch_sha256": "3334c50035cbfcc2f17fadbd6004720434523ea1aa3e2572316357e82075421b",
+          "patch_bytes": 2925,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-web-search.test-support.ts",
+          "blob_sha": "bc5df878856e08465c8a6d5f81316760fa71729f",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-web-search.test-support.ts.patch",
+          "patch_sha256": "3dbba364b546a117aa0e1f8207f651944869d73d9920ccc9fc15516cc642e7f6",
+          "patch_bytes": 352,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.adoption.test.ts",
+          "blob_sha": "40823eef0c8de0f5437b1f081aa0a1191b4d07d3",
+          "additions": 5,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.adoption.test.ts.patch",
+          "patch_sha256": "d23bd0092f279d487cc6df9a60ffe9f49112769d7fcdbfe08eb8e1bbb0f0bf2e",
+          "patch_bytes": 2000,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.assignment-rotation.test.ts",
+          "blob_sha": "5cc72c03e4e6348be8549cce897ae071a3eac49c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.assignment-rotation.test.ts.patch",
+          "patch_sha256": "6ac5737ca56d990eab6efb5ac63757c3ec591c33e263cce15195b3e71645958a",
+          "patch_bytes": 334,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.binding.test.ts",
+          "blob_sha": "b8999334f070c28715f8d554e52bdad8201ad4a5",
+          "additions": 4,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.binding.test.ts.patch",
+          "patch_sha256": "c6e5edbd87308ac5c6d0c6abe81617e1ef2cd30d59e57bcc39da177cea908736",
+          "patch_bytes": 423,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.configured-mcp-ownership.test.ts",
+          "blob_sha": "ead8038150b5224880b4878d8b694f26406858cd",
+          "additions": 2,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+          "patch_sha256": "ac60e8137816cf2f5f738b7c1c4c671faebcea3338e95feb145314cc3aaa3c02",
+          "patch_bytes": 819,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.native.test.ts",
+          "blob_sha": "9af57476ecc5efebbd5459dec09e73f53de34584",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.native.test.ts.patch",
+          "patch_sha256": "3d9ed28c3b7115f833a772415e0a8f74af7de621dc12d11de5b7318f1a585c14",
+          "patch_bytes": 369,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.restricted-continuation.test.ts",
+          "blob_sha": "689ad58a7eb511106c9e3a224afa7ea519db16be",
+          "additions": 468,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.restricted-continuation.test.ts.patch",
+          "patch_sha256": "ab76c8c66081c256bc7713edf7f2aec97cdff3129c40e3eee6394d5be104d350",
+          "patch_bytes": 19018,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.test.ts",
+          "blob_sha": "9e144efb8b92d55c2ec952e718d0b18b527a8c1c",
+          "additions": 3,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.test.ts.patch",
+          "patch_sha256": "e548b33d1ee361572de2cf2e0440eca1294f74f9e1db7a3fa31a8111d562cc40",
+          "patch_bytes": 657,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.user-mcp-servers.test.ts",
+          "blob_sha": "0a92e3f27aaff98072c7b3c2dfb84d58ebee6729",
+          "additions": 1,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.user-mcp-servers.test.ts.patch",
+          "patch_sha256": "531f1d6a6b4a8abf79f1e428568327ab5dd46b6cee15ab56fb0b3eafbe8b3391",
+          "patch_bytes": 319,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-restricted-resume.ts",
+          "blob_sha": "e90dedd402a3272040fac116046ce02128bc10d9",
+          "additions": 92,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-restricted-resume.ts.patch",
+          "patch_sha256": "55bbac022d06a28b52ef6e68f25cdc14290e73f5dfec3144ab1d4034fabb4efd",
+          "patch_bytes": 3516,
+          "patch_fully_read": true
+        },
+        {
+          "path": "scripts/lib/ci-proof-test-inventory.mts",
+          "blob_sha": "e02988b7606418e6a2b5b11ce4a39ae878228f6e",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--scripts_lib_ci-proof-test-inventory.mts.patch",
+          "patch_sha256": "3d50ae96b100a82251851765c1ed67f7ce0716154ff6c19798f36ee1a041b641",
+          "patch_bytes": 1253,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/embedded-agent-runner/run/types.ts",
+          "blob_sha": "288f59ee1582088ebf015a993652e635e367fb02",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_embedded-agent-runner_run_types.ts.patch",
+          "patch_sha256": "8e8ad4869dfbf60e00f92e9ecd6a1498f74f91d29dd376d02343edcaf77adb3b",
+          "patch_bytes": 645,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.test.ts",
+          "blob_sha": "bbb6e2153c77acfafd841e0c4f4c5a49935654bc",
+          "additions": 166,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.test.ts.patch",
+          "patch_sha256": "858aa59f3f01969c17c49a3eb18ec5d1521580b73882fc99835ec8660dd5e9d9",
+          "patch_bytes": 5751,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.ts",
+          "blob_sha": "7714d500c58fbcad236a5f9695eb87649d9fd55b",
+          "additions": 29,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.ts.patch",
+          "patch_sha256": "9a0b42413ce3915d0282c41c0365f1f27df8f5204e1227e5947da81387358f96",
+          "patch_bytes": 2966,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.test.ts",
+          "blob_sha": "46a87bd2ed40c05665cab414a4cf65522bb7348b",
+          "additions": 41,
+          "deletions": 4,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.test.ts.patch",
+          "patch_sha256": "56543dfd8939f8342a72f455fe5df9566c6da19d142c542e7f7365b4137993be",
+          "patch_bytes": 5058,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.ts",
+          "blob_sha": "694f852de5cd0400214b21293b54005e1ab25d52",
+          "additions": 4,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.ts.patch",
+          "patch_sha256": "b67fda559da8f65551c9c931a91462c8fe323e1a9738940acc833357c7009ec7",
+          "patch_bytes": 2524,
+          "patch_fully_read": true
+        },
+        {
+          "path": "test/vitest/vitest.extension-database-workers-paths.mjs",
+          "blob_sha": "f31f69963c628288a63d760d6159888306593a39",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--test_vitest_vitest.extension-database-workers-paths.mjs.patch",
+          "patch_sha256": "5ab2416dbff23a3931792dbd60b12a84898381f07b1d06e946c84614b9f880d6",
+          "patch_bytes": 1218,
+          "patch_fully_read": true
+        }
+      ],
+      "changed_patches_fully_read": 31,
+      "observed_at": "2026-10-16T08:38:20.227674Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:18.496928Z",
+        "end": "2026-10-16T08:38:20.227674Z"
+      }
+    },
+    {
+      "id": "openclaw-fail-closed-recovery-reads",
+      "url": "https://github.com/openclaw/openclaw/pull/173970",
+      "type": "merged_public_source_and_test_contract",
+      "author": "steipete",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "e869810a4961ace3ce7c9ac70e505004bd66865e21bd09afe43c58d08c1baadd",
+      "claim": "Synthetic auth delegation rethrows unavailable-secret-owner and OAuth-refresh failures. Failed branch/context projection explicitly cancels compaction instead of pretending history is empty. Catalog filesystem read occurs outside malformed-JSON fallback so unreadable authored bytes are not planned over; genuine missing/malformed controls retain rebuild behavior.",
+      "acceptance_delta": "Require production request transport proof that unavailable credential owners and failed refresh produce no provider I/O, with healthy marker-only control. Inject history inspection faults at owning registered hook and preserve transcript bytes; inject catalog read I/O failure and preserve original bytes. Add stable-upgrade and base-fail/head-pass controls.",
+      "validation_limits": "All7 immutable merge patches fully read. Registered-hook tests assert cancel and no summary/auth lookup after synthetic branch/projection faults; catalog regression injectsFsSafeError/EIO through actual private-file store and preserves real bytes. Auth resolver tests do not prove final provider transport. Local focused/type/lint runs and new catalog pre-fix baseline did not finish; not passes or source regression failures. No live provider/deployment/execution here.",
+      "known_residual": "Public exact-head bot review still asks final transport/upgrade and baseline proof and gives P3 cancellation recovery-action finding. Author defers P3. Merge does not establish those requests completed.",
+      "prepared_head_ci": {
+        "id": 38866728949,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38866728949",
+        "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T07:33:28Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact prepared-head CI completed/failure. Complete69job metadata has check-lint-core-2 and aggregate openclaw/ci-gate failure. Author attributes lint to inheriteddebug-overlay consistent-return and admin-merge exception; we did not read logs, confirm cause/authority or turn red into green.",
+      "discussion_limits": "Full issue6/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T07:21:04Z",
+      "merged_at": "2026-10-16T08:13:19Z",
+      "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+      "merge_commit": "fee013dd6a3dc0cbac29c2090e4dcd8b225e7c02",
+      "authentic_parents": [
+        "d5f9a1eafe973438bc9fbb06674224799932f93a"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T08:13:18Z",
+      "published_at": "2026-10-16T08:13:19Z",
+      "published_at_kind": "Current merge of existing public contribution; original proposal date retained.",
+      "files": [
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.degraded-fallback.test.ts",
+          "blob_sha": "c340557745ffa5ea1a7d7a3273f396307146e626",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.degraded-fallback.test.ts.patch",
+          "patch_sha256": "8fce1657d42fe243ac43a747cbcda8dfba0f18954bd2113fea90b8449674bd5b",
+          "patch_bytes": 2317,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.ts",
+          "blob_sha": "4073a2ba299d849d5adc3d91d70f711010f75584",
+          "additions": 37,
+          "deletions": 37,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.ts.patch",
+          "patch_sha256": "2a8aebef6be63c5d1acd1210d229ece9827b96022ab5654770d810cec3b8125e",
+          "patch_bytes": 4846,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth-provider.ts",
+          "blob_sha": "08fb2b00faf1b25b326d09935532c7c52d2005e5",
+          "additions": 10,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth-provider.ts.patch",
+          "patch_sha256": "13066ce78d21f6c8f18ca06b7b0e44a1d7fbc5f706c2e9153a6690923aebbc0b",
+          "patch_bytes": 602,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.oauth-refresh-fail-closed.test.ts",
+          "blob_sha": "803f8a105f13ab1373024e6c219fbbdeef7a3d9e",
+          "additions": 42,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.oauth-refresh-fail-closed.test.ts.patch",
+          "patch_sha256": "ba87bfbc7fc7f2f7f52e7941749043bdb0867327d93ac2c68a824beb106ece37",
+          "patch_bytes": 2341,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.synthetic-fail-closed.test.ts",
+          "blob_sha": "5e3cf613a19e779c0fb06bbdadcc3526835f64b3",
+          "additions": 77,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.synthetic-fail-closed.test.ts.patch",
+          "patch_sha256": "b3636dfa0fc5ae900e094484f7148d873688794cbb49d77ad8c42c16e07e84b3",
+          "patch_bytes": 2878,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.root-authorship.test.ts",
+          "blob_sha": "f1e775a065c4cab042703c84e74aa9a3f9fae99b",
+          "additions": 90,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.root-authorship.test.ts.patch",
+          "patch_sha256": "c7fe99229a651cc952132f381eaabad25b903fafb06531cd64f44d959ba1d9c4",
+          "patch_bytes": 4344,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.ts",
+          "blob_sha": "1906943cef7f24239e170f6b758577f661ab79e4",
+          "additions": 4,
+          "deletions": 3,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.ts.patch",
+          "patch_sha256": "b8f6c9ad721a1549dcb82a44dcdb9ef21ed77241601f4c9c0eb5b939c6435059",
+          "patch_bytes": 633,
+          "patch_fully_read": true
+        }
+      ],
+      "changed_patches_fully_read": 7,
+      "observed_at": "2026-10-16T08:38:23.059327Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:20.232674Z",
+        "end": "2026-10-16T08:38:23.059327Z"
+      }
+    },
+    {
+      "id": "pi-model-specific-compaction-policy",
+      "url": "https://github.com/earendil-works/pi/commit/6085986e4b4a55a36a872df9e438e1a55ffcba35",
+      "type": "public_true_parent_commit_cluster_and_test_contract",
+      "author": "badlogic",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "5927eea38baed077fdb890e6f7f002807996a4999e0970c31c40ff330c8266c0",
+      "claim": "Exact provider/modelId overrides replace enabled/reserveTokens/keepRecentTokens/backgroundTokens field by field. Generation threshold resolves current model; overflow recovery resolves the checkpointed request model; compaction selection/cut/summary sizing resolves its selected model. Terminate boolean type/noop regression and read-only StorageRequestError documentation are companion changes, not new termination/storage runtime implementation.",
+      "acceptance_delta": "Pin and record policy/model snapshots for threshold, request-overflow and compaction selection/retries across model changes and restarts. Test matching/nonmatching override, enabledfalse and zero values, summary sizing, changed policy across phases, with real final effects before full-harness status upgrade.",
+      "validation_limits": "All17 patches across3true-parent commits read; first6085986e introduces all9final changed files despite terminate title; c4cf7957 erroneously drops type/test/storage doc;790271cd restores them. Aggregate parent4954d760..head790271cd has9file blob SHAs exactly equal to6085986e tree. Three faux-provider regression cases; no local or upstream test execution.",
+      "known_residual": "No independent provider/model-switch/restart proof or measured quality/token/cost improvement.",
+      "prepared_head_ci": {
+        "id": 38873093464,
+        "html_url": "https://github.com/earendil-works/pi/actions/runs/38873093464",
+        "head_sha": "790271cd0218b27068211771704f9e2d42500e9a",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T08:23:31Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "True CI38873093464 at restoredhead790271cd completed/failure. Other successful label/catalog/Nix workflows do not replace it. No jobs/logs or failure cause audited.",
+      "discussion_limits": "Both issue bodies and full3comments each read; original requests byfinnvoor10942 andjpenilla10858. badlogic collaborator closure comments explicitly AI-generated by/wr and corroborate collision/restore; source patches are primary evidence.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_name": "Mario Zechner",
+      "commits": [
+        {
+          "sha": "6085986e4b4a55a36a872df9e438e1a55ffcba35",
+          "message": "fix(durable): type ToolControl.terminate as boolean\n\nThe type change and changelog entry landed in 1de1b98e7; this adds the\nregression test for terminate: false.\n\ncloses #10858",
+          "authentic_parents": [
+            "4954d760504c11df9b2cbdc040346107b6a8153d"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:19:56Z",
+          "stats": {
+            "total": 146,
+            "additions": 132,
+            "deletions": 14
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 12,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "0a13a8489f13febc9681cfc9822155a50f986321f77634add82db1b0ae38377f",
+              "patch_bytes": 928,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 7,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_README.md.patch",
+              "patch_sha256": "b125255ef1c062baad954a0a5b4a7337bd069513c0f856bfc0dbae58cb794d19",
+              "patch_bytes": 3431,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/docs/spec.md",
+              "blob_sha": "74fe6193cb526a1c51fe66c528c961878cb0edad",
+              "additions": 13,
+              "deletions": 4,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_docs_spec.md.patch",
+              "patch_sha256": "9d513734763caf2c6301d38faf49ab226a707b5462a7b000d29af56ce5c50e49",
+              "patch_bytes": 3816,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/compaction.ts",
+              "blob_sha": "4cf1966ca5e96334003b13f72bf5b2e734ce3d10",
+              "additions": 15,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_compaction.ts.patch",
+              "patch_sha256": "892d37404d4a1c5d033ee6f823419d065797f2c5c5aad05b964396f4a1ac29bb",
+              "patch_bytes": 1915,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/generation.ts",
+              "blob_sha": "005436ce5b6511987b17a3a0d8729609124ac80e",
+              "additions": 5,
+              "deletions": 5,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_generation.ts.patch",
+              "patch_sha256": "4233cb2fae58c7f382ba0e088456d587e7861b67ad5c17aa8e8ee3657a89f6f9",
+              "patch_bytes": 1955,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 13,
+              "deletions": 3,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "174bbfa95687376a63686fff4421260e941f13ca4d4f9cf94bb18ba6e14131f5",
+              "patch_bytes": 2022,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/index.ts",
+              "blob_sha": "546c6ffa6db024b48a5a25ada0311a03bd542a8c",
+              "additions": 1,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_index.ts.patch",
+              "patch_sha256": "9ce2cf2b583637137cbe0b6e393fbb281de91fba91d22f2fde58f161f7652189",
+              "patch_bytes": 173,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-compaction.test.ts",
+              "blob_sha": "ebea5e8a898e6a242bdbc44599e954e774b01d0c",
+              "additions": 49,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-compaction.test.ts.patch",
+              "patch_sha256": "ac7306d73a4604b3b52122902bb3a52abfd32de6a9409d0cf4479c02aeeceef6",
+              "patch_bytes": 2291,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "c4cf7957b4e6698a182925f4393240c1e3b23f41",
+          "message": "feat(durable): per-model compaction settings via compaction.modelOverrides\n\nOverrides keyed by provider/modelId apply at the threshold check, overflow\nrecovery, and compaction range selection.\n\ncloses #10942",
+          "authentic_parents": [
+            "6085986e4b4a55a36a872df9e438e1a55ffcba35"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:12Z",
+          "stats": {
+            "total": 30,
+            "additions": 2,
+            "deletions": 28
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "83cf7c08b8cec753e433e87c56251a72cc2d1d3c",
+              "additions": 0,
+              "deletions": 8,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "232764ca2588a7695197407ee571434e92390fb7d00fe1671a01e5c9fdc6360a",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "7b137cbee6cd19971016372965773a7c0748689e",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_README.md.patch",
+              "patch_sha256": "45e5a63bc1a1ea4532fb0d32298600f15495a73685ce3ec0491fa67c02f0a8ca",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "6c30aa3b7eca6254a02d3190991650be4647d1fe",
+              "additions": 1,
+              "deletions": 2,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "a33fdacc9b000e7a9d9e428719af222e27a5e709dcc0210030373ccd71a14e8c",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "75b8a9bd7a431308ac7cbf2c1b845175e13e078d",
+              "additions": 0,
+              "deletions": 17,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "a17cb346ab98202e30ac9607cc1ab7004fa344c29a97958e784b922f8098b54a",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "790271cd0218b27068211771704f9e2d42500e9a",
+          "message": "fix(durable): restore ToolControl.terminate changes dropped by c4cf7957b\n\nc4cf7957b was built from a tree that predates 6085986e4 and reverted its\nterminate type change, regression test, and changelog entries.",
+          "authentic_parents": [
+            "c4cf7957b4e6698a182925f4393240c1e3b23f41"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:58Z",
+          "stats": {
+            "total": 30,
+            "additions": 28,
+            "deletions": 2
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 8,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "ce5ab1a9f7ff1cc711cdf7904c29abdc5d5405b7c21b737cb7f6cd67fafd3c37",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_README.md.patch",
+              "patch_sha256": "daefd520e164e26adf95464d79b9e7e45d0b76db87453cf5853ada346445d3ec",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 2,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "69562210929fce426ab504a9453d04187f0769ac72d6b4295b186aef234be9cb",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        }
+      ],
+      "published_at": "2026-10-16T08:19:56Z",
+      "published_at_kind": "First actual implementation commit time, not the misleading feature-titled next commit.",
+      "net_final_changed_files": 9,
+      "changed_patches_fully_read": 17,
+      "observed_at": "2026-10-16T08:38:22.448465Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:20.693549Z",
+        "end": "2026-10-16T08:38:22.448465Z"
+      }
+    }
+  ],
+  "report": "research/2026-10-16-continuation-and-fail-closed.md"
+}

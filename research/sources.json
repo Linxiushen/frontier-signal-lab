@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T06:49:36.946289+00:00",
+  "last_updated_at": "2026-10-16T08:56:55.049798+00:00",
   "observation_note": "Append-only current H1/H2 public source observations and one fixed-point LayerNorm saved-operand diagnostic; historical dates/authorship and prior failed CE/training results retained.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -1804,6 +1804,942 @@
       "protocol_sha256": "048f232f2d5367bbe548ccc334c81903db14d3d950bfb4ca1ec8a4703d8e9869",
       "review_record": "research/2026-10-16-norm-saves-and-execution.md",
       "evidence_record": "research/evidence/2026-10-16-norm-saves-and-execution.json"
+    },
+    {
+      "id": "openclaw-persistent-restricted-continuation",
+      "url": "https://github.com/openclaw/openclaw/pull/173383",
+      "type": "merged_public_source_and_test_contract",
+      "author": "YuriyPopovDev",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "40a537626f5ba378d08c6c0678f99001af909a9c4e8a70f11884909ab3cd2590",
+      "claim": "Core distinguishes conversation versus turn policy lifetime, including additive grants. Compatible restricted owners persist an exact creation-policy hash and resume warm/cold; temporary first/subsequent turns preserve durable ownership. Changed/unattested managed policy selects a guarded successor; failed startup preserves predecessor. Context-engine successor projection reuses the admitted assembly, not a fresh background snapshot.",
+      "acceptance_delta": "Require actual native/Gateway restart with current authority, stable restrictive owner continuity, one-time legacy transition, temporary/additive-grant withdrawal, sender isolation, permitted and denied effect receipts, protected-owner refusal, failed successor preservation and prepared-assembly consistency.",
+      "validation_limits": "All31 immutable merge patches fully read. Main lifecycle suite explicitly uses synthetic native replies and in-memory bindings; separate SQLite reopen and file-backed context-engine tests exercise actual storage with synthetic native transport. Current-head CI success is run metadata only. Historical contributor archives/12turn24request/6allowed6denied/ABA proofs refer to older head27e2843f and were not downloaded or independently audited. Overlapping author counts are not additive. No live-model, memory, recall or latency claim.",
+      "known_residual": "Does not solve148329: authority/client-dependent dynamic tool schema, descriptions and membership can still change the fingerprint. Foundation attributed in body to mywondvision156651@7e56f0b802b8fe9deb3d5ed95b469fb50aa69278.",
+      "prepared_head_ci": {
+        "id": 38870439836,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38870439836",
+        "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T08:05:12Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact prepared-head CI completed/success; no jobs, logs or artifacts audited. Historic bot review refers to27e2843f. Maintainer vincentkoc explicitly accepted automatic guarded successors on2026-10-16T06:59:07Z; subsequent merge is metadata, not independent runtime proof.",
+      "discussion_limits": "Full issue8/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "vincentkoc",
+      "created_at": "2026-10-15T18:21:55Z",
+      "merged_at": "2026-10-16T08:07:39Z",
+      "head_sha": "9fbda548dcc9e3dbb77859eeca8ba4a8ef4102a3",
+      "merge_commit": "50982158d0883504d381db0a930948c0214de86a",
+      "authentic_parents": [
+        "d5342a4275b64a93b6addf022ed3bca3357ae5b7"
+      ],
+      "commit_author_login": "YuriyPopovDev",
+      "commit_author_name": "Yuriy",
+      "commit_committer_at": "2026-10-16T08:07:38Z",
+      "published_at": "2026-10-16T08:07:39Z",
+      "published_at_kind": "Current merge of existing public contribution; original proposal date retained.",
+      "files": [
+        {
+          "path": "docs/plugins/codex-harness-reference/restricted-turns.md",
+          "blob_sha": "38066afa65bf87040c3a84247cb1d9be9aa3a071",
+          "additions": 7,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness-reference_restricted-turns.md.patch",
+          "patch_sha256": "653359165f11fa7ed06450481c7bc45c19d15228f26b3bbc6039bea1b6f03e5e",
+          "patch_bytes": 1189,
+          "patch_fully_read": true
+        },
+        {
+          "path": "docs/plugins/codex-harness/configuration.md",
+          "blob_sha": "1f4fcfd78c62c433acfef8543ef6cc2dcee732f4",
+          "additions": 13,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--docs_plugins_codex-harness_configuration.md.patch",
+          "patch_sha256": "6fdb62fd08fdb6f5d953dbcb075d68df77274741d25afcbb6143bff2f067f28b",
+          "patch_bytes": 1494,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/attempt-startup.test.ts",
+          "blob_sha": "ec7630edebd048ce6163968765dad1749ce12f27",
+          "additions": 26,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+          "patch_sha256": "f63d643167e08235cc6fe12b3e57f69398a873e0de142a3ff33e78a195949ae9",
+          "patch_bytes": 2943,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/compact.client-ownership.test.ts",
+          "blob_sha": "b88a025035472b82f1a31d89b679b7cb0a9e82c5",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_compact.client-ownership.test.ts.patch",
+          "patch_sha256": "2370bb724d349dcbbbbc3b2b066e42afc4640dc53b5bf01864951b1d797d1e3c",
+          "patch_bytes": 239,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt-prompt.ts",
+          "blob_sha": "f267dbbcacd1c14c7e5cb53acbb3afa7f055a2a4",
+          "additions": 48,
+          "deletions": 18,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt-prompt.ts.patch",
+          "patch_sha256": "9df27e333bc96347a3a1cf43db7a37c85f493a4b03c6b4b7592466d40c377671",
+          "patch_bytes": 4848,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.configured-mcp.test.ts",
+          "blob_sha": "eef0054ce4c5e17e70e60835686b404dff8f602c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.configured-mcp.test.ts.patch",
+          "patch_sha256": "25d4737adfa21f03935a9d1b8ac4ceeb41a1da4af98b51294ce8d6a91d29bd6b",
+          "patch_bytes": 460,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/run-attempt.restricted-context-continuity.test.ts",
+          "blob_sha": "1681f0757ce1203f2672af727dd448d5d887b7dc",
+          "additions": 212,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_run-attempt.restricted-context-continuity.test.ts.patch",
+          "patch_sha256": "89829c710bec37f17bbc865b80722192ec4cd09587a04db9eacde9c0cf69d4ba",
+          "patch_bytes": 9363,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding-record-codec.ts",
+          "blob_sha": "85fcfe1c690867f260dec87986377cb41ef9995f",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding-record-codec.ts.patch",
+          "patch_sha256": "5508041ed7774f67c6a87e87fa88e80372a884bddb0a03e026993539cee385bb",
+          "patch_bytes": 587,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/session-binding.test.ts",
+          "blob_sha": "b7797a6c001924e9a815ab86969958fbe36fa963",
+          "additions": 43,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_session-binding.test.ts.patch",
+          "patch_sha256": "b19453e6d195532e2a12feab87644fefef08cb3dcff3a87e78b661e00523b9f2",
+          "patch_bytes": 2198,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-binding-policy.ts",
+          "blob_sha": "daf6c0d60fffd48146dde4cb7af6f270ecf2f867",
+          "additions": 1,
+          "deletions": 10,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-binding-policy.ts.patch",
+          "patch_sha256": "8646199bad6cf28ba9dc72def399f860ef10fbb53ab17cfa82656f54b2888b2f",
+          "patch_bytes": 962,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-fingerprints.ts",
+          "blob_sha": "c3bc0e0d87a53d4292531e26887f6decc2973f16",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-fingerprints.ts.patch",
+          "patch_sha256": "7d5018b1bde2589662268440e6f1a7b86429ad6b995133e83f16e37c87973c58",
+          "patch_bytes": 2309,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-io.ts",
+          "blob_sha": "9b9eb348358d8ed515ed055f133cb02039f6e688",
+          "additions": 21,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-io.ts.patch",
+          "patch_sha256": "2289a4d46dc748341f370010477b8fb3490ff45e0bf5928d6be18a0fd9613694",
+          "patch_bytes": 3463,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-run.ts",
+          "blob_sha": "7712bd6d55b46a07cc08ff5b327dad31175d2639",
+          "additions": 53,
+          "deletions": 32,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+          "patch_sha256": "7fa15488332734b10014f5ca060fb32fc0a7a764ae69bad75d326ce38d599624",
+          "patch_bytes": 6537,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-warm.ts",
+          "blob_sha": "04b026efb37cab5297f25b334d92f255ea3e9e9f",
+          "additions": 34,
+          "deletions": 9,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+          "patch_sha256": "3334c50035cbfcc2f17fadbd6004720434523ea1aa3e2572316357e82075421b",
+          "patch_bytes": 2925,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-web-search.test-support.ts",
+          "blob_sha": "bc5df878856e08465c8a6d5f81316760fa71729f",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle-web-search.test-support.ts.patch",
+          "patch_sha256": "3dbba364b546a117aa0e1f8207f651944869d73d9920ccc9fc15516cc642e7f6",
+          "patch_bytes": 352,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.adoption.test.ts",
+          "blob_sha": "40823eef0c8de0f5437b1f081aa0a1191b4d07d3",
+          "additions": 5,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.adoption.test.ts.patch",
+          "patch_sha256": "d23bd0092f279d487cc6df9a60ffe9f49112769d7fcdbfe08eb8e1bbb0f0bf2e",
+          "patch_bytes": 2000,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.assignment-rotation.test.ts",
+          "blob_sha": "5cc72c03e4e6348be8549cce897ae071a3eac49c",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.assignment-rotation.test.ts.patch",
+          "patch_sha256": "6ac5737ca56d990eab6efb5ac63757c3ec591c33e263cce15195b3e71645958a",
+          "patch_bytes": 334,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.binding.test.ts",
+          "blob_sha": "b8999334f070c28715f8d554e52bdad8201ad4a5",
+          "additions": 4,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.binding.test.ts.patch",
+          "patch_sha256": "c6e5edbd87308ac5c6d0c6abe81617e1ef2cd30d59e57bcc39da177cea908736",
+          "patch_bytes": 423,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.configured-mcp-ownership.test.ts",
+          "blob_sha": "ead8038150b5224880b4878d8b694f26406858cd",
+          "additions": 2,
+          "deletions": 2,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+          "patch_sha256": "ac60e8137816cf2f5f738b7c1c4c671faebcea3338e95feb145314cc3aaa3c02",
+          "patch_bytes": 819,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.native.test.ts",
+          "blob_sha": "9af57476ecc5efebbd5459dec09e73f53de34584",
+          "additions": 1,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.native.test.ts.patch",
+          "patch_sha256": "3d9ed28c3b7115f833a772415e0a8f74af7de621dc12d11de5b7318f1a585c14",
+          "patch_bytes": 369,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.restricted-continuation.test.ts",
+          "blob_sha": "689ad58a7eb511106c9e3a224afa7ea519db16be",
+          "additions": 468,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.restricted-continuation.test.ts.patch",
+          "patch_sha256": "ab76c8c66081c256bc7713edf7f2aec97cdff3129c40e3eee6394d5be104d350",
+          "patch_bytes": 19018,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.test.ts",
+          "blob_sha": "9e144efb8b92d55c2ec952e718d0b18b527a8c1c",
+          "additions": 3,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.test.ts.patch",
+          "patch_sha256": "e548b33d1ee361572de2cf2e0440eca1294f74f9e1db7a3fa31a8111d562cc40",
+          "patch_bytes": 657,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.user-mcp-servers.test.ts",
+          "blob_sha": "0a92e3f27aaff98072c7b3c2dfb84d58ebee6729",
+          "additions": 1,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-lifecycle.user-mcp-servers.test.ts.patch",
+          "patch_sha256": "531f1d6a6b4a8abf79f1e428568327ab5dd46b6cee15ab56fb0b3eafbe8b3391",
+          "patch_bytes": 319,
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-restricted-resume.ts",
+          "blob_sha": "e90dedd402a3272040fac116046ce02128bc10d9",
+          "additions": 92,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--extensions_codex_src_app-server_thread-restricted-resume.ts.patch",
+          "patch_sha256": "55bbac022d06a28b52ef6e68f25cdc14290e73f5dfec3144ab1d4034fabb4efd",
+          "patch_bytes": 3516,
+          "patch_fully_read": true
+        },
+        {
+          "path": "scripts/lib/ci-proof-test-inventory.mts",
+          "blob_sha": "e02988b7606418e6a2b5b11ce4a39ae878228f6e",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--scripts_lib_ci-proof-test-inventory.mts.patch",
+          "patch_sha256": "3d50ae96b100a82251851765c1ed67f7ce0716154ff6c19798f36ee1a041b641",
+          "patch_bytes": 1253,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/embedded-agent-runner/run/types.ts",
+          "blob_sha": "288f59ee1582088ebf015a993652e635e367fb02",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_embedded-agent-runner_run_types.ts.patch",
+          "patch_sha256": "8e8ad4869dfbf60e00f92e9ecd6a1498f74f91d29dd376d02343edcaf77adb3b",
+          "patch_bytes": 645,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.test.ts",
+          "blob_sha": "bbb6e2153c77acfafd841e0c4f4c5a49935654bc",
+          "additions": 166,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.test.ts.patch",
+          "patch_sha256": "858aa59f3f01969c17c49a3eb18ec5d1521580b73882fc99835ec8660dd5e9d9",
+          "patch_bytes": 5751,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/execution-environment.ts",
+          "blob_sha": "7714d500c58fbcad236a5f9695eb87649d9fd55b",
+          "additions": 29,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_execution-environment.ts.patch",
+          "patch_sha256": "9a0b42413ce3915d0282c41c0365f1f27df8f5204e1227e5947da81387358f96",
+          "patch_bytes": 2966,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.test.ts",
+          "blob_sha": "46a87bd2ed40c05665cab414a4cf65522bb7348b",
+          "additions": 41,
+          "deletions": 4,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.test.ts.patch",
+          "patch_sha256": "56543dfd8939f8342a72f455fe5df9566c6da19d142c542e7f7365b4137993be",
+          "patch_bytes": 5058,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/harness/selection.ts",
+          "blob_sha": "694f852de5cd0400214b21293b54005e1ab25d52",
+          "additions": 4,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--src_agents_harness_selection.ts.patch",
+          "patch_sha256": "b67fda559da8f65551c9c931a91462c8fe323e1a9738940acc833357c7009ec7",
+          "patch_bytes": 2524,
+          "patch_fully_read": true
+        },
+        {
+          "path": "test/vitest/vitest.extension-database-workers-paths.mjs",
+          "blob_sha": "f31f69963c628288a63d760d6159888306593a39",
+          "additions": 2,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173383-merge--test_vitest_vitest.extension-database-workers-paths.mjs.patch",
+          "patch_sha256": "5ab2416dbff23a3931792dbd60b12a84898381f07b1d06e946c84614b9f880d6",
+          "patch_bytes": 1218,
+          "patch_fully_read": true
+        }
+      ],
+      "changed_patches_fully_read": 31,
+      "observed_at": "2026-10-16T08:38:20.227674Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:18.496928Z",
+        "end": "2026-10-16T08:38:20.227674Z"
+      }
+    },
+    {
+      "id": "openclaw-fail-closed-recovery-reads",
+      "url": "https://github.com/openclaw/openclaw/pull/173970",
+      "type": "merged_public_source_and_test_contract",
+      "author": "steipete",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "e869810a4961ace3ce7c9ac70e505004bd66865e21bd09afe43c58d08c1baadd",
+      "claim": "Synthetic auth delegation rethrows unavailable-secret-owner and OAuth-refresh failures. Failed branch/context projection explicitly cancels compaction instead of pretending history is empty. Catalog filesystem read occurs outside malformed-JSON fallback so unreadable authored bytes are not planned over; genuine missing/malformed controls retain rebuild behavior.",
+      "acceptance_delta": "Require production request transport proof that unavailable credential owners and failed refresh produce no provider I/O, with healthy marker-only control. Inject history inspection faults at owning registered hook and preserve transcript bytes; inject catalog read I/O failure and preserve original bytes. Add stable-upgrade and base-fail/head-pass controls.",
+      "validation_limits": "All7 immutable merge patches fully read. Registered-hook tests assert cancel and no summary/auth lookup after synthetic branch/projection faults; catalog regression injectsFsSafeError/EIO through actual private-file store and preserves real bytes. Auth resolver tests do not prove final provider transport. Local focused/type/lint runs and new catalog pre-fix baseline did not finish; not passes or source regression failures. No live provider/deployment/execution here.",
+      "known_residual": "Public exact-head bot review still asks final transport/upgrade and baseline proof and gives P3 cancellation recovery-action finding. Author defers P3. Merge does not establish those requests completed.",
+      "prepared_head_ci": {
+        "id": 38866728949,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38866728949",
+        "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T07:33:28Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact prepared-head CI completed/failure. Complete69job metadata has check-lint-core-2 and aggregate openclaw/ci-gate failure. Author attributes lint to inheriteddebug-overlay consistent-return and admin-merge exception; we did not read logs, confirm cause/authority or turn red into green.",
+      "discussion_limits": "Full issue6/inline0 arrays fetched; current author/maintainer and bot review text read. No authoritative review-thread resolution query.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T07:21:04Z",
+      "merged_at": "2026-10-16T08:13:19Z",
+      "head_sha": "14445749fa0221d3f4be3595d6c0ee873270cf37",
+      "merge_commit": "fee013dd6a3dc0cbac29c2090e4dcd8b225e7c02",
+      "authentic_parents": [
+        "d5f9a1eafe973438bc9fbb06674224799932f93a"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T08:13:18Z",
+      "published_at": "2026-10-16T08:13:19Z",
+      "published_at_kind": "Current merge of existing public contribution; original proposal date retained.",
+      "files": [
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.degraded-fallback.test.ts",
+          "blob_sha": "c340557745ffa5ea1a7d7a3273f396307146e626",
+          "additions": 49,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.degraded-fallback.test.ts.patch",
+          "patch_sha256": "8fce1657d42fe243ac43a747cbcda8dfba0f18954bd2113fea90b8449674bd5b",
+          "patch_bytes": 2317,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/agent-hooks/compaction-safeguard.ts",
+          "blob_sha": "4073a2ba299d849d5adc3d91d70f711010f75584",
+          "additions": 37,
+          "deletions": 37,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_agent-hooks_compaction-safeguard.ts.patch",
+          "patch_sha256": "2a8aebef6be63c5d1acd1210d229ece9827b96022ab5654770d810cec3b8125e",
+          "patch_bytes": 4846,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth-provider.ts",
+          "blob_sha": "08fb2b00faf1b25b326d09935532c7c52d2005e5",
+          "additions": 10,
+          "deletions": 5,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth-provider.ts.patch",
+          "patch_sha256": "13066ce78d21f6c8f18ca06b7b0e44a1d7fbc5f706c2e9153a6690923aebbc0b",
+          "patch_bytes": 602,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.oauth-refresh-fail-closed.test.ts",
+          "blob_sha": "803f8a105f13ab1373024e6c219fbbdeef7a3d9e",
+          "additions": 42,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.oauth-refresh-fail-closed.test.ts.patch",
+          "patch_sha256": "ba87bfbc7fc7f2f7f52e7941749043bdb0867327d93ac2c68a824beb106ece37",
+          "patch_bytes": 2341,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/model-auth.synthetic-fail-closed.test.ts",
+          "blob_sha": "5e3cf613a19e779c0fb06bbdadcc3526835f64b3",
+          "additions": 77,
+          "deletions": 0,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_model-auth.synthetic-fail-closed.test.ts.patch",
+          "patch_sha256": "b3636dfa0fc5ae900e094484f7148d873688794cbb49d77ad8c42c16e07e84b3",
+          "patch_bytes": 2878,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.root-authorship.test.ts",
+          "blob_sha": "f1e775a065c4cab042703c84e74aa9a3f9fae99b",
+          "additions": 90,
+          "deletions": 1,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.root-authorship.test.ts.patch",
+          "patch_sha256": "c7fe99229a651cc952132f381eaabad25b903fafb06531cd64f44d959ba1d9c4",
+          "patch_bytes": 4344,
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/models-config.ts",
+          "blob_sha": "1906943cef7f24239e170f6b758577f661ab79e4",
+          "additions": 4,
+          "deletions": 3,
+          "saved_patch": "frontier-raw/patches/oc173970-merge--src_agents_models-config.ts.patch",
+          "patch_sha256": "b8f6c9ad721a1549dcb82a44dcdb9ef21ed77241601f4c9c0eb5b939c6435059",
+          "patch_bytes": 633,
+          "patch_fully_read": true
+        }
+      ],
+      "changed_patches_fully_read": 7,
+      "observed_at": "2026-10-16T08:38:23.059327Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:20.232674Z",
+        "end": "2026-10-16T08:38:23.059327Z"
+      }
+    },
+    {
+      "id": "pi-model-specific-compaction-policy",
+      "url": "https://github.com/earendil-works/pi/commit/6085986e4b4a55a36a872df9e438e1a55ffcba35",
+      "type": "public_true_parent_commit_cluster_and_test_contract",
+      "author": "badlogic",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "5927eea38baed077fdb890e6f7f002807996a4999e0970c31c40ff330c8266c0",
+      "claim": "Exact provider/modelId overrides replace enabled/reserveTokens/keepRecentTokens/backgroundTokens field by field. Generation threshold resolves current model; overflow recovery resolves the checkpointed request model; compaction selection/cut/summary sizing resolves its selected model. Terminate boolean type/noop regression and read-only StorageRequestError documentation are companion changes, not new termination/storage runtime implementation.",
+      "acceptance_delta": "Pin and record policy/model snapshots for threshold, request-overflow and compaction selection/retries across model changes and restarts. Test matching/nonmatching override, enabledfalse and zero values, summary sizing, changed policy across phases, with real final effects before full-harness status upgrade.",
+      "validation_limits": "All17 patches across3true-parent commits read; first6085986e introduces all9final changed files despite terminate title; c4cf7957 erroneously drops type/test/storage doc;790271cd restores them. Aggregate parent4954d760..head790271cd has9file blob SHAs exactly equal to6085986e tree. Three faux-provider regression cases; no local or upstream test execution.",
+      "known_residual": "No independent provider/model-switch/restart proof or measured quality/token/cost improvement.",
+      "prepared_head_ci": {
+        "id": 38873093464,
+        "html_url": "https://github.com/earendil-works/pi/actions/runs/38873093464",
+        "head_sha": "790271cd0218b27068211771704f9e2d42500e9a",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T08:23:31Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "True CI38873093464 at restoredhead790271cd completed/failure. Other successful label/catalog/Nix workflows do not replace it. No jobs/logs or failure cause audited.",
+      "discussion_limits": "Both issue bodies and full3comments each read; original requests byfinnvoor10942 andjpenilla10858. badlogic collaborator closure comments explicitly AI-generated by/wr and corroborate collision/restore; source patches are primary evidence.",
+      "execution": "not_installed_copied_or_executed",
+      "status": "source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-continuation-and-fail-closed.md",
+      "evidence_record": "research/evidence/2026-10-16-continuation-and-fail-closed.json",
+      "attribution_limits": "Public contribution metadata, no employment, age or private-roadmap inference.",
+      "author_name": "Mario Zechner",
+      "commits": [
+        {
+          "sha": "6085986e4b4a55a36a872df9e438e1a55ffcba35",
+          "message": "fix(durable): type ToolControl.terminate as boolean\n\nThe type change and changelog entry landed in 1de1b98e7; this adds the\nregression test for terminate: false.\n\ncloses #10858",
+          "authentic_parents": [
+            "4954d760504c11df9b2cbdc040346107b6a8153d"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:19:56Z",
+          "stats": {
+            "total": 146,
+            "additions": 132,
+            "deletions": 14
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 12,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "0a13a8489f13febc9681cfc9822155a50f986321f77634add82db1b0ae38377f",
+              "patch_bytes": 928,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 7,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_README.md.patch",
+              "patch_sha256": "b125255ef1c062baad954a0a5b4a7337bd069513c0f856bfc0dbae58cb794d19",
+              "patch_bytes": 3431,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/docs/spec.md",
+              "blob_sha": "74fe6193cb526a1c51fe66c528c961878cb0edad",
+              "additions": 13,
+              "deletions": 4,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_docs_spec.md.patch",
+              "patch_sha256": "9d513734763caf2c6301d38faf49ab226a707b5462a7b000d29af56ce5c50e49",
+              "patch_bytes": 3816,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/compaction.ts",
+              "blob_sha": "4cf1966ca5e96334003b13f72bf5b2e734ce3d10",
+              "additions": 15,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_compaction.ts.patch",
+              "patch_sha256": "892d37404d4a1c5d033ee6f823419d065797f2c5c5aad05b964396f4a1ac29bb",
+              "patch_bytes": 1915,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/generation.ts",
+              "blob_sha": "005436ce5b6511987b17a3a0d8729609124ac80e",
+              "additions": 5,
+              "deletions": 5,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_generation.ts.patch",
+              "patch_sha256": "4233cb2fae58c7f382ba0e088456d587e7861b67ad5c17aa8e8ee3657a89f6f9",
+              "patch_bytes": 1955,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 13,
+              "deletions": 3,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "174bbfa95687376a63686fff4421260e941f13ca4d4f9cf94bb18ba6e14131f5",
+              "patch_bytes": 2022,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/index.ts",
+              "blob_sha": "546c6ffa6db024b48a5a25ada0311a03bd542a8c",
+              "additions": 1,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_src_index.ts.patch",
+              "patch_sha256": "9ce2cf2b583637137cbe0b6e393fbb281de91fba91d22f2fde58f161f7652189",
+              "patch_bytes": 173,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-compaction.test.ts",
+              "blob_sha": "ebea5e8a898e6a242bdbc44599e954e774b01d0c",
+              "additions": 49,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-compaction.test.ts.patch",
+              "patch_sha256": "ac7306d73a4604b3b52122902bb3a52abfd32de6a9409d0cf4479c02aeeceef6",
+              "patch_bytes": 2291,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-type-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "c4cf7957b4e6698a182925f4393240c1e3b23f41",
+          "message": "feat(durable): per-model compaction settings via compaction.modelOverrides\n\nOverrides keyed by provider/modelId apply at the threshold check, overflow\nrecovery, and compaction range selection.\n\ncloses #10942",
+          "authentic_parents": [
+            "6085986e4b4a55a36a872df9e438e1a55ffcba35"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:12Z",
+          "stats": {
+            "total": 30,
+            "additions": 2,
+            "deletions": 28
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "83cf7c08b8cec753e433e87c56251a72cc2d1d3c",
+              "additions": 0,
+              "deletions": 8,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "232764ca2588a7695197407ee571434e92390fb7d00fe1671a01e5c9fdc6360a",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "7b137cbee6cd19971016372965773a7c0748689e",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_README.md.patch",
+              "patch_sha256": "45e5a63bc1a1ea4532fb0d32298600f15495a73685ce3ec0491fa67c02f0a8ca",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "6c30aa3b7eca6254a02d3190991650be4647d1fe",
+              "additions": 1,
+              "deletions": 2,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "a33fdacc9b000e7a9d9e428719af222e27a5e709dcc0210030373ccd71a14e8c",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "75b8a9bd7a431308ac7cbf2c1b845175e13e078d",
+              "additions": 0,
+              "deletions": 17,
+              "saved_patch": "frontier-raw/patches/pi-compaction-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "a17cb346ab98202e30ac9607cc1ab7004fa344c29a97958e784b922f8098b54a",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        },
+        {
+          "sha": "790271cd0218b27068211771704f9e2d42500e9a",
+          "message": "fix(durable): restore ToolControl.terminate changes dropped by c4cf7957b\n\nc4cf7957b was built from a tree that predates 6085986e4 and reverted its\nterminate type change, regression test, and changelog entries.",
+          "authentic_parents": [
+            "c4cf7957b4e6698a182925f4393240c1e3b23f41"
+          ],
+          "author_login": "badlogic",
+          "author_name": "Mario Zechner",
+          "committer_at": "2026-10-16T08:20:58Z",
+          "stats": {
+            "total": 30,
+            "additions": 28,
+            "deletions": 2
+          },
+          "files": [
+            {
+              "path": "packages/durable/CHANGELOG.md",
+              "blob_sha": "d495f0ca4492fb6dcfa6226416dee333f8c0b0af",
+              "additions": 8,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_CHANGELOG.md.patch",
+              "patch_sha256": "ce5ab1a9f7ff1cc711cdf7904c29abdc5d5405b7c21b737cb7f6cd67fafd3c37",
+              "patch_bytes": 896,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/README.md",
+              "blob_sha": "6e20295a84f4f6abe58c4f8d6a1f63f7ab2ffa33",
+              "additions": 1,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_README.md.patch",
+              "patch_sha256": "daefd520e164e26adf95464d79b9e7e45d0b76db87453cf5853ada346445d3ec",
+              "patch_bytes": 1910,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/src/harness/types.ts",
+              "blob_sha": "7a12804c0f52fa03c79a5c4da49d53a4f1d63efc",
+              "additions": 2,
+              "deletions": 1,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_src_harness_types.ts.patch",
+              "patch_sha256": "69562210929fce426ab504a9453d04187f0769ac72d6b4295b186aef234be9cb",
+              "patch_bytes": 401,
+              "patch_fully_read": true
+            },
+            {
+              "path": "packages/durable/test/harness-tools.test.ts",
+              "blob_sha": "4c06ce80538a211077abe6fe36ffa649aed6be9a",
+              "additions": 17,
+              "deletions": 0,
+              "saved_patch": "frontier-raw/patches/pi-terminate-restore-commit--packages_durable_test_harness-tools.test.ts.patch",
+              "patch_sha256": "090f8a667e78f7aa1b0c10741c6c4d4b8d5fa48eb2c04c996f3773eba30a4396",
+              "patch_bytes": 707,
+              "patch_fully_read": true
+            }
+          ]
+        }
+      ],
+      "published_at": "2026-10-16T08:19:56Z",
+      "published_at_kind": "First actual implementation commit time, not the misleading feature-titled next commit.",
+      "net_final_changed_files": 9,
+      "changed_patches_fully_read": 17,
+      "observed_at": "2026-10-16T08:38:22.448465Z",
+      "observation_interval": {
+        "start": "2026-10-16T08:38:20.693549Z",
+        "end": "2026-10-16T08:38:22.448465Z"
+      }
+    },
+    {
+      "id": "fla-gdn2-ascend-dispatch-and-backward-update",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1452",
+      "type": "public_draft_source_and_attributed_assertions",
+      "author": "yzhangcs",
+      "contribution_author": "xy200303",
+      "attribution": "yzhangcs restored historical contribution; current head commits/replies by xy200303",
+      "created_at": "2026-10-16T01:53:21Z",
+      "published_at": "2026-10-16T08:02:37Z",
+      "published_at_kind": "Current update to restored historical contribution;draft/unmerged,not a new researcher or employer announcement.",
+      "updated_at": "2026-10-16T08:02:37Z",
+      "observed_at": "2026-10-16T08:36:47.593781Z",
+      "head_sha": "df6759bdcef7e62caecabfeb61e754d8ed1a549f",
+      "base_sha": "15396e604df6a4699950d7f20457b391b0cd8e74",
+      "status": "draft_open_unmerged_source_only",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "b98c15ba2aa2b9473bec9e22431e4054056128e4183fa45f06f25b4d4b9ee383",
+      "claim": "Fresh commits8a20e054/df6759bd add lower_bound to Ascend verifier/implementation signatures (deliberately unused in the block-local kernel) and direct backward/varlen prefix-causality regressions. A contributor says a swallowed verifier TypeError previously silently selected Triton. The regression covers prefix output,dg,dA_log,ddt_bias including(40,33),where a forward-only check can miss a gradient difference.",
+      "validation_limits": "Draft/unmerged. Current replies and3old-to-current patches read, not NPU execution. Historical A100 counts in unchanged recovery body were not rerun and are not fresh validation; NPU CI mention is contributor assertion, no job/log review. Broad source evidence only.",
+      "local_execution": false,
+      "files": [
+        {
+          "path": "fla/ops/gdn2/backends/triton_ascend/__init__.py",
+          "blob_sha": "9cf5147413d89272d73588b1fee09949698a1a21",
+          "patch_sha256": "cbfd46ee1caf54d420a8581b63bcd97ba136f542fa313e226e27ef36b4f794a0",
+          "patch_bytes": 555
+        },
+        {
+          "path": "fla/ops/gdn2/backends/triton_ascend/chunk_intra.py",
+          "blob_sha": "0d071fee8c2c83b73244c55583430ed28bad51b5",
+          "patch_sha256": "5bae564cd8fe088774472a7e93b565c8e597d98715c3c3ef56c2dabdcb69e293",
+          "patch_bytes": 539
+        },
+        {
+          "path": "tests/ops/test_gdn2.py",
+          "blob_sha": "1ef7c8e6bdd9e198e22d5354a88f1dc7649ef08f",
+          "patch_sha256": "4cb660a719f8f4064cf83bbd10e7206425071483137caeb920c20d245415788e",
+          "patch_bytes": 8975
+        }
+      ],
+      "fresh_replies": [
+        {
+          "id": 4292236474,
+          "html_url": "https://github.com/fla-org/flash-linear-attention/pull/1452#discussion_r4292236474",
+          "user": "xy200303",
+          "created_at": "2026-10-16T08:02:37Z",
+          "updated_at": "2026-10-16T08:02:37Z",
+          "body": "Fixed — `lower_bound` is now in both signatures (`8a20e054`). You are right about the mechanism: the verifier's `TypeError` is swallowed by `BaseBackend.verify`, so an NPU call with `safe_gate=True` was being reported as inapplicable and silently took the Triton path rather than the Ascend one.\n\nThe NPU kernel accepts the argument and ignores it on purpose, and I noted why in the code: every one of its blocks anchors on its own first row, so the pairwise gate differences it exponentiates are already non-positive across the safe-gate range and it needs no centring offset. The KDA Ascend verifiers spell their parameters as `*args, **kwargs`, which is why the same shape did not break there.\n\n`fla/ops/gdn2/backends/triton_ascend/` matches the NPU CI pattern, so the A2 jobs on this push exercise this route.\n"
+        },
+        {
+          "id": 4292237418,
+          "html_url": "https://github.com/fla-org/flash-linear-attention/pull/1452#discussion_r4292237418",
+          "user": "xy200303",
+          "created_at": "2026-10-16T08:02:44Z",
+          "updated_at": "2026-10-16T08:02:44Z",
+          "body": "Added in `df6759bd`.\n\n`test_chunk_gdn2_prefix_causality_bwd` runs (22, 21), (40, 33) and (70, 69) and asserts bitwise equality of the prefix output, `dg`, `dA_log` and `ddt_bias`. (40, 33) is in there on purpose: that is the shape where the leak reached `dg` while the prefix output alone stayed identical, so a forward-only check could not have caught it.\n\n`test_chunk_gdn2_prefix_causality_varlen` runs `[0, 8, 30]` and `[0, 22, 92]`, where the anchor used to be `T`-relative and so moved with the segment boundary. Every case ends a sequence inside a sub-chunk whose middle row is its last valid token, and the prefix spans the earlier segment in the varlen ones, so a leak has to cross the boundary to show up.\n\nThe three regressions now share their inputs and the gate-flip helper, so they run on the same tensors.\n"
+        }
+      ],
+      "new_commits": [
+        {
+          "sha": "8a20e0546391cc4343b992862a99be2d79b36dcc",
+          "author": "xy200303",
+          "date": "2026-10-16T08:00:34Z",
+          "message": "[Fix] Accept the safe-gate lower bound on the GDN-2 Ascend intra route\n\nchunk_gdn2_fwd_intra passes lower_bound to every implementation, but the\nAscend verifier and chunk_gdn2_fwd_intra_npu spelled their parameters out\nand never learned the argument. Backend.verify swallows the resulting\nTypeError and reports the backend as inapplicable, so an NPU call with\nsafe_gate=True silently fell back to Triton instead of taking the Ascend\npath.\n\nThe NPU kernel needs no offset from it: each of its blocks anchors on its\nown first row, so the pairwise gate differences it exponentiates are\nalready non-positive for the safe-gate range."
+        },
+        {
+          "sha": "df6759bdcef7e62caecabfeb61e754d8ed1a549f",
+          "author": "xy200303",
+          "date": "2026-10-16T08:00:37Z",
+          "message": "[Test] Cover the GDN-2 backward and varlen prefix-causality anchors\n\nThe forward regression could not see the two anchors the backward intra\nkernel carries: on (T, P) = (40, 33) the leak reached dg while the prefix\noutput alone stayed bit-identical. Add a backward case over three shapes\nthat checks the prefix output, dg, dA_log and ddt_bias, plus a varlen case\nover two segmentations, where the anchor was previously T-relative and so\nmoved with the segment boundary.\n\nThe shared input and gate-flip helpers keep the three regressions on the\nsame tensors."
+        }
+      ],
+      "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
+      "evidence_record": "research/evidence/2026-10-16-attention-saves-and-continuation.json"
+    },
+    {
+      "id": "fla-activation-noncanonical-strides-draft",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1487",
+      "type": "public_draft_source_and_attributed_assertions",
+      "author": "zhiyuan1i",
+      "contribution_author": "zhiyuan1i",
+      "attribution": "PR author; current head pinned, commit author not separately fetched",
+      "created_at": "2026-10-16T06:57:43Z",
+      "published_at": "2026-10-16T06:57:43Z",
+      "published_at_kind": "New draft proposal;draft/unmerged,not a new researcher or employer announcement.",
+      "updated_at": "2026-10-16T06:57:43Z",
+      "observed_at": "2026-10-16T08:38:02.943595Z",
+      "head_sha": "039a3d0134b39a4a3147578205acbd32d780981a",
+      "base_sha": "423cff91dd559b73c7e7f8aad9a42f6a782693d1",
+      "status": "draft_open_unmerged_source_only",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "a9e114a7b2f01c52b7f86e521af389a987e96857753e5c3659c1b37a4e8afdb0",
+      "claim": "Replaces contiguous fallback with clone(memory_format=torch.contiguous_format) in default/Ascend activation layout helpers because size1dimensions can retain noncanonical strides despite is_contiguous. Adds exact(3,1,128)/(128,1536,1)host layout and eager/compile powglu forward/backward tests, preserving accepted-view zero-copy checks.",
+      "validation_limits": "New public draft/unmerged. All3patches read. Author reports host checks,lint and collection only; accelerator kernels and compute-sanitizer not run. No speed claim, no local upstream execution.",
+      "local_execution": false,
+      "files": [
+        {
+          "path": "fla/modules/activations/ops.py",
+          "blob_sha": "9b0c02ffec07553c07ef8caa6140c69fdd5d5792",
+          "patch_sha256": "2db64d9caa3c9e1c7a9e5711e3e0d7274205be00228172882ccd02fa0b5484e8",
+          "patch_bytes": 333
+        },
+        {
+          "path": "fla/modules/activations/triton_ascend.py",
+          "blob_sha": "d3f1f39f732c7f8899365f511db3234e156866eb",
+          "patch_sha256": "268f848e6d50c9b82ef7b720048961ce1d47f20a265908ad6ea843517719d125",
+          "patch_bytes": 356
+        },
+        {
+          "path": "tests/modules/test_activation.py",
+          "blob_sha": "49c5aa3b4cdea59aa0567c67d9c9109571f5b395",
+          "patch_sha256": "c45a377ab72e14651cee5534d9fb1ff836afaf770171d11bdf6db203fca93df4",
+          "patch_bytes": 2577
+        }
+      ],
+      "fresh_replies": [],
+      "new_commits": [],
+      "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
+      "evidence_record": "research/evidence/2026-10-16-attention-saves-and-continuation.json"
+    },
+    {
+      "id": "fla-loglinear-partial-chunk-scales-draft",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1488",
+      "type": "public_draft_source_and_attributed_assertions",
+      "author": "zhiyuan1i",
+      "contribution_author": "zhiyuan1i",
+      "attribution": "PR author; current head pinned, commit author not separately fetched",
+      "created_at": "2026-10-16T06:57:49Z",
+      "published_at": "2026-10-16T06:57:49Z",
+      "published_at_kind": "New draft proposal;draft/unmerged,not a new researcher or employer announcement.",
+      "updated_at": "2026-10-16T06:57:49Z",
+      "observed_at": "2026-10-16T08:38:02.842795Z",
+      "head_sha": "b7b7eb3c0ea2a98087b2530aec2fbccf5100cab7",
+      "base_sha": "423cff91dd559b73c7e7f8aad9a42f6a782693d1",
+      "status": "draft_open_unmerged_source_only",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "body_sha256": "cd457016d5530fb329f74042efd77762087bc64f2baaf820a7562f01fa51cd29",
+      "claim": "Adds causal plus both row/column token-bound masks and other=0 to forward/backward diagonal level-scale loads, plus i<L guard on level-gradient stores. Adds B2,T16,H1,D64,float32 partial-chunk output/all5gradient comparisons against naive reference.",
+      "validation_limits": "New public draft/unmerged. All2patches read. Author reports host address enumeration(old2OOB+64crosslevel writes,new160valid),not accelerator or sanitizer execution. Small-L varlen coverage remains open; no performance claim or local upstream execution.",
+      "local_execution": false,
+      "files": [
+        {
+          "path": "fla/ops/log_linear_attn/chunk.py",
+          "blob_sha": "aaecce460bda9a840bd1d702c8225c19d6a5424c",
+          "patch_sha256": "9f92fe489af84d8cc39343f480709987a392842e542f2c3d95116a9c2e256d40",
+          "patch_bytes": 1343
+        },
+        {
+          "path": "tests/ops/test_log_linear_attn.py",
+          "blob_sha": "c436129d50d9b525dca588c2accc20900ed02659",
+          "patch_sha256": "232f74d25f63527c6b7bf63585092a40e5ab8445f27fe6a025185acd31727efd",
+          "patch_bytes": 1101
+        }
+      ],
+      "fresh_replies": [],
+      "new_commits": [],
+      "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
+      "evidence_record": "research/evidence/2026-10-16-attention-saves-and-continuation.json"
+    },
+    {
+      "id": "pythia14m-fixed-gradient-attention-boundary",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/activation_attention_gradient_probe.py",
+      "type": "original_local_fixed_parameter_diagnostic",
+      "author": "Frontier Signal Lab(original protocol/code);EleutherAI(historical model)",
+      "published_at": null,
+      "published_at_kind": "Actual local diagnostic completion,no new upstream model/researcher publication.",
+      "observed_at": "2026-10-16T08:50:43.394541+00:00",
+      "repository_public": true,
+      "license_metadata": "Original protocol/codeMIT;pinnedPythia assetsApache-2.0;no weights or gradient arrays committed.",
+      "status": "executed_predeclared_attention_save_half_error_gate_passed_all_three_batches",
+      "claim": "Exact CE plusall saves from13actual LayerNorm.forward scopes in allarms; dense/norm-onlyint8/norm+attentionpreservedint8,6actualGPTNeoXAttention.forward scopes,3freshworkers,128targets per method/worker.",
+      "result": "Broad attention save preservation reduces full-gradient relativeL2 from7.613840/7.699570/4.053040 to0.040762/0.040662/0.034482;ratios0.005354/0.005281/0.008508,cosine0.999169/0.999173/0.999406.All3half-error gatespass;dense/norm-only full per-parameter gradient records/hashes match previous LayerNorm diagnostic.",
+      "limitations": "Fixed overlapping synthetic batches;broad projections/RoPE/attention/outputforward save scope,not single operand or general attention claim;no optimizerupdate/holdout/trainingquality/efficiency/peakGPU/AttnRes/novelty conclusion.",
+      "stable_result_sha256": "b5051eae772617e4fc30a18727936cb74fc30c3629c670f83526691edf033e66",
+      "observation_sha256": "d1c12347cca354944905083d55714f0d474a6c2e46570681a3f3831a45be6766",
+      "result_file_sha256": "5c86f13e522bf09f8fe269f580026eabaeede7a437989c854aac09c5badc8d51",
+      "protocol_sha256": "46d29186eecdb17369004bac921cc65a8077086779dc0b79961b34f57e9096e3",
+      "source_files_sha256": {
+        "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+        "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+        "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+        "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+        "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+        "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+        "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+      },
+      "review_record": "research/2026-10-16-attention-saves-and-continuation.md",
+      "evidence_record": "research/evidence/2026-10-16-attention-saves-and-continuation.json"
     }
   ]
 }

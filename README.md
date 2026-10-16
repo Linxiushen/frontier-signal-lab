@@ -32,7 +32,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前实验：在相同预训练参数点比较三种反向保存策略。保留精确 loss 保存值恢复了局部解析梯度，但三个批次的完整模型梯度误差均未减半，预声明判据全部失败。见[梯度诊断与研究判断](research/2026-10-16-gradient-and-authority.md)。
 
-最新实验：在精确 CE 下，进一步保留 13 个实际 LayerNorm 内的全部保存值；三个批次的完整梯度误差仍未减半，cosine 略降，对照梯度 hash 与前次完全相同。下一步预声明隔离其余保存范围，再验证实际更新保真度。FLA 硬件/版本/分派修复与 OpenClaw 收据身份、维护期限、策略重新准入的新证据见[本轮研究报告](research/2026-10-16-norm-saves-and-execution.md)。
+此前实验：在精确 CE 下，进一步保留 13 个实际 LayerNorm 内的全部保存值；三个批次的完整梯度误差仍未减半，cosine 略降，对照梯度 hash 与前次完全相同。下一步预声明隔离其余保存范围，再验证实际更新保真度。FLA 硬件/版本/分派修复与 OpenClaw 收据身份、维护期限、策略重新准入的新证据见[本轮研究报告](research/2026-10-16-norm-saves-and-execution.md)。
+
+最新实验：在精确 CE 与13个实际 LayerNorm 模块内保存值固定时，再保留6个实际注意力模块 forward 内的保存值，三个批次完整梯度相对误差从4.05–7.70降至0.034–0.041，cosine约0.999，全部预声明门槛通过。下一步验证实际优化器更新；训练质量与成本仍未获收益结论。公开草稿和会话延续新证据见[本轮报告](research/2026-10-16-attention-saves-and-continuation.md)。
 
 ## 快速运行
 
@@ -88,6 +90,14 @@ python experiments/activation_norm_gradient_probe.py --model-dir local-state/mod
 
 该命令的三种方法都保留精确 CE，逐模块记录保存/取回；见[隔离协议](fixtures/activation-norm-gradient/README.md)。
 
+进一步隔离6个实际注意力模块保存范围，三种方法均保留精确 CE 与 LayerNorm：
+
+```bash
+python experiments/activation_attention_gradient_probe.py --model-dir local-state/models/pythia-14m-cf967c0 --data fixtures/activation-training/data.json --manifest fixtures/activation-training/manifest.json --protocol fixtures/activation-attention-gradient/protocol.json --output reports/runs/my-activation-attention-gradient
+```
+
+完整作用域、独立 VJP 与判据见[attention 协议](fixtures/activation-attention-gradient/README.md)。
+
 雷达生成 `snapshot.json`、`report.md` 和校验文件。它只读取公开 GitHub 数据。X 原帖、个人站、论文由研究者人工核验后进入[证据账本](research/sources.json)；扫描器不会声称已经自动覆盖整个 X。
 
 首轮在线扫描于北京时间 **18:24–18:29** 完成：7 人、10 个仓库，采样到 117 条 commits、36 条 issues、98 条 PR 和 5 条 discussions；请求无失败。活跃仓库有分页截断，报告明确标注，因此这些数字不能当成最近七天的全部活动。[扫描报告](reports/2026-10-15-initial/report.md) / [快照与校验](reports/2026-10-15-initial/snapshot.json)。
@@ -98,7 +108,7 @@ python experiments/activation_norm_gradient_probe.py --model-dir local-state/mod
 
 实验报告中的 bank bytes 是按数组形状计算的**逻辑持久存储**。它不等于 GPU 峰值显存；还需计入重建临时空间、activation、反向图、kernel 和模型其他参数。离线 block-sum 代理也不是完整 Block AttnRes 网络。
 
-当前已做传统小型语言模型的等 token 全参数训练，数据仅为原创合成故事；未验证一般语言模型质量、学习深度路由或 GPU 吞吐。两组保留集 NLL 均退化，没有新架构优势结论。同参数点诊断中，仅保留精确 loss 或进一步保留实际 LayerNorm 保存值，都未使完整梯度误差减半；剩余原因尚未定位。下一门槛是其余 model 保存范围隔离与实际更新保真度，之后才是等 wall-clock 训练和独立终评。
+当前已做传统小型语言模型的等 token 全参数训练，数据仅为原创合成故事；未验证一般语言模型质量、学习深度路由或 GPU 吞吐。两组保留集 NLL 均退化，没有新架构优势结论。同参数点诊断中，仅保留精确 loss 或进一步保留实际 LayerNorm 保存值，都未使完整梯度误差减半；再保留实际注意力 forward 内保存值后，三个批次门槛通过；这只定位到广泛执行范围，不能归因单个 operand。下一门槛是实际优化器更新保真度，之后才是等 wall-clock 训练和独立终评。
 
 ## 首轮结果与跟踪对象
 
@@ -112,12 +122,13 @@ python experiments/activation_norm_gradient_probe.py --model-dir local-state/mod
 | Activation training | Pythia-14m 全参数 AdamW，3 seeds × 2 方法 × 24 步，固定合成 train/holdout；dense 前向与近似 backward | [负结果与复现](results/activation-training/report.md) / [完整逐步轨迹与 hash](results/activation-training/report.json) |
 | Activation gradient | 相同 Pythia-14m 参数，3 批次 × 3 backward 策略；全参数误差与 CE 解析控制，无参数更新 | [失败判据与复现](results/activation-gradient/report.md) / [逐参数指标与 hash](results/activation-gradient/report.json) |
 | Activation norm gradient | 相同参数与精确 CE，3 批次 × 3 策略；隔离 13 个实际 LayerNorm 保存范围，无参数更新 | [失败判据与复现](results/activation-norm-gradient/report.md) / [逐参数与逐模块记录](results/activation-norm-gradient/report.json) |
+| Activation attention gradient | 相同参数与精确 CE/norm，3批次×3策略；隔离6个实际注意力 forward 保存范围，无参数更新 | [通过判据与复现](results/activation-attention-gradient/report.md) / [逐参数及逐模块记录](results/activation-attention-gradient/report.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 | pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
 | pi context transform | 修复前后完整模块；确定性消息、模型身份及工具调用边界，未发起 provider 请求 | [结果](results/pi-context-transform/report.md) / [输入输出与 hash](results/pi-context-transform/probe.json) |
 
-一键重跑基础测试、此前六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[先前六实验运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256；新增真实激活、训练、CE 与 LayerNorm 梯度诊断使用上面的可选命令及各自报告清单。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
+一键重跑基础测试、此前六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[先前六实验运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256；新增真实激活、训练、CE、LayerNorm 与 attention 梯度诊断使用上面的可选命令及各自报告清单。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 

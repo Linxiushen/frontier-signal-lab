@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "model_id": "EleutherAI/pythia-14m",
+  "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+  "activation_boundary": "pre_block_residual",
+  "trace_file": "bank.npz",
+  "trace_file_sha256": "e536d4a3543b1a0ba26bd12b71e794f17fe7989873ff9e88d79094184cdcfe53",
+  "bank_sha256": "587f34ed10ef6f1c602fe773818f93daabf5924acce351af55880eacbe601433",
+  "bank_shape": [
+    6,
+    512,
+    128
+  ],
+  "bank_dtype": "float32",
+  "bank_byte_order": "little",
+  "bank_order": "C",
+  "npz_keys": [
+    "bank"
+  ],
+  "source_text_sha256": "e0c4147c0ce606cd964ac0e689024c6fe9ac72309aabc34bc9143421b2a23dba",
+  "token_ids_file": "token_ids.json",
+  "token_ids_sha256": "fd56ea52f5c561bd266c60e105dc79be207f0cfeaecdb147730fbbf19cf3a0a8",
+  "token_ids_hash_convention": "actual UTF-8 token_ids.json file bytes, including final LF",
+  "token_ids_shape": [
+    4,
+    128
+  ],
+  "capture_config": {
+    "device": "cpu",
+    "dtype": "float32",
+    "seed": 0,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "deterministic_algorithms": true,
+    "model_eval": true,
+    "model_parameters_frozen": true,
+    "grad_mode": "no_grad",
+    "attention_implementation": "eager",
+    "use_cache": false,
+    "output_hidden_states": false,
+    "output_attentions": false,
+    "return_dict": true,
+    "batch_size": 4,
+    "sequence_length": 128,
+    "total_tokens": 512,
+    "source_token_count": 850,
+    "token_selection": "first_512_without_special_tokens",
+    "add_special_tokens": false,
+    "padding": false,
+    "truncation": false,
+    "attention_mask": "all_ones",
+    "reshape_order": "row_major",
+    "position_ids": "model_default_independent_0_to_127_per_sequence",
+    "independent_sequence_contexts": true,
+    "layer_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "activation_boundary": "pre_block_residual",
+    "pre_hook_with_kwargs": true,
+    "pre_hook_calls": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "flatten_order": "batch_then_token",
+    "local_files_only": true,
+    "trust_remote_code": false,
+    "use_safetensors": true,
+    "source_byte_limit": 65536
+  },
+  "capture_config_sha256": "c64d5d716658c2dd14423c89c4171c3bedbbe19d9bbf18bbb9ae67803d6632e3",
+  "capture_config_hash_convention": "UTF-8 JSON, sorted keys, ensure_ascii=False, compact separators, no final newline",
+  "source_files": [
+    {
+      "path": "scripts/capture_real_activation.py",
+      "sha256": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "origin": "this_repository"
+    },
+    {
+      "path": "fixtures/real-activation/source.txt",
+      "sha256": "e0c4147c0ce606cd964ac0e689024c6fe9ac72309aabc34bc9143421b2a23dba",
+      "origin": "this_repository"
+    },
+    {
+      "path": "model/config.json",
+      "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/config.json",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/generation_config.json",
+      "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/generation_config.json",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/model.safetensors",
+      "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/model.safetensors",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/tokenizer.json",
+      "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/tokenizer.json",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/tokenizer_config.json",
+      "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/tokenizer_config.json",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/special_tokens_map.json",
+      "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/special_tokens_map.json",
+      "pinned_size_and_sha256_verified": true
+    },
+    {
+      "path": "model/README.md",
+      "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/README.md",
+      "pinned_size_and_sha256_verified": true
+    }
+  ],
+  "library_versions": {
+    "torch": "2.9.1+cpu",
+    "transformers": "4.57.3",
+    "numpy": "2.3.5",
+    "safetensors": "0.7.0",
+    "tokenizers": "0.22.2",
+    "python": "3.12.14"
+  },
+  "capture_started_at_utc": "2026-10-16T00:53:06.222981Z",
+  "forward_started_at_utc": "2026-10-16T00:53:21.622812Z",
+  "forward_finished_at_utc": "2026-10-16T00:53:21.739812Z",
+  "capture_completed_at_utc": "2026-10-16T00:53:21.845631Z",
+  "model_config": {
+    "return_dict": true,
+    "output_hidden_states": false,
+    "torchscript": false,
+    "dtype": "float32",
+    "pruned_heads": {},
+    "tie_word_embeddings": false,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "is_decoder": false,
+    "cross_attention_hidden_size": null,
+    "add_cross_attention": false,
+    "tie_encoder_decoder": false,
+    "architectures": [
+      "GPTNeoXForCausalLM"
+    ],
+    "finetuning_task": null,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "task_specific_params": null,
+    "problem_type": null,
+    "tokenizer_class": null,
+    "prefix": null,
+    "bos_token_id": 0,
+    "pad_token_id": null,
+    "eos_token_id": 0,
+    "sep_token_id": null,
+    "decoder_start_token_id": null,
+    "max_length": 20,
+    "min_length": 0,
+    "do_sample": false,
+    "early_stopping": false,
+    "num_beams": 1,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 1.0,
+    "typical_p": 1.0,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "encoder_no_repeat_ngram_size": 0,
+    "bad_words_ids": null,
+    "num_return_sequences": 1,
+    "output_scores": false,
+    "return_dict_in_generate": false,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": false,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "num_beam_groups": 1,
+    "diversity_penalty": 0.0,
+    "transformers_version": "4.57.3",
+    "model_type": "gpt_neox",
+    "tf_legacy_loss": false,
+    "use_bfloat16": false,
+    "vocab_size": 50304,
+    "max_position_embeddings": 2048,
+    "hidden_size": 128,
+    "num_hidden_layers": 6,
+    "num_attention_heads": 4,
+    "intermediate_size": 512,
+    "hidden_act": "gelu",
+    "rotary_pct": 0.25,
+    "partial_rotary_factor": 0.25,
+    "rotary_emb_base": 10000,
+    "rope_theta": 10000,
+    "attention_dropout": 0.0,
+    "hidden_dropout": 0.0,
+    "classifier_dropout": 0.1,
+    "initializer_range": 0.02,
+    "layer_norm_eps": 1e-05,
+    "use_cache": true,
+    "use_parallel_residual": true,
+    "rope_scaling": null,
+    "attention_bias": true,
+    "output_attentions": false
+  },
+  "actual_model": {
+    "class": "GPTNeoXForCausalLM",
+    "layer_class": "GPTNeoXLayer",
+    "tokenizer_class": "GPTNeoXTokenizerFast",
+    "parameter_count": 14067712,
+    "trainable_parameter_count": 0,
+    "parameter_dtypes": [
+      "torch.float32"
+    ],
+    "parameter_devices": [
+      "cpu"
+    ],
+    "max_position_embeddings": 2048
+  },
+  "provenance": {
+    "model_license": "Apache-2.0",
+    "weights_sha256_verified": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1",
+    "weights_bytes_verified": 28143920,
+    "pinned_asset_sha256s_verified": {
+      "README.md": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163",
+      "config.json": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17",
+      "generation_config.json": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090",
+      "model.safetensors": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1",
+      "special_tokens_map.json": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c",
+      "tokenizer.json": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2",
+      "tokenizer_config.json": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+    },
+    "model_repository_url": "https://huggingface.co/EleutherAI/pythia-14m/tree/cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "local_asset_origin_note": "All seven required assets are size/SHA256 checked against the pinned revision before loading. Optional local license/notice files have hashes recorded but no separate pinned digest assertion.",
+    "source_text_license": "MIT for the original source.txt supplied in this repository; caller-supplied alternatives require their own provenance"
+  },
+  "scope": "Frozen pretrained GPT-NeoX forward activations; detached pre-block residual bank only.",
+  "limitations": [
+    "Four independent 128-token sequences, not one 512-token context; flattening preserves batch-then-token order.",
+    "Pythia-14m is a conventional residual model, not an AttnRes model. Its six pre-block inputs are the entire captured depth bank; no final post-block state is added.",
+    "No backbone gradients or model training are captured. A later query/operator backward replay on this detached bank does not differentiate through the pretrained model.",
+    "No language-model quality, perplexity, end-to-end training memory, GPU throughput or architecture advantage is measured by this capture."
+  ]
+}

@@ -1,0 +1,873 @@
+{
+  "schema_version": 1,
+  "pass_started_at": "2026-10-16T00:39:06.663362+00:00",
+  "prepared_at": "2026-10-16T01:02:37.843843+00:00",
+  "scanner": {
+    "scan_start": "2026-10-16T00:39:41.610717Z",
+    "scan_completed": "2026-10-16T00:45:07.438320Z",
+    "event_cutoff": "2026-10-16T00:39:41.605720+00:00",
+    "status": "complete",
+    "integrity_verified": true,
+    "sample_counts": {
+      "commits": 117,
+      "issues": 31,
+      "pull_requests": 100,
+      "discussions": 5
+    },
+    "windows": {
+      "24h": {
+        "commits": 61,
+        "issues": 31,
+        "pull_requests": 85,
+        "discussions": 1
+      },
+      "72h": {
+        "commits": 91,
+        "issues": 31,
+        "pull_requests": 100,
+        "discussions": 5
+      },
+      "168h": {
+        "commits": 117,
+        "issues": 31,
+        "pull_requests": 100,
+        "discussions": 5
+      }
+    },
+    "truncation": [
+      "fla-org/flash-linear-attention:issues",
+      "fla-org/flash-linear-attention:pull_requests",
+      "fla-org/flash-linear-attention:discussions",
+      "PrimeIntellect-ai/verifiers:commits",
+      "PrimeIntellect-ai/verifiers:issues",
+      "PrimeIntellect-ai/verifiers:pull_requests",
+      "PrimeIntellect-ai/verifiers:discussions",
+      "openclaw/openclaw:commits",
+      "openclaw/openclaw:issues",
+      "openclaw/openclaw:pull_requests",
+      "earendil-works/pi:commits",
+      "earendil-works/pi:issues",
+      "earendil-works/pi:pull_requests",
+      "earendil-works/pi:discussions"
+    ],
+    "errors": []
+  },
+  "new_or_changed_top_level_events": 52,
+  "targeted_github": {
+    "observation_interval": {
+      "start": "2026-10-16T00:39:56.460346Z",
+      "end": "2026-10-16T00:42:55.920080Z"
+    },
+    "independent_commit_event_window": {
+      "since_query": "2026-10-15T22:32:57Z",
+      "until_query": "2026-10-16T00:39:37Z",
+      "overlap_seconds": 0.581731,
+      "inclusive": true,
+      "note": "Independent bounded targeted window; root owns main scanner cutoff and coverage advancement."
+    },
+    "coverage": {
+      "requests": 21,
+      "failures": [],
+      "truncations": [
+        "OpenClaw commits first50only;nextpage2 exists, not followed. Selected materialpatch review is not exhaustive event coverage."
+      ],
+      "discussions": "173454issue/review/inline complete bounded pages;2857issue/inline since returns0. GitHubDiscussions/X/blog reads not performed by this worker; root handles wider scan.",
+      "raw_capture_definition": "ghapi--include stdout bytes, not networkpacket capture. Rawheaders/body bytes,stderr,parsed JSON,requesttimes and hashes retained per request.",
+      "local_processing_notes": [
+        "Some oversized combined terminal displays truncated excerpts; full raw/parsed/patch files remained saved and selected files re-read individually. No HTTPfailure or missing raw response."
+      ],
+      "no_installs": true,
+      "no_upstream_changes": true,
+      "no_tracked_writes": true
+    },
+    "curated_for_parent": [
+      {
+        "key": "oc173454",
+        "url": "https://github.com/openclaw/openclaw/pull/173454",
+        "title": "fix: wake sessions when background processes are lost on restart",
+        "state": "closed",
+        "merged": true,
+        "merged_at": "2026-10-15T23:19:53Z",
+        "updated_at": "2026-10-15T23:20:00Z",
+        "head_sha": "3f3e6db784edad5ac613a4e44dc28473c6982c1b",
+        "merge_commit_sha": "dbc41ff76ba1d835ab36261c48c5ecea87deff4c",
+        "author": "steipete",
+        "author_association": "CONTRIBUTOR",
+        "merged_by": "steipete",
+        "changed_files": 22,
+        "commit_parents": [
+          "824e909530916673681c05f1dfef9ba3721fd071"
+        ],
+        "changed_files_returned": 22,
+        "all_changed_file_patches_present": true,
+        "file_blobs": [
+          {
+            "path": "docs/gateway/background-process.md",
+            "blob_sha": "a2866452c388b01486967d451bd7e912875794bd",
+            "additions": 3,
+            "deletions": 1
+          },
+          {
+            "path": "docs/gateway/restart-recovery.md",
+            "blob_sha": "70665f712af2786648caf0980b0baee3847d853f",
+            "additions": 11,
+            "deletions": 10
+          },
+          {
+            "path": "docs/reference/database-schemas/storage-changes.md",
+            "blob_sha": "33705a56497c3417e90cd58816e68b089888742c",
+            "additions": 25,
+            "deletions": 0
+          },
+          {
+            "path": "src/agents/bash-process-registry.ts",
+            "blob_sha": "3885431adb5a253d250acb07b89c39dfaf10140b",
+            "additions": 9,
+            "deletions": 1
+          },
+          {
+            "path": "src/agents/bash-tools.exec-notify.test.ts",
+            "blob_sha": "4311df418032de39178b2fa485b764f523eb492e",
+            "additions": 494,
+            "deletions": 0
+          },
+          {
+            "path": "src/agents/bash-tools.exec-notify.ts",
+            "blob_sha": "de0f81293a272bcc57ef921b66b8a13aa062b0f2",
+            "additions": 305,
+            "deletions": 10
+          },
+          {
+            "path": "src/agents/bash-tools.exec-run.ts",
+            "blob_sha": "b8f1ec8d4c96ed8670fe7d67ac99c1c22338d3aa",
+            "additions": 10,
+            "deletions": 1
+          },
+          {
+            "path": "src/agents/bash-tools.exec-runtime.cleanup.test.ts",
+            "blob_sha": "39c99d8bab8732be144449b5b4441693dd6303fa",
+            "additions": 4,
+            "deletions": 0
+          },
+          {
+            "path": "src/agents/bash-tools.exec-runtime.test.ts",
+            "blob_sha": "be972db392c94359d6b857844969cc637e50a39e",
+            "additions": 4,
+            "deletions": 0
+          },
+          {
+            "path": "src/agents/bash-tools.exec-settlement.ts",
+            "blob_sha": "c72e066a31fe431b84e9469139f7313aa04e28fb",
+            "additions": 2,
+            "deletions": 2
+          },
+          {
+            "path": "src/agents/bash-tools.process.ts",
+            "blob_sha": "2519daefb2385af8e89243fc635c523155700367",
+            "additions": 2,
+            "deletions": 0
+          },
+          {
+            "path": "src/auto-reply/reply/session-event-handoff.ts",
+            "blob_sha": "03706c23582804a61a5c4af5e91a03c18774d9c4",
+            "additions": 29,
+            "deletions": 22
+          },
+          {
+            "path": "src/config/sessions/session-accessor.sqlite-entry-store.ts",
+            "blob_sha": "b5ef8d223d1f11a8e6146492d8fc83cbcfa96ab1",
+            "additions": 3,
+            "deletions": 0
+          },
+          {
+            "path": "src/config/sessions/session-entry-list.worker.ts",
+            "blob_sha": "1f9e96869de7f07da07cc5972a05d3da3d1982c9",
+            "additions": 25,
+            "deletions": 0
+          },
+          {
+            "path": "src/config/sessions/session-entry-projection.ts",
+            "blob_sha": "6eb946cadb392850989fcd6f54421e0e71c08c57",
+            "additions": 2,
+            "deletions": 0
+          },
+          {
+            "path": "src/config/sessions/session-entry-read-maintenance.ts",
+            "blob_sha": "be71b398092d0df2b4a19ea70e176ceaf23ad75a",
+            "additions": 22,
+            "deletions": 0
+          },
+          {
+            "path": "src/config/sessions/session-entry-read.types.ts",
+            "blob_sha": "09676bed96d4b1e4592913f9be719e9a774d22e3",
+            "additions": 7,
+            "deletions": 1
+          },
+          {
+            "path": "src/config/sessions/session-entry-recovery.worker.test.ts",
+            "blob_sha": "2804199b36a8cc604ae4a7a3403683d087ac7aad",
+            "additions": 57,
+            "deletions": 1
+          },
+          {
+            "path": "src/config/sessions/types.ts",
+            "blob_sha": "2fba80a5ab007826e6de44c97f7655a464e21d4c",
+            "additions": 16,
+            "deletions": 0
+          },
+          {
+            "path": "src/gateway/server-startup-observers.ts",
+            "blob_sha": "6b6c42ef4dc832466e19dd0af72fcb2fd0e72c83",
+            "additions": 13,
+            "deletions": 0
+          },
+          {
+            "path": "src/plugins/session-entry-slot-keys.ts",
+            "blob_sha": "4576572f8af655b096116b43408cdf679a135a10",
+            "additions": 1,
+            "deletions": 0
+          },
+          {
+            "path": "test/gateway-background-process-restart.e2e.test.ts",
+            "blob_sha": "f4c1ce31a792356a78c70674c20fe13ebe235b9e",
+            "additions": 462,
+            "deletions": 0
+          }
+        ],
+        "classification": "New merge after prior coverage cutoff, absent from published45516c1selected report.",
+        "priority": "Primary material H2 signal; stronger than routine follow-up metadata.",
+        "source_scope": "All22changed-file patches read, including complete494line notification-owner and462line process E2E additions. No source extracted/executed as an experiment.",
+        "changed_boundary": [
+          "At background promotion, save pendingExecNotifications in existing private session-row JSON keyed by unique process-instance ID. Returning background status waits for persistence promise; persistence failure reports process already started and requests polling before retry.",
+          "Store generic label, owner/session/lifecycle/incarnation and captured route/tool restrictions, without command arguments, environment, output, operating-system handles or execution authority.",
+          "Startup filters candidates in SQLite and projects at most64matching entries per page. Capture pending admission agents before discovery, join admission completion and rescan; no polling timer/new process host.",
+          "Resolve logical agent from each session key while retaining physical database scope; capture current destination/authority and intersect stored tool restrictions. Incognito/archive/reset/replacement/opt-out and already claimed/terminal sources remove or suppress obligations.",
+          "Adopt notification through existing session-event owner using exec:process-instance source-turn identity. Its text reports lost process/unknown outcome and directs side-effect/state inspection. It does not replay the original command or keep physical process alive."
+        ],
+        "tests_read": {
+          "owner_fixture": "Actual SQLite/worker row operations, synthetic process fixtures, mocked enqueue receipt/adoption. Covers compact facts, same-incarnation skip, once after adoption, source receipts, reset/archive/replacement, shared-store logical identity, opt-out and narrowed restrictions.",
+          "reader_fixture": "70pending owners+70unrelated+empty obligation; crosses64page boundary and asserts unrelated saved prompt snapshots omitted.",
+          "process_fixture": "Three managed/SIGTERM/SIGKILL parameterized cases run separate realGateway processes and scripted local OpenAI Responses SSE endpoint; actual shell sleep/PID and workspace count files, cancellation case, revoked exec denied before file write, one notice per model request, no command replay and no extra call on later restart. SIGKILL variant crashes during adopted recovery and expects2requests rather than1.",
+          "platform": "Explicit it.skipIf(process.platform==='win32'); requires POSIX shell/sleep/signal behavior and full builtGateway/dependencies. Not executed locally."
+        },
+        "discussion": {
+          "issue_comments": 4,
+          "formal_reviews": 2,
+          "inline_comments": 2,
+          "pages": "Each complete firstpage per_page100, no nextlinks. These include context before baseline; newly read is not newly posted.",
+          "shared_store_concern": {
+            "url": "https://github.com/openclaw/openclaw/pull/173454#discussion_r4288099166",
+            "created_at": "2026-10-15T20:45:52Z",
+            "original_commit": "cf4a82c784f4ca92daeef67740a80777ffb5ff5a",
+            "disposition": "Merged source visibly resolves logical agent identity and adds shared-store tests; no local execution."
+          },
+          "kill_settlement_concern": {
+            "url": "https://github.com/openclaw/openclaw/pull/173454#discussion_r4288588952",
+            "created_at": "2026-10-15T21:44:03Z",
+            "original_commit": "5c9a004bae9812b35912fa4bdf4ac1b0fa010531",
+            "current_inline_commit": "3f3e6db784edad5ac613a4e44dc28473c6982c1b",
+            "summary": "Public P2 asks to clear obligation only after kill settlement: current merged process.ts clears after cancellation request before confirmed exit. Crash during pending termination/finalization or uncertain cleanup may leave no lost-outcome notice.",
+            "status_limit": "Bot summary says has_unresolved_findings=true on3f3e6db; actual review-thread resolution not queried. This is retained public concern plus source observation, not a locally reproduced defect."
+          },
+          "stale_body_status": "Body still says remainsunmerged; fresh API and author's23:20merge comment establish merged23:19:53. Do not repeat stale prose as status."
+        },
+        "ci_metadata_only": {
+          "id": 38819842093,
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38819842093",
+          "head_sha": "3f3e6db784edad5ac613a4e44dc28473c6982c1b",
+          "event": "pull_request",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T22:50:51Z",
+          "updated_at": "2026-10-15T23:09:57Z"
+        },
+        "validation_limits": [
+          "CI38819842093freshmetadata success athead3f3e6db. No jobs/logs/actualcheckout or final-squash tree execution independently verified this pass.",
+          "Author's108/21owner-test counts, managed/SIGTERM/SIGKILL durations/repeated passes, productionbuild, private72hour journal and local review claims remain author assertions.",
+          "Process E2E source uses scripted model endpoint, not real model judgment, actual provider deployment or Telegram end-to-end delivery. No generic liveness/exactly-once effects/physical daemon survival proof.",
+          "Existing E2E cancellation finishes before restart; it does not inject a crash in requested-kill/pre-settlement window. Crash before durable background registration is explicitly outside promised recovery."
+        ]
+      },
+      {
+        "key": "oc173547",
+        "url": "https://github.com/openclaw/openclaw/pull/173547",
+        "title": "fix(codex): release completed subagents after cleanup failures",
+        "state": "closed",
+        "merged": true,
+        "merged_at": "2026-10-15T23:53:02Z",
+        "updated_at": "2026-10-15T23:53:10Z",
+        "head_sha": "08aed4fdcf9b5f2fd6941202d03fa3b16a121374",
+        "merge_commit_sha": "fadcbe5870ccc54092646edab28324d288ca6e94",
+        "author": "Kimiyu-186",
+        "author_association": "CONTRIBUTOR",
+        "merged_by": "Kimiyu-186",
+        "changed_files": 2,
+        "commit_parents": [
+          "3dba0514d302cb84bad3408a4b77225f2010725c"
+        ],
+        "changed_files_returned": 2,
+        "all_changed_file_patches_present": true,
+        "file_blobs": [
+          {
+            "path": "extensions/codex/src/app-server/native-subagent-monitor-runtime.ts",
+            "blob_sha": "13b7568a4310a84c26c342861318e5cb220ed26d",
+            "additions": 80,
+            "deletions": 13
+          },
+          {
+            "path": "extensions/codex/src/app-server/native-subagent-monitor.release-retry.test.ts",
+            "blob_sha": "973b25c496e15ce818607469672ccd369236b028",
+            "additions": 223,
+            "deletions": 0
+          }
+        ],
+        "classification": "New merge after prior coverage cutoff, absent from published45516c1selected report.",
+        "priority": "Supporting source-only cleanup boundary; avoid broad news inventory.",
+        "changed_boundary": [
+          "Failed terminal idle-retain/fallback release keeps exact monitor claim and retries release through existing per-threadqueue every30seconds.",
+          "One timer per claim; success/invalidation cancels it. Protected thread waits; admitted follow-up reuses claim and cancels pending retry. Business work is not replayed."
+        ],
+        "tests_read": "Complete223line fake-time/synthetic-RPC regression file: retry until recovery, no successful cleanup retry, closed/connection invalidation, protected follow-up preservation, single in-flight release and retry after protection ends.",
+        "validation_limit": "Author29test/9regression count and review claims not independently executed; body explicitly claims no live native-server or production validation."
+      },
+      {
+        "key": "oc173516",
+        "url": "https://github.com/openclaw/openclaw/pull/173516",
+        "title": "fix(codex): stop failing successful one-shot commands at cleanup",
+        "state": "closed",
+        "merged": true,
+        "merged_at": "2026-10-16T00:09:55Z",
+        "updated_at": "2026-10-16T00:09:58Z",
+        "head_sha": "679de5dbdf399d7409e50ca3c94b1c151324f155",
+        "merge_commit_sha": "6698b9aaad70f66c21b725b07c593f729bcbcef5",
+        "author": "RomneyDa",
+        "author_association": "MEMBER",
+        "merged_by": "RomneyDa",
+        "changed_files": 6,
+        "commit_parents": [
+          "a2661e10551c7605ac4e0d99b0310e5c5f6c1a4c"
+        ],
+        "changed_files_returned": 6,
+        "all_changed_file_patches_present": true,
+        "file_blobs": [
+          {
+            "path": "docs/cli/agent.md",
+            "blob_sha": "bf0fa2bbc30ffa2a907499048eaa531859806671",
+            "additions": 5,
+            "deletions": 1
+          },
+          {
+            "path": "docs/plugins/codex-harness/runtime-behavior.md",
+            "blob_sha": "f23aa8bd3a2d6e5a0c8f963ffdb3b9294709583d",
+            "additions": 2,
+            "deletions": 0
+          },
+          {
+            "path": "extensions/codex/src/app-server/dynamic-tool-build.ts",
+            "blob_sha": "e571c84c66f299ef147e7ba685d6b853c7d204c4",
+            "additions": 3,
+            "deletions": 0
+          },
+          {
+            "path": "extensions/codex/src/app-server/run-attempt-one-shot-cleanup.test.ts",
+            "blob_sha": "f7c4ba8f0524f7cff62a6e5de33f8a2ba686f679",
+            "additions": 64,
+            "deletions": 1
+          },
+          {
+            "path": "src/commands/agent-exec.state-lock.test.ts",
+            "blob_sha": "2cd9940bf0678bd3b612a1f1249251f35861b9f1",
+            "additions": 7,
+            "deletions": 0
+          },
+          {
+            "path": "src/commands/agent-exec.ts",
+            "blob_sha": "c71c0e28a7e448f900ce82110302cbfd27f29f1f",
+            "additions": 6,
+            "deletions": 1
+          }
+        ],
+        "classification": "New merge after prior coverage cutoff, absent from published45516c1selected report.",
+        "priority": "Supporting source-only work-result/cleanup separation.",
+        "changed_boundary": [
+          "Strict one-shot agentexec disables native Codex tool surface before tool catalog construction and reuses host-owned exec/filesystem lifecycle.",
+          "Cleanup failure after completed task preserves finaltext/payloads/metadata while setting okfalse/statuserror/error.kindcleanup and exit1; original task-error/timeout handling retained."
+        ],
+        "tests_read": "Added harness test asserts code_modefalse and hostexec/message/process tools; state-lock test preserves finaldone/payloaddone with cleanupkinderror. No local execution.",
+        "validation_limit": "Author live macOSCodex0.162.1/API-key inference table and scoped test timings not independently validated; OAuth route explicitly untested, broader check:changed not green. No arbitrary-descendant containment claim."
+      }
+    ],
+    "unchanged_followups": [
+      {
+        "key": "v2866",
+        "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2866",
+        "title": "fix: collect and same-box grade before closing the harness session",
+        "state": "closed",
+        "merged": true,
+        "merged_at": "2026-10-15T21:17:48Z",
+        "updated_at": "2026-10-15T21:17:51Z",
+        "head_sha": "f144485317dd96863ab096b8251b26482b55b346",
+        "merge_commit_sha": "2a3ddf7725f655cb7ea14fc9f10195221fa3ed1a",
+        "author": "hallerite",
+        "author_association": "MEMBER",
+        "merged_by": "xeophon",
+        "changed_files": 3,
+        "comparison": {
+          "state": true,
+          "merged": true,
+          "merged_at": true,
+          "updated_at": true,
+          "body": true,
+          "comments": true,
+          "review_comments": true,
+          "head_sha": true
+        },
+        "classification": "No material change; old merge or pending proposal remains deduplicated."
+      },
+      {
+        "key": "v2857",
+        "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2857",
+        "title": "Preserve failed isolated scoring attempt diagnostics",
+        "state": "open",
+        "merged": false,
+        "merged_at": null,
+        "updated_at": "2026-10-15T13:20:14Z",
+        "head_sha": "565b63377d8810caa690f42db290772582cecaf9",
+        "merge_commit_sha": "1db312612781e17245ceeeaa2deede6c27ff5c53",
+        "author": "hallerite",
+        "author_association": "MEMBER",
+        "merged_by": null,
+        "changed_files": 4,
+        "comparison": {
+          "state": true,
+          "merged": true,
+          "merged_at": true,
+          "updated_at": true,
+          "body": true,
+          "comments": true,
+          "review_comments": true,
+          "head_sha": true
+        },
+        "classification": "No material change; old merge or pending proposal remains deduplicated."
+      },
+      {
+        "key": "pi11000",
+        "url": "https://github.com/earendil-works/pi/pull/11000",
+        "title": "fix(ai): drop thinking from other models instead of sending it as text",
+        "state": "closed",
+        "merged": true,
+        "merged_at": "2026-10-15T17:38:33Z",
+        "updated_at": "2026-10-15T17:38:35Z",
+        "head_sha": "6c6522e63bdb603b11e090e415a2fe881fbab48c",
+        "merge_commit_sha": "911309429175254550837167baee245d5f9dbcb6",
+        "author": "davidbrai",
+        "author_association": "MEMBER",
+        "merged_by": "davidbrai",
+        "changed_files": 8,
+        "comparison": {
+          "state": true,
+          "merged": true,
+          "merged_at": true,
+          "updated_at": true,
+          "body": true,
+          "comments": true,
+          "review_comments": true,
+          "head_sha": true
+        },
+        "classification": "No material change; old merge or pending proposal remains deduplicated."
+      }
+    ]
+  },
+  "h1_followup": {
+    "event_window": {
+      "since": "2026-10-15T22:32:57.581731+00:00",
+      "until": "2026-10-16T00:39:06.663362+00:00",
+      "bounds": "Intentional second-precision lower-bound overlap; classify locally against exact timestamps. Reads after event cutoff do not advance it."
+    },
+    "observed_interval": {
+      "start": "2026-10-16T00:40:13.606115Z",
+      "end": "2026-10-16T00:40:19.573976Z"
+    },
+    "interpretation": {
+      "status": "no_material_h1_upstream_delta_in_bounded_reads",
+      "known_pr_comparisons": {
+        "fla_pr1390": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1390",
+          "author": "yzhangcs",
+          "author_association": "MEMBER",
+          "state": "closed",
+          "merged_at": null,
+          "head_sha": "4056b9dece258d0e114196855a5559a0752e3cd3",
+          "updated_at": "2026-10-15T16:08:57Z",
+          "created_at": "2026-10-14T23:15:56Z",
+          "same_state": true,
+          "same_merged_at": true,
+          "same_head": true,
+          "same_body": true,
+          "body_sha256": "492aaf3124628b0bcf3daa8f1de16da3ddb23b6fe9ae7ab1bd20ff756d27d77e",
+          "prior_body_sha256": "492aaf3124628b0bcf3daa8f1de16da3ddb23b6fe9ae7ab1bd20ff756d27d77e",
+          "observed_interval": {
+            "start": "2026-10-16T00:40:15.269079Z",
+            "end": "2026-10-16T00:40:17.267380Z"
+          }
+        },
+        "fla_pr1402": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1402",
+          "author": "gregghy",
+          "author_association": "NONE",
+          "state": "open",
+          "merged_at": null,
+          "head_sha": "dd38d6ed71904ce5e86f3feb8b0c80f1a00114bd",
+          "updated_at": "2026-10-15T20:33:24Z",
+          "created_at": "2026-10-15T15:13:01Z",
+          "same_state": true,
+          "same_merged_at": true,
+          "same_head": true,
+          "same_body": true,
+          "body_sha256": "e5123aefd57283feb40fc2bae3fcd65b2d0e8b8c0fefa898c3b2105991a2df00",
+          "prior_body_sha256": "e5123aefd57283feb40fc2bae3fcd65b2d0e8b8c0fefa898c3b2105991a2df00",
+          "observed_interval": {
+            "start": "2026-10-16T00:40:15.325579Z",
+            "end": "2026-10-16T00:40:17.301516Z"
+          },
+          "matches_published_status_head_updated_at": true
+        },
+        "fla_pr1414": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1414",
+          "author": "ZenAlexa",
+          "author_association": "CONTRIBUTOR",
+          "state": "open",
+          "merged_at": null,
+          "head_sha": "87186e359c5ce16037c017ad0651e217ef3956e8",
+          "updated_at": "2026-10-15T18:27:31Z",
+          "created_at": "2026-10-15T17:44:32Z",
+          "same_state": true,
+          "same_merged_at": true,
+          "same_head": true,
+          "same_body": true,
+          "body_sha256": "b7769ec63cb8c28b825cd2bc32cf6b425c81338fa4d6be888aaff159617c2ad0",
+          "prior_body_sha256": "b7769ec63cb8c28b825cd2bc32cf6b425c81338fa4d6be888aaff159617c2ad0",
+          "observed_interval": {
+            "start": "2026-10-16T00:40:16.657909Z",
+            "end": "2026-10-16T00:40:18.589561Z"
+          },
+          "matches_published_status_head_updated_at": true
+        },
+        "fla_pr1415": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1415",
+          "author": "ZenAlexa",
+          "author_association": "CONTRIBUTOR",
+          "state": "open",
+          "merged_at": null,
+          "head_sha": "66e8e5fa6a1fda674f09bd6d4974255d0cae6ab2",
+          "updated_at": "2026-10-15T18:56:45Z",
+          "created_at": "2026-10-15T17:44:46Z",
+          "same_state": true,
+          "same_merged_at": true,
+          "same_head": true,
+          "same_body": true,
+          "body_sha256": "a0e54bab8ad13fd052757ceee932308df0f6f9ddeeb935bb03453a4468fff70c",
+          "prior_body_sha256": "a0e54bab8ad13fd052757ceee932308df0f6f9ddeeb935bb03453a4468fff70c",
+          "observed_interval": {
+            "start": "2026-10-16T00:40:16.691220Z",
+            "end": "2026-10-16T00:40:18.478571Z"
+          },
+          "matches_published_status_head_updated_at": true
+        },
+        "fla_pr1416": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1416",
+          "author": "ZenAlexa",
+          "author_association": "CONTRIBUTOR",
+          "state": "open",
+          "merged_at": null,
+          "head_sha": "23f75177bdc8b0d715f2ddd9241a85a7b1b52315",
+          "updated_at": "2026-10-15T18:27:04Z",
+          "created_at": "2026-10-15T17:44:56Z",
+          "same_state": true,
+          "same_merged_at": true,
+          "same_head": true,
+          "same_body": true,
+          "body_sha256": "4f45bf67071d51163b8da10e34f21fd9b665654fadab38face4a0219944086a7",
+          "prior_body_sha256": "4f45bf67071d51163b8da10e34f21fd9b665654fadab38face4a0219944086a7",
+          "observed_interval": {
+            "start": "2026-10-16T00:40:16.694222Z",
+            "end": "2026-10-16T00:40:18.605347Z"
+          },
+          "matches_published_status_head_updated_at": true
+        },
+        "fla_cp_branch_ref": {
+          "ref": "refs/heads/refactor/cp-state-preprocess",
+          "sha": "7571b6fcfd5bdf30fb012bc640d889e33e7e31b9",
+          "same_sha": true,
+          "note": "Closed/unmerged PR1390 API head and its body-linked branch remain distinct, unchanged observations."
+        }
+      },
+      "attnres": {
+        "public": true,
+        "license_metadata": null,
+        "pushed_at": "2026-03-17T06:23:11Z",
+        "window_response_counts": {
+          "attnres_commits": 0,
+          "attnres_issues": 0,
+          "attnres_comments": 0,
+          "attnres_inline_comments": 0
+        },
+        "interpretation": "No returned requested-endpoint events; unclear license prevents treating public visibility as a source-copy permission."
+      },
+      "fla": {
+        "public": true,
+        "license_spdx": "MIT",
+        "pushed_at": "2026-10-15T16:08:08Z",
+        "window_response_counts": {
+          "fla_commits": 0,
+          "fla_issues": 0,
+          "fla_comments": 0,
+          "fla_inline_comments": 0
+        },
+        "pending_validation": "PR1402 current-head 28-case rerun remains pending. PR1415 author performance claims and empty-packed slowdown remain prior published evidence; no new author logs/runtime results found."
+      },
+      "nathan": {
+        "owned_records": 62,
+        "originals": 23,
+        "forks": 39,
+        "new_repo_names": [],
+        "changed_original_created_pushed_fork": [],
+        "commit_search_total": 0,
+        "issue_search_total": 0,
+        "search_incomplete": false,
+        "coalibi_commits_returned": 0,
+        "scope": "62 first-page owned repositories below 100 capacity; account-wide activity/search attribution and indexing delay not eliminated. No private activity, employer or future-plan conclusion."
+      },
+      "next_gate": {
+        "decision": "A newly verified free CPU licensed pretrained-model route is feasible and was selected by root for this run; actual execution/provenance belongs to the root experiment artifact.",
+        "assessment": "cpu-activation-feasibility.json",
+        "scope": "Frozen Pythia14m pre-block residual replay; dense vs per-step int8 identity-STE operator forward/backward; does not clear matched-budget training/model quality/GPU gates.",
+        "authorization": "Free CPU dependency setup is authorized task work; absent torch is setup work, not a reason to stop."
+      },
+      "coverage_limits": [
+        "Exact fixed event window remains separate from later actual read times; empty endpoint results do not prove absence of all public/private activity.",
+        "Default branch commits, updated issues/comments/inline comments, known PR metadata and selected Nathan owner/search endpoints only; no complete all-branch GitHub/X timeline.",
+        "All 100-entry lists were below capacity with no next-page headers; search incomplete_results=false does not eliminate indexing lag.",
+        "Unchanged heads/bodies compared locally against previous raw artifact and relevant published45516c1 source records; unchanged patches/author benchmarks not rerun.",
+        "No extra H3 requests; root main scanner owns H3 coverage."
+      ],
+      "failures": [],
+      "pagination": {
+        "attnres_commits": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "attnres_issues": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "attnres_comments": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "attnres_inline_comments": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "fla_commits": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "fla_issues": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "fla_comments": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "fla_inline_comments": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "nathan_owned_repos": {
+          "returned": 62,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        },
+        "coalibi_commits": {
+          "returned": 0,
+          "requested_capacity": 100,
+          "page_full": false,
+          "has_next_page": false
+        }
+      }
+    },
+    "summary": [
+      "20 successful bounded GitHub reads; no returned AttnRes/FLA window commit/discussion events.",
+      "1390/1402/1414/1415/1416 states, heads and bodies unchanged;1390 body-linked branch unchanged.",
+      "Nathan62 owned/23 original repositories retain prior original creation/push metadata; author searches and Co-ALIBI window empty.",
+      "No new H1 upstream signal; independent verified Pythia14m CPU setup makes a bounded actual-activation operator/autograd diagnostic feasible."
+    ],
+    "request_count": 20
+  },
+  "identity_web": {
+    "baseline_utc": "2026-10-15T22:34:57.639552Z",
+    "scope": "Seven tracked first-party professional homepages, Nathan blog index, three selected first-party RSS feeds and one known departure X post; bounded observations only.",
+    "actual_fetch_interval_utc": {
+      "started_at": "2026-10-16T00:41:55.472592Z",
+      "finished_at": "2026-10-16T00:41:58.336680Z"
+    },
+    "browser_timeline_attempts": [
+      {
+        "url": "https://x.com/nathancgy4",
+        "method": "supported cua_repl Chrome browser extension",
+        "status": "not_read",
+        "error": "unsupported Codex auth method: apikey",
+        "failed_stage": "browser session naming before tab binding; no page navigation/read completed",
+        "actual_time_bounds_utc": {
+          "started_after": "2026-10-16T00:40:05Z",
+          "completed_before": "2026-10-16T00:40:36Z"
+        },
+        "calls": [
+          {
+            "operation": "cua.rewriteDocumentation",
+            "result": "documentation available",
+            "tool_reported_wall_seconds": 0.0104
+          },
+          {
+            "operation": "cua.getBrowser for known URL",
+            "result": "Chrome extension browser 3 selected",
+            "tool_reported_wall_seconds": 0.0557
+          },
+          {
+            "operation": "browser.nameSession then intended cua.getTab",
+            "result": "authentication error before tab could be bound",
+            "tool_reported_wall_seconds": 0.0207
+          }
+        ],
+        "prior_failure_not_reinterpreted": true,
+        "prior_failure_reference": "reports/runs/20261015T223228Z/identity-checks.json#browser_timeline_attempts",
+        "call_attempt_count": 3,
+        "failed_read_setup_call_count": 1,
+        "page_read_count": 0,
+        "bound_note": "Separate UTC clock anchors bracket the supported browser calls. No precise per-call timestamps are asserted; duration values are tool-reported."
+      }
+    ],
+    "http_request_count": 12,
+    "http_failures": [],
+    "comparison_summary": {
+      "unchanged_full_http_responses_excluding_x": 11,
+      "compared_full_http_responses_excluding_x": 11,
+      "unchanged_actual_raw_responses_excluding_x": 11,
+      "known_x_departure_preview_changed": false,
+      "failed_http_attempts_retained": 0,
+      "unresolved_http_urls": [],
+      "unchanged_comparable_visible_texts": 8,
+      "unchanged_all_parsed_rss_entries": 3
+    },
+    "new_meaningful_signals": [],
+    "limitations": [
+      "Current X timeline has not been read; known-post syndication is not timeline coverage. Unseen posts, replies, reposts and deletions remain unknown.",
+      "Known long-post syndication is only a truncated preview, not full original content.",
+      "HTML reads do not execute scripts or expand dynamic sections; not every linked article or paper was fetched.",
+      "RSS summary samples ten entries; full raw bodies and all parsed entries are retained and compared. Feed chronology is not fetch time.",
+      "Raw response body bytes are compared to retained prior actual bytes whose recorded SHA256s are verified. Engagement or transport metadata alone is not a new event.",
+      "A stale Kimi homepage role does not override the explicit departure. Nathan next employer requires an explicit first-party announcement and remains unverified.",
+      "Public HTTP GET observations are bounded to twelve URLs; GitHub scanning belongs to the separate main radar.",
+      "One fresh supported browser setup attempt failed with the same authentication error. Browser selection and documentation succeeded but no tab was bound; the timeline remains unknown."
+    ],
+    "latest_visible_blog_dates": {
+      "nathan-chen": {
+        "title": "Attention Residuals",
+        "displayed_date": "3-16-2026",
+        "source_url": "https://nathanchen.me/public/blog.html"
+      },
+      "peter-steinberger": {
+        "title": "OpenClaw, OpenAI and the future",
+        "feed_date": "Sun, 15 Feb 2026 00:00:00 GMT",
+        "source_url": "https://steipete.me/rss.xml"
+      },
+      "mario-zechner": {
+        "title": "How to build a shitty robot",
+        "feed_date": "Sat, 30 May 2026 00:00:00 GMT",
+        "source_url": "https://mariozechner.at/rss.xml"
+      },
+      "nicholas-carlini": {
+        "title": "How to win a best paper award",
+        "feed_date": "2026-03-09T00:00:00+00:00",
+        "source_url": "https://nicholas.carlini.com/writing/feed.xml"
+      }
+    },
+    "event_time_classification": {
+      "new_events_after_baseline_observed": [],
+      "first_discoveries_of_older_events": [],
+      "reobserved_known_departure_event_created_at": "2026-10-15T00:04:05.000Z",
+      "note": "Actual request timestamps are observations, not publication dates. No new public career or research event was observed in the successfully covered responses. Engagement counters do not establish a new event; unread timeline remains unknown."
+    },
+    "raw_response_integrity_verified": true,
+    "timeline_coverage_advanced": false,
+    "conclusion": "All eleven non-X HTTP response bodies are byte-identical to retained223228 raw bodies, whose SHA256s were verified. Eight comparable HTML text digests and all parsed entries from three RSS feeds are unchanged. Known Nathan departure-post creation/text-preview/edit flags remain unchanged; only engagement counters changed. Supported Chrome session setup again failed authentication before any timeline read, so timeline coverage is not advanced. Nathan next employer remains unverified; the known explicit first-party departure is not superseded by stale homepage Kimi text.",
+    "local_processing_notes": [
+      "The first offline HTML prior-file check compared a content digest to a newline-terminated text file. Verified prior saved visible content after removing its single terminal newline, and separately retained actual prior file SHA256. Fresh HTML content digests were already equal to prior recorded content digests.",
+      "The first offline RSS extractor omitted the optional updated element from Carlini RSS items. Reparsed retained current and previous actual raw bytes with title/link/updated/pubDate; no HTTP refetch was needed. All entries now compare equal.",
+      "Prior RSS all_parsed_entries_sha256 is a canonical JSON digest with sorted keys and compact separators, not the pretty-printed file digest. Verified both canonical prior digest and actual prior file SHA256 separately."
+    ]
+  },
+  "experiment": {
+    "new_experiments": 1,
+    "name": "Frozen pretrained cumulative residual operator/autograd replay",
+    "result": "results/real-activation/report.json",
+    "result_file_sha256": "e1af02dcd4d5316c1aab0ad8d83db516037d911f50523f6f01ff83561c159e52",
+    "stable_result_sha256": "a61b7dabb97e9e38f3016e628d9de4129d9d2919741b1ca8fe4f40373f2b07c5",
+    "observation_sha256": "e9a0e0ac75d64e1134ddcf73a608b49fd78f10a702171fab11ab95e46f1e4d68",
+    "fixture_manifest_sha256": "160ac875f1b353e64b862dc5ddb7af615977c8316ca15020ab1979f562e82553",
+    "recapture_exact_hashes_verified": true,
+    "excluded_pilot": {
+      "reason": "Pilot overlapped a recapture process; its performance measurements are excluded. Reviewed six-worker run began only after capture, recapture and tests completed. This does not eliminate unrelated OS activity.",
+      "stable_result_sha256": "a61b7dabb97e9e38f3016e628d9de4129d9d2919741b1ca8fe4f40373f2b07c5",
+      "observation_sha256": "9a79e0a4eaa525b43c5f8419f02a51d5ee857099cd373c7e21d09c6dfa8d5526"
+    },
+    "tests": "89 local tests passed with optional CPU torch installed; independent dense double gradcheck and identity STE reference included.",
+    "scope": "No optimizer/model training, model-quality, measured GPU-memory, production-liveness or architecture reproduction claim."
+  },
+  "local_raw_records_sha256": {
+    "frontier-checks.json": "51829a72c8161dc042012a80540e704360d4226e4390553354f518473a4a3ced",
+    "h1-checks.json": "928007e88e0852e3745a63e1c518089fb4c06fb7467fbed505ba575ef58af243",
+    "identity-checks.json": "f303eb167de7c3d74a98249954e933f1da1385ac5e98cbd86aa3694176f367dc",
+    "cpu-activation-feasibility.json": "5a4dbcf4aca41c0a8aa79086d2da4de0399f362fb5d6e98e431e73031680c42a",
+    "model-download.json": "84436f690e9ddef91097739ff32cb152e6dbb0e6418aefd52ba8753c1413300e",
+    "activation-environment.txt": "1eba956134c859dc69bbe6a3843d793c17c3adff722c59db595412d43091f62a"
+  },
+  "limitations": [
+    "Bounded GitHub sample; comment/first-page truncation retained. Targeted cutoff never substitutes for scanner coverage.",
+    "X timeline browser setup failed; HTTP preview of known post does not establish fresh timeline coverage or a new employer.",
+    "Historical model is experimental input, not a fresh researcher signal.",
+    "Upstream background exec tests were source-read, not locally run; CI metadata alone does not prove particular test execution."
+  ],
+  "independent_reviews": {
+    "capture": {
+      "checks_passed": 45,
+      "local_receipt_sha256": "78c0e31a470f09e53e39d2152c6d5e1187415fb0977549bcd431f9df0c8a1b57",
+      "scope": "Saved-file hashes/model embedding row equality/recapture provenance; actual code, data and manifest are published."
+    },
+    "operator": {
+      "local_receipt_sha256": "519b5cee477f86805dd21037c0e5b4c0533f0443e5c9a9d35dbf1b8d9a6cb350",
+      "readback_sha256": "9cdb4578feeccb9602698b43ef99e0d57a2778081ea72341c4b0e15dd976ff2c",
+      "scope": "Independent source and six-worker saved-output review with recomputed NumPy parity, no additional model or upstream execution."
+    }
+  },
+  "initial_prepared_at": "2026-10-16T00:57:08.238700+00:00"
+}

@@ -17,17 +17,19 @@
         "fla-kda-indexed-state-storage",
         "fla-kda-dense-output-allocation",
         "fla-kda-value-tiling-validation",
-        "fla-gdp-guarded-normalization"
+        "fla-gdp-guarded-normalization",
+        "pythia14m-pinned-activation-fixture"
       ],
-      "status": "synthetic_operator_and_cpu_process_memory_executed_training_unverified",
+      "status": "real_pretrained_residual_operator_autograd_executed_backbone_training_unverified",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "An original fresh-process CPU probe now measures dense, full int8 dequantization and two-pass tiled int8 on prepacked synthetic banks. It records OS lifetime resident peaks, operator/load/packing times and numerical parity separately; this does not measure training quality, per-step packing, backward or GPU memory.",
+      "supporting_observation": "Prior synthetic budget/CPU inference results remain bounded. The new pinned Pythia-14m fixture contains actual cumulative pre-block residuals, replayed by an independent random-query operator with real CPU autograd and per-step int8 packing plus identity STE. All three dense outputs match independent NumPy tolerance; output/operator-gradient differences are recorded. Both methods save3,432,960unique backing bytes; this decoded-STE implementation did not reduce that inventory and had higher observed lifetime peaks/times. This clears a real-trace/operator-backward measurement gate only.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Use real activation traces and matched token/time small-model training, including packing/retention/backward costs and measured GPU peak/throughput. Separately validate serial/CP outputs and gradients, state layout and scaling. Kernel allocation changes also require full-write, indexed-capacity, alias and packed-suffix correctness. CPU process peaks and restored unmerged PR claims do not clear these gates.",
+      "next_gate": "Before increasing compression priority, execute matched token and wall-clock small-model training with learned queries, optimizer steps, held-out loss, multiple seeds and actual backbone activation-retention/packing/backward costs. Test a design that avoids retaining fullfloat32 leaves plus decoded banks, rather than reading int8 logical codes as memory savings. Measure real device peaks/throughput on available resources before GPU claims. Separately validate serial/CP outputs/gradients, indexed capacity, alias/full-write and packed suffix correctness. Frozen cumulative Pythia residuals do not reproduce upstream AttnRes architecture or its training.",
       "additional_experiments": [
-        "experiments/attnres_memory_probe.py"
+        "experiments/attnres_memory_probe.py",
+        "experiments/real_activation_autograd_probe.py"
       ],
-      "review_record": "research/2026-10-16-memory-and-context.md"
+      "review_record": "research/2026-10-16-real-activation-and-exec-custody.md"
     },
     {
       "id": "H2",
@@ -52,7 +54,10 @@
         "openclaw-shutdown-public-ci",
         "openclaw-advisor-stale-guidance",
         "openclaw-fork-preparation-continuity",
-        "openclaw-lease-maintenance-release"
+        "openclaw-lease-maintenance-release",
+        "openclaw-background-exec-recovery",
+        "openclaw-background-exec-kill-settlement-review",
+        "openclaw-background-exec-head-ci"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -61,10 +66,10 @@
         "experiments/pi_adapter_queue_probe.mjs",
         "experiments/pi_context_transform_probe.mjs"
       ],
-      "supporting_observation": "Prior independent SQLite, pinned adapter and complete context primitives remain bounded executed evidence. Prior public shutdown logs verify one controlled Linux integration, not general reliability. Newly merged OpenClaw patches explicitly cancel stale guidance, preserve same-run/transport prepared snapshots until replacement while retaining reset revocation, and retry maintenance-blocked lease release without replaying business callbacks. Current source and test assertions were read; none of these three upstream patches were locally executed.",
+      "supporting_observation": "Prior independent SQLite, pinned adapter and complete context primitives remain bounded executed evidence. Prior public shutdown logs verify one controlled Linux integration, not general reliability. OpenClaw173454 is now merged atdbc41ff76ba1d835ab36261c48c5ecea87deff4c: background promotion persists a compact notification obligation, startup revalidates session/agent/tool authority and reports unknown outcomes without command replay. All22 changed-file patches were read; the genuine scripted-provider process E2E explicitly skips Windows and was not locally executed. A pre-existing public kill-settlement P2 plus current source identify a requested-kill/pre-settlement crash window; it is not a reproduced defect or proof of authoritative review-thread state. Final prepared-head CI success is metadata only. Prior stale-guidance, snapshot-continuity and maintenance-release source observations remain bounded evidence.",
       "falsifier": "Full-harness tests already satisfy the remaining contracts without consequential failures, or the controlled assumptions fail under real providers, concurrent writers, torn storage or external-effect receipts.",
-      "next_gate": "Reuse upstream shutdown fixture and extend its existing status-inspection/reset assertions to real provider, effect-receipt and persistent-storage-failure combinations. Verify bounded progress as well as safety, and record custody-marking failure. Separately generate authentic released Gateway state and run real locked Doctor backup/exact-row compare-and-apply/reopen/task-progress integration; unchanged official seed requires9.4 and10.3 needs disclosed adaptation. Context primitive success does not clear provider serialization/request/full-harness integration. Extend real state tests to maintenance ending inside/outside the release budget, mixed-error refusal and operation callback execution count, alongside snapshot replacement/reset races. Source fixture assertions and author campaign claims alone do not clear this gate.",
-      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
+      "next_gate": "Reuse the actual upstream process-restart fixture atdbc41ff76ba1d835ab36261c48c5ecea87deff4c and authentic parent824e909530916673681c05f1dfef9ba3721fd071. Request kill, hold process settlement, crash/restart and independently inspect PID/effects/SQLite/notice receipts; compare confirmed cancellation, uncertain cleanup, reset/revocation and persistence failure. Unknown-outcome notification itself is already implemented upstream and is not a novel missing feature. Retain real-provider, external-effect and storage-failure combinations plus bounded progress/custody failure gates. Separately generate authentic released Gateway state and run real locked Doctor backup/exact-row compare-and-apply/reopen/task-progress integration; unchanged official seed requires9.4 and10.3 needs disclosed adaptation. Context primitive success does not clear provider serialization/request/full-harness integration. Keep maintenance inside/outside release budget, mixed-error refusal, callback count and snapshot replacement/reset controls. Source assertions, CI metadata and author campaign claims alone do not clear these gates.",
+      "review_record": "research/2026-10-16-real-activation-and-exec-custody.md",
       "alternative_explanation": "These changes may be routine repair of already known integration bugs, without establishing a new research program or any individual private plan.",
       "forecast": {
         "claim": "Further public agent engineering adds regressions asserting recovery progress, lifecycle revocation and external effects.",

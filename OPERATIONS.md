@@ -15,7 +15,7 @@ This repository turns public research signals into our own testable work. It doe
 
 ## Current gates
 
-- H1: collect real activation traces and evaluate matched token/time training before making model quality or GPU memory claims.
+- H1: a frozen Pythia pre-block fixture and per-step int8/identity-STE operator replay have run; they showed no saved-storage reduction. Evaluate learned queries, optimizer/backbone retention and matched token/time training before model quality or GPU memory claims.
 - H2: add liveness, stale-turn rejection and external-effect boundaries, then integrate one actual harness before calling the protocol production-ready.
 - H3/H4: planned only. A written idea is not an executed experiment.
 - New actors: use first-party professional/research sources; do not infer age or assign prodigy labels. Record the observation date separately from an announced joining date.

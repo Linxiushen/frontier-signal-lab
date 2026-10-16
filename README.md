@@ -24,7 +24,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 上一轮跟进：执行 pi 修复前后两个完整、未修改的上下文转换模块，检查模型身份切换、thinking 和工具消息边界；无运行时依赖替身。Peter 新合并的停机恢复实现让 H2 进一步聚焦未完成任务的持久归属、停止/重置语义与跨进程进度。上游 CI 的失败和已核验测试日志单独记录，见[上下文实验与停机恢复证据](research/2026-10-16-context-and-shutdown.md)。
 
-最新跟进：verifiers 的服务生命周期 PR2866 已合并，H4 从提案跟踪转入实际合并版本的评分/失败分支验证。OpenClaw 的旧建议撤销、同轮次快照替换和 lease 释放重试进一步细化 H2 的版本与活性边界。本轮新增实验为 0，作者汇总效果仍待独立验证；见[服务生命周期与下一实验门槛](research/2026-10-16-verifier-service-lifetime.md)。
+此前跟进：verifiers 的服务生命周期 PR2866 已合并，H4 从提案跟踪转入实际合并版本的评分/失败分支验证。OpenClaw 的旧建议撤销、同轮次快照替换和 lease 释放重试进一步细化 H2 的版本与活性边界；见[服务生命周期与下一实验门槛](research/2026-10-16-verifier-service-lifetime.md)。
+
+最新实验：固定 Pythia-14m 的真实残差激活，执行逐步 int8 打包与 CPU 算子反向。输出差异约 0.9%，但这版 STE **没有减少反向保存的存储**，观测耗时/进程峰值更高；无模型训练或质量结论。OpenClaw 已合并后台进程丢失通知，kill 请求到终止确认的窗口仍待复现。见[真实激活实验与研究判断](research/2026-10-16-real-activation-and-exec-custody.md)。
 
 ## 快速运行
 
@@ -43,6 +45,16 @@ python -m unittest discover -s tests -v
 # 明确最近 7 天的有界采样；失败和截断会记录在报告中
 python -m frontier_radar scan --config watchlist.json --output-dir reports/live --since-hours 168
 ```
+
+可选的真实激活反向实验需要独立安装 CPU Torch，使用已提交 fixture 离线重放，无需下载模型：
+
+```bash
+python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.9.1+cpu
+python -m pip install numpy==2.3.5
+python experiments/real_activation_autograd_probe.py --trace fixtures/real-activation/bank.npz --manifest fixtures/real-activation/manifest.json --output reports/runs/my-activation-replay --seeds 11 29 47 --warmup 1 --repeats 3
+```
+
+输出目录须全新。重新采集需要另装 Transformers/safetensors，并取得固定模型资产，见[采集说明](fixtures/real-activation/README.md)。
 
 雷达生成 `snapshot.json`、`report.md` 和校验文件。它只读取公开 GitHub 数据。X 原帖、个人站、论文由研究者人工核验后进入[证据账本](research/sources.json)；扫描器不会声称已经自动覆盖整个 X。
 
@@ -64,12 +76,13 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 | --- | --- | --- |
 | AttnRes budget | 2 深度 × 3 分布 × 2 query × 3 seeds × 7 策略，252 条测量 | [完整表格](results/attnres-budget.md) / [原始 JSON](results/attnres-budget.json) |
 | AttnRes memory | 预打包合成 bank；每个方法/形状/seed 在独立进程中测 CPU 内存与耗时 | [实测报告](results/attnres-memory/report.md) / [轨迹与 hash](results/attnres-memory/probe.json) |
+| Real activation autograd | 固定 Pythia 的六层累计残差；3 pseudoquery seeds，逐步 int8 打包与 identity STE 算子反向，无模型训练 | [实测报告](results/real-activation/report.md) / [轨迹与 hash](results/real-activation/report.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 | pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
 | pi context transform | 修复前后完整模块；确定性消息、模型身份及工具调用边界，未发起 provider 请求 | [结果](results/pi-context-transform/report.md) / [输入输出与 hash](results/pi-context-transform/probe.json) |
 
-一键重跑测试、六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[本轮运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
+一键重跑基础测试、此前六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[先前六实验运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256；新增真实激活实验使用上面的可选命令及自身报告清单。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 
@@ -93,6 +106,6 @@ python -m frontier_radar scan --config watchlist.json --output-dir reports/live 
 
 - GitHub Actions 运行测试，并每 6 小时采样一次公开数据，保存为 workflow artifact；失败显示为失败，不补造覆盖。
 - 人工/代理复核后更新研究判断和实验。任何预测都要写出后续观察条件与失效条件。
-- 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi [适配器](third_party/pi/README.md)及[上下文模块](third_party/pi-context/README.md)保留上游 MIT 许可与来源，其他外部材料的权利归原作者。
+- 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi [适配器](third_party/pi/README.md)及[上下文模块](third_party/pi-context/README.md)保留上游 MIT 许可，真实激活 fixture 保留 [Pythia Apache-2.0 来源](fixtures/real-activation/README.md)，其他外部材料的权利归原作者。
 
 欢迎提交能复现的负结果、反例、真实显存/吞吐数据，以及新的一手来源。

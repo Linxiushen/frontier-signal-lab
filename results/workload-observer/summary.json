@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "derived_at": "2026-10-16T19:09:02.740653+00:00",
+  "report_file_sha256": "e4de046a3653b7a7f16006344ce9b43556097c67d00bfbb10da07bd907a2837c",
+  "acceptance_passed": true,
+  "cases": 6,
+  "cases_passed": 6,
+  "wall_seconds": 27.545342299970798,
+  "memory_brackets": 8,
+  "maximum_absolute_parent_self_difference_bytes": 4096,
+  "authenticated_interpreters": 5,
+  "distinct_launcher_interpreter_pairs": 5,
+  "native_descendants_os_verified": 5,
+  "all_cases_verified_cleanup": true,
+  "workload_single_updates_observed": 4,
+  "receipt_audit_passed": true,
+  "receipt_audit_checks": 9316,
+  "acceptance_attempts": 1,
+  "retries": 0,
+  "pretrained_model_runs": 0,
+  "historical_parent_RSS_valid": false,
+  "training_harness_integrated": false,
+  "cases_summary": [
+    {
+      "id": "healthy32",
+      "passed": true,
+      "outcome": "normal_completion",
+      "wall_seconds": 6.064889100030996,
+      "parent_allocation_deltas_bytes": {
+        "resident_bytes": 33554432,
+        "private_bytes": 33619968
+      },
+      "native_thread_counts": {
+        "before_import": 4,
+        "before_operation": 10,
+        "after_operation": 10
+      }
+    },
+    {
+      "id": "healthy64",
+      "passed": true,
+      "outcome": "normal_completion",
+      "wall_seconds": 6.3635105000576,
+      "parent_allocation_deltas_bytes": {
+        "resident_bytes": 67112960,
+        "private_bytes": 67239936
+      },
+      "native_thread_counts": {
+        "before_import": 4,
+        "before_operation": 10,
+        "after_operation": 10
+      }
+    },
+    {
+      "id": "busy_timeout",
+      "passed": true,
+      "outcome": "timeout",
+      "wall_seconds": 8.317874699947424,
+      "busy_sampling": {
+        "started_perf_counter": 835418.16146,
+        "completed_perf_counter": 835419.676774,
+        "wall_seconds": 1.5153140000766143,
+        "samples_count": 73,
+        "maximum_gap_including_boundaries_seconds": 0.022290099994279444,
+        "native_cpu_delta_seconds": 3.0,
+        "gap_gate_passed": true
+      },
+      "parent_allocation_deltas_bytes": {
+        "resident_bytes": 4096,
+        "private_bytes": 0
+      },
+      "native_thread_counts": {
+        "before_import": 4,
+        "before_operation": 10,
+        "after_operation": 10
+      }
+    },
+    {
+      "id": "busy_private_cap64",
+      "passed": true,
+      "outcome": "memory_private_limit",
+      "wall_seconds": 5.718409899971448,
+      "busy_sampling": {
+        "started_perf_counter": 835425.3650218,
+        "completed_perf_counter": 835425.4122176,
+        "wall_seconds": 0.047195799998007715,
+        "samples_count": 4,
+        "maximum_gap_including_boundaries_seconds": 0.02178100007586181,
+        "native_cpu_delta_seconds": 0.09375,
+        "gap_gate_passed": true
+      },
+      "allocation_ready_to_termination_seconds": 0.14774279994890094,
+      "parent_allocation_deltas_bytes": {
+        "resident_bytes": 67108864,
+        "private_bytes": 67244032
+      },
+      "native_thread_counts": {
+        "before_import": 4,
+        "before_operation": 10,
+        "after_operation": 10
+      }
+    },
+    {
+      "id": "prehandshake_exit37",
+      "passed": true,
+      "outcome": "expected_prehandshake_exit37",
+      "wall_seconds": 0.3525989999761805,
+      "prehandshake_control": {
+        "exit_code": 37,
+        "handshake_absent": true,
+        "actual_interpreter_identity_unavailable": true
+      }
+    },
+    {
+      "id": "injected_import_failure38",
+      "passed": true,
+      "outcome": "expected_injected_import_failure38",
+      "wall_seconds": 0.478832499939017
+    }
+  ]
+}

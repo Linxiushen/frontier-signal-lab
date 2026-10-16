@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-16T19:08:05.773437+00:00",
+  "protocol_sha256": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+  "new_source_files_sha256": {
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "tests/test_workload_observer.py": "c5a08aa4814b7bdcb6123f7940e5b6dca89b877abb22d791bb3b1a0c861b4899"
+  },
+  "frozen_dependency_files_sha256": {
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954"
+  },
+  "python_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+  "native_executable_sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+  "review_tools_sha256": {
+    "scripts/audit_workload_observer.py": "04208d80e43e6f4768c35020abf2bbcda56c8a515583954ae2170c6b9807877e",
+    "tests/test_workload_observer_auditor.py": "90b38c46f6c308410fd9e8805e20b78eb46e581315f51d736671d70e6a14a6a1"
+  },
+  "engineering_validation": {
+    "mock_tests_passed": 27,
+    "producer_mock_log_sha256": "a1a73ce76189c1d5b1359c25d16a95fa7e0d193f8f4695f459fb30aabf1c30f6",
+    "auditor_mock_log_sha256": "e250541fa685786218d08cf586ccf7ff59dadf371442118e5145f57e396f529c",
+    "independent_producer_review_sha256": "1a2cf73afbc7d5020d8a0745349bee9ded3d97c2c5adebdc99a493723e83228d",
+    "independent_auditor_review_sha256": "f0e782ed016309abddb446f7e2daf137506100374d1becbf2eb9b98b736943fc",
+    "auditor_mock_tests": {
+      "command": "local-state/activation-venv/Scripts/python.exe -S -m unittest tests.test_workload_observer_auditor -v",
+      "exit_code": 0,
+      "tests_passed": 15,
+      "tests_failed": 0,
+      "scope": "Pure independent synthetic receipt and negative mutation unit tests. No producer import, Torch import, process control, OS process query or real acceptance.",
+      "log": "reports/runs/20261016T184605Z/workload-auditor-independent-tests.log",
+      "log_sha256": "a2bc32e6f02969cbabab94cd3e49f77170cca9341217616db0cb7ed08a2790f9",
+      "baseline_receipt_consistency_check_count": 732,
+      "additional_independent_synthetic_mutations": [
+        {
+          "name": "shift_cleanup_1000s_healthy32",
+          "passed": true,
+          "expected_failure": "healthy32:known_event_span_fits_case_wall"
+        },
+        {
+          "name": "shift_cleanup_1000s_healthy64",
+          "passed": true,
+          "expected_failure": "healthy64:known_event_span_fits_case_wall"
+        },
+        {
+          "name": "shift_cleanup_1000s_busy_timeout",
+          "passed": true,
+          "expected_failure": "busy_timeout:known_event_span_fits_case_wall"
+        },
+        {
+          "name": "shift_cleanup_1000s_busy_private_cap64",
+          "passed": true,
+          "expected_failure": "busy_private_cap64:known_event_span_fits_case_wall"
+        },
+        {
+          "name": "shift_cleanup_1000s_injected_import_failure38",
+          "passed": true,
+          "expected_failure": "injected_import_failure38:known_event_span_fits_case_wall"
+        },
+        {
+          "name": "nonobject_root_list",
+          "passed": true
+        },
+        {
+          "name": "nonobject_root_NoneType",
+          "passed": true
+        },
+        {
+          "name": "nonobject_root_str",
+          "passed": true
+        }
+      ],
+      "additional_mutations_passed": 8,
+      "additional_mutations_failed": 0
+    },
+    "counts_overlap_not_additive": true,
+    "real_acceptance_launches_before_freeze": 0,
+    "pretrained_model_launches_this_pass": 0
+  },
+  "runtime_file_metadata": {
+    "checked_at": "2026-10-16T18:51:16.267116+00:00",
+    "kind": "installed-file metadata only; torch not imported",
+    "torch_version": "2.9.1+cpu",
+    "python_launcher_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+    "base_interpreter_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+    "torch_installed_files": {
+      "torch/__init__.py": {
+        "sha256": "caf7fcd2ebc3d065f21b31be63c938da08034477933f87cd24e62f3122e894eb",
+        "bytes": 105847
+      },
+      "torch/lib/torch_cpu.dll": {
+        "sha256": "b50202e45b2cb984f09b3bd7592026ccf5a321ff71e8a6b1ae70dbe2f0105fe4",
+        "bytes": 262656512
+      },
+      "torch/lib/c10.dll": {
+        "sha256": "f8a49293217d96b1a29f96a7849fb760282ce7fa764d40b3788ee98e2a83efc4",
+        "bytes": 1085952
+      },
+      "torch/lib/torch_python.dll": {
+        "sha256": "2131095e208ade5c3021061ef0e7b59ad56fc30bce77100d710118c178a7bc26",
+        "bytes": 18460672
+      }
+    },
+    "boundary": "Selected file hashes, not complete Python/OS/dependency attestation"
+  },
+  "limitations": "Local preregistration and local-agent review, not external timestamp authority or independent-host replication. Selected runtime files do not attest the complete OS/dependency installation; base interpreter hash is metadata, not an extra launch gate. Only the fixed engineering suite is authorized here; no historical scientific rerun."
+}

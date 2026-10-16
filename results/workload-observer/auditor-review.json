@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "reviewer": "independent agent budget_probe",
+  "reviewed_at": "2026-10-16T19:07:21.166695+00:00",
+  "reviewed_files_sha256": {
+    "scripts/audit_workload_observer.py": "04208d80e43e6f4768c35020abf2bbcda56c8a515583954ae2170c6b9807877e",
+    "tests/test_workload_observer_auditor.py": "90b38c46f6c308410fd9e8805e20b78eb46e581315f51d736671d70e6a14a6a1"
+  },
+  "blocking_findings": [],
+  "nonblocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "R1",
+      "severity": "blocking",
+      "description": "Simultaneously shifting cleanup begin/end by1000s could preserve local arithmetic while contradicting enclosing case wall.",
+      "resolution": "All6branches now verify known event span fits enclosing case wall; original counterexample rejected independently."
+    },
+    {
+      "id": "R2",
+      "severity": "nonblocking",
+      "description": "Nonobject JSON root could raise AttributeError instead of structured failure.",
+      "resolution": "Nonobject report roots now return failed structured receipts."
+    }
+  ],
+  "independent_tests": {
+    "command": "local-state/activation-venv/Scripts/python.exe -S -m unittest tests.test_workload_observer_auditor -v",
+    "exit_code": 0,
+    "tests_passed": 15,
+    "tests_failed": 0,
+    "scope": "Pure independent synthetic receipt and negative mutation unit tests. No producer import, Torch import, process control, OS process query or real acceptance.",
+    "log": "reports/runs/20261016T184605Z/workload-auditor-independent-tests.log",
+    "log_sha256": "a2bc32e6f02969cbabab94cd3e49f77170cca9341217616db0cb7ed08a2790f9",
+    "baseline_receipt_consistency_check_count": 732,
+    "additional_independent_synthetic_mutations": [
+      {
+        "name": "shift_cleanup_1000s_healthy32",
+        "passed": true,
+        "expected_failure": "healthy32:known_event_span_fits_case_wall"
+      },
+      {
+        "name": "shift_cleanup_1000s_healthy64",
+        "passed": true,
+        "expected_failure": "healthy64:known_event_span_fits_case_wall"
+      },
+      {
+        "name": "shift_cleanup_1000s_busy_timeout",
+        "passed": true,
+        "expected_failure": "busy_timeout:known_event_span_fits_case_wall"
+      },
+      {
+        "name": "shift_cleanup_1000s_busy_private_cap64",
+        "passed": true,
+        "expected_failure": "busy_private_cap64:known_event_span_fits_case_wall"
+      },
+      {
+        "name": "shift_cleanup_1000s_injected_import_failure38",
+        "passed": true,
+        "expected_failure": "injected_import_failure38:known_event_span_fits_case_wall"
+      },
+      {
+        "name": "nonobject_root_list",
+        "passed": true
+      },
+      {
+        "name": "nonobject_root_NoneType",
+        "passed": true
+      },
+      {
+        "name": "nonobject_root_str",
+        "passed": true
+      }
+    ],
+    "additional_mutations_passed": 8,
+    "additional_mutations_failed": 0
+  },
+  "static_review": {
+    "imports": {
+      "scripts/audit_workload_observer.py": [
+        "__future__",
+        "argparse",
+        "datetime",
+        "hashlib",
+        "json",
+        "math",
+        "pathlib",
+        "re"
+      ],
+      "tests/test_workload_observer_auditor.py": [
+        "copy",
+        "datetime",
+        "json",
+        "pathlib",
+        "scripts",
+        "tempfile",
+        "unittest"
+      ]
+    },
+    "stdlib_only_auditor": true,
+    "producer_and_observer_not_imported": true,
+    "subprocess_and_torch_not_imported": true,
+    "portable_pathlib_file_reader": true,
+    "failure_and_partial_receipts_fail_closed": true,
+    "optional_executable_file_checks_explicit": true
+  },
+  "scope": "READ ONLY source review and pure synthetic tests only. No Torch or observer imports, real workload, real child-process launch, Windows Job creation, external service, historical experiment rerun or source edits. Confirms bounded offline receipt consistency rather than runtime authenticity, exact concurrent kernel threads, continuous memory peaks, hard ceilings, model quality or historical scientific validity.",
+  "review_passed": true
+}

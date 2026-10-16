@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-16T18:59:00Z",
+  "reviewer": "verify_chen independent subagent",
+  "scope": "Read-only source/protocol/dependency inspection and pure mock/unit tests. No Torch import, actual WindowsBackend/WindowsJob execution, native child, model, real acceptance or science run.",
+  "decision": "No blocking finding in this bounded pre-freeze engineering review; real acceptance remains unexecuted by this reviewer.",
+  "blocking_findings": [],
+  "reviewed_files_sha256": {
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "tests/test_workload_observer.py": "c5a08aa4814b7bdcb6123f7940e5b6dca89b877abb22d791bb3b1a0c861b4899",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463"
+  },
+  "frozen_dependencies_verified_sha256": {
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "tests/test_process_observer.py": "cf050600d126966f24bca1fb05936d72fb3d943d34f13efb16f43cb5c32a675b",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954"
+  },
+  "independent_tests": {
+    "command": "python.exe -X utf8 -S -m unittest tests.test_workload_observer -v",
+    "interpreter": "local activation venv; executable path intentionally omitted",
+    "exit_code": 0,
+    "tests_passed": 27,
+    "tests_failed": 0,
+    "unittest_wall_seconds": 1.992,
+    "tool_wall_seconds": 2.9163641,
+    "scope": "Pure mocks/temporary inert files only. Worker branch tests patch backend, Popen, preparation and hard exits; case drivers patch all OS work; acceptance tests patch run_case or stop at unsupported-platform gate. No test calls prepare_workload or real child creation."
+  },
+  "reviewed_contracts": [
+    "Fixed six-case order: healthy32, healthy64 without cap, CPU-progress timeout, busy actual-worker private threshold64, exact prehandshake exit37, exact nonce-named ModuleNotFoundError/exit38.",
+    "Nonce-bound actual interpreter is authenticated via unchanged retained handle/creation/Toolhelp ancestry/job membership before native creation and site/Torch release. Prehandshake control explicitly leaves actual interpreter identity unavailable.",
+    "Native cmd launches with direct fixed argv, shell false, anonymous stdin PIPE, DEVNULL stdout/stderr, close_fds true and CREATE_NO_WINDOW. Parent checks authenticated sender, retained native PID/creation, direct parent, live job membership, native image path and frozen image bytes. Native process has no self-authenticated nonce receipt; report states this boundary.",
+    "Static workload code has one finite1024square float32 CPU forward/backward/SGD step, declared2/2 Torch threads and raw native thread count. Busy stage only calls fixed-output torch.mm in no_grad with finite monotonic backstop; no additional optimizer/backward operation appears.",
+    "Held post-import/single-update/preallocated-buffer baseline and manual-allocation plateau use self-before/parent/self-after identity/time/memory brackets. Private threshold is actual retained interpreter baseline plus48MiB, checked after64MiB held allocation and one busy matmul; same64MiB healthy case is uncapped control.",
+    "Sampling includes busy interval boundaries and requires max gap0.5s; timeout requires native worker CPU progress0.25s. Live actual/native identities are checked immediately before whole-job termination, and cap latency is bounded1s from allocated self-before to termination return.",
+    "Stage waits clamp to case20s/suite120s. Cleanup is capped4s and remaining budget; errors cannot pass. Job/retained-handle close errors and late final close set failed; every completed case and suite reports are retained. Existing output directory is not reused.",
+    "Freeze validates new source/test, protocol, frozen dependency, launcher and native executable hashes plus declaration/freeze chronology. Normal report fields publish executable basenames/hashes, not absolute paths; known local roots/executable paths are removed from public_error strings."
+  ],
+  "limitations_and_open_gates": [
+    "Review and27mock passes are engineering source/unit evidence only; actual Torch import, version, thread behavior, CPU progress, native identity, memory deltas, deadlines and cleanup require root's one frozen real suite.",
+    "Worker native_cpu_seconds establishes sampled worker CPU progress. Parent sampler CPU overhead is not separately measured and must not be inferred.",
+    "If case/suite budget is already exhausted, verified cleanup may return cleanup_error; KILL_ON_JOB_CLOSE is then attempted in finally. Such a case fails and cannot be described as successfully verified cleanup.",
+    "Freeze pins the venv launch executable bytes. Runtime interpreter executable basename/hash is recorded by the authenticated handshake but is not independently compared to an additional pre-frozen base-interpreter hash.",
+    "Known-path replacement is not a universal arbitrary-path scrubber. Root should inspect saved real receipts/errors before publication for paths outside the known workspace/executables.",
+    "Sampled private threshold is neither a hard memory ceiling nor an arbitrary-descendant memory cap; manual ctypes payload is bounded64MiB while Torch/runtime allocation is distinct. Sampling is not continuous peak-memory evidence.",
+    "Native pipe may reach EOF after worker termination; whole-job success does not identify the exclusive per-descendant death cause. Configured Torch thread limits/raw count do not prove exact concurrent kernel worker ownership.",
+    "No historical parent RSS measurement is rehabilitated, and no cost/final-quality/compression/production gate is upgraded by this engineering review."
+  ],
+  "tracked_edits_by_reviewer": []
+}

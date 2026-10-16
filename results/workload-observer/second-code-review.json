@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-16T19:04:03.501213+00:00",
+  "reviewer": "frontier_signals local agent",
+  "scope": "Independent read-only full-source/protocol review and pure unit/mock execution; no Torch import, model operation, native DLL call or real child/process acceptance by this reviewer",
+  "source_files_sha256": {
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "tests/test_workload_observer.py": "c5a08aa4814b7bdcb6123f7940e5b6dca89b877abb22d791bb3b1a0c861b4899",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "scripts/audit_workload_observer.py": "467bc1a7bd7fa711be1692fb16d411a3eedd7a93d11cbb8b305c41429965cebc",
+    "tests/test_workload_observer_auditor.py": "8f2d704f8a7a2909cb4af8c85872da80409b505b804f8bfe3a76df903d79c4c4"
+  },
+  "tests": [
+    {
+      "command": "python -X utf8 -m unittest tests.test_workload_observer -v",
+      "passed": 27,
+      "seconds": 0.789,
+      "log": "reports/runs/20261016T184605Z/workload-independent-unit-review.log",
+      "log_sha256": "d3c89063e4cccc96dd1c069c5bd822ea5d2a5d2ad3f6090152ceb3b875d11152"
+    },
+    {
+      "command": "python -X utf8 -m unittest tests.test_workload_observer_auditor -v",
+      "passed": 13,
+      "seconds": 0.051,
+      "log": "reports/runs/20261016T184605Z/workload-auditor-tests-final.log",
+      "log_sha256": "fc1c69535226675c09c07cde1752aa94d7014f7fb30e6dfc6e5b3c0f8e29af37"
+    }
+  ],
+  "reviewed_contracts": [
+    "Fixed6cases/config/source+historicaldependency inventory, root freeze and one real suite owned by root",
+    "No site/Torch before authenticated import release; exact expected prehandshake37 and nonce missingmodule38",
+    "Suspended assigned launcher distinct from actual interpreter; actual nonce+creation identity/OS ancestry/job; native cmd OS image/hash/directparent/no native self-report",
+    "Fixed hidden cmd flags and anonymous pipe, healthy nonempty done line/no false termination",
+    "Finite oneCPUforward/backward/SGD update and recorded2/2 Torch settings/raw native threads",
+    "Four successful cases x2 independent memory brackets, 32/64MiB deltas; postimport+48MiB sampled cap/1s return",
+    "Busyfirstmatmul no extra optimizer/backward; boundaryinclusive samplegap<=0.5; timeout>=1.5s and nativeCPU>=0.25s",
+    "Both actual/native live membership receipts immediately before action; cleanup all retained handles exit +job0 <=4s",
+    "Stage/case20/suite120 min deadlines; final handle-close overrun fails; precise failure+cleanup receipts retained; all6suite results preserved, no retry/fallback",
+    "Stdlib auditor imports no experiment, Torch or native libraries; independently recomputes identities/brackets/deltas/cap/gap/CPU/timing/exit inventories and exact fixed hashes; optional executable rehash omissions explicit"
+  ],
+  "blocking_findings": [],
+  "preexecution_conclusion": "No blocking implementation defect found within this engineering protocol. This review authorizes no assertion of actual results; root must freeze exact source/hash and run the sole real suite, retaining any failure.",
+  "limits": [
+    "Local second-agent review is not third-party replication or external timestamp authority.",
+    "Declared/native thread counts and CPU progress do not establish exact concurrent kernel worker identity.",
+    "Sampled private threshold is not a hard ceiling; no arbitrary remote descendant cap/peak/cost/quality claim.",
+    "Old scientific quality/cost/parentRSS failures and H1/H2/H3/H4 gates remain unchanged.",
+    "First auditor test attempt exposed a synthetic boundary-gap mutation that did not actually breach0.5s; fixture corrected to create0.75s gap before final13tests. Earlier failed log retained."
+  ]
+}

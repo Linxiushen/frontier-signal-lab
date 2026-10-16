@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-16T19:08:03.313253+00:00",
+  "reviewer": "frontier_signals local agent",
+  "scope": "Final offline stdlib audit implementation plus synthetic/tamper tests; no experiment/Torch imports, real process launch or OS remeasurement",
+  "supersedes_auditor_portion_only": "reports/runs/20261016T184605Z/workload-frontier-independent-review.json",
+  "files_sha256": {
+    "scripts/audit_workload_observer.py": "04208d80e43e6f4768c35020abf2bbcda56c8a515583954ae2170c6b9807877e",
+    "tests/test_workload_observer_auditor.py": "90b38c46f6c308410fd9e8805e20b78eb46e581315f51d736671d70e6a14a6a1"
+  },
+  "tests": {
+    "passed": 15,
+    "seconds": 0.067,
+    "log": "reports/runs/20261016T184605Z/workload-auditor-tests-reviewed.log",
+    "log_sha256": "e250541fa685786218d08cf586ccf7ff59dadf371442118e5145f57e396f529c"
+  },
+  "synthetic_receipt": {
+    "passed": true,
+    "check_count": 732,
+    "checks_passed": 732,
+    "failures": []
+  },
+  "independent_review": "budget_probe confirmed15tests +8 independent mutations; no remaining blocker; its separate receipt is owned by that reviewer",
+  "corrected_review_finding": "Coherently shifting cleanup timestamps could previously retain local duration yet escape enclosing case wall. Added ready-to-cleanup end span <=case wall+0.25s for every authenticated branch, including import-failure early continuation; prehandshake cleanup interval must fit case wall. Existing event chain bounds all normal operation/samples/busy/live/termination before cleanup. Rejected explicit final budget failure flags, retained partial/failed records and nonobject roots return structured failure.",
+  "limits": [
+    "732 is synthetic receipt consistency checks, not actual runtime validation count.",
+    "No actual acceptance run observed by this reviewer at this writing; parent solely owns freeze and the one real suite.",
+    "Optional --python and --native executable byte checks are listed explicitly when omitted.",
+    "Failed acceptance remains passed:false with full checks/failures; no retries, result replacement or historical scientific gate upgrades."
+  ],
+  "cli": "python -m scripts.audit_workload_observer --report <report.json> --protocol fixtures/workload-observer/protocol.json --freeze <implementation.json> --output <new-audit.json> [--python <frozen-python.exe>] [--native <frozen-cmd.exe>]"
+}

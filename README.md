@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [New-data short-history follow-up](research/2026-10-16-short-history-update.md) | All 12 common-anchor gates pass; separate dense/INT8 histories still show large moment drift |
 | [Natural-text training cost and final evaluation](research/2026-10-16-training-cost-and-final-evaluation.md) | All six joint screens fail; slower CPU training, all endpoints regress; parent RSS observer invalid |
 | [Windows process observer](results/process-observer/report.md) | Five controlled engineering cases pass; training integration still pending |
+| [CPU Torch workload integration](results/workload-observer/report.md) | Six controlled engineering cases pass, including native descendants; pretrained training harness remains unvalidated |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -75,6 +76,12 @@ The separate [Windows process observer](fixtures/process-observer/README.md) now
 passes five controlled identity, memory and descendant-cleanup cases. It is
 standard-library tooling with a portable receipt auditor. It has not been
 integrated into training and does not repair historical RSS measurements.
+
+The [separate Torch integration](fixtures/workload-observer/README.md) now passes
+six fixed engineering cases, including one CPU backward/SGD update per workload,
+native descendant identity, busy timeout/private threshold and precise failure
+controls. Its portable auditor launches no processes. Pretrained training,
+observer overhead and historical scientific measurements retain separate gates.
 
 ## Bring one counterexample
 

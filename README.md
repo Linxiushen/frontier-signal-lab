@@ -28,7 +28,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前实验：固定 Pythia-14m 的真实残差激活，执行逐步 int8 打包与 CPU 算子反向。输出差异约 0.9%，但这版 STE **没有减少反向保存的存储**，观测耗时/进程峰值更高；该实验未训练模型。OpenClaw 已合并后台进程丢失通知，kill 请求到终止确认的窗口仍待复现。见[真实激活实验与研究判断](research/2026-10-16-real-activation-and-exec-custody.md)。
 
-最新实验：实际微调 Pythia-14m 全部 **1,406 万参数**，三个 seed、每组 3,072 个目标 token，对照 dense 与仅压缩反向保存张量的 int8。保存库存减少 **54%**，但 CPU 训练约慢 **50%**、进程峰值更高；两组最终保留集 NLL 均差于初始模型，未获质量收益。OpenClaw 原会话恢复和 verifiers 回放视图新增合并；来源、负结果与下一门槛见[训练成本与恢复边界](research/2026-10-16-training-and-replay-boundaries.md)。
+此前实验：实际微调 Pythia-14m 全部 **1,406 万参数**，三个 seed、每组 3,072 个目标 token，对照 dense 与仅压缩反向保存张量的 int8。保存库存减少 **54%**，但 CPU 训练约慢 **50%**、进程峰值更高；两组最终保留集 NLL 均差于初始模型，未获质量收益。OpenClaw 原会话恢复和 verifiers 回放视图新增合并；来源、负结果与下一门槛见[训练成本与恢复边界](research/2026-10-16-training-and-replay-boundaries.md)。
+
+最新实验：在相同预训练参数点比较三种反向保存策略。保留精确 loss 保存值恢复了局部解析梯度，但三个批次的完整模型梯度误差均未减半，预声明判据全部失败。下一步先隔离模型内部保存值的影响；OpenClaw 新权限/取消/时钟测试仍属源码证据。见[梯度诊断与研究判断](research/2026-10-16-gradient-and-authority.md)。
 
 ## 快速运行
 
@@ -68,6 +70,14 @@ python experiments/activation_training_probe.py --model-dir local-state/models/p
 
 训练使用已提交 token 数据；重新分词准备的独立步骤见[训练 fixture](fixtures/activation-training/README.md)。每个 worker 有 180 秒训练循环上限，未完成的运行不能当成完整对照。
 
+固定参数的梯度诊断复用上述模型与训练数据，额外读取预声明协议：
+
+```bash
+python experiments/activation_gradient_probe.py --model-dir local-state/models/pythia-14m-cf967c0 --data fixtures/activation-training/data.json --manifest fixtures/activation-training/manifest.json --protocol fixtures/activation-gradient/protocol.json --output reports/runs/my-activation-gradient
+```
+
+此命令不更新权重，不执行 holdout 前向；详见[协议](fixtures/activation-gradient/README.md)。
+
 雷达生成 `snapshot.json`、`report.md` 和校验文件。它只读取公开 GitHub 数据。X 原帖、个人站、论文由研究者人工核验后进入[证据账本](research/sources.json)；扫描器不会声称已经自动覆盖整个 X。
 
 首轮在线扫描于北京时间 **18:24–18:29** 完成：7 人、10 个仓库，采样到 117 条 commits、36 条 issues、98 条 PR 和 5 条 discussions；请求无失败。活跃仓库有分页截断，报告明确标注，因此这些数字不能当成最近七天的全部活动。[扫描报告](reports/2026-10-15-initial/report.md) / [快照与校验](reports/2026-10-15-initial/snapshot.json)。
@@ -78,7 +88,7 @@ python experiments/activation_training_probe.py --model-dir local-state/models/p
 
 实验报告中的 bank bytes 是按数组形状计算的**逻辑持久存储**。它不等于 GPU 峰值显存；还需计入重建临时空间、activation、反向图、kernel 和模型其他参数。离线 block-sum 代理也不是完整 Block AttnRes 网络。
 
-当前已做传统小型语言模型的等 token 全参数训练，数据仅为原创合成故事；未验证一般语言模型质量、学习深度路由或 GPU 吞吐。两组保留集 NLL 均退化，没有新架构优势结论。下一个门槛是同参数点的压缩梯度/更新误差、等 wall-clock 训练和更充分的独立终评。
+当前已做传统小型语言模型的等 token 全参数训练，数据仅为原创合成故事；未验证一般语言模型质量、学习深度路由或 GPU 吞吐。两组保留集 NLL 均退化，没有新架构优势结论。同参数点的完整梯度误差已实测；仅保留精确 loss 保存值不足以消除主要误差。下一门槛是模型保存值隔离与实际更新保真度，之后才是等 wall-clock 训练和独立终评。
 
 ## 首轮结果与跟踪对象
 
@@ -90,12 +100,13 @@ python experiments/activation_training_probe.py --model-dir local-state/models/p
 | AttnRes memory | 预打包合成 bank；每个方法/形状/seed 在独立进程中测 CPU 内存与耗时 | [实测报告](results/attnres-memory/report.md) / [轨迹与 hash](results/attnres-memory/probe.json) |
 | Real activation autograd | 固定 Pythia 的六层累计残差；3 pseudoquery seeds，逐步 int8 打包与 identity STE 算子反向，无模型训练 | [实测报告](results/real-activation/report.md) / [轨迹与 hash](results/real-activation/report.json) |
 | Activation training | Pythia-14m 全参数 AdamW，3 seeds × 2 方法 × 24 步，固定合成 train/holdout；dense 前向与近似 backward | [负结果与复现](results/activation-training/report.md) / [完整逐步轨迹与 hash](results/activation-training/report.json) |
+| Activation gradient | 相同 Pythia-14m 参数，3 批次 × 3 backward 策略；全参数误差与 CE 解析控制，无参数更新 | [失败判据与复现](results/activation-gradient/report.md) / [逐参数指标与 hash](results/activation-gradient/report.json) |
 | Recovery contract | 3 协议 × 11 事件场景，33 条可回放轨迹 | [结果](results/recovery-contract/report.md) / [轨迹和假设](results/recovery-contract/probe.json) |
 | SQLite migration | 2 诊断策略 × 5 故障配置，10 条真实数据库轨迹 | [结果](results/sqlite-migration/report.md) / [快照与 hash](results/sqlite-migration/probe.json) |
 | pi adapter queue | 固定上游适配器 + Node SQLite stand-in，6 条确定性队列/事务轨迹 | [结果](results/pi-adapter-queue/report.md) / [实际 SQL 与事件](results/pi-adapter-queue/probe.json) |
 | pi context transform | 修复前后完整模块；确定性消息、模型身份及工具调用边界，未发起 provider 请求 | [结果](results/pi-context-transform/report.md) / [输入输出与 hash](results/pi-context-transform/probe.json) |
 
-一键重跑基础测试、此前六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[先前六实验运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256；新增真实激活与训练实验使用上面的可选命令及各自报告清单。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
+一键重跑基础测试、此前六个实验并记录本地环境与文件指纹：`python scripts/reproduce.py`。[先前六实验运行清单](results/reproduction.json)记录了 Python、NumPy、SQLite、Node、配置和 SHA256；新增真实激活、训练与梯度实验使用上面的可选命令及各自报告清单。内存与耗时随运行环境变化，复现检查不要求这些数值逐字一致。
 
 一个值得继续验证的观察：depth=128、64 tokens、dim=64、共享随机 query，在三种合成分布和三个 seed 上，int8 bank 的平均相对 L2 误差约 **0.00968**，逻辑 bank 从 **2 MiB 到 544 KiB**。但当前实现还生成 **2 MiB 的反量化临时数组**，所以这个结果不支持“实际峰值内存已降低”的结论。全量打分后的 oracle top-k 仍保留完整 bank；减少输出项并不自动减少存储。
 

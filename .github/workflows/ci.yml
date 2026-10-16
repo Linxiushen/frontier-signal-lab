@@ -73,6 +73,28 @@ jobs:
           name: activation-training-diagnostic
           path: reports/training-ci/
           if-no-files-found: warn
+  activation-gradient:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.9.1+cpu
+      - run: python -m pip install -r requirements-real-activation.txt
+      - name: Check fixed-point gradient and loss-boundary contracts
+        run: python -m unittest discover -s tests -p test_activation_gradient.py -v
+      - name: Obtain pinned public model assets
+        run: python scripts/download_pythia.py --output local-state/gradient-model --record reports/gradient-ci/model-assets.json
+      - name: Replay the predeclared fixed-point gradient diagnostic
+        run: python experiments/activation_gradient_probe.py --model-dir local-state/gradient-model --data fixtures/activation-training/data.json --manifest fixtures/activation-training/manifest.json --protocol fixtures/activation-gradient/protocol.json --output reports/gradient-ci/replay
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: activation-gradient-diagnostic
+          path: reports/gradient-ci/
+          if-no-files-found: warn
   public-radar:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest

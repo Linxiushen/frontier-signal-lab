@@ -15,8 +15,8 @@ This repository turns public research signals into our own testable work. It doe
 
 ## Current gates
 
-- H1: frozen Pythia pre-block/operator replay and actual full-parameter tiny Pythia training have run. Backward-only int8 saved tensors reduced the retained activation inventory by 54%, but increased CPU time and OS lifetime peak; both matched-token arms worsened synthetic holdout NLL. Next isolate gradient/update errors at identical parameters, including loss/normalization saves, before expanding compression. Learned routing, matched-time training, broader heldout quality and measured GPU gates remain open; neither probe reproduces AttnRes.
-- H2: add liveness, stale-turn rejection and external-effect boundaries, then integrate one actual harness before calling the protocol production-ready.
+- H1: actual tiny Pythia training remains a negative cost/holdout result. A fixed-pretrained-point diagnostic keeps CE saved operands exact: local CE gradients recover analytical agreement, but complete parameter-gradient error does not halve in any of three batches. Preserve that failed predeclared gate. Next isolate model saved operands, including normalization sensitivity, then actual optimizer-update fidelity before more training. Learned routing/AttnRes, matched-time training, broader sealed quality and measured GPU gates remain open; no cause attribution from gradient location alone.
+- H2: integrate one actual harness with current device/role authority, exact saved identity, durable effects, prewrite cancellation versus postwrite/timeout cleanup and monotonic deadlines. New merged fixtures strengthen source assertions only; checkpoint-tail, requested-kill settlement, second restart and real effect receipts remain unexecuted gates.
 - H3/H4: planned only. Merged per-harness replay views add a source-only H4 gate for token/trace/reward version consistency. A written idea is not an executed experiment.
 - New actors: use first-party professional/research sources; do not infer age or assign prodigy labels. Record the observation date separately from an announced joining date.
 

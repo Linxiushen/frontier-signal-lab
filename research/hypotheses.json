@@ -26,19 +26,26 @@
         "fla-recovery-pr-1458",
         "fla-recovery-pr-1484",
         "actnn-activation-compressed-training",
-        "pythia14m-activation-training-diagnostic"
+        "pythia14m-activation-training-diagnostic",
+        "fla-training-port-1462",
+        "fla-gdn2-causal-recovery-1452",
+        "pythia14m-fixed-gradient-loss-boundary"
       ],
-      "status": "full_tiny_causal_lm_matched_token_training_executed_compression_benefit_unestablished",
+      "status": "fixed_parameter_gradient_diagnostic_executed_loss_save_dominance_rejected",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "Prior seven probes remain bounded. One new paired full-Pythia14m AdamW diagnostic actually trains all14,067,712parameters for24updates/3072targets per method/seed. Backward-only deterministicint8 saved operands reduce nonparameter retained-storage inventory54.01%, while observed CPUloop1.47..1.52x and OS lifetimepeaks23.22..24.86MiB higher. Both final synthetic holdoutNLL ranges exceed initial4.73105; int8 lower than dense is not overall quality improvement. Finite full-gradient coverage does not imply accurate gradients. Six fresh workers, fixed token/split/config hashes; no posthoc tuning. FLA new recovery PR numbers mostly restore historical contributions, not new Nathan work.",
+      "supporting_observation": "Prior actual24step full-Pythia training remains a negative cost/holdout result. New fixed-pretrained-point diagnostic:3fresh workers/3policies, identical forward/weights, full76tensor/14067712finitegradient coverage. Keeping CE saves exact restores analytical logits-gradient agreement but model-only/all full-parameter relativeL2 ratios1.00704/1.00519/0.98657 fail the predeclared<=0.5/no-worse-cosine gate in all3batches. Full errors4.04..7.69 and cosine0.156..0.254 remain poor. This rejects loss-save dominance at these batches, not normalization or a universal explanation. Current1462 API port explicitly lacks new CUDA validation;1452 review adds Ascend dispatch and backward/varlen gates. These are historical contributors, not new Nathan work.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "First isolate backward approximation at identical model parameters/inputs: full gradient direction/update errors and loss/normalization-save sensitivity, before expanding this compression design. Learned depth queries, faithful AttnRes training, matched-wallclock optimization, broader independent natural-language evaluation and real device peak/throughput remain unexecuted gates. Do not count the all-activation saved-tensor hook or cumulative conventional Pythia states as a residual-bank/AttnRes implementation; prior ActNN establishes activation-compressed-training lineage. Historical restored kernel claims require current full-autograd/CP/indexed-capacity/alias validation and fresh logs.",
+      "next_gate": "Before further training, predeclare a model-saved-operand isolation (including normalization sensitivity) with exact CE and dense full-parameter gradients at identical weights, then an actual same-gradient optimizer-update fidelity check. No second diagnostic or tuning this pass. Remaining model operators are not yet causally isolated. Preserve failed loss-save gate and prior holdout regressions. Faithful learned depth routing/AttnRes, matched-wallclock training, broader sealed natural-language quality and real GPU peak/throughput remain unexecuted. Restored kernels require current dispatch/full-backward/varlen/Ascend/CP/capacity/alias validation, not historical speedups.",
       "additional_experiments": [
         "experiments/attnres_memory_probe.py",
         "experiments/real_activation_autograd_probe.py",
-        "experiments/activation_training_probe.py"
+        "experiments/activation_training_probe.py",
+        "experiments/activation_gradient_probe.py"
       ],
-      "review_record": "research/2026-10-16-training-and-replay-boundaries.md"
+      "review_record": "research/2026-10-16-gradient-and-authority.md",
+      "previous_review_records": [
+        "research/2026-10-16-training-and-replay-boundaries.md"
+      ]
     },
     {
       "id": "H2",
@@ -69,7 +76,10 @@
         "openclaw-background-exec-head-ci",
         "openclaw-in-place-resume",
         "openclaw-in-place-checkpoint-review",
-        "openclaw-in-place-head-ci"
+        "openclaw-in-place-head-ci",
+        "openclaw-native-recovery-authority-tests",
+        "openclaw-prewrite-handoff-cancellation",
+        "openclaw-monotonic-process-poll"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -78,10 +88,10 @@
         "experiments/pi_adapter_queue_probe.mjs",
         "experiments/pi_context_transform_probe.mjs"
       ],
-      "supporting_observation": "Prior independent SQLite/adapter/context primitives and bounded public Linux shutdown logs remain executed evidence with their original limits. Newly merged173579 keeps original session identity, reuses fresh operator authority/ordinary chat admission and passes lifecycle settlement into input acceptance, retaining restart tool flags through dispatch/queues. Source process tests include scripted provider and actual files but skip Windows; their read-only session control is not device/role revocation. No local Gateway execution. Public checkpoint-tail P1 remains unreplicated; prepared-head CI is completed/failure, with inherited-failure attribution only an unaudited author claim. Old173454 kill-settlement P2/source window is unchanged, not fresh news.",
+      "supporting_observation": "Prior independent SQLite/adapter/context primitives and bounded public Linux shutdown logs remain executed evidence with their original limits. Newly merged173579 keeps original session identity, reuses fresh operator authority/ordinary chat admission and passes lifecycle settlement into input acceptance, retaining restart tool flags through dispatch/queues. Source process tests include scripted provider and actual files but skip Windows; their read-only session control is not device/role revocation. No local Gateway execution. Public checkpoint-tail P1 remains unreplicated; prepared-head CI is completed/failure, with inherited-failure attribution only an unaudited author claim. Old173454 kill-settlement P2/source window is unchanged, not fresh news. Newly merged #170336 is test-only: cold-state reconstruction adds exact-source and actual device/role owner invalidation assertions around real disabled Cron-job persistence, using a synthetic handshake and mocked turn/provider, with no OS kill. #173580 distinguishes pre-write cancellation preserving a healthy shared client from timeout/post-write retirement while retaining the predecessor-exit writer fence. Committed transports are synthetic; temporary native proof is an unaudited maintainer excerpt. #173241 uses monotonic relative poll deadlines with one fake-Date regression. All 13 immutable changed patches were read; three prepared-head main CI success metadata records do not establish independent runtime proof. The current recovery service blob is identical to the #173579 merge; the checkpoint reader remains absent, and kill still clears its obligation on a cancellation request.",
       "falsifier": "Full-harness tests already satisfy the remaining contracts without consequential failures, or the controlled assumptions fail under real providers, concurrent writers, torn storage or external-effect receipts.",
-      "next_gate": "Full-harness Windows readiness remains unmet. Retain actual upstream process-fixture acceptance gates: original-session progress, stale identity rejection, full-turn checkpoint retention beyond20messages, completed-policy settlement without duplicate work, restrictions through CLI fallback/queues, current operator/device/role revocation and second restart. Preserve173454 requested-kill/pre-settlement crash window with independent PID/effect/SQLite/notice receipts and persistence-failure controls. These are deferred integration requirements, not new executed experiments. The single proposed next complete-harness experiment this pass is the pinned Pi/ACP replay gate in H4; helper/context success, author counts and CI metadata alone clear neither project gate.",
-      "review_record": "research/2026-10-16-resume-and-replay.md",
+      "next_gate": "Full-harness Windows readiness remains unmet. Combine a real entrypoint/handshake, current device/role revocation and durable-effect receipts with exact saved agent/session/incarnation/lifecycle rejection. Do not treat #170336 cold-state, mocked-turn, disabled-job source as executed process proof. Add pre-write Stop preservation with the successor waiting for predecessor physical exit, timeout retirement and a configured-MCP post-thread/start negative control; use monotonic relative deadlines under forward/backward wall-clock perturbations. Retain #173579 full-turn checkpoints beyond 20 messages, restrictions across CLI/queues, policy settlement without duplicates and a second restart. Retain the #173454 requested-kill/pre-settlement crash window with independent PID/effect/SQLite/notice receipts and persistence-failure controls. No new harness experiment executed; source assertions, author counts and CI metadata clear neither project gate. The H4 real pinned Pi/ACP/MCP replay gate remains separate and unmet.",
+      "review_record": "research/2026-10-16-recovery-authority.md",
       "alternative_explanation": "These changes may be routine repair of already known integration bugs, without establishing a new research program or any individual private plan.",
       "forecast": {
         "claim": "Further public agent engineering adds regressions asserting recovery progress, lifecycle revocation and external effects.",
@@ -91,7 +101,8 @@
       },
       "previous_review_records": [
         "research/2026-10-16-real-activation-and-exec-custody.md",
-        "research/2026-10-16-verifier-service-lifetime.md"
+        "research/2026-10-16-verifier-service-lifetime.md",
+        "research/2026-10-16-resume-and-replay.md"
       ]
     },
     {

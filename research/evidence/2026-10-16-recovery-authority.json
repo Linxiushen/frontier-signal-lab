@@ -1,0 +1,1284 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T043511Z",
+  "generated_at": "2026-10-16T04:46:35.509641+00:00",
+  "purpose": "Selected public source audit. No upstream runtime execution; H2 runtime status and H4 planned status unchanged.",
+  "baseline": {
+    "published_commit": "cb09c5fb7bfd279e6b746392a74fccd81627ec76",
+    "previous_successful_cutoff": "2026-10-16T02:38:46.921970+00:00"
+  },
+  "independent_commit_event_window": {
+    "since_query": "2026-10-16T02:38:46Z",
+    "until_query": "2026-10-16T04:35:11Z",
+    "inclusive": true,
+    "lower_bound_overlap_seconds": 0.92197,
+    "note": "Independent targeted interval ends at floored run start. Root owns scanner cutoff; observation times do not advance event coverage."
+  },
+  "observation_interval": {
+    "start": "2026-10-16T04:38:06.775518Z",
+    "end": "2026-10-16T04:42:38.671126Z"
+  },
+  "frozen_audit_sha256": "51f438c65674a31c93f1954fae04dabbc07a1af9279614580a22fb50782db072",
+  "raw_definition": "Exact stdout bytes of authenticated gh api --include GET; not a network packet capture. HTTP error bodies preserved.",
+  "requests_successful": 54,
+  "requests_unsuccessful": 2,
+  "request_manifest": [
+    {
+      "key": "oc-commits-p1",
+      "endpoint": "repos/openclaw/openclaw/commits?since=2026-10-16T02%3A38%3A46Z&until=2026-10-16T04%3A35%3A11Z&per_page=100&page=1",
+      "start": "2026-10-16T04:38:08.153190Z",
+      "end": "2026-10-16T04:38:09.973256Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "b5b9c898e64cb4be6d4ee6e182ff05640b3155dcfc16ebd05f9b7b303d339098",
+      "body_sha256": "4b7208d9220fe106f08e024396a0fd5ea34ade26382f7e1ba03293c55d7d6ca2",
+      "returned_count": 86,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-process-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/agents/bash-tools.process.ts?ref=7a16e56789212f3d5985317f1e8d0205ab06d787",
+      "start": "2026-10-16T04:39:50.933057Z",
+      "end": "2026-10-16T04:39:52.252063Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "0debea2534630d936040c7dff81768ab58d1fc1f492007bb945fcd6ef55af056",
+      "body_sha256": "d1a9392b35c9cb109de5a0203a277892323abb75f37703adfdef86b3ed51051d",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-recovery-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/gateway/session-recovery-service.ts?ref=7a16e56789212f3d5985317f1e8d0205ab06d787",
+      "start": "2026-10-16T04:39:51.351359Z",
+      "end": "2026-10-16T04:39:52.700865Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "47dfec139562da8d9b3b4815102099750f1c962cd9d259affc7ea3d31c91e253",
+      "body_sha256": "677e28185e0b683e4b14c3c06e7874d55394248dc7c8a90d0bcec3bbb6f1937e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-repo",
+      "endpoint": "repos/openclaw/openclaw",
+      "start": "2026-10-16T04:38:06.775518Z",
+      "end": "2026-10-16T04:38:08.147632Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "134bd127d0d1f9a2130736a75455f6898fdcf138f5923f1a0c6aa13e1ea4f36d",
+      "body_sha256": "cc4f41a7a180510c22f3a336a90f92d027210ca400617028b1337d95dc8359b1",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:45.556907Z",
+      "end": "2026-10-16T04:40:46.874370Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "da587172182af05c55f32faf70bad2385622f1b49e479dcabef75e92ed15cbc6",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:45.554939Z",
+      "end": "2026-10-16T04:40:46.942165Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1ad06f37b68d2de9d8c68e45bf366d7af707f32ebade5a08422fa1fae47d5611",
+      "body_sha256": "efa8a33ef4de2592b0abec3801dddd31f50be31be304808a59ac563f69b541e3",
+      "returned_count": 5,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/a6299915e2838fcb9081b72ce12c4c7b30a49319",
+      "start": "2026-10-16T04:39:45.347317Z",
+      "end": "2026-10-16T04:39:46.882576Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a21833f1625c8ea2805a9a24800fa81196fc8f329c522677308417dc509b45a9",
+      "body_sha256": "70eb95d2426376bc241209520fd172ce800d3d6a74d66245879b8c9bb4cac58e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-reviews-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:40:45.556907Z",
+      "end": "2026-10-16T04:40:46.919315Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a5cf788b63770007d836d98ce4ae8030d732c6c2b57cb88e9f3afc81f39862a4",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-runs-p1",
+      "endpoint": "repos/openclaw/openclaw/actions/runs?head_sha=61ffd2d6f0f68c72f8ada8ad5e7cc89ca7773cae&per_page=100&page=1",
+      "start": "2026-10-16T04:40:49.356191Z",
+      "end": "2026-10-16T04:40:51.002065Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "d95c846b793e3e83a8a9cc624ba1df24ce6ba2a4acf6444e5ec9cca290883184",
+      "body_sha256": "6a90ee224c66b0b172cb9f5f4e9d444cf0ac7638369e7fd43e1ec7cbb2f16422",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336",
+      "start": "2026-10-16T04:39:45.346317Z",
+      "end": "2026-10-16T04:39:47.220559Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "970d3538e1adfdbc9ea12ac5227649089e615c58664395087ca665906a7c72d3",
+      "body_sha256": "d0b99346e45bc83960fce334e89f1ab36d10131c70f8d0f15dc63c11c4277339",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173149-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/3bc0a407f194c604c030108e74d9e5aa699cda85",
+      "start": "2026-10-16T04:39:47.227559Z",
+      "end": "2026-10-16T04:39:48.438521Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "98dd1720c491187ccc57aba19d7979858c8c313b2c91a45481e89471bdcf06df",
+      "body_sha256": "9947cec804975f2230ecf74456aa4a0054ebd3176f2da5e2b4fef99917de3951",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173149",
+      "endpoint": "repos/openclaw/openclaw/pulls/173149",
+      "start": "2026-10-16T04:39:47.226559Z",
+      "end": "2026-10-16T04:39:48.828649Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "27166196ff78746df68041a1b126456636e354e3dd020083f907d3919dd8952d",
+      "body_sha256": "64b5729df6df4db7a74a00a6fb89c188703292aca00b6b5c16af226542f57bc7",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:46.926313Z",
+      "end": "2026-10-16T04:40:48.191345Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "864ff58fbeb81c10c535958334e63de2035f523629b2fc8acd251a94507baf59",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:46.881370Z",
+      "end": "2026-10-16T04:40:48.108020Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "016d1466b33e7cf8004bc38467b95ddb7411331200c01c9e4d8f09bf7ba17011",
+      "body_sha256": "b17436bd8fdee585856dd6cd6c9f5993c740075730073ece1e361a2abdc26f3b",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/8447f6a1ad25fcdc398c0e8e50299d6e33ea5602",
+      "start": "2026-10-16T04:39:46.888573Z",
+      "end": "2026-10-16T04:39:48.024196Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "418cdb49e4d63278edcbb6cfe36ea19f69113a713d93542ada335576c68bb3c2",
+      "body_sha256": "77b94948e219c6954ec540c2e08ff1d7e03f4b60044384dba8b3d9a3c755cf9f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-reviews-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:40:46.954039Z",
+      "end": "2026-10-16T04:40:48.208145Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "c7aa33b7d2e5733b70f4573451fbf0d4c5529ec7296a34906d59cb0beec81bac",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-runs-p1",
+      "endpoint": "repos/openclaw/openclaw/actions/runs?head_sha=845628b2d516580229e00aab4fef3a7e30bf1161&per_page=100&page=1",
+      "start": "2026-10-16T04:40:49.362191Z",
+      "end": "2026-10-16T04:40:51.103413Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "809d595bd317c5bbcf7aec02be2bbff776f5c87366eaf5cbae24867cbd638fc0",
+      "body_sha256": "92ee40a5adeb01037c845a5ce1a1789108772329a3d8acf4f7f2f89803b8685c",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241",
+      "start": "2026-10-16T04:39:45.347317Z",
+      "end": "2026-10-16T04:39:47.220559Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "39df3ec9a8b5d7cbe4abe24c31a77d023bbcf634c52140650e9a0f48c3d6d54e",
+      "body_sha256": "46f881b7d549be2928b2a20aada7426118e7269573dedb2d4b304f2097970fea",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:13.981204Z",
+      "end": "2026-10-16T04:38:15.158831Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "ba67afe47e4805009f78dfb93cb60a5398e9af618fb7ac5a794fe3b0ae1a3eb0",
+      "body_sha256": "f94ec5da72b14e2c2884d9ac191a90468e0627cc2d955d9bbdf273ea9122dd8d",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:13.909059Z",
+      "end": "2026-10-16T04:38:15.321728Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1d5d27741eaf7fa0ddfa95e08ab149ffbe4913a8952f73f46a5c784afcc5f437",
+      "body_sha256": "f53d898f9d3b3ad80331276021d164d0b08e7ec7ada2611ef86aebeb12e91ac8",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-reviews-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:38:14.376141Z",
+      "end": "2026-10-16T04:38:15.719078Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2f6c1b44749fbc81fbff2e73c0e9dd5538061f3399cf70d091b64ebfd829825f",
+      "body_sha256": "46b02c225340f3d85058566aab306753f79a3123454cfefab618310388116b55",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454",
+      "start": "2026-10-16T04:38:09.525769Z",
+      "end": "2026-10-16T04:38:11.164825Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "5777ea89fba6a41519f51b22c0cb53067d6c4df9b063200e96b9f35fba465ff2",
+      "body_sha256": "d53a4ddc92f826334b05a8782cbd7873a4976e2d2d8499ffb53456396bf43d89",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:12.814263Z",
+      "end": "2026-10-16T04:38:13.975316Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "41994e240a753aaa2887926fc233b7910d748a8108a558efb85c7662a1759b6a",
+      "body_sha256": "bd1c63856270cd095d8fa6c8cb53a8f9a9e958c8b4740dc4daa725deb421470a",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:12.562638Z",
+      "end": "2026-10-16T04:38:13.902057Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a03933b4c86b8efde4a95252b248fc96e6d7e5bf1a86e6593961427a3414a472",
+      "body_sha256": "536f8e7262d974cd9ca7b1739b066ee2fae44e9c6f2d91c8ecd72bbba9ae54f9",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-reviews-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:38:13.081532Z",
+      "end": "2026-10-16T04:38:14.370141Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "98d1837c1b9162ef981912733d9dd5c9f89ff95b78bdfb22e6c1d95d3cfb2537",
+      "body_sha256": "431d85ce1c1ebe6f49939b3c48ecaf0844e3fdc1ee579509e381bfdf4a375ac9",
+      "returned_count": 5,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579",
+      "start": "2026-10-16T04:38:09.382846Z",
+      "end": "2026-10-16T04:38:10.996959Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "85461ab9d81b86b6c542fc8ba433fb27fbfb6dc834ca613210b1241a759a7a06",
+      "body_sha256": "017d9cfa7b05bd6777800bca30473cd30ff016b7c2099a86565221740bdf0ddb",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:48.198767Z",
+      "end": "2026-10-16T04:40:49.348163Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "3bb4b5c6fb5ebcea8bf8ddc9393bfa54e995f3fb1ef2d63a2abb56ed33bc8115",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:40:48.116021Z",
+      "end": "2026-10-16T04:40:49.351158Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "421990591ec858e1ff3d18868afcc8a6337a472b3748a0353520d5d1dd85edf5",
+      "body_sha256": "fe5360956a4f7a6bfc62d90e26153421c8fb01f524b0ff3e03ea18d7cbb76a6f",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/0169c8acfbff959e3009c2550e5a0ca2bd708371",
+      "start": "2026-10-16T04:39:50.345294Z",
+      "end": "2026-10-16T04:39:51.510291Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "0a1e4d93a3cadbcd726d0f32ebf69be2cd030f72da096a657fc8a9b5c5a4b978",
+      "body_sha256": "e8ee6d2c538048d3399d7b5ceb64d63aee5cbe8ecc0e2ebd714e0a5acbd50c45",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-reviews-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:40:48.218653Z",
+      "end": "2026-10-16T04:40:49.553367Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "4df48877d77283086166b4209e0170308eedffe33b3308f659e9227d4349c8b2",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-runs-p1",
+      "endpoint": "repos/openclaw/openclaw/actions/runs?head_sha=f5e9dc46d236cdb7f5f658fb0c113350cbb31adc&per_page=100&page=1",
+      "start": "2026-10-16T04:40:49.563821Z",
+      "end": "2026-10-16T04:40:52.079181Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "9382fe099771d1ab978c4910570fbfaacdadbccc1b7be87182e2d2433d97bc38",
+      "body_sha256": "6339a8b743f6a20901c86bf88aa7e18920667b2372380f3803e70ea575347365",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580",
+      "start": "2026-10-16T04:39:49.669666Z",
+      "end": "2026-10-16T04:39:51.344567Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "b6a79675d792a6416e84e656ac56568de7d0eb9f3997a022e8aa3b169ecb4ca2",
+      "body_sha256": "d762e7ea2d378c024900edcd5e5856f7696aedc4f174de102dc94fd7ecba373e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173745-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/3c4be0e16c9c3ea1e6226dce1aa7ad0acd1e95c8",
+      "start": "2026-10-16T04:39:49.548948Z",
+      "end": "2026-10-16T04:39:50.925660Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "8eeec049de1d26b95aff0241469803001e4b635756f0010f6aaa6c241b7d60f7",
+      "body_sha256": "5636be3d90f1116b3cbd07d013d811327acc5bf242682a23bd57eb5f159ec713",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173745",
+      "endpoint": "repos/openclaw/openclaw/pulls/173745",
+      "start": "2026-10-16T04:39:48.834650Z",
+      "end": "2026-10-16T04:39:50.338295Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "585bd5c7816a7b8e1f880d222bb880d42aad2d9a41fae2fe1476a304d4daf947",
+      "body_sha256": "e874e1d36656af3fab35ae487fcb998c9858579ef872a6d8e0416e3a4939ddfc",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173767-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/ef29c5cc85456cbbeac2b3fd7b04d44b0236a619",
+      "start": "2026-10-16T04:39:48.444530Z",
+      "end": "2026-10-16T04:39:49.542366Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "bdbc47e779dda83929926bebacec9c6f59b88fa6e1ca102d3c56deec386bb8e4",
+      "body_sha256": "862038925af46caeb47289eb8bd685770c8254700c0227fa42f9e3abef4ef7eb",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173767",
+      "endpoint": "repos/openclaw/openclaw/pulls/173767",
+      "start": "2026-10-16T04:39:48.030196Z",
+      "end": "2026-10-16T04:39:49.663318Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "6119890891bf9e9ad7366c40be3f05aa23c19d855cbab98487fb1f4b30056585",
+      "body_sha256": "851406705bd0a06bd215abc9b8979ac3920dea671f6aace7cd68b9f70afd5f40",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-commits-p1",
+      "endpoint": "repos/earendil-works/pi/commits?since=2026-10-16T02%3A38%3A46Z&until=2026-10-16T04%3A35%3A11Z&per_page=100&page=1",
+      "start": "2026-10-16T04:38:08.351300Z",
+      "end": "2026-10-16T04:38:09.520068Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "4527576ef159e09197cb2947dfbb8267c68e01a2887399bd406685c120154f86",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-repo",
+      "endpoint": "repos/earendil-works/pi",
+      "start": "2026-10-16T04:38:06.776524Z",
+      "end": "2026-10-16T04:38:08.229585Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "548d1f7be1044f40af5ab539714287591374023ee63235533d7444561271eb91",
+      "body_sha256": "6bc476d4f5e75822df33dca2770f62a07c3cb7e18428087fb4ef80f541b6ffde",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11000",
+      "endpoint": "repos/earendil-works/pi/pulls/11000",
+      "start": "2026-10-16T04:38:11.517697Z",
+      "end": "2026-10-16T04:38:13.076532Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "ed537e77c5a7aca9e08408fb6b5241e0b809a678cae0db938166e5117fd85564",
+      "body_sha256": "ae5dd1097e08cb01bb7b39a189c16288301f4467043a5dde8a0065fc783fe204",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/11012/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:42:37.427203Z",
+      "end": "2026-10-16T04:42:38.636914Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "763148d962d90027bfbf2bee01898c119a5d2fa476e80fadbf2466a469caf6df",
+      "body_sha256": "6d88eb8653e90f557553ccd2c01c38002aa03fea5dddee4afe852a06bd82e75a",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-issue",
+      "endpoint": "repos/earendil-works/pi/issues/11012",
+      "start": "2026-10-16T04:42:06.342919Z",
+      "end": "2026-10-16T04:42:07.786452Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "26e72d3771cb0b3100200cff79669d15f5873b5b9933b2dd9c652b6567c43b25",
+      "body_sha256": "f903a2a0fc2b72fe0fe0b42d75d3648fee74e528c1ff3d2bd39062c11e08d77a",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012",
+      "endpoint": "repos/earendil-works/pi/pulls/11012",
+      "start": "2026-10-16T04:41:43.428777Z",
+      "end": "2026-10-16T04:41:44.805021Z",
+      "exit_code": 1,
+      "error": null,
+      "raw_sha256": "fe50efc2782ab42c4c29a4bdf246f92f37f53c293feb9807785505bc7f7a7585",
+      "body_sha256": "7fe148a00b708ac81b9b6182eb8d263af7730beb8ed1cc56c08698ebaed076a6",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/9602/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:42:37.428202Z",
+      "end": "2026-10-16T04:42:38.671126Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "195830a95094747ce4f8b4b752faefc727d7ef398d15ec63ee29118cda2092f9",
+      "body_sha256": "54e0ae7cbb0e78b7f67d552ba86a567f10305b4a468845005791a908502e15e7",
+      "returned_count": 10,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-issue",
+      "endpoint": "repos/earendil-works/pi/issues/9602",
+      "start": "2026-10-16T04:42:07.714122Z",
+      "end": "2026-10-16T04:42:08.885502Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2345627078663f9afb71dea0151dac039f87bc4554ca88d9301102adb5824c42",
+      "body_sha256": "23b196c4f73e52fac42ce69aabef282b4d711b5eed63f50410563b00c1bad4a9",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602",
+      "endpoint": "repos/earendil-works/pi/pulls/9602",
+      "start": "2026-10-16T04:41:43.428777Z",
+      "end": "2026-10-16T04:41:44.694974Z",
+      "exit_code": 1,
+      "error": null,
+      "raw_sha256": "206cedca064a0f31d35747b9012f96d30dc224e9ff15684cd7efbd068f0390cf",
+      "body_sha256": "7fe148a00b708ac81b9b6182eb8d263af7730beb8ed1cc56c08698ebaed076a6",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-commits-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/commits?since=2026-10-16T02%3A38%3A46Z&until=2026-10-16T04%3A35%3A11Z&per_page=100&page=1",
+      "start": "2026-10-16T04:38:08.235582Z",
+      "end": "2026-10-16T04:38:09.378846Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "c51e0b732de860c31a9b84c7c9ef378748797194d5928fc3cf8cbec3d506a81b",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-repo",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers",
+      "start": "2026-10-16T04:38:06.776524Z",
+      "end": "2026-10-16T04:38:08.344810Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "f3ae4cbdd0a8d263408116dbac0f49a8b55fbf3acd2b809f2271b3be4ade06fd",
+      "body_sha256": "2390314c695cb55fcc42d1e448a5ebad5276c73e13154bc0b629f981dc88d2a3",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:15.329288Z",
+      "end": "2026-10-16T04:38:16.562878Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "67cd1e390db02fdc8f564a28c4896b0f6407239c3955656d8155e678a8280b5a",
+      "body_sha256": "9901b72306128e000ecf26ebdeac5a891cff8d5b8387b0325fac4a80eebccb12",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T04:38:15.165828Z",
+      "end": "2026-10-16T04:38:16.326505Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "8b467f0261e83ab5f9ee4e57739cc5f361cb5cfaf746c81f8212378c15b72bdc",
+      "body_sha256": "6f651ae924761f7e8d4687c2fdfe9b3159025f07328753877c45465a9efa841c",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-reviews-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857/reviews?per_page=100&page=1",
+      "start": "2026-10-16T04:38:15.726077Z",
+      "end": "2026-10-16T04:38:17.138481Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "0c330b219f17b37a4507a6a4d7421966d91c8a821cad8cdfe6b0fbd5ce888357",
+      "body_sha256": "d742c55369434007b3802b59f807d25eac89ef4e8367933d258b70127c9eabc2",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857",
+      "start": "2026-10-16T04:38:11.172325Z",
+      "end": "2026-10-16T04:38:12.808266Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "dd7799b066f3022fa34740d7b516c65d00697f624fd9bf64e80da872b6caed2d",
+      "body_sha256": "37fe36ee2a5ce5b72a8e7e05ee24d0f67cac478a3a44a699e5d0e45ee4a193d9",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2864",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2864",
+      "start": "2026-10-16T04:38:09.991256Z",
+      "end": "2026-10-16T04:38:11.511697Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "4d3ca6c43bdaabe95d8d103a0592816751ff5643c62ac6cd879797572f2a91f7",
+      "body_sha256": "c52f45c25c031c035dda8ce44849ab6990c6f90048b9c3b2ef974a584c685e9f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2866",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2866",
+      "start": "2026-10-16T04:38:11.003536Z",
+      "end": "2026-10-16T04:38:12.557637Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "523c8cc91aa80fc22fd781552f326806de27a3d5e2ddf831d11ca6fe228169bc",
+      "body_sha256": "9b5b97bcc7a50de32a2992ac53633986cccf4f60f5b2ba2c497f1ed486cd7b16",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-files-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875/files?per_page=100&page=1",
+      "start": "2026-10-16T04:42:06.342919Z",
+      "end": "2026-10-16T04:42:07.885597Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "3eb4153049712f2b4f60dea755695d6bf21173c4effe9eed5a479604c4dda4c2",
+      "body_sha256": "533cd53bd49005d841f15a91154f96578e2c5810e925e9975325582839733f7a",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-head",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/commits/04b05dae300fa0271bf40d44fc0d9e886e10f775",
+      "start": "2026-10-16T04:42:06.341946Z",
+      "end": "2026-10-16T04:42:07.708154Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "bd926e093bf87cb9bd0d55593b92b8be4f85e7e1316abcf3eace1d1fa8cc9f75",
+      "body_sha256": "fb03ef1bf78298e8a8c96a6dd78fbcebe7cb511f1b98f4439f5e99cb6d1c8494",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875",
+      "start": "2026-10-16T04:41:43.427777Z",
+      "end": "2026-10-16T04:41:45.324846Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "f89479851f65e640c4f0c3199d9e875a0d518d2483882282ec4e0ad9a85921eb",
+      "body_sha256": "66493068bfad8559af4e2741a5d1f733d3730cdd03fffc24a591984ff7fe002a",
+      "returned_count": null,
+      "pagination_link": null
+    }
+  ],
+  "repositories": [
+    {
+      "full_name": "openclaw/openclaw",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "PrimeIntellect-ai/verifiers",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "earendil-works/pi",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    }
+  ],
+  "default_branch_commit_counts": [
+    {
+      "repo": "openclaw/openclaw",
+      "count": 86,
+      "one_complete_page_no_next_link": true
+    },
+    {
+      "repo": "PrimeIntellect-ai/verifiers",
+      "count": 0,
+      "one_complete_page_no_next_link": true
+    },
+    {
+      "repo": "earendil-works/pi",
+      "count": 0,
+      "one_complete_page_no_next_link": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "openclaw-native-recovery-authority-tests",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/170336",
+      "title": "test: cover native restart recovery and tool attribution boundaries",
+      "pr_author": "jjjhenriksen",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "fuller-stack-dev",
+      "created_at": "2026-10-12T22:26:24Z",
+      "merged_at": "2026-10-16T04:05:58Z",
+      "updated_at_at_fetch": "2026-10-16T04:05:58Z",
+      "head_sha": "61ffd2d6f0f68c72f8ada8ad5e7cc89ca7773cae",
+      "merge_commit": "a6299915e2838fcb9081b72ce12c4c7b30a49319",
+      "authentic_parents": [
+        "7bf56c8aa5029a1bd2b2d5cba762ea7c2b70362b"
+      ],
+      "commit_author_login": "jjjhenriksen",
+      "commit_author_name": "Jacqueline Henriksen",
+      "commit_committer_at": "2026-10-16T04:05:57Z",
+      "stats": {
+        "total": 534,
+        "additions": 496,
+        "deletions": 38
+      },
+      "files": [
+        {
+          "path": "src/agents/embedded-agent-runner/run/attempt-tool-prepare.web-search.test.ts",
+          "blob_sha": "366a30d618bd73c9ec348e43e763cacbfb443d3f",
+          "saved_patch": "frontier-raw/patches/oc170336--src_agents_embedded-agent-runner_run_attempt-tool-prepare.web-search.test.ts.patch",
+          "patch_sha256": "3682a7ad5417b7e8af205b52d1dbcaa9581e8cc82eff944bb83b742bbc576528",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/operator-run-recovery.test-support.ts",
+          "blob_sha": "25489afbf058d3312fcfccfc054a0be120feb33f",
+          "saved_patch": "frontier-raw/patches/oc170336--src_gateway_operator-run-recovery.test-support.ts.patch",
+          "patch_sha256": "099816df3630a553833763684444747cafa7147c47e87cef322f1b1d8ba3a3ab",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-instance-runtime.native-restart-recovery.test.ts",
+          "blob_sha": "fb16d703381443408e339a9ac7b9270c793b4ff7",
+          "saved_patch": "frontier-raw/patches/oc170336--src_gateway_server-instance-runtime.native-restart-recovery.test.ts.patch",
+          "patch_sha256": "3a5851c15061a5f395791712164733943fa18edd8ef6ca464ab17aabebcfca31",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-methods/cron-creator-transports.integration.test.ts",
+          "blob_sha": "b2658a17ab7a5ecfd21e319074c088cb1bf15637",
+          "saved_patch": "frontier-raw/patches/oc170336--src_gateway_server-methods_cron-creator-transports.integration.test.ts.patch",
+          "patch_sha256": "a35abbcd4d6bc854b0e5f3babdf9f3d62b9fa4c91fe9d6e386ea081ff5e5172a",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-methods/requester-cron-authority.test-support.ts",
+          "blob_sha": "8de5f428a042bd1d85b7f21c13e5119f23b49b7d",
+          "saved_patch": "frontier-raw/patches/oc170336--src_gateway_server-methods_requester-cron-authority.test-support.ts.patch",
+          "patch_sha256": "1e64a24f0d813ec29799bbdac6ab3077a541bbda0148a27bc4f57e412ac3cd2c",
+          "patch_fully_read": true
+        }
+      ],
+      "prepared_head_ci": {
+        "id": 38847209993,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38847209993",
+        "head_sha": "61ffd2d6f0f68c72f8ada8ad5e7cc89ca7773cae",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:05:12Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    },
+    {
+      "id": "openclaw-prewrite-handoff-cancellation",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173580",
+      "title": "fix(codex): next turn stalls after Stop during session handoff",
+      "pr_author": "LLagoon3",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "RomneyDa",
+      "created_at": "2026-10-16T00:13:15Z",
+      "merged_at": "2026-10-16T02:59:11Z",
+      "updated_at_at_fetch": "2026-10-16T03:59:11Z",
+      "head_sha": "f5e9dc46d236cdb7f5f658fb0c113350cbb31adc",
+      "merge_commit": "0169c8acfbff959e3009c2550e5a0ca2bd708371",
+      "authentic_parents": [
+        "c2d48f9f67488bd450a0e5f580955bf59e1063fd"
+      ],
+      "commit_author_login": "LLagoon3",
+      "commit_author_name": "LLagoon3",
+      "commit_committer_at": "2026-10-16T02:59:10Z",
+      "stats": {
+        "total": 233,
+        "additions": 224,
+        "deletions": 9
+      },
+      "files": [
+        {
+          "path": "extensions/codex/src/app-server/attempt-startup.test.ts",
+          "blob_sha": "eaf6aa80a81ba4864536ca8e74c05a7a85fede36",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+          "patch_sha256": "499984cdbb2686d1097b3200303bc90c866cd8b33a58959604735185d0d9bbe7",
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/attempt-startup.ts",
+          "blob_sha": "095408dfeaf0f3b93be000875cb6537a2f2affc7",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_attempt-startup.ts.patch",
+          "patch_sha256": "4ec9b02357f6df03875e4e8b67ea244fdd11d76cfd725b93bcdea525412034aa",
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-run.ts",
+          "blob_sha": "3a5693f9a534f6618d501e6192ab55039eb72b8b",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+          "patch_sha256": "a677db76edcfe19e0f8ad40904470cc2692aef5916ad25a9212de32ca287b28c",
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-types.ts",
+          "blob_sha": "01464e7d732f3dfcee48cb822d6d2b6578cc440e",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-types.ts.patch",
+          "patch_sha256": "21275f37d1d9f072a0956376ec86ee5566bf8271d055ee82e537c9d4853c209b",
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle-warm.ts",
+          "blob_sha": "8532cc541b33168ee131dcdff0a8d1fb6b5d8ae0",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+          "patch_sha256": "6917c5b86187f0058c48f7788c94a7591920bf75835193ea492d8bf25f351395",
+          "patch_fully_read": true
+        },
+        {
+          "path": "extensions/codex/src/app-server/thread-lifecycle.configured-mcp-ownership.test.ts",
+          "blob_sha": "db276d8dc76a8443ab1a22e5c0696de34a4523ba",
+          "saved_patch": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+          "patch_sha256": "6bec9163d7e84dc5d8080a28424f905b9089e480392fd5fd4effca4af5262aa8",
+          "patch_fully_read": true
+        }
+      ],
+      "prepared_head_ci": {
+        "id": 38828234904,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38828234904",
+        "head_sha": "f5e9dc46d236cdb7f5f658fb0c113350cbb31adc",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T00:24:45Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    },
+    {
+      "id": "openclaw-monotonic-process-poll",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173241",
+      "title": "fix(agents): keep the process poll wait on the monotonic clock",
+      "pr_author": "wangmiao0668000666",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "obviyus",
+      "created_at": "2026-10-15T15:37:50Z",
+      "merged_at": "2026-10-16T04:25:20Z",
+      "updated_at_at_fetch": "2026-10-16T04:25:23Z",
+      "head_sha": "845628b2d516580229e00aab4fef3a7e30bf1161",
+      "merge_commit": "8447f6a1ad25fcdc398c0e8e50299d6e33ea5602",
+      "authentic_parents": [
+        "1c93dbed0cce9698eedc32839793baa487481a82"
+      ],
+      "commit_author_login": "wangmiao0668000666",
+      "commit_author_name": "wangmiao0668000666",
+      "commit_committer_at": "2026-10-16T04:25:18Z",
+      "stats": {
+        "total": 29,
+        "additions": 26,
+        "deletions": 3
+      },
+      "files": [
+        {
+          "path": "src/agents/bash-tools.process.delivery.test.ts",
+          "blob_sha": "a73aaea79cc08fd69a6b22fe494846c204e4fbf3",
+          "saved_patch": "frontier-raw/patches/oc173241--src_agents_bash-tools.process.delivery.test.ts.patch",
+          "patch_sha256": "ed28d715b1ca324f78ff3ba2482204ab125e8f376e26b678a6d939ef60ecb6ce",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/bash-tools.process.ts",
+          "blob_sha": "4aac65c346765fb5463cc2736725b2782aba6465",
+          "saved_patch": "frontier-raw/patches/oc173241--src_agents_bash-tools.process.ts.patch",
+          "patch_sha256": "efcc6942c408f752afe55bc8295ded3ddc17e555eb47a0884363e7ebd1465fb9",
+          "patch_fully_read": true
+        }
+      ],
+      "prepared_head_ci": {
+        "id": 38849580849,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38849580849",
+        "head_sha": "845628b2d516580229e00aab4fef3a7e30bf1161",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:22:21Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    }
+  ],
+  "ledger_entries": [
+    {
+      "id": "openclaw-native-recovery-authority-tests",
+      "url": "https://github.com/openclaw/openclaw/commit/a6299915e2838fcb9081b72ce12c4c7b30a49319",
+      "type": "merged_commit_and_complete_changed_patch_source_review",
+      "author": "jjjhenriksen",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "fuller-stack-dev",
+      "created_at": "2026-10-12T22:26:24Z",
+      "published_at": "2026-10-16T04:05:58Z",
+      "published_at_kind": "PR merged_at; older proposal/CI dates recorded separately",
+      "commit_committer_at": "2026-10-16T04:05:57Z",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/170336",
+      "head_sha": "61ffd2d6f0f68c72f8ada8ad5e7cc89ca7773cae",
+      "merge_commit": "a6299915e2838fcb9081b72ce12c4c7b30a49319",
+      "authentic_parent": "7bf56c8aa5029a1bd2b2d5cba762ea7c2b70362b",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "execution": "not_copied_to_published_code_or_executed_by_source_worker",
+      "review_record": "research/2026-10-16-recovery-authority.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-authority.json",
+      "observed_interval": {
+        "start": "2026-10-16T04:38:06.775518Z",
+        "end": "2026-10-16T04:42:38.671126Z"
+      },
+      "prepared_head_ci": {
+        "id": 38847209993,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38847209993",
+        "head_sha": "61ffd2d6f0f68c72f8ada8ad5e7cc89ca7773cae",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:05:12Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "claim": "The final #170336 merge changes only five test/support files (+496/-38), with no production repair. In-process cold-state reconstruction disposes old SQLite handles and rotates lifecycle generation. Eleven source scenarios cover native/Control UI, missing/delegated/cron, exact agent/session/incarnation/lifecycle claims and post-admission device/role invalidation. Allowed paths persist one disabled job through the actual automation/Gateway/Cron owner; refused paths assert no jobs. Built-in/catalog preparation tests separately assert attribution invalidation before prepare/execute.",
+      "validation_limits": "Turn service, model preflight, factory collaborators and native handshake material are synthetic or mocked. No OS process kill, signed native handshake, live inference or external automation execution. A disabled durable job is not exactly-once remote-effect proof. Author counts and mutation-check results are unaudited; CI metadata only. Earlier production and 232-test comments concern old heads, not the final test-only diff.",
+      "test_source_scope": "All five immutable merge patches fully read. Includes actual device-revocation/role-state owners under a synthetic fixture, stronger source assertions than #173579 read-only session mode. We do not claim runtime revocation validation."
+    },
+    {
+      "id": "openclaw-prewrite-handoff-cancellation",
+      "url": "https://github.com/openclaw/openclaw/commit/0169c8acfbff959e3009c2550e5a0ca2bd708371",
+      "type": "merged_commit_and_complete_changed_patch_source_review",
+      "author": "LLagoon3",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "RomneyDa",
+      "created_at": "2026-10-16T00:13:15Z",
+      "published_at": "2026-10-16T02:59:11Z",
+      "published_at_kind": "PR merged_at; older proposal/CI dates recorded separately",
+      "commit_committer_at": "2026-10-16T02:59:10Z",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173580",
+      "head_sha": "f5e9dc46d236cdb7f5f658fb0c113350cbb31adc",
+      "merge_commit": "0169c8acfbff959e3009c2550e5a0ca2bd708371",
+      "authentic_parent": "c2d48f9f67488bd450a0e5f580955bf59e1063fd",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "execution": "not_copied_to_published_code_or_executed_by_source_worker",
+      "review_record": "research/2026-10-16-recovery-authority.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-authority.json",
+      "observed_interval": {
+        "start": "2026-10-16T04:38:06.775518Z",
+        "end": "2026-10-16T04:42:38.671126Z"
+      },
+      "prepared_head_ci": {
+        "id": 38828234904,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38828234904",
+        "head_sha": "f5e9dc46d236cdb7f5f658fb0c113350cbb31adc",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T00:24:45Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "claim": "A synchronous lifecycle callback identifies cancellation before the current client writes thread state while waiting for predecessor physical exit. Startup preserves a healthy replacement only at that boundary; the successor still waits for physical exit before native resume. Timeout retirement and configured-MCP post-thread/start cleanup retain conservative behavior.",
+      "validation_limits": "All six merge patches read. Committed tests use deterministic synthetic client/transport/lease fixtures. The maintainer native Codex 0.161.0 base/head trace is an attributed excerpt; the temporary harness is not committed and we performed no independent run or artifact audit. The 03:58:21 contributor comment notes one Docker failure attributed to base and a local autoreview authentication failure. Prepared-head main CI success is metadata, not independent proof that every test passed.",
+      "test_source_scope": "Two test patches and four production patches fully read, covering cancellation preservation, unchanged timeout retirement and post-write exclusion assertions. Native proof claims do not replace the committed regression or our own execution."
+    },
+    {
+      "id": "openclaw-monotonic-process-poll",
+      "url": "https://github.com/openclaw/openclaw/commit/8447f6a1ad25fcdc398c0e8e50299d6e33ea5602",
+      "type": "merged_commit_and_complete_changed_patch_source_review",
+      "author": "wangmiao0668000666",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "obviyus",
+      "created_at": "2026-10-15T15:37:50Z",
+      "published_at": "2026-10-16T04:25:20Z",
+      "published_at_kind": "PR merged_at; older proposal/CI dates recorded separately",
+      "commit_committer_at": "2026-10-16T04:25:18Z",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173241",
+      "head_sha": "845628b2d516580229e00aab4fef3a7e30bf1161",
+      "merge_commit": "8447f6a1ad25fcdc398c0e8e50299d6e33ea5602",
+      "authentic_parent": "1c93dbed0cce9698eedc32839793baa487481a82",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "execution": "not_copied_to_published_code_or_executed_by_source_worker",
+      "review_record": "research/2026-10-16-recovery-authority.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-authority.json",
+      "observed_interval": {
+        "start": "2026-10-16T04:38:06.775518Z",
+        "end": "2026-10-16T04:42:38.671126Z"
+      },
+      "prepared_head_ci": {
+        "id": 38849580849,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38849580849",
+        "head_sha": "845628b2d516580229e00aab4fef3a7e30bf1161",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:22:21Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Run metadata only; no job logs or test execution independently audited.",
+      "claim": "The process-poll relative deadline, loop condition and remaining sleep use performance.now rather than Date.now. One new fake-Date regression steps forward 60 seconds and asserts delayed output arrives. This supports a monotonic liveness gate without changing cancellation settlement or durable custody.",
+      "validation_limits": "Both merge patches read, with no execution. The author reports eight Gateway/libfaketime turns and attributes two Code Mode failures to the unchanged base; neither was independently audited. The unit source uses fake Date/timers, not an OS-clock or production-reliability experiment. Prepared-head main CI success is metadata only.",
+      "test_source_scope": "One 11-line production diff (+8/-3), one 18-line regression. No full-harness completion or kill-settlement gate cleared."
+    }
+  ],
+  "retained_unreplicated_source_concerns": {
+    "immutable_ref": "7a16e56789212f3d5985317f1e8d0205ab06d787",
+    "checkpoint": {
+      "blob": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+      "identical_to_original_merge_blob": true,
+      "checkpoint_reader_present": false,
+      "recent_messages": 20,
+      "recent_bytes": 262144,
+      "review_url": "https://github.com/openclaw/openclaw/pull/173579#discussion_r4290098935",
+      "decoded_sha256": "fd26618e7cb1aea6583559c9617880b7df5d6554ace5f4c830d73fe047693a67"
+    },
+    "kill_settlement": {
+      "blob": "4aac65c346765fb5463cc2736725b2782aba6465",
+      "request_then_clear_before_supervisor_settlement_source_still_present": true,
+      "review_url": "https://github.com/openclaw/openclaw/pull/173454#discussion_r4288588952",
+      "decoded_sha256": "bddb0b87a0b3642e6439992cbc70d01689cd29b51bb2027e7b48147db4004dda"
+    },
+    "boundary": "Selected current source sections inspected; neither concern reproduced. No authoritative review-thread resolution queried. Old comments are not new events."
+  },
+  "prior_pr_comparisons": [
+    {
+      "key": "oc173579",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "oc173454",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2864",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2866",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2857",
+      "head_identical": true,
+      "delta": {
+        "merge_commit_sha": {
+          "previous": "1db312612781e17245ceeeaa2deede6c27ff5c53",
+          "current": "290279ac2b8ca0d072b09a3ce10c369087a2490b"
+        }
+      }
+    },
+    {
+      "key": "pi11000",
+      "head_identical": true,
+      "delta": {}
+    }
+  ],
+  "prior_full_comment_comparisons": [
+    {
+      "key": "oc173579-issue-p1",
+      "count": 7,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "count": 6,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "count": 4,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "count": 2,
+      "entire_parsed_array_identical": true
+    }
+  ],
+  "vf2857_comment_boundary": "Full issue1/inline1/reviews3 read; every timestamp predates prior cutoff. Previous incremental arrays were empty and are not comparable to full arrays. Open head unchanged; merge_commit_sha is GitHub's computed prospective merge, not source-head movement.",
+  "supplements": {
+    "verifiers2875": {
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2875",
+      "author": "Emilianopp",
+      "author_association": "NONE",
+      "created_at": "2026-10-16T03:14:38Z",
+      "updated_at": "2026-10-16T03:15:25Z",
+      "state": "open",
+      "head": "04b05dae300fa0271bf40d44fc0d9e886e10f775",
+      "parent": "0976c3073f903d3449163d473e31c7e278b4a042",
+      "changed_patches_fully_read": 3,
+      "decision": "Tool-less in-process proposal; refuses MCP, no compaction. Author throughput/mock-server claims unaudited; no new committed test file. Does not satisfy/change pinned real Pi/ACP MCP replay gate; no H4 priority/status change."
+    },
+    "pi_issues": [
+      {
+        "number": 11012,
+        "url": "https://github.com/earendil-works/pi/issues/11012",
+        "state": "closed",
+        "updated_at": "2026-10-16T03:56:52Z",
+        "comment_count": 2,
+        "newest_comments_read": true
+      },
+      {
+        "number": 9602,
+        "url": "https://github.com/earendil-works/pi/issues/9602",
+        "state": "open",
+        "updated_at": "2026-10-16T02:59:23Z",
+        "comment_count": 10,
+        "newest_comments_read": true
+      }
+    ],
+    "pi_issue_boundary": "Pull GETs404 retained, then proper issue GETs200 and complete2/10comment arrays.11012 new comment reports fork-only preflight fix and144local tests; no upstream fix verified.9602 current comment endorses serialized-budget consistency. Both third-party unreplicated; no H2/H4 upgrade.",
+    "metadata_only_not_prioritized": [
+      "OpenClaw173149",
+      "OpenClaw173767",
+      "OpenClaw173745"
+    ]
+  },
+  "saved_patches": [
+    {
+      "file": "frontier-raw/patches/oc170336--src_agents_embedded-agent-runner_run_attempt-tool-prepare.web-search.test.ts.patch",
+      "sha256": "3682a7ad5417b7e8af205b52d1dbcaa9581e8cc82eff944bb83b742bbc576528",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc170336--src_gateway_operator-run-recovery.test-support.ts.patch",
+      "sha256": "099816df3630a553833763684444747cafa7147c47e87cef322f1b1d8ba3a3ab",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc170336--src_gateway_server-instance-runtime.native-restart-recovery.test.ts.patch",
+      "sha256": "3a5851c15061a5f395791712164733943fa18edd8ef6ca464ab17aabebcfca31",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc170336--src_gateway_server-methods_cron-creator-transports.integration.test.ts.patch",
+      "sha256": "a35abbcd4d6bc854b0e5f3babdf9f3d62b9fa4c91fe9d6e386ea081ff5e5172a",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc170336--src_gateway_server-methods_requester-cron-authority.test-support.ts.patch",
+      "sha256": "1e64a24f0d813ec29799bbdac6ab3077a541bbda0148a27bc4f57e412ac3cd2c",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173241--src_agents_bash-tools.process.delivery.test.ts.patch",
+      "sha256": "ed28d715b1ca324f78ff3ba2482204ab125e8f376e26b678a6d939ef60ecb6ce",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173241--src_agents_bash-tools.process.ts.patch",
+      "sha256": "efcc6942c408f752afe55bc8295ded3ddc17e555eb47a0884363e7ebd1465fb9",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_attempt-startup.test.ts.patch",
+      "sha256": "499984cdbb2686d1097b3200303bc90c866cd8b33a58959604735185d0d9bbe7",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_attempt-startup.ts.patch",
+      "sha256": "4ec9b02357f6df03875e4e8b67ea244fdd11d76cfd725b93bcdea525412034aa",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-run.ts.patch",
+      "sha256": "a677db76edcfe19e0f8ad40904470cc2692aef5916ad25a9212de32ca287b28c",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-types.ts.patch",
+      "sha256": "21275f37d1d9f072a0956376ec86ee5566bf8271d055ee82e537c9d4853c209b",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle-warm.ts.patch",
+      "sha256": "6917c5b86187f0058c48f7788c94a7591920bf75835193ea492d8bf25f351395",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173580--extensions_codex_src_app-server_thread-lifecycle.configured-mcp-ownership.test.ts.patch",
+      "sha256": "6bec9163d7e84dc5d8080a28424f905b9089e480392fd5fd4effca4af5262aa8",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173767--src_gateway_sessions-resolve-projection.test.ts.patch",
+      "sha256": "4868100d8e21edaafacc85a6f97de2d3311c4e9d6c4b4ea66f61123db13fa764",
+      "fully_read": false
+    },
+    {
+      "file": "frontier-raw/patches/oc173767--src_gateway_sessions-resolve.ts.patch",
+      "sha256": "a18e8d5ea788f431f5a177d953dd6a3b989246bc5cec8f72346b2d30a01c6dbf",
+      "fully_read": false
+    },
+    {
+      "file": "frontier-raw/patches/vf2875--tests_integration_grid.py.patch",
+      "sha256": "1d9061353da794233414d8a14982cee0f1c14fae8daa8ada884c32ec00b27c02",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/vf2875--verifiers_v1_harnesses_inline_chat___init__.py.patch",
+      "sha256": "5ccb62f27c825f2bccb5ece5dd40beba62203ae4d58111ebab578bdb502d2a69",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/vf2875--verifiers_v1_harnesses_inline_chat_harness.py.patch",
+      "sha256": "1ea090077fc5af9f2c049ecab0948a71fd314ec0f01c017ece12b1b4f41db5ba",
+      "fully_read": true
+    }
+  ],
+  "material_decision": "Update H2 source-only acceptance requirements for real authority/effect controls, prewrite/postwrite cancellation and monotonic liveness. Keep H2 runtime status and H4 planned status unchanged. Routine maintenance is a competing explanation; no personal/private roadmap claim.",
+  "experiments_executed_by_source_worker": 0,
+  "coverage_gaps": [
+    "Not all86commit patches inspected",
+    "Not all branches/authors/GitHubDiscussions/X/personal sites",
+    "No upstream runtime/test/model/external job execution",
+    "No independent CI job-log audit",
+    "No signed native handshake or OS-process kill locally",
+    "No authoritative GraphQL review-thread resolution"
+  ]
+}

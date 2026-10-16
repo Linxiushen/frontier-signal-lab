@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "question": "At identical pretrained parameters and fixed training batches, does preserving loss-path saves remove at least half the full-gradient error introduced by all-eligible int8 saved tensors?",
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "training_manifest_sha256": "1ef9779024091875d28959165c84c7ac390875df3bb9ea8b5a892dc43db17280",
+  "target_positions_per_method_worker": 128,
+  "batch_selection": "batch_schedule(8, 24, 2, seed)[0] from the committed training split",
+  "compression": "Existing SavedActivationCodec eligibility and symmetric per-last-dimension int8 reconstruction; parameter-backed aliases excluded. all_saved_int8 encloses model and CE; model_saved_int8 encloses model forward only, with CE outside hooks.",
+  "controls": [
+    "Identical logits hashes and forward loss across all three policies at each fixed batch.",
+    "Model parameter hashes unchanged before and after every backward; no optimizer or training updates.",
+    "Finite gradients for all 76 parameter tensors and 14067712 parameter elements.",
+    "Compare observed logits gradients to (softmax(logits)-onehot)/128 and record row-sum residuals.",
+    "Dense gradients retained as comparison references; report full-vector and per-parameter errors, not model quality.",
+    "Dense and model-only logits-gradient relative L2 error versus analytic CE must be at most1e-5; all-saved-int8 discrepancy is measured, not rejected by this fidelity tolerance."
+  ],
+  "evaluation": "No holdout forward or evaluation; shared loader only validates committed split structure and hashes. No optimizer steps, hyperparameter or checkpoint selection.",
+  "execution": "Three fresh sequential CPU workers; one seed batch and three backward policies per worker.180second comparison-loop cap after model loading; parent subprocess cap300seconds. Timing/memory descriptive only because dense gradient references and logits gradients remain live.",
+  "stopping": "Reject the comparison if any control fails or a worker exceeds the predeclared budget. Preserve a failed dominance gate and all method results; do not retune.",
+  "predeclared_at": "2026-10-16T04:43:13.189651+00:00",
+  "limitations": [
+    "Three seed-dependent first batches overlap in training examples and are not independent data samples.",
+    "This isolates the hook boundary around CE; normalization saves remain compressed in both int8 arms.",
+    "Existing synthetic text and traditional Pythia are diagnostics, not AttnRes or learned depth routing.",
+    "No training quality, natural-language generalization, wall-clock efficiency or GPU claim."
+  ],
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "methods_in_order": [
+      "dense",
+      "all_saved_int8",
+      "model_saved_int8"
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "schedule_steps": 24,
+    "schedule_selection": "first batch only",
+    "dtype": "float32",
+    "attention": "eager",
+    "threads": 1,
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 180,
+    "loss_save_dominance": {
+      "max_model_only_to_all_saved_relative_l2": 0.5,
+      "cosine_no_worse": true,
+      "require_all_seeds": true
+    },
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05
+  },
+  "config_sha256": "7c0df9154e71da9a2a472cc07373b156f2ceb2150c6934b340202bcf73307029",
+  "source_files_sha256": {
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  },
+  "preparation_status": "frozen_before_tests_and_actual_model_comparison"
+}

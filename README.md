@@ -43,6 +43,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Separate accumulated-state follow-up](results/activation-state-update/report.md) | Four dense warmup steps; matched-state gates pass, fresh-state controls at warmed weights fail |
 | [New-data short-history follow-up](research/2026-10-16-short-history-update.md) | All 12 common-anchor gates pass; separate dense/INT8 histories still show large moment drift |
 | [Natural-text training cost and final evaluation](research/2026-10-16-training-cost-and-final-evaluation.md) | All six joint screens fail; slower CPU training, all endpoints regress; parent RSS observer invalid |
+| [Windows process observer](results/process-observer/report.md) | Five controlled engineering cases pass; training integration still pending |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -69,6 +70,11 @@ also found that parent RSS sampling did not establish the training interpreter's
 memory; a separate launch-path check found a distinct launcher PID. Native worker self-peaks are retained
 separately. The unmodified negative receipts and a standard-library auditor are
 public; passing that consistency audit does not validate the failed observer.
+
+The separate [Windows process observer](fixtures/process-observer/README.md) now
+passes five controlled identity, memory and descendant-cleanup cases. It is
+standard-library tooling with a portable receipt auditor. It has not been
+integrated into training and does not repair historical RSS measurements.
 
 ## Bring one counterexample
 

@@ -38,7 +38,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前实验：先保留了预训练权重上实际 AdamW 首步误差10.9%–11.9%的失败结果，并发布可安装的 [SaveScope](SAVESCOPE.md)。本轮另行预登记四步真实稠密暖启动：匹配 m/v/step4 的下一步更新误差0.77%–0.86%，三个主门槛均通过；同一暖启动权重上的零状态对照仍全部失败（10.51%–10.95%）。30次实际原生更新的数值/状态控制通过。它表明这组诊断对优化器状态敏感，不是压缩训练质量、成本或GPU收益。见[结果与复现](research/2026-10-16-accumulated-state-update.md)。恢复并发和评测工作区的公开源码信号见[独立证据记录](research/2026-10-16-recovery-concurrency-and-harness-root.md)。
 
-最新实验：在新固定数据上分别执行8步dense/INT8历史，各在第4/8步以自己的完整theta/m/v/t审计实际更新，12个共同锚点全部通过（误差1.335%–1.564%）。但seed211第8步的跨历史m/v相对L2差异为0.861/1.955，局部通过不能推出轨迹接近或训练收益。84次原生更新的6384个参数步控制通过，公开无Torch收据核验器完成213926项检查。此前首步失败和训练成本/保留集负结果保留；见[完整结果、漂移与复现](research/2026-10-16-short-history-update.md)。恢复义务与摘要预算的[公开源码信号](research/2026-10-16-recovery-settlement-and-summary-budget.md)单列，H2/H4运行状态不升级。
+此前实验：在新固定数据上分别执行8步dense/INT8历史，各在第4/8步以自己的完整theta/m/v/t审计实际更新，12个共同锚点全部通过（误差1.335%–1.564%）。但seed211第8步的跨历史m/v相对L2差异为0.861/1.955，局部通过不能推出轨迹接近或训练收益。84次原生更新的6384个参数步控制通过，公开无Torch收据核验器完成213926项检查。此前首步失败和训练成本/保留集负结果保留；见[完整结果、漂移与复现](research/2026-10-16-short-history-update.md)。恢复义务与摘要预算的[公开源码信号](research/2026-10-16-recovery-settlement-and-summary-budget.md)单列，H2/H4运行状态不升级。
+
+最新工程产出：独立 Windows 真实解释器观察器的5个固定场景全部通过，包含32/64MiB健康对照、private阈值、超时和Job-close后代退出；1170项离线收据检查通过。旧成本研究六组负结果与无效parent RSS保留，观察器尚未接入训练。见[工程结果与下一门槛](research/2026-10-16-process-observer.md)、[可复现代码与命令](fixtures/process-observer/README.md)。
 
 ## 快速运行
 

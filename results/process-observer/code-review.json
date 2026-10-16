@@ -1,0 +1,33 @@
+{
+  "reviewer": "verify_chen",
+  "scope": "Independent static review and mocked unit tests only; no real child process or Windows JobObject launched by reviewer",
+  "reviewed_sha256": {
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "tests/test_process_observer.py": "cf050600d126966f24bca1fb05936d72fb3d943d34f13efb16f43cb5c32a675b",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0"
+  },
+  "command": ".\\local-state\\activation-venv\\Scripts\\python.exe -m unittest discover -s tests -p test_process_observer.py -v",
+  "result": {"exit_code": 0, "tests_run": 38, "passed": 38, "test_reported_seconds": 0.579},
+  "reviewed_gates": [
+    "Windows fixed-width ctypes structures and process-memory PrivateUsage field",
+    "Suspended CreateProcess, noninherited handle, JobObject assignment before resume, no breakaway",
+    "Nonce, actual PID, native retained handle, creation FILETIME, live membership and snapshot ancestry",
+    "Synchronous before/parent/after resident and private memory comparisons and fixed tolerances",
+    "Touched bounded allocations, healthy32/healthy64 controls and private-cap threshold control",
+    "Timeout and explicit job-close descendant controls with live-member checks immediately before termination",
+    "Cleanup timing includes final queries; all retained handles exit; job count zero where queryable",
+    "Source/protocol/launch-executable freeze hashes and no-fallback unsupported-platform behavior"
+  ],
+  "findings_resolved_before_freeze": [
+    "CloseHandle failure formerly discarded process/job handles before success; handles now retained, exception cleanup terminates, finally retries close, with mocked tests.",
+    "Suspended launch cleanup formerly skipped later cleanup if termination or wait failed; now all cleanup operations are attempted and original exception retained as cause, with mocked test.",
+    "Explicit job-close control formerly could pass after a descendant already exited; live actual/descendant job membership now checked immediately before all termination controls, with negative mocked test."
+  ],
+  "remaining_blocking_findings": [],
+  "limitations": [
+    "Mocked and static review does not validate native Windows execution or timing.",
+    "Root owns implementation freeze and any one-time real-process engineering acceptance.",
+    "Review does not repair or validate historical frozen RSS/cost science."
+  ]
+}

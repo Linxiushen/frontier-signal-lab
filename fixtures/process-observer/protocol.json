@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-interpreter-observer-engineering-v1",
+  "predeclared_at": "2026-10-16T16:43:12+00:00",
+  "kind": "stdlib process engineering acceptance; no model, training, datasets or scientific rerun",
+  "platform": "Windows only; unsupported platforms fail closed and do not count as Windows validation",
+  "source_paths": ["experiments/process_observer.py", "experiments/process_observer_probe.py", "tests/test_process_observer.py"],
+  "launch_path": "Use the explicitly supplied existing activation-venv/Scripts/python.exe path with -S and this probe; preserve launcher PID and actual interpreter PID separately.",
+  "config": {
+    "maximum_explicit_allocation_bytes_per_process": 67108864,
+    "healthy_allocation_bytes": 33554432,
+    "cap_control_allocation_bytes": 67108864,
+    "actual_private_cap_increment_bytes": 50331648,
+    "memory_comparison_tolerance_bytes": 4194304,
+    "minimum_32mib_resident_and_private_increase_bytes": 25165824,
+    "minimum_64mib_resident_and_private_increase_bytes": 58720256,
+    "sampler_interval_seconds": 0.02,
+    "maximum_cap_detection_seconds": 1.0,
+    "handshake_timeout_seconds": 8.0,
+    "barrier_timeout_seconds": 8.0,
+    "healthy_completion_timeout_seconds": 8.0,
+    "timeout_control_seconds": 1.5,
+    "cleanup_timeout_seconds": 4.0,
+    "total_timeout_seconds": 90.0,
+    "maximum_json_bytes": 1048576
+  },
+  "identity_gate": "CreateProcessW suspended launcher; assign non-breakaway Windows JobObject with KILL_ON_JOB_CLOSE before ResumeThread. Child sends a fresh 256-bit nonce, self PID, parent PID, creation FILETIME and self-memory. Retain native process handles for launcher, interpreter and descendant. Verify creation times and live job membership; Toolhelp parent chain must reach retained launcher (or identity if no redirector). Fail closed on inability to assign/query/verify. No launcher-memory substitution.",
+  "synchronization": "Child waits at explicit barriers without modifying allocations. For each memory checkpoint, child emits self-before, parent queries the retained actual-interpreter handle, child emits self-after. Parent reading must lie within the self bracket plus the fixed 4MiB tolerance for resident/private bytes; identity/creation FILETIME must match. Preserve all three readings, monotonic timestamps and comparison outcomes.",
+  "cases_in_order": [
+    {"id": "healthy32", "allocation_bytes": 33554432, "mode": "healthy", "expected": "Correct interpreter identity, matching baseline/allocated bracket readings, resident AND private delta >=24MiB, normal worker+descendant completion before deadline; same containment and deadlines as failure cases without false termination."},
+    {"id": "healthy64", "allocation_bytes": 67108864, "mode": "healthy", "expected": "Uncapped negative control permits 64MiB touched allocation; resident AND private delta >=56MiB, correct identity/brackets, worker+descendant normal completion."},
+    {"id": "private_cap64", "allocation_bytes": 67108864, "mode": "private_cap", "expected": "At baseline actual-interpreter private bytes +48MiB, parent observes retained actual-interpreter handle crossing cap after a held 64MiB allocation, records memory_private_limit rather than timeout, terminates the JobObject within1s of allocation-ready receipt, and verifies worker, launcher and descendant handles exited and job active count zero."},
+    {"id": "timeout_descendant", "allocation_bytes": 0, "mode": "timeout", "expected": "Worker and descendant deliberately stall after verified barrier; no early timeout during identity/memory checks. At1.5s deadline parent records timeout and terminates whole JobObject; all retained handles exit and job active count becomes zero within4s."},
+    {"id": "job_close_descendant", "allocation_bytes": 0, "mode": "job_close", "expected": "Worker and descendant stall after verified barrier; closing sole noninherited JobObject handle invokes KILL_ON_JOB_CLOSE without TerminateJobObject. All retained launcher/interpreter/descendant handles exit within4s; no active-count query is claimed after close."}
+  ],
+  "allocation": "stdlib ctypes VirtualAlloc reserve+commit, touch every committed page, retain until explicitly released/terminated. Main worker explicit allocations never exceed64MiB; descendant allocates no diagnostic payload. Imports/runtime/OS overhead is separate.",
+  "containment": "Windows JobObject inheritance, no BREAKAWAY_OK/SILENT_BREAKAWAY_OK and no inherited job handle. Suspend/assign/resume prevents the venv redirector from spawning before assignment. Descendant handshake is separately authenticated and its creation time/job membership/ancestry verified before controls. Linux process groups are not a fallback or evidence for Windows.",
+  "cap_interpretation": "This tests sampled parent enforcement of a private-byte threshold on the correct interpreter plus whole-job termination. It is not a kernel hard memory ceiling, continuous observation, peak-private measurement, arbitrary descendant memory cap, adversarial escape proof or zero-overshoot guarantee. The controlled64MiB allocation may overshoot a48MiB increment before20ms polling observes it. No job hard-memory-limit success claim is made.",
+  "acceptance": "All five fixed cases and every stated identity, synchronization, allocation, expected-reason and cleanup gate must pass. Record every case, samples and negative result; no replacement, skipped-case pass, fallback, threshold changes or rerun. An infrastructure failure is a failed engineering gate. Unit/mock tests are separate and cannot count as acceptance.",
+  "freeze_and_execution": "Root reviews protocol and implementation/unit tests, writes implementation freeze including exact protocol/source hashes, then launches this acceptance once into a fresh output directory. Probe verifies freeze before spawning. This subtask implements and runs mock/unit tests only; no real process acceptance before freeze.",
+  "reporting": "Publish nonce-bound identities/ancestry/creation FILETIMEs, self-parent-self readings, all cap samples, elapsed/reason, termination path/exit statuses and failures. Keep local absolute launch paths out of public receipts (publish basename+file SHA256); do not claim earlier activation-cost RSS repaired. All historical frozen code/results remain unchanged.",
+  "boundaries": ["No model imports/downloads, holdout reads, training, paid APIs or external communication.", "Windows one-host controlled engineering evidence only; not a future training-cost result.", "No integration into the old frozen probes or package API in this pass."]
+}

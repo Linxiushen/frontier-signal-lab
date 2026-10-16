@@ -3371,6 +3371,289 @@
       "measurement_validity": "results/activation-cost/measurement-validity.json",
       "measurement_validity_sha256": "2869dc3c6c46cd3490193254383d43a35170aa9490695b4a461f9e46f830c535",
       "review_record": "research/2026-10-16-training-cost-and-final-evaluation.md"
+    },
+    {
+      "id": "openclaw-durable-fenced-delivery-settlement",
+      "url": "https://github.com/openclaw/openclaw/pull/174278",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T15:12:41Z",
+      "published_at_kind": "new merge in target window; proposal predates target window",
+      "proposal_created_at": "2026-10-16T13:59:39Z",
+      "observed_at": "2026-10-16T16:46:47.661992Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "When a saved sessions_send source or target endpoint is reset, replaced or archived, recovery first persists a blocked-delivery conversation notice and only then calls the existing pending-input withdrawal with current authority. Successful withdrawal cancels automatic replay while retaining accepted input. Refused notice storage leaves recovery eligible; permission/transient failures remain retryable. Crash between notice and withdrawal may repeat cleanup. Orphan repair now requires already-loaded ancestry and the exact rewind parent, preserving omitted user-visible notices without loading/replaying them.",
+      "author_reports_not_independently_reproduced": [
+        "The real-SQLite regression and two-restart Gateway assertions are present in the reviewed patches; they were not executed here.",
+        "Author reports final prepared-head cold-restart success and focused suites. Run metadata independently confirms success, without inspection of individual jobs or logs.",
+        "An older bot review requires changes on head5482090…, and another mutable summary refers to1d461b5…; neither is the final d28abe4… head."
+      ],
+      "our_inference": "Durable recovery is a protocol between notice visibility, replay eligibility and generation fences; preserving accepted bytes alone does not establish usable completion. This is our public-source hypothesis, not a claim about a person's private research plans.",
+      "next_falsifiable_gate": "In an independently implemented packaged two-process test, crash before notice, after notice/before withdrawal, and after withdrawal. Require durable retained input, one visible notice, no cross-generation delivery, no automatic second-boot retry only after successful notice, and positive transient-permission/storage retries; include loaded/omitted ancestry and exact-parent controls.",
+      "source_commits": [
+        "7593d68192d591780a7aad518b17172b6fcb1099"
+      ],
+      "limitations": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim. Changed patches reviewed; complete repository/full parent files were not audited.",
+      "review_record": "research/2026-10-16-recovery-lifetime-contracts.md",
+      "review_receipt": "research/receipts/20261016T164107Z-reviewed-sources.json",
+      "landed_version_and_prepared_ci": {
+        "pr": 174278,
+        "url": "https://github.com/openclaw/openclaw/pull/174278",
+        "actual_pr_author": "steipete",
+        "actual_commit_api_author": "steipete",
+        "git_author_name": "Peter Steinberger",
+        "created_at": "2026-10-16T13:59:39Z",
+        "merged_at": "2026-10-16T15:12:41Z",
+        "proposal_is_new_in_window": false,
+        "merge_is_new_in_window": true,
+        "prepared_head": "d28abe4e9777f8e304d03a3105828b5b85f0bb08",
+        "immutable_commit": "7593d68192d591780a7aad518b17172b6fcb1099",
+        "actual_parents": [
+          "041004eec43a18b5629e6f52698d06a0d42ee301"
+        ],
+        "changed_files": 11,
+        "all_patches_reviewed": true,
+        "ci": {
+          "id": 38919789555,
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38919789555",
+          "head_sha": "d28abe4e9777f8e304d03a3105828b5b85f0bb08",
+          "status": "completed",
+          "conclusion": "success",
+          "run_attempt": 1,
+          "created_at": "2026-10-16T14:56:01Z",
+          "updated_at": "2026-10-16T15:10:23Z"
+        },
+        "ci_limit": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim.",
+        "observed_at": "2026-10-16T16:46:47.661992Z"
+      }
+    },
+    {
+      "id": "openclaw-stop-before-queue-drain",
+      "url": "https://github.com/openclaw/openclaw/pull/174312",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T16:05:43Z",
+      "published_at_kind": "new merge in target window; proposal predates target window",
+      "proposal_created_at": "2026-10-16T14:33:27Z",
+      "observed_at": "2026-10-16T16:46:47.556331Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Native worker-turn environment stop now starts alongside local settlement before workspace draining, removing the circular wait where a foreground command owns the queue needed for its own cancellation. Supported workspace drain is attempted even when environment stop rejects. Remote stop/drain acknowledgements share at most10s of the remaining process cleanup budget; expiry retains an unconfirmed owner for reconnect cleanup and is not proof of physical termination. Remote-exec attached applications retain their independent lifetime. Local accepted operations and transfer cleanup still join before retirement; named cleanup spans add attribution.",
+      "author_reports_not_independently_reproduced": [
+        "Author reports Linux real-workspace/tunnel synthetic fixture proof including child/grandchild extinction; this is an owner-boundary fixture, not full shipped Gateway/durable database proof or production latency.",
+        "Prepared-head CI38919730925 is failure. The15:31 bot review calls failure unattributed; a later16:06 steipete landing comment claims3 main-parent and3 tested-merge240s timeouts all before shutdown. This later attribution was not independently reproduced or log-audited.",
+        "The production63s stall and7.5–8.7s post-core exit tail remain unattributed; timing spans do not themselves prove the deadlock explains the incident."
+      ],
+      "our_inference": "Cancellation request, remote acknowledgement and actual descendant extinction require separate receipts. A timeout must preserve uncertainty and custody. This is our public-source hypothesis, not a claim about a person's private research plans.",
+      "next_falsifiable_gate": "Independently hold foreground/background descendants and a local durable write, trigger shutdown, and require exact-owner stop before queue drain, physical extinction before claiming stopped, transfer/write settlement before DB close, shared nonrenewing deadline and durable retry after unreachable timeout; retain remote-exec survival positive control.",
+      "source_commits": [
+        "ffbb394f438b404ce709731d5ff4001965da315f"
+      ],
+      "limitations": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim. Changed patches reviewed; complete repository/full parent files were not audited.",
+      "review_record": "research/2026-10-16-recovery-lifetime-contracts.md",
+      "review_receipt": "research/receipts/20261016T164107Z-reviewed-sources.json",
+      "landed_version_and_prepared_ci": {
+        "pr": 174312,
+        "url": "https://github.com/openclaw/openclaw/pull/174312",
+        "actual_pr_author": "steipete",
+        "actual_commit_api_author": "steipete",
+        "git_author_name": "Peter Steinberger",
+        "created_at": "2026-10-16T14:33:27Z",
+        "merged_at": "2026-10-16T16:05:43Z",
+        "proposal_is_new_in_window": false,
+        "merge_is_new_in_window": true,
+        "prepared_head": "76321e18d73b1ba590eafe6df295670204628b51",
+        "immutable_commit": "ffbb394f438b404ce709731d5ff4001965da315f",
+        "actual_parents": [
+          "7a2f433410ed0923c39f36028c2f43df8096e58b"
+        ],
+        "changed_files": 9,
+        "all_patches_reviewed": true,
+        "ci": {
+          "id": 38919730925,
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38919730925",
+          "head_sha": "76321e18d73b1ba590eafe6df295670204628b51",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_attempt": 1,
+          "created_at": "2026-10-16T14:55:35Z",
+          "updated_at": "2026-10-16T15:13:45Z"
+        },
+        "ci_limit": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim.",
+        "observed_at": "2026-10-16T16:46:47.556331Z"
+      }
+    },
+    {
+      "id": "openclaw-explicit-launcher-maintenance-lifetime",
+      "url": "https://github.com/openclaw/openclaw/pull/174268",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T15:39:31Z",
+      "published_at_kind": "new merge in target window; proposal predates target window",
+      "proposal_created_at": "2026-10-16T13:49:35Z",
+      "observed_at": "2026-10-16T16:46:47.598496Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Only CLI respawn producers inject a private preload that records launcher PID and consumes itself from execArgv so detached update drivers do not inherit the lifetime contract. Bound CLI IPC disconnection requests ordinary SIGTERM cancellation; maintenance heartbeat can detect recorded-parent loss/start-identity change, asks the main thread to cancel, continues renewing ownership while rollback/lease release/service restoration settle, and supplies a10s forced-termination backstop. Dead launcher alone does not authorize peer takeover of a live writer.",
+      "author_reports_not_independently_reproduced": [
+        "Reviewed new source tests use real subprocess/SQLite owner fixtures to distinguish independent detached commit from bound rollback and successor acquisition. No upstream tests executed here.",
+        "Author reports packaged macOS SIGKILL-launcher recovery, zero descendants and same-state GatewayHTTP200/SQLitequick_check; raw proof artifacts were not inspected.",
+        "Final prepared-head CI38923213198 is failure, independently observed through exact-head workflow list. PR body does not identify its final root cause; old bot findings on7528c0c… cannot be assumed current or resolved merely from that CI status. The final merge patch restricts parent metadata to the producer preload, but the added census mock lacks the annotation later supplied by174359."
+      ],
+      "our_inference": "A cancellation trigger must come from an explicit lifetime producer contract; ownership remains with the physical writer through settlement even after its launcher disappears. This is our public-source hypothesis, not a claim about a person's private research plans.",
+      "next_falsifiable_gate": "Independently launch explicit-bound, no-respawn/background caller and detached-update controls; kill only the launcher, stall the main thread/rollback in separate cases, verify nonce+creation-identity process tree, continued lock renewal until actual owner exit, rollback/lease/service receipts and no early successor, then same-state restart. Record escalation and never label timeout or lost launcher as owner death.",
+      "source_commits": [
+        "75d827b3b6074037ddda5a5617d4a7f2a4070e05"
+      ],
+      "limitations": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim. Changed patches reviewed; complete repository/full parent files were not audited.",
+      "review_record": "research/2026-10-16-recovery-lifetime-contracts.md",
+      "review_receipt": "research/receipts/20261016T164107Z-reviewed-sources.json",
+      "landed_version_and_prepared_ci": {
+        "pr": 174268,
+        "url": "https://github.com/openclaw/openclaw/pull/174268",
+        "actual_pr_author": "steipete",
+        "actual_commit_api_author": "steipete",
+        "git_author_name": "Peter Steinberger",
+        "created_at": "2026-10-16T13:49:35Z",
+        "merged_at": "2026-10-16T15:39:31Z",
+        "proposal_is_new_in_window": false,
+        "merge_is_new_in_window": true,
+        "prepared_head": "74576be415b80cd74c62630aafd5bc1126eded8f",
+        "immutable_commit": "75d827b3b6074037ddda5a5617d4a7f2a4070e05",
+        "actual_parents": [
+          "3c53dafb19bb253d1d002d898660dcc5b56f1d77"
+        ],
+        "changed_files": 24,
+        "all_patches_reviewed": true,
+        "ci": {
+          "id": 38923213198,
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38923213198",
+          "head_sha": "74576be415b80cd74c62630aafd5bc1126eded8f",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_attempt": 1,
+          "created_at": "2026-10-16T15:21:06Z",
+          "updated_at": "2026-10-16T15:39:14Z"
+        },
+        "ci_limit": "Prepared-head run metadata only; no jobs/logs or tested synthetic merge fetched. Inherited-failure attribution remains an author claim.",
+        "observed_at": "2026-10-16T16:46:47.598496Z"
+      }
+    },
+    {
+      "id": "fla-a2-selected-runtime-on-1435-merge",
+      "url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38911468095/job/117008149029",
+      "deduplication_keys": [
+        "job:117008149029",
+        "job:117008130766"
+      ],
+      "published_at": "2026-10-16T16:13:07Z",
+      "head_sha": "c12db31575ad9e5d80214bfe3938671321e60c47",
+      "attribution": "FLA main merge CI at restored PR1435; not a Nathan Chen contribution.",
+      "claim": "New completed A2 NPU job records selected1617passed/409skipped plus KDA graph-file15passed/16skipped. Actual910B3,triton_ascend forward/backward routes are visible, with CPU fallback/Gluon skips retained.",
+      "evidence_class": "new_completion_metadata_and_complete_public_runtime_logs",
+      "selected_pytest_command": "pytest -s -v --exitfirst -n 8 --dist load tests/benchmarks tests/modules tests/ops/test_backends.py tests/test_dispatch.py tests/test_public_api.py tests/test_dependency_finder.py tests/ops/utils tests/ops/test_gdn_kernels.py tests/ops/test_gdn.py tests/ops/test_gdn2.py tests/ops/test_kda.py tests/ops/test_gla.py tests/ops/test_attnres.py tests/ops/test_solve_tril.py tests/ops/test_delta.py tests/ops/test_precond_gated_delta.py",
+      "separate_serial_command": "pytest -s -v --exitfirst tests/ops/test_kda_graph.py",
+      "runtime": {
+        "device": "Ascend910B3",
+        "torch": "2.9.0+cpu",
+        "torch_npu": "2.9.0.post6",
+        "triton": "3.2.0",
+        "device_platform": "npu"
+      },
+      "test_log": {
+        "body_sha256": "bb7c8917fe989083c3a3344403bde7a538a1b1dc4eb97077934e35331e2a36af",
+        "bytes": 665459,
+        "lines": 5169,
+        "path": "h1-raw/1435-merge-a2-test-log.body",
+        "result_lines": [
+          4761,
+          5123
+        ],
+        "graph_skipped_lines": [
+          4787,
+          4802
+        ],
+        "route_lines": [
+          4808,
+          4816
+        ],
+        "comparison_example_lines": [
+          4817,
+          4833
+        ]
+      },
+      "benchmark_log": {
+        "url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38911468441/job/117008130766",
+        "completed_at": "2026-10-16T14:50:14Z",
+        "body_sha256": "d7e284b2224b3e0df1edd01085924054edc655f6223f0963401a3de7aa8ba966",
+        "bytes": 112728,
+        "path": "h1-raw/1435-merge-a2-bench-log.body",
+        "example": "chunk_kda B1,T8192,H96,D128 fwd30.753ms,fwdbwd91.452ms; single-head absolute timings only.",
+        "artifact_downloaded": false
+      },
+      "limits": [
+        "Evidence is public CI runtime output, not local upstream execution or a source-level test audit.",
+        "All counts apply only to the recorded selected pytest commands; some modules/operands/layouts are outside the observed scope.",
+        "Graph file: 15 passed,16 skipped. Ordinary chunk CUDA replay/varlen/partial-token/context-parallel tests were skipped; callable graph tests and rejection checks passed.",
+        "Log shows NPU routes and selected forward/backward comparison outputs, not complete backward coverage for every configuration.",
+        "Unsupported _assert_async.msg and linalg_inv_ex.inverse fall back to CPU. Gluon import constexpr_type fails and relevant tests skip.",
+        "No HGRN mention in the entire saved selected test log, so this does not validate PR1435 HGRN width/checkpoint migration behavior.",
+        "NPU suite does not clear the earlier PR1426 H100 dispatch fallback failure or explain missing PR1492 failure logs.",
+        "Benchmark has no paired historical baseline. Same-head eager/graph smoke timings and absolute tables are not cross-commit speedup or training-quality evidence.",
+        "Benchmark job117008130766 was already observed as post-cutoff completion metadata in the previous pass; only its runtime log is newly inspected here.",
+        "No Nathan contribution or employer information follows from these FLA CI events."
+      ],
+      "type": "complete_public_ci_logs_reviewed_not_locally_reproduced",
+      "author": "FLA maintainers and CI; merged PR1435 author yzhangcs, not Nathan Chen",
+      "published_at_kind": "A2 test job completion; benchmark completion was already previously observed, log newly inspected",
+      "observed_at": "2026-10-16T16:46:54.748250+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; upstream source not copied",
+      "status": "selected_upstream_npu_execution_verified_from_complete_logs_local_execution_not_performed",
+      "our_inference": "Real-device route and selected numerical evidence close part of the earlier A2 infrastructure gap. Device/route coverage is distinct from compression quality, current HGRN migration behavior and training cost.",
+      "next_falsifiable_gate": "Pin adjacent immutable code, true device/backend/dtype/layout and all skipped routes; run intended complete backward/dispatch controls before claiming correctness or cost for an actual compression/training integration. Preserve H1001426 failure and unavailable1492 log as unresolved.",
+      "source_commits": [
+        "c12db31575ad9e5d80214bfe3938671321e60c47"
+      ],
+      "review_record": "research/2026-10-16-a2-runtime-boundaries.md",
+      "review_receipt": "research/receipts/20261016T164107Z-reviewed-sources.json"
+    },
+    {
+      "id": "windows-actual-interpreter-observer-engineering-v1",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/process_observer_probe.py",
+      "type": "original_frozen_local_windows_process_engineering_acceptance",
+      "author": "Frontier Signal Lab original MIT code",
+      "published_at": null,
+      "published_at_kind": "local engineering completion, not an upstream researcher announcement",
+      "observed_at": "2026-10-16T16:58:19.466673+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT original stdlib tooling; no upstream implementation or model weights copied",
+      "status": "five_controlled_windows_cases_passed_training_integration_and_historical_memory_validity_unestablished",
+      "claim": "One predeclared frozen5case suite; actual-PID nonce/creation/handle/job/ancestry,10memory brackets,32/64MiB healthy allocations, private threshold,timeout and job-close descendant controls all pass. Every launcher differs from interpreter.",
+      "result": {
+        "cases": 5,
+        "passed": 5,
+        "max_self_parent_difference_bytes": 8192,
+        "cap_ready_to_termination_return_seconds": 0.05146910005714744,
+        "timeout_wait_seconds": 1.5114552000304684,
+        "all_retained_handles_exited": true,
+        "receipt_consistency_checks": 1170,
+        "acceptance_attempts": 1,
+        "retries": 0,
+        "model_runs": 0
+      },
+      "our_inference": "Controlled observer engineering gate passes; next verify integration in a new workload before new cost science. Historical parentRSS invalidity and failed scientific screens remain unchanged.",
+      "limitations": "OneWindowshost/cooperative boundedprocesses; sampled threshold allows overshoot, not kernelhardcap/continuouspeak/all-descendantmemory/productionproof. No trainingintegration/model/GPU or quality/cost result. Local-agent review and receipt audit are not external replication or OS remeasurement.",
+      "protocol_sha256": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+      "implementation_freeze_sha256": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+      "result_file_sha256": "303da062f1f0a5eaf4560dc2e5c259ce24462e48af22fbb9dafc83635faf9f85",
+      "review_record": "research/2026-10-16-process-observer.md",
+      "receipt_auditor": "scripts/audit_process_observer.py",
+      "receipt_audit": "results/process-observer/independent-audit.json"
     }
   ]
 }

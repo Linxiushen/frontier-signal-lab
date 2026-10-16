@@ -1,0 +1,2397 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-interpreter-observer-engineering-v1",
+  "kind": "stdlib engineering acceptance; no model or scientific run",
+  "started_at": "2026-10-16T16:58:13.646781+00:00",
+  "passed": true,
+  "cases": [
+    {
+      "id": "healthy32",
+      "mode": "healthy",
+      "started_at": "2026-10-16T16:58:13.822330+00:00",
+      "passed": true,
+      "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+      "descendant_nonce": "75fe8b7648d09b61351b2b51ccfdabb0404513d58c908124abd7c2a2d5186409",
+      "samples": [
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12218368,
+            "peak_resident_bytes": 21889024,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.406441
+        },
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 20709376,
+            "private_bytes": 12218368,
+            "peak_resident_bytes": 21889024,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.4278889
+        },
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 20709376,
+            "private_bytes": 12218368,
+            "peak_resident_bytes": 21889024,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.4332466
+        },
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 22945792,
+            "private_bytes": 45838336,
+            "peak_resident_bytes": 22949888,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.4618536
+        },
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 54272000,
+            "private_bytes": 45838336,
+            "peak_resident_bytes": 54276096,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.4831786
+        },
+        {
+          "pid": 36024,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 54272000,
+            "private_bytes": 45838336,
+            "peak_resident_bytes": 54276096,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.4887334
+        }
+      ],
+      "expected_explicit_allocation_bytes": 33554432,
+      "termination_path": null,
+      "launcher": {
+        "pid": 52504,
+        "creation_filetime": 134366434938243211,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+          "role": "worker",
+          "pid": 36024,
+          "parent_pid": 52504,
+          "creation_filetime": 134366434939121158,
+          "memory": {
+            "resident_bytes": 20529152,
+            "private_bytes": 12218368,
+            "peak_resident_bytes": 20533248,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.0371033,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "parent_pid": 52504,
+            "job_member": true
+          },
+          {
+            "pid": 52504,
+            "creation_filetime": 134366434938243211,
+            "parent_pid": 17976,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true
+      },
+      "descendant_identity": {
+        "self_receipt": {
+          "nonce": "75fe8b7648d09b61351b2b51ccfdabb0404513d58c908124abd7c2a2d5186409",
+          "role": "descendant",
+          "pid": 14216,
+          "parent_pid": 37692,
+          "creation_filetime": 134366434942390456,
+          "memory": {
+            "resident_bytes": 20455424,
+            "private_bytes": 12181504,
+            "peak_resident_bytes": 20459520,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.3629169,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 14216,
+            "creation_filetime": 134366434942390456,
+            "parent_pid": 37692,
+            "job_member": true
+          },
+          {
+            "pid": 37692,
+            "creation_filetime": 134366434941561647,
+            "parent_pid": 36024,
+            "job_member": true
+          },
+          {
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "parent_pid": 52504,
+            "job_member": true
+          }
+        ],
+        "launcher_pid": 37692,
+        "actual_pid": 14216
+      },
+      "memory_brackets": {
+        "baseline": {
+          "self_before": {
+            "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+            "role": "worker",
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 20709376,
+              "private_bytes": 12218368,
+              "peak_resident_bytes": 21889024,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4083036
+          },
+          "parent": {
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 20709376,
+              "private_bytes": 12218368,
+              "peak_resident_bytes": 21889024,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4278889
+          },
+          "self_after": {
+            "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+            "role": "worker",
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 20709376,
+              "private_bytes": 12218368,
+              "peak_resident_bytes": 21889024,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4350191
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        },
+        "allocated": {
+          "self_before": {
+            "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+            "role": "worker",
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 54272000,
+              "private_bytes": 45838336,
+              "peak_resident_bytes": 54276096,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4654827
+          },
+          "parent": {
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 54272000,
+              "private_bytes": 45838336,
+              "peak_resident_bytes": 54276096,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4831786
+          },
+          "self_after": {
+            "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+            "role": "worker",
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "memory": {
+              "resident_bytes": 54272000,
+              "private_bytes": 45838336,
+              "peak_resident_bytes": 54276096,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827598.4938771
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "allocation_check": {
+        "explicit_allocation_bytes": 33554432,
+        "parent_deltas_bytes": {
+          "resident_bytes": 33562624,
+          "private_bytes": 33619968
+        },
+        "minimum_required_increase_bytes": 25165824,
+        "passed": true
+      },
+      "healthy_completion": {
+        "nonce": "fa1207ca2df678604e559e8a666c7a2ae6543fee6b82e02e1fa281a010bdeb52",
+        "role": "worker",
+        "pid": 36024,
+        "completed_at": "2026-10-16T16:58:14.636124+00:00",
+        "descendant_launcher_returncode": 0,
+        "explicit_allocation_bytes": 33554432
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 52504,
+            "creation_filetime": 134366434938243211,
+            "exit_code": 0
+          },
+          {
+            "pid": 36024,
+            "creation_filetime": 134366434939121158,
+            "exit_code": 0
+          },
+          {
+            "pid": 37692,
+            "creation_filetime": 134366434941561647,
+            "exit_code": 0
+          },
+          {
+            "pid": 14216,
+            "creation_filetime": 134366434942390456,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 827598.5820421,
+        "completed_perf_counter": 827598.6233874,
+        "wall_seconds": 0.04134529992006719,
+        "timeout_seconds": 4.0
+      },
+      "enforcement_reason": "normal_completion",
+      "completed_at": "2026-10-16T16:58:14.691176+00:00",
+      "wall_seconds": 0.8690376000013202
+    },
+    {
+      "id": "healthy64",
+      "mode": "healthy",
+      "started_at": "2026-10-16T16:58:14.697960+00:00",
+      "passed": true,
+      "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+      "descendant_nonce": "d0caf8468bb49b5dfc38af190c7e81525688fc7a02d7d01e210e13e50a689e08",
+      "samples": [
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20348928,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.252344
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20353024,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.2734922
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20353024,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.2956656
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20353024,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.3004746
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20353024,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.3239691
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20357120,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 21532672,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.3539307
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 87470080,
+            "private_bytes": 79040512,
+            "peak_resident_bytes": 87474176,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.3761247
+        },
+        {
+          "pid": 23660,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 87470080,
+            "private_bytes": 79040512,
+            "peak_resident_bytes": 87474176,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.3817602
+        }
+      ],
+      "expected_explicit_allocation_bytes": 67108864,
+      "termination_path": null,
+      "launcher": {
+        "pid": 40852,
+        "creation_filetime": 134366434946999618,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+          "role": "worker",
+          "pid": 23660,
+          "parent_pid": 40852,
+          "creation_filetime": 134366434947809845,
+          "memory": {
+            "resident_bytes": 20172800,
+            "private_bytes": 11800576,
+            "peak_resident_bytes": 20176896,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827598.8931557,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "parent_pid": 40852,
+            "job_member": true
+          },
+          {
+            "pid": 40852,
+            "creation_filetime": 134366434946999618,
+            "parent_pid": 17976,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true
+      },
+      "descendant_identity": {
+        "self_receipt": {
+          "nonce": "d0caf8468bb49b5dfc38af190c7e81525688fc7a02d7d01e210e13e50a689e08",
+          "role": "descendant",
+          "pid": 58072,
+          "parent_pid": 23984,
+          "creation_filetime": 134366434951069225,
+          "memory": {
+            "resident_bytes": 20512768,
+            "private_bytes": 12173312,
+            "peak_resident_bytes": 20516864,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.2200636,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 58072,
+            "creation_filetime": 134366434951069225,
+            "parent_pid": 23984,
+            "job_member": true
+          },
+          {
+            "pid": 23984,
+            "creation_filetime": 134366434950224779,
+            "parent_pid": 23660,
+            "job_member": true
+          },
+          {
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "parent_pid": 40852,
+            "job_member": true
+          }
+        ],
+        "launcher_pid": 23984,
+        "actual_pid": 58072
+      },
+      "memory_brackets": {
+        "baseline": {
+          "self_before": {
+            "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+            "role": "worker",
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 20353024,
+              "private_bytes": 11800576,
+              "peak_resident_bytes": 21532672,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.2701083
+          },
+          "parent": {
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 20353024,
+              "private_bytes": 11800576,
+              "peak_resident_bytes": 21532672,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.2956656
+          },
+          "self_after": {
+            "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+            "role": "worker",
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 20353024,
+              "private_bytes": 11800576,
+              "peak_resident_bytes": 21532672,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.3254085
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        },
+        "allocated": {
+          "self_before": {
+            "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+            "role": "worker",
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 87470080,
+              "private_bytes": 79040512,
+              "peak_resident_bytes": 87474176,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.3644254
+          },
+          "parent": {
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 87470080,
+              "private_bytes": 79040512,
+              "peak_resident_bytes": 87474176,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.3761247
+          },
+          "self_after": {
+            "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+            "role": "worker",
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "memory": {
+              "resident_bytes": 87470080,
+              "private_bytes": 79040512,
+              "peak_resident_bytes": 87474176,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827599.3928158
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "allocation_check": {
+        "explicit_allocation_bytes": 67108864,
+        "parent_deltas_bytes": {
+          "resident_bytes": 67117056,
+          "private_bytes": 67239936
+        },
+        "minimum_required_increase_bytes": 58720256,
+        "passed": true
+      },
+      "healthy_completion": {
+        "nonce": "8c3abb2551f07780169134c0611aa221b4af59b017e15380c9f6dcc148fc0b18",
+        "role": "worker",
+        "pid": 23660,
+        "completed_at": "2026-10-16T16:58:15.522782+00:00",
+        "descendant_launcher_returncode": 0,
+        "explicit_allocation_bytes": 67108864
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 40852,
+            "creation_filetime": 134366434946999618,
+            "exit_code": 0
+          },
+          {
+            "pid": 23660,
+            "creation_filetime": 134366434947809845,
+            "exit_code": 0
+          },
+          {
+            "pid": 23984,
+            "creation_filetime": 134366434950224779,
+            "exit_code": 0
+          },
+          {
+            "pid": 58072,
+            "creation_filetime": 134366434951069225,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 827599.4742506,
+        "completed_perf_counter": 827599.4950205,
+        "wall_seconds": 0.020769900060258806,
+        "timeout_seconds": 4.0
+      },
+      "enforcement_reason": "normal_completion",
+      "completed_at": "2026-10-16T16:58:15.562902+00:00",
+      "wall_seconds": 0.8647286999039352
+    },
+    {
+      "id": "private_cap64",
+      "mode": "private_cap",
+      "started_at": "2026-10-16T16:58:15.570762+00:00",
+      "passed": true,
+      "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+      "descendant_nonce": "533ea5bb5a3d7149c343c85eac538759442173af9302f01d2224ce9a8d3d5825",
+      "samples": [
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 20570112,
+            "private_bytes": 12087296,
+            "peak_resident_bytes": 21721088,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.1243301
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 20570112,
+            "private_bytes": 12087296,
+            "peak_resident_bytes": 21721088,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.1455848
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 20570112,
+            "private_bytes": 12087296,
+            "peak_resident_bytes": 21721088,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.150875
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 20574208,
+            "private_bytes": 12087296,
+            "peak_resident_bytes": 21721088,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.1786876
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 64159744,
+            "private_bytes": 79327232,
+            "peak_resident_bytes": 64163840,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.2000103
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 87687168,
+            "private_bytes": 79327232,
+            "peak_resident_bytes": 87691264,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.2222667
+        },
+        {
+          "pid": 23740,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 87687168,
+            "private_bytes": 79327232,
+            "peak_resident_bytes": 87691264,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.2282395
+        }
+      ],
+      "expected_explicit_allocation_bytes": 67108864,
+      "termination_path": "TerminateJobObject",
+      "launcher": {
+        "pid": 47300,
+        "creation_filetime": 134366434955721975,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+          "role": "worker",
+          "pid": 23740,
+          "parent_pid": 47300,
+          "creation_filetime": 134366434956556119,
+          "memory": {
+            "resident_bytes": 20353024,
+            "private_bytes": 12054528,
+            "peak_resident_bytes": 20357120,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827599.7697917,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "parent_pid": 47300,
+            "job_member": true
+          },
+          {
+            "pid": 47300,
+            "creation_filetime": 134366434955721975,
+            "parent_pid": 17976,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true
+      },
+      "descendant_identity": {
+        "self_receipt": {
+          "nonce": "533ea5bb5a3d7149c343c85eac538759442173af9302f01d2224ce9a8d3d5825",
+          "role": "descendant",
+          "pid": 35496,
+          "parent_pid": 37176,
+          "creation_filetime": 134366434959750130,
+          "memory": {
+            "resident_bytes": 20492288,
+            "private_bytes": 12193792,
+            "peak_resident_bytes": 20496384,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.0910886,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 35496,
+            "creation_filetime": 134366434959750130,
+            "parent_pid": 37176,
+            "job_member": true
+          },
+          {
+            "pid": 37176,
+            "creation_filetime": 134366434958943110,
+            "parent_pid": 23740,
+            "job_member": true
+          },
+          {
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "parent_pid": 47300,
+            "job_member": true
+          }
+        ],
+        "launcher_pid": 37176,
+        "actual_pid": 35496
+      },
+      "memory_brackets": {
+        "baseline": {
+          "self_before": {
+            "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+            "role": "worker",
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 20570112,
+              "private_bytes": 12087296,
+              "peak_resident_bytes": 21721088,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.1388856
+          },
+          "parent": {
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 20570112,
+              "private_bytes": 12087296,
+              "peak_resident_bytes": 21721088,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.1455848
+          },
+          "self_after": {
+            "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+            "role": "worker",
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 20570112,
+              "private_bytes": 12087296,
+              "peak_resident_bytes": 21721088,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.1663468
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        },
+        "allocated": {
+          "self_before": {
+            "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+            "role": "worker",
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 87687168,
+              "private_bytes": 79327232,
+              "peak_resident_bytes": 87691264,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.2027389
+          },
+          "parent": {
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 87687168,
+              "private_bytes": 79327232,
+              "peak_resident_bytes": 87691264,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.2222667
+          },
+          "self_after": {
+            "nonce": "b04ed99170ddaf82b69fb3e5e1bbe5fc7e7ee595df7c08ab9cb439b8f03d7293",
+            "role": "worker",
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "memory": {
+              "resident_bytes": 87687168,
+              "private_bytes": 79327232,
+              "peak_resident_bytes": 87691264,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.2302622
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "actual_interpreter_private_limit_bytes": 62418944,
+      "cap_is_sampled_not_kernel_hard_ceiling": true,
+      "allocation_check": {
+        "explicit_allocation_bytes": 67108864,
+        "parent_deltas_bytes": {
+          "resident_bytes": 67117056,
+          "private_bytes": 67239936
+        },
+        "minimum_required_increase_bytes": 58720256,
+        "passed": true
+      },
+      "first_over_limit_sample": {
+        "pid": 23740,
+        "creation_filetime": 134366434956556119,
+        "memory": {
+          "resident_bytes": 64159744,
+          "private_bytes": 79327232,
+          "peak_resident_bytes": 64163840,
+          "backend": "Windows GetProcessMemoryInfo"
+        },
+        "perf_counter": 827600.2000103
+      },
+      "enforcement_reason": "memory_private_limit",
+      "termination_request_started_perf_counter": 827600.2501619,
+      "termination_request_returned_perf_counter": 827600.254208,
+      "allocation_ready_to_termination_seconds": 0.05146910005714744,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 47300,
+            "creation_filetime": 134366434955721975,
+            "exit_code": 57347
+          },
+          {
+            "pid": 23740,
+            "creation_filetime": 134366434956556119,
+            "exit_code": 57347
+          },
+          {
+            "pid": 37176,
+            "creation_filetime": 134366434958943110,
+            "exit_code": 57347
+          },
+          {
+            "pid": 35496,
+            "creation_filetime": 134366434959750130,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 827600.2542143,
+        "completed_perf_counter": 827600.2754088,
+        "wall_seconds": 0.02119450003374368,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T16:58:16.343207+00:00",
+      "wall_seconds": 0.7726417999947444
+    },
+    {
+      "id": "timeout_descendant",
+      "mode": "timeout",
+      "started_at": "2026-10-16T16:58:16.350013+00:00",
+      "passed": true,
+      "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+      "descendant_nonce": "77bb1b237af8696169de519eec59a9052b8becda336c23d90a2decb3de25a04c",
+      "samples": [
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20692992,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.9057211
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20697088,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.9274782
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20697088,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.9335042
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20701184,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.96036
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20701184,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.9819339
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20701184,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.9870399
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.036715
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.0576465
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.0783311
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.0990445
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.1192955
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.1398524
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.160606
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.1811348
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.2013406
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.2218458
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.242164
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.2631138
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.2836307
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.3041237
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.3249486
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.3453228
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.3660374
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.3870982
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.4073677
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.4275525
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.4478457
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.4683596
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.4885058
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.5090914
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.5292529
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.5500916
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.5705869
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.5911505
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.6122053
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.6326142
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.6529886
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.6732262
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.6942188
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.7154736
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.7356946
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.7558003
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.7768984
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.7973884
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.8176012
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.8378786
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.8589472
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.8797437
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.9001973
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.9206624
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.9417976
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.962657
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827601.9833473
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.0042227
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.0253069
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.0462828
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.0673119
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.088315
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.109345
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.1304775
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.1513175
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.1723782
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.1933533
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.2143092
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.2353639
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.2564253
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.2773187
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.298316
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.3193372
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.3403557
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.3613113
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.3815633
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.4020712
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.4231012
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.4440738
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.4650708
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.4855418
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.506007
+        },
+        {
+          "pid": 10856,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20705280,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 21868544,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.5272369
+        }
+      ],
+      "expected_explicit_allocation_bytes": 0,
+      "termination_path": "TerminateJobObject",
+      "launcher": {
+        "pid": 56676,
+        "creation_filetime": 134366434963519883,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+          "role": "worker",
+          "pid": 10856,
+          "parent_pid": 56676,
+          "creation_filetime": 134366434964319829,
+          "memory": {
+            "resident_bytes": 20512768,
+            "private_bytes": 12185600,
+            "peak_resident_bytes": 20516864,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.5461971,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "parent_pid": 56676,
+            "job_member": true
+          },
+          {
+            "pid": 56676,
+            "creation_filetime": 134366434963519883,
+            "parent_pid": 17976,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true
+      },
+      "descendant_identity": {
+        "self_receipt": {
+          "nonce": "77bb1b237af8696169de519eec59a9052b8becda336c23d90a2decb3de25a04c",
+          "role": "descendant",
+          "pid": 35172,
+          "parent_pid": 7864,
+          "creation_filetime": 134366434967505075,
+          "memory": {
+            "resident_bytes": 20533248,
+            "private_bytes": 12242944,
+            "peak_resident_bytes": 20537344,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827600.8730122,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 35172,
+            "creation_filetime": 134366434967505075,
+            "parent_pid": 7864,
+            "job_member": true
+          },
+          {
+            "pid": 7864,
+            "creation_filetime": 134366434966666386,
+            "parent_pid": 10856,
+            "job_member": true
+          },
+          {
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "parent_pid": 56676,
+            "job_member": true
+          }
+        ],
+        "launcher_pid": 7864,
+        "actual_pid": 35172
+      },
+      "memory_brackets": {
+        "baseline": {
+          "self_before": {
+            "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+            "role": "worker",
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20692992,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.9113487
+          },
+          "parent": {
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20697088,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.9274782
+          },
+          "self_after": {
+            "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+            "role": "worker",
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20697088,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.9423356
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        },
+        "allocated": {
+          "self_before": {
+            "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+            "role": "worker",
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20701184,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.973941
+          },
+          "parent": {
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20701184,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827600.9819339
+          },
+          "self_after": {
+            "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+            "role": "worker",
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "memory": {
+              "resident_bytes": 20701184,
+              "private_bytes": 12185600,
+              "peak_resident_bytes": 21868544,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827601.0016426
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "allocation_check": {
+        "explicit_allocation_bytes": 0,
+        "parent_deltas_bytes": {
+          "resident_bytes": 4096,
+          "private_bytes": 0
+        },
+        "minimum_required_increase_bytes": 0,
+        "passed": true
+      },
+      "stalled_receipt": {
+        "nonce": "ca0ec9be0e03f756a1725abd946cfb8185a85b053de0ddd1edecff9634111176",
+        "role": "worker",
+        "pid": 10856,
+        "perf_counter": 827601.029998
+      },
+      "timeout_control_started_perf_counter": 827601.0366795,
+      "timeout_control_completed_perf_counter": 827602.5481347,
+      "timeout_deadline_perf_counter": 827602.5366795,
+      "timeout_wait_seconds": 1.5114552000304684,
+      "enforcement_reason": "timeout",
+      "termination_request_started_perf_counter": 827602.548189,
+      "termination_request_returned_perf_counter": 827602.5520284,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 56676,
+            "creation_filetime": 134366434963519883,
+            "exit_code": 57347
+          },
+          {
+            "pid": 10856,
+            "creation_filetime": 134366434964319829,
+            "exit_code": 57347
+          },
+          {
+            "pid": 7864,
+            "creation_filetime": 134366434966666386,
+            "exit_code": 57347
+          },
+          {
+            "pid": 35172,
+            "creation_filetime": 134366434967505075,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 827602.5520357,
+        "completed_perf_counter": 827602.5732508,
+        "wall_seconds": 0.02121510007418692,
+        "timeout_seconds": 4.0
+      },
+      "completed_at": "2026-10-16T16:58:18.641037+00:00",
+      "wall_seconds": 2.290857799933292
+    },
+    {
+      "id": "job_close_descendant",
+      "mode": "job_close",
+      "started_at": "2026-10-16T16:58:18.649244+00:00",
+      "passed": true,
+      "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+      "descendant_nonce": "8c12e59ddf536810b188aa66fbdb6f95909645706d5ed5883bcb634b05abc753",
+      "samples": [
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20602880,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.1954413
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2171274
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2222963
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2433847
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2710734
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2930603
+        },
+        {
+          "pid": 40400,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 21778432,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.2989276
+        }
+      ],
+      "expected_explicit_allocation_bytes": 0,
+      "termination_path": "KILL_ON_JOB_CLOSE; no TerminateJobObject",
+      "launcher": {
+        "pid": 53792,
+        "creation_filetime": 134366434986511024,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+          "role": "worker",
+          "pid": 40400,
+          "parent_pid": 53792,
+          "creation_filetime": 134366434987282635,
+          "memory": {
+            "resident_bytes": 20422656,
+            "private_bytes": 12046336,
+            "peak_resident_bytes": 20426752,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827602.8461618,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "parent_pid": 53792,
+            "job_member": true
+          },
+          {
+            "pid": 53792,
+            "creation_filetime": 134366434986511024,
+            "parent_pid": 17976,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true
+      },
+      "descendant_identity": {
+        "self_receipt": {
+          "nonce": "8c12e59ddf536810b188aa66fbdb6f95909645706d5ed5883bcb634b05abc753",
+          "role": "descendant",
+          "pid": 33288,
+          "parent_pid": 13824,
+          "creation_filetime": 134366434990459918,
+          "memory": {
+            "resident_bytes": 20414464,
+            "private_bytes": 12132352,
+            "peak_resident_bytes": 20418560,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 827603.165713,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 33288,
+            "creation_filetime": 134366434990459918,
+            "parent_pid": 13824,
+            "job_member": true
+          },
+          {
+            "pid": 13824,
+            "creation_filetime": 134366434989671616,
+            "parent_pid": 40400,
+            "job_member": true
+          },
+          {
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "parent_pid": 53792,
+            "job_member": true
+          }
+        ],
+        "launcher_pid": 13824,
+        "actual_pid": 33288
+      },
+      "memory_brackets": {
+        "baseline": {
+          "self_before": {
+            "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+            "role": "worker",
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20602880,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.2050141
+          },
+          "parent": {
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20611072,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.2171274
+          },
+          "self_after": {
+            "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+            "role": "worker",
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20611072,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.232345
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        },
+        "allocated": {
+          "self_before": {
+            "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+            "role": "worker",
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20611072,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.2730231
+          },
+          "parent": {
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20611072,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.2930603
+          },
+          "self_after": {
+            "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+            "role": "worker",
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "memory": {
+              "resident_bytes": 20611072,
+              "private_bytes": 12046336,
+              "peak_resident_bytes": 21778432,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 827603.3015522
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "allocation_check": {
+        "explicit_allocation_bytes": 0,
+        "parent_deltas_bytes": {
+          "resident_bytes": 0,
+          "private_bytes": 0
+        },
+        "minimum_required_increase_bytes": 0,
+        "passed": true
+      },
+      "stalled_receipt": {
+        "nonce": "4d5b0ec7784541dfaa278a201f879e8169b8c2ba195ec90136291795533ba55f",
+        "role": "worker",
+        "pid": 40400,
+        "perf_counter": 827603.3293561
+      },
+      "enforcement_reason": "explicit_job_handle_close_control",
+      "job_close_started_perf_counter": 827603.3506354,
+      "job_close_returned_perf_counter": 827603.3507421,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": null,
+        "exit_codes": [
+          {
+            "pid": 53792,
+            "creation_filetime": 134366434986511024,
+            "exit_code": 0
+          },
+          {
+            "pid": 40400,
+            "creation_filetime": 134366434987282635,
+            "exit_code": 0
+          },
+          {
+            "pid": 13824,
+            "creation_filetime": 134366434989671616,
+            "exit_code": 0
+          },
+          {
+            "pid": 33288,
+            "creation_filetime": 134366434990459918,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 827603.3507456,
+        "completed_perf_counter": 827603.3927798,
+        "wall_seconds": 0.04203420004341751,
+        "timeout_seconds": 4.0,
+        "job_active_count_after_close_not_queryable": true
+      },
+      "completed_at": "2026-10-16T16:58:19.460672+00:00",
+      "wall_seconds": 0.8111298000440001
+    }
+  ],
+  "platform": "Windows-10-10.0.19045-SP0",
+  "os_name": "nt",
+  "python_version": "3.12.14",
+  "no_fallback": true,
+  "limitations": [
+    "Sampled private-byte termination is not a kernel hard ceiling or continuous/peak measurement.",
+    "One-host Windows controlled payloads and cooperative descendants only; no adversarial escape proof.",
+    "Historical activation-cost observer/results are unchanged; passing does not repair their memory measurements.",
+    "No model/training/runtime-cost/quality claim; no Linux evidence substituted for Windows."
+  ],
+  "protocol_sha256": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+  "implementation_sha256": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+  "source_sha256": {
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "tests/test_process_observer.py": "cf050600d126966f24bca1fb05936d72fb3d943d34f13efb16f43cb5c32a675b"
+  },
+  "launch_executable_basename": "python.exe",
+  "launch_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+  "protocol_predeclared_at": "2026-10-16T16:43:12+00:00",
+  "implementation_frozen_at": "2026-10-16T16:58:04.591760+00:00",
+  "completed_at": "2026-10-16T16:58:19.466673+00:00",
+  "wall_seconds": 5.819656599895097
+}

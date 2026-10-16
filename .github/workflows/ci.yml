@@ -25,6 +25,8 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - name: Audit the recorded Windows training-cost receipts without ML dependencies
         run: python -S scripts/audit_activation_cost.py --report results/activation-cost/report.json --output reports/activation-cost-ci-audit.json
+      - name: Audit the recorded Windows interpreter observer receipts without launching processes
+        run: python -S -m scripts.audit_process_observer --report results/process-observer/report.json --protocol fixtures/process-observer/protocol.json --freeze fixtures/process-observer/implementation.json --output reports/process-observer-ci-audit.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

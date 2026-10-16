@@ -1,0 +1,1569 @@
+{
+  "schema_version": 1,
+  "run_id": "20261016T063624Z",
+  "baseline": {
+    "published_commit": "8c777425a743879da8fe59288a18a89f76c22310",
+    "previous_successful_cutoff": "2026-10-16T04:35:20.748207+00:00"
+  },
+  "independent_commit_event_window": {
+    "since_query": "2026-10-16T04:35:20Z",
+    "until_query": "2026-10-16T06:36:24Z",
+    "inclusive": true,
+    "lower_bound_overlap_seconds": 0.748207,
+    "note": "Independent targeted interval ends at floored run start. Root owns scanner cutoff; observation times do not advance event coverage."
+  },
+  "observation_interval": {
+    "start": "2026-10-16T06:37:40.618743Z",
+    "end": "2026-10-16T06:42:00.033088Z"
+  },
+  "raw_definition": "Exact stdout bytes of authenticated gh api --include GET; not a network packet capture. HTTP status/header/body and stderr retained.",
+  "requests_successful": 54,
+  "requests_unsuccessful": 0,
+  "repositories": [
+    {
+      "full_name": "openclaw/openclaw",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "PrimeIntellect-ai/verifiers",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "full_name": "earendil-works/pi",
+      "private": false,
+      "license": "MIT",
+      "default_branch": "main"
+    }
+  ],
+  "sources": [
+    {
+      "id": "openclaw-json-stable-peer-recovery",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173878",
+      "title": "fix(sessions): recover saved peer inputs after restart",
+      "pr_author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T06:02:17Z",
+      "merged_at": "2026-10-16T06:24:53Z",
+      "updated_at_at_fetch": "2026-10-16T06:24:55Z",
+      "head_sha": "b2be282378c3a46597c6ed92b33f7fa559c31c89",
+      "merge_commit": "ed3fcdbbbea61537c3383944a5f4b1e904aa362b",
+      "authentic_parents": [
+        "68f4a155f46be0894aeb6ee962011be19b37ffa4"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T06:24:52Z",
+      "stats": {
+        "total": 196,
+        "additions": 176,
+        "deletions": 20
+      },
+      "body_sha256": "65f97103c2c76e3afbf743899465de983b1b82cc9df0751d49e04df3159a73cb",
+      "files": [
+        {
+          "path": "docs/gateway/restart-recovery.md",
+          "blob_sha": "a24c9a8870246070b26dc04fce6cf83fea73c0b3",
+          "saved_patch": "frontier-raw/patches/oc173878--docs_gateway_restart-recovery.md.patch",
+          "patch_sha256": "db89f273b5d02a793a3e0e965727a547b2a50d35c2b08ef9efa42704d9eb068b",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/tools/sessions-send-communication.test.ts",
+          "blob_sha": "a06e25a5fb4eed252b9a35526e56669290f0e174",
+          "saved_patch": "frontier-raw/patches/oc173878--src_agents_tools_sessions-send-communication.test.ts.patch",
+          "patch_sha256": "92ae38cd822ece3e8feaf8aeda179d7748adf945a6770784644dd23e12327886",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/agents/tools/sessions-send-communication.ts",
+          "blob_sha": "f169a305cba939ed12c5b495bf5572ca1f4660c8",
+          "saved_patch": "frontier-raw/patches/oc173878--src_agents_tools_sessions-send-communication.ts.patch",
+          "patch_sha256": "52a71660c94bcb4507980309127c0257d7ca6b2c04f5c79a5af8f130f286a84a",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/config/sessions/session-accessor.pending-input-request.ts",
+          "blob_sha": "1d7b007d93e40780e2613ab7e314585009b12430",
+          "saved_patch": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-input-request.ts.patch",
+          "patch_sha256": "b0979ff57ae4914d23b1bdb216a5f91982c2df6e2774f31c77d3acd8033dc01c",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/config/sessions/session-accessor.pending-inputs-consumed.test.ts",
+          "blob_sha": "309f80e75f9cd8ed522130363890cab3ea050285",
+          "saved_patch": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-inputs-consumed.test.ts.patch",
+          "patch_sha256": "7d48c73ce3a24e129ca4f0ca501fc8127912bb77ae910e78e962910b794fb0d8",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/config/sessions/session-accessor.pending-inputs.ts",
+          "blob_sha": "c4c226d92c02fc9ce5ecfe5d175fb93944a0ba2d",
+          "saved_patch": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-inputs.ts.patch",
+          "patch_sha256": "38421308f816db9dce47759452d3078fc1dded0bf43be91c5372f2afbecfcc53",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/session-send-recovery.test.ts",
+          "blob_sha": "9f802fd4d6fc166a6a883765de71e1aa8a5442af",
+          "saved_patch": "frontier-raw/patches/oc173878--src_gateway_session-send-recovery.test.ts.patch",
+          "patch_sha256": "4e4205c95324f3e2d8e5b4b2761a01666cfc0157fc18d77c5b5c68d5e0e4965d",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/session-send-recovery.ts",
+          "blob_sha": "015639c2643310de24a7a55a48d0fff309650bc9",
+          "saved_patch": "frontier-raw/patches/oc173878--src_gateway_session-send-recovery.ts.patch",
+          "patch_sha256": "816b701a1628edc8c07637487afb639f7add7b1cfe6776fc5cc258104161b131",
+          "patch_fully_read": true
+        }
+      ],
+      "mechanism": "Omit absent source/target lifecycleRevision in new delivery metadata; legacy replay reconstructs only those two undefined fields and accepts only a complete original hash for the same run. Retained receipt keeps its raw hash through completion. Already consumed/cancelled recovery candidates are checked before endpoint resolution.",
+      "acceptance_delta": "Require JSON round-trip and database close/reopen identity tests across pending/interrupted/consumed/completed states, identical completed replay returning the recorded outcome without a new turn, changed-content conflict, exact current endpoints/permissions, and a full process restart/second-crash trace before runtime upgrade.",
+      "proof_boundary": "All 8 immutable merge patches inspected. Added tests use real input/completion owner close/reopen and lifecycle generation rotation; no full OS-process/Gateway restart trace. 95 focused tests are author-reported, not executed here.",
+      "known_residual": null,
+      "prepared_head_ci": {
+        "id": 38859007079,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38859007079",
+        "head_sha": "b2be282378c3a46597c6ed92b33f7fa559c31c89",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T06:13:37Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Exact-head CI metadata reports failure. Full 68-job metadata read: check-prod-types, check-lint-core-2, and aggregate openclaw/ci-gate fail. Author claims inherited unused LitContent import and authorized exception; causality/authorization/log attribution not independently audited. No green CI claim.",
+      "discussion_boundary": "Complete issue 4 / inline 0 arrays fetched. Latest bot review and author landing exception read; bot found no code defect but asked for failed-typecheck attribution and noted absent shipped restart proof. No authoritative thread-resolution query.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    },
+    {
+      "id": "openclaw-bounded-attributed-suspension",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/173788",
+      "title": "fix(gateway): bound and attribute suspension drains",
+      "pr_author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T04:15:10Z",
+      "merged_at": "2026-10-16T04:57:22Z",
+      "updated_at_at_fetch": "2026-10-16T04:57:25Z",
+      "head_sha": "09d1899acf8ad1176ee2521173754deed233e42f",
+      "merge_commit": "7042b9a4f572d92304c369f47cb30a55f5210e98",
+      "authentic_parents": [
+        "4dc7c469e677aa0f3c5f1e753a3041ac31cfa453"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T04:57:21Z",
+      "stats": {
+        "total": 624,
+        "additions": 413,
+        "deletions": 211
+      },
+      "body_sha256": "29abfa3ca00ba6e4ae52d4301c300f7cda689c87179cb8380c6a8fd3c9e90ac6",
+      "files": [
+        {
+          "path": ".agents/skills/update-team-server/controller/README.md",
+          "blob_sha": "9dd60cecb5852fa65d78f9c51d9ea46a61d05658",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_README.md.patch",
+          "patch_sha256": "df2edeeed9e2d667a6e204a89d14cb45226b742c4f695665af821ffdc79402e5",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/drain-deadline.test.mjs",
+          "blob_sha": "4a9596798af6b62cb38e3116e9ada03133182502",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_drain-deadline.test.mjs.patch",
+          "patch_sha256": "47267e634a436e6e6b31ed1ea8e1513020caed3987cb6f1ccd715961a4a5d5b3",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/openclaw-release-deploy",
+          "blob_sha": "67cd87ea1d0c4c5d5e7efbf4f5af222ec829a654",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_openclaw-release-deploy.patch",
+          "patch_sha256": "bb349da2496f92df26d00546c5a8ad1b017827a793beb5d6dfc3d58c71e647a6",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/release-lib.mjs",
+          "blob_sha": "eeff796e72da506b7793265afa5f6f4dbf3b2d24",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_release-lib.mjs.patch",
+          "patch_sha256": "6ed6f2755bbd01cc1264eb27909a6dab87a0c1f695f36649b74d1500cd08f8d0",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/release.test.mjs",
+          "blob_sha": "0e121cf9fee38e7116ac53794ff09536c5d902aa",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_release.test.mjs.patch",
+          "patch_sha256": "36ef5bcf87243730159d7f85639f72bacb1c8985f50ec75287e5148f91bc85c9",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/suspension-custody.test.mjs",
+          "blob_sha": "9fc1e48bcdc730d9fa6ba1bcaa9240694f196c97",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_suspension-custody.test.mjs.patch",
+          "patch_sha256": "f421d44b02ae6b472d60a64cf4de26315a07cb95f623cc1a36c9cc86d7308a9b",
+          "patch_fully_read": true
+        },
+        {
+          "path": ".agents/skills/update-team-server/controller/worker-config-owner-fixture.mjs",
+          "blob_sha": "27870e1edea13d93d215c5368c64db0c355248a6",
+          "saved_patch": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_worker-config-owner-fixture.mjs.patch",
+          "patch_sha256": "fc9b6ab621f0a428f74d8cd73269eb919b38f1103a5284136c3a0fcc410afdc9",
+          "patch_fully_read": true
+        },
+        {
+          "path": "docs/gateway/external-apps.md",
+          "blob_sha": "f4219384be1ef1e86c3b549d5b723fca302c4105",
+          "saved_patch": "frontier-raw/patches/oc173788--docs_gateway_external-apps.md.patch",
+          "patch_sha256": "d762dbc020624418780451db3d045ad5e63b3a66f371bcef9980fcf7cded8c4c",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/cli/update-cli/update-command-service-drain.test.ts",
+          "blob_sha": "f1de149d5f46f98aa4fb1cd0422c0f7a3b1aa244",
+          "saved_patch": "frontier-raw/patches/oc173788--src_cli_update-cli_update-command-service-drain.test.ts.patch",
+          "patch_sha256": "fd0616f560ca3970fbdf1d77f7b1eaca96618601aa1bea98eecf24f06697465c",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/cli/update-cli/update-command-service-drain.ts",
+          "blob_sha": "2dd0b3e67853f7b8d595b5f57063dc9635c7f141",
+          "saved_patch": "frontier-raw/patches/oc173788--src_cli_update-cli_update-command-service-drain.ts.patch",
+          "patch_sha256": "49fada77d5ae6c8a9caa1692cb3877d34b0fb4651d1873eb96eef182164de774",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-maintenance.ts",
+          "blob_sha": "60a07026d8bba5660bd9720427e7f74e21f702dc",
+          "saved_patch": "frontier-raw/patches/oc173788--src_gateway_server-maintenance.ts.patch",
+          "patch_sha256": "09f5e3a101874786f85a7e0a0cf24235e9d9c876dea686428288bf796ede44b6",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-methods.suspension-admission.test.ts",
+          "blob_sha": "f9654c5d7ef5630f79c5c2b0551f7585407bd106",
+          "saved_patch": "frontier-raw/patches/oc173788--src_gateway_server-methods.suspension-admission.test.ts.patch",
+          "patch_sha256": "b5d2c255855dafd2beec53a9ccbf48de5f1493033bdf05d95b55d9af6ba4bad1",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-methods.suspension-handoff.test-support.ts",
+          "blob_sha": "1be91c84acea2e93cb23ff24853749dc07818fd8",
+          "saved_patch": "frontier-raw/patches/oc173788--src_gateway_server-methods.suspension-handoff.test-support.ts.patch",
+          "patch_sha256": "1d62718e4268b596aef9a9429a382e0c9fb9b5964de5b6468bd545bf46da0a91",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/gateway/server-methods/suspend.ts",
+          "blob_sha": "69cbd1a0d5e24e35229187135e660de7bdd401ea",
+          "saved_patch": "frontier-raw/patches/oc173788--src_gateway_server-methods_suspend.ts.patch",
+          "patch_sha256": "50318aab0611b40a61f07cca8b6e7e2fb2478ca75a5fcd1fe8c1336d2e124f6e",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/infra/gateway-suspend-coordinator.handoff.test.ts",
+          "blob_sha": "60cd9c3fe70699e96e9f46f95a985d502172fdef",
+          "saved_patch": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.handoff.test.ts.patch",
+          "patch_sha256": "a2e31c0caf864376b97a7a35a89950baf80c4af9bf43bb3bcb020a5716905166",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/infra/gateway-suspend-coordinator.test.ts",
+          "blob_sha": "57a4f5815f6f2aea02904e6a243fa8fba4e5862a",
+          "saved_patch": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.test.ts.patch",
+          "patch_sha256": "2a655852ed6da3a9f88015945c932c5a504578b2e2eb5c9f2c45a1408389fbb7",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/infra/gateway-suspend-coordinator.ts",
+          "blob_sha": "434a2a45ab4e3ea74cbdff85356bdbe2f4449e87",
+          "saved_patch": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.ts.patch",
+          "patch_sha256": "da29b4121980fa5d8cb324197ce73b811883e25895175cb0ad198a704e169e98",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/process/gateway-work-admission.ts",
+          "blob_sha": "6661c964420211d2156db1eb2924fd9bbcc3a98c",
+          "saved_patch": "frontier-raw/patches/oc173788--src_process_gateway-work-admission.ts.patch",
+          "patch_sha256": "32f238f8caae0cb152282bc1f6bc23e93e33623534d752b764d5db98e703c2c5",
+          "patch_fully_read": true
+        }
+      ],
+      "mechanism": "Drain leases have one absolute 45-second coordinator budget (30-second drain plus 15-second handoff/cleanup); prepare/readiness/poll cannot renew it. Expiry resumes scheduling and admission without cancelling admitted work or dropping writes; committed shutdown remains host-owned. Freeze/snapshot leases retain renewable two-minute TTL. Controller/CLI cap drain to 30 seconds, preserve exact lease identity, and record owner/lease/caller/reason/exit attribution.",
+      "acceptance_delta": "Require disconnected-controller and attempted-renewal cases, rollback-clock expiry, slow preflight/prepare budgeting, expired/replaced-lease refusal, protected writes, and committed-shutdown ownership. Adopt the matching controller closure separately and demonstrate shipped Gateway/update behavior before runtime upgrade.",
+      "proof_boundary": "All 18 immutable merge patches inspected, including controller text treated only as evidence. Dispatcher/coordinator/CLI tests and inert transport/virtual clock fixtures; no live suspension, GNU-timeout validation, deployment, or stable-to-candidate update trace. Reported focused counts not executed here.",
+      "known_residual": null,
+      "prepared_head_ci": {
+        "id": 38851464205,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38851464205",
+        "head_sha": "09d1899acf8ad1176ee2521173754deed233e42f",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:55:46Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Exact-head CI run metadata reports completed/success. No job logs or runtime artifacts independently audited.",
+      "discussion_boundary": "Complete issue 3 / inline 2 arrays fetched/read, including obsolete slow-preflight finding and author fix reply. Source includes the lease-anchored budgeting and matching tests. Bot notes absent shipped-entry-point proof. No authoritative thread-resolution query.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    },
+    {
+      "id": "openclaw-policy-readmission-producer-authority",
+      "pr_url": "https://github.com/openclaw/openclaw/pull/169529",
+      "title": "fix: background completion is dropped when the config changes mid-turn",
+      "pr_author": "wangmiao0668000666",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "RomneyDa",
+      "created_at": "2026-10-12T02:06:43Z",
+      "merged_at": "2026-10-16T04:58:58Z",
+      "updated_at_at_fetch": "2026-10-16T04:58:58Z",
+      "head_sha": "1d327ac2821e486307c0f9dbf765f602b894c584",
+      "merge_commit": "4217e957da91629c74db29b4a96d7692d10b3d55",
+      "authentic_parents": [
+        "f11e2139bb7a253dc598935371de273ad26052e4"
+      ],
+      "commit_author_login": "wangmiao0668000666",
+      "commit_author_name": "wangmiao0668000666",
+      "commit_committer_at": "2026-10-16T04:58:57Z",
+      "stats": {
+        "total": 465,
+        "additions": 454,
+        "deletions": 11
+      },
+      "body_sha256": "ae5b64d2d6603dcc4900c33f91c9c65588be30879421df41af4191fb20bf63c7",
+      "files": [
+        {
+          "path": "src/agents/bash-tools.process.e2e.test.ts",
+          "blob_sha": "2283aca594390ffc3fa98afe002370432c0ae93a",
+          "saved_patch": "frontier-raw/patches/oc169529--src_agents_bash-tools.process.e2e.test.ts.patch",
+          "patch_sha256": "dc8b745c3068220b418210ea8413c89863cba60c3978831f14a5cdf54a96b928",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/auto-reply/reply/followup-turn-execution.ts",
+          "blob_sha": "a21bdb7c788257b8274389280e02d91ca2f58b63",
+          "saved_patch": "frontier-raw/patches/oc169529--src_auto-reply_reply_followup-turn-execution.ts.patch",
+          "patch_sha256": "8bfb1986a439bfac2ae3aaa5de6d1e23f0d3d6b4c8ef371d4bd4b89a458a387b",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/auto-reply/reply/session-event-config-readmission.test.ts",
+          "blob_sha": "6647136397c6c4e64887a543d1c069c33c130206",
+          "saved_patch": "frontier-raw/patches/oc169529--src_auto-reply_reply_session-event-config-readmission.test.ts.patch",
+          "patch_sha256": "569b3cea2ccae25906ea437bc952d805c4b27d8d6f743adb43866ba89ccd05fb",
+          "patch_fully_read": true
+        },
+        {
+          "path": "src/auto-reply/reply/session-event-handoff.ts",
+          "blob_sha": "ca08deaf4aca060859ff3868358665b186f61157",
+          "saved_patch": "frontier-raw/patches/oc169529--src_auto-reply_reply_session-event-handoff.ts.patch",
+          "patch_sha256": "9053ef7f2e50bc88a744d09cec840195d525a993101950bca351140df0e60a55",
+          "patch_fully_read": true
+        },
+        {
+          "path": "test/vitest/vitest.database-worker-core-paths.mjs",
+          "blob_sha": "8817eb1ba17a9c41ad9f5377cffc3566689e92b1",
+          "saved_patch": "frontier-raw/patches/oc169529--test_vitest_vitest.database-worker-core-paths.mjs.patch",
+          "patch_sha256": "d36a10c7a093afc62d2acc50a58994c4bf60a333859b6f6fc1cde8697fa93d45",
+          "patch_fully_read": true
+        }
+      ],
+      "mechanism": "Only stale-policy rejected occurrences that never started, attempted no delivery, and were neither aborted nor abandoned receive fresh dispatch under current policy, at most twice. Captured destination/tool ceiling/settings/delivery opt-out and live producer/ingress authority survive; receipt cancellation/settlement forwards to live attempt. Distinct per-attempt MessageSid avoids dedupe loss. Exhaustion/revocation consumes terminally with logs; producer text never falls back to contract-less passive custody. Precheck before admitUserTurn avoids early durable exec-source retirement.",
+      "acceptance_delta": "Require real deferred exec source identity, new-policy deny, retained producer ceiling with a permissive current policy, allowed-write control, revoked producer, cancellation, publication storm, no later passive drain, and current packaged-Gateway final-effect trace. Isolate publication during admitUserTurn awaits rather than claiming that residual closed.",
+      "proof_boundary": "All 5 immutable merge patches and full current PR body inspected. Tests use real queue/dispatcher/durable source admission and managed filesystem write effects with synthetic model inference; added real-child exec case skips Windows. Current packaged-Gateway driver was not rerun after restructure and is absent from diff; older packaged traces explicitly historical. No local execution here.",
+      "known_residual": "Policy publication during admitUserTurn's own awaits may still terminalize durable source before execution rejection, then settles failed with error log. Current body explicitly leaves source-retirement policy outside scope.",
+      "prepared_head_ci": {
+        "id": 38852541184,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38852541184",
+        "head_sha": "1d327ac2821e486307c0f9dbf765f602b894c584",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:57:06Z",
+        "run_attempt": 1
+      },
+      "ci_boundary": "Exact-head CI metadata reports completed/success; head-run listing returns 16 complete workflow records. No job logs or test execution independently audited. Success does not supply missing current packaged-Gateway proof.",
+      "discussion_boundary": "Complete issue 22 / inline 0 arrays fetched; current latest substantive bot review read in full, historical author replies sampled. Latest review still asks current real-behavior proof despite subsequent merge. No authoritative thread-resolution query.",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "local_runtime_execution": false
+    }
+  ],
+  "retained_unreplicated_source_concerns": {
+    "immutable_ref": "785f2467d88c18c57aac91fe387442ed583dd474",
+    "checkpoint": {
+      "blob": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+      "identical_to_prior_observation": true,
+      "checkpoint_reader_present": false,
+      "recent_messages": 20,
+      "recent_bytes": 262144,
+      "review_url": "https://github.com/openclaw/openclaw/pull/173579#discussion_r4290098935",
+      "decoded_sha256": "fd26618e7cb1aea6583559c9617880b7df5d6554ace5f4c830d73fe047693a67"
+    },
+    "kill_settlement": {
+      "blob": "4aac65c346765fb5463cc2736725b2782aba6465",
+      "identical_to_prior_observation": true,
+      "request_then_clear_before_supervisor_settlement_source_still_present": true,
+      "review_url": "https://github.com/openclaw/openclaw/pull/173454#discussion_r4288588952",
+      "decoded_sha256": "bddb0b87a0b3642e6439992cbc70d01689cd29b51bb2027e7b48147db4004dda"
+    },
+    "boundary": "Current blob identity to prior inspected source confirmed; neither concern reproduced. No authoritative review-thread resolution queried. Old comments are not new events."
+  },
+  "prior_pr_comparisons": [
+    {
+      "key": "oc173579",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "oc173454",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "oc170336",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "oc173580",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "oc173241",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2864",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2866",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2857",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "vf2875",
+      "head_identical": true,
+      "delta": {}
+    },
+    {
+      "key": "pi11000",
+      "head_identical": true,
+      "delta": {}
+    }
+  ],
+  "prior_full_comment_comparisons": [
+    {
+      "key": "oc173579-issue-p1",
+      "count": 7,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "count": 6,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "count": 4,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "count": 2,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc170336-issue-p1",
+      "count": 5,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc170336-inline-p1",
+      "count": 0,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173580-issue-p1",
+      "count": 6,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173580-inline-p1",
+      "count": 0,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173241-issue-p1",
+      "count": 7,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "oc173241-inline-p1",
+      "count": 0,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "vf2857-issue-p1",
+      "count": 1,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "vf2857-inline-p1",
+      "count": 1,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "pi11012-comments-p1",
+      "count": 2,
+      "entire_parsed_array_identical": true
+    },
+    {
+      "key": "pi9602-comments-p1",
+      "count": 10,
+      "entire_parsed_array_identical": true
+    }
+  ],
+  "supplements": {
+    "verifiers2875": {
+      "head_unchanged": true,
+      "complete_issue_comments": 0,
+      "complete_inline_comments": 0,
+      "decision": "Tool-less in-process proposal remains unchanged; refuses MCP and has no compaction. Does not satisfy/change pinned real Pi/ACP MCP replay gate."
+    },
+    "pi_issues": [
+      {
+        "number": 11012,
+        "issue_and_full_comment_array_identical": true,
+        "comment_count": 2
+      },
+      {
+        "number": 9602,
+        "issue_and_full_comment_array_identical": true,
+        "comment_count": 10
+      }
+    ],
+    "H4_status": "planned_not_executed"
+  },
+  "saved_patches": [
+    {
+      "file": "frontier-raw/patches/oc169529--src_agents_bash-tools.process.e2e.test.ts.patch",
+      "sha256": "dc8b745c3068220b418210ea8413c89863cba60c3978831f14a5cdf54a96b928",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc169529--src_auto-reply_reply_followup-turn-execution.ts.patch",
+      "sha256": "8bfb1986a439bfac2ae3aaa5de6d1e23f0d3d6b4c8ef371d4bd4b89a458a387b",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc169529--src_auto-reply_reply_session-event-config-readmission.test.ts.patch",
+      "sha256": "569b3cea2ccae25906ea437bc952d805c4b27d8d6f743adb43866ba89ccd05fb",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc169529--src_auto-reply_reply_session-event-handoff.ts.patch",
+      "sha256": "9053ef7f2e50bc88a744d09cec840195d525a993101950bca351140df0e60a55",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc169529--test_vitest_vitest.database-worker-core-paths.mjs.patch",
+      "sha256": "d36a10c7a093afc62d2acc50a58994c4bf60a333859b6f6fc1cde8697fa93d45",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_drain-deadline.test.mjs.patch",
+      "sha256": "47267e634a436e6e6b31ed1ea8e1513020caed3987cb6f1ccd715961a4a5d5b3",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_openclaw-release-deploy.patch",
+      "sha256": "bb349da2496f92df26d00546c5a8ad1b017827a793beb5d6dfc3d58c71e647a6",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_README.md.patch",
+      "sha256": "df2edeeed9e2d667a6e204a89d14cb45226b742c4f695665af821ffdc79402e5",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_release-lib.mjs.patch",
+      "sha256": "6ed6f2755bbd01cc1264eb27909a6dab87a0c1f695f36649b74d1500cd08f8d0",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_release.test.mjs.patch",
+      "sha256": "36ef5bcf87243730159d7f85639f72bacb1c8985f50ec75287e5148f91bc85c9",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_suspension-custody.test.mjs.patch",
+      "sha256": "f421d44b02ae6b472d60a64cf4de26315a07cb95f623cc1a36c9cc86d7308a9b",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--.agents_skills_update-team-server_controller_worker-config-owner-fixture.mjs.patch",
+      "sha256": "fc9b6ab621f0a428f74d8cd73269eb919b38f1103a5284136c3a0fcc410afdc9",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--docs_gateway_external-apps.md.patch",
+      "sha256": "d762dbc020624418780451db3d045ad5e63b3a66f371bcef9980fcf7cded8c4c",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_cli_update-cli_update-command-service-drain.test.ts.patch",
+      "sha256": "fd0616f560ca3970fbdf1d77f7b1eaca96618601aa1bea98eecf24f06697465c",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_cli_update-cli_update-command-service-drain.ts.patch",
+      "sha256": "49fada77d5ae6c8a9caa1692cb3877d34b0fb4651d1873eb96eef182164de774",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_gateway_server-maintenance.ts.patch",
+      "sha256": "09f5e3a101874786f85a7e0a0cf24235e9d9c876dea686428288bf796ede44b6",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_gateway_server-methods.suspension-admission.test.ts.patch",
+      "sha256": "b5d2c255855dafd2beec53a9ccbf48de5f1493033bdf05d95b55d9af6ba4bad1",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_gateway_server-methods.suspension-handoff.test-support.ts.patch",
+      "sha256": "1d62718e4268b596aef9a9429a382e0c9fb9b5964de5b6468bd545bf46da0a91",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_gateway_server-methods_suspend.ts.patch",
+      "sha256": "50318aab0611b40a61f07cca8b6e7e2fb2478ca75a5fcd1fe8c1336d2e124f6e",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.handoff.test.ts.patch",
+      "sha256": "a2e31c0caf864376b97a7a35a89950baf80c4af9bf43bb3bcb020a5716905166",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.test.ts.patch",
+      "sha256": "2a655852ed6da3a9f88015945c932c5a504578b2e2eb5c9f2c45a1408389fbb7",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_infra_gateway-suspend-coordinator.ts.patch",
+      "sha256": "da29b4121980fa5d8cb324197ce73b811883e25895175cb0ad198a704e169e98",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173788--src_process_gateway-work-admission.ts.patch",
+      "sha256": "32f238f8caae0cb152282bc1f6bc23e93e33623534d752b764d5db98e703c2c5",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--docs_gateway_restart-recovery.md.patch",
+      "sha256": "db89f273b5d02a793a3e0e965727a547b2a50d35c2b08ef9efa42704d9eb068b",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_agents_tools_sessions-send-communication.test.ts.patch",
+      "sha256": "92ae38cd822ece3e8feaf8aeda179d7748adf945a6770784644dd23e12327886",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_agents_tools_sessions-send-communication.ts.patch",
+      "sha256": "52a71660c94bcb4507980309127c0257d7ca6b2c04f5c79a5af8f130f286a84a",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-input-request.ts.patch",
+      "sha256": "b0979ff57ae4914d23b1bdb216a5f91982c2df6e2774f31c77d3acd8033dc01c",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-inputs-consumed.test.ts.patch",
+      "sha256": "7d48c73ce3a24e129ca4f0ca501fc8127912bb77ae910e78e962910b794fb0d8",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_config_sessions_session-accessor.pending-inputs.ts.patch",
+      "sha256": "38421308f816db9dce47759452d3078fc1dded0bf43be91c5372f2afbecfcc53",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_gateway_session-send-recovery.test.ts.patch",
+      "sha256": "4e4205c95324f3e2d8e5b4b2761a01666cfc0157fc18d77c5b5c68d5e0e4965d",
+      "fully_read": true
+    },
+    {
+      "file": "frontier-raw/patches/oc173878--src_gateway_session-send-recovery.ts.patch",
+      "sha256": "816b701a1628edc8c07637487afb639f7add7b1cfe6776fc5cc258104161b131",
+      "fully_read": true
+    }
+  ],
+  "material_decision": "Three source-only H2 deltas warrant acceptance-contract additions for persistence-stable identity, bounded attributed drain, and fresh-policy producer-owned re-admission. Keep H2 runtime and H4 planned status unchanged. Routine reliability work remains a competing explanation; infer no private/personal roadmap or employment.",
+  "experiments_executed_by_source_worker": 0,
+  "coverage_gaps": [
+    "Not all 100 commit patches inspected",
+    "GitHub commit pagination anomaly preserved",
+    "Not all branches/authors/GitHub Discussions/X/personal sites",
+    "No upstream runtime/test/model/external-job execution",
+    "No independent CI job-log or artifact execution audit",
+    "No current packaged-Gateway process restart/update/readmission proof",
+    "No signed native handshake or OS-process kill locally",
+    "No authoritative GraphQL review-thread resolution",
+    "Employment attribution not researched in this targeted H2/H4 audit"
+  ],
+  "generated_at": "2026-10-16T06:47:48.451792+00:00",
+  "purpose": "Bounded public source/test audit; no upstream execution. H2 runtime and H4 planned status unchanged.",
+  "frozen_audit_sha256": "320a2bb4861df3ae360905f1085511e3b4ff787a36f52aeeaa41edc3854b08e4",
+  "request_manifest": [
+    {
+      "key": "oc-commits-p1",
+      "endpoint": "repos/openclaw/openclaw/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1",
+      "start": "2026-10-16T06:37:41.974518Z",
+      "end": "2026-10-16T06:37:43.899982Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "e9aab5494543cade4ee2f12a00639f958586d2cb1cac20988341d524c46ab278",
+      "body_sha256": "181a0416535ec742c679b52c6686646524991b81791e0a75cdc05b0d1f9cb3a7",
+      "returned_count": 100,
+      "pagination_link": "Link: <https://api.github.com/repositories/1103012935/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=2>; rel=\"next\", <https://api.github.com/repositories/1103012935/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1>; rel=\"last\""
+    },
+    {
+      "key": "oc-commits-p2",
+      "endpoint": "repos/openclaw/openclaw/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=2",
+      "start": "2026-10-16T06:38:14.441118Z",
+      "end": "2026-10-16T06:38:15.562777Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1849f04c20c48592cf133c552265e318144c55f1b82cc58de2a3cd71807fa25a",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": "Link: <https://api.github.com/repositories/1103012935/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1>; rel=\"first\", <https://api.github.com/repositories/1103012935/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1>; rel=\"prev\""
+    },
+    {
+      "key": "oc-process-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/agents/bash-tools.process.ts?ref=785f2467d88c18c57aac91fe387442ed583dd474",
+      "start": "2026-10-16T06:39:00.363274Z",
+      "end": "2026-10-16T06:39:01.870397Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "d10fa14beb6c7d705fe8b5e5d09ff62198a5c6f2a2f2ca85346b397b7221a4cd",
+      "body_sha256": "9ce37685f40cc3d944bddd6281823c146c5c2fcb17c2f4e6b8dcef417ec56e0c",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-recovery-current",
+      "endpoint": "repos/openclaw/openclaw/contents/src/gateway/session-recovery-service.ts?ref=785f2467d88c18c57aac91fe387442ed583dd474",
+      "start": "2026-10-16T06:38:59.775476Z",
+      "end": "2026-10-16T06:39:01.318858Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "96dcc802042e7e44d009015e524e139fcfe79a6065ce52f08fd18b69f5a4f868",
+      "body_sha256": "80974b71fc6c1b75a6ae74cab0db402e2b8fe4e5bfd8e1dfe221b53788b0531c",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc-repo",
+      "endpoint": "repos/openclaw/openclaw",
+      "start": "2026-10-16T06:37:40.618743Z",
+      "end": "2026-10-16T06:37:41.968520Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "43704c47db429fd7a81da064640767c4cc604f819914aaa782c4aa46d242b19f",
+      "body_sha256": "061b70cb427faa249676005a3d3d74e3b9c173aae052feeb5ea2164a2d11fdea",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-ci",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38852541184",
+      "start": "2026-10-16T06:41:57.443883Z",
+      "end": "2026-10-16T06:41:58.777715Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "514c172a1f5b03249fb9179522d24a19c9f99c40cc6de55009eb142afe471643",
+      "body_sha256": "96834b3a1080e3125dae87c52b44c6d1269f283db09c9bd49c2b3c6480739965",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-head-runs",
+      "endpoint": "repos/openclaw/openclaw/actions/runs?head_sha=1d327ac2821e486307c0f9dbf765f602b894c584&per_page=100&page=1",
+      "start": "2026-10-16T06:41:03.025048Z",
+      "end": "2026-10-16T06:41:04.754934Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "7a5b4bba7b3912aa65fcf661e5378ff2f27f2d1a89f20513086c00f8443ff3f2",
+      "body_sha256": "d2d0daad56d338d364511e1c5c8b20b7c757e5b192369d79f29ad3e87c46c31d",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/169529/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:41:01.472129Z",
+      "end": "2026-10-16T06:41:02.746085Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "55838e813d05f96e146757b353f49746d618ba80b51c194d6112a419a3907965",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/169529/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:41:01.391440Z",
+      "end": "2026-10-16T06:41:03.015602Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "f7296481cf3c6e1a95ca317d9532e8997aa1d4535aa0f6a5c6db6fc6478f4305",
+      "body_sha256": "7544240c5946b2b0c8d84ea97674045d1924f91fd1dfbf8c9cc5e78a56f8fa88",
+      "returned_count": 22,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/4217e957da91629c74db29b4a96d7692d10b3d55",
+      "start": "2026-10-16T06:38:58.906267Z",
+      "end": "2026-10-16T06:39:00.354825Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "70b5a76ea9f4621eb0915bb8aca7f06c49f80579c4b2fd550f5ee813d762e0e0",
+      "body_sha256": "277bd645e6b06362c65fa8a29f09ef1de0e7f45f8ef589c898f82433f0bae840",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc169529",
+      "endpoint": "repos/openclaw/openclaw/pulls/169529",
+      "start": "2026-10-16T06:38:58.894224Z",
+      "end": "2026-10-16T06:39:00.835047Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "44cc643c91557452dc289a40a40e5ee78a3d3234efc203fd99cf86eb00dac508",
+      "body_sha256": "901a24638ec0ba7c739c53003efab4906b1a0431b1b24f4d166eed7fb06d6301",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:46.401521Z",
+      "end": "2026-10-16T06:37:47.612684Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2c97497e932b50390c04f9309babca359e5cc869862193c6f665c28ab5b29aad",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/170336/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:46.333828Z",
+      "end": "2026-10-16T06:37:47.545877Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a7dc3eb966c4a1d37db3730c61bdc67fa35e91f7c306d3675fc8878651125708",
+      "body_sha256": "efa8a33ef4de2592b0abec3801dddd31f50be31be304808a59ac563f69b541e3",
+      "returned_count": 5,
+      "pagination_link": null
+    },
+    {
+      "key": "oc170336",
+      "endpoint": "repos/openclaw/openclaw/pulls/170336",
+      "start": "2026-10-16T06:37:46.316817Z",
+      "end": "2026-10-16T06:37:48.463093Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "80707c050ed7c4ed23b9e37f4ef9de1b4819bf63a133c8aed01153ec1afa6d61",
+      "body_sha256": "8ad864d68ce415ecdba13163a5e01d5772a641d62e07c24e1d3af775b16a8e23",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:49.687323Z",
+      "end": "2026-10-16T06:37:50.831205Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a51e09c6899e3988e14906b5b80935ebacf54d7733a00a50d2b3da08dead3190",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173241/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:49.366661Z",
+      "end": "2026-10-16T06:37:50.745935Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "39675794bf50d407c1e0737679824f0f97e6ad501e8a6972c06e5554ee7c43fb",
+      "body_sha256": "b17436bd8fdee585856dd6cd6c9f5993c740075730073ece1e361a2abdc26f3b",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173241",
+      "endpoint": "repos/openclaw/openclaw/pulls/173241",
+      "start": "2026-10-16T06:37:48.842982Z",
+      "end": "2026-10-16T06:37:50.548972Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "8afc96b0e01e7f7466436728b526de8df67de396a3d6fc815460e6172f463ffd",
+      "body_sha256": "93976b7a4f800195036681f2aaa77e1a4727df01cb45a421965ec5a40c23403b",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:45.181606Z",
+      "end": "2026-10-16T06:37:46.396120Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "5bb8e9938c182fac1ec643e71f75be48e2f08aadbf114ed7ac422f82d1d409aa",
+      "body_sha256": "f94ec5da72b14e2c2884d9ac191a90468e0627cc2d955d9bbdf273ea9122dd8d",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173454/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:45.030076Z",
+      "end": "2026-10-16T06:37:46.310340Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "938eb21e5a412375dad880c60c0ce2b868def75770d48b26973390c6688f10d1",
+      "body_sha256": "f53d898f9d3b3ad80331276021d164d0b08e7ec7ada2611ef86aebeb12e91ac8",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173454",
+      "endpoint": "repos/openclaw/openclaw/pulls/173454",
+      "start": "2026-10-16T06:37:44.741167Z",
+      "end": "2026-10-16T06:37:46.327829Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "f1cf0430501a3e83896c692dfe5a7d43cb698641f0427944faf52b1d046aa12e",
+      "body_sha256": "4001d7306932714bd9b7a69cf1e63835341f2e840e55302a621a9dc5bb1b8d9d",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:43.919823Z",
+      "end": "2026-10-16T06:37:45.174729Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "ed0958fe423161d90e4640f6702e5a5895593e1985a3c80e2972929536348d48",
+      "body_sha256": "bd1c63856270cd095d8fa6c8cb53a8f9a9e958c8b4740dc4daa725deb421470a",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173579/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:43.319333Z",
+      "end": "2026-10-16T06:37:44.735170Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "5349ec846b85380e5add7c9e688e952f77a72ba1f531ebffd1f3aa8763d5a46c",
+      "body_sha256": "536f8e7262d974cd9ca7b1739b066ee2fae44e9c6f2d91c8ecd72bbba9ae54f9",
+      "returned_count": 7,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173579",
+      "endpoint": "repos/openclaw/openclaw/pulls/173579",
+      "start": "2026-10-16T06:37:43.279679Z",
+      "end": "2026-10-16T06:37:45.024943Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2d5cd41e0ed246424cbd860a29971ed413f4a5316c19567e583b2b2f215d7fa2",
+      "body_sha256": "ad1b41a84154dc6c55bc631ca555906635a3a738e100ac6725c56a80992d031e",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:48.469096Z",
+      "end": "2026-10-16T06:37:49.681321Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "affdd8c30105852d98704867dfe1dd7ac9490cb9df5a47a20da32ab1faccb500",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173580/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:47.618243Z",
+      "end": "2026-10-16T06:37:48.834984Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "f17273dd7118f0cd2973c1dda5635a422a420d11c51dddea7835a271e1ab4152",
+      "body_sha256": "fe5360956a4f7a6bfc62d90e26153421c8fb01f524b0ff3e03ea18d7cbb76a6f",
+      "returned_count": 6,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173580",
+      "endpoint": "repos/openclaw/openclaw/pulls/173580",
+      "start": "2026-10-16T06:37:47.550875Z",
+      "end": "2026-10-16T06:37:49.360661Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "a90601a7a2807754899c8cc85fb49248ac7818eefc292b3adc7366e9b6cf8412",
+      "body_sha256": "da077e28ba87416a27eb528f4104be487ec495b8246e8fb8d843ad975a8ea0c2",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-ci",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38851464205",
+      "start": "2026-10-16T06:41:02.751918Z",
+      "end": "2026-10-16T06:41:04.105897Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "4a318d658c25b2b9310fa8d56be65d4fe18962235c477d8dfafeb6163ae8a3e8",
+      "body_sha256": "d21f4831b673c891c1c8c1b147545c4fdae590d494e05f5a624a67e1dcb259a2",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173788/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:41:01.329537Z",
+      "end": "2026-10-16T06:41:02.686880Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "ec022e8b64dbcce8e15de84283c3923d92ef16416c0e1a226a99f6083a2cdbf1",
+      "body_sha256": "96b7c9f41058cd21d940c8fca8e4112a32e7ff05a67461c06f595905313a6f23",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173788/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:40:59.959125Z",
+      "end": "2026-10-16T06:41:01.384374Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1a6ecbf99217b8ede7c509875bd0254ab2635b0094564fefc69da7584f92472d",
+      "body_sha256": "a0f8a6df060b1d73562aedd31113905f7fdf41761815285b53ecf69633db5583",
+      "returned_count": 3,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/7042b9a4f572d92304c369f47cb30a55f5210e98",
+      "start": "2026-10-16T06:38:58.394808Z",
+      "end": "2026-10-16T06:38:59.768482Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "5f1d895987182183a6ee4b50a604592c3e131777a980902c849c0d80dde3cad9",
+      "body_sha256": "9935376fb908a7c4f8d03fd53e5a62ada232e19f2348bfcdc681a5b1c38d840a",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173788",
+      "endpoint": "repos/openclaw/openclaw/pulls/173788",
+      "start": "2026-10-16T06:38:57.113748Z",
+      "end": "2026-10-16T06:38:58.883011Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "790f70861eb290e9f45ebaae0d94bb6a3ca5587e3c4217796dad2595cfba2e3f",
+      "body_sha256": "ee79f017bb7b19947393bf99b217357855b025ea245b26c7420ff0cb98a862db",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-ci-jobs-p1",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38859007079/jobs?per_page=100&page=1",
+      "start": "2026-10-16T06:41:57.443883Z",
+      "end": "2026-10-16T06:42:00.033088Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "95ffd4ccb9e2737d58bda62b4dac1b94502277197db9c485802d0a20ddf9cd16",
+      "body_sha256": "d9f14fa3706c9b8e72a8a72305a274796d3203bed9f7c578f8b6141d5b6bd4f2",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-ci",
+      "endpoint": "repos/openclaw/openclaw/actions/runs/38859007079",
+      "start": "2026-10-16T06:41:02.692879Z",
+      "end": "2026-10-16T06:41:03.962198Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "52f49f1ac2d2b9eca0f9b1235ce71035244ab6d7f54584c204e8ce5a4bfa5c3a",
+      "body_sha256": "c95dfda01c3417503cf6d0511e5e694c686d3cc24afc3459073afaa3f739a7cb",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-inline-p1",
+      "endpoint": "repos/openclaw/openclaw/pulls/173878/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:40:59.958125Z",
+      "end": "2026-10-16T06:41:01.324537Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "850d1ef2657abc6597ba15386db1d298b8bd956e05a3b9b074177f2d40766a5f",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-issue-p1",
+      "endpoint": "repos/openclaw/openclaw/issues/173878/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:40:59.958125Z",
+      "end": "2026-10-16T06:41:01.465289Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "57bb60e7d3c49e3a83ee4a951969aab24f4482b4d58f2082f7b13b05336aa4a8",
+      "body_sha256": "f9a48186593afbe5ad49b8c25ececb2357ac26ce9fd62ae75031b9f81ee0f93e",
+      "returned_count": 4,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878-merge",
+      "endpoint": "repos/openclaw/openclaw/commits/ed3fcdbbbea61537c3383944a5f4b1e904aa362b",
+      "start": "2026-10-16T06:38:57.112749Z",
+      "end": "2026-10-16T06:38:58.388809Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2f2adee81e285f7fbf83056da6c09558d15ed26deb792825ad0e98a8a68c1fed",
+      "body_sha256": "0cd2fd65c06b937c32310fa54797c4cc46a84c251f9abb9a0f01129fef66b81b",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "oc173878",
+      "endpoint": "repos/openclaw/openclaw/pulls/173878",
+      "start": "2026-10-16T06:38:57.112749Z",
+      "end": "2026-10-16T06:38:58.897224Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "5a1674d82653fc4c5c9a2c1feb5df8af5358391a579e05426d794e96e2f29453",
+      "body_sha256": "ca087a9b103ccf347b64b2855d8fb842b269068f1f19d3042b3522d45990bbc1",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-commits-p1",
+      "endpoint": "repos/earendil-works/pi/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1",
+      "start": "2026-10-16T06:37:42.032658Z",
+      "end": "2026-10-16T06:37:43.274682Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "2b5c6a2eb7bb62501d39575fc700e0bb563a1c683ef5ce4a86bb3f05ab077085",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "pi-repo",
+      "endpoint": "repos/earendil-works/pi",
+      "start": "2026-10-16T06:37:40.618743Z",
+      "end": "2026-10-16T06:37:42.015197Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1903f7d88665d2d6cf8598aab9d0b0f5afbc3badb301997bf269f61ee3f0cbc2",
+      "body_sha256": "1e61f0f1c10ef80174d91e9969f53233fcc34afb846577d31733af628a2b5b97",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11000",
+      "endpoint": "repos/earendil-works/pi/pulls/11000",
+      "start": "2026-10-16T06:37:54.470122Z",
+      "end": "2026-10-16T06:37:55.984942Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "e0467c69ddfa846b6ceedea106c5953cce0a0855e6f442234f21ae0cd55ddded",
+      "body_sha256": "21b9130c03503ff65fdd1f44de5a7b9f99ff9f70459e1be9edf4734fae3d0a58",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/11012/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:55.252243Z",
+      "end": "2026-10-16T06:37:56.388574Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "1f5f8e077cfb28e6f96ee4a1d61bce48babcdd095330fe6b5aa4950e7639c099",
+      "body_sha256": "6d88eb8653e90f557553ccd2c01c38002aa03fea5dddee4afe852a06bd82e75a",
+      "returned_count": 2,
+      "pagination_link": null
+    },
+    {
+      "key": "pi11012-issue",
+      "endpoint": "repos/earendil-works/pi/issues/11012",
+      "start": "2026-10-16T06:37:54.789925Z",
+      "end": "2026-10-16T06:37:56.037629Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "b25083a4ad64facf31ed96347818bff90ace8679cdcd06b6c3cc42e2f3920c1d",
+      "body_sha256": "f903a2a0fc2b72fe0fe0b42d75d3648fee74e528c1ff3d2bd39062c11e08d77a",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-comments-p1",
+      "endpoint": "repos/earendil-works/pi/issues/9602/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:56.044357Z",
+      "end": "2026-10-16T06:37:57.281205Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "83a5c60d7e00ab0a181f319561ab9dfdb73d0eee1d8b5f797209864f75973960",
+      "body_sha256": "54e0ae7cbb0e78b7f67d552ba86a567f10305b4a468845005791a908502e15e7",
+      "returned_count": 10,
+      "pagination_link": null
+    },
+    {
+      "key": "pi9602-issue",
+      "endpoint": "repos/earendil-works/pi/issues/9602",
+      "start": "2026-10-16T06:37:55.990941Z",
+      "end": "2026-10-16T06:37:57.254547Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "cda1c003287945da711fb8eff9b98715f64f727c2131910ddf559a0a2a14e287",
+      "body_sha256": "23b196c4f73e52fac42ce69aabef282b4d711b5eed63f50410563b00c1bad4a9",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-commits-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/commits?since=2026-10-16T04%3A35%3A20Z&until=2026-10-16T06%3A36%3A24Z&per_page=100&page=1",
+      "start": "2026-10-16T06:37:42.023099Z",
+      "end": "2026-10-16T06:37:43.314307Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "8e2b09ee9f37270bb7e138ffa493d14ce4e82a4bf5005a38bf560137609e39ce",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf-repo",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers",
+      "start": "2026-10-16T06:37:40.618743Z",
+      "end": "2026-10-16T06:37:42.026660Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "d68925bdc1ec8e088b24cdea1b19c5ea67d2b7cfd0ba0705d0c47b66eb5c4ecc",
+      "body_sha256": "72202b0367f0dbca1753fde0d694375b9d4fb7dca281dd1da68ce9e64b5ee527",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:52.826728Z",
+      "end": "2026-10-16T06:37:54.002979Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "b843364eb4000a6c9f258082d8dcdf1ceb25ec4ef8f1305cb0d321333f7671f0",
+      "body_sha256": "9901b72306128e000ecf26ebdeac5a891cff8d5b8387b0325fac4a80eebccb12",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2857/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:52.332006Z",
+      "end": "2026-10-16T06:37:53.637160Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "4fef07d82b42d0ec4a7a829518b3dfa1f74183b585ae5dc34f96bcf4c3405241",
+      "body_sha256": "6f651ae924761f7e8d4687c2fdfe9b3159025f07328753877c45465a9efa841c",
+      "returned_count": 1,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2857",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2857",
+      "start": "2026-10-16T06:37:50.836990Z",
+      "end": "2026-10-16T06:37:52.819679Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "9c89b16100eb21a491230903cf453c215446dabdaac42600fd26c131efbbc6e2",
+      "body_sha256": "f3a0d176c81f841b8a63d2724de2c5a14605353f020d6f9d39d9fb626e0dd56f",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2864",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2864",
+      "start": "2026-10-16T06:37:50.555929Z",
+      "end": "2026-10-16T06:37:52.263852Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "209c544463adb64beee7e5910955cf10d5139862cd68bbe916cd83de1333da2e",
+      "body_sha256": "75bdf94cda554af3f06279df846edb4c10b82649dc2723c17ff32f8954bc3179",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2866",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2866",
+      "start": "2026-10-16T06:37:50.754487Z",
+      "end": "2026-10-16T06:37:52.325648Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "9f855b1176b6b4728ab4e680a9a580fcd0c6f26f0c73f2020526b7891b912c49",
+      "body_sha256": "7a6f2d4c7aede52ef833a6a119b6117d2547ec0eeb2a4beb4d820302409ea192",
+      "returned_count": null,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-inline-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:54.009758Z",
+      "end": "2026-10-16T06:37:55.246243Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "8cf0a0f76a94413f3835646daedfbe5582ff30b7534ff34aa4af261deab56e67",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875-issue-p1",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2875/comments?per_page=100&page=1",
+      "start": "2026-10-16T06:37:53.643160Z",
+      "end": "2026-10-16T06:37:54.783924Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "76973bfc457f1230e2ce27846324c627c75888ea5102e02ac1c09de1aca5da2d",
+      "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "returned_count": 0,
+      "pagination_link": null
+    },
+    {
+      "key": "vf2875",
+      "endpoint": "repos/PrimeIntellect-ai/verifiers/pulls/2875",
+      "start": "2026-10-16T06:37:52.269849Z",
+      "end": "2026-10-16T06:37:54.463120Z",
+      "exit_code": 0,
+      "error": null,
+      "raw_sha256": "b741400387ba07ea76ce1d35d6c45e017a5ab8e3bb41f47fddcb5d28f95c5270",
+      "body_sha256": "63f81b5b7ef8d63055a42eac35bbc53873c9b298ae5deac70a1e6e1a302cccde",
+      "returned_count": null,
+      "pagination_link": null
+    }
+  ],
+  "default_branch_commit_counts": [
+    {
+      "repo": "openclaw/openclaw",
+      "count": 100,
+      "pages": [
+        {
+          "key": "oc-commits-p1",
+          "count": 100
+        },
+        {
+          "key": "oc-commits-p2",
+          "count": 0
+        }
+      ],
+      "pagination_boundary": "Page 1 returned 100 with inconsistent next=2 and last=1 links. Explicit next-page request returned empty page 2 with first/prev only and no next. No further page advertised; anomaly preserved, not silently truncated."
+    },
+    {
+      "repo": "PrimeIntellect-ai/verifiers",
+      "count": 0,
+      "pages": [
+        {
+          "key": "vf-commits-p1",
+          "count": 0
+        }
+      ],
+      "pagination_boundary": "One empty complete page; no next link."
+    },
+    {
+      "repo": "earendil-works/pi",
+      "count": 0,
+      "pages": [
+        {
+          "key": "pi-commits-p1",
+          "count": 0
+        }
+      ],
+      "pagination_boundary": "One empty complete page; no next link."
+    }
+  ],
+  "ledger_entries": [
+    {
+      "id": "openclaw-json-stable-peer-recovery",
+      "url": "https://github.com/openclaw/openclaw/pull/173878",
+      "type": "merged_public_source_and_test_contract",
+      "author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T06:02:17Z",
+      "merged_at": "2026-10-16T06:24:53Z",
+      "published_at": "2026-10-16T06:24:53Z",
+      "published_at_kind": "Merge event in this bounded interval; original proposal creation retained separately.",
+      "observed_at": "2026-10-16T06:38:58.897224Z",
+      "observation_interval": {
+        "start": "2026-10-16T06:38:57.112749Z",
+        "end": "2026-10-16T06:38:58.897224Z"
+      },
+      "head_sha": "b2be282378c3a46597c6ed92b33f7fa559c31c89",
+      "merge_commit": "ed3fcdbbbea61537c3383944a5f4b1e904aa362b",
+      "authentic_parents": [
+        "68f4a155f46be0894aeb6ee962011be19b37ffa4"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T06:24:52Z",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "claim": "Omit absent source/target lifecycleRevision in new delivery metadata; legacy replay reconstructs only those two undefined fields and accepts only a complete original hash for the same run. Retained receipt keeps its raw hash through completion. Already consumed/cancelled recovery candidates are checked before endpoint resolution.",
+      "acceptance_delta": "Require JSON round-trip and database close/reopen identity tests across pending/interrupted/consumed/completed states, identical completed replay returning the recorded outcome without a new turn, changed-content conflict, exact current endpoints/permissions, and a full process restart/second-crash trace before runtime upgrade.",
+      "validation_limits": "All 8 immutable merge patches inspected. Added tests use real input/completion owner close/reopen and lifecycle generation rotation; no full OS-process/Gateway restart trace. 95 focused tests are author-reported, not executed here.",
+      "known_residual": null,
+      "prepared_head_ci": {
+        "id": 38859007079,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38859007079",
+        "head_sha": "b2be282378c3a46597c6ed92b33f7fa559c31c89",
+        "status": "completed",
+        "conclusion": "failure",
+        "updated_at": "2026-10-16T06:13:37Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact-head CI metadata reports failure. Full 68-job metadata read: check-prod-types, check-lint-core-2, and aggregate openclaw/ci-gate fail. Author claims inherited unused LitContent import and authorized exception; causality/authorization/log attribution not independently audited. No green CI claim.",
+      "discussion_limits": "Complete issue 4 / inline 0 arrays fetched. Latest bot review and author landing exception read; bot found no code defect but asked for failed-typecheck attribution and noted absent shipped restart proof. No authoritative thread-resolution query.",
+      "changed_patches_fully_read": 8,
+      "execution": "not_installed_copied_or_executed",
+      "status": "merged_source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-receipt-drain-readmission.md",
+      "evidence_record": "research/evidence/2026-10-16-receipt-drain-readmission.json",
+      "attribution_limits": "GitHub contribution metadata; no employment or private-roadmap inference."
+    },
+    {
+      "id": "openclaw-bounded-attributed-suspension",
+      "url": "https://github.com/openclaw/openclaw/pull/173788",
+      "type": "merged_public_source_and_test_contract",
+      "author": "steipete",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "steipete",
+      "created_at": "2026-10-16T04:15:10Z",
+      "merged_at": "2026-10-16T04:57:22Z",
+      "published_at": "2026-10-16T04:57:22Z",
+      "published_at_kind": "Merge event in this bounded interval; original proposal creation retained separately.",
+      "observed_at": "2026-10-16T06:38:58.883011Z",
+      "observation_interval": {
+        "start": "2026-10-16T06:38:57.113748Z",
+        "end": "2026-10-16T06:38:58.883011Z"
+      },
+      "head_sha": "09d1899acf8ad1176ee2521173754deed233e42f",
+      "merge_commit": "7042b9a4f572d92304c369f47cb30a55f5210e98",
+      "authentic_parents": [
+        "4dc7c469e677aa0f3c5f1e753a3041ac31cfa453"
+      ],
+      "commit_author_login": "steipete",
+      "commit_author_name": "Peter Steinberger",
+      "commit_committer_at": "2026-10-16T04:57:21Z",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "claim": "Drain leases have one absolute 45-second coordinator budget (30-second drain plus 15-second handoff/cleanup); prepare/readiness/poll cannot renew it. Expiry resumes scheduling and admission without cancelling admitted work or dropping writes; committed shutdown remains host-owned. Freeze/snapshot leases retain renewable two-minute TTL. Controller/CLI cap drain to 30 seconds, preserve exact lease identity, and record owner/lease/caller/reason/exit attribution.",
+      "acceptance_delta": "Require disconnected-controller and attempted-renewal cases, rollback-clock expiry, slow preflight/prepare budgeting, expired/replaced-lease refusal, protected writes, and committed-shutdown ownership. Adopt the matching controller closure separately and demonstrate shipped Gateway/update behavior before runtime upgrade.",
+      "validation_limits": "All 18 immutable merge patches inspected, including controller text treated only as evidence. Dispatcher/coordinator/CLI tests and inert transport/virtual clock fixtures; no live suspension, GNU-timeout validation, deployment, or stable-to-candidate update trace. Reported focused counts not executed here.",
+      "known_residual": null,
+      "prepared_head_ci": {
+        "id": 38851464205,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38851464205",
+        "head_sha": "09d1899acf8ad1176ee2521173754deed233e42f",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:55:46Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact-head CI run metadata reports completed/success. No job logs or runtime artifacts independently audited.",
+      "discussion_limits": "Complete issue 3 / inline 2 arrays fetched/read, including obsolete slow-preflight finding and author fix reply. Source includes the lease-anchored budgeting and matching tests. Bot notes absent shipped-entry-point proof. No authoritative thread-resolution query.",
+      "changed_patches_fully_read": 18,
+      "execution": "not_installed_copied_or_executed",
+      "status": "merged_source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-receipt-drain-readmission.md",
+      "evidence_record": "research/evidence/2026-10-16-receipt-drain-readmission.json",
+      "attribution_limits": "GitHub contribution metadata; no employment or private-roadmap inference."
+    },
+    {
+      "id": "openclaw-policy-readmission-producer-authority",
+      "url": "https://github.com/openclaw/openclaw/pull/169529",
+      "type": "merged_public_source_and_test_contract",
+      "author": "wangmiao0668000666",
+      "author_association": "CONTRIBUTOR",
+      "merged_by": "RomneyDa",
+      "created_at": "2026-10-12T02:06:43Z",
+      "merged_at": "2026-10-16T04:58:58Z",
+      "published_at": "2026-10-16T04:58:58Z",
+      "published_at_kind": "Merge event in this bounded interval; original proposal creation retained separately.",
+      "observed_at": "2026-10-16T06:39:00.835047Z",
+      "observation_interval": {
+        "start": "2026-10-16T06:38:58.894224Z",
+        "end": "2026-10-16T06:39:00.835047Z"
+      },
+      "head_sha": "1d327ac2821e486307c0f9dbf765f602b894c584",
+      "merge_commit": "4217e957da91629c74db29b4a96d7692d10b3d55",
+      "authentic_parents": [
+        "f11e2139bb7a253dc598935371de273ad26052e4"
+      ],
+      "commit_author_login": "wangmiao0668000666",
+      "commit_author_name": "wangmiao0668000666",
+      "commit_committer_at": "2026-10-16T04:58:57Z",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "claim": "Only stale-policy rejected occurrences that never started, attempted no delivery, and were neither aborted nor abandoned receive fresh dispatch under current policy, at most twice. Captured destination/tool ceiling/settings/delivery opt-out and live producer/ingress authority survive; receipt cancellation/settlement forwards to live attempt. Distinct per-attempt MessageSid avoids dedupe loss. Exhaustion/revocation consumes terminally with logs; producer text never falls back to contract-less passive custody. Precheck before admitUserTurn avoids early durable exec-source retirement.",
+      "acceptance_delta": "Require real deferred exec source identity, new-policy deny, retained producer ceiling with a permissive current policy, allowed-write control, revoked producer, cancellation, publication storm, no later passive drain, and current packaged-Gateway final-effect trace. Isolate publication during admitUserTurn awaits rather than claiming that residual closed.",
+      "validation_limits": "All 5 immutable merge patches and full current PR body inspected. Tests use real queue/dispatcher/durable source admission and managed filesystem write effects with synthetic model inference; added real-child exec case skips Windows. Current packaged-Gateway driver was not rerun after restructure and is absent from diff; older packaged traces explicitly historical. No local execution here.",
+      "known_residual": "Policy publication during admitUserTurn's own awaits may still terminalize durable source before execution rejection, then settles failed with error log. Current body explicitly leaves source-retirement policy outside scope.",
+      "prepared_head_ci": {
+        "id": 38852541184,
+        "html_url": "https://github.com/openclaw/openclaw/actions/runs/38852541184",
+        "head_sha": "1d327ac2821e486307c0f9dbf765f602b894c584",
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-10-16T04:57:06Z",
+        "run_attempt": 1
+      },
+      "ci_limits": "Exact-head CI metadata reports completed/success; head-run listing returns 16 complete workflow records. No job logs or test execution independently audited. Success does not supply missing current packaged-Gateway proof.",
+      "discussion_limits": "Complete issue 22 / inline 0 arrays fetched; current latest substantive bot review read in full, historical author replies sampled. Latest review still asks current real-behavior proof despite subsequent merge. No authoritative thread-resolution query.",
+      "changed_patches_fully_read": 5,
+      "execution": "not_installed_copied_or_executed",
+      "status": "merged_source_test_assertions_only_runtime_unverified",
+      "review_record": "research/2026-10-16-receipt-drain-readmission.md",
+      "evidence_record": "research/evidence/2026-10-16-receipt-drain-readmission.json",
+      "attribution_limits": "GitHub contribution metadata; no employment or private-roadmap inference."
+    }
+  ]
+}

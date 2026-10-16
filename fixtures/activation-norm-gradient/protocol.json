@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "question": "At identical pretrained weights and fixed training batches with exact CE in every arm, do exact saves from named torch.nn.LayerNorm.forward halve full-parameter gradient relative L2 error without reducing cosine in all three batches?",
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "training_manifest_sha256": "1ef9779024091875d28959165c84c7ac390875df3bb9ea8b5a892dc43db17280",
+  "target_positions_per_method_worker": 128,
+  "batch_selection": "batch_schedule(8,24,2,seed)[0]; same first batches as previous loss-boundary diagnostic; overlapping examples,320 unique target positions across three batches",
+  "compression": "Unchanged SavedActivationCodec. Exact CE outside every hook. Nested hook per actual named torch.nn.LayerNorm.forward: baseline dense/int8 match outer policy, treatment keeps all LayerNorm saves exact and compresses other eligible model saves. Parameter aliases excluded. No shape-based scope inference.",
+  "controls": [
+    "Identical logits hashes and forward loss across policies per batch.",
+    "Unchanged full parameter hashes before/after every backward; no optimizer.",
+    "Finite gradients for76 tensors/14067712 elements.",
+    "All13 named torch.nn.LayerNorm modules called once; save/unpack and compression inventory per module.",
+    "Observed versus analytical CE logits gradient relativeL2<=1e-5 in all methods.",
+    "Dense gradients cloned; zero_grad before every backward; full and per-parameter float64 metrics/hashes."
+  ],
+  "evaluation": "No optimizer updates, holdout forward/evaluation or hyperparameter/checkpoint selection. Shared loader validates both committed splits.",
+  "execution": "Three fresh sequential workers;180second comparison-loop cap after loading;300second parent subprocess cap. Fixed policy order. Dense references make cost/timing descriptive only.",
+  "stopping": "Reject failed controls/incomplete worker; retain failed dominance gate; do not retune this pass.",
+  "predeclared_at": "2026-10-16T06:44:27.234292+00:00",
+  "design_registration_at": "2026-10-16T06:38:53.153007+00:00",
+  "limitations": [
+    "Three first seed batches overlap; not statistical replicates.",
+    "Intervention covers saves created during actual torch.nn.LayerNorm.forward, not every possible normalization nor one individual operand.",
+    "CE saves outside hook inventories; split inventories are not total backward memory or peak allocation.",
+    "No training quality, optimizer-update fidelity, efficiency, GPU, AttnRes, learned routing or novel-algorithm conclusion."
+  ],
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "methods_in_order": [
+      "dense",
+      "model_saved_int8",
+      "model_except_norm_saved_int8"
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "schedule_steps": 24,
+    "schedule_selection": "first batch only",
+    "dtype": "float32",
+    "attention": "eager",
+    "threads": 1,
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 180,
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+    "norm_preservation_scope": "torch.nn.LayerNorm forward saves",
+    "expected_named_layernorm_modules": 13,
+    "norm_save_dominance": {
+      "max_norm_preserved_to_model_saved_relative_l2": 0.5,
+      "cosine_no_worse": true,
+      "require_all_seeds": true
+    }
+  },
+  "config_sha256": "f069874076035b8301168f572a98b3e7b8408a244df90f843391bdcef135e1de",
+  "source_files_sha256": {
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  },
+  "preparation_status": "frozen_before_tests_and_actual_model_comparison"
+}

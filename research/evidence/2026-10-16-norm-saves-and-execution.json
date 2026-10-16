@@ -1,0 +1,2894 @@
+{
+  "schema_version": 1,
+  "baseline": "8c777425a743879da8fe59288a18a89f76c22310",
+  "selected_at": "2026-10-16T06:49:36.946289+00:00",
+  "raw_audit_files_sha256": {
+    "analysis.json": "11416aa3a8b20abf708548f65f7481f43b79514589a09ec792e180945eacbb3e",
+    "snapshot.json": "74de8e7ba4b25b32445cbfb7692c45b3ff369ae962f1c1afa9f5501797b1994e",
+    "h1-checks.json": "79c7fd27aa4e1d256d5df367a3c27a7d85b898fd49f262493ff4e9da253ef242",
+    "frontier-checks.json": "320a2bb4861df3ae360905f1085511e3b4ff787a36f52aeeaa41edc3854b08e4",
+    "identity-checks.json": "35e93715ac18f41acbd8b7babdb75b4f8464b0e28a1c28cbb3d113ad81b9de83",
+    "norm-design-registration.json": "052444c92ace92d20e2127d10ec9aeb1323647d6fa78a8959d2d2abc7b8f0137",
+    "norm-final-registration.json": "049ccc77934e9efd254cac7622502b46d953e7ea0accbe48e5169431121cfed5",
+    "norm-static-review.json": "f6e09fc1dcd0b78de176dab9e7e6057d49f1ba789b0705c4ab2c21996a4ab86e",
+    "norm-result-review.json": "4c214a128e5d881396a76019c190f26ec505e18f5e778ca412fd1245d707fcda",
+    "norm-result-review-initial-invalid-shape-check.json": "f95bfab44c202c9a512f29ba4bdbb8f00ab0a10260c12a6ea0d48cf67c92f143",
+    "norm-audit-processing.json": "28fd532047ad96c957a3dd13212f58e450d7f0aee5f7ef5231f2eaaed1a08fff",
+    "tests.log": "bd2af36ef398d4500422af49a5bb857027483a6480f0102994fe9aa245927830",
+    "norm-tests.log": "9459568ab5271d9b06926e4d8352cdcc781950d00a9bf72caa3c1c10f383f8a0"
+  },
+  "scan_analysis": {
+    "run": "reports/runs/20261016T063624Z",
+    "verified_at": "2026-10-16T06:43:58.980282+00:00",
+    "integrity_verified": true,
+    "status": "complete",
+    "scan_start": "2026-10-16T06:37:11.163630Z",
+    "scan_completed": "2026-10-16T06:41:39.987349Z",
+    "event_cutoff": "2026-10-16T06:37:11.159628+00:00",
+    "errors": [],
+    "sample_counts": {
+      "commits": 117,
+      "issues": 30,
+      "pull_requests": 91,
+      "discussions": 5
+    },
+    "windows": {
+      "24h": {
+        "commits": 65,
+        "issues": 30,
+        "pull_requests": 80,
+        "discussions": 0
+      },
+      "72h": {
+        "commits": 97,
+        "issues": 30,
+        "pull_requests": 91,
+        "discussions": 5
+      },
+      "168h": {
+        "commits": 117,
+        "issues": 30,
+        "pull_requests": 91,
+        "discussions": 5
+      }
+    },
+    "new_or_changed_events": [
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "commits",
+        "key": "https://github.com/fla-org/flash-linear-attention/commit/4b5b38a982ec98061b4a394e733f054d7b4cbbae@4b5b38a982ec98061b4a394e733f054d7b4cbbae",
+        "url": "https://github.com/fla-org/flash-linear-attention/commit/4b5b38a982ec98061b4a394e733f054d7b4cbbae",
+        "event_time": "2026-10-16T05:45:35Z",
+        "created_at": null,
+        "title": "[Ops] Add Triton-Ascend support for preconditioned GDN (#1423)",
+        "author": "sunyi0505",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "commits",
+        "key": "https://github.com/fla-org/flash-linear-attention/commit/d7ce95af096b91f0120634e2290980af2d56cdd6@d7ce95af096b91f0120634e2290980af2d56cdd6",
+        "url": "https://github.com/fla-org/flash-linear-attention/commit/d7ce95af096b91f0120634e2290980af2d56cdd6",
+        "event_time": "2026-10-16T05:44:05Z",
+        "created_at": null,
+        "title": "[Fix] Restore intra-card CP dispatch for the KDA forward (#1400)\n\n* [Fix] Accept chunk_offsets in the intra-card fwd_h backend\n\nSince #1212, KDA's forward passes chunk_offsets to\nchunk_gated_delta_rule_fwd_h. IntraCardCPBackend's verifier and\nimplementation do not take it, so the verifier raises Typ",
+        "author": "Windyskr",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "commits",
+        "key": "https://github.com/fla-org/flash-linear-attention/commit/3736e3b0d68ce3ec0448efd5be8701686756f919@3736e3b0d68ce3ec0448efd5be8701686756f919",
+        "url": "https://github.com/fla-org/flash-linear-attention/commit/3736e3b0d68ce3ec0448efd5be8701686756f919",
+        "event_time": "2026-10-16T05:40:23Z",
+        "created_at": null,
+        "title": "[KDA] Run context-parallel KDA on Ascend NPU (#1398)\n\n* [KDA] Keep Ascend safe-gate backward inside the UB tile\n\nThe fused WY backward launched BC=32 for chunk sizes of 32 or more, which exceeds the UB budget sized for BC=16 and fails to compile. The intra safe-gate diagonal now builds dA offsets fr",
+        "author": "2313247981",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "commits",
+        "key": "https://github.com/fla-org/flash-linear-attention/commit/be77cedfbc02b65ce8d3d90dcb6e886843da10dc@be77cedfbc02b65ce8d3d90dcb6e886843da10dc",
+        "url": "https://github.com/fla-org/flash-linear-attention/commit/be77cedfbc02b65ce8d3d90dcb6e886843da10dc",
+        "event_time": "2026-10-16T05:34:52Z",
+        "created_at": null,
+        "title": "[Fix] Version-gate Blackwell eight-warp chunk configs (#1399)\n\n* [Fix] Version-gate Blackwell eight-warp chunk configs\n\n* [Fix] Share the Blackwell race flag and trim guard tests",
+        "author": "arcusbuilds",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "issues",
+        "key": "https://github.com/fla-org/flash-linear-attention/issues/1327@2026-10-16T05:34:55Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/issues/1327",
+        "event_time": "2026-10-16T05:34:55Z",
+        "created_at": "2026-10-04T23:15:43Z",
+        "title": "[Bug] `chunk_bwd_kernel_dv_local` is nondeterministic at `num_warps=8` on Blackwell (same race as #1228)",
+        "author": {
+          "login": "kaloyan-inherent",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1432@2026-10-16T06:33:18Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1432",
+        "event_time": "2026-10-16T06:33:18Z",
+        "created_at": "2026-10-16T01:51:57Z",
+        "title": "[Ops] Add Triton-Ascend backend for gated Oja rule fused recurrent",
+        "author": {
+          "login": "yzhangcs",
+          "association": "MEMBER",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1446@2026-10-16T06:24:54Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1446",
+        "event_time": "2026-10-16T06:24:54Z",
+        "created_at": "2026-10-16T01:52:55Z",
+        "title": "[Ops] Add triton-ascend backends for ATK and Precond KDA kernels",
+        "author": {
+          "login": "yzhangcs",
+          "association": "MEMBER",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1431@2026-10-16T06:22:02Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1431",
+        "event_time": "2026-10-16T06:22:02Z",
+        "created_at": "2026-10-16T01:51:53Z",
+        "title": "[Ops] Add Triton-Ascend backend for Parallax single-token decode",
+        "author": {
+          "login": "yzhangcs",
+          "association": "MEMBER",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1485@2026-10-16T06:13:32Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1485",
+        "event_time": "2026-10-16T06:13:32Z",
+        "created_at": "2026-10-16T04:00:27Z",
+        "title": "Ci/gate verify",
+        "author": {
+          "login": "likaixu-lkx",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1486@2026-10-16T05:55:47Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1486",
+        "event_time": "2026-10-16T05:55:47Z",
+        "created_at": "2026-10-16T05:55:47Z",
+        "title": "[CI] Validate PR commit subjects",
+        "author": {
+          "login": "zhiyuan1i",
+          "association": "COLLABORATOR",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1423@2026-10-16T05:45:35Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1423",
+        "event_time": "2026-10-16T05:45:35Z",
+        "created_at": "2026-10-16T01:18:13Z",
+        "title": "[Ops] Add Triton-Ascend support for preconditioned GDN",
+        "author": {
+          "login": "sunyi0505",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1466@2026-10-16T05:45:08Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1466",
+        "event_time": "2026-10-16T05:45:08Z",
+        "created_at": "2026-10-16T01:54:25Z",
+        "title": "[Feature] support reusable final_state buffer in fused recurrent GDN",
+        "author": {
+          "login": "yzhangcs",
+          "association": "MEMBER",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1400@2026-10-16T05:44:06Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1400",
+        "event_time": "2026-10-16T05:44:06Z",
+        "created_at": "2026-10-15T15:03:19Z",
+        "title": "[Fix] Restore intra-card CP dispatch for the KDA forward",
+        "author": {
+          "login": "Windyskr",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1398@2026-10-16T05:40:24Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1398",
+        "event_time": "2026-10-16T05:40:24Z",
+        "created_at": "2026-10-15T14:57:49Z",
+        "title": "[KDA] Run context-parallel KDA on Ascend NPU",
+        "author": {
+          "login": "2313247981",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "fla-org/flash-linear-attention",
+        "kind": "pull_requests",
+        "key": "https://github.com/fla-org/flash-linear-attention/pull/1399@2026-10-16T05:34:53Z",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1399",
+        "event_time": "2026-10-16T05:34:53Z",
+        "created_at": "2026-10-15T15:02:04Z",
+        "title": "[Fix] Version-gate Blackwell eight-warp chunk configs",
+        "author": {
+          "login": "arcusbuilds",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/b19d5542f6ecf61597651ce1b01725f317906c83@b19d5542f6ecf61597651ce1b01725f317906c83",
+        "url": "https://github.com/openclaw/openclaw/commit/b19d5542f6ecf61597651ce1b01725f317906c83",
+        "event_time": "2026-10-16T06:36:49Z",
+        "created_at": null,
+        "title": "docs(solid): extend the Solid skill with Solid 2 best practices and make agents read it (#173903)\n\nThe idiom wave is replacing Lit-era controllers across 247 files, and agents keep\nreaching for React and Solid 1 patterns. This brings the Solid skill up to the\nrc.14 contract and makes it mandatory re",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/785f2467d88c18c57aac91fe387442ed583dd474@785f2467d88c18c57aac91fe387442ed583dd474",
+        "url": "https://github.com/openclaw/openclaw/commit/785f2467d88c18c57aac91fe387442ed583dd474",
+        "event_time": "2026-10-16T06:35:42Z",
+        "created_at": null,
+        "title": "perf(github): share public avatars across hover previews (#173871)\n\n* perf(github): share public avatars across hover previews\n\nReplace per-item decoration tracking with bounded anonymous avatar reuse across items and credential scopes. Preserve each preview deadline when joining shared work. Metada",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/a3944d573101a973ce0183e3d6d64c61e66307f0@a3944d573101a973ce0183e3d6d64c61e66307f0",
+        "url": "https://github.com/openclaw/openclaw/commit/a3944d573101a973ce0183e3d6d64c61e66307f0",
+        "event_time": "2026-10-16T06:35:06Z",
+        "created_at": null,
+        "title": "refactor(ui): render chat headers with native Solid props (#173640)\n\n* refactor(ui): render chat headers with native Solid props\n\n* refactor(ui): remove unused pane placement facade\n\n* test(ui): repair native header fixtures and settling\n\n* style(ui): format merged header test fixture",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/6508e01b27c650e425717609bddee8fca6f1c7bf@6508e01b27c650e425717609bddee8fca6f1c7bf",
+        "url": "https://github.com/openclaw/openclaw/commit/6508e01b27c650e425717609bddee8fca6f1c7bf",
+        "event_time": "2026-10-16T06:31:53Z",
+        "created_at": null,
+        "title": "improve: show readable and consistent session pull requests (#173885)\n\n* improve: show readable and consistent session pull requests\n\nCo-authored-by: steipete <58493+steipete@users.noreply.github.com>\n\n* improve: show readable and consistent session pull requests\n\nWorked on by:\n- @steipete\n\nCo-autho",
+        "author": "roboclaw-bot",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/125216cb72921551e7c0c1eebe591eaa1b57054a@125216cb72921551e7c0c1eebe591eaa1b57054a",
+        "url": "https://github.com/openclaw/openclaw/commit/125216cb72921551e7c0c1eebe591eaa1b57054a",
+        "event_time": "2026-10-16T06:29:29Z",
+        "created_at": null,
+        "title": "perf(worktrees): retain copy-on-write materialization across creates (#173892)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/1a3a0db66b9edca2ad1b7b59d2d92061d7054a1a@1a3a0db66b9edca2ad1b7b59d2d92061d7054a1a",
+        "url": "https://github.com/openclaw/openclaw/commit/1a3a0db66b9edca2ad1b7b59d2d92061d7054a1a",
+        "event_time": "2026-10-16T06:28:18Z",
+        "created_at": null,
+        "title": "refactor(ui): own message image presentation with Solid (#173832)\n\n* refactor(ui): own message image presentation with Solid\n\n* fix: defer image refresh during transcript disposal",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/2e62f4d9d7d54c6daf824202f3e227393c4578fe@2e62f4d9d7d54c6daf824202f3e227393c4578fe",
+        "url": "https://github.com/openclaw/openclaw/commit/2e62f4d9d7d54c6daf824202f3e227393c4578fe",
+        "event_time": "2026-10-16T06:25:21Z",
+        "created_at": null,
+        "title": "refactor(ui): project avatar leases into Solid views (#173846)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/782ce37190db96f02f1b8e15cfc179f0cc6acce6@782ce37190db96f02f1b8e15cfc179f0cc6acce6",
+        "url": "https://github.com/openclaw/openclaw/commit/782ce37190db96f02f1b8e15cfc179f0cc6acce6",
+        "event_time": "2026-10-16T06:24:58Z",
+        "created_at": null,
+        "title": "perf(sessions): avoid repeated transcript hydration decompression (#173880)\n\n* perf(sessions): avoid repeated transcript hydration decompression\n\nExpand each large compressed transcript event once before streaming bounded frames. Preserve native slicing for oversized identity text, snapshot custody,",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/ed3fcdbbbea61537c3383944a5f4b1e904aa362b@ed3fcdbbbea61537c3383944a5f4b1e904aa362b",
+        "url": "https://github.com/openclaw/openclaw/commit/ed3fcdbbbea61537c3383944a5f4b1e904aa362b",
+        "event_time": "2026-10-16T06:24:52Z",
+        "created_at": null,
+        "title": "fix(sessions): recover saved peer inputs without false idempotency conflicts (#173878)\n\nKeep optional delivery revisions JSON-stable and reconcile legacy peer receipt hashes exactly. Preserve receipt-owned request identity through transcript-backed completion and ignore retired pending candidates be",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/68f4a155f46be0894aeb6ee962011be19b37ffa4@68f4a155f46be0894aeb6ee962011be19b37ffa4",
+        "url": "https://github.com/openclaw/openclaw/commit/68f4a155f46be0894aeb6ee962011be19b37ffa4",
+        "event_time": "2026-10-16T06:22:57Z",
+        "created_at": null,
+        "title": "refactor: simplify chat files panel rendering (#173853)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/dfd73c24ed0d907dd49f00b7f503ca71613920b6@dfd73c24ed0d907dd49f00b7f503ca71613920b6",
+        "url": "https://github.com/openclaw/openclaw/commit/dfd73c24ed0d907dd49f00b7f503ca71613920b6",
+        "event_time": "2026-10-16T06:20:17Z",
+        "created_at": null,
+        "title": "perf(mentions): skip Inbox refreshes for runtime-only session events (#173874)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/a9a4c5e04114aee474317508bd028f632ee0fe2c@a9a4c5e04114aee474317508bd028f632ee0fe2c",
+        "url": "https://github.com/openclaw/openclaw/commit/a9a4c5e04114aee474317508bd028f632ee0fe2c",
+        "event_time": "2026-10-16T06:19:48Z",
+        "created_at": null,
+        "title": "perf(gateway): skip unrelated inputs during delivery recovery (#173879)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/eb8a6a8c3f45bfd3259f1a195bd8b801e63ea1a3@eb8a6a8c3f45bfd3259f1a195bd8b801e63ea1a3",
+        "url": "https://github.com/openclaw/openclaw/commit/eb8a6a8c3f45bfd3259f1a195bd8b801e63ea1a3",
+        "event_time": "2026-10-16T06:18:32Z",
+        "created_at": null,
+        "title": "fix(models): repair a persisted generated catalog's partial cost (#167267)\n\n* fix(models): repair a persisted generated catalog's partial cost\n\nA generated plugin catalog that still carries a supplied-but-partial cost\nfails the registry schema, so the whole provider's models are dropped at\nload, and",
+        "author": "wangmiao0668000666",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/25037cefaf15558190c9d7ed0e577d45ee00a171@25037cefaf15558190c9d7ed0e577d45ee00a171",
+        "url": "https://github.com/openclaw/openclaw/commit/25037cefaf15558190c9d7ed0e577d45ee00a171",
+        "event_time": "2026-10-16T06:18:29Z",
+        "created_at": null,
+        "title": "refactor(ui): own hover marquee lifecycle in Solid (#173778)\n\n* refactor(ui): own hover marquee lifecycle in Solid\n\n* fix(ui): retain the measured marquee module path",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/30ccf15867f850e1426ea2aa6615e8c8fc2c334e@30ccf15867f850e1426ea2aa6615e8c8fc2c334e",
+        "url": "https://github.com/openclaw/openclaw/commit/30ccf15867f850e1426ea2aa6615e8c8fc2c334e",
+        "event_time": "2026-10-16T06:18:08Z",
+        "created_at": null,
+        "title": "fix(ui): restore chat view typechecking after Solid migration (#173887)",
+        "author": "vincentkoc",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/15e7e40a29dffe427a46cf84afa73a95636b3f86@15e7e40a29dffe427a46cf84afa73a95636b3f86",
+        "url": "https://github.com/openclaw/openclaw/commit/15e7e40a29dffe427a46cf84afa73a95636b3f86",
+        "event_time": "2026-10-16T06:16:15Z",
+        "created_at": null,
+        "title": "fix: show waiting status for queued chat turns (#173860)\n\n* fix: show waiting status for queued chat turns\n\nCo-authored-by: steipete <58493+steipete@users.noreply.github.com>\n\n* fix: show waiting status for queued chat turns\n\nWorked on by:\n- @steipete\n\nCo-authored-by: steipete <58493+steipete@users.",
+        "author": "roboclaw-bot",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/bf1848705bd90ff1a33d5afe73bc60b0054d3061@bf1848705bd90ff1a33d5afe73bc60b0054d3061",
+        "url": "https://github.com/openclaw/openclaw/commit/bf1848705bd90ff1a33d5afe73bc60b0054d3061",
+        "event_time": "2026-10-16T06:15:23Z",
+        "created_at": null,
+        "title": "fix(runtime): route standalone self-invocation through CLI owner (#173473)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/6b36380b911c44ce4dbdcd4d2cbbf880a7e136ac@6b36380b911c44ce4dbdcd4d2cbbf880a7e136ac",
+        "url": "https://github.com/openclaw/openclaw/commit/6b36380b911c44ce4dbdcd4d2cbbf880a7e136ac",
+        "event_time": "2026-10-16T06:13:52Z",
+        "created_at": null,
+        "title": "perf(workboard): reconcile linked sessions without full catalog reads (#173793)\n\n* perf(workboard): reconcile linked sessions without full catalog reads\n\n* style(workboard): avoid shadowing lifecycle session\n\n* test(workboard): match the gateway request mock contract\n\n* refactor(workboard): declare ",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/da455704bd468f54350b6eef7b9966b33bd5df52@da455704bd468f54350b6eef7b9966b33bd5df52",
+        "url": "https://github.com/openclaw/openclaw/commit/da455704bd468f54350b6eef7b9966b33bd5df52",
+        "event_time": "2026-10-16T06:12:21Z",
+        "created_at": null,
+        "title": "fix(deploy): wait for routine maintenance to release the lock (#173869)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/5bcbd901eaf1f154f2ccc88c991e63c10687e5a8@5bcbd901eaf1f154f2ccc88c991e63c10687e5a8",
+        "url": "https://github.com/openclaw/openclaw/commit/5bcbd901eaf1f154f2ccc88c991e63c10687e5a8",
+        "event_time": "2026-10-16T06:10:43Z",
+        "created_at": null,
+        "title": "fix(heartbeat): record empty checks as failures (#173857)\n\nOptional chat delivery does not establish a successful heartbeat outcome.\nUse the existing reply-result failure recorder when a heartbeat finishes\nwithout usable output, while keeping deliberate silence, acknowledgments,\npending continuation",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/1b1283fc06aecb32a11a7549256e3cf86e92947b@1b1283fc06aecb32a11a7549256e3cf86e92947b",
+        "url": "https://github.com/openclaw/openclaw/commit/1b1283fc06aecb32a11a7549256e3cf86e92947b",
+        "event_time": "2026-10-16T06:09:26Z",
+        "created_at": null,
+        "title": "refactor(ui): scope Settings and scheduled tasks to Solid owners (#173811)\n\n* refactor(ui): scope settings and scheduled task presentation\n\n* fix(ui): activate scheduled tasks after route attachment\n\n* refactor(ui): simplify scheduled run reads and isolate attachment proof",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/1fe031d90b9f8219e9c8582507a434c8e95bf898@1fe031d90b9f8219e9c8582507a434c8e95bf898",
+        "url": "https://github.com/openclaw/openclaw/commit/1fe031d90b9f8219e9c8582507a434c8e95bf898",
+        "event_time": "2026-10-16T06:09:07Z",
+        "created_at": null,
+        "title": "refactor(ui): own shell rendering adapters in Solid (#173852)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/6678810dc81125499c1abb7facec968b40a3ab7b@6678810dc81125499c1abb7facec968b40a3ab7b",
+        "url": "https://github.com/openclaw/openclaw/commit/6678810dc81125499c1abb7facec968b40a3ab7b",
+        "event_time": "2026-10-16T06:04:29Z",
+        "created_at": null,
+        "title": "refactor(ui): own router presentation in Solid (#173823)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/d6240f06bf882fc86fc767bfe94016814c7a97a7@d6240f06bf882fc86fc767bfe94016814c7a97a7",
+        "url": "https://github.com/openclaw/openclaw/commit/d6240f06bf882fc86fc767bfe94016814c7a97a7",
+        "event_time": "2026-10-16T06:02:46Z",
+        "created_at": null,
+        "title": "refactor(ui): own position rail state and marker refs with Solid (#173843)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/7d8ab509f7e2b3b76b90ac50e1baab24c8623570@7d8ab509f7e2b3b76b90ac50e1baab24c8623570",
+        "url": "https://github.com/openclaw/openclaw/commit/7d8ab509f7e2b3b76b90ac50e1baab24c8623570",
+        "event_time": "2026-10-16T06:02:03Z",
+        "created_at": null,
+        "title": "fix(ui): keep chat notice recovery type local after adapter removal\n\n782c0b50062c (#173644) intentionally removed the Lit renderChatNotice\nadapter, the sole external consumer of ChatNoticeRecovery. That completed\nthe native Solid cutover described in the PR body but left the type exported.\nProductio",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/f92b4b47a0bc4e81eebf5f70eb390e4419588ea7@f92b4b47a0bc4e81eebf5f70eb390e4419588ea7",
+        "url": "https://github.com/openclaw/openclaw/commit/f92b4b47a0bc4e81eebf5f70eb390e4419588ea7",
+        "event_time": "2026-10-16T06:02:03Z",
+        "created_at": null,
+        "title": "fix(tooling): model PostgreSQL namespace test worker in Knip\n\nMain's unused-file scan flags multi-namespace.worker.test-support.ts after\n3c4be0e16c9c (#173745). The five PostgreSQL namespace-isolation tests launch\nthat worker through multiNamespaceEntrypoint and resolveRuntimeWorkerUrl,\nwhich Knip d",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/3dc6e49c07fb138c0029a411c1745974f23d144c@3dc6e49c07fb138c0029a411c1745974f23d144c",
+        "url": "https://github.com/openclaw/openclaw/commit/3dc6e49c07fb138c0029a411c1745974f23d144c",
+        "event_time": "2026-10-16T06:00:03Z",
+        "created_at": null,
+        "title": "refactor(ui): own channel device and skill page state in Solid (#173770)\n\n* refactor(ui): simplify channel, device, and skill page state\n\n* test(ui): migrate shared management fixtures to scoped owners\n\n* fix(ui): declare skill edits independent of a receiver",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/e841ac7c592bbb006be1aa92f43acbbd337ff268@e841ac7c592bbb006be1aa92f43acbbd337ff268",
+        "url": "https://github.com/openclaw/openclaw/commit/e841ac7c592bbb006be1aa92f43acbbd337ff268",
+        "event_time": "2026-10-16T05:57:43Z",
+        "created_at": null,
+        "title": "refactor(ui): scope chat panel actions to Solid owners (#173766)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/376ccd53af5cba8e1a2bc468d35509e43894d2d9@376ccd53af5cba8e1a2bc468d35509e43894d2d9",
+        "url": "https://github.com/openclaw/openclaw/commit/376ccd53af5cba8e1a2bc468d35509e43894d2d9",
+        "event_time": "2026-10-16T05:54:58Z",
+        "created_at": null,
+        "title": "refactor(ui): scope Sessions and Usage state to Solid owners (#173802)\n\n* refactor(ui): scope session and usage page state to Solid owners\n\n* test(ui): exercise usage refresh and context retirement through page actions\n\n* fix(ui): keep page event callbacks fire and forget",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "openclaw/openclaw",
+        "kind": "commits",
+        "key": "https://github.com/openclaw/openclaw/commit/25cab0236d6c0f3c851ebe6b804e7875939a38a3@25cab0236d6c0f3c851ebe6b804e7875939a38a3",
+        "url": "https://github.com/openclaw/openclaw/commit/25cab0236d6c0f3c851ebe6b804e7875939a38a3",
+        "event_time": "2026-10-16T05:54:53Z",
+        "created_at": null,
+        "title": "refactor(ui): keep MCP settings drafts in a Solid store (#173840)",
+        "author": "steipete",
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/11022@2026-10-16T06:23:31Z",
+        "url": "https://github.com/earendil-works/pi/issues/11022",
+        "event_time": "2026-10-16T06:23:31Z",
+        "created_at": "2026-10-16T01:33:11Z",
+        "title": "Sign in with ChatGPT through a credential-injecting proxy: GPT-6 requests fail with configuration_update (sign-in detection depends on baseUrl)",
+        "author": {
+          "login": "78syh",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9448@2026-10-16T06:20:36Z",
+        "url": "https://github.com/earendil-works/pi/issues/9448",
+        "event_time": "2026-10-16T06:20:36Z",
+        "created_at": "2026-09-10T14:07:36Z",
+        "title": "pi auth check cannot see providers from extensions",
+        "author": {
+          "login": "DivineDominion",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/11032@2026-10-16T06:03:21Z",
+        "url": "https://github.com/earendil-works/pi/issues/11032",
+        "event_time": "2026-10-16T06:03:21Z",
+        "created_at": "2026-10-16T06:03:12Z",
+        "title": "Add LiteLLM proxy as a built-in /login provider",
+        "author": {
+          "login": "misbahsy",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/11031@2026-10-16T05:55:15Z",
+        "url": "https://github.com/earendil-works/pi/issues/11031",
+        "event_time": "2026-10-16T05:55:15Z",
+        "created_at": "2026-10-16T05:55:05Z",
+        "title": "Contribution proposal: final host check before a provider call",
+        "author": {
+          "login": "piclaw-bot",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9512@2026-10-16T05:27:20Z",
+        "url": "https://github.com/earendil-works/pi/issues/9512",
+        "event_time": "2026-10-16T05:27:20Z",
+        "created_at": "2026-09-12T02:44:10Z",
+        "title": "Compaction hits summary output cap with GPT-6 Astra at max reasoning",
+        "author": {
+          "login": "tianrendong",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9474@2026-10-16T05:23:57Z",
+        "url": "https://github.com/earendil-works/pi/issues/9474",
+        "event_time": "2026-10-16T05:23:57Z",
+        "created_at": "2026-09-11T08:22:04Z",
+        "title": "Codex transport: no non-resetting per-request total deadline; periodic events defeat idle timeout",
+        "author": {
+          "login": "johnatbasicas",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9335@2026-10-16T05:23:29Z",
+        "url": "https://github.com/earendil-works/pi/issues/9335",
+        "event_time": "2026-10-16T05:23:29Z",
+        "created_at": "2026-09-08T12:49:10Z",
+        "title": "openai-responses: support configuration_update for cache-preserving reasoning changes",
+        "author": {
+          "login": "harche",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/10497@2026-10-16T05:22:09Z",
+        "url": "https://github.com/earendil-works/pi/issues/10497",
+        "event_time": "2026-10-16T05:22:09Z",
+        "created_at": "2026-10-05T15:11:18Z",
+        "title": "OpenRouter Error: 400",
+        "author": {
+          "login": "Ogekuri",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/10895@2026-10-16T05:13:25Z",
+        "url": "https://github.com/earendil-works/pi/issues/10895",
+        "event_time": "2026-10-16T05:13:25Z",
+        "created_at": "2026-10-13T18:00:55Z",
+        "title": "Support system level configuration (MDM) at the highest precedence to enhance security posturing",
+        "author": {
+          "login": "verdverm",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/10168@2026-10-16T05:12:44Z",
+        "url": "https://github.com/earendil-works/pi/issues/10168",
+        "event_time": "2026-10-16T05:12:44Z",
+        "created_at": "2026-09-29T12:48:53Z",
+        "title": "Interactive mode silently drops settings save failures (read-only settings.json)",
+        "author": {
+          "login": "autopeasant",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9481@2026-10-16T05:12:25Z",
+        "url": "https://github.com/earendil-works/pi/issues/9481",
+        "event_time": "2026-10-16T05:12:25Z",
+        "created_at": "2026-09-11T10:31:15Z",
+        "title": "Align Pi with Codex's canonical turn-attribution metadata",
+        "author": {
+          "login": "dannote",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9497@2026-10-16T05:01:57Z",
+        "url": "https://github.com/earendil-works/pi/issues/9497",
+        "event_time": "2026-10-16T05:01:57Z",
+        "created_at": "2026-09-11T18:08:10Z",
+        "title": "Windows：CJK（中日韩）IME 输入卡顿、候选窗口常不显示；启用 showHardwareCursor 可修复 / Windows: CJK IME input is laggy and the candidate window often does not appear — enabling showHardwareCursor fixes it",
+        "author": {
+          "login": "xieweimo",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/11030@2026-10-16T04:59:10Z",
+        "url": "https://github.com/earendil-works/pi/issues/11030",
+        "event_time": "2026-10-16T04:59:10Z",
+        "created_at": "2026-10-16T04:53:48Z",
+        "title": "TUI: missing blank line between assistant text and a following thinking block",
+        "author": {
+          "login": "shikamaru-cc",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/7547@2026-10-16T04:55:46Z",
+        "url": "https://github.com/earendil-works/pi/issues/7547",
+        "event_time": "2026-10-16T04:55:46Z",
+        "created_at": "2026-08-03T12:08:25Z",
+        "title": "[Windows] [sink-thread] How do you use Pi on windows? What issues are you seeing?",
+        "author": {
+          "login": "petrroll",
+          "association": "CONTRIBUTOR",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9986@2026-10-16T04:51:49Z",
+        "url": "https://github.com/earendil-works/pi/issues/9986",
+        "event_time": "2026-10-16T04:51:49Z",
+        "created_at": "2026-09-24T02:35:07Z",
+        "title": "Aborting during tool execution leaves unanswered tool calls in the session",
+        "author": {
+          "login": "crmmc",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9534@2026-10-16T04:50:44Z",
+        "url": "https://github.com/earendil-works/pi/issues/9534",
+        "event_time": "2026-10-16T04:50:44Z",
+        "created_at": "2026-09-12T17:34:00Z",
+        "title": "OpenRouter: signature-only reasoning chunks dropped for Claude",
+        "author": {
+          "login": "rohangandhi",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/11029@2026-10-16T04:47:32Z",
+        "url": "https://github.com/earendil-works/pi/issues/11029",
+        "event_time": "2026-10-16T04:47:32Z",
+        "created_at": "2026-10-16T04:47:22Z",
+        "title": "WSL clipboard copy silently fails inside tmux due to inherited WT_SESSION",
+        "author": {
+          "login": "ya2yo",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9537@2026-10-16T04:46:35Z",
+        "url": "https://github.com/earendil-works/pi/issues/9537",
+        "event_time": "2026-10-16T04:46:35Z",
+        "created_at": "2026-09-12T23:51:25Z",
+        "title": "SDK embed: /login status line reports the global auth.json path when a custom agentDir is in use",
+        "author": {
+          "login": "Ruivalim",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "issues",
+        "key": "https://github.com/earendil-works/pi/issues/9545@2026-10-16T04:42:56Z",
+        "url": "https://github.com/earendil-works/pi/issues/9545",
+        "event_time": "2026-10-16T04:42:56Z",
+        "created_at": "2026-09-13T08:51:45Z",
+        "title": "Reuse whole-file normalization during batch edit uniqueness checks",
+        "author": {
+          "login": "ymybxx",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "pull_requests",
+        "key": "https://github.com/earendil-works/pi/pull/9569@2026-10-16T06:21:49Z",
+        "url": "https://github.com/earendil-works/pi/pull/9569",
+        "event_time": "2026-10-16T06:21:49Z",
+        "created_at": "2026-09-14T01:31:15Z",
+        "title": "fix(ai): coerce JSON-encoded object and array tool arguments",
+        "author": {
+          "login": "rsaryev",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "changed_existing_event",
+        "later_than_previous_cutoff": true
+      },
+      {
+        "repo": "earendil-works/pi",
+        "kind": "pull_requests",
+        "key": "https://github.com/earendil-works/pi/pull/11028@2026-10-16T04:48:13Z",
+        "url": "https://github.com/earendil-works/pi/pull/11028",
+        "event_time": "2026-10-16T04:48:13Z",
+        "created_at": "2026-10-16T04:36:52Z",
+        "title": "fix(coding-agent): fall back to PowerShell clipboard in WSL inside multiplexers",
+        "author": {
+          "login": "ya2yo",
+          "association": "NONE",
+          "type": "User"
+        },
+        "discovery": "first_seen",
+        "later_than_previous_cutoff": true
+      }
+    ],
+    "new_personal_repositories": {
+      "nathan-chen": [],
+      "guangxuan-xiao": [],
+      "will-brown": [],
+      "robert-lange": [],
+      "peter-steinberger": [],
+      "mario-zechner": [],
+      "nicholas-carlini": []
+    },
+    "profile_changes": {
+      "nathan-chen": {},
+      "guangxuan-xiao": {},
+      "will-brown": {},
+      "robert-lange": {},
+      "peter-steinberger": {},
+      "mario-zechner": {},
+      "nicholas-carlini": {}
+    },
+    "truncation": [
+      "fla-org/flash-linear-attention:issues",
+      "fla-org/flash-linear-attention:pull_requests",
+      "fla-org/flash-linear-attention:discussions",
+      "PrimeIntellect-ai/verifiers:commits",
+      "PrimeIntellect-ai/verifiers:issues",
+      "PrimeIntellect-ai/verifiers:pull_requests",
+      "PrimeIntellect-ai/verifiers:discussions",
+      "openclaw/openclaw:commits",
+      "openclaw/openclaw:issues",
+      "openclaw/openclaw:pull_requests",
+      "earendil-works/pi:commits",
+      "earendil-works/pi:issues",
+      "earendil-works/pi:pull_requests",
+      "earendil-works/pi:discussions"
+    ]
+  },
+  "h1_source_audit": {
+    "event_window": {
+      "since": "2026-10-16T04:35:20.748207+00:00",
+      "until": "2026-10-16T06:36:24.160216+00:00",
+      "bounds": "Intentional second-precision query overlap; locally classify exact boundaries. Metadata/read times can follow fixed event cutoff."
+    },
+    "observed_interval": {
+      "start": "2026-10-16T06:38:06.606920Z",
+      "end": "2026-10-16T06:39:51.989151Z"
+    },
+    "curated_for_parent": [
+      {
+        "id": "fla-ascend-cp-kda-merged",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1398",
+        "pr_author": "2313247981",
+        "author_association": "CONTRIBUTOR",
+        "merged_by": "zhiyuan1i",
+        "created_at": "2026-10-15T14:57:49Z",
+        "merged_at": "2026-10-16T05:40:23Z",
+        "updated_at": "2026-10-16T05:40:24Z",
+        "head_sha": "420280464534836d4cbaa0cd27da0b9f90ab4cd8",
+        "merge_commit_sha": "3736e3b0d68ce3ec0448efd5be8701686756f919",
+        "authentic_parents": [
+          "be77cedfbc02b65ce8d3d90dcb6e886843da10dc"
+        ],
+        "repository_public": true,
+        "license_metadata": "MIT",
+        "body_sha256": "04388d6a6f4ab1e78e0a8aa693eed153536929df668129c440607c45f5ad96cb",
+        "claim": "Merged HCCL/Ascend CP KDA source now adjusts UB-sized WY backward tile and local V/K state layout; safe-gate diagonal offsets/masks respect partial sequence tails, and pregated reference no longer gates twice. Three immutable merge patches fully read.",
+        "validation_limits": "Author reports17passed/1referenceOOM on Ascend910B3, CANN9.2.0-beta.2; CP8 reference fails before CP kernels. This is an attributed body claim, no independent execution/logs. Graph buffer/layout changes are source-only; no speed claim.",
+        "files": [
+          {
+            "filename": "fla/ops/kda/backends/triton_ascend/chunk_bwd.py",
+            "git_blob_sha": "e576038d83df40b17fdf218d92825ac41bee00da",
+            "patch_sha256": "873ba4565a9b8f7924ef05bedbecfaea61a9713fd1094c6d84d5150defbf9873",
+            "patch_bytes": 1361,
+            "additions": 17,
+            "deletions": 1,
+            "fully_read": true
+          },
+          {
+            "filename": "fla/ops/kda/backends/triton_ascend/chunk_intra.py",
+            "git_blob_sha": "a4e6f1bc627a2e70c1a0f70202c2f873700299d9",
+            "patch_sha256": "a2934c98aed4ed9ae5f7e9a2d4ba34d536cbfda2e9abe03505e0d6bd2774f75e",
+            "patch_bytes": 5358,
+            "additions": 27,
+            "deletions": 22,
+            "fully_read": true
+          },
+          {
+            "filename": "tests/context_parallel/test_cp_kda.py",
+            "git_blob_sha": "b6036ee01cfa8ddfda1fad961d7efdcb3503c368",
+            "patch_sha256": "fd3de9c4b1087bccd52737037db726e51aed64b835d084dafeef57bfc7ade252",
+            "patch_bytes": 11228,
+            "additions": 87,
+            "deletions": 53,
+            "fully_read": true
+          }
+        ],
+        "local_execution": false
+      },
+      {
+        "id": "fla-blackwell-warp-guard-merged",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1399",
+        "pr_author": "arcusbuilds",
+        "author_association": "CONTRIBUTOR",
+        "merged_by": "zhiyuan1i",
+        "created_at": "2026-10-15T15:02:04Z",
+        "merged_at": "2026-10-16T05:34:53Z",
+        "updated_at": "2026-10-16T05:34:53Z",
+        "head_sha": "6f5f2bb7a28e2e864462f185bdbaf4b63fffe142",
+        "merge_commit_sha": "be77cedfbc02b65ce8d3d90dcb6e886843da10dc",
+        "authentic_parents": [
+          "15396e604df6a4699950d7f20457b391b0cd8e74"
+        ],
+        "repository_public": true,
+        "license_metadata": "MIT",
+        "body_sha256": "9effde3c48c075ad4cbe9707d5b85c965ba3c3434a2eaa3b1cfdc20aafd1c913",
+        "claim": "Merged version guard drops8warp dv_local configs only on Blackwell with Triton<3.8 and restores fwd8warp candidate on newer versions. Tests enumerate configurations and run20identical-input comparisons perkernel/config. All3patches read.",
+        "validation_limits": "Author tested Ada152passed/30skipped; Blackwell-only regressions skipped. No Blackwell validation, before/after benchmark or independent runtime/log audit. Version cutoff follows upstream reference not independently verified here.",
+        "files": [
+          {
+            "filename": "fla/ops/common/chunk_o.py",
+            "git_blob_sha": "7428e945f3f53ddd249becf8b477a3e21a363de6",
+            "patch_sha256": "78a14e31c75e5a84660e246608357c35e91d11f9499f46b604bf96936c9637d8",
+            "patch_bytes": 1374,
+            "additions": 6,
+            "deletions": 3,
+            "fully_read": true
+          },
+          {
+            "filename": "tests/ops/test_gdn.py",
+            "git_blob_sha": "5f99ce4b57aba7fb802bea54e67ab77c48771ae4",
+            "patch_sha256": "e3659a7682414597add8c8b2d8e2c776831f59fe27dd23f4a498ace0fc9fdc4c",
+            "patch_bytes": 1153,
+            "additions": 12,
+            "deletions": 4,
+            "fully_read": true
+          },
+          {
+            "filename": "tests/ops/test_gdn_kernels.py",
+            "git_blob_sha": "24746b1d9e580616f2f03067211261cd9baaf4f9",
+            "patch_sha256": "2cd9005b5d036d2bfb2b54004fe0d0d967fc0514906c1f425afaf8544fc0737a",
+            "patch_bytes": 2228,
+            "additions": 32,
+            "deletions": 1,
+            "fully_read": true
+          }
+        ],
+        "local_execution": false
+      },
+      {
+        "id": "fla-intracard-dispatch-merged",
+        "url": "https://github.com/fla-org/flash-linear-attention/pull/1400",
+        "pr_author": "Windyskr",
+        "author_association": "CONTRIBUTOR",
+        "merged_by": "zhiyuan1i",
+        "created_at": "2026-10-15T15:03:19Z",
+        "merged_at": "2026-10-16T05:44:06Z",
+        "updated_at": "2026-10-16T05:44:06Z",
+        "head_sha": "ab5577b4a00c573b1a403ac336c46e11620b33ed",
+        "merge_commit_sha": "d7ce95af096b91f0120634e2290980af2d56cdd6",
+        "authentic_parents": [
+          "3736e3b0d68ce3ec0448efd5be8701686756f919"
+        ],
+        "repository_public": true,
+        "license_metadata": "MIT",
+        "body_sha256": "6eaf93134ba406f1e6bee2771bcae6a18212bc43a2491cd36cc138744ea685bf",
+        "claim": "Merged opt-in inference CP backend accepts chunk_offsets=None in verifier/implementation and rejects nonNone graph offsets; two immutable patches include autospec dispatch and graph rejection assertions. Restores existing contribution, not a new algorithm.",
+        "validation_limits": "Author A800 claims57targetedpassed and224passed/1gradientfailure/30skipped, with inheritedfailure attribution unaudited. Benchmark gains and regressions depend onsequence/head shape; no overall speedup or training claim. No GPUexecution/CIlogs here.",
+        "files": [
+          {
+            "filename": "fla/ops/common/backends/intracard.py",
+            "git_blob_sha": "0dae5437ff89a8cbab3515d200d71fb46c829829",
+            "patch_sha256": "8e77604ae9aef6c6e22a9211492a08c06259263922d22c18af4f7c3cce192b4a",
+            "patch_bytes": 1511,
+            "additions": 8,
+            "deletions": 0,
+            "fully_read": true
+          },
+          {
+            "filename": "tests/ops/test_backends.py",
+            "git_blob_sha": "450489504186120eca8d19e219cd712b529f308e",
+            "patch_sha256": "4251c7cfc303a221252914f7a3c36b9623e2fd1f248ef04aff389cee0a3f6013",
+            "patch_bytes": 2116,
+            "additions": 32,
+            "deletions": 0,
+            "fully_read": true
+          }
+        ],
+        "local_execution": false
+      }
+    ],
+    "interpretation": {
+      "known_pr_comparisons": {
+        "fla_pr1390": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1390",
+          "head_sha": "4056b9dece258d0e114196855a5559a0752e3cd3",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "492aaf3124628b0bcf3daa8f1de16da3ddb23b6fe9ae7ab1bd20ff756d27d77e"
+        },
+        "fla_pr1402": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1402",
+          "head_sha": "dd38d6ed71904ce5e86f3feb8b0c80f1a00114bd",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "e5123aefd57283feb40fc2bae3fcd65b2d0e8b8c0fefa898c3b2105991a2df00"
+        },
+        "fla_pr1414": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1414",
+          "head_sha": "87186e359c5ce16037c017ad0651e217ef3956e8",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "b7769ec63cb8c28b825cd2bc32cf6b425c81338fa4d6be888aaff159617c2ad0"
+        },
+        "fla_pr1415": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1415",
+          "head_sha": "66e8e5fa6a1fda674f09bd6d4974255d0cae6ab2",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "a0e54bab8ad13fd052757ceee932308df0f6f9ddeeb935bb03453a4468fff70c"
+        },
+        "fla_pr1416": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1416",
+          "head_sha": "23f75177bdc8b0d715f2ddd9241a85a7b1b52315",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "4f45bf67071d51163b8da10e34f21fd9b665654fadab38face4a0219944086a7"
+        },
+        "fla_pr1422": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1422",
+          "head_sha": "58509b4c6ad731af76d07b9b3d8c911600db1983",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "696437aba039be08e5aa1edb89c23c4bd479dbfbaf9aba6eda9c87cd071e1bd0"
+        },
+        "fla_pr1425": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1425",
+          "head_sha": "98cb343265fb0a9f86ed13411c164d3be56dae1b",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "62f5f4dfe2116d87c96fe44bb94095f06233a96b1756dd536c28fe8a63ab574c"
+        },
+        "fla_pr1461": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1461",
+          "head_sha": "21b96296d4f27d851ef741793aea8e05fa23d33a",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "a1f71f6852462df041a79f5a08d685c6b591768b7cfcbe84f262ebffe17e1378"
+        },
+        "fla_pr1462": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1462",
+          "head_sha": "6f15159f91df5af45863f70ca2ae2580d79000dd",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "d8d135cd0459656dece3c563853ca268f18e2300f50bca7a9e62695b2099a788"
+        },
+        "fla_pr1458": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1458",
+          "head_sha": "5f5a43a5cce6f8fe30cf2c5f38fea3a61d66208c",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "814fe346059a3a875b8cda3c855c5550df5e6ac28afda7a0d4e157b1e86ac40f"
+        },
+        "fla_pr1484": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1484",
+          "head_sha": "4ca39a1de1c750e1f74283bc27eec1408cfdda5c",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "ef759f0c4fff4a55cfa91eee53eb0666ccbb4f63a0d3342ec78bebab95aec50f"
+        },
+        "fla_pr1452": {
+          "url": "https://github.com/fla-org/flash-linear-attention/pull/1452",
+          "head_sha": "42722baf32705276dd4e02f097eef21ffd229780",
+          "same_head": true,
+          "same_body": true,
+          "same_state": true,
+          "body_sha256": "b98c15ba2aa2b9473bec9e22431e4054056128e4183fa45f06f25b4d4b9ee383"
+        }
+      },
+      "endpoint_windows": {
+        "attnres_commits": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "attnres_issues": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "attnres_comments": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "attnres_inline_comments": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "fla_commits": {
+          "returned": 4,
+          "inside_exact_window": [
+            "4b5b38a982ec98061b4a394e733f054d7b4cbbae",
+            "d7ce95af096b91f0120634e2290980af2d56cdd6",
+            "3736e3b0d68ce3ec0448efd5be8701686756f919",
+            "be77cedfbc02b65ce8d3d90dcb6e886843da10dc"
+          ],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "fla_issues": {
+          "returned": 11,
+          "inside_exact_window": [
+            5876859588,
+            5876868913,
+            5876858841,
+            5878086409,
+            5879146517,
+            5876548001,
+            5876882423,
+            5868619088,
+            5868528574,
+            5704205193,
+            5868598109
+          ],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "fla_comments": {
+          "returned": 2,
+          "inside_exact_window": [
+            6208977344,
+            6209484431
+          ],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "fla_inline_comments": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        },
+        "nathan_public_events": {
+          "returned": 2,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [
+            "16589751667",
+            "15561755967"
+          ],
+          "next_page": false
+        },
+        "coalibi_commits": {
+          "returned": 0,
+          "inside_exact_window": [],
+          "outside_or_unknown_window": [],
+          "next_page": false
+        }
+      },
+      "nathan": {
+        "owned": 62,
+        "original": 23,
+        "new_repos": [],
+        "changed_creation_push_fork": [],
+        "commit_search_count": 0,
+        "issue_search_count": 0,
+        "incomplete_results": []
+      },
+      "failures": [],
+      "coverage_limits": [
+        "34successful boundedGitHubGETs;4defaultFLAcommits,3merges/8patches fullyreviewed; remainingpreconditionedGDNcommit onlymessageobserved.",
+        "Metadata may followeventcutoff; exactlocalwindows retained. Querytimestampsflooredseconds give subsecondedge; publicsearchindex maylag. Noallbranches/privatework coverage.",
+        "No upstreamcodeexecution/dependencyinstallation/GPU/NPUbenchmark orCIlogvalidation. Authorresults retain failures/skips/hardwarebounds; merges notNathan contribution.",
+        "One initial combinedpatch display truncated CPtest; separate fullUTF8testpatch read corrected display only, no fetchfailure."
+      ]
+    },
+    "payload_sha256": "cfbfe74c5bd7ae2f7b13027f409a84abee056db9be8c585c9871ddfe72d8d747",
+    "request_manifest": {
+      "attnres_metadata": {
+        "endpoint": "repos/MoonshotAI/Attention-Residuals",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:06.606920Z",
+          "end": "2026-10-16T06:38:08.419101Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/attnres_metadata.http.txt",
+        "raw_sha256": "f852c4d78bbe542696d974d358fefc7ab64e43bf3ae88661343a92fe20ff95be",
+        "body_bytes_sha256": "2b3e08d6ec69ad5fff369288e10f816bf2f90e943b2fb761f7f9ec1fb2cd1c05",
+        "has_next_page": false,
+        "canonical_body_sha256": "823abb33c532f506fbc62726c2f9fc80a8ff5a246d5530999c1a3a29823e4ca0"
+      },
+      "attnres_commits": {
+        "endpoint": "repos/MoonshotAI/Attention-Residuals/commits?since=2026-10-16T04:35:20Z&until=2026-10-16T06:36:24Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:06.607918Z",
+          "end": "2026-10-16T06:38:08.121566Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/attnres_commits.http.txt",
+        "raw_sha256": "16c213235a3807e793ce8e5e8ef760cc625686715ff468c3e2c37f4cb8496ca4",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "attnres_issues": {
+        "endpoint": "repos/MoonshotAI/Attention-Residuals/issues?state=all&sort=updated&direction=desc&since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:06.607918Z",
+          "end": "2026-10-16T06:38:08.193011Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/attnres_issues.http.txt",
+        "raw_sha256": "ef0acdf84c46606e63cf00450ecf0fa47ff1eccbd792de0ff30904c7abba905b",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "attnres_comments": {
+        "endpoint": "repos/MoonshotAI/Attention-Residuals/issues/comments?since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:06.608884Z",
+          "end": "2026-10-16T06:38:08.098867Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/attnres_comments.http.txt",
+        "raw_sha256": "ad51806e79c25bc326baedb35ecd6cc7add13a624d2e756d9fbee3612390fa0b",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "attnres_inline_comments": {
+        "endpoint": "repos/MoonshotAI/Attention-Residuals/pulls/comments?since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:06.608884Z",
+          "end": "2026-10-16T06:38:08.083404Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/attnres_inline_comments.http.txt",
+        "raw_sha256": "b79f9b508ca2da5dd0732ffbf080e245dfc648dc9539ee93e7fb06429e3cb7c3",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "fla_metadata": {
+        "endpoint": "repos/fla-org/flash-linear-attention",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:08.084473Z",
+          "end": "2026-10-16T06:38:09.493010Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_metadata.http.txt",
+        "raw_sha256": "39fc83af08456f59dc951b25022cb4d75db58708c82257af84d8eece54a75709",
+        "body_bytes_sha256": "fcc11e5b21bfa083bb83aff43d7f5aa144deb2edae95684a0e4e391f8cc7dd2c",
+        "has_next_page": false,
+        "canonical_body_sha256": "8045faba635d12afc0a38b21ff085541555f515a0c988f0800189997dee6db9d"
+      },
+      "fla_commits": {
+        "endpoint": "repos/fla-org/flash-linear-attention/commits?since=2026-10-16T04:35:20Z&until=2026-10-16T06:36:24Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:08.099866Z",
+          "end": "2026-10-16T06:38:09.453481Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_commits.http.txt",
+        "raw_sha256": "1797d6dc281d47c4849727f9ad565663f28d36420d5c60464d37daf04dbc7d7c",
+        "body_bytes_sha256": "c1762e962d72dac10c694ae0339e6f35bad448dc33a4c6d7447a0ee0a7af4e09",
+        "has_next_page": false,
+        "canonical_body_sha256": "bfbb03298c3760d67a5f407ce0ae1832ea690fe1b4287b4148345dc1ce62d00a"
+      },
+      "fla_issues": {
+        "endpoint": "repos/fla-org/flash-linear-attention/issues?state=all&sort=updated&direction=desc&since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:08.123567Z",
+          "end": "2026-10-16T06:38:09.903353Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_issues.http.txt",
+        "raw_sha256": "8ef758faf81265252d55f816e6d99c8928d8a99e616095c22195385b72b2ccce",
+        "body_bytes_sha256": "ed531ec1bf3c08e70d3767bf93f03936bba5d8caed8544da9829181a2cd85d1b",
+        "has_next_page": false,
+        "canonical_body_sha256": "7672f45f1d9806d7d28decc37701a8283528191e4765f969ff3bed0b8372e670"
+      },
+      "fla_comments": {
+        "endpoint": "repos/fla-org/flash-linear-attention/issues/comments?since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:08.194585Z",
+          "end": "2026-10-16T06:38:09.492011Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_comments.http.txt",
+        "raw_sha256": "bc0e3613f8e3cc66985482734c3875326adc3d50c6c5d42e72b7710848929be0",
+        "body_bytes_sha256": "d111366d7fd55999b20bf6f633ef30d4186ccab59d208bf35b68507058a83b86",
+        "has_next_page": false,
+        "canonical_body_sha256": "b8e600ce2a0540ef12e79054df4a2f1e1fcd65628aa722d16d306b6cd329702d"
+      },
+      "fla_inline_comments": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/comments?since=2026-10-16T04:35:20Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:08.420655Z",
+          "end": "2026-10-16T06:38:09.706423Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_inline_comments.http.txt",
+        "raw_sha256": "d44e71e2f405df21e02c361af88fa62f2a12e2497a54b9d934d3d4c031ecabba",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "fla_pr1390": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1390",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:09.455481Z",
+          "end": "2026-10-16T06:38:11.165414Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1390.http.txt",
+        "raw_sha256": "d1925e2b8aad84ab4706971dde3b3d9adec78ed8200a732008d26600e5c171fb",
+        "body_bytes_sha256": "cca9e54e699ca822d1ae5209fb9e128446c61b00e4966425f8d44c541a1f29c5",
+        "has_next_page": false,
+        "canonical_body_sha256": "d1df424c9101cab9365f0da26492fe074bb3fcc37a262340bb36894ca4a99748"
+      },
+      "fla_pr1402": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1402",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:09.494012Z",
+          "end": "2026-10-16T06:38:11.358622Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1402.http.txt",
+        "raw_sha256": "29e81cb8592238260fe13b5b92238e939b41d0db19557c88d5b59e06e2cfe3a2",
+        "body_bytes_sha256": "9a4aee58dad05f6f244e261581b9f9edb829058c7b731d32869c63470d7b5ba9",
+        "has_next_page": false,
+        "canonical_body_sha256": "862a1952cc24cdf92c2fc41c77d63d855f39462261ca22ab27282656e7874419"
+      },
+      "fla_pr1414": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1414",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:09.494012Z",
+          "end": "2026-10-16T06:38:11.440117Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1414.http.txt",
+        "raw_sha256": "974ebe96b297ab711853bc91ddd978840156c481a4876ebd635b7bc8cd0d46ee",
+        "body_bytes_sha256": "5041a555ace7e6a46288fec0d5ef4a0f196778dc7675fcddb3af18750a602fa7",
+        "has_next_page": false,
+        "canonical_body_sha256": "d12a78cd5d8f0ae090d5774835f73aa33147b2cc7d29522c128b3bd7df3e05c6"
+      },
+      "fla_pr1415": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1415",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:09.707498Z",
+          "end": "2026-10-16T06:38:11.630036Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1415.http.txt",
+        "raw_sha256": "516915b6623891c8279ab592a298685a454471114ffd81603dda7f4ed3d6cae4",
+        "body_bytes_sha256": "ba5c6eb2216762db1468ad9593140b6253ad6d1bf84a522fb5211de8b11eb1cb",
+        "has_next_page": false,
+        "canonical_body_sha256": "be0d14f6d89825edb3bccfe135bac29732758aeea29cdded4a815cb3553d7748"
+      },
+      "fla_pr1416": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1416",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:09.907015Z",
+          "end": "2026-10-16T06:38:11.735367Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1416.http.txt",
+        "raw_sha256": "336e286e90334d8e8b0c65d7dbaeaad1f2638271480d1fc7e3ebdab14efee6e7",
+        "body_bytes_sha256": "9d0c7054c43740fb49f0e207ca610ace8a2cc85cee9333bd524040aecd68203f",
+        "has_next_page": false,
+        "canonical_body_sha256": "da72a169bf0d687d64396777c83f0b8c340f6c825eb6eb715dd2d4544cd585fb"
+      },
+      "fla_pr1422": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1422",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:11.167412Z",
+          "end": "2026-10-16T06:38:12.764063Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1422.http.txt",
+        "raw_sha256": "1ca2263f5ef6ad8db88a4987494dc564fb7fd85639fea0f97a3aea472cc9beee",
+        "body_bytes_sha256": "dd40106bb5e217f1ce3599b225563fd3dfe9c9f03439e15c026c0450ea639ac7",
+        "has_next_page": false,
+        "canonical_body_sha256": "ec17131807375f95c6ad31026e938c96c2f5e3e3790adc7f9d13e8d0b29cafbb"
+      },
+      "fla_pr1425": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1425",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:11.360350Z",
+          "end": "2026-10-16T06:38:12.908042Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1425.http.txt",
+        "raw_sha256": "09470a9a60c33e2bf5976a386e12ac1da088115c86efe34d1394181399e8e588",
+        "body_bytes_sha256": "955a9fe481c597cb1efa6a86a65ad10b23603d617ee9f35b929ead94be8f3136",
+        "has_next_page": false,
+        "canonical_body_sha256": "8db773d961302ea6e88068f2bad907702990609bd9bac53d6861172a852ec18a"
+      },
+      "fla_pr1461": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1461",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:11.442215Z",
+          "end": "2026-10-16T06:38:13.101032Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1461.http.txt",
+        "raw_sha256": "51945a17c3e9a8c31c832d05174a8fdace94ab40d7e3d67bcba4fac38ddac04e",
+        "body_bytes_sha256": "1a084cba6c47f3a72f205be03388320d8487a81e2a38b290b4e245f1b7b67e78",
+        "has_next_page": false,
+        "canonical_body_sha256": "926881a38e1cffdb09e2ffedb1a504e8f568fb4a04a1671161f771b14d51b88c"
+      },
+      "fla_pr1462": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1462",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:11.632036Z",
+          "end": "2026-10-16T06:38:13.474407Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1462.http.txt",
+        "raw_sha256": "f225219fb06813580cc34d87d66a99a1f4c3c7ddae245415fda8dbfe95c4e4a6",
+        "body_bytes_sha256": "750c921967ab81117115cb54e0a9e54354be4cf1a11b6edc17530df8ef3d3bcf",
+        "has_next_page": false,
+        "canonical_body_sha256": "6586e0b7fbe514ffa1a0c4256bb8025a9ed646ec0a7f8db2a0d884cf73735cda"
+      },
+      "fla_pr1458": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1458",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:11.737368Z",
+          "end": "2026-10-16T06:38:13.627700Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1458.http.txt",
+        "raw_sha256": "97173598640d92db7b3d3c42ce4802338f730413433ac366586bcdd487303a4b",
+        "body_bytes_sha256": "3105d495ea96b7a38aac6e73dbf7fe0b09ca1232bc42b3715f4710702ee3edbe",
+        "has_next_page": false,
+        "canonical_body_sha256": "9a3e0fb1954f6e12ae5705baedfb429e94dfde6b28879a9e21c614edcc135860"
+      },
+      "fla_pr1484": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1484",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:12.766162Z",
+          "end": "2026-10-16T06:38:14.656736Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1484.http.txt",
+        "raw_sha256": "7aca6e1e8301f82b1a785796955631a32dcabcfd08e2f8ebb877dd0f3731ecae",
+        "body_bytes_sha256": "789e9e4a88e8e629ea0663a48a9cf8c4bc05adad12307381b6f456568f2d9444",
+        "has_next_page": false,
+        "canonical_body_sha256": "06980b04be3102dc4bb864d2fbe13d0344ff1de22f2793d2ae606b921aacdaab"
+      },
+      "fla_pr1452": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1452",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:12.909639Z",
+          "end": "2026-10-16T06:38:14.693400Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1452.http.txt",
+        "raw_sha256": "b48bb2d014b8a42f9bd94e37fb3d1cb6f6fada3024c7c43173b484bfe0d32924",
+        "body_bytes_sha256": "8f78d2620da8b75e2710b2487288ff6e5b8d336c581cdce54945c1c929ffa079",
+        "has_next_page": false,
+        "canonical_body_sha256": "2464e6c3a2a5d9cc65837f893778be9515fc9a73bc9e88768d16fc5576dba579"
+      },
+      "fla_cp_branch_ref": {
+        "endpoint": "repos/fla-org/flash-linear-attention/git/ref/heads/refactor/cp-state-preprocess",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:13.102621Z",
+          "end": "2026-10-16T06:38:14.210348Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_cp_branch_ref.http.txt",
+        "raw_sha256": "a502e4f1c369b5887fd5ee778335dffd7f15394da6ff38a15bd3922609cbc34c",
+        "body_bytes_sha256": "7a99b0a8f730dd279d4efec9f9fd6fcb1f26b4a98b46b0f0ee51a8ba768e401f",
+        "has_next_page": false,
+        "canonical_body_sha256": "c4280d5f7009edd9b8882ed2c70bf4f8542642093cfd37acf3c57bcee35e52cf"
+      },
+      "nathan_owned_repos": {
+        "endpoint": "users/Nathancgy/repos?type=owner&sort=pushed&direction=desc&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:13.476408Z",
+          "end": "2026-10-16T06:38:15.253153Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/nathan_owned_repos.http.txt",
+        "raw_sha256": "681ab0e57234134981e7077211d020e0d8ca433e47a58b0f99b669014f1f7a65",
+        "body_bytes_sha256": "69e69e3d5b87e0d47513fc4530c4dc31b696f779b38d6cb67c6ffd68e9b02146",
+        "has_next_page": false,
+        "canonical_body_sha256": "488d2cbbc635c75dafa0277744817d6efa259a38891837d7bd18284c1fe803ee"
+      },
+      "nathan_commit_search": {
+        "endpoint": "search/commits?q=author%3ANathancgy%20committer-date%3A2026-10-16T04%3A35%3A20Z..2026-10-16T06%3A36%3A24Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:13.629262Z",
+          "end": "2026-10-16T06:38:15.188872Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/nathan_commit_search.http.txt",
+        "raw_sha256": "6a3755bb1ef2fa6e70b19e79b1c9f5dbe68dfb1968f2b0d1a86b2564ace6a5e3",
+        "body_bytes_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+        "has_next_page": false,
+        "canonical_body_sha256": "f3a6e0655028f9c56c17ea6962460f7a6d4ad9fa24a3ff98245afb95c6329975"
+      },
+      "nathan_issue_search": {
+        "endpoint": "search/issues?q=author%3ANathancgy%20updated%3A2026-10-16T04%3A35%3A20Z..2026-10-16T06%3A36%3A24Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:14.211386Z",
+          "end": "2026-10-16T06:38:15.547717Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/nathan_issue_search.http.txt",
+        "raw_sha256": "25589d59d601fb6ff32698b4d8fb7cf02019cc7dab49e127bbafa88fb7b1f894",
+        "body_bytes_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+        "has_next_page": false,
+        "canonical_body_sha256": "852341fa92abb96f8cecd84b7ab88e47ff98061e160f8aab25d8ea30b7bc1a08"
+      },
+      "nathan_public_events": {
+        "endpoint": "users/Nathancgy/events/public?per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:14.657765Z",
+          "end": "2026-10-16T06:38:15.967159Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/nathan_public_events.http.txt",
+        "raw_sha256": "183a76d11d23507a62e922a9619c045b30b2d02409e42ea363cb86931b12a225",
+        "body_bytes_sha256": "4068736e54863c3cafff2bc75ca40f6b1607bd1517eb099b09caa51bcf8a3707",
+        "has_next_page": false,
+        "canonical_body_sha256": "e6c4d24031693c97c85ab108dc843c497bed1ad75557157bc1bf6d4044033196"
+      },
+      "coalibi_commits": {
+        "endpoint": "repos/Nathancgy/Co-ALIBI/commits?since=2026-10-16T04:35:20Z&until=2026-10-16T06:36:24Z&per_page=100",
+        "observed_interval": {
+          "start": "2026-10-16T06:38:14.695401Z",
+          "end": "2026-10-16T06:38:15.862478Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/coalibi_commits.http.txt",
+        "raw_sha256": "3a8937d91d40bd6e1f38369893b335a029b156f894fdb2d07ad45041f9043f84",
+        "body_bytes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "has_next_page": false,
+        "canonical_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "fla_pr1398": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1398",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:48.677800Z",
+          "end": "2026-10-16T06:39:50.498986Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1398.http.txt",
+        "raw_sha256": "c8117d0f99268c367f742ff6f49da9403af5d22cf35e3fa3da8b27c0089c56cc",
+        "body_bytes_sha256": "94dce9ecd659b81ec7fd2894526964bfaf11cf839c9f3c46379c95b1167fdb0c",
+        "has_next_page": false,
+        "canonical_body_sha256": "b1f9d5e23dacfa590a8cbf3d9355e1e7c14a16325a8c673f0efc24f40fbe1a80"
+      },
+      "fla_merge1398": {
+        "endpoint": "repos/fla-org/flash-linear-attention/commits/3736e3b0d68ce3ec0448efd5be8701686756f919",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:48.678800Z",
+          "end": "2026-10-16T06:39:50.079450Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_merge1398.http.txt",
+        "raw_sha256": "a39afecaa5630e26adec8d5231eb25a2880e1f024268d4299e91bd9c90eda168",
+        "body_bytes_sha256": "3027808f8b451e4da3dfcae2d16c44cfc6f0dac61885ce6e024c20e484cbbbc0",
+        "has_next_page": false,
+        "canonical_body_sha256": "6f40f826f9c538861ad44d20a58fc695a0203f15bbee10f3a125101c795f9e8f"
+      },
+      "fla_pr1399": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1399",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:48.678800Z",
+          "end": "2026-10-16T06:39:50.497987Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1399.http.txt",
+        "raw_sha256": "7080958139bf8dda94cb8bef65a4b5aa79c87563102c541bba55bcd2c29adc4a",
+        "body_bytes_sha256": "6d20300b6c74f356365755cb409ca64857cb46829b35884e5b85204fe28c87a2",
+        "has_next_page": false,
+        "canonical_body_sha256": "cd6f14636bcf9a04e61ba98fcddb900761939f42a723a10bfdbd90cea5fa98bf"
+      },
+      "fla_merge1399": {
+        "endpoint": "repos/fla-org/flash-linear-attention/commits/be77cedfbc02b65ce8d3d90dcb6e886843da10dc",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:48.678800Z",
+          "end": "2026-10-16T06:39:50.047908Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_merge1399.http.txt",
+        "raw_sha256": "37ce8c77d4d155048bd0db71db31b30af02f07f0c7ccd035cb8e8b13bb51170f",
+        "body_bytes_sha256": "58227e7ee4945a3a552ef38b78802bd8747d2f0b79777a2a280917d624cf5d38",
+        "has_next_page": false,
+        "canonical_body_sha256": "0214ba140f71ad4a25942c0b467f6dce639e24e57cc09dc80ce94ccc4b7728c0"
+      },
+      "fla_pr1400": {
+        "endpoint": "repos/fla-org/flash-linear-attention/pulls/1400",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:50.050267Z",
+          "end": "2026-10-16T06:39:51.989151Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_pr1400.http.txt",
+        "raw_sha256": "2346dad93402459263ce1c4cd95d7d0fe0bbf5231d4bf6549da573d78981672d",
+        "body_bytes_sha256": "b6b5c9c69fde0e4f907b35fc9025b30c8cfb9e2a9d8865b6e8a1083c926b9dab",
+        "has_next_page": false,
+        "canonical_body_sha256": "95f33267aa3a2631e0c9d4ba5b4f1a6372fd25030d595caea2424b92545bb8ad"
+      },
+      "fla_merge1400": {
+        "endpoint": "repos/fla-org/flash-linear-attention/commits/d7ce95af096b91f0120634e2290980af2d56cdd6",
+        "observed_interval": {
+          "start": "2026-10-16T06:39:50.081452Z",
+          "end": "2026-10-16T06:39:51.322404Z"
+        },
+        "status": "ok",
+        "returncode": 0,
+        "raw_file": "h1-raw/fla_merge1400.http.txt",
+        "raw_sha256": "c0044bb61bd9e227ab4fa74f5f69fef4583a4a3b54b1c00e1f254d51c4cf5743",
+        "body_bytes_sha256": "3d0abc6c814731cfc4dc4d0e3316aece7e6bac0300f5cde5551d62972afad80f",
+        "has_next_page": false,
+        "canonical_body_sha256": "9c01eceff9431685acc61f51f2a16d6e7e21ff7805694974c5f7d6e859c2fb65"
+      }
+    }
+  },
+  "web_identity_audit": {
+    "actual_fetch_interval_utc": {
+      "started_at": "2026-10-16T06:37:33.033973Z",
+      "finished_at": "2026-10-16T06:37:35.750938Z"
+    },
+    "browser_timeline_attempts": [
+      {
+        "url": "https://x.com/nathancgy4",
+        "method": "supported cua_repl Chrome extension; reused existing selected browser 3",
+        "status": "not_read",
+        "error": "unsupported Codex auth method: apikey",
+        "failed_stage": "browser session naming before intended tab binding; no page navigation/read completed",
+        "actual_setup_interval_utc": {
+          "started_at": "2026-10-16T06:36:59.611Z",
+          "finished_at": "2026-10-16T06:36:59.620Z"
+        },
+        "calls": [
+          {
+            "operation": "cua.rewriteDocumentation",
+            "result": "documentation available; selected Chrome extension browser 3 retained",
+            "tool_reported_wall_seconds": 0.0112
+          },
+          {
+            "operation": "browser.nameSession",
+            "result": "authentication error before intended cua.getTab; caught and reported in current call",
+            "tool_reported_wall_seconds": 0.023
+          }
+        ],
+        "call_attempt_count": 2,
+        "failed_read_setup_call_count": 1,
+        "page_read_count": 0,
+        "prior_failure_not_reinterpreted": true,
+        "prior_failure_reference": "reports/runs/20261016T043511Z/identity-checks.json#browser_timeline_attempts",
+        "timestamp_note": "Current setup timestamps were emitted by new Date immediately before and after the supported naming attempt. Tool wall duration is separate. Documentation refresh completed immediately before this setup; no precise timestamp is asserted for it."
+      }
+    ],
+    "http_request_count": 12,
+    "http_failures": [],
+    "comparison_summary": {
+      "unchanged_full_http_responses_excluding_x": 11,
+      "compared_full_http_responses_excluding_x": 11,
+      "unchanged_actual_raw_responses_excluding_x": 11,
+      "known_x_departure_preview_changed": false,
+      "failed_http_attempts_retained": 0,
+      "unresolved_http_urls": [],
+      "unchanged_comparable_visible_texts": 8,
+      "unchanged_all_parsed_rss_entries": 3
+    },
+    "limitations": [
+      "Current X timeline has not been read; known-post syndication is not timeline coverage. Unseen posts, replies, reposts and deletions remain unknown.",
+      "Known long-post syndication is only a truncated preview, not full original content.",
+      "HTML reads do not execute scripts or expand dynamic sections; not every linked article or paper was fetched.",
+      "RSS summary samples ten entries; full raw bodies and all parsed entries are retained and compared. Feed chronology is not fetch time.",
+      "Raw response body bytes are compared to retained prior actual bytes whose recorded SHA256s are verified. Engagement or transport metadata alone is not a new event.",
+      "A stale Kimi homepage role does not override the explicit departure. Nathan next employer requires an explicit first-party announcement and remains unverified.",
+      "Public HTTP GET observations are bounded to twelve URLs; GitHub scanning belongs to the separate main radar.",
+      "One fresh supported Chrome setup call failed authentication before tab binding. Current documentation refresh succeeded but page reads and timeline coverage remained zero."
+    ],
+    "new_meaningful_signals": [],
+    "timeline_coverage_advanced": false,
+    "conclusion": "All eleven non-X raw response bodies are byte-identical to retained043511 responses whose recorded SHA256s were verified. Eight comparable HTML digests and complete entries of three RSS feeds are unchanged. Known Nathan departure-post creation/text-preview/edit flags are unchanged; only conversation_count152to156 and favorite_count2271to2307 changed. Fresh supported browser naming failed before tab/page read, so X timeline coverage remains unknown and unadvanced. Nathan next employer remains unverified; stale homepage Kimi text does not override explicit departure.",
+    "fetch_manifest": [
+      {
+        "person_id": "nathan-chen",
+        "url": "https://nathanchen.me/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.033973Z",
+        "http_status": 200,
+        "final_url": "https://nathanchen.me/",
+        "finished_at": "2026-10-16T06:37:34.406413Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/01-nathan-chen-professional_homepage-a1.body",
+        "response_bytes": 20803,
+        "response_sha256": "1a9f76929cc00bcc60aa541085db84dea5b9ee5e432cc21c2800675a37f246d8",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "1a9f76929cc00bcc60aa541085db84dea5b9ee5e432cc21c2800675a37f246d8",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/01-nathan-chen-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/01-nathan-chen-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "f709240818dc1ff9cfdb30fd905c41d15d5403607da6677633373d43adf4f190",
+        "previous_visible_text_sha256": "f709240818dc1ff9cfdb30fd905c41d15d5403607da6677633373d43adf4f190",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "f709240818dc1ff9cfdb30fd905c41d15d5403607da6677633373d43adf4f190",
+        "visible_text_characters": 1184,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/01-nathan-chen-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "f709240818dc1ff9cfdb30fd905c41d15d5403607da6677633373d43adf4f190",
+        "research_blog_feed_links": [
+          "/public/blog.html",
+          "https://x.com/nathancgy4",
+          "https://github.com/Nathancgy",
+          "https://x.com/Kimi_Moonshot/status/2033378587878072424",
+          "https://www.tilderesearch.com/"
+        ],
+        "affiliation_contexts": [
+          "o explore the potentialities of intelligence right now i'm doing ml research at kimi moonshot , where i work on llm scaling & pretraining (e.g., kimi k3). my research mostly focuses on model architectures ( past example ) and optimizers. i also like thinking about efficient",
+          "lore the potentialities of intelligence right now i'm doing ml research at kimi moonshot , where i work on llm scaling & pretraining (e.g., kimi k3). my research mostly focuses on model architectures ( past example ) and optimizers. i also like thinking about efficient, hardwar",
+          "ml research at kimi moonshot , where i work on llm scaling & pretraining (e.g., kimi k3). my research mostly focuses on model architectures ( past example ) and optimizers. i also like thinking about efficient, hardware-aligned algorithms and kernels (co-design them!). prio"
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "guangxuan-xiao",
+        "url": "https://guangxuanx.com/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.033973Z",
+        "http_status": 200,
+        "final_url": "https://guangxuanx.com/",
+        "finished_at": "2026-10-16T06:37:34.599534Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/02-guangxuan-xiao-professional_homepage-a1.body",
+        "response_bytes": 15305,
+        "response_sha256": "2b35f12fecb52f72ed2fc46cd9588c8cbcfb14bc046ab557ea941321ce4260ae",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "2b35f12fecb52f72ed2fc46cd9588c8cbcfb14bc046ab557ea941321ce4260ae",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/02-guangxuan-xiao-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/02-guangxuan-xiao-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "7da37f42f7d0234d366c40474011b66db1f975c79e8f4aadf8691377e1029e50",
+        "previous_visible_text_sha256": "7da37f42f7d0234d366c40474011b66db1f975c79e8f4aadf8691377e1029e50",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "7da37f42f7d0234d366c40474011b66db1f975c79e8f4aadf8691377e1029e50",
+        "visible_text_characters": 3662,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/02-guangxuan-xiao-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "7da37f42f7d0234d366c40474011b66db1f975c79e8f4aadf8691377e1029e50",
+        "research_blog_feed_links": [
+          "https://github.com/Guangxuan-Xiao/",
+          "https://x.com/Guangxuan_Xiao",
+          "blog/attn-capacity.html",
+          "blog/stacking-swa.html",
+          "blog/block-sparse-attn-stats.html",
+          "https://hanlab.mit.edu/blog/streamingllm",
+          "https://github.com/mit-han-lab/flash-moba",
+          "https://github.com/mit-han-lab/streaming-vlm",
+          "https://github.com/mit-han-lab/x-attention",
+          "https://github.com/mit-han-lab/duo-attention",
+          "https://github.com/mit-han-lab/streaming-llm",
+          "https://news.mit.edu/2024/new-way-let-ai-chatbots-converse-all-day-without-crashing-0213",
+          "https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/llama#run-llama-with-streamingllm",
+          "https://x.com/davidpissarra/status/1735761373261427189?s=20",
+          "https://github.com/mit-han-lab/smoothquant",
+          "https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/blogs/quantization-in-TRT-LLM.md",
+          "https://tianweiy.github.io/",
+          "https://github.com/mit-han-lab/fastcomposer"
+        ],
+        "affiliation_contexts": [
+          "Guangxuan Xiao Guangxuan Xiao 肖光烜 I am a Member of Technical Staff at Thinking Machines Lab , where I work on pre-training science. I received my Ph.D. from MIT EECS , advised by Prof. Song Han . My research focuses on efficient algorithms and systems for large foundation mode",
+          " B.Eng. in Computer Science B.Econ. in Economics (Second Major) Work Experience Thinking Machines Lab 2025 – Present Member of Technical Staff San Francisco, CA Pre-training. NVIDIA 2024 – 2025 Research Intern Santa Clara, CA with Song Han · Researching efficient large language models. "
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "will-brown",
+        "url": "https://willcb.com/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.034974Z",
+        "http_status": 200,
+        "final_url": "https://willcb.com/",
+        "finished_at": "2026-10-16T06:37:34.318805Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/03-will-brown-professional_homepage-a1.body",
+        "response_bytes": 3731,
+        "response_sha256": "b9071284b375440b5efc70aaa3a565c582a61008eebe491d276507ffb42dfde5",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "b9071284b375440b5efc70aaa3a565c582a61008eebe491d276507ffb42dfde5",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/03-will-brown-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/03-will-brown-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "c2dc2c0b85f4b5f8d7e5fb0a2eed7bddde591413db699fd237ecc39051f28608",
+        "previous_visible_text_sha256": "c2dc2c0b85f4b5f8d7e5fb0a2eed7bddde591413db699fd237ecc39051f28608",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "c2dc2c0b85f4b5f8d7e5fb0a2eed7bddde591413db699fd237ecc39051f28608",
+        "visible_text_characters": 758,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/03-will-brown-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "c2dc2c0b85f4b5f8d7e5fb0a2eed7bddde591413db699fd237ecc39051f28608",
+        "research_blog_feed_links": [
+          "/research",
+          "/blog",
+          "https://x.com/willccbb",
+          "https://github.com/PrimeIntellect-ai/verifiers",
+          "https://www.morganstanley.com/about-us/technology/machine-learning-research-papers",
+          "https://twitter.com/willccbb",
+          "https://github.com/willccbb"
+        ],
+        "affiliation_contexts": [
+          "ll Brown About Research Writing Hi! I’m Will Brown . I lead Applied Research at Prime Intellect . I work on open-source research and infrastructure for agentic reinforcement learning, including the verifiers library and the Environments Hub . Previously, I was a member of Morgan Stanl"
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "robert-lange",
+        "url": "https://roberttlange.com/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.035974Z",
+        "http_status": 200,
+        "final_url": "https://roberttlange.com/",
+        "finished_at": "2026-10-16T06:37:34.491525Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/04-robert-lange-professional_homepage-a1.body",
+        "response_bytes": 9557,
+        "response_sha256": "3dc6b060df70636d62fe97fe90dcee1b642a201d2719390733ca5c4929875a1f",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "3dc6b060df70636d62fe97fe90dcee1b642a201d2719390733ca5c4929875a1f",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/04-robert-lange-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/04-robert-lange-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "839b8f3ce728c2b99e9cf2a62c4d250fdbe69740703d5c2e91116901df8fa32c",
+        "previous_visible_text_sha256": "839b8f3ce728c2b99e9cf2a62c4d250fdbe69740703d5c2e91116901df8fa32c",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "839b8f3ce728c2b99e9cf2a62c4d250fdbe69740703d5c2e91116901df8fa32c",
+        "visible_text_characters": 610,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/04-robert-lange-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "839b8f3ce728c2b99e9cf2a62c4d250fdbe69740703d5c2e91116901df8fa32c",
+        "research_blog_feed_links": [
+          "/research-statement/",
+          "https://twitter.com/RobertTLange",
+          "https://github.com/RobertTLange"
+        ],
+        "affiliation_contexts": [
+          "Robert Lange | AI Researcher at Sakana.AI Robert T. Lange Home Research About escherian cellular metamorphosis Hi! I'm Rob — a Staff Research Scientist and Founding Member at Sakana.AI , where we build nature-inspired methods fo",
+          "r metamorphosis Hi! I'm Rob — a Staff Research Scientist and Founding Member at Sakana.AI , where we build nature-inspired methods for the LLM era. My work includes The AI Scientist ( v2 ), ShinkaEvolve , EvoLLM , and learned evolutionary optimization . I'm also wrapping up m"
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "peter-steinberger",
+        "url": "https://steipete.me/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.035974Z",
+        "http_status": 200,
+        "final_url": "https://steipete.me/",
+        "finished_at": "2026-10-16T06:37:34.166276Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/05-peter-steinberger-professional_homepage-a1.body",
+        "response_bytes": 33143,
+        "response_sha256": "7d9ba3f1bdd0d37758dbfe268eff92fa3e61d774be20807e251fe6f4ce37d5e3",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "7d9ba3f1bdd0d37758dbfe268eff92fa3e61d774be20807e251fe6f4ce37d5e3",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/05-peter-steinberger-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/05-peter-steinberger-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "b0611b73ea985d5215fdb2d958c549e8a10d030e1b32e0c0908d84ee1033aea7",
+        "previous_visible_text_sha256": "b0611b73ea985d5215fdb2d958c549e8a10d030e1b32e0c0908d84ee1033aea7",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "b0611b73ea985d5215fdb2d958c549e8a10d030e1b32e0c0908d84ee1033aea7",
+        "visible_text_characters": 2753,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/05-peter-steinberger-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "846f21e91fb3759c1d2fa0eb3840c55590439bfa387e84b995a9e4f32f55115b",
+        "research_blog_feed_links": [
+          "/rss.xml",
+          "https://github.com/steipete",
+          "https://x.com/steipete",
+          "https://github.com/steipete",
+          "https://x.com/steipete",
+          "https://github.com/steipete/steipete.me"
+        ],
+        "affiliation_contexts": [
+          "eSky Peter Steinberger on LinkedIn Send an email to Peter Steinberger OpenClaw, OpenAI and the future Published: 14 Feb, 2026 • 3 min read I'm joining OpenAI to work on bringing agents to everyone. OpenClaw will move to a foundation and stay open and independent. Shipping at ",
+          "penClaw, OpenAI and the future Published: 14 Feb, 2026 • 3 min read I'm joining OpenAI to work on bringing agents to everyone. OpenClaw will move to a foundation and stay open and independent. Shipping at Inference-Speed Published: 28 Dec, 2025 • 18 min read Why I stopped rea",
+          "by. The Signature Flicker Published: 17 Dec, 2025 • 4 min read Hell froze over. Anthropic fixed Claude Code's signature flicker in their latest update (2.0.72) Just Talk To It - the no-bs Way of Agentic Engineering Published: 14 Oct, 2025 • 23 min read A practical guide to worki",
+          "e Flicker Published: 17 Dec, 2025 • 4 min read Hell froze over. Anthropic fixed Claude Code's signature flicker in their latest update (2.0.72) Just Talk To It - the no-bs Way of Agentic Engineering Published: 14 Oct, 2025 • 23 min read A practical guide to working with AI co",
+          "3 min read A practical guide to working with AI coding agents without the hype. Claude Code Anonymous Published: 9 Sep, 2025 • 4 min read Introducing Claude Code Anonymous - a new meetup format for full-breadth developers. Live Coding Session: Building Arena Published: 6 Sep,",
+          "the hype. Claude Code Anonymous Published: 9 Sep, 2025 • 4 min read Introducing Claude Code Anonymous - a new meetup format for full-breadth developers. Live Coding Session: Building Arena Published: 6 Sep, 2025 • 4 min read Watch me build Arena live - a real-time collaborati",
+          " 25 Aug, 2025 • 4 min read Went fully back to Ghostty, VS Code on the side, and Claude Code as my main driver. Here's what actually works after months of experimentation. Essential Reading for Agentic Engineers - August 2025 Published: 21 Aug, 2025 • 8 min read Five essential"
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "mario-zechner",
+        "url": "https://mariozechner.at/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:33.035974Z",
+        "http_status": 200,
+        "final_url": "https://mariozechner.at/",
+        "finished_at": "2026-10-16T06:37:34.792057Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/06-mario-zechner-professional_homepage-a1.body",
+        "response_bytes": 25378,
+        "response_sha256": "e24b22357e96a15c83590ceeb3c22c545e902d46d80608836c10dc01f0e82174",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "e24b22357e96a15c83590ceeb3c22c545e902d46d80608836c10dc01f0e82174",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/06-mario-zechner-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/06-mario-zechner-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "c51a32c0a68cbeb0abc4887767215292ec3fb8e1c4232a9f4b887911b934ba4a",
+        "previous_visible_text_sha256": "c51a32c0a68cbeb0abc4887767215292ec3fb8e1c4232a9f4b887911b934ba4a",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "c51a32c0a68cbeb0abc4887767215292ec3fb8e1c4232a9f4b887911b934ba4a",
+        "visible_text_characters": 3019,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/06-mario-zechner-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "c51a32c0a68cbeb0abc4887767215292ec3fb8e1c4232a9f4b887911b934ba4a",
+        "research_blog_feed_links": [
+          "/rss.xml",
+          "/recommended-reading/rss.xml",
+          "https://www.heise.de/news/Oesterreichische-Arbeitsagentur-veroeffentlicht-fragwuerdigen-KI-Chatbot-9588098.html",
+          "https://twitter.com/badlogicgames",
+          "https://github.com/badlogic"
+        ],
+        "affiliation_contexts": [
+          "2025-08-15 MCP vs CLI: Benchmarking Tools for Coding Agents 2025-08-06 Patching Claude Code for debugging and /cost support for Max users 2025-08-03 cchistory: Tracking Claude Code System Prompt and Tool Changes 2025-06-02 Prompts are code, .json/.md files are state 2025-04-2",
+          "de for debugging and /cost support for Max users 2025-08-03 cchistory: Tracking Claude Code System Prompt and Tool Changes 2025-06-02 Prompts are code, .json/.md files are state 2025-04-26 Boxie - an always offline audio player for my 3 year old 2024-08-22 Electronic Nights I"
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "nicholas-carlini",
+        "url": "https://nicholas.carlini.com/",
+        "kind": "professional_homepage",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.176277Z",
+        "http_status": 200,
+        "final_url": "https://nicholas.carlini.com/",
+        "finished_at": "2026-10-16T06:37:35.278483Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/07-nicholas-carlini-professional_homepage-a1.body",
+        "response_bytes": 29293,
+        "response_sha256": "6dccc50c7d657507e5abef70d5b921a486b551753a769624fb65aabf882f4e3d",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "6dccc50c7d657507e5abef70d5b921a486b551753a769624fb65aabf882f4e3d",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/07-nicholas-carlini-professional_homepage-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/07-nicholas-carlini-professional_homepage-a1.comparable-visible.txt",
+        "visible_text_sha256": "10c3d671f4ec6a33bd587fbfab331c09aed2b60bd69154948936e3191ab422b3",
+        "previous_visible_text_sha256": "10c3d671f4ec6a33bd587fbfab331c09aed2b60bd69154948936e3191ab422b3",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "10c3d671f4ec6a33bd587fbfab331c09aed2b60bd69154948936e3191ab422b3",
+        "visible_text_characters": 6966,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/07-nicholas-carlini-professional_homepage-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "ebdbf8f58e6caad15d069036c65d310a2bf24374c3927854ae5f9af7aba78314",
+        "research_blog_feed_links": [
+          "https://github.com/carlini",
+          "https://github.com/carlini",
+          "http://www.bbc.com/news/technology-36763902",
+          "http://www.sciencemag.org/news/2018/07/turtle-or-rifle-hackers-easily-fool-ais-seeing-wrong-thing",
+          "https://github.com/carlini/printf-tac-toe"
+        ],
+        "affiliation_contexts": [
+          "Papers Talks Code Writing Nicholas Carlini Nicholas Carlini Research Scientist, Anthropic nicholas [at] carlini [dot] com GitHub | Google Scholar Nicholas Carlini Research Scientist, Anthropic nicholas [at] carlini [dot] com GitHub | Google Scholar I am a researcher working at t",
+          " carlini [dot] com GitHub | Google Scholar Nicholas Carlini Research Scientist, Anthropic nicholas [at] carlini [dot] com GitHub | Google Scholar I am a researcher working at the intersection of machine learning and computer security. Currently I work at Anthropic studying what ",
+          "the intersection of machine learning and computer security. Currently I work at Anthropic studying what bad things you could do with, or do to, language models. Previously, I was a research scientist at Google Brain (from 2018-2023) and DeepMind (from 2023-2025). I hold a Ph.D. "
+        ],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "nathan-chen",
+        "url": "https://nathanchen.me/public/blog.html",
+        "kind": "blog_index",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.322790Z",
+        "http_status": 200,
+        "final_url": "https://nathanchen.me/public/blog.html",
+        "finished_at": "2026-10-16T06:37:34.832065Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/08-nathan-chen-blog_index-a1.body",
+        "response_bytes": 29044,
+        "response_sha256": "dc9e7bdac04b337ba1b4588954a7daabdef08996cde731de5a276f3686627732",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "dc9e7bdac04b337ba1b4588954a7daabdef08996cde731de5a276f3686627732",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/08-nathan-chen-blog_index-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "visible_text_file": "identity-raw/08-nathan-chen-blog_index-a1.comparable-visible.txt",
+        "visible_text_sha256": "02173b1df78d8f2cab7a5ada40b87d210e52d2072ee75e71b79319623d3d6448",
+        "previous_visible_text_sha256": "02173b1df78d8f2cab7a5ada40b87d210e52d2072ee75e71b79319623d3d6448",
+        "visible_text_hash_changed_from_previous": false,
+        "previous_visible_text_content_sha256_verified": true,
+        "previous_visible_text_actual_file_sha256": "02173b1df78d8f2cab7a5ada40b87d210e52d2072ee75e71b79319623d3d6448",
+        "visible_text_characters": 1222,
+        "excerpt_truncated": false,
+        "visible_excerpt_changed_from_previous": false,
+        "htmlparser_normalized_text_file": "identity-raw/08-nathan-chen-blog_index-a1.visible.txt",
+        "htmlparser_normalized_text_sha256": "02173b1df78d8f2cab7a5ada40b87d210e52d2072ee75e71b79319623d3d6448",
+        "research_blog_feed_links": [
+          "/public/blog.html",
+          "https://x.com/nathancgy4",
+          "https://github.com/Nathancgy",
+          "https://blog.tilderesearch.com/vignettes/gram-space",
+          "/public/Twitter is Awesome, but Don't Optimize for Virality.html",
+          "https://blog.tilderesearch.com/blog/momoe",
+          "https://codeforces.com/blog/entry/139776"
+        ],
+        "affiliation_contexts": [],
+        "comparison_parser_matches_prior_raw": true,
+        "visible_hash_note": "Content SHA256 covers UTF-8 normalized visible text; actual prior file SHA256 is separate. A prior terminal LF, if present, is excluded from the content digest."
+      },
+      {
+        "person_id": "peter-steinberger",
+        "url": "https://steipete.me/rss.xml",
+        "kind": "rss",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.411525Z",
+        "http_status": 200,
+        "final_url": "https://steipete.me/rss.xml",
+        "finished_at": "2026-10-16T06:37:34.699356Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/09-peter-steinberger-rss-a1.body",
+        "response_bytes": 48960,
+        "response_sha256": "5b741954d729b98c69550e6cefd98676ad990e213469f66e8aebf8e428459a33",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "5b741954d729b98c69550e6cefd98676ad990e213469f66e8aebf8e428459a33",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/09-peter-steinberger-rss-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "entry_count": 107,
+        "entry_sample_limit": 10,
+        "truncated_entries": true,
+        "all_parsed_entries_file": "identity-raw/09-peter-steinberger-rss-a1.entries.json",
+        "all_parsed_entries_sha256": "74455955f164e99f1611f427b2c97d5a06af9df227c22dc93dda7249e3b71b89",
+        "all_parsed_entries_file_sha256": "a90983fcb079a4c8abf209c8b6fcc0901d6ac0db0b225fe6149738d019197f56",
+        "previous_all_parsed_entries_sha256": "74455955f164e99f1611f427b2c97d5a06af9df227c22dc93dda7249e3b71b89",
+        "previous_all_parsed_entries_hash_verified": true,
+        "previous_all_parsed_entries_actual_file_sha256": "a90983fcb079a4c8abf209c8b6fcc0901d6ac0db0b225fe6149738d019197f56",
+        "all_parsed_entries_changed_from_previous": false,
+        "sampled_entries_changed_from_previous": false,
+        "latest_visible_entry": {
+          "title": "OpenClaw, OpenAI and the future",
+          "link": "https://steipete.me/posts/2026/openclaw/",
+          "pubDate": "Sun, 15 Feb 2026 00:00:00 GMT"
+        },
+        "parsed_entries_hash_note": "Parsed-entry content SHA256 uses canonical sorted compact UTF-8 JSON. Actual pretty-printed derived-file bytes are separately hashed."
+      },
+      {
+        "person_id": "mario-zechner",
+        "url": "https://mariozechner.at/rss.xml",
+        "kind": "rss",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.497954Z",
+        "http_status": 200,
+        "final_url": "https://mariozechner.at/rss.xml",
+        "finished_at": "2026-10-16T06:37:35.094102Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/10-mario-zechner-rss-a1.body",
+        "response_bytes": 7309,
+        "response_sha256": "a53198c7158981ed748ad7852ad2b1f5d2a3ab03c5d943315e506850e03d066e",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "a53198c7158981ed748ad7852ad2b1f5d2a3ab03c5d943315e506850e03d066e",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/10-mario-zechner-rss-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "entry_count": 19,
+        "entry_sample_limit": 10,
+        "truncated_entries": true,
+        "all_parsed_entries_file": "identity-raw/10-mario-zechner-rss-a1.entries.json",
+        "all_parsed_entries_sha256": "949611ccdbdb6c8fdffec0387f748bd9a1285fb84d6597c46ab3d4655887dab7",
+        "all_parsed_entries_file_sha256": "60bc765d328d55b71f55f8f789ba36cebcb3eba8aa6fe22e46c110cf6f05dfc7",
+        "previous_all_parsed_entries_sha256": "949611ccdbdb6c8fdffec0387f748bd9a1285fb84d6597c46ab3d4655887dab7",
+        "previous_all_parsed_entries_hash_verified": true,
+        "previous_all_parsed_entries_actual_file_sha256": "60bc765d328d55b71f55f8f789ba36cebcb3eba8aa6fe22e46c110cf6f05dfc7",
+        "all_parsed_entries_changed_from_previous": false,
+        "sampled_entries_changed_from_previous": false,
+        "latest_visible_entry": {
+          "title": "How to build a shitty robot",
+          "link": "https://mariozechner.at/posts/2026-05-30-shitty-robot",
+          "pubDate": "Sat, 30 May 2026 00:00:00 GMT"
+        },
+        "parsed_entries_hash_note": "Parsed-entry content SHA256 uses canonical sorted compact UTF-8 JSON. Actual pretty-printed derived-file bytes are separately hashed."
+      },
+      {
+        "person_id": "nicholas-carlini",
+        "url": "https://nicholas.carlini.com/writing/feed.xml",
+        "kind": "rss",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.606534Z",
+        "http_status": 200,
+        "final_url": "https://nicholas.carlini.com/writing/feed.xml",
+        "finished_at": "2026-10-16T06:37:35.750938Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/11-nicholas-carlini-rss-a1.body",
+        "response_bytes": 23092,
+        "response_sha256": "1ccf10ed5482282195d97996a2d2cf62b43ab740084738d04452b11f9eb725b7",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "1ccf10ed5482282195d97996a2d2cf62b43ab740084738d04452b11f9eb725b7",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/11-nicholas-carlini-rss-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": false,
+        "response_bytes_equal_previous_raw": true,
+        "entry_count": 40,
+        "entry_sample_limit": 10,
+        "truncated_entries": true,
+        "all_parsed_entries_file": "identity-raw/11-nicholas-carlini-rss-a1.entries.json",
+        "all_parsed_entries_sha256": "afa9eb45e632f27cec176390c533ff798e12274032038ef4ce94809d885991ce",
+        "all_parsed_entries_file_sha256": "14b1d8bd4ba40184dd88e3e81a6e63f1cca36492bd4dd80164020ed4701451b8",
+        "previous_all_parsed_entries_sha256": "afa9eb45e632f27cec176390c533ff798e12274032038ef4ce94809d885991ce",
+        "previous_all_parsed_entries_hash_verified": true,
+        "previous_all_parsed_entries_actual_file_sha256": "14b1d8bd4ba40184dd88e3e81a6e63f1cca36492bd4dd80164020ed4701451b8",
+        "all_parsed_entries_changed_from_previous": false,
+        "sampled_entries_changed_from_previous": false,
+        "latest_visible_entry": {
+          "title": "How to win a best paper award",
+          "link": "https://nicholas.carlini.com/writing/2026/how-to-win-a-best-paper-award.html",
+          "updated": "2026-03-09T00:00:00+00:00",
+          "pubDate": "2026-03-09T00:00:00+00:00"
+        },
+        "parsed_entries_hash_note": "Parsed-entry content SHA256 uses canonical sorted compact UTF-8 JSON. Actual pretty-printed derived-file bytes are separately hashed."
+      },
+      {
+        "person_id": "nathan-chen",
+        "url": "https://cdn.syndication.twimg.com/tweet-result?id=2110522061953327565&lang=en&token=0",
+        "kind": "official_x_syndication",
+        "method": "Python urllib public HTTPS GET",
+        "attempt": 1,
+        "started_at": "2026-10-16T06:37:34.704324Z",
+        "http_status": 200,
+        "final_url": "https://cdn.syndication.twimg.com/tweet-result?id=2110522061953327565&lang=en&token=0",
+        "finished_at": "2026-10-16T06:37:35.616638Z",
+        "response_limit_exceeded": false,
+        "raw_response_file": "identity-raw/12-nathan-chen-official_x_syndication-a1.body",
+        "response_bytes": 1153,
+        "response_sha256": "20d89796b91cb4dcdf3ef7da454333646af114f312f8c5a9f3f3e41080c58bb8",
+        "capture_note": "HTTP response body bytes; headers retained separately. No content decoding beyond identity transfer requested.",
+        "previous_response_sha256": "c17e0a3a5db12028289981a715e7db02ad63e604c96c17ba091b95f4e1ad3251",
+        "previous_raw_response_file": "reports/runs/20261016T043511Z/identity-raw/12-nathan-chen-official_x_syndication-a1.body",
+        "previous_raw_sha256_verified": true,
+        "response_hash_changed_from_previous": true,
+        "response_bytes_equal_previous_raw": false,
+        "record": {
+          "id_str": "2110522061953327565",
+          "created_at": "2026-10-15T00:04:05.000Z",
+          "text": "life update: I've recently left @Kimi_Moonshot!\n\nThe past year at Kimi has been the best of my life so far. I'm deeply grateful to have worked with and learned from such amazing and supportive colleagues.\n\nSome of my favorite memories include (in chronological order): optimizing",
+          "isEdited": false,
+          "isStaleEdit": false
+        },
+        "known_post_content_changed_from_previous": false,
+        "changed_top_level_json_keys": [
+          "conversation_count",
+          "favorite_count"
+        ],
+        "long_post_truncated": true,
+        "scope": "One known departure post only; syndication is not timeline coverage. Long-post text is a truncated preview.",
+        "changed_top_level_json_values": {
+          "conversation_count": {
+            "previous": 152,
+            "current": 156
+          },
+          "favorite_count": {
+            "previous": 2271,
+            "current": 2307
+          }
+        }
+      }
+    ]
+  },
+  "h2_evidence": "research/evidence/2026-10-16-receipt-drain-readmission.json",
+  "h2_evidence_sha256": "4ca0a1f5d1850c9a880f0a337f80cb3f928e845af32e081345393ddbf05d5a5b",
+  "pre_run_registration": {
+    "recorded_at": "2026-10-16T06:44:27.234292+00:00",
+    "phase": "frozen_before_tests_and_actual_model_comparison",
+    "protocol_sha256": "048f232f2d5367bbe548ccc334c81903db14d3d950bfb4ca1ec8a4703d8e9869",
+    "source_files_sha256": {
+      "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+      "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+      "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+      "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+      "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+    },
+    "test_source_sha256": "598752baae9b258fecf3de8dd12a594a16dea2c12e9ae859c96b08bb0fe620c5",
+    "config_sha256": "f069874076035b8301168f572a98b3e7b8408a244df90f843391bdcef135e1de",
+    "executions": 0,
+    "design_registration_sha256": "052444c92ace92d20e2127d10ec9aeb1323647d6fa78a8959d2d2abc7b8f0137"
+  },
+  "static_review": {
+    "reviewed_at": "2026-10-16T06:44:31.171648+00:00",
+    "scope": "Read-only pre-execution source/test/README review with stdlib AST and SHA256; no production imports, Torch/model compute, tests, installations, tracked edits or network requests.",
+    "status": "pre_execution_static_review_complete_no_blocking_findings",
+    "all_checks_passed": true,
+    "check_count": 46,
+    "material_findings": [],
+    "reviewed_paths_sha256": {
+      "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+      "tests/test_activation_norm_gradient.py": "598752baae9b258fecf3de8dd12a594a16dea2c12e9ae859c96b08bb0fe620c5",
+      "fixtures/activation-norm-gradient/README.md": "6a25043350495c28068499c58878c41476978cff5390ac6fc4627914511c7f8f",
+      "fixtures/activation-norm-gradient/protocol.json": "048f232f2d5367bbe548ccc334c81903db14d3d950bfb4ca1ec8a4703d8e9869"
+    },
+    "config_sha256": "f069874076035b8301168f572a98b3e7b8408a244df90f843391bdcef135e1de",
+    "config": {
+      "model_id": "EleutherAI/pythia-14m",
+      "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+      "seeds": [
+        11,
+        29,
+        47
+      ],
+      "methods_in_order": [
+        "dense",
+        "model_saved_int8",
+        "model_except_norm_saved_int8"
+      ],
+      "batch_size": 2,
+      "sequence_input_tokens": 64,
+      "schedule_steps": 24,
+      "schedule_selection": "first batch only",
+      "dtype": "float32",
+      "attention": "eager",
+      "threads": 1,
+      "min_compressed_elements": 256,
+      "max_seconds_per_worker": 180,
+      "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+      "norm_preservation_scope": "torch.nn.LayerNorm forward saves",
+      "expected_named_layernorm_modules": 13,
+      "norm_save_dominance": {
+        "max_norm_preserved_to_model_saved_relative_l2": 0.5,
+        "cosine_no_worse": true,
+        "require_all_seeds": true
+      }
+    },
+    "runtime_limitations": [
+      "Static review does not execute nested-hook behavior or numerical tests. Root owns test/model execution.",
+      "Pack/unpack counts count saved operands; multiple saves per LayerNorm are expected. The guard checks exactly one forward call and at least one save/unpack.",
+      "Pre-execution status and timestamp record are local evidence; filesystem timestamps are not cryptographic proof of historical immutability."
+    ],
+    "recommended_result_checks": [
+      "Compare actual dense/model_saved gradients and forwards against prior043511 fixed batches as a baseline invariance cross-check.",
+      "Recompute all aggregate gradient metrics, gate outcomes and worker/report hashes from retained actual results before publication."
+    ],
+    "protocol_review_completed_at": "2026-10-16T06:45:13.342961+00:00",
+    "prior_source_only_review_sha256": "5764f23925add8ff8b08e813f134b3a86ce0c22fe09a37052ab83c14f86e13f4",
+    "registration_sha256": "049ccc77934e9efd254cac7622502b46d953e7ea0accbe48e5169431121cfed5"
+  },
+  "independent_result_review": {
+    "reviewed_at": "2026-10-16T06:47:52.403665+00:00",
+    "scope": "Independent stdlib readback of retained raw results, report identity, hashes, metrics arithmetic and exact prior043511 dense/model-int8 baseline gradient equivalence. No model execution, Torch imports or gradient-array regeneration.",
+    "all_checks_passed": true,
+    "check_count": 10900,
+    "failed_checks": [],
+    "report_sha256": "3b04e1f200735ed4db302da33f4da10c6fbd3656acd5e2feaa90738224a43c2f",
+    "stable_result_sha256": "5bfdec9147453be22eb53d6e967d243d3beba7bea1334c598a287eccfc9461b0",
+    "observation_sha256": "b0ad48f4476e1cbb894a755ad5a22b1d061da60b4cce5127af802adff5a538dc",
+    "protocol_sha256": "048f232f2d5367bbe548ccc334c81903db14d3d950bfb4ca1ec8a4703d8e9869",
+    "previous_gradient_report_sha256": "d9d02f8b503d5036bf1853d3b783a02c1980abab14bcc86489ea37e7d19abf34",
+    "unique_target_positions": 320,
+    "raw_worker_sha256": {
+      "workers/seed-11/worker.json": "2037e04ad38a73cad2927e5ffbb6d7d6adadb606d5823fef2aeb01f9fd52f45b",
+      "workers/seed-29/worker.json": "b4382d6e86533a13755b89d3af3447e3c27b69f6f2f21b07eda2887b255ed073",
+      "workers/seed-47/worker.json": "cc620911847737f55568ec5a4aa0fdcedc5df89d5d5b1fd6642764a8a9418f0c"
+    },
+    "workers": [
+      {
+        "seed": 11,
+        "batch_indices": [
+          3,
+          1
+        ],
+        "started_at": "2026-10-16T06:46:11.433138+00:00",
+        "completed_at": "2026-10-16T06:46:15.035065+00:00",
+        "methods": [
+          {
+            "method": "dense",
+            "forward_loss": 5.246664524078369,
+            "parameter_relative_l2": 0.0,
+            "parameter_cosine": 1.0,
+            "parameter_norm": 63.10535661260858,
+            "dense_parameter_norm": 63.10535661260858,
+            "logits_relative_l2_vs_analytic": 2.1384185265486775e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_saved_int8",
+            "forward_loss": 5.246664524078369,
+            "parameter_relative_l2": 7.602381606306931,
+            "parameter_cosine": 0.15989689828663603,
+            "parameter_norm": 485.7799065085013,
+            "dense_parameter_norm": 63.10535661260858,
+            "logits_relative_l2_vs_analytic": 2.1384185265486775e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 98,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_except_norm_saved_int8",
+            "forward_loss": 5.246664524078369,
+            "parameter_relative_l2": 7.61384037754447,
+            "parameter_cosine": 0.159637405221511,
+            "parameter_norm": 486.4924589236021,
+            "dense_parameter_norm": 63.10535661260858,
+            "logits_relative_l2_vs_analytic": 2.1384185265486775e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 85,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          }
+        ],
+        "gate": {
+          "norm_preserved_to_model_saved_relative_l2_ratio": 1.0015072607284055,
+          "passed": false,
+          "meaning": "predeclared named-LayerNorm saved-operand sensitivity gate; no training-quality implication"
+        }
+      },
+      {
+        "seed": 29,
+        "batch_indices": [
+          5,
+          3
+        ],
+        "started_at": "2026-10-16T06:46:25.336270+00:00",
+        "completed_at": "2026-10-16T06:46:29.027887+00:00",
+        "methods": [
+          {
+            "method": "dense",
+            "forward_loss": 5.782718658447266,
+            "parameter_relative_l2": 0.0,
+            "parameter_cosine": 1.0,
+            "parameter_norm": 63.87146485641277,
+            "dense_parameter_norm": 63.87146485641277,
+            "logits_relative_l2_vs_analytic": 2.1357820951940083e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_saved_int8",
+            "forward_loss": 5.782718658447266,
+            "parameter_relative_l2": 7.687965395347614,
+            "parameter_cosine": 0.15611765416258863,
+            "parameter_norm": 496.94346486536676,
+            "dense_parameter_norm": 63.87146485641277,
+            "logits_relative_l2_vs_analytic": 2.1357820951940083e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 98,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_except_norm_saved_int8",
+            "forward_loss": 5.782718658447266,
+            "parameter_relative_l2": 7.6995704611269975,
+            "parameter_cosine": 0.15575223123678136,
+            "parameter_norm": 497.6670656908184,
+            "dense_parameter_norm": 63.87146485641277,
+            "logits_relative_l2_vs_analytic": 2.1357820951940083e-08,
+            "logits_row_sum_max_abs": 2.538091951951975e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 85,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          }
+        ],
+        "gate": {
+          "norm_preserved_to_model_saved_relative_l2_ratio": 1.0015095106679859,
+          "passed": false,
+          "meaning": "predeclared named-LayerNorm saved-operand sensitivity gate; no training-quality implication"
+        }
+      },
+      {
+        "seed": 47,
+        "batch_indices": [
+          7,
+          0
+        ],
+        "started_at": "2026-10-16T06:46:39.148062+00:00",
+        "completed_at": "2026-10-16T06:46:42.822666+00:00",
+        "methods": [
+          {
+            "method": "dense",
+            "forward_loss": 5.636452674865723,
+            "parameter_relative_l2": 0.0,
+            "parameter_cosine": 0.9999999999999999,
+            "parameter_norm": 62.35802295666948,
+            "dense_parameter_norm": 62.35802295666948,
+            "logits_relative_l2_vs_analytic": 2.4554096860104793e-08,
+            "logits_row_sum_max_abs": 2.2593266750514911e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_saved_int8",
+            "forward_loss": 5.636452674865723,
+            "parameter_relative_l2": 4.038287820089783,
+            "parameter_cosine": 0.25437011908696855,
+            "parameter_norm": 260.35376396881065,
+            "dense_parameter_norm": 62.35802295666948,
+            "logits_relative_l2_vs_analytic": 2.4554096860104793e-08,
+            "logits_row_sum_max_abs": 2.2593266750514911e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 98,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 98,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          },
+          {
+            "method": "model_except_norm_saved_int8",
+            "forward_loss": 5.636452674865723,
+            "parameter_relative_l2": 4.053039951834146,
+            "parameter_cosine": 0.25335538357302834,
+            "parameter_norm": 261.2337862953067,
+            "dense_parameter_norm": 62.35802295666948,
+            "logits_relative_l2_vs_analytic": 2.4554096860104793e-08,
+            "logits_row_sum_max_abs": 2.2593266750514911e-07,
+            "outer_counts": {
+              "save_calls": 111,
+              "dtype_or_device_excluded": 1,
+              "eligible": 85,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 25,
+              "unpack_calls": 111,
+              "decoded_saves": 85
+            },
+            "combined_counts": {
+              "save_calls": 176,
+              "dtype_or_device_excluded": 1,
+              "eligible": 98,
+              "compressed_saves": 85,
+              "parameter_storage_excluded": 51,
+              "unpack_calls": 176,
+              "decoded_saves": 85,
+              "size_or_shape_excluded": 26
+            },
+            "named_layernorm_count": 13
+          }
+        ],
+        "gate": {
+          "norm_preserved_to_model_saved_relative_l2_ratio": 1.0036530659530936,
+          "passed": false,
+          "meaning": "predeclared named-LayerNorm saved-operand sensitivity gate; no training-quality implication"
+        }
+      }
+    ]
+  },
+  "audit_processing": {
+    "recorded_at": "2026-10-16T06:48:54.300096+00:00",
+    "scope": "Reviewer-only processing correction; no experimental source/protocol/data/output changes or model/test rerun.",
+    "initial_audit_file": "norm-result-review-initial-invalid-shape-check.json",
+    "initial_audit_sha256": "f95bfab44c202c9a512f29ba4bdbb8f00ab0a10260c12a6ea0d48cf67c92f143",
+    "initial_findings": "Nine audit assertions used shape alone to identify CE saves and rejected protected output-head parameter aliases of the same [128,50304] shape. These were reviewer assertion errors, not experiment control failures.",
+    "correction": "Restrict shape check to eligible activation saves, consistent with the prior gradient audit and statically reviewed CE hook boundary. Protected parameter aliases are expected and independently counted.",
+    "final_audit_file": "norm-result-review.json",
+    "final_audit_sha256": "4c214a128e5d881396a76019c190f26ec505e18f5e778ca412fd1245d707fcda",
+    "final_audit_all_checks_passed": true,
+    "final_audit_check_count": 10900,
+    "auditor_source_sha256": "be48965548650e52265b8f4abe9aa2c30053cbb4de2e36a25a556884ea0bfd29",
+    "read_log_tails": {
+      "tests.log": {
+        "sha256": "bd2af36ef398d4500422af49a5bb857027483a6480f0102994fe9aa245927830",
+        "observed_summary": "107 tests,21.629s,OK"
+      },
+      "norm-tests.log": {
+        "sha256": "9459568ab5271d9b06926e4d8352cdcc781950d00a9bf72caa3c1c10f383f8a0",
+        "observed_summary": "6 tests,3.715s,OK"
+      },
+      "norm-probe.log": {
+        "sha256": "7611622a0ccf2dcc6ef551e04170bfd48fe5ea11e43702c2a239a56849b62061",
+        "observed_summary": "CLI reports stable SHA5bfdec9147453be22eb53d6e967d243d3beba7bea1334c598a287eccfc9461b0"
+      }
+    },
+    "reviewer_model_executions": 0,
+    "reviewer_test_executions": 0
+  },
+  "result_file_sha256": "3b04e1f200735ed4db302da33f4da10c6fbd3656acd5e2feaa90738224a43c2f",
+  "local_test_summary": {
+    "focused": 6,
+    "full": 107,
+    "full_skips": 0,
+    "initial_failures": 0
+  },
+  "boundaries": [
+    "One new diagnostic:3 fresh sequential fixed-pretrained-point CPU workers,9 backward policies; no optimizer/holdout forward or tuning.",
+    "Third-party patch/test assertions and upstream CI metadata are source evidence; no upstream runtime/log validation.",
+    "Raw rolling HTTP bodies remain ignored; selected fingerprints are not a complete public archive.",
+    "X current timeline unread after supported browser authentication failure; pages read0; employer remains unverified."
+  ]
+}

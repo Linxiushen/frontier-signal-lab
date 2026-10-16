@@ -2,7 +2,7 @@
 
 Review against the released commit before use. Account identity, posting access, and X policy review are unverified. No tags, mentions, or guaranteed reach. Do not reuse this AI-generated draft on Hacker News.
 
-Each numbered block below is one proposed post. The new Pythia update-report link must be pinned to the published commit before use. The conditions in post 1 are part of the result, not optional fine print.
+Each numbered block below is one proposed post. Evidence links target the SaveScope v0.1.0 release tag; confirm the release exists before posting. The conditions in post 1 are part of the result, not optional fine print.
 
 ## 1
 
@@ -19,25 +19,25 @@ We kept exact CE, 13 LayerNorm scopes and six attention forwards. Gradient error
 ## 4
 
 Evidence, controls and failed gate:
-https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md
+https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/results/activation-update/report.md
 SaveScope compares saved scopes, reference gradients and actual first-step updates. Native parameter/moment updates also passed independent NumPy rounding bounds.
 
 ## 5
 
 Try `python -m savescope replay --output replay` to inspect recorded observations, or `python -m savescope demo --output tiny-run` for an actual tiny run after CPU dependencies. No model download.
-https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md
+https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/SAVESCOPE.md
 
 ## 6
 
 We would value one independent reproducer or small architecture adapter: identical weights/data/optimizer state, actual module scopes, reference gradients + parameter deltas, and all failed gates retained.
-https://github.com/Linxiushen/frontier-signal-lab/blob/main/CONTRIBUTING.md
+https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/CONTRIBUTING.md
 
 ## Evidence links for replies, if relevant
 
-- [Product and support boundary](https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md)
+- [Product and support boundary](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/SAVESCOPE.md)
 - [Fixed Pythia gradient report](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-attention-gradient/report.md)
-- [Actual first-step update result; pin after release](https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md)
-- [Predeclared update protocol; pin after release](https://github.com/Linxiushen/frontier-signal-lab/blob/main/fixtures/activation-update/README.md)
+- [Actual first-step update result](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/results/activation-update/report.md)
+- [Predeclared update protocol](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/fixtures/activation-update/README.md)
 - [Negative training result](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-training/report.md)
 - [PyTorch's existing saved-tensor hook tutorial](https://docs.pytorch.org/tutorials/intermediate/autograd_saved_tensors_hooks_tutorial.html)
 

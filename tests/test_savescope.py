@@ -1,5 +1,6 @@
 """Small CPU engineering checks for the reusable API; no model downloads."""
 import json
+import math
 from pathlib import Path
 import random
 import subprocess
@@ -128,17 +129,22 @@ class AuditEngineeringTests(unittest.TestCase):
 
         def optimizer(parameters, **options):
             parameters = list(parameters)
-            for q, p in zip(parameters, model.parameters()):
+            for q, p, direct in zip(parameters, model.parameters(), state["grads"]):
                 self.assertIsNot(q, p)
                 self.assertNotEqual(q.untyped_storage().data_ptr(), p.untyped_storage().data_ptr())
                 self.assertIsNot(q.grad, p.grad)
+                self.assertTrue(torch.equal(q.grad, p.grad))
+                self.assertTrue(torch.equal(q.grad, direct[3]))
             seen.append(parameters)
             return original(parameters, **options)
 
         with patch.object(torch.optim, "AdamW", optimizer):
             result = self.run_model(model, x, policies=("dense",), optimizer_kwargs={"weight_decay": .03})
         self.assertEqual(len(seen), 1)
-        self.assertEqual(result["arms"][0]["gradient"]["l2"], expected_norm)
+        # Equivalent FP64 norm reductions can differ by an ULP across platforms;
+        # the gradients above must match the direct-autograd snapshot exactly.
+        self.assertLessEqual(abs(result["arms"][0]["gradient"]["l2"] - expected_norm),
+                             4 * math.ulp(expected_norm))
         controls = result["arms"][0]["update"]["independent_reference"]["per_parameter"]
         self.assertTrue(all(row["optimizer_step"] == 1 for row in controls))
         self.assert_restored(model, state)

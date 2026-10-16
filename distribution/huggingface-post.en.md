@@ -12,11 +12,11 @@ In our fixed Pythia-14m saved-tensor compression case, gradient cosines of about
 
 We're building SaveScope, a small CPU float32 audit toolkit for people experimenting with PyTorch saved-tensor compression. It compares compression policies with a dense reference and produces an inspectable report of saved scopes, parameter-gradient differences, and actual first-step AdamW parameter-update differences. The initial optimizer contract uses fresh moments; it does not replay stateful optimizer trajectories.
 
-[Source and quickstart](https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md) · [Contribution guide](https://github.com/Linxiushen/frontier-signal-lab/blob/main/CONTRIBUTING.md) · MIT original code
+[Source and quickstart](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/SAVESCOPE.md) · [Contribution guide](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/CONTRIBUTING.md) · MIT original code
 
 The motivation came from a fixed-parameter Pythia-14m diagnostic. An unchanged forward calculation did not imply a faithful backward pass. Keeping exact CE saves restored a local analytic gradient control, but the full-model gate failed; preserving actual LayerNorm saves still failed. Adding exact saves within six actual attention forwards brought full-gradient relative L2 from 4.05–7.70 to 0.034–0.041 over three fixed batches. The [report is pinned to a public commit](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-attention-gradient/report.md).
 
-This identifies a broad forward scope containing several operations, rather than a particular operand. We then applied the same gradients to disjoint weight/optimizer clones, measured actual float32 parameter changes, and checked native parameter and moment updates against independent NumPy equations within declared rounding bounds. All 76 parameter-gradient records matched the same-runtime attention diagnostic in every arm. The separate [predeclared update protocol](https://github.com/Linxiushen/frontier-signal-lab/blob/main/fixtures/activation-update/README.md) required update relative L2 <= 0.10, cosine >= 0.99, and at least halving the norm-only error with cosine no worse in every batch.
+This identifies a broad forward scope containing several operations, rather than a particular operand. We then applied the same gradients to disjoint weight/optimizer clones, measured actual float32 parameter changes, and checked native parameter and moment updates against independent NumPy equations within declared rounding bounds. All 76 parameter-gradient records matched the same-runtime attention diagnostic in every arm. The separate [predeclared update protocol](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/fixtures/activation-update/README.md) required update relative L2 <= 0.10, cosine >= 0.99, and at least halving the norm-only error with cosine no worse in every batch.
 
 | Fixed batch seed | Gradient cosine | Actual first-step update relative L2 | Update cosine | Joint gate |
 | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ This identifies a broad forward scope containing several operations, rather than
 | 29 | 0.999173 | 0.116722 | 0.993188 | Failed |
 | 47 | 0.999406 | 0.108971 | 0.994063 | Failed |
 
-The update error improved relative to the norm-only baseline, but its absolute value exceeded 0.10 in all three batches. The [executed update report](https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/activation-update/report.md) preserves that failure without retuning the gate. This single fresh-moment step says nothing about accumulated optimizer state or convergence.
+The update error improved relative to the norm-only baseline, but its absolute value exceeded 0.10 in all three batches. The [executed update report](https://github.com/Linxiushen/frontier-signal-lab/blob/savescope-v0.1.0/results/activation-update/report.md) preserves that failure without retuning the gate. This single fresh-moment step says nothing about accumulated optimizer state or convergence.
 
 Our [earlier small training experiment](https://github.com/Linxiushen/frontier-signal-lab/blob/4c9683a408625817500843161e40383527c30455/results/activation-training/report.md) reduced logical saved inventory by 54%, but ran slower on CPU and had a higher process peak. Both training arms' final holdout NLL were worse than their initial values. We have no training-quality, GPU-memory, or throughput gain to advertise.
 

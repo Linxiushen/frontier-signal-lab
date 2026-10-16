@@ -37,3 +37,9 @@ is not measured allocator peak memory.
 GitHub Actions separately checks portable wheel installation, the actual tiny
 CPU audit, and the full same-runtime Pythia diagnostic. Consult the live Actions
 status for remote validation; local success does not establish a remote result.
+
+The initial Linux package run exposed a one-ULP difference between equivalent
+FP64 norm reductions in one engineering assertion. That assertion now allows
+at most four FP64 ULPs while checking each cloned gradient element exactly
+against the original direct-autograd gradient snapshot. The audit implementation,
+recorded scientific results and wheel above are unchanged.

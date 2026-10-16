@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "fla-a2-test-container-runner-shutdown-20261016",
+  "event_window": {
+    "since_exclusive": "2026-10-16T10:40:38.681788Z",
+    "until_inclusive": "2026-10-16T12:42:46.677543Z"
+  },
+  "evidence": [
+    {
+      "pr": 1452,
+      "source_url": "https://github.com/fla-org/flash-linear-attention/pull/1452",
+      "immutable_head_sha": "df6759bdcef7e62caecabfeb61e754d8ed1a549f",
+      "public": true,
+      "license": "MIT",
+      "author_attribution": "xy200303",
+      "ci_run_id": 38871017308,
+      "ci_job_id": 116874881950,
+      "ci_job_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38871017308/job/116874881950",
+      "started_at": "2026-10-16T12:31:48Z",
+      "completed_at": "2026-10-16T12:32:48Z",
+      "conclusion": "failure",
+      "failure_stage": "Initialize containers",
+      "checkout": "skipped",
+      "npu_environment_check": "skipped",
+      "unit_and_graph_tests": "skipped",
+      "log_evidence": {
+        "url": "https://api.github.com/repos/fla-org/flash-linear-attention/actions/jobs/116874881950/logs",
+        "body_sha256": "f3f6b2479f14e64f7c1e9890c77b137dd137e9c03c92e2a18f62ec4070ab43ca",
+        "observed_at": "2026-10-16T12:46:02.934584+00:00",
+        "lines": [
+          23,
+          24,
+          25
+        ],
+        "messages": [
+          "Process completed with exit code 130.",
+          "Executing the custom container implementation failed.",
+          "The runner has received a shutdown signal."
+        ]
+      },
+      "interpretation": "Runner/container infrastructure failure before checkout/tests. No kernel numerical success or failure established.",
+      "same_head_a2_benchmark": "Public job metadata marks benchmark/check-results/upload steps success; logs/artifacts/timings not audited.",
+      "limitations": [
+        "Head/body/base unchanged and PR unmerged.",
+        "H100 tests/smoke remain queued.",
+        "No local device execution, speed or quality claim.",
+        "Not Nathan Chen contribution or employer/private-roadmap evidence."
+      ]
+    },
+    {
+      "pr": 1487,
+      "source_url": "https://github.com/fla-org/flash-linear-attention/pull/1487",
+      "immutable_head_sha": "039a3d0134b39a4a3147578205acbd32d780981a",
+      "public": true,
+      "license": "MIT",
+      "author_attribution": "zhiyuan1i",
+      "ci_run_id": 38879661455,
+      "ci_job_id": 116903104115,
+      "ci_job_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38879661455/job/116903104115",
+      "started_at": "2026-10-16T12:33:23Z",
+      "completed_at": "2026-10-16T12:33:44Z",
+      "conclusion": "failure",
+      "failure_stage": "Initialize containers",
+      "checkout": "skipped",
+      "npu_environment_check": "skipped",
+      "unit_and_graph_tests": "skipped",
+      "log_evidence": {
+        "url": "https://api.github.com/repos/fla-org/flash-linear-attention/actions/jobs/116903104115/logs",
+        "body_sha256": "9dbe2294a74807d89f01f79a401c15cee734a2522e50ec44fb830ac3864473fa",
+        "observed_at": "2026-10-16T12:46:03.002040+00:00",
+        "lines": [
+          23,
+          24,
+          25
+        ],
+        "messages": [
+          "Process completed with exit code 130.",
+          "Executing the custom container implementation failed.",
+          "The runner has received a shutdown signal."
+        ]
+      },
+      "interpretation": "Runner/container infrastructure failure before checkout/tests. No kernel numerical success or failure established.",
+      "same_head_a2_benchmark": "Public job metadata marks benchmark/check-results/upload steps success; logs/artifacts/timings not audited.",
+      "limitations": [
+        "Head/body/base unchanged and PR unmerged.",
+        "H100 tests/smoke remain queued.",
+        "No local device execution, speed or quality claim.",
+        "Not Nathan Chen contribution or employer/private-roadmap evidence."
+      ]
+    }
+  ],
+  "research_implication": "Keep accelerator/full-backward/layout/causality validation open; classify setup failure separately from a numerical experiment failure.",
+  "provenance_audit_path": "reports/runs/20261016T124246Z/h1-checks.json",
+  "provenance_audit_sha256": "0823c59aea7375ed16d64bf145ce95262fedad6fe63de854e58425f0d8b027e0",
+  "no_upstream_code_or_tests_run_locally": true
+}

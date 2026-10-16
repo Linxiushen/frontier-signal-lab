@@ -40,13 +40,15 @@
         "pythia14m-fixed-gradient-attention-boundary",
         "pythia14m-first-step-adamw-update-fidelity",
         "fla-activation-singleton-stride-regression",
-        "pythia14m-matched-state-adamw-update-fidelity"
+        "pythia14m-matched-state-adamw-update-fidelity",
+        "fla-a2-device-test-infrastructure-gap",
+        "pythia14m-short-history-common-anchor-update-fidelity"
       ],
-      "status": "short_dense_history_matched_state_update_gate_passed_training_benefit_unestablished",
+      "status": "short_dense_and_compressed_history_common_anchor_gate_passed_trajectory_moment_drift_observed_training_benefit_unestablished",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "Prior pretrained fresh-state actual AdamW delta relL2 0.119295/0.116722/0.108971 fails0.10 in all3batches despite gradient cosine~0.999. New separately frozen four-dense-step history diagnostic passes all3matched-state gates at warmed points:0.008563226/0.007663672/0.007763336,cosine~0.99997. Same warmed weights/per-policy gradients with fresh state still fail0.10:0.109041819/0.105082811/0.109491334. All30native step controls pass; no compressed training trajectory. Earlier cost/OSpeak and both synthetic holdout results remain negative. New FLA1490 test-only singleton-stride/all-input-backward draft has unaudited L40 author counts; depends on unmerged1487, queued compute is not validation. Public signals neither clear device gates nor establish private plans.",
+      "supporting_observation": "Prior pretrained fresh-state actual AdamW delta relL2 0.119295/0.116722/0.108971 fails0.10; four-dense-step matched-state gates pass all3 while fresh controls at warmed weights still fail. New separately frozen new-data dense/compressed eight-step histories pass all12same-anchor joint gates at t4/8 (treatment relL2 0.013346161–0.015637556). All84native steps/6384parameter-step controls pass. Across-history seed211,t8 m/v relativeL20.860920536/1.954909346,theta drift/dense cumulative displacement0.059117668: descriptive divergence without threshold, not trajectory/quality success. Prior training cost/OSpeak and both synthetic holdout regressions persist. FLA1452/1487A2tests fail in container initialization before checkout/numerical tests; benchmark success metadata and queuedH100 do not validate numerical behavior, speed or Nathan contribution.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Separately predeclare new fixed batches and multiple audit points with matched real dense/compressed histories, measuring optimizer-state drift and actual updates without tuning thresholds on these overlapping schedules. Both moments and step differ between current contexts, so coordinate/operand attribution is unresolved. Only then consider sealed quality and matched-time training; prior cost/holdout regressions remain. Individual saved operands/general rotary, learned routing/AttnRes, broader sealed quality and measured currentGPU/hardware/compiler/dispatch/full-backward gates remain unexecuted. SaveScope v0.1 public API remains fresh-state only.",
+      "next_gate": "Separately predeclare longer paired training on independent fixed data with sealed model-quality evaluation and actual packing/retrieval cost, process/device peak and matched-time controls. Retain all seeds and absolute local thresholds; large descriptive moment drift prevents interpreting local fidelity as trajectory equivalence. No moment-only/operand attribution. Prior cost/holdout regressions and individual saved operands/general rotary, learnedrouting/AttnRes/currentGPU/hardware/compiler/dispatch/full-backward gates remain. SaveScope v0.1 API stays fresh-state only.",
       "additional_experiments": [
         "experiments/attnres_memory_probe.py",
         "experiments/real_activation_autograd_probe.py",
@@ -55,15 +57,17 @@
         "experiments/activation_norm_gradient_probe.py",
         "experiments/activation_attention_gradient_probe.py",
         "experiments/activation_update_probe.py",
-        "experiments/activation_state_update_probe.py"
+        "experiments/activation_state_update_probe.py",
+        "experiments/activation_history_probe.py"
       ],
-      "review_record": "research/2026-10-16-accumulated-state-update.md",
+      "review_record": "research/2026-10-16-short-history-update.md",
       "previous_review_records": [
         "research/2026-10-16-training-and-replay-boundaries.md",
         "research/2026-10-16-gradient-and-authority.md",
         "research/2026-10-16-norm-saves-and-execution.md",
         "research/2026-10-16-attention-saves-and-continuation.md",
-        "research/2026-10-16-savescope.md"
+        "research/2026-10-16-savescope.md",
+        "research/2026-10-16-accumulated-state-update.md"
       ]
     },
     {
@@ -106,7 +110,9 @@
         "openclaw-fail-closed-recovery-reads",
         "pi-model-specific-compaction-policy",
         "openclaw-restored-requester-authority",
-        "openclaw-bounded-concurrent-recovery"
+        "openclaw-bounded-concurrent-recovery",
+        "openclaw-recovery-dependency-terminal-settlement",
+        "pi-provider-summary-output-budget"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -117,7 +123,7 @@
       ],
       "supporting_observation": "Prior independent SQLite/adapter/context primitives and bounded public Linux shutdown logs remain executed evidence with their original limits. Newly merged173579 keeps original session identity, reuses fresh operator authority/ordinary chat admission and passes lifecycle settlement into input acceptance, retaining restart tool flags through dispatch/queues. Source process tests include scripted provider and actual files but skip Windows; their read-only session control is not device/role revocation. No local Gateway execution. Public checkpoint-tail P1 remains unreplicated; prepared-head CI is completed/failure, with inherited-failure attribution only an unaudited author claim. Old173454 kill-settlement P2/source window is unchanged, not fresh news. Newly merged #170336 is test-only: cold-state reconstruction adds exact-source and actual device/role owner invalidation assertions around real disabled Cron-job persistence, using a synthetic handshake and mocked turn/provider, with no OS kill. #173580 distinguishes pre-write cancellation preserving a healthy shared client from timeout/post-write retirement while retaining the predecessor-exit writer fence. Committed transports are synthetic; temporary native proof is an unaudited maintainer excerpt. #173241 uses monotonic relative poll deadlines with one fake-Date regression. All 13 immutable changed patches were read; three prepared-head main CI success metadata records do not establish independent runtime proof. The current recovery service blob is identical to the #173579 merge; the checkpoint reader remains absent, and kill still clears its obligation on a cancellation request. The06:36UTC source pass adds merged#173878 exact legacy peer-input hash reconstruction through JSON storage and receipt-owned completion identity, #173788 one fixed45sdrain deadline with attributed exact-lease controller/CLI handling, and #169529 at most2fresh-policy re-admissions carrying producer ceiling/destination/ingress authority with terminal exhaustion and distinct dedupe ids. All31mergepatches inspected; no upstream execution.173878 exact-head CI failure is retained; inherited attribution/exception is unaudited.173788/169529 CI success is metadata only. Current readmission tests include real managed writes and a Windows-skipped real child, with synthetic inference; historical packaged traces do not validate current restructure. Publication during durable admission remains an explicit residual. Prior checkpoint/process blobs and tracked discussion arrays are unchanged. The08:35UTC pass adds three source-only clusters:173383 separates conversation/turn authority lifetime and attests restricted native creation policy, preserving managed predecessors on failed successor creation and projecting the admitted context snapshot;173970 rejects blocking credential failures, explicitly cancels unreadable-history compaction and preserves unreadable catalog bytes; pi6085986e actually adds exact-model compaction overrides at threshold/overflow/summary readers, c4cf7957 accidentally reverts companion type/docs/tests and790271cd restores them. All55immutable patches read.173383 current-head CI success is metadata only;173970 and pi790271cd main CI are failures.173970 inherited-lint/admin-merge attribution and older173383 packaged proof remain unaudited claims. Current checkpoint/process/followup/handoff blobs and tracked prior discussion arrays remain unchanged; no runtime status upgrade. The10:39UTC pass adds newly merged earlier proposals173873 and173924: durable requester recovery evidence with current-policy revalidation/no system fallback and the24->25compatibility fence at that merge, plus dedicated recovery concurrency4 with healthy Main control and retryable uncharged claims. Read14/63 and16/16changed patches respectively; process-fixture source uses Gateway subprocesses plus synthetic provider. Prepared173873head CI remains failure;173924success is metadata only. Existing checkpoint/process blobs unchanged; no runtime gate cleared.",
       "falsifier": "Full-harness tests already satisfy the remaining contracts without consequential failures, or the controlled assumptions fail under real providers, concurrent writers, torn storage or external-effect receipts.",
-      "next_gate": "Full-harness Windows readiness remains unmet. Combine a real entrypoint/handshake, current device/role revocation and durable-effect receipts with exact saved agent/session/incarnation/lifecycle rejection. Do not treat #170336 cold-state, mocked-turn, disabled-job source as executed process proof. Add pre-write Stop preservation with the successor waiting for predecessor physical exit, timeout retirement and a configured-MCP post-thread/start negative control; use monotonic relative deadlines under forward/backward wall-clock perturbations. Retain #173579 full-turn checkpoints beyond 20 messages, restrictions across CLI/queues, policy settlement without duplicates and a second restart. Retain the #173454 requested-kill/pre-settlement crash window with independent PID/effect/SQLite/notice receipts and persistence-failure controls. No new harness experiment executed; source assertions, author counts and CI metadata clear neither project gate. The H4 real pinned Pi/ACP/MCP replay gate remains separate and unmet. Add JSON round-trip/SQLite reopen receipt identity across pending/interrupted/consumed/completed, identical completed replay versus changed content, and exact current endpoint/permission controls. Combine disconnected-controller/nonrenewable45sdrain, slow preflight/prepare, expired/replaced lease, clock rollback, protected writes and committed-shutdown controls; matching controller adoption is separate. Fresh-policy completion replay must retain original producer ceiling, destination, delivery opt-out and cancel/ingress authority; include allowed-write control, revoked producer, max2storm exhaustion and no later passive drain. Isolate publication inside admitUserTurn awaits and require current packaged-Gateway/process restart traces before runtime upgrade. Preserve all earlier failed or unmet gates. Add real native/Gateway restricted-owner warm/cold and SQLite reopen continuity with current authority, one-time legacy transition, failed/protected successor controls, temporary/additive grant withdrawal, sender isolation and exact allowed/denied effect receipts; preserve prepared assembly across late policy rotation. Require unavailable-secret/OAuth failure stopping before actual provider transport plus healthy marker-only control; inspect-fault cancellation preserving real history and unreadable-catalog byte preservation, stable upgrade and base-fail/head-pass. Pin model and compaction-policy snapshots across threshold/request-overflow/summary selection/retry/restart and model switching; keep enabledfalse/zero and nonmatching-model controls. Both red upstream CI conclusions remain failures, attribution unverified. Do not treat source assertions or historic attached proofs as current runtime evidence. Pin an actual packaged Gateway after both merges and authentic parents:8sessions/2stores, hold4recoveries, release then fifth progresses, healthy Main, prepare overload/retry, revoke current device/role/temporary grants across awaits, reopen SQLite and restart twice. Independently verify PID/provider/durable effect/receipt/sourceRun identity and retained uncharged claims; no duplicate effect, privilege widening or concurrency above4. Liveness assumes a slot is released.",
+      "next_gate": "Full-harness Windows readiness remains unmet. Combine a real entrypoint/handshake, current device/role revocation and durable-effect receipts with exact saved agent/session/incarnation/lifecycle rejection. Do not treat #170336 cold-state, mocked-turn, disabled-job source as executed process proof. Add pre-write Stop preservation with the successor waiting for predecessor physical exit, timeout retirement and a configured-MCP post-thread/start negative control; use monotonic relative deadlines under forward/backward wall-clock perturbations. Retain #173579 full-turn checkpoints beyond 20 messages, restrictions across CLI/queues, policy settlement without duplicates and a second restart. Retain the #173454 requested-kill/pre-settlement crash window with independent PID/effect/SQLite/notice receipts and persistence-failure controls. No new harness experiment executed; source assertions, author counts and CI metadata clear neither project gate. The H4 real pinned Pi/ACP/MCP replay gate remains separate and unmet. Add JSON round-trip/SQLite reopen receipt identity across pending/interrupted/consumed/completed, identical completed replay versus changed content, and exact current endpoint/permission controls. Combine disconnected-controller/nonrenewable45sdrain, slow preflight/prepare, expired/replaced lease, clock rollback, protected writes and committed-shutdown controls; matching controller adoption is separate. Fresh-policy completion replay must retain original producer ceiling, destination, delivery opt-out and cancel/ingress authority; include allowed-write control, revoked producer, max2storm exhaustion and no later passive drain. Isolate publication inside admitUserTurn awaits and require current packaged-Gateway/process restart traces before runtime upgrade. Preserve all earlier failed or unmet gates. Add real native/Gateway restricted-owner warm/cold and SQLite reopen continuity with current authority, one-time legacy transition, failed/protected successor controls, temporary/additive grant withdrawal, sender isolation and exact allowed/denied effect receipts; preserve prepared assembly across late policy rotation. Require unavailable-secret/OAuth failure stopping before actual provider transport plus healthy marker-only control; inspect-fault cancellation preserving real history and unreadable-catalog byte preservation, stable upgrade and base-fail/head-pass. Pin model and compaction-policy snapshots across threshold/request-overflow/summary selection/retry/restart and model switching; keep enabledfalse/zero and nonmatching-model controls. Both red upstream CI conclusions remain failures, attribution unverified. Do not treat source assertions or historic attached proofs as current runtime evidence. Pin an actual packaged Gateway after both merges and authentic parents:8sessions/2stores, hold4recoveries, release then fifth progresses, healthy Main, prepare overload/retry, revoke current device/role/temporary grants across awaits, reopen SQLite and restart twice. Independently verify PID/provider/durable effect/receipt/sourceRun identity and retained uncharged claims; no duplicate effect, privilege widening or concurrency above4. Liveness assumes a slot is released. New source-only gates: packaged adjacent-parent controls for registry-startup/peer replay order, permanent refusal versus transient retry and guarded terminal intent/once-only notice across two OS restarts; actual provider wire summary sizing independent of trigger reserve across compaction/retry/restart. See research/2026-10-16-recovery-settlement-and-summary-budget.md.",
       "review_record": "research/2026-10-16-recovery-concurrency-and-harness-root.md",
       "alternative_explanation": "These changes may be routine repair of already known integration bugs, without establishing a new research program or any individual private plan.",
       "forecast": {
@@ -133,7 +139,13 @@
         "research/2026-10-16-recovery-authority.md",
         "research/2026-10-16-receipt-drain-readmission.md",
         "research/2026-10-16-continuation-and-fail-closed.md"
-      ]
+      ],
+      "latest_source_review": {
+        "record": "research/2026-10-16-recovery-settlement-and-summary-budget.md",
+        "evidence_record": "research/evidence/2026-10-16-recovery-settlement-and-summary-budget.json",
+        "status": "source_only_no_runtime_upgrade",
+        "observation": "174134 waits for restoration settlement (failure also releases);174177 classifies permanent authority refusal versus transient overload/policy startup and fences terminal once-only notice;174203 reconciles saved peer custody before admission. pi11036 removes local summary maxTokens; provider request budget untraced. Four heads green metadata only; old residual blobs unchanged."
+      }
     },
     {
       "id": "H3",
@@ -164,7 +176,8 @@
         "verifiers-isolated-runtime-policy",
         "verifiers-session-lifetime-merged",
         "verifiers-harness-replay-views",
-        "verifiers-harness-git-metadata-removal"
+        "verifiers-harness-git-metadata-removal",
+        "pi-provider-summary-output-budget"
       ],
       "status": "planned_not_executed",
       "experiment": null,
@@ -176,7 +189,12 @@
       "previous_review_records": [
         "research/2026-10-16-verifier-service-lifetime.md",
         "research/2026-10-16-resume-and-replay.md"
-      ]
+      ],
+      "latest_source_review": {
+        "record": "research/2026-10-16-recovery-settlement-and-summary-budget.md",
+        "status": "source_only",
+        "observation": "Summary maxTokens removal is provider-dependent source behavior, no real wire/token/reward quality or replay execution."
+      }
     }
   ]
 }

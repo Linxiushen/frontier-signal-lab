@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T11:04:01.032783+00:00",
-  "observation_note": "Original source objects retained; one predeclared first-step AdamW negative result and SaveScope product release added.",
+  "last_updated_at": "2026-10-16T13:24:49.060389+00:00",
+  "observation_note": "Historical source objects retained. Bounded new public source reviews and one separately predeclared short-history diagnostic added; common-anchor gates and descriptive trajectory drift are reported separately.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -2936,6 +2936,167 @@
       "protocol_sha256": "9b3a45c205defd8d1211c3f2ad2c60a447e057438a219e4f38e2cc1371706cca",
       "implementation_freeze_sha256": "cb89d0c1cbb0151e48d6fd6ca5e7859e848c08d14b1ad01a268d1551eec32a08",
       "review_record": "research/2026-10-16-accumulated-state-update.md"
+    },
+    {
+      "id": "openclaw-recovery-dependency-terminal-settlement",
+      "url": "https://github.com/openclaw/openclaw/pull/174134",
+      "additional_urls": [
+        "https://github.com/openclaw/openclaw/pull/174177",
+        "https://github.com/openclaw/openclaw/pull/174203"
+      ],
+      "type": "new_public_proposal_and_merge_source_review",
+      "author": "steipete / Peter Steinberger",
+      "published_at": "2026-10-16T10:58:28Z",
+      "published_at_kind": "Proposal creation; separate per-source merge time in evidence record",
+      "observed_at": "2026-10-16T12:47:52.772145Z",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or upstream implementation copied",
+      "status": "merged_source_and_prepared_head_ci_metadata_only_no_runtime_upgrade",
+      "commits": [
+        {
+          "sha": "b4ce369de7e8d0047365e7410145321d654eaf51",
+          "parents": [
+            "8b0908f63429b9f95578a9a6a4de074ed486a0e6"
+          ],
+          "prepared_head": "a3e307f4101f355a7db11fb01b2267e71911f54e",
+          "created_at": "2026-10-16T10:58:28Z",
+          "merged_at": "2026-10-16T11:24:39Z",
+          "changed_patches_read": 12,
+          "changed_files_total": 12
+        },
+        {
+          "sha": "ce9d859d68abc213d9c82990ae4d75afc566a830",
+          "parents": [
+            "8bedee5e4040026ab5878467ccef2ac5fcbb382a"
+          ],
+          "prepared_head": "23f912d780e85e35ea44ac8f267bd881ceba07ef",
+          "created_at": "2026-10-16T11:40:46Z",
+          "merged_at": "2026-10-16T12:19:04Z",
+          "changed_patches_read": 15,
+          "changed_files_total": 15
+        },
+        {
+          "sha": "fa191c5ce97ff8e3ce1415d3f7dca1f84455c20d",
+          "parents": [
+            "911db4b680804787d1f4acd4792b90566a0f1ab7"
+          ],
+          "prepared_head": "5dd2b9e549284275b90051a843313ebc8af7f524",
+          "created_at": "2026-10-16T12:17:56Z",
+          "merged_at": "2026-10-16T12:32:40Z",
+          "changed_patches_read": 1,
+          "changed_files_total": 1
+        }
+      ],
+      "claim": {
+        "oc174134": [
+          "Main-session startup recovery now awaits a deferred resolved after subagent restoration settles. The promise also resolves on failure; this is a dependency-settlement gate, not proof restoration succeeded.",
+          "Worker discovery applies existing recovery-claim predicate before transferring selected rows. Archived/tombstoned/no-obligation rows are excluded; completed rows with delivery/recovery custody remain. Incognito memory sessions have no durable restart selection. Separate reader/delivery/activation spans improve diagnostics.",
+          "Changed tests use deferred activation success/failure, real session-store selection and both removed/retained consumed-input representations. The worker regression expects5relevant rows out of10. Entire12changed patches read; no upstream execution."
+        ],
+        "oc174177": [
+          "Restoration owner distinguishes missing/mismatched original evidence or explicit current access denial from overload and unavailable access-policy startup. It records permanent reasons, preserves restricted custody and retries designated transient failures.",
+          "Exact cohort settlement uses existing batch mutation. operator_authority_unavailable clears the old requester wake and suppresses fallback system notices while retaining child outcomes. Missing cohort can return undefined only after exact/binding checks; an existing unbound cohort throws and stays retryable.",
+          "Main recovery writes an idempotent local interruption notice and clears old claims through guarded transcript/lifecycle update. A saved replayable reply is sanitized and included as delivery-unconfirmed. New pendingFinalDelivery expectation uses deep equality, fencing a concurrent replacement intent. Startup marking respects terminal run fences instead of rearming solely because status remains interrupted.",
+          "Changed tests include same-process lifecycle rotation/SQLite reload with mocked recovery runtime, explicit pre-binding refusal and unavailable-policy retry, one terminal notice across another simulated boot, preserved workspace/reply, cohort-result preservation and no system event, concurrent pending-final replacement, plus Gateway admission harness changes with agentCommandMock. These sources are not independent OS-crash proof. Entire15changed patches read."
+        ],
+        "oc174203": [
+          "The sole changed source patch reconciles orphaned receiver custody through existing session-recovery owner after authorization and before a non-restart admission touches/replaces its row. It passes current-request commit guard and worker-placement context, then asserts current request again.",
+          "No tests change in this commit. Real restart/five-delivery/second-restart claims come from author-reported unchanged tests, not an execution or full test-file read by this audit."
+        ]
+      },
+      "third_party_validation": {
+        "oc174134": "Reports157distinct tests, final reader9/9 and corrected16-case stale expectations. Historical13.562s/24.360s are before/after an investigated deployment, not this patch; no elapsed-time speedup, local full process restart or live deployment proof claimed.",
+        "oc174177": "Reports17startup,75cold-registry and various focused12/36/2case controls; counts overlap and are not additive. Author labels Gateway restart affected2cases and prior14cases as passing; synthetic state, no production restart/deployment or new startup timing. Earlier test-only/inherited CI problems described but attribution not audited.",
+        "oc174203": "Reports hourly five updates failed before provider, parent-of174134 control passing and66/66focused unchanged tests with real Gateway case40.20s; second restart/no duplicates/cancel/reset/revoked exclusions. Journal, logs and execution not inspected independently."
+      },
+      "our_inference": "Public recovery engineering is converging on explicit dependency readiness, permanent-versus-transient authority outcomes, and guarded durable settlement at admission. Routine repair of known bugs remains a sufficient alternative explanation. It does not clear H2 full-harness gates.",
+      "limitations": "All selected changed patches read; CI metadata only, no jobs/logs or harness/provider execution. Old checkpoint/kill gates not cleared; no private roadmap or endorsement claim.",
+      "review_record": "research/2026-10-16-recovery-settlement-and-summary-budget.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-settlement-and-summary-budget.json"
+    },
+    {
+      "id": "pi-provider-summary-output-budget",
+      "url": "https://github.com/earendil-works/pi/pull/11036",
+      "additional_urls": [],
+      "type": "new_public_proposal_and_merge_source_review",
+      "author": "davidbrai (not Mario Zechner / badlogic)",
+      "published_at": "2026-10-16T11:08:27Z",
+      "published_at_kind": "Proposal creation; separate per-source merge time in evidence record",
+      "observed_at": "2026-10-16T12:47:52.772145Z",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no per-file license audit or upstream implementation copied",
+      "status": "merged_source_and_prepared_head_ci_metadata_only_no_runtime_upgrade",
+      "commits": [
+        {
+          "sha": "6fcb48670fc0e6672a644f3b2691010321734426",
+          "parents": [
+            "90d863f7c1183b965f099855715d6e88c7b8a52c"
+          ],
+          "prepared_head": "baba5233a79a95f4611e65453777fd896ba0e788",
+          "created_at": "2026-10-16T11:08:27Z",
+          "merged_at": "2026-10-16T11:53:17Z",
+          "changed_patches_read": 9,
+          "changed_files_total": 9
+        }
+      ],
+      "claim": [
+        "Compaction, turn-prefix and branch-summary code stops supplying fixed maxTokens. Old0.8*reserveTokens/0.5*reserveTokens/4096caps are removed. generateSummary/generateSummaryWithUsage keep the old positional reserveTokens argument for callers but ignore it; internal calls pass undefined.",
+        "Docs redefine reserveTokens as the compaction trigger reserve. Thinking level/routing/request options remain, but old tests asserting local output caps are removed or revised. Split-turn usage aggregation assertion stays. Entire9changed patches read.",
+        "The changed patch does not implement provider sizing. A comment/docs say provider handles actual-request/model-output/context sizing, but exact provider implementations and actual wire requests were not audited here. No new fake-provider cap-omission assertion or provider-limit integration proof is introduced in the read patch."
+      ],
+      "third_party_validation": "PR says reasoning consumes shared output cap on OpenAI Responses/adaptive Anthropic, causing token-cap failures despite larger model capacity; actual summary requests omit recent messages, normal system/tools and may be smaller, so existing provider sizing should handle them. No independent provider run, token/cost/quality/recall benchmark here.",
+      "our_inference": "Trigger policy and actual summary-generation budget now have different owners. H2 policy snapshots and H4 environment/reward replay need actual routed model and wire-level limits, rather than assuming reserveTokens defines output. More output allowance can change cost and context safety; neither benefit nor regression was measured here.",
+      "limitations": "All selected changed patches read; CI metadata only, no jobs/logs or harness/provider execution. Old checkpoint/kill gates not cleared; no private roadmap or endorsement claim.",
+      "review_record": "research/2026-10-16-recovery-settlement-and-summary-budget.md",
+      "evidence_record": "research/evidence/2026-10-16-recovery-settlement-and-summary-budget.json"
+    },
+    {
+      "id": "fla-a2-device-test-infrastructure-gap",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1487",
+      "additional_urls": [
+        "https://github.com/fla-org/flash-linear-attention/pull/1452"
+      ],
+      "type": "new_ci_state_on_unchanged_public_proposals",
+      "author": "zhiyuan1i (#1487), xy200303 (#1452); not Nathan Chen",
+      "published_at": null,
+      "published_at_kind": "Existing PRs; new test completions12:32:48Z/12:33:44Z, not source proposals",
+      "observed_at": "2026-10-16T12:46:03.002040+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT repository metadata; no implementation copied",
+      "status": "runner_container_failure_before_numerical_tests",
+      "claim": "Both A2 test jobs fail Initialize containers with exit130/custom container failure/runner shutdown. Checkout, environment and all unit/graph tests skipped. Heads unchanged, PRs unmerged.",
+      "third_party_validation": "Same-head A2 benchmark job steps success metadata only; logs/artifacts/timings unreviewed. H100 queued.",
+      "our_inference": "Keep accelerator/full-backward/layout gates open; infrastructure interruption is neither numerical failure nor success.",
+      "limitations": "No local device/kernel execution, performance, training quality or Nathan contribution claim.",
+      "review_record": "research/2026-10-16-recovery-settlement-and-summary-budget.md",
+      "evidence_record": "research/evidence/2026-10-16-a2-ci-infrastructure.json"
+    },
+    {
+      "id": "pythia14m-short-history-common-anchor-update-fidelity",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/activation_history_probe.py",
+      "type": "original_local_predeclared_short_history_common_anchor_diagnostic",
+      "author": "Frontier Signal Lab (original protocol/code); EleutherAI (historical model)",
+      "published_at": null,
+      "published_at_kind": "Local diagnostic completion; no new upstream researcher publication",
+      "observed_at": "2026-10-16T13:19:19.755300+00:00",
+      "repository_public": true,
+      "license_metadata": "Original tooling/data MIT; pinned historical Pythia assets Apache-2.0; no model weights/raw parameter/gradient/moment arrays committed",
+      "status": "executed_valid_controls_joint_gate_passed_all_twelve_anchors_with_descriptive_trajectory_divergence",
+      "claim": "Three fixed schedules on new synthetic blocks; two independent actual eight-step dense/INT8 histories per seed. At steps4/8 each own theta/m/v/t anchor is fixed for dense/norm-only/norm+attention audit clones. 48actual history and36discarded clone AdamW updates, all76parameters controlled.",
+      "result": "All12unchanged primary joint gates pass. Treatment actual delta relL2 0.013346160858656891–0.01563755601917474,cosine0.9998777335516388–0.9999109502399003,error-to-norm-only ratio0.04388069824427728–0.06966772730011521. Across-history seed211,t8 m/v relativeL2 0.8609205361435561/1.9549093464809473 and cosine0.8165173020373375/0.5887762404271186; theta difference0.08114745440483453,0.05911766765944948 of dense cumulative displacement. Drift descriptive without gate.",
+      "our_inference": "Common-anchor local update fidelity extends to these twelve short-history points, while different actual histories can develop much larger moment differences. Local gate success cannot establish trajectory equivalence or training benefit. Parameters, gradients, moments and histories co-vary; no moment-only causal attribution.",
+      "limitations": "Overlapping deterministic schedules on eight train/four shared audit synthetic blocks, two audit points, no independent statistical replication, sealed quality/convergence/matched-time/peak-memory/GPU/AttnRes result. Prior pretrained fresh-state and training cost/holdout negatives preserved. SaveScope v0.1 API remains fresh-state only. Receipt audit cannot independently recompute unpublished raw-array references/delta norms/cumulative-displacement denominator.",
+      "stable_result_sha256": "c5ae6bbb167189ffe51248258257dc9ed88504e7eed54ce6da2002321c5c80cc",
+      "observation_sha256": "40c002a4d9f1d30e4410cb7efadf3fa7f545a58274942e9267cba86e09cfc282",
+      "result_file_sha256": "8e5ad39d33bb13b33687a1dd6935ec812fe94fd35d205692396c00ddf59606a5",
+      "protocol_sha256": "612b12f3c013822ac0074b4920544ac5c2e3c0bbeef545bae7056ecbd5076fa4",
+      "implementation_freeze_sha256": "73a657fa8d1241fddbea2b755725b88ad94fde60c187fdec1a2d917ac3171d38",
+      "receipt_auditor": "scripts/audit_activation_history.py",
+      "receipt_auditor_sha256": "7870025d2a87297564ca60f4854df27917d1b8eb9b999372292959f5c9a13ec9",
+      "receipt_audit": "results/activation-history/independent-audit.json",
+      "receipt_audit_sha256": "d31af397171af24b06cfea026a53a26f4170e3015f7cc7a43501d920b0d021b6",
+      "receipt_audit_checks": 213926,
+      "review_record": "research/2026-10-16-short-history-update.md"
     }
   ]
 }

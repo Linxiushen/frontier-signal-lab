@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "model_id": "EleutherAI/pythia-14m",
+  "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+  "data_sha256": "9692a24b619857f937c0fa08a99a204e9845373b38cfe28f3a7020f3c8a8a582",
+  "sources": {
+    "train": {
+      "file": "train.txt",
+      "sha256": "03806fcbba793f43e36e2317fe6243283890b32cf509cdcb8d629a6d9704c85c",
+      "source_tokens": 2355,
+      "selected_tokens": 520,
+      "blocks": 8,
+      "tokens_per_block": 65,
+      "license": "MIT",
+      "origin": "original model-written synthetic prose; numerical diagnostic only"
+    },
+    "audit": {
+      "file": "audit.txt",
+      "sha256": "42aacdb6e3d92e71f92732ba0b714c084d43577debe21fdb264d219d8e8a1f45",
+      "source_tokens": 2375,
+      "selected_tokens": 260,
+      "blocks": 4,
+      "tokens_per_block": 65,
+      "license": "MIT",
+      "origin": "original model-written synthetic prose; numerical diagnostic only"
+    }
+  },
+  "tokenizer_sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2",
+  "preparation_script_sha256": "d519ffba294d8b6d73c88759b94d303909261cdfba22a58f1898e02f9efa6f88",
+  "recipe": "Pinned tokenizer, no special tokens. First8train and first4audit nonoverlapping65-token blocks; inputs0..63 predict1..64. No padding or cross-source joins.",
+  "purpose": "New fixed history batches and audit batches. Audit data are numerical controls, not sealed model-quality holdout."
+}

@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "predeclared_at": "2026-10-16T12:49:57.974405+00:00",
+  "preparation_status": "new synthetic data fixed and protocol written before new experimental implementation/tests/model execution",
+  "question": "Does common-anchor actual AdamW update fidelity extend to new fixed batches at multiple actual dense and compressed history points? How far do the two short trajectories and optimizer moments drift?",
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      101,
+      211,
+      307
+    ],
+    "histories_in_order": [
+      "dense",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "methods_in_order": [
+      "dense",
+      "model_except_norm_saved_int8",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "history_steps": 8,
+    "audit_steps": [
+      4,
+      8
+    ],
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "threads": 1,
+    "dtype": "float32",
+    "attention": "eager",
+    "optimizer": {
+      "name": "AdamW",
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false,
+      "amsgrad": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false
+    },
+    "primary_gate": {
+      "max_relative_l2_to_dense": 0.1,
+      "min_cosine_to_dense": 0.99,
+      "max_treatment_to_norm_only_relative_l2": 0.5,
+      "cosine_no_worse_than_norm_only": true,
+      "require_all_seeds": true
+    },
+    "require_all_anchors": true,
+    "expected_anchors": 12,
+    "audit_batches": {
+      "4": [
+        0,
+        1
+      ],
+      "8": [
+        2,
+        3
+      ]
+    },
+    "min_compressed_elements": 256,
+    "max_seconds_per_worker": 900,
+    "parent_worker_timeout_seconds": 960,
+    "analytic_logits_gradient_relative_l2_tolerance": 1e-05,
+    "expected_named_layernorm_modules": 13,
+    "expected_named_attention_modules": 6,
+    "gradient_clipping": false,
+    "learning_rate_schedule": false,
+    "optimizer_group": "all76 trainable tensors in one group including biases/norms",
+    "expected_counts": {
+      "workers": 3,
+      "history_backwards": 48,
+      "probe_backwards": 36,
+      "native_history_steps": 48,
+      "native_clone_steps": 36
+    },
+    "reference": "frozen independent float64 NumPy theta/m/v/t controls with input-scale moment bounds and four-corner parameter interval",
+    "execution": "CPU float32 eager single thread deterministic; eval mode/dropout0; dense forward, exact CE outside hooks. Each trajectory uses its own actual optimizer, not synchronized states."
+  },
+  "config_sha256": "d825d88e5e800b4e84db2a67eb5252f2c24f81b5620762529a865c0bb753f783",
+  "data_sha256": "9692a24b619857f937c0fa08a99a204e9845373b38cfe28f3a7020f3c8a8a582",
+  "manifest_sha256": "2ad147b7a552aa6ff828d5590c960f1676b0a63abe7f339799faa4e9ae7c78cd",
+  "schedules": {
+    "101": {
+      "history_batches": [
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "history_batches_sha256": "baeda86aa9837e22ac02cc6799c97eb64c12cec74c4f8d7388b9b627e400203d"
+    },
+    "211": {
+      "history_batches": [
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "history_batches_sha256": "2ceebf45b17ac261e0616f7fc4069603704e19e151a49c38d0675330557a4b61"
+    },
+    "307": {
+      "history_batches": [
+        [
+          6,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "history_batches_sha256": "22120326ed30b70f9eb61bc072a24e32a4e3cb0ce3c67c2e930734507fe92f84"
+    }
+  },
+  "frozen_dependencies_sha256": {
+    "experiments/activation_state_update_probe.py": "fba7730f295aab04597de45142a4747ca8b69b6f304cf639627e9d7c2600d1e0",
+    "experiments/adamw_state_reference.py": "bc5a4925a448576d0e878928884e37bf9d612fabe16e61c4a410a1c3267a2f6d",
+    "experiments/activation_update_probe.py": "630a109da3f260c3a8b31346ac839cf2901edab6d8b7bce82609d7a3105169f3",
+    "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a"
+  },
+  "prior_results_sha256": {
+    "results/activation-update/report.json": "5fdaeca50029a81073634e6e718e0ca3aecacca41e72d5363ef40f49711710e5",
+    "results/activation-state-update/report.json": "0cc65219b0a6beea5f68b3ce8b0001f72f93fc3dee92855ae4b0c727a9b0c61d",
+    "results/activation-training/report.json": "85a8e3bf0b9b828ca8ce460218ef530de9788799b91634ccd713f4ab6a6a4418"
+  },
+  "new_source_paths": [
+    "scripts/prepare_activation_history.py",
+    "experiments/activation_history_probe.py",
+    "tests/test_activation_history.py"
+  ],
+  "primary_estimand": "At each history h and t, compare actual clone delta(T|theta_h,t,m_h,t,v_h,t,t) against delta(D|same anchor), using B as same-anchor norm-only baseline. All12anchors must pass the unchanged joint gate; no averaging, history/seed/point rescue or threshold tuning.",
+  "secondary_descriptive_estimand": "At each paired point compare actual trajectory theta/m/v across dense and treatment history. Report absolute L2, relativeL2/cosine where defined, parameter difference relative to dense cumulative displacement and dense update path length. Counters must equal t. This mixes parameter, gradient, state and history drift, without a pass threshold or causal state attribution.",
+  "controls": [
+    "Histories start from identical pinned pretrained parameters with separate optimizer/state storage; actual eight steps per history",
+    "Every native history and clone step checks all76 finite parameter tensors against frozen independent NumPy theta/m/v/t reference",
+    "At each audit the exact full theta/m/v/t anchor is identical across D/B/T clone inputs and source hashes stay unchanged; audit updates are discarded and audit gradients are cleared before continuing history",
+    "Exact CE analytic gradient,13norm and6actualAttention scopes per backward. Only same-anchor logits/loss must match, not different trajectories",
+    "New train8/audit4 blocks disjoint from each other and previous train/holdout blocks; all seeds share two fixed audit batches; no holdout scoring",
+    "Implementation, tests, fixtures and source pins frozen before exactly one local declared scientific run; independent CI reproduction separate",
+    "Control failure/timeout is incomplete, never a valid failed scientific gate; retain artifacts and no retry/tuning"
+  ],
+  "stop_conditions": [
+    "Any hash/model/layout/scope/finite/numerical/counter/storage/source-mutation control failure stops the completed scientific result",
+    "900seconds measured worker budget;960seconds parent wall timeout per worker including startup",
+    "One declared local execution only. No tuning, extra seeds, points, batches, policies, restarts or outcome-driven selection. Scientific failure is a valid completed result."
+  ],
+  "limitations": [
+    "Three deterministic schedules over the same small synthetic blocks overlap; seeds identify schedules, not independent statistical replicates",
+    "Only two eight-step trajectories and two audit points; no long-run/convergence/generalization or sealed model-quality evidence",
+    "Own-trajectory drift is not local compression fidelity. No crossover, moment-only attribution or norm-only-trained trajectory comparison",
+    "No matched-time efficiency, peak memory/GPU, practical compression benefit, AttnRes or private researcher-roadmap claim",
+    "CPU reference controls/hashes retain sufficient statistics but raw theta/gradient/moment arrays are not published for independent offline numerical recomputation",
+    "SaveScope v0.1 public API remains fresh-state only; experimental history probe is separate"
+  ]
+}

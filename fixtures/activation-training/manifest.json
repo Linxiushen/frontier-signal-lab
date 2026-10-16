@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "model_id": "EleutherAI/pythia-14m",
+  "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+  "train_source_sha256": "e0c4147c0ce606cd964ac0e689024c6fe9ac72309aabc34bc9143421b2a23dba",
+  "holdout_source_sha256": "3f67dc13ca5d7adad1cb31b11774dda7c6ea4b369d09c49780d7060c1c75403c",
+  "tokenizer_sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2",
+  "source_files": {
+    "train": {
+      "path": "fixtures/real-activation/source.txt",
+      "sha256": "e0c4147c0ce606cd964ac0e689024c6fe9ac72309aabc34bc9143421b2a23dba",
+      "source_tokens": 850,
+      "selected_tokens": 520,
+      "selected_target_positions": 512,
+      "license": "MIT",
+      "origin": "original model-written synthetic prose in this repository"
+    },
+    "holdout": {
+      "path": "fixtures/activation-training/holdout.txt",
+      "sha256": "3f67dc13ca5d7adad1cb31b11774dda7c6ea4b369d09c49780d7060c1c75403c",
+      "source_tokens": 917,
+      "selected_tokens": 520,
+      "selected_target_positions": 512,
+      "license": "MIT",
+      "origin": "original model-written synthetic prose in this repository"
+    }
+  },
+  "tokenizer_assets": {
+    "tokenizer.json": {
+      "bytes": 2114042,
+      "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/tokenizer.json"
+    },
+    "tokenizer_config.json": {
+      "bytes": 4834,
+      "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/tokenizer_config.json"
+    },
+    "special_tokens_map.json": {
+      "bytes": 441,
+      "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c",
+      "origin_url": "https://huggingface.co/EleutherAI/pythia-14m/resolve/cf967c0a9a04383db6f7b1108d86b2962634b4ac/special_tokens_map.json"
+    }
+  },
+  "predeclared_config": {
+    "steps": 24,
+    "batch_size": 2,
+    "sequence_length": 64,
+    "train_blocks": 8,
+    "holdout_blocks": 8,
+    "seeds": [
+      11,
+      29,
+      47
+    ],
+    "learning_rate": 0.0001,
+    "optimizer": "AdamW",
+    "weight_decay": 0.0,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "optimizer_eps": 1e-08,
+    "max_training_seconds_per_worker": 180,
+    "methods": [
+      "dense",
+      "int8_saved_tensors"
+    ],
+    "compression": "eligible non-parameter-backed finite CPU float32 tensors with at least256elements, symmetric maxabs per last dimension; backward saved-tensor approximation only",
+    "evaluation": "initial and final heldout NLL only; no intermediate holdout selection",
+    "budget": "matched training tokens/steps; wall-clock measured, not matched; time limit aborts incomplete runs"
+  },
+  "predeclared_config_sha256": "6c0ed010bb7a37507b44ffb54f9fd3788fb2c4241ad72886e22d9a9779ff39d1",
+  "preparation_script_sha256": "2c1bbe085fdacf2552d56deb2267c245c1597cbeace8589825be37f37e151c19",
+  "started_at": "2026-10-16T02:44:36.265427+00:00",
+  "completed_at": "2026-10-16T02:44:45.632777+00:00",
+  "library_versions": {
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.2"
+  },
+  "split_protocol": "Separate complete source files; take first8nonoverlapping65token blocks from each. No padding/special tokens, no cross-file joins.64inputs predict positions1..64. Unused suffixes excluded.",
+  "limitations": [
+    "Tiny synthetic prose diagnostic, not a natural language benchmark or general model-quality claim.",
+    "The original train prose was used previously for frozen forward capture; it was not held out in that earlier experiment.",
+    "Equal token/step budgets only. Timing and process peaks remain machine-specific observations.",
+    "Training with backward saved-tensor compression is independent activation-memory research, not an AttnRes implementation."
+  ]
+}

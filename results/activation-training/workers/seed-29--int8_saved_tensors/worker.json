@@ -1,0 +1,5733 @@
+{
+  "method": "int8_saved_tensors",
+  "seed": 29,
+  "pid": 18540,
+  "completed": true,
+  "training_started_at": "2026-10-16T02:55:39.441036+00:00",
+  "training_completed_at": "2026-10-16T02:55:51.290114+00:00",
+  "training_loop_wall_seconds": 11.84903459995985,
+  "steps_completed": 24,
+  "scored_train_token_pairs": 3072,
+  "parameter_count": 14067712,
+  "all_parameters_trainable": true,
+  "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+  "final_parameter_sha256": "54832ce2ed042b97052459a1381a5625a9d8dff259fd9547c3cabc5215f6e7f8",
+  "schedule": [
+    [
+      5,
+      3
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "schedule_sha256": "62656b8983d0fc8a059b5db3ac57e5789172bc08eefa7073656af13ab20ac8a8",
+  "initial_holdout": {
+    "mean_nll": 4.731054067611694,
+    "scored_token_pairs": 512
+  },
+  "final_holdout": {
+    "mean_nll": 5.530738592147827,
+    "scored_token_pairs": 512
+  },
+  "step_records": [
+    {
+      "next_token_nll": 5.782718658447266,
+      "parameter_gradient_l2": 494.4205058435423,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58621956,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18772659997921437,
+        "backward_including_unpack": 0.09271270001772791,
+        "gradient_norm_and_finite_checks": 0.07683749997522682,
+        "optimizer": 0.11161900009028614,
+        "updated_parameter_finite_checks": 0.06770159990992397,
+        "instrumented_step_total": 0.5365973999723792,
+        "saved_tensor_pack_callbacks": 0.14689780015032738,
+        "saved_tensor_unpack_callbacks": 0.025938700302504003
+      },
+      "step": 0,
+      "batch_indices": [
+        5,
+        3
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 581181440,
+        "resident_bytes": 581177344,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 5.489346504211426,
+      "parameter_gradient_l2": 156.29242176441193,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58228740,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17786080006044358,
+        "backward_including_unpack": 0.0929791999515146,
+        "gradient_norm_and_finite_checks": 0.07485309999901801,
+        "optimizer": 0.07134580006822944,
+        "updated_parameter_finite_checks": 0.06777089997194707,
+        "instrumented_step_total": 0.4848098000511527,
+        "saved_tensor_pack_callbacks": 0.13669439952354878,
+        "saved_tensor_unpack_callbacks": 0.027122998842969537
+      },
+      "step": 1,
+      "batch_indices": [
+        0,
+        6
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 607481856,
+        "resident_bytes": 606937088,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 5.3760175704956055,
+      "parameter_gradient_l2": 133.10819673124425,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58621956,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1781427999958396,
+        "backward_including_unpack": 0.09076310007367283,
+        "gradient_norm_and_finite_checks": 0.07132729992736131,
+        "optimizer": 0.0693713000509888,
+        "updated_parameter_finite_checks": 0.066856799996458,
+        "instrumented_step_total": 0.4764613000443205,
+        "saved_tensor_pack_callbacks": 0.13721840060316026,
+        "saved_tensor_unpack_callbacks": 0.026066400459967554
+      },
+      "step": 2,
+      "batch_indices": [
+        7,
+        2
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 611807232,
+        "resident_bytes": 607559680,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 5.351830005645752,
+      "parameter_gradient_l2": 132.05658803455742,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58425348,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18123520002700388,
+        "backward_including_unpack": 0.10285099991597235,
+        "gradient_norm_and_finite_checks": 0.07775559998117387,
+        "optimizer": 0.07551590004004538,
+        "updated_parameter_finite_checks": 0.07227760006207973,
+        "instrumented_step_total": 0.5096353000262752,
+        "saved_tensor_pack_callbacks": 0.14021429931744933,
+        "saved_tensor_unpack_callbacks": 0.02954389969818294
+      },
+      "step": 3,
+      "batch_indices": [
+        4,
+        1
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612798464,
+        "resident_bytes": 607834112,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.692237854003906,
+      "parameter_gradient_l2": 191.96938046993017,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17777150007896125,
+        "backward_including_unpack": 0.09025150001980364,
+        "gradient_norm_and_finite_checks": 0.07161199999973178,
+        "optimizer": 0.06941319990437478,
+        "updated_parameter_finite_checks": 0.06850020005367696,
+        "instrumented_step_total": 0.4775484000565484,
+        "saved_tensor_pack_callbacks": 0.13628550036810338,
+        "saved_tensor_unpack_callbacks": 0.025846300064586103
+      },
+      "step": 4,
+      "batch_indices": [
+        1,
+        3
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607592448,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.621589660644531,
+      "parameter_gradient_l2": 283.05353335655457,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 59080708,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18035060004331172,
+        "backward_including_unpack": 0.09091300005093217,
+        "gradient_norm_and_finite_checks": 0.07165739999618381,
+        "optimizer": 0.06978979997802526,
+        "updated_parameter_finite_checks": 0.0671529999235645,
+        "instrumented_step_total": 0.47986379999201745,
+        "saved_tensor_pack_callbacks": 0.13882809912320226,
+        "saved_tensor_unpack_callbacks": 0.025768199819140136
+      },
+      "step": 5,
+      "batch_indices": [
+        0,
+        6
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607444992,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.7497334480285645,
+      "parameter_gradient_l2": 147.62734411665886,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 59342852,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1752182999625802,
+        "backward_including_unpack": 0.09058419999200851,
+        "gradient_norm_and_finite_checks": 0.0712689000647515,
+        "optimizer": 0.06988289998844266,
+        "updated_parameter_finite_checks": 0.06810059992130846,
+        "instrumented_step_total": 0.47505489992909133,
+        "saved_tensor_pack_callbacks": 0.13440739968791604,
+        "saved_tensor_unpack_callbacks": 0.0251273998292163
+      },
+      "step": 6,
+      "batch_indices": [
+        5,
+        7
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607457280,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.59771203994751,
+      "parameter_gradient_l2": 284.3955197283708,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 59342852,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1756364000029862,
+        "backward_including_unpack": 0.09128209995105863,
+        "gradient_norm_and_finite_checks": 0.07361910003237426,
+        "optimizer": 0.07402800000272691,
+        "updated_parameter_finite_checks": 0.06815559999085963,
+        "instrumented_step_total": 0.4827211999800056,
+        "saved_tensor_pack_callbacks": 0.1348180010681972,
+        "saved_tensor_unpack_callbacks": 0.02642109978478402
+      },
+      "step": 7,
+      "batch_indices": [
+        4,
+        2
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607485952,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.406156539916992,
+      "parameter_gradient_l2": 207.11626481249456,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 59342852,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1770357999484986,
+        "backward_including_unpack": 0.08969270007219166,
+        "gradient_norm_and_finite_checks": 0.07211489998735487,
+        "optimizer": 0.06994039996061474,
+        "updated_parameter_finite_checks": 0.0676886000437662,
+        "instrumented_step_total": 0.4764724000124261,
+        "saved_tensor_pack_callbacks": 0.13573280081618577,
+        "saved_tensor_unpack_callbacks": 0.025739299366250634
+      },
+      "step": 8,
+      "batch_indices": [
+        5,
+        7
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607506432,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.89877986907959,
+      "parameter_gradient_l2": 248.90232005117096,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 59342852,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17394169990438968,
+        "backward_including_unpack": 0.09111500007566065,
+        "gradient_norm_and_finite_checks": 0.07235889998264611,
+        "optimizer": 0.07003649999387562,
+        "updated_parameter_finite_checks": 0.067630699952133,
+        "instrumented_step_total": 0.47508279990870506,
+        "saved_tensor_pack_callbacks": 0.13349149900022894,
+        "saved_tensor_unpack_callbacks": 0.026275399839505553
+      },
+      "step": 9,
+      "batch_indices": [
+        6,
+        0
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612818944,
+        "resident_bytes": 607784960,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 4.088129043579102,
+      "parameter_gradient_l2": 474.83820056458444,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58818564,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18182070006150752,
+        "backward_including_unpack": 0.09369349991902709,
+        "gradient_norm_and_finite_checks": 0.07318160007707775,
+        "optimizer": 0.07386439992114902,
+        "updated_parameter_finite_checks": 0.07086820004042238,
+        "instrumented_step_total": 0.49342840001918375,
+        "saved_tensor_pack_callbacks": 0.1401605000719428,
+        "saved_tensor_unpack_callbacks": 0.026548399939201772
+      },
+      "step": 10,
+      "batch_indices": [
+        3,
+        4
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612958208,
+        "resident_bytes": 607793152,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.6459758281707764,
+      "parameter_gradient_l2": 483.31166886742153,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58818564,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18111100001260638,
+        "backward_including_unpack": 0.09510619996581227,
+        "gradient_norm_and_finite_checks": 0.08100770006421953,
+        "optimizer": 0.07113249995745718,
+        "updated_parameter_finite_checks": 0.07101760001387447,
+        "instrumented_step_total": 0.49937500001396984,
+        "saved_tensor_pack_callbacks": 0.13876420038286597,
+        "saved_tensor_unpack_callbacks": 0.026714201201684773
+      },
+      "step": 11,
+      "batch_indices": [
+        1,
+        2
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612958208,
+        "resident_bytes": 607793152,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.7376351356506348,
+      "parameter_gradient_l2": 482.7972416530782,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58818564,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18821440008468926,
+        "backward_including_unpack": 0.1131044999929145,
+        "gradient_norm_and_finite_checks": 0.09009289997629821,
+        "optimizer": 0.09040079999249429,
+        "updated_parameter_finite_checks": 0.07910530001390725,
+        "instrumented_step_total": 0.5609179000603035,
+        "saved_tensor_pack_callbacks": 0.14634209929499775,
+        "saved_tensor_unpack_callbacks": 0.03303600021172315
+      },
+      "step": 12,
+      "batch_indices": [
+        0,
+        4
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612958208,
+        "resident_bytes": 607797248,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.7972705364227295,
+      "parameter_gradient_l2": 395.22383654733335,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58818564,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.20939390000421554,
+        "backward_including_unpack": 0.10967899998649955,
+        "gradient_norm_and_finite_checks": 0.07994339999277145,
+        "optimizer": 0.09111050004139543,
+        "updated_parameter_finite_checks": 0.07724609994329512,
+        "instrumented_step_total": 0.5673728999681771,
+        "saved_tensor_pack_callbacks": 0.16004159965086728,
+        "saved_tensor_unpack_callbacks": 0.031044900068081915
+      },
+      "step": 13,
+      "batch_indices": [
+        1,
+        5
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 612958208,
+        "resident_bytes": 607797248,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.8414347171783447,
+      "parameter_gradient_l2": 335.804983045799,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58818564,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1864244999596849,
+        "backward_including_unpack": 0.0929669999750331,
+        "gradient_norm_and_finite_checks": 0.0766301000257954,
+        "optimizer": 0.07086640002671629,
+        "updated_parameter_finite_checks": 0.07174669997766614,
+        "instrumented_step_total": 0.49863469996489584,
+        "saved_tensor_pack_callbacks": 0.14458449929952621,
+        "saved_tensor_unpack_callbacks": 0.027464000042527914
+      },
+      "step": 14,
+      "batch_indices": [
+        7,
+        2
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 607485952,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.7460219860076904,
+      "parameter_gradient_l2": 363.84221295973174,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.18194839998614043,
+        "backward_including_unpack": 0.09500550001394004,
+        "gradient_norm_and_finite_checks": 0.07220870000310242,
+        "optimizer": 0.06927360000554472,
+        "updated_parameter_finite_checks": 0.0682069999165833,
+        "instrumented_step_total": 0.4866431999253109,
+        "saved_tensor_pack_callbacks": 0.14066989987622947,
+        "saved_tensor_unpack_callbacks": 0.028671700274571776
+      },
+      "step": 15,
+      "batch_indices": [
+        3,
+        6
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 607895552,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.335698366165161,
+      "parameter_gradient_l2": 449.6924296946451,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17577940004412085,
+        "backward_including_unpack": 0.0900215000147,
+        "gradient_norm_and_finite_checks": 0.07147659990005195,
+        "optimizer": 0.06987830006983131,
+        "updated_parameter_finite_checks": 0.06837240001186728,
+        "instrumented_step_total": 0.4755282000405714,
+        "saved_tensor_pack_callbacks": 0.1351218002382666,
+        "saved_tensor_unpack_callbacks": 0.025536199216730893
+      },
+      "step": 16,
+      "batch_indices": [
+        3,
+        1
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608047104,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.650892972946167,
+      "parameter_gradient_l2": 1213.7718171206723,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17586680001113564,
+        "backward_including_unpack": 0.09004749997984618,
+        "gradient_norm_and_finite_checks": 0.07297049998305738,
+        "optimizer": 0.07121750002261251,
+        "updated_parameter_finite_checks": 0.06770740007050335,
+        "instrumented_step_total": 0.47780970006715506,
+        "saved_tensor_pack_callbacks": 0.13533010007813573,
+        "saved_tensor_unpack_callbacks": 0.026558800251223147
+      },
+      "step": 17,
+      "batch_indices": [
+        6,
+        0
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608100352,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.764457941055298,
+      "parameter_gradient_l2": 604.8201255951058,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17698200000450015,
+        "backward_including_unpack": 0.09059949999209493,
+        "gradient_norm_and_finite_checks": 0.07178999995812774,
+        "optimizer": 0.06940300005953759,
+        "updated_parameter_finite_checks": 0.06739700003527105,
+        "instrumented_step_total": 0.47617150004953146,
+        "saved_tensor_pack_callbacks": 0.13488040131051093,
+        "saved_tensor_unpack_callbacks": 0.026542799663729966
+      },
+      "step": 18,
+      "batch_indices": [
+        2,
+        4
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608137216,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.8653175830841064,
+      "parameter_gradient_l2": 1887.6728243852888,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58556420,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1726598999230191,
+        "backward_including_unpack": 0.09035320009570569,
+        "gradient_norm_and_finite_checks": 0.07209029991645366,
+        "optimizer": 0.07021620008163154,
+        "updated_parameter_finite_checks": 0.06821949989534914,
+        "instrumented_step_total": 0.47353909991215914,
+        "saved_tensor_pack_callbacks": 0.1325112001504749,
+        "saved_tensor_unpack_callbacks": 0.02589229994919151
+      },
+      "step": 19,
+      "batch_indices": [
+        5,
+        7
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 607608832,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.4397225379943848,
+      "parameter_gradient_l2": 459.0048807931197,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58687492,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.1746995000867173,
+        "backward_including_unpack": 0.09044739999808371,
+        "gradient_norm_and_finite_checks": 0.07093329995404929,
+        "optimizer": 0.06930249999277294,
+        "updated_parameter_finite_checks": 0.06723240006249398,
+        "instrumented_step_total": 0.4726151000941172,
+        "saved_tensor_pack_callbacks": 0.1338628005469218,
+        "saved_tensor_unpack_callbacks": 0.026106399716809392
+      },
+      "step": 20,
+      "batch_indices": [
+        1,
+        4
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608215040,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.4079887866973877,
+      "parameter_gradient_l2": 310.82676768558446,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58687492,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.189358500065282,
+        "backward_including_unpack": 0.10199709993321449,
+        "gradient_norm_and_finite_checks": 0.07667209999635816,
+        "optimizer": 0.07276290003210306,
+        "updated_parameter_finite_checks": 0.06920030002947897,
+        "instrumented_step_total": 0.5099909000564367,
+        "saved_tensor_pack_callbacks": 0.1480326991295442,
+        "saved_tensor_unpack_callbacks": 0.031490100896917284
+      },
+      "step": 21,
+      "batch_indices": [
+        0,
+        7
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608239616,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.1909713745117188,
+      "parameter_gradient_l2": 331.2153697514877,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58687492,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17689500004053116,
+        "backward_including_unpack": 0.09028040000703186,
+        "gradient_norm_and_finite_checks": 0.07121399999596179,
+        "optimizer": 0.06968059996142983,
+        "updated_parameter_finite_checks": 0.06801399996038526,
+        "instrumented_step_total": 0.4760839999653399,
+        "saved_tensor_pack_callbacks": 0.13548699964303523,
+        "saved_tensor_unpack_callbacks": 0.02629759896080941
+      },
+      "step": 22,
+      "batch_indices": [
+        2,
+        6
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608251904,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    },
+    {
+      "next_token_nll": 3.412553071975708,
+      "parameter_gradient_l2": 346.6140674281163,
+      "parameter_tensors_with_finite_gradients": 76,
+      "parameter_elements_with_finite_gradients": 14067712,
+      "saved_tensor_inventory": {
+        "counts": {
+          "save_calls": 180,
+          "dtype_or_device_excluded": 2,
+          "parameter_storage_excluded": 51,
+          "eligible": 100,
+          "compressed_saves": 100,
+          "size_or_shape_excluded": 27,
+          "unpack_calls": 180,
+          "decoded_saves": 100
+        },
+        "original_logical_saved_bytes_including_duplicates": 90058756,
+        "retained_logical_payload_bytes_including_duplicates": 45476868,
+        "source_storage_union_bytes_diagnostic": 58687492,
+        "retained_activation_storage_union_bytes": 14989316,
+        "retained_parameter_storage_union_bytes_excluded_from_compression": 30487552,
+        "shape_audit": [
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              2,
+              64
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "dtype_or_device_excluded",
+            "dtype": "torch.int64",
+            "shape": [
+              128
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              1,
+              64,
+              8
+            ],
+            "saves": 24
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              4,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              128
+            ],
+            "saves": 13
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              32,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              32
+            ],
+            "saves": 12
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              8,
+              64,
+              64
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 19
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "eligible",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 2
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128
+            ],
+            "saves": 26
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              384
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              512
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              128,
+              50304
+            ],
+            "saves": 1
+          },
+          {
+            "policy": "parameter_storage_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              512,
+              128
+            ],
+            "saves": 6
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [],
+            "saves": 1
+          },
+          {
+            "policy": "size_or_shape_excluded",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              64,
+              1
+            ],
+            "saves": 26
+          }
+        ]
+      },
+      "timing_seconds": {
+        "forward_crossentropy_including_pack": 0.17790630005765706,
+        "backward_including_unpack": 0.08941929996944964,
+        "gradient_norm_and_finite_checks": 0.07438130001537502,
+        "optimizer": 0.07180609996430576,
+        "updated_parameter_finite_checks": 0.06699840002693236,
+        "instrumented_step_total": 0.48051140003371984,
+        "saved_tensor_pack_callbacks": 0.1373592991149053,
+        "saved_tensor_unpack_callbacks": 0.02554370032157749
+      },
+      "step": 23,
+      "batch_indices": [
+        3,
+        5
+      ],
+      "scored_token_pairs": 128,
+      "process_memory": {
+        "peak_bytes": 613060608,
+        "resident_bytes": 608251904,
+        "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+        "native_peak_units": "bytes"
+      }
+    }
+  ],
+  "memory": {
+    "after_import_before_model": {
+      "peak_bytes": 284106752,
+      "resident_bytes": 284102656,
+      "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+      "native_peak_units": "bytes"
+    },
+    "after_model_and_initial_holdout": {
+      "peak_bytes": 408952832,
+      "resident_bytes": 407441408,
+      "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+      "native_peak_units": "bytes"
+    },
+    "after_training": {
+      "peak_bytes": 613060608,
+      "resident_bytes": 608288768,
+      "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+      "native_peak_units": "bytes"
+    },
+    "after_final_holdout_and_hash": {
+      "peak_bytes": 634298368,
+      "resident_bytes": 608542720,
+      "backend": "GetProcessMemoryInfo PeakWorkingSetSize/WorkingSetSize",
+      "native_peak_units": "bytes"
+    }
+  },
+  "process_lifetime_peak_bytes": 634298368,
+  "data_sha256": "321e3c8113a5490f078c9b6c8f0d8dc9877e52d2b47a1295669b28814d820580",
+  "runtime": {
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "transformers": "4.57.3",
+    "system": "Windows",
+    "release": "10",
+    "machine": "AMD64",
+    "device": "cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "deterministic_algorithms": true
+  }
+}

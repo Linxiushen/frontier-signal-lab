@@ -15,9 +15,9 @@ This repository turns public research signals into our own testable work. It doe
 
 ## Current gates
 
-- H1: a frozen Pythia pre-block fixture and per-step int8/identity-STE operator replay have run; they showed no saved-storage reduction. Evaluate learned queries, optimizer/backbone retention and matched token/time training before model quality or GPU memory claims.
+- H1: frozen Pythia pre-block/operator replay and actual full-parameter tiny Pythia training have run. Backward-only int8 saved tensors reduced the retained activation inventory by 54%, but increased CPU time and OS lifetime peak; both matched-token arms worsened synthetic holdout NLL. Next isolate gradient/update errors at identical parameters, including loss/normalization saves, before expanding compression. Learned routing, matched-time training, broader heldout quality and measured GPU gates remain open; neither probe reproduces AttnRes.
 - H2: add liveness, stale-turn rejection and external-effect boundaries, then integrate one actual harness before calling the protocol production-ready.
-- H3/H4: planned only. A written idea is not an executed experiment.
+- H3/H4: planned only. Merged per-harness replay views add a source-only H4 gate for token/trace/reward version consistency. A written idea is not an executed experiment.
 - New actors: use first-party professional/research sources; do not infer age or assign prodigy labels. Record the observation date separately from an announced joining date.
 
 ## Persistence and notifications

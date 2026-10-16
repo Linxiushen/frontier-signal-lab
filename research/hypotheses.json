@@ -18,18 +18,27 @@
         "fla-kda-dense-output-allocation",
         "fla-kda-value-tiling-validation",
         "fla-gdp-guarded-normalization",
-        "pythia14m-pinned-activation-fixture"
+        "pythia14m-pinned-activation-fixture",
+        "fla-recovery-pr-1422",
+        "fla-recovery-pr-1425",
+        "fla-recovery-pr-1461",
+        "fla-recovery-pr-1462",
+        "fla-recovery-pr-1458",
+        "fla-recovery-pr-1484",
+        "actnn-activation-compressed-training",
+        "pythia14m-activation-training-diagnostic"
       ],
-      "status": "real_pretrained_residual_operator_autograd_executed_backbone_training_unverified",
+      "status": "full_tiny_causal_lm_matched_token_training_executed_compression_benefit_unestablished",
       "experiment": "experiments/attnres_budget_probe.py",
-      "supporting_observation": "Prior synthetic budget/CPU inference results remain bounded. The new pinned Pythia-14m fixture contains actual cumulative pre-block residuals, replayed by an independent random-query operator with real CPU autograd and per-step int8 packing plus identity STE. All three dense outputs match independent NumPy tolerance; output/operator-gradient differences are recorded. Both methods save3,432,960unique backing bytes; this decoded-STE implementation did not reduce that inventory and had higher observed lifetime peaks/times. This clears a real-trace/operator-backward measurement gate only.",
+      "supporting_observation": "Prior seven probes remain bounded. One new paired full-Pythia14m AdamW diagnostic actually trains all14,067,712parameters for24updates/3072targets per method/seed. Backward-only deterministicint8 saved operands reduce nonparameter retained-storage inventory54.01%, while observed CPUloop1.47..1.52x and OS lifetimepeaks23.22..24.86MiB higher. Both final synthetic holdoutNLL ranges exceed initial4.73105; int8 lower than dense is not overall quality improvement. Finite full-gradient coverage does not imply accurate gradients. Six fresh workers, fixed token/split/config hashes; no posthoc tuning. FLA new recovery PR numbers mostly restore historical contributions, not new Nathan work.",
       "falsifier": "Rare-information loss, training regression, or dequantization/backward/communication costs erase the practical benefit.",
-      "next_gate": "Before increasing compression priority, execute matched token and wall-clock small-model training with learned queries, optimizer steps, held-out loss, multiple seeds and actual backbone activation-retention/packing/backward costs. Test a design that avoids retaining fullfloat32 leaves plus decoded banks, rather than reading int8 logical codes as memory savings. Measure real device peaks/throughput on available resources before GPU claims. Separately validate serial/CP outputs/gradients, indexed capacity, alias/full-write and packed suffix correctness. Frozen cumulative Pythia residuals do not reproduce upstream AttnRes architecture or its training.",
+      "next_gate": "First isolate backward approximation at identical model parameters/inputs: full gradient direction/update errors and loss/normalization-save sensitivity, before expanding this compression design. Learned depth queries, faithful AttnRes training, matched-wallclock optimization, broader independent natural-language evaluation and real device peak/throughput remain unexecuted gates. Do not count the all-activation saved-tensor hook or cumulative conventional Pythia states as a residual-bank/AttnRes implementation; prior ActNN establishes activation-compressed-training lineage. Historical restored kernel claims require current full-autograd/CP/indexed-capacity/alias validation and fresh logs.",
       "additional_experiments": [
         "experiments/attnres_memory_probe.py",
-        "experiments/real_activation_autograd_probe.py"
+        "experiments/real_activation_autograd_probe.py",
+        "experiments/activation_training_probe.py"
       ],
-      "review_record": "research/2026-10-16-real-activation-and-exec-custody.md"
+      "review_record": "research/2026-10-16-training-and-replay-boundaries.md"
     },
     {
       "id": "H2",
@@ -57,7 +66,10 @@
         "openclaw-lease-maintenance-release",
         "openclaw-background-exec-recovery",
         "openclaw-background-exec-kill-settlement-review",
-        "openclaw-background-exec-head-ci"
+        "openclaw-background-exec-head-ci",
+        "openclaw-in-place-resume",
+        "openclaw-in-place-checkpoint-review",
+        "openclaw-in-place-head-ci"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -66,17 +78,21 @@
         "experiments/pi_adapter_queue_probe.mjs",
         "experiments/pi_context_transform_probe.mjs"
       ],
-      "supporting_observation": "Prior independent SQLite, pinned adapter and complete context primitives remain bounded executed evidence. Prior public shutdown logs verify one controlled Linux integration, not general reliability. OpenClaw173454 is now merged atdbc41ff76ba1d835ab36261c48c5ecea87deff4c: background promotion persists a compact notification obligation, startup revalidates session/agent/tool authority and reports unknown outcomes without command replay. All22 changed-file patches were read; the genuine scripted-provider process E2E explicitly skips Windows and was not locally executed. A pre-existing public kill-settlement P2 plus current source identify a requested-kill/pre-settlement crash window; it is not a reproduced defect or proof of authoritative review-thread state. Final prepared-head CI success is metadata only. Prior stale-guidance, snapshot-continuity and maintenance-release source observations remain bounded evidence.",
+      "supporting_observation": "Prior independent SQLite/adapter/context primitives and bounded public Linux shutdown logs remain executed evidence with their original limits. Newly merged173579 keeps original session identity, reuses fresh operator authority/ordinary chat admission and passes lifecycle settlement into input acceptance, retaining restart tool flags through dispatch/queues. Source process tests include scripted provider and actual files but skip Windows; their read-only session control is not device/role revocation. No local Gateway execution. Public checkpoint-tail P1 remains unreplicated; prepared-head CI is completed/failure, with inherited-failure attribution only an unaudited author claim. Old173454 kill-settlement P2/source window is unchanged, not fresh news.",
       "falsifier": "Full-harness tests already satisfy the remaining contracts without consequential failures, or the controlled assumptions fail under real providers, concurrent writers, torn storage or external-effect receipts.",
-      "next_gate": "Reuse the actual upstream process-restart fixture atdbc41ff76ba1d835ab36261c48c5ecea87deff4c and authentic parent824e909530916673681c05f1dfef9ba3721fd071. Request kill, hold process settlement, crash/restart and independently inspect PID/effects/SQLite/notice receipts; compare confirmed cancellation, uncertain cleanup, reset/revocation and persistence failure. Unknown-outcome notification itself is already implemented upstream and is not a novel missing feature. Retain real-provider, external-effect and storage-failure combinations plus bounded progress/custody failure gates. Separately generate authentic released Gateway state and run real locked Doctor backup/exact-row compare-and-apply/reopen/task-progress integration; unchanged official seed requires9.4 and10.3 needs disclosed adaptation. Context primitive success does not clear provider serialization/request/full-harness integration. Keep maintenance inside/outside release budget, mixed-error refusal, callback count and snapshot replacement/reset controls. Source assertions, CI metadata and author campaign claims alone do not clear these gates.",
-      "review_record": "research/2026-10-16-real-activation-and-exec-custody.md",
+      "next_gate": "Full-harness Windows readiness remains unmet. Retain actual upstream process-fixture acceptance gates: original-session progress, stale identity rejection, full-turn checkpoint retention beyond20messages, completed-policy settlement without duplicate work, restrictions through CLI fallback/queues, current operator/device/role revocation and second restart. Preserve173454 requested-kill/pre-settlement crash window with independent PID/effect/SQLite/notice receipts and persistence-failure controls. These are deferred integration requirements, not new executed experiments. The single proposed next complete-harness experiment this pass is the pinned Pi/ACP replay gate in H4; helper/context success, author counts and CI metadata alone clear neither project gate.",
+      "review_record": "research/2026-10-16-resume-and-replay.md",
       "alternative_explanation": "These changes may be routine repair of already known integration bugs, without establishing a new research program or any individual private plan.",
       "forecast": {
         "claim": "Further public agent engineering adds regressions asserting recovery progress, lifecycle revocation and external effects.",
         "review_by": "2026-10-30",
         "scope": "Project work forecast, not a personal/institutional private roadmap.",
         "stopping_condition": "Reduce evidence strength if subsequent bounded samples give no independent support; retain coverage gaps rather than claiming global absence."
-      }
+      },
+      "previous_review_records": [
+        "research/2026-10-16-real-activation-and-exec-custody.md",
+        "research/2026-10-16-verifier-service-lifetime.md"
+      ]
     },
     {
       "id": "H3",
@@ -105,15 +121,19 @@
         "verifiers-session-lifetime",
         "verifiers-session-e2e-claim",
         "verifiers-isolated-runtime-policy",
-        "verifiers-session-lifetime-merged"
+        "verifiers-session-lifetime-merged",
+        "verifiers-harness-replay-views"
       ],
       "status": "planned_not_executed",
       "experiment": null,
-      "supporting_observation": "PR2866 is now merged at2a3ddf7: normally completed same-box scoring and collection precede session close, whereas stopped runs attempt close first; isolated collection precedes closure and independent grading. Current merged source includes original-runtime-policy repair. Three changed-file patches contain no new test file. The author150task aggregate remains unaudited and local scoring/services execution remains0.",
+      "supporting_observation": "Merged2866 completion-dependent finalize/collect/score/close lifecycle and isolated-runtime-policy repair remain source-only; its150task aggregate stays unaudited. Newly merged2864 applies pinned per-harness cosmetic replay views to both graph matching sides while preserving sampled messages and existing token/renderer prefix checks; all31changed patches plus graph matching/token sections and Pi/integration-resume source read. Author12-cell Prime sandbox campaign is not independently verified. False-branch repair does not establish reward consistency, training quality or real token/mask attribution.",
       "falsifier": "Repeated deterministic scoring and perturbation tests find no consequential inconsistencies.",
-      "next_gate": "Pin authentic parente71c69c811327b29e1becd1651cda223d4742ebd and merged2a3ddf7725f655cb7ea14fc9f10195221fa3ed1a with exact task/model/harness/runtime/baseline and raw per-rollout artifacts. Execute completed/inter-segment versus timeout/stopped/failed, same-box versus isolated scoring with real session-owned processes and service/receipt checks. Perturb close errors, finalize/collect timeout and ordinary exceptions, zero/finite/unlimited budgets; measure scoring and metrics separately and whether mutation actually stops. Full merged module differs from oldhead CI. Unified-error PR2857 remains open/unexecuted.",
-      "review_record": "research/2026-10-16-verifier-service-lifetime.md",
-      "alternative_explanation": "A routine lifecycle compatibility fix may remove the consequential reward bias once task/harness/runtime versions are pinned; remaining differences may be deliberate termination policy rather than scoring inconsistency."
+      "next_gate": "Single candidate: compare authentic parentd8d4dce78962f37a523acbb2c120a07046e06f84 and merged0976c3073f903d3449163d473e31c7e278b4a042 using real Pi0.86.1/pi-acp0.0.33/pi-mcp2.34.0 two-segment MCP resume. Capture task/model/runtime/config,wire requests,immutable stored messages,branch/token/mask attribution and teardown; cosmetic replay may match, changed tool call/result/content or token prefix must fork/reject. Native Windows prerequisites remain unmet: adapter uses POSIXsh/chmod/var-tmp and live fixture skips withoutPRIME_API_KEY. No install/external job executed. Retain2866 scoring/service-quiescence controls and2857open status as separate deferred acceptance conditions; do not substitute extracted-helper tests or call source assertions training evidence.",
+      "review_record": "research/2026-10-16-resume-and-replay.md",
+      "alternative_explanation": "Routine compatibility repairs may remove false branching and scoring lifecycle differences once task/harness/runtime versions are pinned; remaining differences may be deliberate termination policy. Neither merge establishes an individual private research plan or measurable RL training benefit.",
+      "previous_review_records": [
+        "research/2026-10-16-verifier-service-lifetime.md"
+      ]
     }
   ]
 }

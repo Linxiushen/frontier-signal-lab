@@ -1,0 +1,983 @@
+{
+  "schema_version": 1,
+  "kind": "reviewed_public_source_evidence",
+  "run_id": "20261016T144329Z",
+  "event_window": {
+    "after_utc": "2026-10-16T12:42:56.583839+00:00",
+    "through_actual_start_utc": "2026-10-16T14:43:29.3684848Z",
+    "strict_lower_exclusive": true,
+    "strict_upper_inclusive": true,
+    "query_bounds": "Whole-second12:42:56Z–14:43:29Z; all99returned git committer timestamps mechanically checked inside actual strict window. Root scanner owns its later14:43:58.536300Z cutoff.",
+    "all_returned_git_committer_timestamps_inside_strict_window": true
+  },
+  "read_observation_interval": {
+    "observation_start": "2026-10-16T14:45:35.030720Z",
+    "observation_end": "2026-10-16T14:48:42.231906Z"
+  },
+  "public_license_identity": [
+    {
+      "repository": "openclaw/openclaw",
+      "public": true,
+      "license_metadata": "MIT",
+      "default_branch": "main",
+      "boundary": "Metadata only; no per-file license audit and no upstream implementation copied into tracked work."
+    },
+    {
+      "repository": "earendil-works/pi",
+      "public": true,
+      "license_metadata": "MIT",
+      "default_branch": "main",
+      "boundary": "Metadata only; no per-file license audit and no upstream implementation copied into tracked work."
+    },
+    {
+      "repository": "PrimeIntellect-ai/verifiers",
+      "public": true,
+      "license_metadata": "MIT",
+      "default_branch": "main",
+      "boundary": "Metadata only; no per-file license audit and no upstream implementation copied into tracked work."
+    },
+    {
+      "repository": "SakanaAI/AI-Scientist-v3",
+      "public": true,
+      "license_metadata": "Apache-2.0",
+      "default_branch": "main",
+      "boundary": "Metadata only; no per-file license audit and no upstream implementation copied into tracked work."
+    }
+  ],
+  "coverage": {
+    "get_requests": 45,
+    "http200": 44,
+    "http404_expected_named_test_absence": 1,
+    "pagination_links": [],
+    "default_branch_commits_firstpage100": {
+      "oc": 98,
+      "pi": 0,
+      "vf": 1,
+      "ais": 0
+    },
+    "fully_read_changed_patches": 32,
+    "patch_bytes": 57242,
+    "selected_pr_bodies_fully_read": 5,
+    "selected_new_issue_comments_fully_read": 12,
+    "comment_followups": [
+      {
+        "key": "oc174248-comments",
+        "count": 2,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      },
+      {
+        "key": "oc174251-comments",
+        "count": 4,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      },
+      {
+        "key": "oc174282-comments",
+        "count": 3,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      },
+      {
+        "key": "oc174293-comments",
+        "count": 3,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      },
+      {
+        "key": "vf2872-comments",
+        "count": 0,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      },
+      {
+        "key": "vf2872-reviews",
+        "count": 0,
+        "scope": "Issue comments updated since floored lower bound; full bodies read, not instructions; review diff comments only separately forvf2872."
+      }
+    ],
+    "empty_followups": [
+      {
+        "key": "oc173454-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/173454/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173579-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/173579/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173873-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/173873/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc173924-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/173924/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc174134-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/174134/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc174177-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/174177/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "oc174203-comments",
+        "endpoint": "repos/openclaw/openclaw/issues/174203/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "pi11036-comments",
+        "endpoint": "repos/earendil-works/pi/issues/11036/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2857-comments",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2857/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2864-comments",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2864/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2866-comments",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2866/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      },
+      {
+        "key": "vf2874-comments",
+        "endpoint": "repos/PrimeIntellect-ai/verifiers/issues/2874/comments?since=2026-10-16T12%3A42%3A56Z&per_page=100&page=1",
+        "returned_count": 0,
+        "pagination_link": null
+      }
+    ],
+    "bounds": "Four default-branch commit lists firstpage100; four repo metadata; five selected immutable commit/PR/run lists;12old issue-comment followups;4new OpenClaw issue-comment followups andVF2872issue/inline-review lists;2cutoff immutable residual files;1expected immutable named-unit-file404;1body-only triagePR. No all-branch, general X/web/issue discussion coverage, no CI jobs/logs or hosted rigs inspected.",
+    "local_output_truncation_repairs": "Broad monitor/venv preparation listings and combined CI output were locally truncated; required fields were refiltered and reread. One long174251comment was reread separately in full. Network receipts themselves are preserved, not truncated."
+  },
+  "selected_sources": [
+    {
+      "source_key": "oc174248",
+      "url": "https://github.com/openclaw/openclaw/pull/174248",
+      "title": "fix(sessions): keep restart recovery from exhausting client reads",
+      "pr_author_login": "steipete",
+      "created_at": "2026-10-16T13:22:40Z",
+      "updated_at": "2026-10-16T13:49:36Z",
+      "merged_at": "2026-10-16T13:49:26Z",
+      "merge_commit": "0e6818f076d304fe363dad62a1a070f084dffb49",
+      "git_committer_date": "2026-10-16T13:49:26Z",
+      "actual_parents": [
+        "c5aabc24a6ed9c2c235440d04e2966c3b6ae3ccf"
+      ],
+      "prepared_head": "a6b484df308706a9d64fca42305882b023adaef3",
+      "pr_base_metadata": "d8faf8876126ad19a2c497b19aa0b538a9592b1c",
+      "new_proposal_in_window": true,
+      "changed_files_fully_read": 10,
+      "ci_metadata": [
+        {
+          "id": 38909186272,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T13:47:51Z",
+          "head_sha": "a6b484df308706a9d64fca42305882b023adaef3",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38909186272"
+        }
+      ],
+      "ci_boundary": "Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "witnesses": [
+        {
+          "sha256": "91ceeefe634088598a48d6d7a791bfb51b44335f7343ed02853a8b1b139cef08",
+          "bytes": 22542,
+          "local_ignored_receipt": "h234-raw/oc174248-pr.body",
+          "meaning": "Exact captured HTTP response body, observed after event cutoff; PR body remains mutable upstream."
+        },
+        {
+          "sha256": "b658483673a5c7d683677aa44f03ebfba8ef23b384870a15f969a57c95b2070f",
+          "bytes": 25851,
+          "local_ignored_receipt": "h234-raw/oc174248-commit.body",
+          "meaning": "Exact captured HTTP response body."
+        },
+        {
+          "sha256": "d598871e75e40974089f3e861c5e87361f7029a6acdf2ba62476fb3d3b2c6a4b",
+          "bytes": 230218,
+          "local_ignored_receipt": "h234-raw/oc174248-runs.body",
+          "meaning": "Exact captured HTTP response body."
+        }
+      ],
+      "patch_receipt": "h234-patches.json",
+      "repository": "openclaw/openclaw",
+      "repository_public": true,
+      "repository_license_metadata": "MIT",
+      "repository_license_boundary": "Repository metadata only; no per-file license audit.",
+      "immutable_commit_url": "https://github.com/openclaw/openclaw/commit/0e6818f076d304fe363dad62a1a070f084dffb49",
+      "actual_parent_urls": [
+        "https://github.com/openclaw/openclaw/commit/c5aabc24a6ed9c2c235440d04e2966c3b6ae3ccf"
+      ],
+      "immutable_files": [
+        {
+          "path": "docs/tools/subagents/operations.md",
+          "git_blob_sha": "b060593b3159d84374582cb4f39199f0888bb8e2",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/docs/tools/subagents/operations.md",
+          "changed_patch_sha256": "2582fd8319a60fda42c831bb4427fae08560c99057d2b8770e03ae1fd067e33d",
+          "changed_patch_bytes": 814,
+          "additions": 5,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-announcement.worker.test.ts",
+          "git_blob_sha": "74eab74d977514889a88829ebc0269cdd7252dff",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-announcement.worker.test.ts",
+          "changed_patch_sha256": "dad91eb2dbe5d5f1b01581ea83c58719bc1321711c3102aea02a8086904c4c1c",
+          "changed_patch_bytes": 1548,
+          "additions": 20,
+          "deletions": 5,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-completion-runtime.ts",
+          "git_blob_sha": "334393f9bb98a524017de9f9a6dbc3bc299c0cda",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-completion-runtime.ts",
+          "changed_patch_sha256": "6bce46f452fb1f13046ded3d34b411f41fda2f6f83f38d00f288230494677425",
+          "changed_patch_bytes": 1222,
+          "additions": 7,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-lifecycle-bookkeeping.ts",
+          "git_blob_sha": "b40d26c53c3311821cc740082cbfec552580bca7",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-lifecycle-bookkeeping.ts",
+          "changed_patch_sha256": "72effbb4eb9bd19ed3c532cc12e6eed321eff25257c23ff2db7fd3bb80fbc674",
+          "changed_patch_bytes": 989,
+          "additions": 6,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-lifecycle-cleanup.ts",
+          "git_blob_sha": "eabc9e4236646c2d6dcc7d1c2637367a7330d656",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-lifecycle-cleanup.ts",
+          "changed_patch_sha256": "b38a9a9b8bb8afc892a92c89c461a4e89ec3c8768e88cf6e65b4b5831aa593b9",
+          "changed_patch_bytes": 797,
+          "additions": 3,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-lifecycle-context.ts",
+          "git_blob_sha": "6459dc8750219d18da4ce2af3abc69b31840b4dc",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-lifecycle-context.ts",
+          "changed_patch_sha256": "1e7d47ab974e542221bdf7659ca3aa4250767ca737ad4eac98da75ee10c55fe0",
+          "changed_patch_bytes": 374,
+          "additions": 1,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-lifecycle.test.ts",
+          "git_blob_sha": "ae944d615c3cff0c270be5bd46715ef34709cd00",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-lifecycle.test.ts",
+          "changed_patch_sha256": "de30e5f61a3d7e187e4460048f3a92e9292205585628663996e54b8632d82f39",
+          "changed_patch_bytes": 2236,
+          "additions": 49,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-lifecycle.ts",
+          "git_blob_sha": "2655637312930929122a3072c47bd5c3e9d7b6b2",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-lifecycle.ts",
+          "changed_patch_sha256": "f4964c3de3e56751a12ce208d9e62413ece764b17877b627245bb493a5f24041",
+          "changed_patch_bytes": 3300,
+          "additions": 17,
+          "deletions": 19,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry-requester-yield.test-support.ts",
+          "git_blob_sha": "faf219c51b4acf8ef29834e9165c69c1b0edda69",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry-requester-yield.test-support.ts",
+          "changed_patch_sha256": "10970983f37bedb73de0dc0a3fab2c6d148e6c8710a6ce2700071df907c9dc5a",
+          "changed_patch_bytes": 225,
+          "additions": 1,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/subagents/registry/subagent-registry.ts",
+          "git_blob_sha": "2fc0af63fda49d3b8bcca37decdc0a549eddcd92",
+          "view_url": "https://github.com/openclaw/openclaw/blob/0e6818f076d304fe363dad62a1a070f084dffb49/src/agents/subagents/registry/subagent-registry.ts",
+          "changed_patch_sha256": "6998608c4786433b1efbb5734747011c78b81fb73995706f3aec1b5ce08ec00d",
+          "changed_patch_bytes": 1521,
+          "additions": 7,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        }
+      ]
+    },
+    {
+      "source_key": "oc174251",
+      "url": "https://github.com/openclaw/openclaw/pull/174251",
+      "title": "fix: preserve agent database ownership during concurrent initialization",
+      "pr_author_login": "steipete",
+      "created_at": "2026-10-16T13:26:44Z",
+      "updated_at": "2026-10-16T13:51:25Z",
+      "merged_at": "2026-10-16T13:51:11Z",
+      "merge_commit": "2ce7c9253b8c51e8d0feef8ab6be72aab7b47078",
+      "git_committer_date": "2026-10-16T13:51:10Z",
+      "actual_parents": [
+        "0e6818f076d304fe363dad62a1a070f084dffb49"
+      ],
+      "prepared_head": "9d812c0a09cfbdb40b520fe56e4ed90e75176627",
+      "pr_base_metadata": "95a27d0779d1c8e0c44b35e6cab9d7662e3bb6e7",
+      "new_proposal_in_window": true,
+      "changed_files_fully_read": 3,
+      "ci_metadata": [
+        {
+          "id": 38907894579,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T13:46:16Z",
+          "head_sha": "9d812c0a09cfbdb40b520fe56e4ed90e75176627",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38907894579"
+        }
+      ],
+      "ci_boundary": "Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "witnesses": [
+        {
+          "sha256": "3ae0b30d4eb5f6bd217dbea865e7059e1bde2f95329095c47647a8ddeed07bd9",
+          "bytes": 21222,
+          "local_ignored_receipt": "h234-raw/oc174251-pr.body",
+          "meaning": "Exact captured HTTP response body, observed after event cutoff; PR body remains mutable upstream."
+        },
+        {
+          "sha256": "14f2801f1830bfe110874a055529ca5ae7cde07ff6b58b8d65caa60addfd9d28",
+          "bytes": 14499,
+          "local_ignored_receipt": "h234-raw/oc174251-commit.body",
+          "meaning": "Exact captured HTTP response body."
+        },
+        {
+          "sha256": "229a90497fc2eee56275615c77b06487efb63de203a90c69043241914021c8a1",
+          "bytes": 586354,
+          "local_ignored_receipt": "h234-raw/oc174251-runs.body",
+          "meaning": "Exact captured HTTP response body."
+        }
+      ],
+      "patch_receipt": "h234-patches.json",
+      "repository": "openclaw/openclaw",
+      "repository_public": true,
+      "repository_license_metadata": "MIT",
+      "repository_license_boundary": "Repository metadata only; no per-file license audit.",
+      "immutable_commit_url": "https://github.com/openclaw/openclaw/commit/2ce7c9253b8c51e8d0feef8ab6be72aab7b47078",
+      "actual_parent_urls": [
+        "https://github.com/openclaw/openclaw/commit/0e6818f076d304fe363dad62a1a070f084dffb49"
+      ],
+      "immutable_files": [
+        {
+          "path": "docs/reference/database-schemas.md",
+          "git_blob_sha": "1c11629f62548172cfdf14ba62d5aeb304272b7b",
+          "view_url": "https://github.com/openclaw/openclaw/blob/2ce7c9253b8c51e8d0feef8ab6be72aab7b47078/docs/reference/database-schemas.md",
+          "changed_patch_sha256": "ece54ff23f3ad7b84f6e539eea1bd95a9a567ff34e91a3b7ddfd592f7fecc260",
+          "changed_patch_bytes": 641,
+          "additions": 2,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/state/openclaw-agent-db-schema.ts",
+          "git_blob_sha": "7fedcf342ff267489a866bb68cf86b0a7f6a561c",
+          "view_url": "https://github.com/openclaw/openclaw/blob/2ce7c9253b8c51e8d0feef8ab6be72aab7b47078/src/state/openclaw-agent-db-schema.ts",
+          "changed_patch_sha256": "97890ced4df31bedfd4e41966b57ac9b40823abf8d354f42f723443174797957",
+          "changed_patch_bytes": 4418,
+          "additions": 39,
+          "deletions": 37,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/state/openclaw-agent-db.test.ts",
+          "git_blob_sha": "ee351221b8769cd2b8ac68931ba4dd8fe4564f6e",
+          "view_url": "https://github.com/openclaw/openclaw/blob/2ce7c9253b8c51e8d0feef8ab6be72aab7b47078/src/state/openclaw-agent-db.test.ts",
+          "changed_patch_sha256": "51668ae57018bfd4c7b1aa56fbaea64cfa573005838d7157f8da90d99917caf0",
+          "changed_patch_bytes": 1926,
+          "additions": 44,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        }
+      ]
+    },
+    {
+      "source_key": "oc174282",
+      "url": "https://github.com/openclaw/openclaw/pull/174282",
+      "title": "fix: stop false history rewrite warnings after tool replay",
+      "pr_author_login": "roboclaw-bot",
+      "created_at": "2026-10-16T14:03:45Z",
+      "updated_at": "2026-10-16T14:25:36Z",
+      "merged_at": "2026-10-16T14:25:31Z",
+      "merge_commit": "39be602a8c9b11bac9174fc5433d1331fc8b95b8",
+      "git_committer_date": "2026-10-16T14:25:30Z",
+      "actual_parents": [
+        "2c7eaf6f7f7213b2f5526e1229403fd5c1a60f03"
+      ],
+      "prepared_head": "d155d5f966cf38254e12ecd9183de8c578036fb2",
+      "pr_base_metadata": "01e659317b7f7256589dbe05f8b6e01266a41e9d",
+      "new_proposal_in_window": true,
+      "changed_files_fully_read": 3,
+      "ci_metadata": [
+        {
+          "id": 38912903920,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T14:18:49Z",
+          "head_sha": "d155d5f966cf38254e12ecd9183de8c578036fb2",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38912903920"
+        },
+        {
+          "id": 38912741038,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "skipped",
+          "updated_at": "2026-10-16T14:03:53Z",
+          "head_sha": "d155d5f966cf38254e12ecd9183de8c578036fb2",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38912741038"
+        }
+      ],
+      "ci_boundary": "Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "witnesses": [
+        {
+          "sha256": "67d70a901d15e0ec4ed78ea42f6d43cc1d0c342e5bd4da8bc58255b013177369",
+          "bytes": 22443,
+          "local_ignored_receipt": "h234-raw/oc174282-pr.body",
+          "meaning": "Exact captured HTTP response body, observed after event cutoff; PR body remains mutable upstream."
+        },
+        {
+          "sha256": "aea39376da0aeff4a8792c50f553beae2f6682dcd92a9b33ce0c54ae97dc2531",
+          "bytes": 16012,
+          "local_ignored_receipt": "h234-raw/oc174282-commit.body",
+          "meaning": "Exact captured HTTP response body."
+        },
+        {
+          "sha256": "6dcd4f6ee64ee542dc6cff5d06cf195379da1cf7f95fffab6f2c63076fb060a4",
+          "bytes": 661971,
+          "local_ignored_receipt": "h234-raw/oc174282-runs.body",
+          "meaning": "Exact captured HTTP response body."
+        }
+      ],
+      "patch_receipt": "h234-patches.json",
+      "repository": "openclaw/openclaw",
+      "repository_public": true,
+      "repository_license_metadata": "MIT",
+      "repository_license_boundary": "Repository metadata only; no per-file license audit.",
+      "immutable_commit_url": "https://github.com/openclaw/openclaw/commit/39be602a8c9b11bac9174fc5433d1331fc8b95b8",
+      "actual_parent_urls": [
+        "https://github.com/openclaw/openclaw/commit/2c7eaf6f7f7213b2f5526e1229403fd5c1a60f03"
+      ],
+      "immutable_files": [
+        {
+          "path": "docs/reference/transcript-hygiene.md",
+          "git_blob_sha": "9932a7072d3c96785df274638449200114443df6",
+          "view_url": "https://github.com/openclaw/openclaw/blob/39be602a8c9b11bac9174fc5433d1331fc8b95b8/docs/reference/transcript-hygiene.md",
+          "changed_patch_sha256": "97759d7415d48d1dd27b3048d38cf5759b317763f803b5b32b9f9b7783a55da5",
+          "changed_patch_bytes": 858,
+          "additions": 3,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/session-tool-result-guard.test.ts",
+          "git_blob_sha": "97f0fdb08dc2c900935b788b05fcb752d6c91ab6",
+          "view_url": "https://github.com/openclaw/openclaw/blob/39be602a8c9b11bac9174fc5433d1331fc8b95b8/src/agents/session-tool-result-guard.test.ts",
+          "changed_patch_sha256": "298387a50058163def1ac6e31231c7509e17c25328035f8ede67f10aa9e9d32c",
+          "changed_patch_bytes": 6100,
+          "additions": 100,
+          "deletions": 16,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/agents/session-tool-result-guard.ts",
+          "git_blob_sha": "fb975f77f2b58c006ff29e1f4c4103bdcbc61f66",
+          "view_url": "https://github.com/openclaw/openclaw/blob/39be602a8c9b11bac9174fc5433d1331fc8b95b8/src/agents/session-tool-result-guard.ts",
+          "changed_patch_sha256": "0d0c190d128a7843fe21f952ed3dde9305fa708324d3863aca136d147e4c5776",
+          "changed_patch_bytes": 1168,
+          "additions": 8,
+          "deletions": 5,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        }
+      ]
+    },
+    {
+      "source_key": "oc174293",
+      "url": "https://github.com/openclaw/openclaw/pull/174293",
+      "title": "perf(gateway): trim history warmup imports for restart recovery",
+      "pr_author_login": "steipete",
+      "created_at": "2026-10-16T14:11:44Z",
+      "updated_at": "2026-10-16T14:31:14Z",
+      "merged_at": "2026-10-16T14:30:46Z",
+      "merge_commit": "750d231b0b06eb3814d9118ee342f65dada288ff",
+      "git_committer_date": "2026-10-16T14:30:45Z",
+      "actual_parents": [
+        "3ca8c08ef47ca567bd844f969f6b6b24611ce5d1"
+      ],
+      "prepared_head": "86ad7438beeeea63fa03d4d5a1af682c8d01244f",
+      "pr_base_metadata": "a904339cd78b6fdd639618db36947875e942701b",
+      "new_proposal_in_window": true,
+      "changed_files_fully_read": 6,
+      "ci_metadata": [
+        {
+          "id": 38913821188,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T14:29:22Z",
+          "head_sha": "86ad7438beeeea63fa03d4d5a1af682c8d01244f",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38913821188"
+        },
+        {
+          "id": 38913804700,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "skipped",
+          "updated_at": "2026-10-16T14:11:53Z",
+          "head_sha": "86ad7438beeeea63fa03d4d5a1af682c8d01244f",
+          "html_url": "https://github.com/openclaw/openclaw/actions/runs/38913804700"
+        }
+      ],
+      "ci_boundary": "Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "witnesses": [
+        {
+          "sha256": "432b62dfb483cb66a004a9efa6be5e755fea95ff1f2dd3429a0e09c94694030f",
+          "bytes": 22223,
+          "local_ignored_receipt": "h234-raw/oc174293-pr.body",
+          "meaning": "Exact captured HTTP response body, observed after event cutoff; PR body remains mutable upstream."
+        },
+        {
+          "sha256": "a4b1dcbf6e38690d0dd1e60b83d46e6ef27a422fe729192ba2f23e4a8f96f03f",
+          "bytes": 22757,
+          "local_ignored_receipt": "h234-raw/oc174293-commit.body",
+          "meaning": "Exact captured HTTP response body."
+        },
+        {
+          "sha256": "a0bd1fdb51579d01596f4fe4ff830ad4461ca0252219c990fd2d7994d6e24f05",
+          "bytes": 609531,
+          "local_ignored_receipt": "h234-raw/oc174293-runs.body",
+          "meaning": "Exact captured HTTP response body."
+        }
+      ],
+      "patch_receipt": "h234-patches.json",
+      "repository": "openclaw/openclaw",
+      "repository_public": true,
+      "repository_license_metadata": "MIT",
+      "repository_license_boundary": "Repository metadata only; no per-file license audit.",
+      "immutable_commit_url": "https://github.com/openclaw/openclaw/commit/750d231b0b06eb3814d9118ee342f65dada288ff",
+      "actual_parent_urls": [
+        "https://github.com/openclaw/openclaw/commit/3ca8c08ef47ca567bd844f969f6b6b24611ce5d1"
+      ],
+      "immutable_files": [
+        {
+          "path": "docs/gateway/restart-recovery.md",
+          "git_blob_sha": "243bb7cb1995b05de24866bef7e5f911c1688715",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/docs/gateway/restart-recovery.md",
+          "changed_patch_sha256": "071e09f87eea30ab615b732848859fe21b3009bbf41eee505ad1d010a43fffea",
+          "changed_patch_bytes": 746,
+          "additions": 4,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/config/sessions/session-history-read.imports.test.ts",
+          "git_blob_sha": "b357603965605893a46647797b2d7346be7f2eaa",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/src/config/sessions/session-history-read.imports.test.ts",
+          "changed_patch_sha256": "32c43bcdcdfddb367b1e3fec1e6257eda2e0b939c0834e605f618744314b8b26",
+          "changed_patch_bytes": 519,
+          "additions": 7,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/gateway/session-history-worker-reader.ts",
+          "git_blob_sha": "f320875c8771e53432b6d0acfe3ea0a146fbeaa5",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/src/gateway/session-history-worker-reader.ts",
+          "changed_patch_sha256": "cf54f72a4c3e2876ea4e64e27fe13237e2cd22d16709b0a3f8becc9563354707",
+          "changed_patch_bytes": 693,
+          "additions": 1,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/gateway/session-utils-store-candidates.ts",
+          "git_blob_sha": "6ce9400ac71629d79585e605b678d4d3bc9a12e2",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/src/gateway/session-utils-store-candidates.ts",
+          "changed_patch_sha256": "ccc1fd3d0169191607486ca6e5c1af1e5db850fc0ceadcc249e1581ee535400d",
+          "changed_patch_bytes": 5606,
+          "additions": 113,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/gateway/session-utils-store-sources.test.ts",
+          "git_blob_sha": "11cf1b94eda5e56a346cc8b7ced9d7d44cef8998",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/src/gateway/session-utils-store-sources.test.ts",
+          "changed_patch_sha256": "b2aefa5dca3a97bbd45d7563294130a0b75d163a8992f80201c80273f3118786",
+          "changed_patch_bytes": 399,
+          "additions": 1,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "src/gateway/session-utils-store-sources.ts",
+          "git_blob_sha": "e04a91084bfb7c08e0ad9f2fe27c3f3e462d015f",
+          "view_url": "https://github.com/openclaw/openclaw/blob/750d231b0b06eb3814d9118ee342f65dada288ff/src/gateway/session-utils-store-sources.ts",
+          "changed_patch_sha256": "f5f7f41bf8db6767aad408da277081d2e1280de14706a8c89d7503d4ff74a5ff",
+          "changed_patch_bytes": 5673,
+          "additions": 4,
+          "deletions": 103,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        }
+      ]
+    },
+    {
+      "source_key": "vf2872",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2872",
+      "title": "Run task tool servers in a named Compose service",
+      "pr_author_login": "hallerite",
+      "created_at": "2026-10-15T20:56:52Z",
+      "updated_at": "2026-10-16T12:46:19Z",
+      "merged_at": "2026-10-16T12:46:17Z",
+      "merge_commit": "a4035acbf51a7a89d663f60d53f190e476708d59",
+      "git_committer_date": "2026-10-16T12:46:16Z",
+      "actual_parents": [
+        "a681caefb5228fa74c247890a5b9d3e02816559e"
+      ],
+      "prepared_head": "c28d3c9fb89195759727d47868416916d1c9f59f",
+      "pr_base_metadata": "a681caefb5228fa74c247890a5b9d3e02816559e",
+      "new_proposal_in_window": false,
+      "changed_files_fully_read": 10,
+      "ci_metadata": [
+        {
+          "id": 38901173294,
+          "name": "Tests",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T12:37:26Z",
+          "head_sha": "c28d3c9fb89195759727d47868416916d1c9f59f",
+          "html_url": "https://github.com/PrimeIntellect-ai/verifiers/actions/runs/38901173294"
+        },
+        {
+          "id": 38901173287,
+          "name": "Style",
+          "status": "completed",
+          "conclusion": "success",
+          "updated_at": "2026-10-16T12:32:27Z",
+          "head_sha": "c28d3c9fb89195759727d47868416916d1c9f59f",
+          "html_url": "https://github.com/PrimeIntellect-ai/verifiers/actions/runs/38901173287"
+        }
+      ],
+      "ci_boundary": "Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "witnesses": [
+        {
+          "sha256": "b7b67ab8530facd7a7202aaaaf596660d4e513a6b37426c778ae5dfe10207b9f",
+          "bytes": 24723,
+          "local_ignored_receipt": "h234-raw/vf2872-pr.body",
+          "meaning": "Exact captured HTTP response body, observed after event cutoff; PR body remains mutable upstream."
+        },
+        {
+          "sha256": "dc01edcd82f86625a8a727625368716444f336465c8dc208b91ce30e7168726a",
+          "bytes": 30953,
+          "local_ignored_receipt": "h234-raw/vf2872-commit.body",
+          "meaning": "Exact captured HTTP response body."
+        },
+        {
+          "sha256": "83f96ecff0c9b24179117318b1cf0b21b75e4de3d104c5d910b1f7800e1ff926",
+          "bytes": 40040,
+          "local_ignored_receipt": "h234-raw/vf2872-runs.body",
+          "meaning": "Exact captured HTTP response body."
+        }
+      ],
+      "patch_receipt": "h234-patches.json",
+      "repository": "PrimeIntellect-ai/verifiers",
+      "repository_public": true,
+      "repository_license_metadata": "MIT",
+      "repository_license_boundary": "Repository metadata only; no per-file license audit.",
+      "immutable_commit_url": "https://github.com/PrimeIntellect-ai/verifiers/commit/a4035acbf51a7a89d663f60d53f190e476708d59",
+      "actual_parent_urls": [
+        "https://github.com/PrimeIntellect-ai/verifiers/commit/a681caefb5228fa74c247890a5b9d3e02816559e"
+      ],
+      "immutable_files": [
+        {
+          "path": "docs/runtime.md",
+          "git_blob_sha": "d11d38490fa22b2a3a8cfd8a196a7facacd87ddd",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/docs/runtime.md",
+          "changed_patch_sha256": "0e58a280ebf7faad845de1fe97b20f6fd61020c011ed0a972672eba1e1a521b4",
+          "changed_patch_bytes": 884,
+          "additions": 4,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "pyproject.toml",
+          "git_blob_sha": "339af3ff55bda821ed5ad259e662938553f5e1b7",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/pyproject.toml",
+          "changed_patch_sha256": "c1bba1b8d4e964c50931fb33b9f4220943187cabfb834d9ab868f9bcc77162f3",
+          "changed_patch_bytes": 594,
+          "additions": 1,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "tests/integration/conftest.py",
+          "git_blob_sha": "b180128538252dddb5dd045c8200b4ab90dcc2e3",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/tests/integration/conftest.py",
+          "changed_patch_sha256": "41bb131b82954dbcb761cd11979879a271ccc83df43cf4c06255cda9e4064c9e",
+          "changed_patch_bytes": 551,
+          "additions": 3,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "tests/integration/fixtures/echo_tool_compose/docker-compose.yaml",
+          "git_blob_sha": "a1e907362cc19fb153466b80ec979260abe24771",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/tests/integration/fixtures/echo_tool_compose/docker-compose.yaml",
+          "changed_patch_sha256": "c425d05f9e9630dd5119548c56871713c03f2a63405d28dc00c0043636a947db",
+          "changed_patch_bytes": 324,
+          "additions": 7,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "tests/integration/fixtures/echo_tool_v1.py",
+          "git_blob_sha": "de9c35e86fe05f1aed6139dba50f90a78d5dc7a4",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/tests/integration/fixtures/echo_tool_v1.py",
+          "changed_patch_sha256": "e488671934350af4e1de93f4fc9ee38e5c6342485b625bd643ac0ca559b101f0",
+          "changed_patch_bytes": 1929,
+          "additions": 12,
+          "deletions": 3,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "tests/integration/grid.py",
+          "git_blob_sha": "60ca3ef892f301d9f71378b3fcd853cada0fe716",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/tests/integration/grid.py",
+          "changed_patch_sha256": "e3a2ff6bb5d78f0d1324ceafcf1438e30a964c4f1be5b59d36a490b76cacfac4",
+          "changed_patch_bytes": 1587,
+          "additions": 11,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "tests/integration/test_multi_turn_tool.py",
+          "git_blob_sha": "3817c2484474c15cb1231df1e68672f9292eda3c",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/tests/integration/test_multi_turn_tool.py",
+          "changed_patch_sha256": "3cde946633c793ce29cc536f9586f45e29c96f7bd01ddf7f9d2401a734b2afbf",
+          "changed_patch_bytes": 2424,
+          "additions": 28,
+          "deletions": 6,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "verifiers/v1/mcp/launch.py",
+          "git_blob_sha": "b583925b3c47fda7139ab4390ae7e54bc46f7c97",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/verifiers/v1/mcp/launch.py",
+          "changed_patch_sha256": "3ded87a96cefeed0189f58ccd0ac70d8f5a52a5f2cd34fa5ec04253127b80319",
+          "changed_patch_bytes": 3837,
+          "additions": 36,
+          "deletions": 2,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "verifiers/v1/mcp/toolset.py",
+          "git_blob_sha": "f38d39198d725a741ffd87fc2b8c90282604096e",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/verifiers/v1/mcp/toolset.py",
+          "changed_patch_sha256": "7739517ab5cdb9c3b54b2c2f2c8ea94fa577513bb7c115ec19c66d7155164d16",
+          "changed_patch_bytes": 1416,
+          "additions": 21,
+          "deletions": 0,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        },
+        {
+          "path": "verifiers/v1/rollout.py",
+          "git_blob_sha": "3faef9b716949ac479aac26793e0b0771311945e",
+          "view_url": "https://github.com/PrimeIntellect-ai/verifiers/blob/a4035acbf51a7a89d663f60d53f190e476708d59/verifiers/v1/rollout.py",
+          "changed_patch_sha256": "8a0c13167e8cc8320c40724b5d27cac1c2625c2af4fe65d32c22d56dbd298920",
+          "changed_patch_bytes": 1923,
+          "additions": 16,
+          "deletions": 1,
+          "read_scope": "Entire changed patch read; not a full-file or whole-repository audit."
+        }
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "openclaw-shared-background-catchup-budget",
+      "hypotheses": [
+        "H2"
+      ],
+      "sources": [
+        "oc174248"
+      ],
+      "source_facts": [
+        "The existing restored-requester per-Gateway pLimit(2) expands into one shared background lifecycle concurrency=2 budget. Detached cleanup, cleanup tails, expired-delivery finalization, orphan resume reads and restored wakes use that owner budget; live requester wakes retain the bypass.",
+        "Canonical Gateway owner resolution and retired-owner limiter retention prevent a replaced Gateway from donating its capacity to old work. Detached wrappers retain task roots before queueing; dispatch still performs source/row/authority checks.",
+        "New source regression queues130 cleanup rows with a held mocked announcement: only2 start,130 roots remain, restart drain is marked, release permits FIFO start/dequeue order, eventual completion of all work and root count becomes0. This is in-process synthetic queue/drain evidence if the test is executed, not a real OS restart or provider run.",
+        "Source-switch tests narrow accepted rejection to the exact AggregateError text Queued registry write lost its original database, drain outstanding writes, and retain no-stale-hook/write assertions.",
+        "This shared background concurrency2 is distinct from previously observed dedicated recovery concurrency4."
+      ],
+      "author_reports_not_independently_reproduced": [
+        "Linux synthetic rig with13000 sessions and6000 retained runs: baseline0/50 reconnects versus candidate50/50 twice, candidate cold requests16.09–17.28s and stormp99 13.08/21.16s. This reports availability under noisy contention, not a latency speedup.",
+        "Author measured production candidate699f8f… against baseline28f5f…; these differ from actual adjacent merge parent/head. Subsequent repair is test-only. 288focused tests and final12source-switch tests are overlapping reports, not additive unique tests.",
+        "Drain and database clean-close followed by usage-cache abort warnings do not qualify graceful process shutdown. Rig artifacts/logs were not inspected."
+      ],
+      "inference": "A public next experiment is resource-bounded catch-up with simultaneous healthy-client reads, owner rotation and root draining. This is an independent hypothesis, not a private research-plan claim.",
+      "next_falsifiable_gate": "Pin authentic adjacent parent and merge trees in a shipped Gateway, hold130 cleanup operations, verify exactly2 background dispatches and preserved task roots, healthy-client positive controls, correct old-owner capacity after replacement, current authority/row/source fences, eventual drain only after actual settlement, no stale effects; collect actual two-process-restart receipts. Reject for client starvation, extra slots, premature root release or stale writes.",
+      "runtime_status_change": false
+    },
+    {
+      "id": "openclaw-transaction-local-schema-custody",
+      "hypotheses": [
+        "H2"
+      ],
+      "sources": [
+        "oc174251"
+      ],
+      "source_facts": [
+        "Owner/version/migration decisions move inside the existing synchronous schema write transaction. Schema-fact cache invalidation precedes rereading owner only after the writer lock is acquired; migration and maintenance authority decisions remain.",
+        "New deterministic source test uses two real nativeSQLite connections: a spy immediately before pending BEGIN IMMEDIATE commits winner agent-b through the actual schema owner path; pending agent-a must refuse, leaving owner and registry with agent-b.",
+        "Existing cross-process test is unchanged; it was not fully read or executed here. The deterministic new test is not itself a simultaneous two-process proof.",
+        "Actual adjacent parent is0e6818f076d304fe363dad62a1a070f084dffb49, the174248 merge; PR base metadata is a different observation and must not substitute for it."
+      ],
+      "author_reports_not_independently_reproduced": [
+        "113focused tests and20load cases are author reports. Hosted storage-shard failure was attributed by author to inherited update-wizard code; that attribution was not independently audited.",
+        "Author says initial broad invalidation broke8seal tests, then narrowed it to schema-only facts. No physical-seal implementation was inspected."
+      ],
+      "inference": "Database ownership must be checked at the same serialization boundary as schema writes; a pre-lock read is insufficient evidence of current custody.",
+      "next_falsifiable_gate": "Use a pinned packaged two-process barrier where processA has a stale preflight, processB commits owner/version/registry, thenA acquires the writer lock. RequireA to refuse and preserveB state and durable receipts across reopen; include uncontended own-owner, authorized migration and maintenance positive controls. Reject owner takeover, stale registry or unexpected refusal of valid work.",
+      "runtime_status_change": false
+    },
+    {
+      "id": "openclaw-recovery-import-boundary",
+      "hypotheses": [
+        "H2"
+      ],
+      "sources": [
+        "oc174293"
+      ],
+      "source_facts": [
+        "Session-store routing and source resolver bodies move from the host sources coordinator to the existing candidates module. Worker and coordinator import the candidate owner; the resolver body is unchanged by the move and the routing builder export/signature changes.",
+        "An import architecture regression forbids the worker from backedges into source coordinator, target inventory and runtime source projection. Existing startup trace environment flag is documented.",
+        "This is a changed module/import boundary plus source regression; no local performance measurement was performed."
+      ],
+      "author_reports_not_independently_reproduced": [
+        "20fewer local modules969→949; medians5470→5072ms and3003→2687ms with3overlapping samples each. Full boot has1candidate versus3noisy baselines; no production percentage benefit follows.",
+        "Synthetic79MB database,13000sessions/6000runs and1500legacy rows without original authority;18focused tests and Linux source-mode Gateway rig timings are unaudited author reports."
+      ],
+      "inference": "Reducing coordinator imports may reduce catch-up work before useful reads; prove both authority invariants and end-to-end availability before publishing a performance claim.",
+      "next_falsifiable_gate": "Pin authentic adjacent trees, dependency graph and packaged runtime, compare repeated cold/warm boots under matched database/load and authorization controls, record import counts plus client-read availability and latency distributions. Verify identical source routing and stale-owner refusal. Existing synthetic timing cannot close this gate.",
+      "runtime_status_change": false
+    },
+    {
+      "id": "openclaw-live-replay-tool-envelope-identity",
+      "hypotheses": [
+        "H2",
+        "H4"
+      ],
+      "sources": [
+        "oc174282"
+      ],
+      "source_facts": [
+        "Persistence guard publishes the transcript run ID to a fresh mutable assistant OR toolResult object before hooks and storage cloning. Frozen replay objects are left unchanged.",
+        "New sync/async append source tests inspect in-memorySessionManager entries and detached replay, retaining original live content while allowing transcript-only hook edits.",
+        "Source tests serialize the same synthetic live/replayed tool turn through the actual Responses serializer and require identical JSON and unchanged observer prefix. Internal run metadata is omitted from provider tool output.",
+        "PR author is roboclaw-bot, Git author RoboClaw; body credits@vincentkoc. It is not attributed to steipete, and the credit does not establish who personally implemented it."
+      ],
+      "author_reports_not_independently_reproduced": [
+        "67suite/18final suite counts are author reports; source tests are synthetic in-process fixtures. CI success is prepared-head metadata, not a shipped Gateway/provider run.",
+        "Bot comment assertions are review/status claims, not independent runtime evidence."
+      ],
+      "inference": "A stable live/replayed serialization envelope is a necessary contract for reliable tool-turn history, but it does not establish provider cache hits, reward parity or durable database effects.",
+      "next_falsifiable_gate": "Use a shipped tool turn, actual immutable transcript/reopen receipt and provider wire bytes; compare live and reopened replay with transcript-only hooks, immutable historical replay and fresh mutable envelopes. Require stable observer-prefix identity and provider-visible request equality while retaining current authority and once-only effect receipts. Measure cache behavior/reward only as separate outcomes.",
+      "runtime_status_change": false
+    },
+    {
+      "id": "verifiers-compose-tool-service-placement",
+      "hypotheses": [
+        "H4"
+      ],
+      "sources": [
+        "vf2872"
+      ],
+      "source_facts": [
+        "Old proposal created2026-10-15T20:56:52Z, newly merged2026-10-16T12:46:17Z. PR author hallerite/KonstantinDunas, not willccbb/WillBrown. Tests/Style CI completed before this pass window, so they are historical prepared-head evidence rather than a new CI event.",
+        "ToolsetConfig.service chooses a namedCompose service, exclusive with colocated, URL and non-Subprocess runtime. Rollout maps service names to deploymentRuntime; selected runtime launches MCP withlisten_all0.0.0.0, exposed=False and harness URLhttp://service:port/mcp.",
+        "Source refuses missing service andruntime.is_local with ToolsetError. Service-placement grid is Prime/Modal ComposeVM only and skipped for other deployment types; three exclusivity integration cases are added.",
+        "Execution-policy URL list omits internalCompose hostnames. This is not per-service egress isolation: author explicitly retains VM-wide policy, removes previous egressproxy/composed mode and defers separate-VM LAN to a future PR.",
+        "Integration echo fixture, when run, would check stamped tool output/reward under service placement; no cloud/kernel/provider execution was performed here.",
+        "Exact merged path named by PR body, tests/unit/test_toolset_placement.py, returnedHTTP404 at immutable merge. It is absent from the changed-file set; do not transfer the stale unit-test claim to the final patch."
+      ],
+      "author_reports_not_independently_reproduced": [
+        "Author2716rollouts describe an earlier revision. Final-version smoke is stated as future work, not current validated cloud coverage.",
+        "Named unit validation cannot be located at the claimed merged path. Source refusal code was read; no execution or complete alternate test inventory establishes those reported unit tests."
+      ],
+      "inference": "Tool placement and execution-policy scope need separate contracts. Independent next research can test placement/replay/reward across current VM-wide policy without describing it as stronger network isolation.",
+      "next_falsifiable_gate": "Pin current merge/adjacent parent, real Prime or Modal ComposeVM runtime/environment versions, MCP handshake, tool-stamped outputs and reward, harness/control paths, current VM-wide policy, state channel and teardown. Include missing/local/conflicting placement refusal controls and authorized working service. Require real final-version cloud receipts; do not assert per-service egress isolation.",
+      "runtime_status_change": false
+    }
+  ],
+  "triaged_not_selected": [
+    {
+      "url": "https://github.com/openclaw/openclaw/pull/174238",
+      "scope": "Full PR body only; bounded response diagnostics should not await indefinitely pending streamcancel acknowledgment. No commit/patch/CI inspection, not durable-custody proof. Other default-branch titles were triaged; not all98OpenClaw patches were read."
+    }
+  ],
+  "unchanged_residuals": {
+    "cutoff_tip": "33f497e178d7acf5a48c940f00b18096de279672",
+    "session_recovery_blob": "9bd72cfe036715d1ecef6323ba9eda945828e365",
+    "process_tool_blob": "4aac65c346765fb5463cc2736725b2782aba6465",
+    "same_as_previous_pass": true,
+    "unmet_gates": [
+      "Checkpoint-tail real durability and exact authority/receipt/effect proof",
+      "Kill request before actual settlement remains a residual window",
+      "Actual second OS restart and shipped harness/provider evidence"
+    ],
+    "immutable_source_urls": [
+      "https://github.com/openclaw/openclaw/blob/33f497e178d7acf5a48c940f00b18096de279672/src/gateway/session-recovery-service.ts",
+      "https://github.com/openclaw/openclaw/blob/33f497e178d7acf5a48c940f00b18096de279672/src/agents/bash-tools.process.ts"
+    ]
+  },
+  "runtime_statuses": {
+    "H2": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
+    "H3": "planned_not_executed",
+    "H4": "planned_not_executed"
+  },
+  "constraints": {
+    "tracked_edits": false,
+    "upstream_tests_or_code_executed": false,
+    "model_runs": false,
+    "cloud_jobs": false,
+    "contacts_or_messages_to_people": false,
+    "private_plan_inference": false,
+    "employment_upgrade": false
+  },
+  "audit": "h234-frontier-checks.json:305/305checks passed; snapshot-integrity-delta-audit.json independently validates main snapshot and bounded24/72/168h deltas. No H2/H3/H4runtime upgrade.",
+  "publication_note": "Source analysis only; no copied upstream implementation, tests, Gateway, provider or cloud environment executed. Public next gates are independent hypotheses, not confirmed private plans.",
+  "checks_summary": {
+    "passed": 305,
+    "failed": 0,
+    "scope": "Preserved raw/body hashes, expected HTTP statuses, observation ordering, strict commit/merge times, selected file counts and patch hashes/bytes/counts, exact prepared-head CI metadata and unchanged residual blobs. This is evidence-integrity checking, not upstream runtime validation."
+  }
+}

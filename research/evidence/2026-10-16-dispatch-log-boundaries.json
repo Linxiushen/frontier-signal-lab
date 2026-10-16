@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "kind": "bounded_public_ci_log_and_merge_evidence",
+  "event_window": {
+    "since_exclusive": "2026-10-16T12:42:56.583839+00:00",
+    "until_inclusive": "2026-10-16T14:43:29.3684848+00:00"
+  },
+  "read_observation_interval": {
+    "started_at": "2026-10-16T14:46:37.300275+00:00",
+    "completed_at": "2026-10-16T14:51:32.307678+00:00"
+  },
+  "repository": "fla-org/flash-linear-attention",
+  "repository_public": true,
+  "license_metadata": "MIT",
+  "selected_sources": [
+    {
+      "id": "fla-gluon-dispatch-coverage-embedded-failure",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1426#issuecomment-6217454712",
+      "published_at": "2026-10-16T14:16:36Z",
+      "head_sha": "39c5f90d0f857bc13343c75bf2428e34e81494bb",
+      "attribution": "yzhangcs source; github-actions[bot] report. Not Nathan Chen.",
+      "ci_job_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38837144685/job/116768729804",
+      "claim": "H100 ops job is marked success, but complete public log contains dispatch-coverage exit1: dispatch suite1failed/78passed; failing case hardware_fallback after Gluonreject->TileLang->torch.empty(fake SimpleNamespace device). Baseline same test skipped with dispatch disabled.",
+      "evidence_class": "reviewed_public_runtime_log_with_overall_success_metadata",
+      "log_body_sha256": "75553fba0359ef16c6f9263d3e86bdc3eaa4d256caca1a43519de7cb79d4028f",
+      "log_lines": {
+        "dispatch_command": [
+          2621,
+          2636
+        ],
+        "fixture_and_call_path": [
+          3818,
+          3876
+        ],
+        "failure_summary": [
+          3883,
+          3889
+        ]
+      },
+      "limits": "No local upstream execution or source patch audit. This is a dispatcher/test-boundary TypeError before numerical comparison, not proof of kernel numerical disagreement. Models job queued; PR draft/unmerged. Other per-file passes do not clear the failing boundary."
+    },
+    {
+      "id": "fla-hgrn-expanded-lower-bound-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1435",
+      "published_at": "2026-10-16T13:54:11Z",
+      "head_sha": "8ed5d7c83fab0089298b3cd5db91618f7105a700",
+      "merge_sha": "c12db31575ad9e5d80214bfe3938671321e60c47",
+      "authentic_merge_parents": [
+        "423cff91dd559b73c7e7f8aad9a42f6a782693d1"
+      ],
+      "attribution": "Original taking-lying-flat commit authored/committed2026-09-30; yzhangcs restores and merges2026-10-16. Not Nathan Chen.",
+      "claim": "New merge of historical proposal. Body says HGRN per-layer lower bounds must match int(hidden_size*expand_ratio), describes layer1 width failure and explicit nondefault checkpoint migration; source patch not inspected in this subtask.",
+      "evidence_class": "new_merge_metadata_and_historical_author_assertions",
+      "limits": "Historical13checks/216passes/1BF16initialfail-isolated-retry and migration claims are body assertions retained without rerun. PR-head closure H100 tests skipped; merge A2 tests still in progress at observation. Merge A2 benchmark success14:50:14Z is after the declared14:43:29 cutoff and metadata only; no current numerical/performance/training claim."
+    },
+    {
+      "id": "fla-cuda-cp-benchmark-failure-unavailable-log",
+      "url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38890251848/job/116937764820",
+      "published_at": "2026-10-16T12:43:40Z",
+      "head_sha": "1cee0e3c5b1075be3554a83b9583a6ea06d92a78",
+      "attribution": "Tytskiy; historical CUDA CP proposal, not Nathan Chen.",
+      "claim": "Newly completed A2 benchmark failure12:43:40Z on existing1492head. Job has no steps; direct public log returns404 BlobNotFound. Failure cause remains unknown.",
+      "evidence_class": "failure_metadata_with_missing_runtime_log",
+      "limits": "Author13:21unrelated-failure comment is unaudited. Existing10:19PR/body benchmarks28tests/H100forward-backward gains are old assertions, not new events or validated current results. No infrastructure or numerical attribution from absent log."
+    }
+  ],
+  "audit_summary": {
+    "http_requests": 86,
+    "checks_passed": 505,
+    "known_failure": "1492 benchmark log HTTP404 BlobNotFound",
+    "full_log_sha256": "75553fba0359ef16c6f9263d3e86bdc3eaa4d256caca1a43519de7cb79d4028f",
+    "full_log_bytes": 430357
+  },
+  "execution_boundary": "Public source/log review only; no local upstream source or tests executed/copied, no numerical kernel or performance gate passed. No Nathan contribution inferred."
+}

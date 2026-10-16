@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T13:24:49.060389+00:00",
-  "observation_note": "Historical source objects retained. Bounded new public source reviews and one separately predeclared short-history diagnostic added; common-anchor gates and descriptive trajectory drift are reported separately.",
+  "last_updated_at": "2026-10-16T15:27:57.868901+00:00",
+  "observation_note": "Historical source objects retained. Bounded new public source reviews plus one frozen natural-text cost/final-evaluation diagnostic: all six directional screens fail. Original report and invalid parent-memory observer preserved with explicit measurement-validity supplement; consistency audit is not scientific or measurement validation.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -3097,6 +3097,280 @@
       "receipt_audit_sha256": "d31af397171af24b06cfea026a53a26f4170e3015f7cc7a43501d920b0d021b6",
       "receipt_audit_checks": 213926,
       "review_record": "research/2026-10-16-short-history-update.md"
+    },
+    {
+      "id": "fla-gluon-dispatch-coverage-embedded-failure",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1426#issuecomment-6217454712",
+      "published_at": "2026-10-16T14:16:36Z",
+      "head_sha": "39c5f90d0f857bc13343c75bf2428e34e81494bb",
+      "attribution": "yzhangcs source; github-actions[bot] report. Not Nathan Chen.",
+      "ci_job_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38837144685/job/116768729804",
+      "claim": "H100 ops job is marked success, but complete public log contains dispatch-coverage exit1: dispatch suite1failed/78passed; failing case hardware_fallback after Gluonreject->TileLang->torch.empty(fake SimpleNamespace device). Baseline same test skipped with dispatch disabled.",
+      "evidence_class": "reviewed_public_runtime_log_with_overall_success_metadata",
+      "log_body_sha256": "75553fba0359ef16c6f9263d3e86bdc3eaa4d256caca1a43519de7cb79d4028f",
+      "log_lines": {
+        "dispatch_command": [
+          2621,
+          2636
+        ],
+        "fixture_and_call_path": [
+          3818,
+          3876
+        ],
+        "failure_summary": [
+          3883,
+          3889
+        ]
+      },
+      "limits": "No local upstream execution or source patch audit. This is a dispatcher/test-boundary TypeError before numerical comparison, not proof of kernel numerical disagreement. Models job queued; PR draft/unmerged. Other per-file passes do not clear the failing boundary.",
+      "type": "reviewed_public_ci_log",
+      "author": "yzhangcs source; github-actions[bot] report. Not Nathan Chen.",
+      "observed_at": "2026-10-16T14:51:32.307678+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "reviewed_public_runtime_log_with_overall_success_metadata",
+      "our_inference": "Require actual dispatch-route tests and inspect nonblocking embedded failures; no numerical/performance/Nathan-roadmap upgrade.",
+      "limitations": "No local upstream execution or source patch audit. This is a dispatcher/test-boundary TypeError before numerical comparison, not proof of kernel numerical disagreement. Models job queued; PR draft/unmerged. Other per-file passes do not clear the failing boundary.",
+      "review_record": "research/2026-10-16-dispatch-log-boundaries.md"
+    },
+    {
+      "id": "fla-hgrn-expanded-lower-bound-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1435",
+      "published_at": "2026-10-16T13:54:11Z",
+      "head_sha": "8ed5d7c83fab0089298b3cd5db91618f7105a700",
+      "merge_sha": "c12db31575ad9e5d80214bfe3938671321e60c47",
+      "authentic_merge_parents": [
+        "423cff91dd559b73c7e7f8aad9a42f6a782693d1"
+      ],
+      "attribution": "Original taking-lying-flat commit authored/committed2026-09-30; yzhangcs restores and merges2026-10-16. Not Nathan Chen.",
+      "claim": "New merge of historical proposal. Body says HGRN per-layer lower bounds must match int(hidden_size*expand_ratio), describes layer1 width failure and explicit nondefault checkpoint migration; source patch not inspected in this subtask.",
+      "evidence_class": "new_merge_metadata_and_historical_author_assertions",
+      "limits": "Historical13checks/216passes/1BF16initialfail-isolated-retry and migration claims are body assertions retained without rerun. PR-head closure H100 tests skipped; merge A2 tests still in progress at observation. Merge A2 benchmark success14:50:14Z is after the declared14:43:29 cutoff and metadata only; no current numerical/performance/training claim.",
+      "type": "public_merge_or_ci_metadata",
+      "author": "Original taking-lying-flat commit authored/committed2026-09-30; yzhangcs restores and merges2026-10-16. Not Nathan Chen.",
+      "observed_at": "2026-10-16T14:51:32.307678+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "new_merge_metadata_and_historical_author_assertions",
+      "our_inference": "Keep expanded lower-bound shape and non-default checkpoint migration validation open. A newly restored merge of an old patch does not renew its historical numerical claims; require exact-current forward/backward and checkpoint compatibility receipts.",
+      "limitations": "Historical13checks/216passes/1BF16initialfail-isolated-retry and migration claims are body assertions retained without rerun. PR-head closure H100 tests skipped; merge A2 tests still in progress at observation. Merge A2 benchmark success14:50:14Z is after the declared14:43:29 cutoff and metadata only; no current numerical/performance/training claim.",
+      "review_record": "research/2026-10-16-dispatch-log-boundaries.md"
+    },
+    {
+      "id": "fla-cuda-cp-benchmark-failure-unavailable-log",
+      "url": "https://github.com/fla-org/flash-linear-attention/actions/runs/38890251848/job/116937764820",
+      "published_at": "2026-10-16T12:43:40Z",
+      "head_sha": "1cee0e3c5b1075be3554a83b9583a6ea06d92a78",
+      "attribution": "Tytskiy; historical CUDA CP proposal, not Nathan Chen.",
+      "claim": "Newly completed A2 benchmark failure12:43:40Z on existing1492head. Job has no steps; direct public log returns404 BlobNotFound. Failure cause remains unknown.",
+      "evidence_class": "failure_metadata_with_missing_runtime_log",
+      "limits": "Author13:21unrelated-failure comment is unaudited. Existing10:19PR/body benchmarks28tests/H100forward-backward gains are old assertions, not new events or validated current results. No infrastructure or numerical attribution from absent log.",
+      "type": "public_merge_or_ci_metadata",
+      "author": "Tytskiy; historical CUDA CP proposal, not Nathan Chen.",
+      "observed_at": "2026-10-16T14:51:32.307678+00:00",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "status": "failure_metadata_with_missing_runtime_log",
+      "our_inference": "Missing job steps and unavailable logs leave the benchmark failure cause unknown. Obtain current CP layout, complete backward, dispatch and hardware execution logs before judging either numerical behavior or performance.",
+      "limitations": "Author13:21unrelated-failure comment is unaudited. Existing10:19PR/body benchmarks28tests/H100forward-backward gains are old assertions, not new events or validated current results. No infrastructure or numerical attribution from absent log.",
+      "review_record": "research/2026-10-16-dispatch-log-boundaries.md"
+    },
+    {
+      "id": "openclaw-shared-background-catchup-budget",
+      "url": "https://github.com/openclaw/openclaw/pull/174248",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T13:49:26Z",
+      "published_at_kind": "merge event; proposal creation retained separately",
+      "observed_at": "2026-10-16T14:48:42.231906Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "The existing restored-requester per-Gateway pLimit(2) expands into one shared background lifecycle concurrency=2 budget. Detached cleanup, cleanup tails, expired-delivery finalization, orphan resume reads and restored wakes use that owner budget; live requester wakes retain the bypass. Canonical Gateway owner resolution and retired-owner limiter retention prevent a replaced Gateway from donating its capacity to old work. Detached wrappers retain task roots before queueing; dispatch still performs source/row/authority checks. New source regression queues130 cleanup rows with a held mocked announcement: only2 start,130 roots remain, restart drain is marked, release permits FIFO start/dequeue order, eventual completion of all work and root count becomes0. This is in-process synthetic queue/drain evidence if the test is executed, not a real OS restart or provider run. Source-switch tests narrow accepted rejection to the exact AggregateError text Queued registry write lost its original database, drain outstanding writes, and retain no-stale-hook/write assertions. This shared background concurrency2 is distinct from previously observed dedicated recovery concurrency4.",
+      "author_reports_not_independently_reproduced": [
+        "Linux synthetic rig with13000 sessions and6000 retained runs: baseline0/50 reconnects versus candidate50/50 twice, candidate cold requests16.09–17.28s and stormp99 13.08/21.16s. This reports availability under noisy contention, not a latency speedup.",
+        "Author measured production candidate699f8f… against baseline28f5f…; these differ from actual adjacent merge parent/head. Subsequent repair is test-only. 288focused tests and final12source-switch tests are overlapping reports, not additive unique tests.",
+        "Drain and database clean-close followed by usage-cache abort warnings do not qualify graceful process shutdown. Rig artifacts/logs were not inspected."
+      ],
+      "our_inference": "A public next experiment is resource-bounded catch-up with simultaneous healthy-client reads, owner rotation and root draining. This is an independent hypothesis, not a private research-plan claim.",
+      "next_falsifiable_gate": "Pin authentic adjacent parent and merge trees in a shipped Gateway, hold130 cleanup operations, verify exactly2 background dispatches and preserved task roots, healthy-client positive controls, correct old-owner capacity after replacement, current authority/row/source fences, eventual drain only after actual settlement, no stale effects; collect actual two-process-restart receipts. Reject for client starvation, extra slots, premature root release or stale writes.",
+      "source_commits": [
+        "0e6818f076d304fe363dad62a1a070f084dffb49"
+      ],
+      "limitations": "Source regression assertions and prepared-head CI metadata are not local/upstream execution proof. Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "review_record": "research/2026-10-16-recovery-capacity-and-service-boundaries.md"
+    },
+    {
+      "id": "openclaw-transaction-local-schema-custody",
+      "url": "https://github.com/openclaw/openclaw/pull/174251",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T13:51:11Z",
+      "published_at_kind": "merge event; proposal creation retained separately",
+      "observed_at": "2026-10-16T14:48:42.231906Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Owner/version/migration decisions move inside the existing synchronous schema write transaction. Schema-fact cache invalidation precedes rereading owner only after the writer lock is acquired; migration and maintenance authority decisions remain. New deterministic source test uses two real nativeSQLite connections: a spy immediately before pending BEGIN IMMEDIATE commits winner agent-b through the actual schema owner path; pending agent-a must refuse, leaving owner and registry with agent-b. Existing cross-process test is unchanged; it was not fully read or executed here. The deterministic new test is not itself a simultaneous two-process proof. Actual adjacent parent is0e6818f076d304fe363dad62a1a070f084dffb49, the174248 merge; PR base metadata is a different observation and must not substitute for it.",
+      "author_reports_not_independently_reproduced": [
+        "113focused tests and20load cases are author reports. Hosted storage-shard failure was attributed by author to inherited update-wizard code; that attribution was not independently audited.",
+        "Author says initial broad invalidation broke8seal tests, then narrowed it to schema-only facts. No physical-seal implementation was inspected."
+      ],
+      "our_inference": "Database ownership must be checked at the same serialization boundary as schema writes; a pre-lock read is insufficient evidence of current custody.",
+      "next_falsifiable_gate": "Use a pinned packaged two-process barrier where processA has a stale preflight, processB commits owner/version/registry, thenA acquires the writer lock. RequireA to refuse and preserveB state and durable receipts across reopen; include uncontended own-owner, authorized migration and maintenance positive controls. Reject owner takeover, stale registry or unexpected refusal of valid work.",
+      "source_commits": [
+        "2ce7c9253b8c51e8d0feef8ab6be72aab7b47078"
+      ],
+      "limitations": "Source regression assertions and prepared-head CI metadata are not local/upstream execution proof. Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "review_record": "research/2026-10-16-recovery-capacity-and-service-boundaries.md"
+    },
+    {
+      "id": "openclaw-recovery-import-boundary",
+      "url": "https://github.com/openclaw/openclaw/pull/174293",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "steipete",
+      "published_at": "2026-10-16T14:30:46Z",
+      "published_at_kind": "merge event; proposal creation retained separately",
+      "observed_at": "2026-10-16T14:48:42.231906Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Session-store routing and source resolver bodies move from the host sources coordinator to the existing candidates module. Worker and coordinator import the candidate owner; the resolver body is unchanged by the move and the routing builder export/signature changes. An import architecture regression forbids the worker from backedges into source coordinator, target inventory and runtime source projection. Existing startup trace environment flag is documented. This is a changed module/import boundary plus source regression; no local performance measurement was performed.",
+      "author_reports_not_independently_reproduced": [
+        "20fewer local modules969→949; medians5470→5072ms and3003→2687ms with3overlapping samples each. Full boot has1candidate versus3noisy baselines; no production percentage benefit follows.",
+        "Synthetic79MB database,13000sessions/6000runs and1500legacy rows without original authority;18focused tests and Linux source-mode Gateway rig timings are unaudited author reports."
+      ],
+      "our_inference": "Reducing coordinator imports may reduce catch-up work before useful reads; prove both authority invariants and end-to-end availability before publishing a performance claim.",
+      "next_falsifiable_gate": "Pin authentic adjacent trees, dependency graph and packaged runtime, compare repeated cold/warm boots under matched database/load and authorization controls, record import counts plus client-read availability and latency distributions. Verify identical source routing and stale-owner refusal. Existing synthetic timing cannot close this gate.",
+      "source_commits": [
+        "750d231b0b06eb3814d9118ee342f65dada288ff"
+      ],
+      "limitations": "Source regression assertions and prepared-head CI metadata are not local/upstream execution proof. Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "review_record": "research/2026-10-16-recovery-capacity-and-service-boundaries.md"
+    },
+    {
+      "id": "openclaw-live-replay-tool-envelope-identity",
+      "url": "https://github.com/openclaw/openclaw/pull/174282",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "roboclaw-bot",
+      "published_at": "2026-10-16T14:25:31Z",
+      "published_at_kind": "merge event; proposal creation retained separately",
+      "observed_at": "2026-10-16T14:48:42.231906Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Persistence guard publishes the transcript run ID to a fresh mutable assistant OR toolResult object before hooks and storage cloning. Frozen replay objects are left unchanged. New sync/async append source tests inspect in-memorySessionManager entries and detached replay, retaining original live content while allowing transcript-only hook edits. Source tests serialize the same synthetic live/replayed tool turn through the actual Responses serializer and require identical JSON and unchanged observer prefix. Internal run metadata is omitted from provider tool output. PR author is roboclaw-bot, Git author RoboClaw; body credits@vincentkoc. It is not attributed to steipete, and the credit does not establish who personally implemented it.",
+      "author_reports_not_independently_reproduced": [
+        "67suite/18final suite counts are author reports; source tests are synthetic in-process fixtures. CI success is prepared-head metadata, not a shipped Gateway/provider run.",
+        "Bot comment assertions are review/status claims, not independent runtime evidence."
+      ],
+      "our_inference": "A stable live/replayed serialization envelope is a necessary contract for reliable tool-turn history, but it does not establish provider cache hits, reward parity or durable database effects.",
+      "next_falsifiable_gate": "Use a shipped tool turn, actual immutable transcript/reopen receipt and provider wire bytes; compare live and reopened replay with transcript-only hooks, immutable historical replay and fresh mutable envelopes. Require stable observer-prefix identity and provider-visible request equality while retaining current authority and once-only effect receipts. Measure cache behavior/reward only as separate outcomes.",
+      "source_commits": [
+        "39be602a8c9b11bac9174fc5433d1331fc8b95b8"
+      ],
+      "limitations": "Source regression assertions and prepared-head CI metadata are not local/upstream execution proof. Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "review_record": "research/2026-10-16-recovery-capacity-and-service-boundaries.md"
+    },
+    {
+      "id": "verifiers-compose-tool-service-placement",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2872",
+      "type": "reviewed_immutable_public_source_not_executed",
+      "author": "hallerite",
+      "published_at": "2026-10-16T12:46:17Z",
+      "published_at_kind": "merge event; proposal creation retained separately",
+      "observed_at": "2026-10-16T14:48:42.231906Z",
+      "repository_public": true,
+      "license_metadata": "MIT (repository metadata only); upstream implementation not copied",
+      "status": "source_only_no_runtime_upgrade",
+      "claim": "Old proposal created2026-10-15T20:56:52Z, newly merged2026-10-16T12:46:17Z. PR author hallerite/KonstantinDunas, not willccbb/WillBrown. Tests/Style CI completed before this pass window, so they are historical prepared-head evidence rather than a new CI event. ToolsetConfig.service chooses a namedCompose service, exclusive with colocated, URL and non-Subprocess runtime. Rollout maps service names to deploymentRuntime; selected runtime launches MCP withlisten_all0.0.0.0, exposed=False and harness URLhttp://service:port/mcp. Source refuses missing service andruntime.is_local with ToolsetError. Service-placement grid is Prime/Modal ComposeVM only and skipped for other deployment types; three exclusivity integration cases are added. Execution-policy URL list omits internalCompose hostnames. This is not per-service egress isolation: author explicitly retains VM-wide policy, removes previous egressproxy/composed mode and defers separate-VM LAN to a future PR. Integration echo fixture, when run, would check stamped tool output/reward under service placement; no cloud/kernel/provider execution was performed here. Exact merged path named by PR body, tests/unit/test_toolset_placement.py, returnedHTTP404 at immutable merge. It is absent from the changed-file set; do not transfer the stale unit-test claim to the final patch.",
+      "author_reports_not_independently_reproduced": [
+        "Author2716rollouts describe an earlier revision. Final-version smoke is stated as future work, not current validated cloud coverage.",
+        "Named unit validation cannot be located at the claimed merged path. Source refusal code was read; no execution or complete alternate test inventory establishes those reported unit tests."
+      ],
+      "our_inference": "Tool placement and execution-policy scope need separate contracts. Independent next research can test placement/replay/reward across current VM-wide policy without describing it as stronger network isolation.",
+      "next_falsifiable_gate": "Pin current merge/adjacent parent, real Prime or Modal ComposeVM runtime/environment versions, MCP handshake, tool-stamped outputs and reward, harness/control paths, current VM-wide policy, state channel and teardown. Include missing/local/conflicting placement refusal controls and authorized working service. Require real final-version cloud receipts; do not assert per-service egress isolation.",
+      "source_commits": [
+        "a4035acbf51a7a89d663f60d53f190e476708d59"
+      ],
+      "limitations": "Source regression assertions and prepared-head CI metadata are not local/upstream execution proof. Prepared-head run metadata only; jobs/logs and upstream tests not executed or inspected.",
+      "review_record": "research/2026-10-16-recovery-capacity-and-service-boundaries.md"
+    },
+    {
+      "id": "gutenberg-alice-activation-cost-source",
+      "url": "https://www.gutenberg.org/ebooks/11",
+      "text_download_url": "https://www.gutenberg.org/ebooks/11.txt.utf-8",
+      "resolved_download_url": "https://www.gutenberg.org/cache/epub/11/pg11.txt",
+      "type": "historical_primary_text_dataset_source_not_new_research",
+      "author": "Lewis Carroll (1832-1898)",
+      "title": "Alice's Adventures in Wonderland",
+      "published_at": null,
+      "published_at_kind": "Historical text; exact edition release date not verified here. First observed this pass is not new publication.",
+      "observed_at": "2026-10-16T14:50:13.253233+00:00",
+      "publicly_accessible": true,
+      "source_http_status": 200,
+      "source_sha256": "01b38ea4c710a84bc18d0bd41271a5a1a92b94e97b2812f4dece97d4a694725e",
+      "source_bytes": 174311,
+      "license_metadata": "Public domain in the USA according to the source catalog; complete Project Gutenberg wrapper and license retained in the exact source file.",
+      "repository_source_file": "fixtures/activation-cost/alice.txt",
+      "status": "exact_source_bytes_and_source_notices_preserved_independent_pin_review_passed",
+      "claim": "Frozen natural-text train source for the separately predeclared CPU diagnostic. Exact Gutenberg wrapper/credits/license retained. Preparation normalizes line endings, excludes wrapper and selects fixed complete65-token prefix blocks.",
+      "our_inference": "Allows a distinct-book deferred endpoint evaluation, not a clean unseen pretraining corpus or broad model-quality benchmark. Same author/series and fixed small prefixes remain.",
+      "limitations": "No new researcher release or affiliation inference. Exact whole-block overlap checks do not exclude shared substrings, semantic overlap or prior model pretraining.",
+      "manifest": "fixtures/activation-cost/manifest.json",
+      "review_record": "research/2026-10-16-training-cost-and-final-evaluation.md"
+    },
+    {
+      "id": "gutenberg-looking-glass-activation-cost-source",
+      "url": "https://www.gutenberg.org/ebooks/12",
+      "text_download_url": "https://www.gutenberg.org/ebooks/12.txt.utf-8",
+      "resolved_download_url": "https://www.gutenberg.org/cache/epub/12/pg12.txt",
+      "type": "historical_primary_text_dataset_source_not_new_research",
+      "author": "Lewis Carroll (1832-1898)",
+      "title": "Through the Looking-Glass",
+      "published_at": null,
+      "published_at_kind": "Historical text; exact edition release date not verified here. First observed this pass is not new publication.",
+      "observed_at": "2026-10-16T14:50:13.258234+00:00",
+      "publicly_accessible": true,
+      "source_http_status": 200,
+      "source_sha256": "e40a38f5da841f9fb6acc557355c447b7c2ccb56a208caf5fcf2b05081f14d42",
+      "source_bytes": 196534,
+      "license_metadata": "Public domain in the USA according to the source catalog; complete Project Gutenberg wrapper and license retained in the exact source file.",
+      "repository_source_file": "fixtures/activation-cost/looking-glass.txt",
+      "status": "exact_source_bytes_and_source_notices_preserved_independent_pin_review_passed",
+      "claim": "Frozen natural-text holdout source for the separately predeclared CPU diagnostic. Exact Gutenberg wrapper/credits/license retained. Preparation normalizes line endings, excludes wrapper and selects fixed complete65-token prefix blocks.",
+      "our_inference": "Allows a distinct-book deferred endpoint evaluation, not a clean unseen pretraining corpus or broad model-quality benchmark. Same author/series and fixed small prefixes remain.",
+      "limitations": "No new researcher release or affiliation inference. Exact whole-block overlap checks do not exclude shared substrings, semantic overlap or prior model pretraining.",
+      "manifest": "fixtures/activation-cost/manifest.json",
+      "review_record": "research/2026-10-16-training-cost-and-final-evaluation.md"
+    },
+    {
+      "id": "pythia14m-natural-text-training-cost-and-deferred-evaluation",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/experiments/activation_cost_probe.py",
+      "type": "original_local_frozen_training_cost_and_deferred_final_evaluation_with_failed_observer",
+      "author": "Frontier Signal Lab (original protocol/code); EleutherAI (historical model); Lewis Carroll/Project Gutenberg (historical texts)",
+      "published_at": null,
+      "published_at_kind": "Local experiment completion, not new upstream researcher publication",
+      "observed_at": "2026-10-16T15:21:45.177650+00:00",
+      "repository_public": true,
+      "license_metadata": "Original tooling MIT; pinned Pythia assets Apache-2.0 not bundled; historical book source notices and Gutenberg terms retained verbatim, not relicensed under MIT.",
+      "status": "executed_all_six_directional_screens_failed_parent_RSS_invalid_native_self_peaks_and_scores_retained",
+      "claim": "12sequential training workers:3seeds x2methods x64step-token/60second-time arms;6fresh two-step profiles;2250primary+12profile updates. All endpoints hashed before one initial+12final64block scores. No selection, retry or second scientific run.",
+      "result": "InitialNLL4.457542557269335; all12final NLL higher. Token compressed/dense wall ratios1.122401515/1.063887115/1.054032356; native lifetime peak differences+167936/-290816/0bytes. All6time controls valid60.029880–60.188726s; dense322steps each, compressed299/300/301. Both3token and3time directional screens fail.",
+      "measurement_failure": "Parent RSS samples3.7MB conflict with native self~560–590MiB. Same-venv stdlib16MiB engineering check confirms Popen launcher PID differs from interpreter, self/explicit-realPID readings agree. Historical PID mapping absent. Parent trainingRSS invalid and actual-worker memory-cap enforcement unestablished; native self OS lifetime peaks remain separate observations. Original report preserved, supplement added; no scientific retry.",
+      "our_inference": "Local-update fidelity does not establish this policy as a useful CPU optimization. Both methods regress on this small separate-book prefix; no compression-only quality causality. Stop same-setting rescue sweeps; fix actual-interpreter identity and resource controls before any new cost experiment.",
+      "limitations": "OneWindowsCPUhost,3shared-data schedules not independent statistical replications; small fixed same-author fiction prefixes and possible pretraining overlap, short fixed learning rate/eval dropout0, no convergence/general quality/GPU/AttnRes claim. Instrumented2step callbacks and logical outer backing bytes are not long-run cost or allocator savings. Receipt audit checks consistency only, not OS/model remeasurement, authentic original process tree, secret test boundary or unpublished release/checkpoint bytes. API remains fresh-state only; all prior negatives retained.",
+      "stable_result_sha256": "2cb0e663ac2d28fbda9864752a641d27e12e16262ef97832627358e04f9c508c",
+      "observation_sha256": "850dc87cb9f6aa2f4240dcc63bdeaacdbaa8d57e3cdb1b3ef8fda4c4f32dbd45",
+      "result_file_sha256": "abfee40bcfc79bd5a4c98aa708a0611621db5635aae9d9a07fc16f1438a981c9",
+      "protocol_sha256": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+      "implementation_freeze_sha256": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5",
+      "receipt_auditor": "scripts/audit_activation_cost.py",
+      "receipt_audit": "results/activation-cost/independent-audit.json",
+      "receipt_audit_checks": 598,
+      "measurement_validity": "results/activation-cost/measurement-validity.json",
+      "measurement_validity_sha256": "2869dc3c6c46cd3490193254383d43a35170aa9490695b4a461f9e46f830c535",
+      "review_record": "research/2026-10-16-training-cost-and-final-evaluation.md"
     }
   ]
 }

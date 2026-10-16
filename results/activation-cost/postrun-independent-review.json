@@ -1,0 +1,2461 @@
+{
+  "schema_version": 1,
+  "kind": "independent_postrun_receipt_and_measurement_review",
+  "completed_at": "2026-10-16T15:27:10.384078+00:00",
+  "original_report_file_sha256": "abfee40bcfc79bd5a4c98aa708a0611621db5635aae9d9a07fc16f1438a981c9",
+  "stable_result_sha256": "2cb0e663ac2d28fbda9864752a641d27e12e16262ef97832627358e04f9c508c",
+  "observation_sha256": "850dc87cb9f6aa2f4240dcc63bdeaacdbaa8d57e3cdb1b3ef8fda4c4f32dbd45",
+  "stdlib_auditor_result": {
+    "schema_version": 1,
+    "passed": true,
+    "checks_passed": 598,
+    "report_stable_sha256": "2cb0e663ac2d28fbda9864752a641d27e12e16262ef97832627358e04f9c508c",
+    "report_observation_sha256": "850dc87cb9f6aa2f4240dcc63bdeaacdbaa8d57e3cdb1b3ef8fda4c4f32dbd45",
+    "screens": {
+      "all_token_directional_screens_passed": false,
+      "all_time_controls_and_directional_screens_passed": false,
+      "interpretation": "strict prospective sign screen only, no tolerance/equivalence/significance/general efficiency or quality claim"
+    },
+    "limitation": "Receipt hash/algebra/completeness and timestamp-consistency audit against declared protocol only. Does not authenticate resealed receipts, independently inspect implementation freeze, remeasure OS peaks/clocks, recompute model losses/gradients or establish cryptographic isolation of public heldout bytes. Endpoint weights are not bundled.",
+    "report_file_sha256": "abfee40bcfc79bd5a4c98aa708a0611621db5635aae9d9a07fc16f1438a981c9"
+  },
+  "additional_checks": [
+    {
+      "name": "original_report_digest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "stable_digest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "report_protocol_actual_bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "report_implementation_actual_bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_protocol_actual_bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full_config",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "launch_receipt_config_and_pins",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "declared_frozen_before_launch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_source_inventory_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dependency_inventory_matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_cost_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:tests/test_activation_cost.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:scripts/prepare_activation_cost.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_attention_gradient_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_gradient_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_history_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_norm_gradient_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_state_update_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_training_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/activation_update_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/adamw_state_reference.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/attnres_budget_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/attnres_memory_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/real_activation_autograd_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/recovery_contract_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:experiments/sqlite_migration_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:scripts/capture_real_activation.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:scripts/audit_activation_cost.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze:tests/test_activation_cost_auditor.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "declared_job_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "18unique_workers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw_release_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release12unique_training_endpoints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 503, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 503, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 701, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 701, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 907, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('token', 907, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 503, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 503, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 701, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 701, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 907, 'model_except_norm_attention_saved_int8')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "release_identity:('time', 907, 'dense')",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "costboundaries_then_release_then_evaluation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "evaluation_raw_matches_report",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--token--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--token--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--token--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--time--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--time--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--time--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "503--profile--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "701--profile--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--dense:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:worker_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:boundary_raw_fields_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:report_sampling_matches_raw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:raw_sample_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:raw_sample_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:raw_sampled_max_rss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:raw_max_gap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:training_interval_recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:exit0_no_parent_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "907--profile--model_except_norm_attention_saved_int8:native_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'dense'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 503, 'model_except_norm_attention_saved_int8'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'dense'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 701, 'model_except_norm_attention_saved_int8'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'dense'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):two_instrumented_steps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step1:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:19exact_preserved_names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:preserved_never_compressed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:outer_save_and_compression",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:callback_counts_and_shapes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:callback_timers_finite_nonnegative",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "profile:('profile', 907, 'model_except_norm_attention_saved_int8'):step2:all_scope_union_bounds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_codec_no_callback_timers_or_diagnostic_counters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:token:503",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:token:701",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:token:907",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:time:503",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:time:701",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "screen:time:907",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "public_core_receipts_no_personal_path_email_token",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "engineering_separate_pid",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "engineering_realpid_query_matches_self",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "engineering_launcher_mib_matches_original_order",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "additional_checks_passed": true,
+  "additional_checks_count": 316,
+  "frozen_source_and_review_files": [
+    {
+      "path": "experiments/activation_cost_probe.py",
+      "expected_sha256": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+      "actual_sha256": "0f3f0062269ad2b2531e9a6ef2f94dbc65b5af46a89bad75ec9d7be5f1d661ce",
+      "matches": true,
+      "table": "new_source_files_sha256"
+    },
+    {
+      "path": "tests/test_activation_cost.py",
+      "expected_sha256": "2014d6d14e91da2a1ce0708aadf166623686b2b019dfabef1987aaa11662f050",
+      "actual_sha256": "2014d6d14e91da2a1ce0708aadf166623686b2b019dfabef1987aaa11662f050",
+      "matches": true,
+      "table": "new_source_files_sha256"
+    },
+    {
+      "path": "scripts/prepare_activation_cost.py",
+      "expected_sha256": "1aaeb8dc1f4339109d3b3aa91f3c0c37fd5ba62c8c936a4ea5174268cbcdb04f",
+      "actual_sha256": "1aaeb8dc1f4339109d3b3aa91f3c0c37fd5ba62c8c936a4ea5174268cbcdb04f",
+      "matches": true,
+      "table": "new_source_files_sha256"
+    },
+    {
+      "path": "experiments/activation_attention_gradient_probe.py",
+      "expected_sha256": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+      "actual_sha256": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_gradient_probe.py",
+      "expected_sha256": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+      "actual_sha256": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_history_probe.py",
+      "expected_sha256": "e3fa00db54cbcbb212b45a226bfd378a46066ecd69b81e9d6edc5e8e6b3308b0",
+      "actual_sha256": "e3fa00db54cbcbb212b45a226bfd378a46066ecd69b81e9d6edc5e8e6b3308b0",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_norm_gradient_probe.py",
+      "expected_sha256": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+      "actual_sha256": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_state_update_probe.py",
+      "expected_sha256": "fba7730f295aab04597de45142a4747ca8b69b6f304cf639627e9d7c2600d1e0",
+      "actual_sha256": "fba7730f295aab04597de45142a4747ca8b69b6f304cf639627e9d7c2600d1e0",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_training_probe.py",
+      "expected_sha256": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+      "actual_sha256": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/activation_update_probe.py",
+      "expected_sha256": "630a109da3f260c3a8b31346ac839cf2901edab6d8b7bce82609d7a3105169f3",
+      "actual_sha256": "630a109da3f260c3a8b31346ac839cf2901edab6d8b7bce82609d7a3105169f3",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/adamw_state_reference.py",
+      "expected_sha256": "bc5a4925a448576d0e878928884e37bf9d612fabe16e61c4a410a1c3267a2f6d",
+      "actual_sha256": "bc5a4925a448576d0e878928884e37bf9d612fabe16e61c4a410a1c3267a2f6d",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/attnres_budget_probe.py",
+      "expected_sha256": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
+      "actual_sha256": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/attnres_memory_probe.py",
+      "expected_sha256": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+      "actual_sha256": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/real_activation_autograd_probe.py",
+      "expected_sha256": "8821c7f0e3bd0f452d9785b635c7a8fb49e7e8994e3bb5c04caebe58384db54c",
+      "actual_sha256": "8821c7f0e3bd0f452d9785b635c7a8fb49e7e8994e3bb5c04caebe58384db54c",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/recovery_contract_probe.py",
+      "expected_sha256": "2b6b97366f75d0321bee72e3ee1013a2cb8225a0be1ed4eab67df7005f01f1ac",
+      "actual_sha256": "2b6b97366f75d0321bee72e3ee1013a2cb8225a0be1ed4eab67df7005f01f1ac",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "experiments/sqlite_migration_probe.py",
+      "expected_sha256": "24fc901874b13a5693fcbefb22ce0f400f5db5a976af223ce9ce1478a667ed29",
+      "actual_sha256": "24fc901874b13a5693fcbefb22ce0f400f5db5a976af223ce9ce1478a667ed29",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "scripts/capture_real_activation.py",
+      "expected_sha256": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "actual_sha256": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87",
+      "matches": true,
+      "table": "frozen_dependencies_sha256"
+    },
+    {
+      "path": "scripts/audit_activation_cost.py",
+      "expected_sha256": "84a92022a9e01a275c10eea271ef36504da50fd9914421bec180f2da3a6d3e14",
+      "actual_sha256": "84a92022a9e01a275c10eea271ef36504da50fd9914421bec180f2da3a6d3e14",
+      "matches": true,
+      "table": "review_tools_sha256"
+    },
+    {
+      "path": "tests/test_activation_cost_auditor.py",
+      "expected_sha256": "cad9dea2798449fd8f4ff4b2f26ac53a9db6423e27f0f322e1c36fa20a9770bb",
+      "actual_sha256": "cad9dea2798449fd8f4ff4b2f26ac53a9db6423e27f0f322e1c36fa20a9770bb",
+      "matches": true,
+      "table": "review_tools_sha256"
+    }
+  ],
+  "all18_raw_sampling_recomputed": [
+    {
+      "arm": "token",
+      "seed": 503,
+      "method": "dense",
+      "raw_samples": 1073,
+      "training_interval": {
+        "samples_count": 570,
+        "sampled_max_resident_bytes": 3731456,
+        "sampled_max_private_bytes": 856064,
+        "largest_gap_including_boundaries_seconds": 0.03515519993379712,
+        "loop_perf_counter_start": 821150.7558609,
+        "loop_perf_counter_end": 821162.6549399
+      },
+      "native_self_peak_bytes": 586797056,
+      "native_self_resident_bytes": 586383360,
+      "native_self_private_bytes": 691785728,
+      "parent_to_native_rss_ratio": 0.006363509360156469,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "token",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 1164,
+      "training_interval": {
+        "samples_count": 640,
+        "sampled_max_resident_bytes": 3731456,
+        "sampled_max_private_bytes": 856064,
+        "largest_gap_including_boundaries_seconds": 0.022106699994765222,
+        "loop_perf_counter_start": 821173.6212487,
+        "loop_perf_counter_end": 821186.976793
+      },
+      "native_self_peak_bytes": 586964992,
+      "native_self_resident_bytes": 586514432,
+      "native_self_private_bytes": 691855360,
+      "parent_to_native_rss_ratio": 0.006362087267445108,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "token",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 1127,
+      "training_interval": {
+        "samples_count": 616,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 851968,
+        "largest_gap_including_boundaries_seconds": 0.022247400018386543,
+        "loop_perf_counter_start": 821197.7709542,
+        "loop_perf_counter_end": 821210.6266214
+      },
+      "native_self_peak_bytes": 586940416,
+      "native_self_resident_bytes": 586489856,
+      "native_self_private_bytes": 691843072,
+      "parent_to_native_rss_ratio": 0.006369337784420265,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "token",
+      "seed": 701,
+      "method": "dense",
+      "raw_samples": 1097,
+      "training_interval": {
+        "samples_count": 581,
+        "sampled_max_resident_bytes": 3727360,
+        "sampled_max_private_bytes": 847872,
+        "largest_gap_including_boundaries_seconds": 0.04828829993493855,
+        "loop_perf_counter_start": 821221.4873992,
+        "loop_perf_counter_end": 821233.5710752
+      },
+      "native_self_peak_bytes": 587231232,
+      "native_self_resident_bytes": 586874880,
+      "native_self_private_bytes": 692170752,
+      "parent_to_native_rss_ratio": 0.006351200446677834,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "token",
+      "seed": 907,
+      "method": "dense",
+      "raw_samples": 1073,
+      "training_interval": {
+        "samples_count": 564,
+        "sampled_max_resident_bytes": 3731456,
+        "sampled_max_private_bytes": 856064,
+        "largest_gap_including_boundaries_seconds": 0.06735040002968162,
+        "loop_perf_counter_start": 821244.1812287,
+        "loop_perf_counter_end": 821256.0193688
+      },
+      "native_self_peak_bytes": 586608640,
+      "native_self_resident_bytes": 586407936,
+      "native_self_private_bytes": 691945472,
+      "parent_to_native_rss_ratio": 0.006363242669348868,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "token",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 1115,
+      "training_interval": {
+        "samples_count": 597,
+        "sampled_max_resident_bytes": 3739648,
+        "sampled_max_private_bytes": 860160,
+        "largest_gap_including_boundaries_seconds": 0.022239699959754944,
+        "loop_perf_counter_start": 821266.9371659,
+        "loop_perf_counter_end": 821279.4149486
+      },
+      "native_self_peak_bytes": 586608640,
+      "native_self_resident_bytes": 586133504,
+      "native_self_private_bytes": 691535872,
+      "parent_to_native_rss_ratio": 0.006380198324237067,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 3393,
+      "training_interval": {
+        "samples_count": 2874,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 864256,
+        "largest_gap_including_boundaries_seconds": 0.0752905000699684,
+        "loop_perf_counter_start": 821290.4092289,
+        "loop_perf_counter_end": 821350.5253907
+      },
+      "native_self_peak_bytes": 617959424,
+      "native_self_resident_bytes": 617066496,
+      "native_self_private_bytes": 731971584,
+      "parent_to_native_rss_ratio": 0.006053726825576996,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 503,
+      "method": "dense",
+      "raw_samples": 3394,
+      "training_interval": {
+        "samples_count": 2877,
+        "sampled_max_resident_bytes": 3727360,
+        "sampled_max_private_bytes": 847872,
+        "largest_gap_including_boundaries_seconds": 0.09540519991423935,
+        "loop_perf_counter_start": 821361.3907218,
+        "loop_perf_counter_end": 821421.4206022
+      },
+      "native_self_peak_bytes": 616943616,
+      "native_self_resident_bytes": 591179776,
+      "native_self_private_bytes": 731918336,
+      "parent_to_native_rss_ratio": 0.006304951812154007,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 701,
+      "method": "dense",
+      "raw_samples": 3404,
+      "training_interval": {
+        "samples_count": 2888,
+        "sampled_max_resident_bytes": 3723264,
+        "sampled_max_private_bytes": 839680,
+        "largest_gap_including_boundaries_seconds": 0.13529659993946552,
+        "loop_perf_counter_start": 821432.2956261,
+        "loop_perf_counter_end": 821492.4364017
+      },
+      "native_self_peak_bytes": 617725952,
+      "native_self_resident_bytes": 592322560,
+      "native_self_private_bytes": 732934144,
+      "parent_to_native_rss_ratio": 0.006285872346310767,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 3407,
+      "training_interval": {
+        "samples_count": 2889,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 860160,
+        "largest_gap_including_boundaries_seconds": 0.1481695999391377,
+        "loop_perf_counter_start": 821503.2931076,
+        "loop_perf_counter_end": 821563.4596834
+      },
+      "native_self_peak_bytes": 618520576,
+      "native_self_resident_bytes": 617627648,
+      "native_self_private_bytes": 732418048,
+      "parent_to_native_rss_ratio": 0.006048226649335491,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 3402,
+      "training_interval": {
+        "samples_count": 2877,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 851968,
+        "largest_gap_including_boundaries_seconds": 0.17415610002353787,
+        "loop_perf_counter_start": 821574.3940685,
+        "loop_perf_counter_end": 821634.5480263
+      },
+      "native_self_peak_bytes": 618123264,
+      "native_self_resident_bytes": 617234432,
+      "native_self_private_bytes": 732262400,
+      "parent_to_native_rss_ratio": 0.00605207973880498,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "time",
+      "seed": 907,
+      "method": "dense",
+      "raw_samples": 3416,
+      "training_interval": {
+        "samples_count": 2891,
+        "sampled_max_resident_bytes": 3727360,
+        "sampled_max_private_bytes": 851968,
+        "largest_gap_including_boundaries_seconds": 0.023269700002856553,
+        "loop_perf_counter_start": 821645.7547081,
+        "loop_perf_counter_end": 821705.9434341
+      },
+      "native_self_peak_bytes": 616693760,
+      "native_self_resident_bytes": 590733312,
+      "native_self_private_bytes": 731467776,
+      "parent_to_native_rss_ratio": 0.006309716964124752,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 503,
+      "method": "dense",
+      "raw_samples": 522,
+      "training_interval": {
+        "samples_count": 23,
+        "sampled_max_resident_bytes": 3727360,
+        "sampled_max_private_bytes": 847872,
+        "largest_gap_including_boundaries_seconds": 0.021322699962183833,
+        "loop_perf_counter_start": 821716.7089239,
+        "loop_perf_counter_end": 821717.1858561
+      },
+      "native_self_peak_bytes": 586113024,
+      "native_self_resident_bytes": 586108928,
+      "native_self_private_bytes": 691007488,
+      "parent_to_native_rss_ratio": 0.006359500464732726,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 522,
+      "training_interval": {
+        "samples_count": 22,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 860160,
+        "largest_gap_including_boundaries_seconds": 0.021096099982969463,
+        "loop_perf_counter_start": 821727.7385451,
+        "loop_perf_counter_end": 821728.1926213
+      },
+      "native_self_peak_bytes": 586240000,
+      "native_self_resident_bytes": 586235904,
+      "native_self_private_bytes": 690794496,
+      "parent_to_native_rss_ratio": 0.006372096922947933,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 701,
+      "method": "dense",
+      "raw_samples": 513,
+      "training_interval": {
+        "samples_count": 22,
+        "sampled_max_resident_bytes": 3731456,
+        "sampled_max_private_bytes": 851968,
+        "largest_gap_including_boundaries_seconds": 0.021183500066399574,
+        "loop_perf_counter_start": 821738.7100877,
+        "loop_perf_counter_end": 821739.1713622
+      },
+      "native_self_peak_bytes": 586960896,
+      "native_self_resident_bytes": 586956800,
+      "native_self_private_bytes": 691888128,
+      "parent_to_native_rss_ratio": 0.006357292393579903,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 526,
+      "training_interval": {
+        "samples_count": 22,
+        "sampled_max_resident_bytes": 3735552,
+        "sampled_max_private_bytes": 856064,
+        "largest_gap_including_boundaries_seconds": 0.021157599985599518,
+        "loop_perf_counter_start": 821749.7652575,
+        "loop_perf_counter_end": 821750.2206689
+      },
+      "native_self_peak_bytes": 585695232,
+      "native_self_resident_bytes": 585691136,
+      "native_self_private_bytes": 690110464,
+      "parent_to_native_rss_ratio": 0.00637802379170717,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 907,
+      "method": "dense",
+      "raw_samples": 526,
+      "training_interval": {
+        "samples_count": 21,
+        "sampled_max_resident_bytes": 3743744,
+        "sampled_max_private_bytes": 868352,
+        "largest_gap_including_boundaries_seconds": 0.021230400074273348,
+        "loop_perf_counter_start": 821760.8117628,
+        "loop_perf_counter_end": 821761.2582279
+      },
+      "native_self_peak_bytes": 586223616,
+      "native_self_resident_bytes": 586219520,
+      "native_self_private_bytes": 691101696,
+      "parent_to_native_rss_ratio": 0.0063862493012856346,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    },
+    {
+      "arm": "profile",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8",
+      "raw_samples": 521,
+      "training_interval": {
+        "samples_count": 21,
+        "sampled_max_resident_bytes": 3743744,
+        "sampled_max_private_bytes": 872448,
+        "largest_gap_including_boundaries_seconds": 0.021448699990287423,
+        "loop_perf_counter_start": 821771.7745307,
+        "loop_perf_counter_end": 821772.2284862
+      },
+      "native_self_peak_bytes": 585322496,
+      "native_self_resident_bytes": 585318400,
+      "native_self_private_bytes": 689786880,
+      "parent_to_native_rss_ratio": 0.006396081175647306,
+      "interpretation": "Raw sampling algebra matches frozen receipt, but target is not validated training interpreter; unusable as interpreter RSS/cap enforcement evidence."
+    }
+  ],
+  "profiles_reviewed": [
+    {
+      "seed": 503,
+      "method": "dense",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.0005198002327233553,
+          "outer_unpack_seconds_instrumented": 4.919955972582102e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.0021725998958572745,
+          "preserved_unpack_seconds_instrumented_sum": 0.00015430059283971786
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.0005190002266317606,
+          "outer_unpack_seconds_instrumented": 5.709996912628412e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.0023330001858994365,
+          "preserved_unpack_seconds_instrumented_sum": 0.00017880008090287447
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    },
+    {
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008329500909894705,
+          "outer_unpack_seconds_instrumented": 0.001452099997550249,
+          "preserved_pack_seconds_instrumented_sum": 0.0021711994195356965,
+          "preserved_unpack_seconds_instrumented_sum": 0.0001566001446917653
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008216300164349377,
+          "outer_unpack_seconds_instrumented": 0.0016309996135532856,
+          "preserved_pack_seconds_instrumented_sum": 0.0022274001967161894,
+          "preserved_unpack_seconds_instrumented_sum": 0.00015320000238716602
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    },
+    {
+      "seed": 701,
+      "method": "dense",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.0007009999826550484,
+          "outer_unpack_seconds_instrumented": 5.7900091633200645e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.0028564997483044863,
+          "preserved_unpack_seconds_instrumented_sum": 0.00016279949340969324
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.00048019993118941784,
+          "outer_unpack_seconds_instrumented": 4.320021253079176e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.002117600874044001,
+          "preserved_unpack_seconds_instrumented_sum": 0.0001507998676970601
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    },
+    {
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008372400072403252,
+          "outer_unpack_seconds_instrumented": 0.0014445000560954213,
+          "preserved_pack_seconds_instrumented_sum": 0.0021730992011725903,
+          "preserved_unpack_seconds_instrumented_sum": 0.00015710003208369017
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008394600125029683,
+          "outer_unpack_seconds_instrumented": 0.0016567003913223743,
+          "preserved_pack_seconds_instrumented_sum": 0.002154600224457681,
+          "preserved_unpack_seconds_instrumented_sum": 0.00014850019942969084
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    },
+    {
+      "seed": 907,
+      "method": "dense",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.0005135999526828527,
+          "outer_unpack_seconds_instrumented": 4.9900030717253685e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.0021823004353791475,
+          "preserved_unpack_seconds_instrumented_sum": 0.00015460001304745674
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 0,
+          "outer_decoded_saves": 0,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 32506880,
+          "all_scope_nonparameter_backing_union_bytes": 6834176,
+          "outer_pack_seconds_instrumented": 0.0005012996261939406,
+          "outer_unpack_seconds_instrumented": 4.499999340623617e-05,
+          "preserved_pack_seconds_instrumented_sum": 0.0021591007243841887,
+          "preserved_unpack_seconds_instrumented_sum": 0.00014989986084401608
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    },
+    {
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8",
+      "steps": [
+        {
+          "step": 1,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008331199758686125,
+          "outer_unpack_seconds_instrumented": 0.0014392001321539283,
+          "preserved_pack_seconds_instrumented_sum": 0.0021402008133009076,
+          "preserved_unpack_seconds_instrumented_sum": 0.0001550000160932541
+        },
+        {
+          "step": 2,
+          "outer_save_calls": 33,
+          "outer_compressed_saves": 19,
+          "outer_decoded_saves": 19,
+          "preserved_scopes": 19,
+          "outer_original_logical_bytes_including_duplicates": 32506880,
+          "outer_payload_logical_bytes_including_duplicates": 29813248,
+          "all_scope_nonparameter_backing_union_bytes": 4140544,
+          "outer_pack_seconds_instrumented": 0.008232099818997085,
+          "outer_unpack_seconds_instrumented": 0.0016450000694021583,
+          "preserved_pack_seconds_instrumented_sum": 0.002109499415382743,
+          "preserved_unpack_seconds_instrumented_sum": 0.00014580029528588057
+        }
+      ],
+      "interpretation": "two instrumented actual steps from initial weights; individual step inventories; not primary cost/peak or mean training callback cost"
+    }
+  ],
+  "all_six_comparisons": [
+    {
+      "arm": "token",
+      "seed": 503,
+      "dense_steps": 64,
+      "compressed_steps": 64,
+      "dense_wall_seconds": 11.899078999995254,
+      "compressed_wall_seconds": 13.355544300051406,
+      "compressed_wall_ratio": 1.1224015152817064,
+      "dense_native_lifetime_peak_bytes": 586797056,
+      "compressed_native_lifetime_peak_bytes": 586964992,
+      "dense_nll": 4.574105817824602,
+      "compressed_nll": 4.546694003045559,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": true,
+        "compressed_nll_below_initial": false,
+        "compressed_loop_strictly_faster": false,
+        "compressed_lifetime_peak_strictly_lower": false
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    },
+    {
+      "arm": "token",
+      "seed": 701,
+      "dense_steps": 64,
+      "compressed_steps": 64,
+      "dense_wall_seconds": 12.08367600000929,
+      "compressed_wall_seconds": 12.855667200055905,
+      "compressed_wall_ratio": 1.0638871151498948,
+      "dense_native_lifetime_peak_bytes": 587231232,
+      "compressed_native_lifetime_peak_bytes": 586940416,
+      "dense_nll": 4.602038878947496,
+      "compressed_nll": 4.600431066006422,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": true,
+        "compressed_nll_below_initial": false,
+        "compressed_loop_strictly_faster": false,
+        "compressed_lifetime_peak_strictly_lower": true
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    },
+    {
+      "arm": "token",
+      "seed": 907,
+      "dense_steps": 64,
+      "compressed_steps": 64,
+      "dense_wall_seconds": 11.838140100007877,
+      "compressed_wall_seconds": 12.477782699977979,
+      "compressed_wall_ratio": 1.0540323559753848,
+      "dense_native_lifetime_peak_bytes": 586608640,
+      "compressed_native_lifetime_peak_bytes": 586608640,
+      "dense_nll": 4.587996806949377,
+      "compressed_nll": 4.600448988378048,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": false,
+        "compressed_nll_below_initial": false,
+        "compressed_loop_strictly_faster": false,
+        "compressed_lifetime_peak_strictly_lower": false
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    },
+    {
+      "arm": "time",
+      "seed": 503,
+      "dense_steps": 322,
+      "compressed_steps": 299,
+      "dense_wall_seconds": 60.02988039993215,
+      "compressed_wall_seconds": 60.11616179998964,
+      "compressed_wall_ratio": 1.0014373075455534,
+      "dense_native_lifetime_peak_bytes": 616943616,
+      "compressed_native_lifetime_peak_bytes": 617959424,
+      "dense_nll": 5.64247877150774,
+      "compressed_nll": 5.634735636413097,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": true,
+        "compressed_nll_below_initial": false
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    },
+    {
+      "arm": "time",
+      "seed": 701,
+      "dense_steps": 322,
+      "compressed_steps": 300,
+      "dense_wall_seconds": 60.14077559998259,
+      "compressed_wall_seconds": 60.16657580004539,
+      "compressed_wall_ratio": 1.0004289967963567,
+      "dense_native_lifetime_peak_bytes": 617725952,
+      "compressed_native_lifetime_peak_bytes": 618520576,
+      "dense_nll": 5.636638253927231,
+      "compressed_nll": 5.656550504267216,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": false,
+        "compressed_nll_below_initial": false
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    },
+    {
+      "arm": "time",
+      "seed": 907,
+      "dense_steps": 322,
+      "compressed_steps": 301,
+      "dense_wall_seconds": 60.18872600002214,
+      "compressed_wall_seconds": 60.15395780000836,
+      "compressed_wall_ratio": 0.9994223469688697,
+      "dense_native_lifetime_peak_bytes": 616693760,
+      "compressed_native_lifetime_peak_bytes": 618123264,
+      "dense_nll": 5.594762563705444,
+      "compressed_nll": 5.597567297518253,
+      "initial_nll": 4.457542557269335,
+      "conditions": {
+        "compressed_nll_no_worse_than_dense": false,
+        "compressed_nll_below_initial": false
+      },
+      "time_control_valid": true,
+      "directional_screen_passed": false
+    }
+  ],
+  "findings": [
+    {
+      "code": "parent_interpreter_memory_sampling_invalid",
+      "severity": "material_measurement_limitation",
+      "verified": "All18 raw parent sample summaries reproduce algebraically, but training-parent RSS values around3.7MB contrast with native interpreter endloop resident586–618MB. Current source samples only Popen.pid. A separate same-launch-path stdlib engineering process demonstrates PopenPID different from interpreterPID, launcherRSS3731456 versus real interpreterRSS42467328 and direct realPID query equals self.",
+      "historical_boundary": "Original scientific receipts contain no PIDs or descendant relationships. The exact historical process graph is not authenticated. Engineering reproduction supports the launcher-target explanation without replacing original measurements.",
+      "affected_claims": [
+        "Parent lifetime/training RSS and private samples are unusable as interpreter-memory measurements.",
+        "Parent memory-cap enforcement is unestablished; a completed process does not validate those guards.",
+        "598receipt consistency checks are not measurement validation."
+      ],
+      "independently_retained": [
+        "Native interpreter self GetProcessMemoryInfo lifetime peaks through loop end, including startup/setup; not isolated training or GPU peak.",
+        "Native training-loop wall/CPU and actual counters/steps.",
+        "Deferred full64-block NLL and all6negative screens."
+      ],
+      "next_gate": "Before any new science, verify PID handshake, parent/self simultaneous memory positive controls, descendant cleanup and actual cap-trigger behavior; this pass has no retry."
+    }
+  ],
+  "privacy": {
+    "public_core_matches": [],
+    "raw_release_absolute_checkpoint_path_count": 12,
+    "do_not_publish_unredacted": [
+      "heldout-release.json",
+      "pyvenv.cfg",
+      "commands or tracebacks containing interpreter/model-cache/workspace user paths"
+    ],
+    "report_preserved_original": true
+  },
+  "publication_suitability": "Suitable as a preserved negative local diagnostic only with a conspicuous measurement-validity supplement marking parent RSS invalid and parent memory-cap enforcement unestablished. Do not publish unqualified claim that all budget guards or training RSS measurement worked.",
+  "limits": [
+    "Read-only receipt/source review plus new independent audit/review output only; no model/test execution or heldout-ID content parsed.",
+    "No checkpoint-weight hashes recomputed, no model losses/gradients re-executed, no OS measurements independently repeated by this reviewer.",
+    "Profile counts/timers concern six separate initial-state two-step instrumented workers, not mean primary callback cost. Logical backing unions are not resident-memory savings.",
+    "All12finalNLL exceed initial; schedules share one corpus/run and are not statistical replications or evidence of general quality/convergence."
+  ]
+}

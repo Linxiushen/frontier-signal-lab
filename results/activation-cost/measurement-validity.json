@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-16T15:26:27.109085+00:00",
+  "original_report_file_sha256": "abfee40bcfc79bd5a4c98aa708a0611621db5635aae9d9a07fc16f1438a981c9",
+  "original_report_preserved_byte_identical": true,
+  "original_execution_completed": true,
+  "receipt_consistency_audit": {
+    "checks_passed": 598,
+    "passed": true,
+    "meaning": "Recorded hash/algebra/completeness only, not measurement validity."
+  },
+  "measurement_findings": {
+    "parent_rss_sampling": {
+      "status": "invalid_as_training_interpreter_RSS",
+      "retained_original_values": true,
+      "parent_lifetime_sample_max_range_bytes": [
+        3727360,
+        3854336
+      ],
+      "worker_native_lifetime_peak_range_bytes": [
+        586608640,
+        618520576
+      ],
+      "finding": "Parent Popen-PID samples are incompatible with native worker self-memory. Original run did not record PID ancestry.",
+      "same_launch_path_engineering_reproduction": "diagnostics/launcher-identity-check.json",
+      "engineering_result": "Popen redirector PID differs from actual interpreter PID; querying the interpreter matches its self-memory. This is a separate stdlib 16MiB allocation check, not another model run or proof of the original historical process graph.",
+      "do_not_use": [
+        "parent_sampling.sampled_max_resident_bytes",
+        "parent_sampling.training_interval_samples",
+        "parent_sampling memory values as a training-memory bound"
+      ]
+    },
+    "parent_memory_cap_enforcement": {
+      "status": "not_established_for_actual_training_interpreter",
+      "finding": "Parent sampled the launcher path; cannot claim actual-interpreter resident/private caps were continuously enforced. Native end-boundary resident lifetime peak was independently recorded; private transient peak and process-tree timeout cleanup are not established."
+    },
+    "native_worker_self_peak": {
+      "status": "retained_separate_OS_observation",
+      "meaning": "GetCurrentProcess/GetProcessMemoryInfo self-receipt at loop end. Exact process-lifetime resident high-water through this boundary includes import/model/setup/initial digest; not isolated training peak or GPU memory."
+    },
+    "loop_wall_and_final_scores": {
+      "status": "retained_one_host_small_fixed_data_observations",
+      "meaning": "No efficiency/quality benefit: all six originally declared directional screens fail. All twelve endpoint final NLLs exceed initial. Cost and model scoring do not depend on parent RSS values."
+    }
+  },
+  "scientific_launches_this_pass": 1,
+  "additional_engineering_identity_checks": 1,
+  "retry_or_replacement_scientific_runs": 0,
+  "next_gate": "Fix interpreter-PID handshake, synchronous parent/self memory agreement and descendant timeout/cap controls before any new scientific cost run. Preserve this frozen failed observer and all negatives; do not revise it post hoc."
+}

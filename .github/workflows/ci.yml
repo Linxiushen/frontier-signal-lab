@@ -23,6 +23,8 @@ jobs:
           node-version: '24'
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
+      - name: Audit the recorded Windows training-cost receipts without ML dependencies
+        run: python -S scripts/audit_activation_cost.py --report results/activation-cost/report.json --output reports/activation-cost-ci-audit.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract
@@ -151,6 +153,10 @@ jobs:
         run: |
           python -m unittest discover -s tests -p test_activation_history.py -v
           python -S -m unittest discover -s tests -p test_activation_history_auditor.py -v
+      - name: Check training cost boundaries on small engineering fixtures
+        run: |
+          python -m unittest discover -s tests -p test_activation_cost.py -v
+          python -S -m unittest discover -s tests -p test_activation_cost_auditor.py -v
       - name: Obtain immutable hash-verified model assets
         run: python scripts/download_pythia.py --output local-state/history-model --record reports/history-ci/model-assets.json
       - name: Reproduce the frozen dense and compressed history diagnostic

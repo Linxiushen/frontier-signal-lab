@@ -1,0 +1,889 @@
+{
+  "schema_version": 1,
+  "predeclared_at": "2026-10-16T14:53:36.469217+00:00",
+  "experiment_id": "activation-cost-natural-text-v1",
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      503,
+      701,
+      907
+    ],
+    "methods": [
+      "dense",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "train_blocks": 128,
+    "holdout_blocks": 64,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "token_steps": 64,
+    "time_budget_seconds": 60.0,
+    "max_time_overshoot_seconds": 1.0,
+    "max_time_steps": 4096,
+    "profile_steps": 2,
+    "threads": 1,
+    "dtype": "float32",
+    "attention": "eager",
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "max_token_loop_seconds": 120.0,
+    "max_time_loop_seconds": 65.0,
+    "token_worker_timeout_seconds": 180,
+    "time_worker_timeout_seconds": 120,
+    "profile_worker_timeout_seconds": 120,
+    "evaluation_timeout_seconds": 300,
+    "total_timeout_seconds": 1200,
+    "max_resident_bytes": 2147483648,
+    "max_private_bytes": 3221225472,
+    "min_free_memory_bytes": 8589934592,
+    "min_free_disk_bytes": 5368709120,
+    "max_output_bytes": 1610612736,
+    "sampler_interval_seconds": 0.02,
+    "min_compressed_elements": 256,
+    "expected_layernorm_modules": 13,
+    "expected_attention_modules": 6,
+    "schedule": "stdlib Random(seed).shuffle complete128-block epochs; batch2; full4096-step schedule fixed before all loops"
+  },
+  "config_sha256": "875e4aaca9d3737ea3d3fb74488195d0de2553b88303f30c60288fa92e3a9807",
+  "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+  "holdout_sha256": "0ac3f868d350ccea35ddd60bb5a35a54687e82662a9a20060f47e8645622090c",
+  "manifest_sha256": "0d08ba2574148924da713a40a66e49f3a7adc4d280a6d8f2e0d5135aae5148eb",
+  "preparation_script_sha256": "1aaeb8dc1f4339109d3b3aa91f3c0c37fd5ba62c8c936a4ea5174268cbcdb04f",
+  "new_source_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/prepare_activation_cost.py",
+    "tests/test_activation_cost.py"
+  ],
+  "primary_question": "Does the unchanged norm+attention-preserved saved-tensor INT8 policy dominate dense on actual CPU cost/lifetime resident peak and deferred separate-book heldout NLL in this fixed small diagnostic?",
+  "scientific_screens": {
+    "token_arm": "For every seed: compressed loop wall < dense wall AND compressed exact lifetime resident peak < dense peak AND compressed final NLL <= dense final NLL AND compressed final NLL < initial NLL. Strict directional dominance screen, not a practical equivalence tolerance.",
+    "time_arm": "All six workers must have elapsed in [60.000,61.000]seconds and hit no step cap; for every seed compressed final NLL <= dense final NLL and compressed final NLL < initial NLL. Invalid budget pairs retained and fail screen.",
+    "historical_local_update_gates": "Unchanged, not re-evaluated as a quality gate."
+  },
+  "evaluation_protocol": "All12 training endpoints checkpointed and hashed, completion receipt durable before any initial/final heldout score. Six separate two-step instrumentation workers use initial weights/new train data only, no holdout. Exactly one initial and12 final heldout evaluations; complete64block losses retained. No selection/tuning/retry.",
+  "cost_boundary": "Fresh process per arm. End-to-end timed loop includes real hooks/codec, CE, backward, AdamW, scalar record/check and deadline. Native dense no saved hook. No NumPy reference/diagnostic inventory or timers in primary callbacks. Lifecycle OS peak through loop end includes startup/model/import/setup, sampled training RSS is lower bound only, not peakVRAM. Postloop checkpoint/hash/diagnostic/evaluation excluded from boundary.",
+  "failure_policy": "One run, no reruns/fallback/exclusion. Persist failure receipts and successful prefixes. No heldout evaluation if any training worker incomplete; time-control failure is retained, not rewritten. No post-hoc thresholds or replacement data/seeds.",
+  "limits": [
+    "CPU float32/eager/one-thread; small Pythia14m, one run per arm/seed. Three batch schedules are not population replicates.",
+    "Natural text is same-author/series fiction, fixed small prefixes and may have appeared in pretraining. Local procedural seal; public bytes are not a hidden benchmark. No broad model-quality or pretraining-clean generalization claim.",
+    "Training uses eval/dropout0 with gradients enabled, fixed lr1e-4, no schedule/clipping/AMP. One-pass token arm and bounded60s arm cannot establish convergence.",
+    "Codec diagnostic clocks/counters are instrumented, separate initial-state two-step workers, not mean production overhead. Logical bank/payload/storage bytes are not actual resident/VRAM peak savings.",
+    "No GPU, paid service, learned routing/AttnRes, moment-only causality, private roadmap or frontier-leading claim. All prior negative results retained.",
+    "Directional screens are stringent sign checks on observed receipts, not significance or a general efficiency guarantee."
+  ],
+  "schedules": {
+    "503": {
+      "time_schedule_sha256": "dbe0feba48d0926aef8ff283506dad6d614d3468c195f211f26d8673a3c21522",
+      "token_schedule_sha256": "6111dd97b4399f92a5a92aaed66b88409751fc48264c0b5c6a4f2693d1f8c865",
+      "token_batches": [
+        [
+          116,
+          73
+        ],
+        [
+          14,
+          52
+        ],
+        [
+          20,
+          75
+        ],
+        [
+          112,
+          108
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          98,
+          85
+        ],
+        [
+          123,
+          0
+        ],
+        [
+          41,
+          84
+        ],
+        [
+          119,
+          64
+        ],
+        [
+          40,
+          124
+        ],
+        [
+          83,
+          122
+        ],
+        [
+          50,
+          22
+        ],
+        [
+          31,
+          23
+        ],
+        [
+          86,
+          74
+        ],
+        [
+          72,
+          127
+        ],
+        [
+          16,
+          26
+        ],
+        [
+          88,
+          6
+        ],
+        [
+          113,
+          38
+        ],
+        [
+          51,
+          56
+        ],
+        [
+          70,
+          7
+        ],
+        [
+          34,
+          13
+        ],
+        [
+          27,
+          125
+        ],
+        [
+          87,
+          32
+        ],
+        [
+          121,
+          106
+        ],
+        [
+          78,
+          30
+        ],
+        [
+          111,
+          10
+        ],
+        [
+          90,
+          63
+        ],
+        [
+          58,
+          57
+        ],
+        [
+          44,
+          79
+        ],
+        [
+          49,
+          29
+        ],
+        [
+          12,
+          21
+        ],
+        [
+          102,
+          77
+        ],
+        [
+          1,
+          110
+        ],
+        [
+          101,
+          115
+        ],
+        [
+          68,
+          126
+        ],
+        [
+          37,
+          61
+        ],
+        [
+          46,
+          80
+        ],
+        [
+          25,
+          117
+        ],
+        [
+          8,
+          18
+        ],
+        [
+          81,
+          67
+        ],
+        [
+          28,
+          55
+        ],
+        [
+          9,
+          42
+        ],
+        [
+          33,
+          120
+        ],
+        [
+          62,
+          36
+        ],
+        [
+          99,
+          103
+        ],
+        [
+          35,
+          91
+        ],
+        [
+          60,
+          104
+        ],
+        [
+          76,
+          105
+        ],
+        [
+          96,
+          47
+        ],
+        [
+          66,
+          118
+        ],
+        [
+          97,
+          11
+        ],
+        [
+          109,
+          93
+        ],
+        [
+          53,
+          59
+        ],
+        [
+          94,
+          71
+        ],
+        [
+          95,
+          4
+        ],
+        [
+          107,
+          3
+        ],
+        [
+          15,
+          89
+        ],
+        [
+          54,
+          100
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          82,
+          114
+        ],
+        [
+          17,
+          39
+        ],
+        [
+          48,
+          24
+        ],
+        [
+          92,
+          45
+        ],
+        [
+          19,
+          43
+        ]
+      ]
+    },
+    "701": {
+      "time_schedule_sha256": "0b4c6aa88f31088cbdbfad0a28e19f3b2639cb6b3a6994aa58ee3c9a939331f0",
+      "token_schedule_sha256": "b49c2bcf9329cccfe08ba0baa4b8e60d5a8571cc51161b67967be5f2047af8bc",
+      "token_batches": [
+        [
+          78,
+          95
+        ],
+        [
+          90,
+          58
+        ],
+        [
+          21,
+          106
+        ],
+        [
+          81,
+          61
+        ],
+        [
+          75,
+          86
+        ],
+        [
+          49,
+          67
+        ],
+        [
+          26,
+          104
+        ],
+        [
+          51,
+          38
+        ],
+        [
+          105,
+          1
+        ],
+        [
+          54,
+          93
+        ],
+        [
+          99,
+          114
+        ],
+        [
+          112,
+          97
+        ],
+        [
+          110,
+          59
+        ],
+        [
+          34,
+          9
+        ],
+        [
+          27,
+          121
+        ],
+        [
+          37,
+          23
+        ],
+        [
+          84,
+          43
+        ],
+        [
+          79,
+          35
+        ],
+        [
+          44,
+          91
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          16,
+          47
+        ],
+        [
+          109,
+          101
+        ],
+        [
+          80,
+          31
+        ],
+        [
+          25,
+          11
+        ],
+        [
+          76,
+          94
+        ],
+        [
+          102,
+          125
+        ],
+        [
+          85,
+          17
+        ],
+        [
+          126,
+          117
+        ],
+        [
+          73,
+          122
+        ],
+        [
+          111,
+          72
+        ],
+        [
+          87,
+          108
+        ],
+        [
+          96,
+          45
+        ],
+        [
+          123,
+          116
+        ],
+        [
+          10,
+          18
+        ],
+        [
+          89,
+          98
+        ],
+        [
+          62,
+          3
+        ],
+        [
+          12,
+          56
+        ],
+        [
+          53,
+          64
+        ],
+        [
+          120,
+          40
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          2,
+          83
+        ],
+        [
+          52,
+          24
+        ],
+        [
+          65,
+          50
+        ],
+        [
+          29,
+          57
+        ],
+        [
+          103,
+          82
+        ],
+        [
+          92,
+          8
+        ],
+        [
+          107,
+          66
+        ],
+        [
+          69,
+          20
+        ],
+        [
+          32,
+          88
+        ],
+        [
+          124,
+          39
+        ],
+        [
+          33,
+          42
+        ],
+        [
+          46,
+          55
+        ],
+        [
+          41,
+          113
+        ],
+        [
+          48,
+          127
+        ],
+        [
+          19,
+          15
+        ],
+        [
+          77,
+          22
+        ],
+        [
+          36,
+          5
+        ],
+        [
+          115,
+          118
+        ],
+        [
+          60,
+          28
+        ],
+        [
+          68,
+          119
+        ],
+        [
+          30,
+          74
+        ],
+        [
+          70,
+          100
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          63,
+          71
+        ]
+      ]
+    },
+    "907": {
+      "time_schedule_sha256": "62b13c4ad21aeac9eb83f30dc82340c47bb6d0afab09ae5e0757eb7c7a92db08",
+      "token_schedule_sha256": "b9f7673a3cc64221c9d91168e74a5ef08b3e7a96134bcdf94d0a05ac71d4fa05",
+      "token_batches": [
+        [
+          104,
+          56
+        ],
+        [
+          5,
+          108
+        ],
+        [
+          55,
+          125
+        ],
+        [
+          81,
+          0
+        ],
+        [
+          120,
+          64
+        ],
+        [
+          48,
+          24
+        ],
+        [
+          118,
+          83
+        ],
+        [
+          17,
+          124
+        ],
+        [
+          119,
+          18
+        ],
+        [
+          123,
+          46
+        ],
+        [
+          23,
+          12
+        ],
+        [
+          72,
+          106
+        ],
+        [
+          73,
+          58
+        ],
+        [
+          1,
+          76
+        ],
+        [
+          57,
+          92
+        ],
+        [
+          43,
+          42
+        ],
+        [
+          126,
+          22
+        ],
+        [
+          15,
+          50
+        ],
+        [
+          127,
+          68
+        ],
+        [
+          27,
+          39
+        ],
+        [
+          77,
+          91
+        ],
+        [
+          62,
+          98
+        ],
+        [
+          114,
+          40
+        ],
+        [
+          51,
+          63
+        ],
+        [
+          2,
+          59
+        ],
+        [
+          34,
+          66
+        ],
+        [
+          99,
+          101
+        ],
+        [
+          11,
+          38
+        ],
+        [
+          107,
+          95
+        ],
+        [
+          45,
+          14
+        ],
+        [
+          30,
+          74
+        ],
+        [
+          93,
+          71
+        ],
+        [
+          49,
+          10
+        ],
+        [
+          3,
+          32
+        ],
+        [
+          84,
+          47
+        ],
+        [
+          116,
+          87
+        ],
+        [
+          7,
+          44
+        ],
+        [
+          69,
+          41
+        ],
+        [
+          88,
+          82
+        ],
+        [
+          35,
+          97
+        ],
+        [
+          75,
+          109
+        ],
+        [
+          94,
+          52
+        ],
+        [
+          26,
+          33
+        ],
+        [
+          13,
+          100
+        ],
+        [
+          85,
+          80
+        ],
+        [
+          113,
+          61
+        ],
+        [
+          86,
+          122
+        ],
+        [
+          112,
+          105
+        ],
+        [
+          70,
+          29
+        ],
+        [
+          54,
+          67
+        ],
+        [
+          79,
+          78
+        ],
+        [
+          16,
+          9
+        ],
+        [
+          102,
+          65
+        ],
+        [
+          96,
+          53
+        ],
+        [
+          4,
+          31
+        ],
+        [
+          28,
+          90
+        ],
+        [
+          110,
+          117
+        ],
+        [
+          8,
+          121
+        ],
+        [
+          25,
+          21
+        ],
+        [
+          111,
+          89
+        ],
+        [
+          20,
+          60
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          19,
+          115
+        ],
+        [
+          6,
+          103
+        ]
+      ]
+    }
+  },
+  "frozen_dependencies_sha256": {
+    "experiments/activation_attention_gradient_probe.py": "d298db19f2d84b49b8dd44b3a94dcaccc5cb9c7a2d64289860111c6706681c23",
+    "experiments/activation_gradient_probe.py": "dce002c7db7aaaf7b4e75ce7be88a180857831a244f450acd793b6c3189354fd",
+    "experiments/activation_history_probe.py": "e3fa00db54cbcbb212b45a226bfd378a46066ecd69b81e9d6edc5e8e6b3308b0",
+    "experiments/activation_norm_gradient_probe.py": "bdf88b38aaf338cd4578c520731b822f02cb10c403dd23fc70f8089a15131ba1",
+    "experiments/activation_state_update_probe.py": "fba7730f295aab04597de45142a4747ca8b69b6f304cf639627e9d7c2600d1e0",
+    "experiments/activation_training_probe.py": "3bf8279b527ac71595157f3ce5539ba09f16df8a6a7fcd51565b98315babe74c",
+    "experiments/activation_update_probe.py": "630a109da3f260c3a8b31346ac839cf2901edab6d8b7bce82609d7a3105169f3",
+    "experiments/adamw_state_reference.py": "bc5a4925a448576d0e878928884e37bf9d612fabe16e61c4a410a1c3267a2f6d",
+    "experiments/attnres_budget_probe.py": "3afe9e5266213ec2d25364a0422efb927413cd11978133f98c88e251b276ec3a",
+    "experiments/attnres_memory_probe.py": "05356f50ee85b8b9443312ed37fb2ba7b5f0d4ad95ce602c8100111c6d4ad6a3",
+    "experiments/real_activation_autograd_probe.py": "8821c7f0e3bd0f452d9785b635c7a8fb49e7e8994e3bb5c04caebe58384db54c",
+    "experiments/recovery_contract_probe.py": "2b6b97366f75d0321bee72e3ee1013a2cb8225a0be1ed4eab67df7005f01f1ac",
+    "experiments/sqlite_migration_probe.py": "24fc901874b13a5693fcbefb22ce0f400f5db5a976af223ce9ce1478a667ed29",
+    "scripts/capture_real_activation.py": "32ac2555ce2f2593efc5f08188ba7b7703c33efb510fa78d680ace22fdab1b87"
+  }
+}

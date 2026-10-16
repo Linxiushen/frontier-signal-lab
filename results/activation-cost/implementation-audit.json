@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-16T15:13:58.881495+00:00",
+  "mode": "lightweight stdlib hash/log/source review only; no model/tests/heldout content read",
+  "implementation_sha256": "e28fe5df090bcc86dae9e0151e3765f130d40a28499df5b0714be32f4b826de5",
+  "protocol_sha256": "8908ca5362a51a1b0e2a9d27657b0b8e64ac5632fc695b30407331be5c1c87ed",
+  "execution_start_sha256": "6609e5e0e042cdc600b38b4b6185d173f7e56b8da839494d6b42605e794b0b44",
+  "times": {
+    "protocol": "2026-10-16T14:53:36.469217+00:00",
+    "freeze": "2026-10-16T15:10:29.593796+00:00",
+    "dispatch_receipt": "2026-10-16T15:10:37.230665+00:00"
+  },
+  "test_logs": {
+    "local-full-tests.log": {
+      "sha256": "a387bedfaf121ff307e0fe0a6310583eeb25ed4db3668f9e2593cebba1ad3b86",
+      "modified_at": "2026-10-16T15:06:23.917283+00:00",
+      "tests": 225,
+      "elapsed_seconds": 26.366
+    },
+    "activation-cost-auditor-tests.stderr.txt": {
+      "sha256": "a53f3f53703f429318a7f50078f5cce64328b411a73bfea8028211ed2325ce95",
+      "modified_at": "2026-10-16T15:06:48.295259+00:00",
+      "tests": 26,
+      "elapsed_seconds": 0.785
+    }
+  },
+  "test_count_note": "225 full-suite and26 final-auditor are separate executions with overlap; do not add as251distinct tests. The17cost engineering tests are included in full-suite.",
+  "checks": [
+    {
+      "check": "exact submitted worker hash",
+      "passed": true
+    },
+    {
+      "check": "exact submitted test hash",
+      "passed": true
+    },
+    {
+      "check": "all three new source identities",
+      "passed": true
+    },
+    {
+      "check": "all fourteen dependency identities",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_cost_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin tests/test_activation_cost.py",
+      "passed": true
+    },
+    {
+      "check": "current pin scripts/prepare_activation_cost.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_attention_gradient_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_gradient_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_history_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_norm_gradient_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_state_update_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_training_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/activation_update_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/adamw_state_reference.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/attnres_budget_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/attnres_memory_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/real_activation_autograd_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/recovery_contract_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin experiments/sqlite_migration_probe.py",
+      "passed": true
+    },
+    {
+      "check": "current pin scripts/capture_real_activation.py",
+      "passed": true
+    },
+    {
+      "check": "current pin scripts/audit_activation_cost.py",
+      "passed": true
+    },
+    {
+      "check": "current pin tests/test_activation_cost_auditor.py",
+      "passed": true
+    },
+    {
+      "check": "protocol file pin",
+      "passed": true
+    },
+    {
+      "check": "start receipt protocol pin",
+      "passed": true
+    },
+    {
+      "check": "start receipt implementation pin",
+      "passed": true
+    },
+    {
+      "check": "start configuration unchanged",
+      "passed": true
+    },
+    {
+      "check": "no previous semantic heldout reads declared",
+      "passed": true
+    },
+    {
+      "check": "protocol then freeze then dispatch",
+      "passed": true
+    },
+    {
+      "check": "successful test log local-full-tests.log",
+      "passed": true
+    },
+    {
+      "check": "test log before freeze local-full-tests.log",
+      "passed": true
+    },
+    {
+      "check": "successful test log activation-cost-auditor-tests.stderr.txt",
+      "passed": true
+    },
+    {
+      "check": "test log before freeze activation-cost-auditor-tests.stderr.txt",
+      "passed": true
+    },
+    {
+      "check": "zero prefreeze scientific runs metadata",
+      "passed": true
+    }
+  ],
+  "checks_passed": 34,
+  "all_checks_passed": true,
+  "actionable_findings": [],
+  "research_disclosure_limits": [
+    "Native memory_through_training_completion.peak_bytes is exact OS lifetime resident high-water through the loop boundary. It includes imports/model loading, pinned-asset verification, optimizer/input preparation and initial streaming digest; it is not isolated training allocation or peak VRAM. Setup can mask a training difference. Never subtract startup peak to claim incremental training peak.",
+    "parent_sampling.sampled_max_resident_bytes covers the entire child, including checkpoint/hash/postvalidation. Use only parent_sampling.training_interval_samples for training-interval sampled maxima. Filtered 20ms samples are lower bounds; report sample count and largest gap including loop boundaries. Cross-process monotonic clocks are shared on this supported host; sample timestamp is just after a query, so boundary membership has small query latency uncertainty.",
+    "Whole-loop wall/CPU time includes required preservation hooks, packing/retrieval, exact CE, backward, AdamW, scalar loss record/check and deadline handling. The existing activation finite-value check remains essential codec work. No reference equations/full-gradient norm or other extra diagnostic scans are timed. First-step framework/cold-cache cost and one fresh process per arm remain part of the observed implementation cost.",
+    "Auxiliary two-step fresh-process profiles deliberately include per-callback clocks/counters and per-step inventory instrumentation. They measure actual instrumented initial-state callbacks, not mean callback cost over the longer histories. Inventories are logical payload/backing-storage bookkeeping, not actual process peak; do not add per-scope union sizes without global deduplication.",
+    "Time endpoints stop at a completed atomic optimizer step and are only approximately time-matched. All six must be in [60,61] seconds and below4096step cap; actual durations, overshoots and update/token counts must be reported, with invalid pairs retained and no retry.",
+    "Exactly one local execution, three shared-book schedule scenarios and partial execution-order balancing do not give independent performance repetitions, population statistics or general device efficiency. Strict directional screens are sign screens, not effect-size tolerances, numerical equivalence or significance.",
+    "Prospectively sealed separate-book fiction-prefix NLL is a narrow natural-text fine-tuning diagnostic. Same author/series, selected prefix and possible historical pretraining exposure prevent broad/general or pretraining-clean quality claims. A lower compressed final NLL than dense still means regression if it exceeds pretrained baseline. Preserve prior synthetic regressions and fresh-state/local-update results separately.",
+    "Local dated hashes and the procedural heldout release establish the recorded workflow, not an external timestamp registry or cryptographic inability of an administrator to inspect files. Final parameter/gradient/moment finiteness/counters do not independently prove all intermediate gradients or update fidelity."
+  ]
+}

@@ -42,6 +42,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Actual AdamW update diagnostic](results/activation-update/report.md) | All three joint update gates failed; controls passed |
 | [Separate accumulated-state follow-up](results/activation-state-update/report.md) | Four dense warmup steps; matched-state gates pass, fresh-state controls at warmed weights fail |
 | [New-data short-history follow-up](research/2026-10-16-short-history-update.md) | All 12 common-anchor gates pass; separate dense/INT8 histories still show large moment drift |
+| [Natural-text training cost and final evaluation](research/2026-10-16-training-cost-and-final-evaluation.md) | All six joint screens fail; slower CPU training, all endpoints regress; parent RSS observer invalid |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -59,6 +60,15 @@ local gates pass (1.335–1.564% update error), while one paired point has momen
 relative L2 differences of 0.861 and 1.955. Local fidelity does not establish
 trajectory equivalence. [Verify the public receipts without Torch](fixtures/activation-history/README.md)
 or re-execute the frozen model probe for numerical reproduction.
+
+The [new complete-cost case](results/activation-cost/report.md) compares 64-step
+and approximately 60-second training, then scores every fixed endpoint once.
+INT8 took 5.4–12.2% longer at equal training volume; all 12 final NLLs exceeded
+the initial model's. A separate [validity review](results/activation-cost/measurement-validity.json)
+also found that parent RSS sampling did not establish the training interpreter's
+memory; a separate launch-path check found a distinct launcher PID. Native worker self-peaks are retained
+separately. The unmodified negative receipts and a standard-library auditor are
+public; passing that consistency audit does not validate the failed observer.
 
 ## Bring one counterexample
 

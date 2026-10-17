@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-phase-current-memory-v1",
+  "predeclared_at": "2026-10-17T17:10:36.949596+00:00",
+  "kind": "Single pinned fresh two-update dense worker; eight operation intervals and nine held primitive inventories, stage-labelled whole-process current readings only",
+  "source_paths": [
+    "experiments/training_phase_memory.py",
+    "tests/test_training_phase_memory.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/capture_real_activation.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/activation-cost/train.json",
+    "fixtures/activation-cost/manifest.json",
+    "fixtures/activation-cost/protocol.json",
+    "fixtures/activation-cost/implementation.json",
+    "experiments/training_observer_probe.py",
+    "experiments/role_policy_probe.py",
+    "experiments/dual_identity_census.py",
+    "fixtures/role-policy-probe/protocol.json",
+    "fixtures/role-policy-probe/implementation.json",
+    "experiments/training_observer_v2.py",
+    "fixtures/training-observer-v2/protocol.json",
+    "fixtures/training-observer-v2/implementation.json",
+    "experiments/training_observer_v3.py",
+    "fixtures/training-observer-v3/protocol.json",
+    "fixtures/training-observer-v3/implementation.json",
+    "experiments/observer_duty_probe.py",
+    "tests/test_observer_duty_probe.py",
+    "fixtures/observer-duty/protocol.json",
+    "fixtures/observer-duty/implementation.json",
+    "scripts/audit_observer_duty.py",
+    "tests/test_observer_duty_auditor.py",
+    "experiments/observer_duty_v2.py",
+    "tests/test_observer_duty_v2.py",
+    "fixtures/observer-duty-v2/protocol.json",
+    "fixtures/observer-duty-v2/implementation.json",
+    "scripts/audit_observer_duty_v2.py",
+    "tests/test_observer_duty_v2_auditor.py",
+    "experiments/observer_query_treatment.py",
+    "tests/test_observer_query_treatment.py",
+    "fixtures/observer-query-treatment/protocol.json",
+    "fixtures/observer-query-treatment/implementation.json",
+    "scripts/audit_observer_query_treatment.py",
+    "tests/test_observer_query_treatment_auditor.py"
+  ],
+  "review_tool_paths": [
+    "scripts/audit_training_phase_memory.py",
+    "tests/test_training_phase_memory_auditor.py"
+  ],
+  "config": {
+    "seed": 503,
+    "optimizer_steps": 2,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "train_blocks": 128,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "sampler_interval_seconds": 0.02,
+    "maximum_recorded_sample_gap_seconds": 0.5,
+    "maximum_active_observations": 800,
+    "maximum_active_polls": 800,
+    "case_timeout_seconds": 60.0,
+    "total_timeout_seconds": 60.0,
+    "cleanup_timeout_seconds": 4.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "training_timeout_seconds": 15.0,
+    "barrier_timeout_seconds": 5.0,
+    "memory_bracket_tolerance_bytes": 4194304
+  },
+  "cases_in_order": [
+    {
+      "id": "phase_memory",
+      "sampling_enabled": true,
+      "query_treatment": "memory_only"
+    }
+  ],
+  "control_plan": [
+    {
+      "filename": "create-native.json",
+      "command": "create-native",
+      "decision_label": "before_native",
+      "decision_index": 0
+    },
+    {
+      "filename": "preimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "preimport-continue.json",
+      "command": "continue",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "postimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "postimport-continue.json",
+      "command": "continue",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "pretrain-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "pretrain",
+      "decision_index": 3
+    },
+    {
+      "filename": "pretrain-continue.json",
+      "command": "continue",
+      "decision_label": "pretrain",
+      "decision_index": 3
+    },
+    {
+      "filename": "step1_zero_grad-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step1_zero_grad",
+      "decision_index": 4
+    },
+    {
+      "filename": "step1_zero_grad-continue.json",
+      "command": "continue",
+      "decision_label": "step1_zero_grad",
+      "decision_index": 4
+    },
+    {
+      "filename": "step1_forward_loss-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step1_forward_loss",
+      "decision_index": 5
+    },
+    {
+      "filename": "step1_forward_loss-continue.json",
+      "command": "continue",
+      "decision_label": "step1_forward_loss",
+      "decision_index": 5
+    },
+    {
+      "filename": "step1_backward-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step1_backward",
+      "decision_index": 6
+    },
+    {
+      "filename": "step1_backward-continue.json",
+      "command": "continue",
+      "decision_label": "step1_backward",
+      "decision_index": 6
+    },
+    {
+      "filename": "step1_optimizer_step-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step1_optimizer_step",
+      "decision_index": 7
+    },
+    {
+      "filename": "step1_optimizer_step-continue.json",
+      "command": "continue",
+      "decision_label": "step1_optimizer_step",
+      "decision_index": 7
+    },
+    {
+      "filename": "step2_zero_grad-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step2_zero_grad",
+      "decision_index": 8
+    },
+    {
+      "filename": "step2_zero_grad-continue.json",
+      "command": "continue",
+      "decision_label": "step2_zero_grad",
+      "decision_index": 8
+    },
+    {
+      "filename": "step2_forward_loss-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step2_forward_loss",
+      "decision_index": 9
+    },
+    {
+      "filename": "step2_forward_loss-continue.json",
+      "command": "continue",
+      "decision_label": "step2_forward_loss",
+      "decision_index": 9
+    },
+    {
+      "filename": "step2_backward-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step2_backward",
+      "decision_index": 10
+    },
+    {
+      "filename": "step2_backward-continue.json",
+      "command": "continue",
+      "decision_label": "step2_backward",
+      "decision_index": 10
+    },
+    {
+      "filename": "step2_optimizer_step-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "step2_optimizer_step",
+      "decision_index": 11
+    },
+    {
+      "filename": "step2_optimizer_step-continue.json",
+      "command": "continue",
+      "decision_label": "step2_optimizer_step",
+      "decision_index": 11
+    },
+    {
+      "filename": "postvalidation-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postvalidation",
+      "decision_index": 12
+    },
+    {
+      "filename": "postvalidation-continue.json",
+      "command": "continue",
+      "decision_label": "postvalidation",
+      "decision_index": 12
+    },
+    {
+      "filename": "finish.json",
+      "command": "finish",
+      "decision_label": "postvalidation",
+      "decision_index": 12
+    }
+  ],
+  "control_purpose": "pinned two-update stage-labelled current memory v1",
+  "end_barrier": {
+    "control_filename": "postvalidation-continue.json",
+    "filename": "postvalidation-continue-accepted.json",
+    "controller_control_index": 24,
+    "worker_next_control_index": 25,
+    "timeout_seconds": 5.0,
+    "worker_identity_fields": [
+      "pid",
+      "creation_filetime"
+    ],
+    "acknowledgment_fields": [
+      "nonce",
+      "role",
+      "pid",
+      "creation_filetime",
+      "filename",
+      "control_envelope",
+      "accepted_perf_counter",
+      "next_control_index"
+    ],
+    "success_receipt_fields": [
+      "control_filename",
+      "filename",
+      "requested_perf_counter",
+      "started_perf_counter",
+      "deadline_perf_counter",
+      "worker_identity",
+      "accepted_receipt",
+      "completed_perf_counter",
+      "wall_seconds",
+      "passed"
+    ],
+    "order": "request <= acknowledgment <= wait completion <= both retained live checks <= finish emission; acknowledgment may precede wait start",
+    "deadline": "min(wait start + original five-second barrier budget, original case deadline, original suite deadline); never renewed"
+  },
+  "stages": [
+    "preimport",
+    "postimport",
+    "pretrain",
+    "step1_zero_grad",
+    "step1_forward_loss",
+    "step1_backward",
+    "step1_optimizer_step",
+    "step2_zero_grad",
+    "step2_forward_loss",
+    "step2_backward",
+    "step2_optimizer_step",
+    "postvalidation"
+  ],
+  "provider_stage_phases": {
+    "preimport": "preimport",
+    "postimport": "postimport",
+    "pretrain": "postload",
+    "step1_zero_grad": "train",
+    "step1_forward_loss": "train",
+    "step1_backward": "train",
+    "step1_optimizer_step": "train",
+    "step2_zero_grad": "train",
+    "step2_forward_loss": "train",
+    "step2_backward": "train",
+    "step2_optimizer_step": "train",
+    "postvalidation": "complete"
+  },
+  "boundaries": {
+    "pretrain": "B0",
+    "step1_zero_grad": "B1",
+    "step1_forward_loss": "B2",
+    "step1_backward": "B3",
+    "step1_optimizer_step": "B4",
+    "step2_zero_grad": "B5",
+    "step2_forward_loss": "B6",
+    "step2_backward": "B7",
+    "step2_optimizer_step": "B8"
+  },
+  "operations": [
+    {
+      "id": "step1_zero_grad",
+      "phase_index": 0,
+      "step": 1,
+      "kind": "zero_grad"
+    },
+    {
+      "id": "step1_forward_loss",
+      "phase_index": 1,
+      "step": 1,
+      "kind": "forward_loss"
+    },
+    {
+      "id": "step1_backward",
+      "phase_index": 2,
+      "step": 1,
+      "kind": "backward"
+    },
+    {
+      "id": "step1_optimizer_step",
+      "phase_index": 3,
+      "step": 1,
+      "kind": "optimizer_step"
+    },
+    {
+      "id": "step2_zero_grad",
+      "phase_index": 4,
+      "step": 2,
+      "kind": "zero_grad"
+    },
+    {
+      "id": "step2_forward_loss",
+      "phase_index": 5,
+      "step": 2,
+      "kind": "forward_loss"
+    },
+    {
+      "id": "step2_backward",
+      "phase_index": 6,
+      "step": 2,
+      "kind": "backward"
+    },
+    {
+      "id": "step2_optimizer_step",
+      "phase_index": 7,
+      "step": 2,
+      "kind": "optimizer_step"
+    }
+  ],
+  "categories": [
+    "trainable_parameters",
+    "model_buffers",
+    "non_none_parameter_gradients",
+    "optimizer_exp_avg",
+    "optimizer_exp_avg_sq",
+    "optimizer_step_scalar",
+    "live_loss_tensor"
+  ],
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "assets": {
+      "README.md": {
+        "bytes": 10560,
+        "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+      },
+      "config.json": {
+        "bytes": 698,
+        "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+      },
+      "generation_config.json": {
+        "bytes": 111,
+        "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+      },
+      "model.safetensors": {
+        "bytes": 28143920,
+        "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+      },
+      "special_tokens_map.json": {
+        "bytes": 441,
+        "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+      },
+      "tokenizer.json": {
+        "bytes": 2114042,
+        "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+      },
+      "tokenizer_config.json": {
+        "bytes": 4834,
+        "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+      }
+    },
+    "planned_model_loads": 1,
+    "planned_optimizer_updates": 2
+  },
+  "training": {
+    "seed": 503,
+    "steps": 2,
+    "schedule": [
+      [
+        116,
+        73
+      ],
+      [
+        14,
+        52
+      ]
+    ],
+    "schedule_sha256": "6669c93b80a0ed4edf521463a92516ed068611eea85b20fb067bff5972e65c6c",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "optimizer_state_entries_before_loop": 0,
+    "dense_only": true,
+    "holdout_opened": false,
+    "checkpoint_written": false
+  },
+  "provider_custody": {
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "provider_config": {
+      "version_label": "2.8.0",
+      "family_code": 23,
+      "type_code": 1,
+      "protocol": 0,
+      "maximum_allowed_probes_per_ML_worker": 1,
+      "maximum_diagnostic_events": 4,
+      "maximum_saved_frames": 8,
+      "maximum_scanned_frames": 9,
+      "maximum_source_file_bytes": 1048576,
+      "caller_function": "_has_ipv6",
+      "caller_line": 127,
+      "module_function": "<module>",
+      "module_line": 137
+    },
+    "provider_source_relative_path": "urllib3/util/connection.py",
+    "provider_source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+    "frame_scope": "contiguous_initial_urllib3_frames",
+    "native_network_sandbox": false,
+    "external_providers_permitted": false
+  },
+  "identity_cleanup": "Reuse frozen Job start-suspended/authenticated actual base interpreter image, exact cmd native stdin gate and one conhost per launcher/native, retained PID+creation/image/file/opaque path policy. No role allowance added. Before_native requires3 roles;12held stages require5. Provider guard exact one pinned urllib3 import probe remains cumulative unchanged through stages/signals/terminal. Native released nonempty done line, all5retained exits0/job0 within4s. Any worker failure file rejects success and bounded diagnostic custody retained.",
+  "proposal_review": "reports/runs/20261017T165458Z/phase-proposal.json was private design; root/independent design accepted before this separate candidate implementation, but only final freeze releases sole actual root execution.",
+  "measurement_boundary": {
+    "operator": "Wall and worker processCPU surround only the declared operator with clock reads and fixed Python dispatch overhead; exclude IPC/files/holds/inventory/hash/final checks and optimizer scalar/deletion housekeeping. Forward includes complete pinned forward_loss and CE, no compression hooks.",
+    "housekeeping": "Two separately clocked scalar record/finite/delete intervals; explicitly before B4/B8, so those boundaries differ from immediate optimizer-return state.",
+    "held": "Each hold duration from ready until continue-ack; contains self/parent queries, metadata files, role/liveness census and primitive inventory. Autograd graph/loss/grad/state lifetimes are deliberately extended.",
+    "parent_window": "Per-phase parent nativeCPU/wall from before release through completion detection, wider than worker op; includes common polling/control/query work. Selected query wall is not CPU fraction, total monitoring cost or isolated causal overhead. NativeCPU zero is resolution-bound observation.",
+    "suite": "Single total wall includes launch/import/load/batches/initial hash,8operator windows,2housekeeping windows,12held brackets,9inventories/final validation/hash,teardown/cleanup. No uninstrumented training throughput or observer-cost estimate."
+  },
+  "held_full_interval": {
+    "sequence": [
+      "held-ready receipt",
+      "self_before q0 -> historical self_reading -> q1 -> self-before JSON",
+      "parent q0 -> historical retained parent_sample(memory+nativeCPU) -> q1",
+      "exact held role census/liveness and parent-sampled control emission",
+      "worker exact acknowledgment -> self_after q0 -> self_reading -> q1 -> self-after JSON",
+      "primitive tensor inventory q0/q1 -> inventory JSON for nine training boundaries only",
+      "parent reads all required receipts and checks inventory, then emits continue; worker accepts before next operation"
+    ],
+    "required_interval_order": "ready <= self_before.q0 <= self_before.inner_sample_time <= self_before.q1 <= parent.q0 <= parent.inner_sample_time <= parent.q1 <= parent-sampled-control.emission <= worker acceptance <= self_after.q0 <= self_after.inner_sample_time <= self_after.q1 <= inventory.q0 <= inventory.q1 <= continue.emission <= continue.acceptance <= next operator.start",
+    "memory_identity": "All self and parent readings exact retained actual PID + creation FILETIME; OS image/executable/path pins and Job membership separately retained.",
+    "value_gate": "Use existing compare_memory_bracket with fixed 4,194,304 byte tolerance plus new complete-interval checks. Failure rejects engineering acceptance; do not expand tolerance or reinterpret mismatch as a bound.",
+    "non_equivalence": "Memory current is bracketed before richer inventory. Inventory is a later held logical snapshot, not an exactly simultaneous OS allocation measurement; receipt/metadata/arena history perturbs subsequent current readings."
+  },
+  "active_sampling": {
+    "treatment": "memory_only in the one worker; snapshot clocks/counts/cost null/unperformed; no active Toolhelp and no observer-off comparison",
+    "target_interval_seconds": 0.02,
+    "poll_policy": "Release phase; query exact retained actual handle while awaiting its completed receipt. Skip missed slots, no bursts; save every query interval/identity/current memory/native CPU. Bound actual count and polls; no deliberate sleeps in worker operators to manufacture coverage.",
+    "selected_interval": "operator.start <= parent.query_started <= sample.perf_counter <= parent.query_completed <= operator.end. Select from all raw rows by actual complete intervals, never parent detection time or ready-file times. Retain every crossing/excluded row.",
+    "per_phase_summary_fields": [
+      "id",
+      "selected_count",
+      "raw_count",
+      "selected_indices",
+      "excluded_count",
+      "maximum_gap_including_boundaries_seconds",
+      "realized_samples_per_second",
+      "query_wall_seconds",
+      "query_wall_fraction",
+      "sampled_current_resident_max_bytes",
+      "sampled_current_private_max_bytes",
+      "coverage_status",
+      "coverage_gate_passed",
+      "missed_peak_bytes_upper_bound"
+    ],
+    "empty_phase": "selected_count0 => active maxima/realized_selected_hz/query-work-fraction null, coverage_status=unobserved, coverage_gate_passed=false. Preserve operator duration as gap evidence. Never use held readings to fill active maxima.",
+    "covered_phase": "selected_count>=1 and boundary-inclusive maxgap<=0.5s => coverage_status=finite_sampled_lower_bound; still not peak capture. If gaps exceed0.5s record inadequate_gap, withhold finite-coverage claim. No minimum20 gate borrowed from a16-update loop.",
+    "acceptance_separation": "Engineering/receipt acceptance and per-phase sampling coverage are separate outputs. A finite correctly observed workflow may have some unknown short phases; never call all phases sampled unless each individual coverage gate passes.",
+    "missed_peak_boundary": "No sampling cadence, endpoint, OS lifetime high-water diagnostic or logical inventory supplies an upper bound on missed stage peak bytes. 20ms target and observed gaps do not prove peak capture."
+  },
+  "logical_inventory": {
+    "boundary_fields": [
+      "nonce",
+      "role",
+      "pid",
+      "creation_filetime",
+      "boundary_id",
+      "snapshot_started_perf_counter",
+      "snapshot_completed_perf_counter",
+      "wall_seconds",
+      "tensors",
+      "storage_groups",
+      "categories",
+      "all_categories_unique_backing_bytes",
+      "optimizer_state_entries",
+      "optimizer_step_values",
+      "live_loss_tensor",
+      "tensor_count",
+      "method"
+    ],
+    "categories": [
+      "trainable_parameters",
+      "model_buffers",
+      "non_none_parameter_gradients",
+      "optimizer_exp_avg",
+      "optimizer_exp_avg_sq",
+      "optimizer_step_scalar",
+      "live_loss_tensor"
+    ],
+    "tensor_fields": [
+      "name",
+      "category",
+      "shape",
+      "dtype",
+      "device",
+      "numel",
+      "element_size_bytes",
+      "logical_bytes",
+      "storage_offset_elements",
+      "storage_id",
+      "backing_nbytes",
+      "requires_grad",
+      "is_leaf"
+    ],
+    "storage_group_fields": [
+      "id",
+      "device",
+      "backing_nbytes",
+      "members"
+    ],
+    "deduplication": "Within ONE boundary, use transient (device, storage.data_ptr) identity to assign primitive first-encounter IDs; validate alias metadata/backing size, sum each backing once across all categories. Do not publish raw addresses or union pointer identities across boundaries. Logical bytes per tensor and unique backing bytes are different metrics.",
+    "implementation_constraints": "Iterate bounded existing parameter/buffer/grad/optimizer/loss bindings only. Store primitives; no detach clone, numpy/bytes copy, CPU/GPU transfer, value scan, autograd saved-tensor hooks, callback tracing or Python reference retained to a Tensor/Storage after inventory returns. Do not inspect optimizer defaultdict by indexing absent keys and thereby create state; use get/items. Snapshot must not allocate optimizer tensors.",
+    "explicit_exclusions": [
+      "intermediate saved activation graph storage not enumerated: no activation-memory estimate",
+      "Torch allocator/arenas/code/native library/runtime overhead",
+      "input/batch backing and Python objects may be separately noted as excluded; they remain in native whole-process current",
+      "OS current memory and lifetime high-water cannot be reconstructed by summing tensor logical bytes"
+    ],
+    "limits": {
+      "max_named_parameters": 76,
+      "expected_trainable_numel": 14067712,
+      "max_model_buffers": 256,
+      "max_optimizer_state_entries": 76,
+      "max_tensors_per_inventory": 1024,
+      "max_rank": 8,
+      "max_named_record_chars": 256
+    },
+    "scalar_values": "Only bounded optimizer step counters and the two final logged loss scalars are read. Step values via .item() occur inside held inventory, outside operator timing; all tensor content finite scans wait until final_validity.",
+    "category_fields": [
+      "tensor_count",
+      "logical_bytes",
+      "unique_backing_bytes"
+    ]
+  },
+  "falsifiable_gates": [
+    {
+      "id": "E1_freeze_scope",
+      "class": "engineering",
+      "gate": "New source/tests/protocol/auditor/dependency hashes, exact pinned offline executables/model/provider/path hashes validated BEFORE sole launch; no historical bytes changed; one-load/two-update ceiling enforced."
+    },
+    {
+      "id": "E2_identity_roles_provider",
+      "class": "engineering",
+      "gate": "Exact actual interpreter PID/creation/image/selfpath and suspended launcher, exact native lineage plus only pinned console auxiliaries at every admitted held boundary; one unchanged cumulative import capability-probe diagnostic; unexpected provider/role fails closed."
+    },
+    {
+      "id": "E3_order_deadlines",
+      "class": "engineering",
+      "gate": "Exact 26-control plan with PID/creation authenticated acknowledgments; every op start after release ack, completed before its hold, full interval self-parent-self order for12 brackets, immutable original deadlines and final ack<=both live checks<=finish."
+    },
+    {
+      "id": "E4_two_updates",
+      "class": "engineering",
+      "gate": "Exactly8 operators/2 losses/2 optimizer.step calls/1 model load; finite operator clocks and losses; final all76 parameter/gradient/moment finite checks and each optimizer stepcounter2; initial/final parameter hash distinct. No comparison to earlier16-step trajectory or unexecuted reference replay."
+    },
+    {
+      "id": "E5_cleanup",
+      "class": "engineering",
+      "gate": "All5 retained primary/console identities exit0 and Jobactive0 within nonrenewed cleanup allowance; every failure remains failed and attempts bounded whole-job termination/close."
+    },
+    {
+      "id": "L1_grad_lifecycle",
+      "class": "logical_semantics",
+      "gate": "Fresh and after each zero_grad(None)/forward have0nonNone parametergrad; after each backward/optimizer exactly76CPUfloat32 gradients with parameter-matching shapes. Clearing gradients does NOT require lower OS current or return-to-OS."
+    },
+    {
+      "id": "L2_first_AdamW_state",
+      "class": "logical_semantics",
+      "gate": "State entries/moments/scalarsteps remain0 before first optimizer op, become76entries+152moment tensors+76step scalars after first optimizer housekeeping, remain same counts in second update, counters1 then2. Require exact moment shape/dtype/device matching parameters and declared scalar layout. Unexpected state/aliases fail semantic acceptance; do not infer state from RSSdelta."
+    },
+    {
+      "id": "L3_inventory_arithmetic",
+      "class": "logical_semantics",
+      "gate": "Per-category tensor counts/logicalbytes and within-boundary storage union recompute exactly from primitive metadata; all alias backing metadata agrees. Parameter logical bytes56,270,848 derived from14,067,712float32 elements. Expected gradients same bytes after backward; two moment families together112,541,696logical bytes after step1 (plus actual declared scalar-step metadata), not claimed OS allocation."
+    },
+    {
+      "id": "M1_phase_coverage",
+      "class": "measurement_coverage_separate",
+      "gate": "Every phase publishes its actual selectedcount/gaps/maxima or explicit nullunknown; blanket all-phase coverage true only when all8 finite sample coverage gates pass. No timing/hold inflation or retry to get more samples."
+    },
+    {
+      "id": "M2_no_performance_threshold",
+      "class": "interpretation",
+      "gate": "No favorable memory/latency/savings threshold. Preserve signed boundary current differences without abs/clamp, and report if OS current fails to track logical first-state creation. That disagreement is a result, not reason to rerun."
+    }
+  ],
+  "limits": [
+    "One instrumented worker, one load, two dense updates; no compression/holdout/quality/GPU result",
+    "Eight operation intervals and held boundaries are stage-labelled whole-process current samples, not isolated tensor or backward/full peaks",
+    "Holds prolong graph/loss lifetimes; current brackets precede rich primitive inventory; metadata and allocator history perturb later readings",
+    "Zero selected phase samples produce null maxima/unknown coverage; time gaps do not bound missed-peak bytes",
+    "Tensor logical bytes and per-snapshot unique storage backing differ from native process current readings",
+    "B4/B8 follow separately timed scalar/deletion housekeeping; not immediate optimizer-return memory",
+    "No off baseline, total monitoring-cost estimate, hard cap, production reliability or native network isolation",
+    "Historical v1 ordering rejection, six scientific failures and invalid historical RSS remain; H3/H4 unexecuted"
+  ],
+  "execution_ceiling": {
+    "cases": 1,
+    "fresh_worker_interpreters": 1,
+    "model_loads": 1,
+    "optimizer_updates": 2,
+    "forwards": 2,
+    "backwards": 2,
+    "no_model_or_native_preflight": true,
+    "automatic_retries": 0,
+    "seed_sweeps": 0,
+    "learning_rate_rescues": 0,
+    "warmup_updates": 0,
+    "downloads": 0,
+    "external_provider_API_calls": 0
+  },
+  "training_envelope": "One15s deadline derives from pretrain-continue control emission; includes all eight operations and intervening holds/housekeeping, never renewed.",
+  "raw_success_JSON_files": 110,
+  "history": {
+    "observer_duty_v1_acceptance_passed": false,
+    "observer_duty_v2_acceptance_passed": true,
+    "query_treatment_acceptance_passed": true,
+    "scientific_status_unchanged": true
+  }
+}

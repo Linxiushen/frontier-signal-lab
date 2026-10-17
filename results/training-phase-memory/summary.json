@@ -1,0 +1,655 @@
+{
+  "reviewed_at": "2026-10-17T17:17:02.517755+00:00",
+  "kind": "one_frozen_actual_two_update_phase_current_memory_receipt_outcome",
+  "report_sha256": "f48812bf945a7fdfcb76afcde2336dd545e9263876f2cb363c9189a60f87b8ca",
+  "protocol_sha256": "dc935322fcddc13380b0a9aee88a60d3ef2826051cd18d8145196b98ecaa4c85",
+  "implementation_sha256": "56e643f3d5fd2f17834f88da4cb499e6d543f813aee7db134369e4194dff80c6",
+  "producer_reported_passed": true,
+  "joint_acceptance_passed": true,
+  "frozen_audit": {
+    "passed": true,
+    "check_count": 23382,
+    "checks_passed": 23382,
+    "failures": []
+  },
+  "local_audit": {
+    "passed": true,
+    "check_count": 23386,
+    "checks_passed": 23386,
+    "failures": []
+  },
+  "actual_suites": 1,
+  "retries": 0,
+  "actual_loads": 1,
+  "actual_updates": 2,
+  "operator_count": 8,
+  "logical_inventory_count": 9,
+  "held_bracket_count": 12,
+  "held_census_count": 13,
+  "controller_controls": 26,
+  "worker_acknowledgments": 26,
+  "raw_JSON_files": 110,
+  "retained_exit_count": 5,
+  "all_retained_exits_zero": true,
+  "all_jobs_empty": true,
+  "suite_wall_seconds": 15.589064700063318,
+  "training_span": {
+    "started_perf_counter": 915061.5597427,
+    "completed_perf_counter": 915063.5470864,
+    "wall_seconds": 1.987343700020574,
+    "operator_wall_sum_seconds": 0.4286789000034332,
+    "housekeeping_wall_sum_seconds": 0.0005184999899938703
+  },
+  "phases": [
+    {
+      "id": "step1_zero_grad",
+      "selected_count": 0,
+      "raw_count": 2,
+      "selected_indices": [],
+      "excluded_count": 2,
+      "maximum_gap_including_boundaries_seconds": 0.00029930006712675095,
+      "realized_samples_per_second": null,
+      "query_wall_seconds": 0,
+      "query_wall_fraction": null,
+      "sampled_current_resident_max_bytes": null,
+      "sampled_current_private_max_bytes": null,
+      "coverage_status": "unobserved",
+      "coverage_gate_passed": false,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step1_forward_loss",
+      "selected_count": 3,
+      "raw_count": 4,
+      "selected_indices": [
+        1,
+        2,
+        3
+      ],
+      "excluded_count": 1,
+      "maximum_gap_including_boundaries_seconds": 0.01996479998342693,
+      "realized_samples_per_second": 54.24837072450931,
+      "query_wall_seconds": 0.0001444000517949462,
+      "query_wall_fraction": 0.0026111558474701956,
+      "sampled_current_resident_max_bytes": 406847488,
+      "sampled_current_private_max_bytes": 476561408,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step1_backward",
+      "selected_count": 4,
+      "raw_count": 5,
+      "selected_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "excluded_count": 1,
+      "maximum_gap_including_boundaries_seconds": 0.020153600024059415,
+      "realized_samples_per_second": 56.536223494105705,
+      "query_wall_seconds": 0.0002169999061152339,
+      "query_wall_fraction": 0.0030670887975827047,
+      "sampled_current_resident_max_bytes": 444043264,
+      "sampled_current_private_max_bytes": 511438848,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step1_optimizer_step",
+      "selected_count": 6,
+      "raw_count": 9,
+      "selected_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "excluded_count": 3,
+      "maximum_gap_including_boundaries_seconds": 0.020451600081287324,
+      "realized_samples_per_second": 49.169284951345084,
+      "query_wall_seconds": 0.0003291000612080097,
+      "query_wall_fraction": 0.0026969357811736233,
+      "sampled_current_resident_max_bytes": 580792320,
+      "sampled_current_private_max_bytes": 688640000,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step2_zero_grad",
+      "selected_count": 0,
+      "raw_count": 2,
+      "selected_indices": [],
+      "excluded_count": 2,
+      "maximum_gap_including_boundaries_seconds": 0.0003005999606102705,
+      "realized_samples_per_second": null,
+      "query_wall_seconds": 0,
+      "query_wall_fraction": null,
+      "sampled_current_resident_max_bytes": null,
+      "sampled_current_private_max_bytes": null,
+      "coverage_status": "unobserved",
+      "coverage_gate_passed": false,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step2_forward_loss",
+      "selected_count": 2,
+      "raw_count": 4,
+      "selected_indices": [
+        2,
+        3
+      ],
+      "excluded_count": 2,
+      "maximum_gap_including_boundaries_seconds": 0.01999409997370094,
+      "realized_samples_per_second": 49.67056005772561,
+      "query_wall_seconds": 8.769985288381577e-05,
+      "query_wall_fraction": 0.002178050404859636,
+      "sampled_current_resident_max_bytes": 583004160,
+      "sampled_current_private_max_bytes": 691482624,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step2_backward",
+      "selected_count": 3,
+      "raw_count": 5,
+      "selected_indices": [
+        1,
+        2,
+        3
+      ],
+      "excluded_count": 2,
+      "maximum_gap_including_boundaries_seconds": 0.02006829995661974,
+      "realized_samples_per_second": 46.62671272057914,
+      "query_wall_seconds": 0.0001550999004393816,
+      "query_wall_fraction": 0.0024105995002591573,
+      "sampled_current_resident_max_bytes": 583081984,
+      "sampled_current_private_max_bytes": 691552256,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    },
+    {
+      "id": "step2_optimizer_step",
+      "selected_count": 4,
+      "raw_count": 6,
+      "selected_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "excluded_count": 2,
+      "maximum_gap_including_boundaries_seconds": 0.02011709997896105,
+      "realized_samples_per_second": 53.05518266943523,
+      "query_wall_seconds": 0.00020409992430359125,
+      "query_wall_fraction": 0.0027071396916862347,
+      "sampled_current_resident_max_bytes": 583610368,
+      "sampled_current_private_max_bytes": 692207616,
+      "coverage_status": "finite_sampled_lower_bound",
+      "coverage_gate_passed": true,
+      "missed_peak_bytes_upper_bound": null
+    }
+  ],
+  "held_training_boundaries": [
+    {
+      "boundary_id": "B0",
+      "stage": "pretrain",
+      "current_resident_bytes": 352387072,
+      "current_private_bytes": 380121088,
+      "signed_resident_delta_bytes": null,
+      "signed_private_delta_bytes": null,
+      "all_categories_unique_backing_bytes": 56270864,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "live_loss_tensor": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        }
+      },
+      "optimizer_step_values": [],
+      "inventory_wall_seconds": 0.0008732000133022666
+    },
+    {
+      "boundary_id": "B1",
+      "stage": "step1_zero_grad",
+      "current_resident_bytes": 352559104,
+      "current_private_bytes": 380121088,
+      "signed_resident_delta_bytes": 172032,
+      "signed_private_delta_bytes": 0,
+      "all_categories_unique_backing_bytes": 56270864,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "live_loss_tensor": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        }
+      },
+      "optimizer_step_values": [],
+      "inventory_wall_seconds": 0.0008210999658331275
+    },
+    {
+      "boundary_id": "B2",
+      "stage": "step1_forward_loss",
+      "current_resident_bytes": 415961088,
+      "current_private_bytes": 476561408,
+      "signed_resident_delta_bytes": 63401984,
+      "signed_private_delta_bytes": 96440320,
+      "all_categories_unique_backing_bytes": 56270868,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "live_loss_tensor": {
+          "tensor_count": 1,
+          "logical_bytes": 4,
+          "unique_backing_bytes": 4
+        }
+      },
+      "optimizer_step_values": [],
+      "inventory_wall_seconds": 0.0008348999544978142
+    },
+    {
+      "boundary_id": "B3",
+      "stage": "step1_backward",
+      "current_resident_bytes": 444047360,
+      "current_private_bytes": 511438848,
+      "signed_resident_delta_bytes": 28086272,
+      "signed_private_delta_bytes": 34877440,
+      "all_categories_unique_backing_bytes": 112541716,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "live_loss_tensor": {
+          "tensor_count": 1,
+          "logical_bytes": 4,
+          "unique_backing_bytes": 4
+        }
+      },
+      "optimizer_step_values": [],
+      "inventory_wall_seconds": 0.0013494000304490328
+    },
+    {
+      "boundary_id": "B4",
+      "stage": "step1_optimizer_step",
+      "current_resident_bytes": 580853760,
+      "current_private_bytes": 688640000,
+      "signed_resident_delta_bytes": 136806400,
+      "signed_private_delta_bytes": 177201152,
+      "all_categories_unique_backing_bytes": 225083712,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 76,
+          "logical_bytes": 304,
+          "unique_backing_bytes": 304
+        },
+        "live_loss_tensor": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        }
+      },
+      "optimizer_step_values": [
+        1
+      ],
+      "inventory_wall_seconds": 0.002559000044129789
+    },
+    {
+      "boundary_id": "B5",
+      "stage": "step2_zero_grad",
+      "current_resident_bytes": 580222976,
+      "current_private_bytes": 688787456,
+      "signed_resident_delta_bytes": -630784,
+      "signed_private_delta_bytes": 147456,
+      "all_categories_unique_backing_bytes": 168812864,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 76,
+          "logical_bytes": 304,
+          "unique_backing_bytes": 304
+        },
+        "live_loss_tensor": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        }
+      },
+      "optimizer_step_values": [
+        1
+      ],
+      "inventory_wall_seconds": 0.002064000000245869
+    },
+    {
+      "boundary_id": "B6",
+      "stage": "step2_forward_loss",
+      "current_resident_bytes": 583004160,
+      "current_private_bytes": 691482624,
+      "signed_resident_delta_bytes": 2781184,
+      "signed_private_delta_bytes": 2695168,
+      "all_categories_unique_backing_bytes": 168812868,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 76,
+          "logical_bytes": 304,
+          "unique_backing_bytes": 304
+        },
+        "live_loss_tensor": {
+          "tensor_count": 1,
+          "logical_bytes": 4,
+          "unique_backing_bytes": 4
+        }
+      },
+      "optimizer_step_values": [
+        1
+      ],
+      "inventory_wall_seconds": 0.0023625000612810254
+    },
+    {
+      "boundary_id": "B7",
+      "stage": "step2_backward",
+      "current_resident_bytes": 583540736,
+      "current_private_bytes": 692207616,
+      "signed_resident_delta_bytes": 536576,
+      "signed_private_delta_bytes": 724992,
+      "all_categories_unique_backing_bytes": 225083716,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 76,
+          "logical_bytes": 304,
+          "unique_backing_bytes": 304
+        },
+        "live_loss_tensor": {
+          "tensor_count": 1,
+          "logical_bytes": 4,
+          "unique_backing_bytes": 4
+        }
+      },
+      "optimizer_step_values": [
+        1
+      ],
+      "inventory_wall_seconds": 0.002622300060465932
+    },
+    {
+      "boundary_id": "B8",
+      "stage": "step2_optimizer_step",
+      "current_resident_bytes": 583610368,
+      "current_private_bytes": 692207616,
+      "signed_resident_delta_bytes": 69632,
+      "signed_private_delta_bytes": 0,
+      "all_categories_unique_backing_bytes": 225083712,
+      "categories": {
+        "trainable_parameters": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "model_buffers": {
+          "tensor_count": 1,
+          "logical_bytes": 16,
+          "unique_backing_bytes": 16
+        },
+        "non_none_parameter_gradients": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_exp_avg_sq": {
+          "tensor_count": 76,
+          "logical_bytes": 56270848,
+          "unique_backing_bytes": 56270848
+        },
+        "optimizer_step_scalar": {
+          "tensor_count": 76,
+          "logical_bytes": 304,
+          "unique_backing_bytes": 304
+        },
+        "live_loss_tensor": {
+          "tensor_count": 0,
+          "logical_bytes": 0,
+          "unique_backing_bytes": 0
+        }
+      },
+      "optimizer_step_values": [
+        2
+      ],
+      "inventory_wall_seconds": 0.002458699978888035
+    }
+  ],
+  "all_phases_covered": false,
+  "unobserved_phases": [
+    "step1_zero_grad",
+    "step2_zero_grad"
+  ],
+  "total_raw_active_queries": 37,
+  "total_selected_active_queries": 22,
+  "historical_scientific_status_unchanged": true,
+  "historical_parent_RSS_valid": false,
+  "scope": "Logical bytes and snapshot-local storage backing differ from whole-process current RSS/private bytes. First/second ordered operations not causal replicates; B4/B8 after timed housekeeping. Short unsampled intervals stay null, six covered phases only finite sampled lower bounds. No isolated backward/full peak, missed-peak byte bound, OFF/total observercost, compression/quality/GPU/hardcap/production claim."
+}

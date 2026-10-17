@@ -6,7 +6,7 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 追踪前沿实验室研究者与开源作者的个人公告、原创仓库、实际贡献、issue/PR/discussion。每个判断附原始链接、观察时间、替代解释和下一次检查条件。入职消息用于发现人物；研究优先级由技术证据决定。
 
-本轮交付：[内存查询与全局快照对照](results/observer-query-treatment/report.md)完成 4 次加载、64 次更新，8894 项便携审计通过；两对 T/M 耗时比 1.069/1.016，轻量查询约 50 Hz，仅为两对短运行的描述值。保留六项科学负结果、无效历史 RSS 和旧时序拒绝。见[复核命令](fixtures/observer-query-treatment/README.md)与[研究判断](research/2026-10-17-observer-query-treatment.md)。
+本轮交付：[训练阶段内存与状态库存](results/training-phase-memory/report.md)完成一次加载、两次更新，23,382项便携审计通过。清除56,270,848字节逻辑梯度后，进程private bytes反增147,456；两次zero_grad均未采到区间内样本，保留空值。代码、110份原始收据与[复核命令](fixtures/training-phase-memory/README.md)已公开；六项科学负结果、无效历史RSS和旧时序拒绝保留。见[研究判断与新源码信号](research/2026-10-17-training-phase-memory.md)。
 
 ## 第一轮：2026-10-15
 

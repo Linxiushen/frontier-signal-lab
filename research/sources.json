@@ -5963,6 +5963,97 @@
       "evidence_record": "research/2026-10-17-observer-query-treatment.md",
       "dedupe_key": "our:observer-query-treatment@f8dfa485ee8151419a37e8c3cde9c003dad083a87b4e5b91cf71532465cdcce5",
       "recorded_at": "2026-10-17T15:15:29.152689+00:00"
+    },
+    {
+      "id": "fla-shared-causal-lm-loss-token-normalization-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/329b534245d3d7bb27cc03a99e87bdc51fb28d06",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1505",
+      "type": "new_landing_of_earlier_same_day_proposal_complete_metadata_selected_source_not_runtime_reproduction",
+      "author": "yzhangcs; not Nathan Chen",
+      "merged_by": "yzhangcs",
+      "published_at": "2026-10-17T15:27:46Z",
+      "published_at_kind": "Actual squash landing; proposal created 2026-10-17T10:35:04Z. All 19 PR-branch commit authors are yzhangcs, including prerequisite merges; these are not 19 independent new research results.",
+      "claim": "PR 1505 lands 329b5342 over sole actual parent 9a86daa2. Complete PR/commit/adjacent-comparison metadata contains 43 paths with identical patches. Exact full bytes and patch reconstruction cover 6 selected core paths: shared helper, CAT/KDA/MoM callers, reference tests and CPU API workflow. The helper selects logits without labels, uses full hidden states with labels, builds shifted labels, changes reduction to sum when num_items_in_batch is supplied, then divides by that denominator. A custom criterion is copied before its reduction is changed. Selected KDA preserves its training-only linear fusion predicate; MoM keeps the old logits argument while adding the new alias, returns unlabeled logits and retains a separate auxiliary loss. Source tests compare shifted-reference losses and gradients, custom reductions, integer/tensor logits selection, and fused/unfused loss and gradients; the fused and MoM cases have accelerator skips. These source tests were not locally executed.",
+      "author_assertions": "The author reports 173 pass/1 skip on GB200 and 151 pass/23 skip on CPU at earlier a6bdd67d, claiming subsequent ancestry integration preserves its tree. The 40-callsite audit, checkpoint/positional equivalence and bitwise 108-tensor PrecondKDA replay remain author assertions. The broad seven-family matrix explicitly has 29 pass/18 skip/4 fail and, with changed order, 28 pass/18 skip/5 fail. Baseline/LAPACK attribution was not independently reproduced. Earlier zero-decoder-layer head-only GB200 benchmarks dcfd8700 to a6bdd67d regress: unfused 0.722 to 0.750 ms (+3.9%), fused CE 1.071 to 1.105 (+3.2%), fused linear+CE 3.558 to 3.764 (+5.8%). No speedup, neutrality, packed-boundary or end-to-end training claim follows; packed labels stay in 1454.",
+      "ci_metadata": "Complete separately observed default-latest final-head da902abb inventory: 25 checks = 13 success, 8 skipped, 3 cancelled, 1 queued; 11 workflows. Landing 329b5342: 17 checks = 11 success, 4 skipped, 2 pending; 13 workflows, including three pending smoke/Ascend workflows. Exact final-head Model API 39045104159 attempt 1 has 2/2 successful jobs. H100 39045147143 is marked success but has only 2 successful decision/detection jobs plus 4 skipped test/benchmark/eligibility jobs. Same-head H100 39045104183 is cancelled: 2 success, 3 cancelled, 2 skipped. Landing smoke 39045147791 is pending with no jobs. Author-linked CPU 39042824095 succeeds with 2 jobs at a6bdd67d, not final head. Job logs and legacy statuses were not read.",
+      "actual_parent": "9a86daa28ef5af80e69395fff2838ff8686a2d1d",
+      "pr_head": "da902abbcb67328ade823b7b24c6132b43a6f3a2",
+      "status": "landed_shared_logits_and_normalized_loss_selected_source_accelerator_and_packed_boundary_unverified",
+      "our_inference": "A reusable training stack needs an explicit loss denominator as well as a state/cache contract. Different microbatch token counts, custom criterion reductions and fused output availability can change the meaning of an observed loss. This motivates an H1/H4 measurement gate; it is neither a local training result nor an inferred private roadmap.",
+      "next_falsifiable_gate": "At pinned authentic refs and one compatible runtime compare full-batch versus variable-valid-token microbatch accumulated gradients under an explicit shared token denominator, including ignored labels, all-ignored/zero-denominator behavior, custom sum/mean criteria, L2 and MoM auxiliary loss. Separately test packed document boundaries and shifted-label handling before making normalized-training claims. On actual accelerators report synchronized end-to-end step time and measured peak allocation, retaining fusion skips, current broad failures and observed regressions.",
+      "source_coverage": {
+        "complete_metadata_paths": 43,
+        "exact_content_pairs": 6,
+        "unreconstructed_paths": 37
+      },
+      "limitations": [
+        "Only 6 selected core pairs reconstructed; 37 other contents and all-40-callsite equivalence were not independently reconstructed.",
+        "The newly added test has verified parent HTTP 404; empty absent-parent bytes were used for reconstruction, never the saved JSON error body.",
+        "Source syntax and test inspection is not executed training or numerical/GPU qualification. Earlier benchmark/test revision differs from final head.",
+        "Broad matrix failures, all three slower benchmark paths and skipped/pending/cancelled CI remain visible; no GPU job logs were read.",
+        "Proposal is earlier the same day; this is its new landing, by yzhangcs rather than Nathan. No archives downloaded or upstream code executed."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T165458Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1505@329b534245d3d7bb27cc03a99e87bdc51fb28d06",
+      "recorded_at": "2026-10-17T17:07:31.154432+00:00"
+    },
+    {
+      "id": "verifiers-request-dialect-replay-view-overlap-merged",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/6fa0c0a756f4186a47bfc0ad01249d01e2700b43",
+      "related_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2880",
+      "type": "new_landing_of_previous_day_proposal_complete_metadata_selected_source_not_runtime_reproduction",
+      "author": "mikasenghaas; not Will Brown",
+      "merged_by": "mikasenghaas",
+      "published_at": "2026-10-17T14:57:42Z",
+      "published_at_kind": "Actual landing after previous scan cutoff; proposal created 2026-10-16T13:01:30Z. All five PR-branch commit authors are mikasenghaas.",
+      "claim": "PR 2880 lands 6fa0c0a7 over sole actual parent 17e66c08. Complete 20-path PR/commit/adjacent-parent inventories have identical patches; 10 selected full-content core pairs reconstruct exactly. DialectName enumerates chat_completions, responses and anthropic_messages. Interception forwards each request dialect into rewriting and graph preparation; PendingTurn owns the dialect through commit. Graph keys and per-dialect indexes use the replay view, with each new node inserted into all built indexes. The replay_view hook now requires a dialect argument. Selected harness code drops blank assistant text for pi only on chat/Anthropic, OpenCode only on Anthropic, and Kimi Code on all dialects. The two selected graph regressions check dialect-dependent branches and overlapping prepared requests committing in different order. Integration-grid and session changes were inspected as complete patch metadata, not reconstructed full contents.",
+      "author_assertions": "The author reports the old dialect-blind OpenCode/Kimi transports forked and the new per-dialect views pass multi-turn and tool regressions on prime. Direct Kimi Responses/Anthropic runs reportedly give one branch, but CI_MODEL_GAPS still skips every Kimi transport. e2b and modal tool placements failed without a key/SDK and are deselected in CI. Links to pinned pi/OpenCode/Kimi client implementations were not independently read, and reported branch counts were not reproduced. Generated Claude/Cursor/Macroscope text and bot summaries are not independent human verification.",
+      "ci_metadata": "Complete separately observed default-latest head bd520f4d has 30 checks: 28 success and 2 neutral, with one neutral check still in_progress; 3 workflows. Landing 6fa0c0a7 has 31 checks: 28 success and 3 skipped; 4 workflows. Exact Tests 39040886262 head and 39042964259 landing attempt 1 each have 21/21 successful jobs. This is workflow/job metadata, not per-test model/transport coverage; job logs and individual skip counts were not read. It does not remove the author-disclosed CI_MODEL_GAPS or e2b/modal deselections.",
+      "actual_parent": "17e66c082d78be0c8bb7e7b9d49281bd7fd6d46c",
+      "pr_head": "bd520f4d5f0184f52b6c191b98f33216d9379b88",
+      "status": "landed_per_request_dialect_replay_selected_source_real_wire_clients_and_skipped_cells_unverified",
+      "our_inference": "Replay equivalence depends on request transport and the lifetime of the in-flight request. A trace-wide mutable transport setting can select the wrong equivalence relation under overlap. Canonicalization that hides a semantic distinction can undercount branches; lack of canonicalization can overcount them. This is an H2/H4 gate for trace identity and evaluation consistency, not evidence of improved agent quality.",
+      "next_falsifiable_gate": "With pinned actual clients and recorded wire payloads, cross chat/Responses/Anthropic transports with blank text, reasoning, tools and token spans; overlap and reorder prepare/commit operations and build alternate indexes before/after new nodes. Verify exact branch ancestry, tool arguments and sampled tokens without merging semantically distinct messages, then restart/reconstruct trace state. Report skipped or unavailable Kimi/e2b/modal cells as gaps. A finite local state model is insufficient to establish real-client or production correctness.",
+      "source_coverage": {
+        "complete_metadata_paths": 20,
+        "exact_content_pairs": 10,
+        "unreconstructed_paths": 10
+      },
+      "limitations": [
+        "Only 10 selected core pairs reconstructed; 10 other full contents including transport grid/session and transitive client sources were not independently reconstructed.",
+        "Selected regression tests were read and syntax parsed, never imported or executed. Branch-count and real-wire claims remain author assertions.",
+        "Public hook signature breaks custom overrides; compatibility migration is required. A model/transport green matrix was not independently established.",
+        "Successful jobs do not expose individual model gaps; Kimi skips and e2b/modal deselections remain explicit.",
+        "This Oct 16 proposal first lands Oct 17 just after the prior cutoff. Author is mikasenghaas, not Will Brown; no private affiliation or roadmap inferred."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T165458Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/pull/2880@6fa0c0a756f4186a47bfc0ad01249d01e2700b43",
+      "recorded_at": "2026-10-17T17:07:31.154432+00:00"
+    },
+    {
+      "id": "pythia14m-two-step-phase-current-memory",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/training-phase-memory/report.json",
+      "type": "our_original_predeclared_single_dense_worker_phase_current_memory_and_logical_state_inventory",
+      "author": "this project; not an upstream author claim",
+      "published_at": "2026-10-17T17:16:00.806154+00:00",
+      "claim": "One separately frozen pinned Pythia-14m CPU float32 worker, seed503, two dense AdamW updates. 8 timed operators,9 primitive inventories,12 full-query held brackets,13 exact role censuses,26 controls/acks,110 rawJSON,5 retained exits0/emptyJob. Portable23382/local23386 saved-receipt checks pass. 37 raw active queries,22 fully inside operators; both zero_grad intervals unsampled with null maxima/unknown coverage. B4 toB5 clears56270848 logicalgradientbytes while process private increases147456bytes and resident decreases630784bytes. Two moment families112541696logicalbytes plus304stepbytes after firststep; counters1then2. Wholeprocess stage-labelled current readings/finite sampled lowerbounds are not isolatedbackward/fullpeak, allocator allocation savings, causalfirststeppremium, quality, GPU or production proof. B4/B8 after separate scalar/deletionhousekeeping; holds/inventories perturb lifetime/history. No compression/holdout/retry; all historical scientific failures and invalidRSS remain.",
+      "status": "finite_engineering_and_receipt_acceptance_passed_two_zero_grad_coverage_gaps_scientific_status_unchanged",
+      "result_file_sha256": "f48812bf945a7fdfcb76afcde2336dd545e9263876f2cb363c9189a60f87b8ca",
+      "protocol_sha256": "dc935322fcddc13380b0a9aee88a60d3ef2826051cd18d8145196b98ecaa4c85",
+      "implementation_freeze_sha256": "56e643f3d5fd2f17834f88da4cb499e6d543f813aee7db134369e4194dff80c6",
+      "evidence_record": "research/2026-10-17-training-phase-memory.md",
+      "dedupe_key": "our:training-phase-memory@f48812bf945a7fdfcb76afcde2336dd545e9263876f2cb363c9189a60f87b8ca",
+      "recorded_at": "2026-10-17T17:19:10.018598+00:00"
     }
   ]
 }

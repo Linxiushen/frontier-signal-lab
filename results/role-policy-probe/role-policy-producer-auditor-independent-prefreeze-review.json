@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_prefreeze_producer_auditor_static_review",
+  "reviewer": "role_policy",
+  "reviewed_at": "2026-10-17T05:00:06.939583+00:00",
+  "real_suite_executed_by_reviewer": false,
+  "training_permitted": false,
+  "files_sha256": {
+    "experiments/role_policy_probe.py": "5481a1720ad00cd7cf83d7a86938fd09916b001d8b0187ae8307d536bf4d027a",
+    "tests/test_role_policy_probe.py": "ce37714347b7bcff55f4da221013e7094a79ff3f4ec93e12fae5f9dd85f78ccf",
+    "fixtures/role-policy-probe/protocol.json": "c28f49cbd97580e6bf81e665b1b0ce3673c58b89d32ef1b91e4e962e2873a442",
+    "scripts/audit_role_policy_probe.py": "7ef450bd3d020cb98bcc7c443b1b6d43d491dfad9d79e80196409c10a3d89403",
+    "tests/test_role_policy_probe_auditor.py": "7455deaff1641186e71a8a7148bbf54a518889809bf29fb214b923f7c7d6f61a"
+  },
+  "checks": [
+    {
+      "check": "separate_versioned_producer_and_prior_immutable_inventory_dependency",
+      "passed": true,
+      "evidence": "New source imports dual_identity_census only as frozen inventory/image/identity helpers; no prior file edited by this agent."
+    },
+    {
+      "check": "strict_two_then_three_primary_direct_parent_roles",
+      "passed": true,
+      "evidence": "evaluate_policy binds exact retained PID+creation/image/path and actual->launcher/native->actual direct parents; both baselines must admit before any injection."
+    },
+    {
+      "check": "exact_System32_console_image_file_and_path_frozen_before_launch",
+      "passed": true,
+      "evidence": "validate_freeze checks explicit native/conhost canonical SystemRoot/System32 paths and all four file/path digests before WindowsJob."
+    },
+    {
+      "check": "one_auxiliary_per_registered_owner_pinned_by_parent_and_child_identity",
+      "passed": true,
+      "evidence": "Only launcher/native own one conhost each; pins include owner_ref+auxiliary_ref and frozen file/path; replacement/cardinality violations reject."
+    },
+    {
+      "check": "post_census_all_identity_hold_and_job_counts",
+      "passed": true,
+      "evidence": "policy_stage re-retains each raw PID+creation, checks native creation/GetProcessId and live same-Job membership, stamps evidence and checks counts within fixed deadline."
+    },
+    {
+      "check": "negative_is_precise_injection_not_generic_failure",
+      "passed": true,
+      "evidence": "verify_rejection requires unchanged five approved roles, only controlled exact-image/direct-worker target plus zero/one exact conhost child, sole error unregistered_processes_present."
+    },
+    {
+      "check": "healthy_and_negative_exit_contracts",
+      "passed": true,
+      "evidence": "Exact final retained identity exit set and Job0; healthy allfive0; held Python launcher/actual/helper57347, native/conhost individual codes preserved."
+    },
+    {
+      "check": "control_receipts_forbid_ML_and_authenticate_decision_index_label",
+      "passed": true,
+      "evidence": "control requires true admitted fixed command; require_control checks nonce envelope, purpose, true-int index, label and training false; no negative terminal release path."
+    },
+    {
+      "check": "independent_auditor_replays_raw_identity_topology_and_policy",
+      "passed": true,
+      "evidence": "Auditor imports no producer/observer/native module; computes primary/aux roles, pins, admitted/rejected sets, exact negative topology and clocks from raw saved rows."
+    },
+    {
+      "check": "independent_auditor_replays_liveness_and_cleanup",
+      "passed": true,
+      "evidence": "Auditor compares all observed refs to held-liveness set and exit set, checks stage clock order, Job counts, fixed case/suite budget and no-ML flags."
+    },
+    {
+      "check": "independent_auditor_binds_source_protocol_freeze_and_review_bytes",
+      "passed": true,
+      "evidence": "Exact source/dependency/auditor sets and bytes, four file/path maps, declaration/freeze/run chronology; optional local executable rehash is file evidence only."
+    },
+    {
+      "check": "no_actual_suite_preflight_or_ML_execution_by_reviewer",
+      "passed": true,
+      "evidence": "Only25targeted producer mock tests executed under native/process/network/ML guards; receipt reports no forbidden attempts. Static auditor/test review, no actual experiment."
+    }
+  ],
+  "checks_passed": 12,
+  "check_count": 12,
+  "passed": true,
+  "producer_mock_receipt": "reports/runs/20261017T045054Z/role-policy-producer-mock-review.json",
+  "specific_auditor_limit": "audit_role_policy_probe.py audits role_decisions labels and raw census/identity/liveness/cleanup evidence. It does not independently read controller trace files or prove absence of forbidden release files. Root agreed to publish exact raw trace and commission a separate saved-result review of nonce, purpose, index, label, stage order and required absence after the sole real suite.",
+  "freeze_note": "Review occurs before implementation freeze. Root will normalize new files to LF, replace final declaration with actual UTC, bind final exact bytes and recheck reviewer hashes. Independent auditor is still completing strict-field-type synthetic controls; no outcome exists yet.",
+  "limitations": [
+    "No training release, production proof, continuous coverage or loaded-code attestation.",
+    "No historical eight-child identity repair or scientific status change.",
+    "This is static contract review plus guarded producer mocks, not fresh OS evidence."
+  ]
+}

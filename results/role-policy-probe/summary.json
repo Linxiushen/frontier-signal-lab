@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-role-policy-probe-v1",
+  "acceptance_passed": true,
+  "producer_reported_passed": true,
+  "started_at": "2026-10-17T05:02:20.726053+00:00",
+  "completed_at": "2026-10-17T05:02:22.998908+00:00",
+  "wall_seconds": 2.27219580009114,
+  "cases": 3,
+  "cases_passed": 3,
+  "census_snapshots": 8,
+  "retained_process_identities": 19,
+  "raw_trace_files": 19,
+  "all_retained_handles_exited": true,
+  "all_job_counts_zero": true,
+  "portable_audit": {
+    "passed": true,
+    "check_count": 1053,
+    "checks_passed": 1053
+  },
+  "local_executable_rehash_audit": {
+    "passed": true,
+    "check_count": 1054,
+    "checks_passed": 1054
+  },
+  "targeted_guarded_tests": 47,
+  "forbidden_test_attempts": 0,
+  "broad_local_numerical_model_regression": false,
+  "training_permitted": false,
+  "actual_pretrained_model_loads": 0,
+  "actual_optimizer_updates": 0,
+  "actual_suites": 1,
+  "retries": 0,
+  "report_sha256": "251410d4fce3d6784d1cd3f0b76d5db18650904c48d189d90e40994509db0ac5",
+  "protocol_sha256": "9248f0fa142c78b980d6e52ecce84d97c520aff52e910b2a00f0ad975b75a84a",
+  "implementation_sha256": "c0fc12d9209933f0304bba2d84ba127aa32e26d852788ddd830e11dd59f228ca",
+  "case_outcomes": [
+    {
+      "id": "healthy_role_admission",
+      "passed": true,
+      "outcome": "graceful_role_admission_no_training",
+      "snapshot_sizes": [
+        3,
+        5
+      ],
+      "exit_codes": [
+        {
+          "pid": 25648,
+          "creation_filetime": 134366869407529204,
+          "exit_code": 0
+        },
+        {
+          "pid": 41224,
+          "creation_filetime": 134366869408365001,
+          "exit_code": 0
+        },
+        {
+          "pid": 41312,
+          "creation_filetime": 134366869407876069,
+          "exit_code": 0
+        },
+        {
+          "pid": 26516,
+          "creation_filetime": 134366869411063028,
+          "exit_code": 0
+        },
+        {
+          "pid": 2656,
+          "creation_filetime": 134366869412127231,
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "injected_python_rejection",
+      "passed": true,
+      "outcome": "unregistered_python_rejected_no_training",
+      "snapshot_sizes": [
+        3,
+        5,
+        7
+      ],
+      "exit_codes": [
+        {
+          "pid": 36856,
+          "creation_filetime": 134366869414301109,
+          "exit_code": 57347
+        },
+        {
+          "pid": 31784,
+          "creation_filetime": 134366869415150655,
+          "exit_code": 57347
+        },
+        {
+          "pid": 27324,
+          "creation_filetime": 134366869414654547,
+          "exit_code": 57347
+        },
+        {
+          "pid": 56344,
+          "creation_filetime": 134366869417832264,
+          "exit_code": 57347
+        },
+        {
+          "pid": 30252,
+          "creation_filetime": 134366869418461886,
+          "exit_code": 57347
+        },
+        {
+          "pid": 36004,
+          "creation_filetime": 134366869419598943,
+          "exit_code": 57347
+        },
+        {
+          "pid": 38836,
+          "creation_filetime": 134366869419834806,
+          "exit_code": 57347
+        }
+      ]
+    },
+    {
+      "id": "injected_native_rejection",
+      "passed": true,
+      "outcome": "unregistered_native_rejected_no_training",
+      "snapshot_sizes": [
+        3,
+        5,
+        7
+      ],
+      "exit_codes": [
+        {
+          "pid": 12896,
+          "creation_filetime": 134366869423137516,
+          "exit_code": 57347
+        },
+        {
+          "pid": 47888,
+          "creation_filetime": 134366869423941474,
+          "exit_code": 57347
+        },
+        {
+          "pid": 26156,
+          "creation_filetime": 134366869423477043,
+          "exit_code": 57347
+        },
+        {
+          "pid": 2352,
+          "creation_filetime": 134366869426603547,
+          "exit_code": 57347
+        },
+        {
+          "pid": 52720,
+          "creation_filetime": 134366869427237736,
+          "exit_code": 57347
+        },
+        {
+          "pid": 27044,
+          "creation_filetime": 134366869428170703,
+          "exit_code": 57347
+        },
+        {
+          "pid": 46116,
+          "creation_filetime": 134366869428813757,
+          "exit_code": 57347
+        }
+      ]
+    }
+  ],
+  "scientific_status_unchanged": true,
+  "historical_parent_RSS_valid": false,
+  "historical_eight_child_images_identified": false,
+  "prior_census_still_rejected": true,
+  "actual_training_harness_validated": false,
+  "training_gate": "Separately freeze pinned pretrained loader/thread/native/provider, two updates, healthy/import failure/busy/private-memory/overhead/cleanup controls.",
+  "limits": [
+    "Exact-one auxiliary contract is specific to the frozen Windows launch environment.",
+    "Eight held inventories do not establish continuous child absence or loaded code integrity.",
+    "Auditor verifies saved report consistency; control files require separate post-hoc review. Their envelopes have no monotonic emission time; ordering relies on frozen source and compatible receipts, not independently timestamped control emissions.",
+    "No memory, speed, cost, model quality, private roadmap, employer or production claim follows."
+  ],
+  "independent_post_outcome_review": {
+    "passed": true,
+    "checks": 140,
+    "preregistered_execution": false,
+    "control_emission_monotonic_timestamps_recorded": false
+  }
+}

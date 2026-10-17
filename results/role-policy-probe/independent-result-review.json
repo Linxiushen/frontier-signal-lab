@@ -1,0 +1,969 @@
+{
+  "schema_version": 1,
+  "review_kind": "post_outcome_saved_result_and_control_trace_review",
+  "reviewer": "role_policy",
+  "started_at": "2026-10-17T05:04:08.088770+00:00",
+  "completed_at": "2026-10-17T05:04:08.154770+00:00",
+  "new_execution": false,
+  "new_OS_queries": false,
+  "producer_imported_or_executed": false,
+  "preregistered_new_execution": false,
+  "training_permitted": false,
+  "model_loads": 0,
+  "optimizer_steps": 0,
+  "report_sha256": "251410d4fce3d6784d1cd3f0b76d5db18650904c48d189d90e40994509db0ac5",
+  "protocol_sha256": "9248f0fa142c78b980d6e52ecce84d97c520aff52e910b2a00f0ad975b75a84a",
+  "implementation_sha256": "c0fc12d9209933f0304bba2d84ba127aa32e26d852788ddd830e11dd59f228ca",
+  "frozen_input_files_sha256": {
+    "experiments/role_policy_probe.py": "5481a1720ad00cd7cf83d7a86938fd09916b001d8b0187ae8307d536bf4d027a",
+    "tests/test_role_policy_probe.py": "ce37714347b7bcff55f4da221013e7094a79ff3f4ec93e12fae5f9dd85f78ccf",
+    "experiments/dual_identity_census.py": "031c5c67ba84afe9b5af8ab69ac7b0cb31e418efe3e32781b96ec76fcd9e0a91",
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+    "fixtures/dual-identity-census/protocol.json": "98c331be62a0328d79a7de52e5657490fae0f4c2aa14c5fccf4df43586ee8e39",
+    "fixtures/dual-identity-census/implementation.json": "7b6a08b1bbf63a9ff499f6d953176c7cd4bc3e0d7f72395c9a138ba1fc5a735c",
+    "scripts/audit_role_policy_probe.py": "185de2b42612a8bcaf5e1cb332423c2a69ec1e34f559ee4e3c0800f91a3b92e6",
+    "tests/test_role_policy_probe_auditor.py": "7455deaff1641186e71a8a7148bbf54a518889809bf29fb214b923f7c7d6f61a",
+    "fixtures/role-policy-probe/protocol.json": "9248f0fa142c78b980d6e52ecce84d97c520aff52e910b2a00f0ad975b75a84a",
+    "fixtures/role-policy-probe/implementation.json": "c0fc12d9209933f0304bba2d84ba127aa32e26d852788ddd830e11dd59f228ca"
+  },
+  "passed": true,
+  "check_count": 140,
+  "checks_passed": 140,
+  "failures": [],
+  "checks": [
+    {
+      "check": "new_source_files_sha256:frozen_exact_bytes",
+      "passed": true
+    },
+    {
+      "check": "frozen_dependency_files_sha256:frozen_exact_bytes",
+      "passed": true
+    },
+    {
+      "check": "review_tools_sha256:frozen_exact_bytes",
+      "passed": true
+    },
+    {
+      "check": "protocol_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "implementation_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "frozen_before_outcome",
+      "passed": true
+    },
+    {
+      "check": "bounded_report_pass_without_training",
+      "passed": true
+    },
+    {
+      "check": "fixed_three_case_order",
+      "passed": true
+    },
+    {
+      "check": "frozen_source_positive_hold_before_each_control_negative_has_no_control",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:exact_trace_files_no_forbidden_release_or_failure_files",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:forbidden_terminal_ML_release_absent",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-completed.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-completed.json:torch_imported_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-completed.json:transformers_imported_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-completed.json:model_loads_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-completed.json:optimizer_steps_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-policy-state.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-policy-state.json:torch_imported_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-policy-state.json:transformers_imported_false",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-policy-state.json:model_loads_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:worker-policy-state.json:optimizer_steps_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:raw_worker_identity_equals_report",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:raw_noML_state_equals_report",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:raw_native_launch_equals_report",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:exact_snapshot_decision_order",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:raw_completion_equals_report",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:saved_file_metadata_compatible_with_frozen_source_chain_only",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:exact_every_retained_identity_exit_and_Job_zero",
+      "passed": true
+    },
+    {
+      "check": "healthy_role_admission:all_five_healthy_exit_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exact_trace_files_no_forbidden_release_or_failure_files",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:forbidden_terminal_ML_release_absent",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker-policy-state.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker-policy-state.json:torch_imported_false",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker-policy-state.json:transformers_imported_false",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker-policy-state.json:model_loads_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker-policy-state.json:optimizer_steps_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:raw_worker_identity_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:raw_noML_state_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:raw_native_launch_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exact_snapshot_decision_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:precise_negative_not_an_unrelated_failure",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:original_five_roles_unchanged",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:raw_helper_launch_identity_equal_report",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:timestamped_helper_ready_after_hold_before_rejection_census",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:saved_metadata_injection_order_compatible_not_monotonic_proof",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:timestamped_final_held_set_precedes_Job_termination",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exact_every_retained_identity_exit_and_Job_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:held_Python_exact_Job_termination_codes",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:exact_trace_files_no_forbidden_release_or_failure_files",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:forbidden_terminal_ML_release_absent",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before-native-continue.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:worker-policy-state.json:training_permitted_false",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:worker-policy-state.json:torch_imported_false",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:worker-policy-state.json:transformers_imported_false",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:worker-policy-state.json:model_loads_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:worker-policy-state.json:optimizer_steps_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:raw_worker_identity_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:raw_noML_state_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:raw_native_launch_equals_report",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:exact_snapshot_decision_order",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after-native-continue.json:actual_nonce_purpose_int_index_label_noML",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after-native-continue.json:corresponding_admitted_completed_hold",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:precise_negative_not_an_unrelated_failure",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:original_five_roles_unchanged",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:raw_native_injection_independent_OS_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:saved_metadata_injection_order_compatible_not_monotonic_proof",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:timestamped_final_held_set_precedes_Job_termination",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:before_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_native:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:complete_identity_inventory_counts",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:exact_timestamped_held_live_Job_set",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:after_injection:retained_image_file_and_path_digest",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:exact_every_retained_identity_exit_and_Job_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_native_rejection:held_Python_exact_Job_termination_codes",
+      "passed": true
+    },
+    {
+      "check": "three_cases_eight_snapshots_nineteen_raw_files_six_controls_nineteen_retained_exits",
+      "passed": true
+    },
+    {
+      "check": "all_frozen_inputs_report_and_trace_bytes_unchanged_during_review",
+      "passed": true
+    }
+  ],
+  "case_summaries": [
+    {
+      "id": "healthy_role_admission",
+      "snapshots": 2,
+      "trace_files": 6,
+      "retained_exit_receipts": 5,
+      "exit_codes": [
+        {
+          "pid": 25648,
+          "creation_filetime": 134366869407529204,
+          "exit_code": 0
+        },
+        {
+          "pid": 41224,
+          "creation_filetime": 134366869408365001,
+          "exit_code": 0
+        },
+        {
+          "pid": 41312,
+          "creation_filetime": 134366869407876069,
+          "exit_code": 0
+        },
+        {
+          "pid": 26516,
+          "creation_filetime": 134366869411063028,
+          "exit_code": 0
+        },
+        {
+          "pid": 2656,
+          "creation_filetime": 134366869412127231,
+          "exit_code": 0
+        }
+      ],
+      "model_loads": 0,
+      "optimizer_steps": 0
+    },
+    {
+      "id": "injected_python_rejection",
+      "snapshots": 3,
+      "trace_files": 7,
+      "retained_exit_receipts": 7,
+      "exit_codes": [
+        {
+          "pid": 36856,
+          "creation_filetime": 134366869414301109,
+          "exit_code": 57347
+        },
+        {
+          "pid": 31784,
+          "creation_filetime": 134366869415150655,
+          "exit_code": 57347
+        },
+        {
+          "pid": 27324,
+          "creation_filetime": 134366869414654547,
+          "exit_code": 57347
+        },
+        {
+          "pid": 56344,
+          "creation_filetime": 134366869417832264,
+          "exit_code": 57347
+        },
+        {
+          "pid": 30252,
+          "creation_filetime": 134366869418461886,
+          "exit_code": 57347
+        },
+        {
+          "pid": 36004,
+          "creation_filetime": 134366869419598943,
+          "exit_code": 57347
+        },
+        {
+          "pid": 38836,
+          "creation_filetime": 134366869419834806,
+          "exit_code": 57347
+        }
+      ],
+      "model_loads": 0,
+      "optimizer_steps": 0
+    },
+    {
+      "id": "injected_native_rejection",
+      "snapshots": 3,
+      "trace_files": 6,
+      "retained_exit_receipts": 7,
+      "exit_codes": [
+        {
+          "pid": 12896,
+          "creation_filetime": 134366869423137516,
+          "exit_code": 57347
+        },
+        {
+          "pid": 47888,
+          "creation_filetime": 134366869423941474,
+          "exit_code": 57347
+        },
+        {
+          "pid": 26156,
+          "creation_filetime": 134366869423477043,
+          "exit_code": 57347
+        },
+        {
+          "pid": 2352,
+          "creation_filetime": 134366869426603547,
+          "exit_code": 57347
+        },
+        {
+          "pid": 52720,
+          "creation_filetime": 134366869427237736,
+          "exit_code": 57347
+        },
+        {
+          "pid": 27044,
+          "creation_filetime": 134366869428170703,
+          "exit_code": 57347
+        },
+        {
+          "pid": 46116,
+          "creation_filetime": 134366869428813757,
+          "exit_code": 57347
+        }
+      ],
+      "model_loads": 0,
+      "optimizer_steps": 0
+    }
+  ],
+  "trace_manifest": [
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/after-native-continue.json",
+      "bytes": 331,
+      "sha256": "eae6289f70ab2de738ea3433accd6b8abf3cec69ab4798de011cce360a3486ff"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/before-native-continue.json",
+      "bytes": 339,
+      "sha256": "821ff3989cbfdeb9b4460852bc7532bb919d3ea9f5e44db11539adcc80d5dc7b"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/native-ready.json",
+      "bytes": 391,
+      "sha256": "affcb5e763bbc8a9db1c8d5d8a2ae84535c428d6b3d5318eb6d7b26b70d4971d"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/worker-completed.json",
+      "bytes": 320,
+      "sha256": "fc20f79c39ca6ef52fcc35e9b642a3dab1ba35c10040e0bdd2ab91de4d23b0c9"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/worker-policy-state.json",
+      "bytes": 254,
+      "sha256": "9142dc5c64cf0565e9823b8bbc8deb8b0a2b8776e1bdd80c47712139f030bf6d"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/healthy_role_admission/worker-ready.json",
+      "bytes": 652,
+      "sha256": "afd38b926aaca881976fd5a01c34652def82397f16e3f8abb101bb8f4c564d96"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/after-native-continue.json",
+      "bytes": 341,
+      "sha256": "34f93d1fdceda273c38ae41d12668eef89f73a61a30c0e3523d31e5fdf07ce42"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/before-native-continue.json",
+      "bytes": 339,
+      "sha256": "837296d79dcde65c8d0c30bad3c2863657bc2f887d74a9360effaca5b907556a"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/helper-launch.json",
+      "bytes": 315,
+      "sha256": "7dd968060ff0fa8b767af9e0f917e21811d9db789018bbfee6df979c1006dbf4"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/helper-ready.json",
+      "bytes": 652,
+      "sha256": "8a77e0c357e3d45d1b7a4ba24dddfefd4ead9f3aa1b0c73ed5ae8b53e12a46ad"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/native-ready.json",
+      "bytes": 391,
+      "sha256": "f366d3672077d32d936fe648cd1191a898403b69a00cf3deb82a4315a1174f12"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/worker-policy-state.json",
+      "bytes": 254,
+      "sha256": "26bd3111c2d0184892b431c7792889136c17c4be351e404d03d5bb4a8183b4fe"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_python_rejection/worker-ready.json",
+      "bytes": 651,
+      "sha256": "3e265b6405eec757e7f90164c52d4a60a79e5479f299cbaf444136c9fc4a2eaf"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/after-native-continue.json",
+      "bytes": 341,
+      "sha256": "eb29cb5be28d84a12700fab91ccfdb9ff9dbcbf24e0cba9b7a991b2a2d33d21f"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/before-native-continue.json",
+      "bytes": 339,
+      "sha256": "d5933dd47a6cca734f9cd10007a6518b5031d27bb6b897612337e906ff0a6757"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/injected-native-ready.json",
+      "bytes": 391,
+      "sha256": "d86bdfdaf18c3b1e2aa2cd659f149d5dbb238b47d68f89ddfffb0029d1a72bda"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/native-ready.json",
+      "bytes": 390,
+      "sha256": "98b3b719dfecc3ec556282b821bcda831ce301d90b29b6cfdf444c9657be4d2c"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/worker-policy-state.json",
+      "bytes": 254,
+      "sha256": "27808d24dac7c32d36d231680fb0bf6e652931779d10cd97d22e678f20c1c102"
+    },
+    {
+      "path": "reports/runs/20261017T045054Z/role-policy-acceptance/injected_native_rejection/worker-ready.json",
+      "bytes": 652,
+      "sha256": "ac88228cc01b031589d4bb11a6be5be592b30af3a1abc5870c0233bc6f829117"
+    }
+  ],
+  "controller_receipts": [
+    {
+      "case": "healthy_role_admission",
+      "filename": "before-native-continue.json",
+      "receipt": {
+        "nonce": "c49158a2cbb30f00b57d2b831ea7defac1672ea2c5c78f622381d1e39df192b1",
+        "role": "controller",
+        "pid": 29844,
+        "command": "create-native",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 0,
+        "role_decision_label": "before_native"
+      }
+    },
+    {
+      "case": "healthy_role_admission",
+      "filename": "after-native-continue.json",
+      "receipt": {
+        "nonce": "c49158a2cbb30f00b57d2b831ea7defac1672ea2c5c78f622381d1e39df192b1",
+        "role": "controller",
+        "pid": 29844,
+        "command": "finish",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 1,
+        "role_decision_label": "after_native"
+      }
+    },
+    {
+      "case": "injected_python_rejection",
+      "filename": "before-native-continue.json",
+      "receipt": {
+        "nonce": "2420b3bc535cab74f4dd272565ee7f0b363be6a29d8061f978bf890de31f0d60",
+        "role": "controller",
+        "pid": 29844,
+        "command": "create-native",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 0,
+        "role_decision_label": "before_native"
+      }
+    },
+    {
+      "case": "injected_python_rejection",
+      "filename": "after-native-continue.json",
+      "receipt": {
+        "nonce": "2420b3bc535cab74f4dd272565ee7f0b363be6a29d8061f978bf890de31f0d60",
+        "role": "controller",
+        "pid": 29844,
+        "command": "create-injection",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 1,
+        "role_decision_label": "after_native"
+      }
+    },
+    {
+      "case": "injected_native_rejection",
+      "filename": "before-native-continue.json",
+      "receipt": {
+        "nonce": "219b3c12f28a73b292cd4cdae69ec0855d8191dad61a98a7a0eec116b02cd5b2",
+        "role": "controller",
+        "pid": 29844,
+        "command": "create-native",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 0,
+        "role_decision_label": "before_native"
+      }
+    },
+    {
+      "case": "injected_native_rejection",
+      "filename": "after-native-continue.json",
+      "receipt": {
+        "nonce": "219b3c12f28a73b292cd4cdae69ec0855d8191dad61a98a7a0eec116b02cd5b2",
+        "role": "controller",
+        "pid": 29844,
+        "command": "create-injection",
+        "training_permitted": false,
+        "purpose": "fixed stdlib role-policy control only",
+        "role_policy_admitted": true,
+        "role_decision_index": 1,
+        "role_decision_label": "after_native"
+      }
+    }
+  ],
+  "control_timing_metadata": [
+    {
+      "case": "healthy_role_admission",
+      "filename": "before-native-continue.json",
+      "original_file_mtime_ns": 1792213341083705000,
+      "decision_completed_perf_counter": 871045.0148027,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    },
+    {
+      "case": "healthy_role_admission",
+      "filename": "after-native-continue.json",
+      "original_file_mtime_ns": 1792213341309751500,
+      "decision_completed_perf_counter": 871045.2407031,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    },
+    {
+      "case": "injected_python_rejection",
+      "filename": "before-native-continue.json",
+      "original_file_mtime_ns": 1792213341759621200,
+      "decision_completed_perf_counter": 871045.691383,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    },
+    {
+      "case": "injected_python_rejection",
+      "filename": "after-native-continue.json",
+      "original_file_mtime_ns": 1792213341934767500,
+      "decision_completed_perf_counter": 871045.8667197,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    },
+    {
+      "case": "injected_native_rejection",
+      "filename": "before-native-continue.json",
+      "original_file_mtime_ns": 1792213342643913600,
+      "decision_completed_perf_counter": 871046.5752304,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    },
+    {
+      "case": "injected_native_rejection",
+      "filename": "after-native-continue.json",
+      "original_file_mtime_ns": 1792213342791912500,
+      "decision_completed_perf_counter": 871046.724,
+      "embedded_control_emission_perf_counter": null,
+      "interpretation": "Filesystem metadata only. This is not monotonic control-emission proof; frozen synchronous source order supports the receipt chain."
+    }
+  ],
+  "timing_limit": "Controller, native-launch and completion envelopes have no embedded monotonic emission timestamp. Raw content, exact file set, independent timestamped held sets/helper readiness/termination, and frozen synchronous source order support the chain. Saved filesystem mtimes are recorded as metadata only and do not establish independent monotonic control-emission ordering.",
+  "scope": "Post-outcome review of existing frozen inputs and saved files only. No OS process or new experiment/model execution. This cannot prove continuous coverage, loaded-code integrity, production reliability, training release, historical eight-child identity, memory-cap/RSS validity or cost/quality benefit."
+}

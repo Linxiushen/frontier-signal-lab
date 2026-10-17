@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_narrow_role_auditor_design_and_synthetic_validation",
+  "completed_at": "2026-10-17T05:00:47.457047+00:00",
+  "source_sha256": {
+    "scripts/audit_role_policy_probe.py": "185de2b42612a8bcaf5e1cb332423c2a69ec1e34f559ee4e3c0800f91a3b92e6",
+    "tests/test_role_policy_probe_auditor.py": "7455deaff1641186e71a8a7148bbf54a518889809bf29fb214b923f7c7d6f61a"
+  },
+  "design_sha256": "5334ec1a7bebc1357af556fbff7a32b7742fe7729109ad01a4848955660b6140",
+  "synthetic_unit_tests": {
+    "run": 22,
+    "passed": 22
+  },
+  "complete_synthetic_receipt": {
+    "passed": true,
+    "check_count": 1053,
+    "checks_passed": 1053,
+    "failures": []
+  },
+  "imports_checked": {
+    "scripts/audit_role_policy_probe.py": [
+      "__future__",
+      "argparse",
+      "datetime",
+      "hashlib",
+      "json",
+      "math",
+      "pathlib",
+      "re"
+    ],
+    "tests/test_role_policy_probe_auditor.py": [
+      "copy",
+      "json",
+      "pathlib",
+      "tempfile",
+      "unittest",
+      "scripts"
+    ]
+  },
+  "producer_imported_or_executed_by_auditor": false,
+  "OS_measurement_or_real_suite_executed": false,
+  "ML_imported_or_executed": false,
+  "files_released_to_root_for_final_review_and_freeze": true,
+  "limitations": [
+    "report-only consistency: root will separately inspect saved control trace files",
+    "no resistance to coordinated rewriting of all reports/freezes/source",
+    "held snapshots do not prove continuous child absence or loaded-code integrity"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-role-policy-probe-v1",
+  "predeclared_at": "2026-10-17T05:01:12.568869+00:00",
+  "source_paths": [
+    "experiments/role_policy_probe.py",
+    "tests/test_role_policy_probe.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/dual_identity_census.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/dual-identity-census/protocol.json",
+    "fixtures/dual-identity-census/implementation.json"
+  ],
+  "review_tool_paths": [
+    "scripts/audit_role_policy_probe.py",
+    "tests/test_role_policy_probe_auditor.py"
+  ],
+  "config": {
+    "case_timeout_seconds": 20.0,
+    "suite_timeout_seconds": 65.0,
+    "stage_timeout_seconds": 5.0,
+    "cleanup_timeout_seconds": 4.0,
+    "maximum_descendants": 16,
+    "maximum_depth": 16,
+    "maximum_json_bytes": 1048576
+  },
+  "training_permitted": false,
+  "cases_in_order": [
+    {
+      "id": "healthy_role_admission",
+      "injection": "none"
+    },
+    {
+      "id": "injected_python_rejection",
+      "injection": "python"
+    },
+    {
+      "id": "injected_native_rejection",
+      "injection": "native"
+    }
+  ],
+  "policy_contract": {
+    "auxiliary_role": "console_auxiliary",
+    "auxiliary_image_role": "conhost",
+    "authorized_console_owner_roles": [
+      "launcher",
+      "native"
+    ],
+    "auxiliaries_per_owner": 1,
+    "pin_auxiliary_identity_across_stages": true,
+    "allow_unregistered_same_image": false,
+    "training_permitted": false
+  },
+  "self_executable_roles": {
+    "worker": "launcher",
+    "helper": "base_python"
+  },
+  "retained_os_image_roles": {
+    "worker": "base_python",
+    "helper": "base_python"
+  },
+  "purpose": "A separately versioned no-ML admission policy over the immutable dual census. It tests whether exact retained primary roles plus one exact System32 console auxiliary per registered console owner can admit fixed stdlib controls while rejecting image-identical unregistered Python and native controls. No training, Torch, Transformers, site import, model/assets/provider/network/GPU workload; no old eight-child attribution or resource/quality repair.",
+  "admission": "Exactly two distinct primary identities before native: retained launcher and authenticated actual base-Python interpreter whose direct parent is the retained launcher. Exactly one new registered cmd identity after native, whose direct parent is the retained actual interpreter. Each primary role matches its own frozen file and opaque canonical path hashes; worker self launcher identity is independent of retained OS base-Python identity. Exactly one conhost auxiliary per registered launcher/native owner; no auxiliary role under actual interpreter or any unregistered child. Conhost must match the explicit frozen canonical SystemRoot/System32/conhost.exe path AND file bytes, not basename, System32 category or image hash alone. Each auxiliary references exact retained owner PID+creation, owner/child creation order, same live Job, and exact direct ancestry. Owner->auxiliary PID+creation plus frozen image/path are pinned across held stages; replacement fails. This exact-one environment-bound topology intentionally fails closed on a different Windows console arrangement.",
+  "cases": {
+    "healthy_role_admission": "Hold before_native census3 and after_native census5 with exact positive policy, all observed retained identities live in the same Job. Only after corresponding policy admission issue the nonce-bound create-native and finish stdlib controls. Release the registered cmd with a nonempty line, require all five last-held identities exit0, exact retained exit set and job0.",
+    "injected_python_rejection": "Require the same two successful baseline stages, then release only fixed controlled helper creation. Authenticate nonce/PID+creation/direct actual-worker parent and helper self base-Python identity; independently query the actual retained base-Python OS image. Do not add helper to primary registration. Third held census must keep original five admitted identities unchanged and reject exactly the helper plus zero or one observed exact conhost child under it. The absence of its console is not required; any observed console must be rejected. Reject because of the controlled unexpected identity, not an unrelated error, missing approved auxiliary or timeout. No finish/helper/workload release; terminate entire Job and verify all retained exits/job0.",
+    "injected_native_rejection": "Require same successful baseline, then worker launches a second fixed cmd with a distinct retained PID+creation and held anonymous stdin. Authenticate worker launch receipt, direct parent, live Job, retained OS image and frozen cmd file/path independently; no native self-report. Do not register this second cmd. Third held census keeps original five admitted identities unchanged and rejects exactly this extra cmd plus zero or one observed exact conhost direct child. Same image bytes/path do not grant identity admission. No finish/workload release; terminate entire Job and verify all retained exits/job0."
+  },
+  "bounded_evidence": "Exactly eight held Toolhelp inventories across the fixed three cases:2+3+3. Reuse immutable dual.census and its16-descendant/16-depth/5-second stage bounds, retained handle OS image/hash queries, before/after Job count checks and full cached row/error retention. New producer separately enforces65-second nonrenewable suite and20-second case budgets. After each inventory recheck every observed retained PID+creation with native GetProcessId/creation and live same-Job membership; record all held-liveness timestamps after census completion and before subsequent control/termination, matching exact inventory set and Job counts. Held snapshots are neither continuous monitoring, command-line/DLL attestation nor a production guarantee. Synchronous OS/hash calls cannot be hard-preempted; late completion fails. Cleanup4 seconds clamped to remaining case/suite budget.",
+  "control_contract": "Every controller receipt explicitly training_permitted=false, purpose=fixed stdlib role-policy control only, admitted=true and exact corresponding decision index/label. A false admission can emit no next control. The healthy control chain is decision0 create-native, decision1 finish; injected chain decision0 create-native, decision1 create-injection, decision2 reject with no terminal control. No training release file, command or code path exists.",
+  "freeze_execution": "Before any Job/child, validate exact source/test/dependency/auditor/test bytes, protocol hash, all four explicit launcher/base_python/native/conhost file AND opaque canonical path hashes and aware declared<=frozen<=start chronology. Native/conhost CLI paths must equal canonical SystemRoot/System32/cmd.exe and conhost.exe. Root freezes after review and executes at most one fresh-output real suite, no retries, threshold/role tuning or replacement after outcomes. Preflight for this new policy uses guarded stdlib/mock producer and synthetic auditor tests only: native/backend/process/model/network attempts are forbidden. Ordinary repository regression tests are a separate validation class and are not implied by these guarded tests; no broad numerical/model regression is planned this pass. Prior frozen census/protocol/auditor/results remain unchanged.",
+  "report": "Preserve original raw inventory semantics in censuses[]. Separate role_decisions[] records independent policy roles, parent_ref PID+creation, frozen image/path hashes, admissions/rejections/errors, pinned auxiliaries, exact held liveness and counts/times. Positive policy permits only the fixed next stdlib control; training_permitted=false at report/case/decision/control and model_loads/optimizer_steps=0. Negative pass requires only the declared injected unexpected topology and successful cleanup of exact last-held identity set; retained launcher/actual interpreter and Python-case helper must exit with frozen TerminateJobObject code57347. Native/conhost exit codes are preserved individually without assuming that code. Arbitrary exceptions cannot count as a rejection pass. Public receipts omit executable absolute paths and preserve only basenames, opaque normalized path digests and sanitized errors.",
+  "limitations": "This replaces no historical scientific result or old rejected census. The new policy is an engineering prerequisite for a future separately declared actual pretrained-loader/thread/native/provider/two-update/healthy/failure/busy/cap/overhead/cleanup integration. No training admission, memory-cap enforcement, RSS validity, cost/quality win, production assurance, researcher affiliation or historical eight-child identification follows from passing it."
+}

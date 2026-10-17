@@ -77,6 +77,14 @@ do not clear those failed gates. The post-outcome saved-record checker verifies
 that this particular negative result, raw controls/receipts and cleanup remain
 unchanged. A successful preservation check does not upgrade acceptance.
 
+The first publication's CI found one error among 531 tests (67 skipped): the
+new post-outcome mutation test assumed Git retained an empty case directory.
+The [portability fix](ci-portability-fix.json) explicitly simulates a fresh
+checkout and creates the malicious receipt's parent before testing its rejection.
+The corrected 15 guarded test groups pass. Frozen producer/protocol/auditor and
+experiment receipts are unchanged; no actual experiment was retried. This test
+fix does not turn the failed training integration into a pass.
+
 To replay saved evidence only, from the repository root:
 
 ```powershell

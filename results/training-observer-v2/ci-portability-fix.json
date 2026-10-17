@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-17T07:17:32.493026+00:00",
+  "kind": "postoutcome_mutation_test_fresh_checkout_portability_fix",
+  "original_commit": "86efcb6451acec56863be8663b1f65b7645a15d1",
+  "failed_job_url": "https://github.com/Linxiushen/frontier-signal-lab/actions/runs/39012875720/job/117338930300",
+  "failed_job_log_sha256": "41da2cdb1f41e67f48b4c13c99d9dc4ccf260edb095657cdd0ceef04a554c0b7",
+  "prior_CI": {
+    "tests": 531,
+    "errors": 1,
+    "skipped": 67,
+    "sole_error": "FileNotFoundError constructing malicious extra receipt in absent prehandshake_exit37 directory"
+  },
+  "cause": "Git does not retain empty directories; original host copytree preserved an empty directory absent on fresh checkout.",
+  "change": "Remove the empty directory in the test copy to simulate fresh checkout, then create its parent explicitly before injecting the extra receipt. The extra receipt remains rejected.",
+  "changed_file": "tests/test_training_observer_v2_failure.py",
+  "changed_file_sha256": "b0ba0638cee39622270047a6ed452cf4ba2374acb448afaf2206492ce36829c1",
+  "guarded_validation": {
+    "tests": 15,
+    "passed": 15,
+    "forbidden_attempts": 0,
+    "receipt": "postoutcome-portability-tests.json"
+  },
+  "frozen_producer_protocol_auditor_and_results_unchanged": true,
+  "actual_experiment_retries": 0,
+  "original_experiment_acceptance_passed": false,
+  "following_CI": "New commit CI must be read independently; this receipt does not claim it passes."
+}

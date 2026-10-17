@@ -37,6 +37,13 @@ After outcome, 15 additional saved-record mutation test groups passed with
 ML imports, native observation, subprocesses and networking forbidden. These
 are tests, not extra executed model suites or successful workload evidence.
 
+The first publication's CI reported one error among531tests (67skipped): a new
+post-outcome test depended on an empty directory Git omits. The
+[test-fixture correction](../results/training-observer-v2/ci-portability-fix.json)
+simulates that missing-directory checkout and explicitly creates the parent for
+the malicious receipt. Its15guarded test groups pass again. No frozen experiment
+bytes changed and no actual suite was retried; a new commit has separate CI.
+
 ## Static diagnosis and the next actual experiment
 
 Read-only installed-source inspection finds a compatible candidate:

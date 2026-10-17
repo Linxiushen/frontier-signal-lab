@@ -125,13 +125,19 @@ class TrainingV2FailureRecordTests(unittest.TestCase):
         self.assertFalse(baseline['experiment_acceptance_passed'])
         with tempfile.TemporaryDirectory() as folder:
             copied=Path(folder)/'saved';shutil.copytree(source,copied)
+            # Git omits the original run's empty prehandshake directory.
+            # Exercise that fresh-checkout layout even on the original host.
+            empty_case=copied/'prehandshake_exit37'
+            if empty_case.is_dir():empty_case.rmdir()
             run=lambda:checker.check_files(copied/'report.json',copied/'frozen-audit.json')
             path=copied/'healthy_dense2/postimport-ready.json'
             saved=path.read_bytes();value=json.loads(saved);value['provider_guard']['unexpected_denied_events']=[]
             path.write_text(json.dumps(value),encoding='utf-8')
             self.assertFalse(run()['record_preservation_checks_passed'])
             path.write_bytes(saved)
-            extra=copied/'prehandshake_exit37/finish.json';extra.write_text('{}',encoding='utf-8')
+            extra=copied/'prehandshake_exit37/finish.json'
+            extra.parent.mkdir(parents=True,exist_ok=True)
+            extra.write_text('{}',encoding='utf-8')
             self.assertFalse(run()['record_preservation_checks_passed']);extra.unlink()
             (copied/'dense2_busy_deadline/preimport-continue-accepted.json').unlink()
             self.assertFalse(run()['record_preservation_checks_passed'])

@@ -46,6 +46,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Windows process observer](results/process-observer/report.md) | Five controlled engineering cases pass; training integration still pending |
 | [CPU Torch workload integration](results/workload-observer/report.md) | Six controlled engineering cases pass, including native descendants; pretrained training harness remains unvalidated |
 | [Pinned pretrained training integration](results/training-observer/report.md) | Failed at preimport: unexpected descendants; zero model loads or updates, all recorded processes cleaned up |
+| [Windows child-image census](results/child-image-census/report.md) | Runtime identity controls complete; frozen audit rejects two self-hash assumptions, training remains forbidden |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -90,6 +91,8 @@ descendants. Only the deliberate exit37 control passed. Actual model loads and
 updates were zero; all recorded handles exited and each Job became empty.
 The failed receipt and rejection audit are preserved. Complete child image
 identity is the next gate before another separately declared training attempt.
+
+The separate [child-image census](fixtures/child-image-census/README.md) now records OS images for bounded observed descendants and rejects a helper with the same Python executable. It grants no training permission and cannot identify unrecorded historical children.
 
 ## Bring one counterexample
 

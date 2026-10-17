@@ -1,0 +1,117 @@
+{
+  "kind": "final_independent_saved_receipt_auditor_review",
+  "started_at": "2026-10-17T00:58:58.963304+00:00",
+  "completed_at": "2026-10-17T00:58:59.078274+00:00",
+  "real_execution": false,
+  "producer_modified": false,
+  "initial_hashes": {
+    "scripts/audit_child_image_census.py": "d7fd2a28147d0a93cf345dff620b042acd6eab16d0c95dd89e8569ca5521909d",
+    "tests/test_child_image_census_auditor.py": "f6cdcc667aa58d7c797c48cb615d8c691205c9498084ff65ad68515537f5fdc9"
+  },
+  "final_hashes": {
+    "scripts/audit_child_image_census.py": "d7fd2a28147d0a93cf345dff620b042acd6eab16d0c95dd89e8569ca5521909d",
+    "tests/test_child_image_census_auditor.py": "f6cdcc667aa58d7c797c48cb615d8c691205c9498084ff65ad68515537f5fdc9"
+  },
+  "stable_during_review": true,
+  "tests_run": 9,
+  "tests_ok": true,
+  "test_output": "test_actual_file_hashes_and_strict_JSON (tests.test_child_image_census_auditor.CensusAuditorTests.test_actual_file_hashes_and_strict_JSON) ... ok\ntest_clock_cleanup_and_exit_mutations (tests.test_child_image_census_auditor.CensusAuditorTests.test_clock_cleanup_and_exit_mutations) ... ok\ntest_complete_synthetic_unknown_images_are_not_training_approval (tests.test_child_image_census_auditor.CensusAuditorTests.test_complete_synthetic_unknown_images_are_not_training_approval) ... ok\ntest_complete_tree_images_and_query_errors (tests.test_child_image_census_auditor.CensusAuditorTests.test_complete_tree_images_and_query_errors) ... ok\ntest_hash_protocol_and_declaration_mutations (tests.test_child_image_census_auditor.CensusAuditorTests.test_hash_protocol_and_declaration_mutations) ... ok\ntest_helper_cannot_be_approved_by_identical_path_hash (tests.test_child_image_census_auditor.CensusAuditorTests.test_helper_cannot_be_approved_by_identical_path_hash) ... ok\ntest_identity_parent_creation_and_native_contract (tests.test_child_image_census_auditor.CensusAuditorTests.test_identity_parent_creation_and_native_contract) ... ok\ntest_known_controls_cannot_predate_creation_stage (tests.test_child_image_census_auditor.CensusAuditorTests.test_known_controls_cannot_predate_creation_stage) ... ok\ntest_training_imports_and_hidden_failures (tests.test_child_image_census_auditor.CensusAuditorTests.test_training_imports_and_hidden_failures) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.080s\n\nOK\n",
+  "forbidden_attempts": [],
+  "mutations": [
+    {
+      "mutation": "native row parent contradicts verified native identity",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:native_snapshot_parent_matches_identity"
+      ]
+    },
+    {
+      "mutation": "helper row parent contradicts authenticated chain",
+      "rejected": true,
+      "failures": [
+        "injected_python_rejection:helper_chain_retained"
+      ]
+    },
+    {
+      "mutation": "successful case carries exceeded-budget flag",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:no_hidden_failure"
+      ]
+    },
+    {
+      "mutation": "worker identity role changed",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:worker:nonce_role_PID"
+      ]
+    },
+    {
+      "mutation": "base image hash mismatches freeze",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:before_native:exact_path_hash_agrees",
+        "native_census_graceful:before_native:known_OS_image_matches_freeze"
+      ]
+    },
+    {
+      "mutation": "cleanup omits identified unknown",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:all_observed_identities_have_exact_exit_receipts"
+      ]
+    },
+    {
+      "mutation": "cleanup duplicates retained identity",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:all_observed_identities_have_exact_exit_receipts"
+      ]
+    },
+    {
+      "mutation": "live known receipt occurs after cleanup starts",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:cleanup:bounded_interval"
+      ]
+    },
+    {
+      "mutation": "case finalization exceeds 20 seconds",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:case:bounded_interval",
+        "injected_python_rejection:case:bounded_interval"
+      ]
+    },
+    {
+      "mutation": "helper ready clock follows census and termination",
+      "rejected": true,
+      "failures": [
+        "injected_python_rejection:helper:ready_clock"
+      ]
+    },
+    {
+      "mutation": "native exact identity predates creation stage",
+      "rejected": true,
+      "failures": [
+        "native_census_graceful:before_native:native_absent_before_creation"
+      ]
+    },
+    {
+      "mutation": "helper exact identity predates creation stage",
+      "rejected": true,
+      "failures": [
+        "injected_python_rejection:helper_absent_before_creation"
+      ]
+    },
+    {
+      "mutation": "actual source content differs from frozen inventory",
+      "rejected": true,
+      "failures": [
+        "new_source_files_sha256:actual_hash_inventory"
+      ]
+    }
+  ],
+  "scope": "Saved receipt/hash consistency and mutation resistance only; no authenticity, new OS measurement, continuous child coverage, loaded-image integrity, historical-child attribution or training authorization.",
+  "passed": true
+}

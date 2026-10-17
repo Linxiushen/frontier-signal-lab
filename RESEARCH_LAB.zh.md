@@ -163,3 +163,5 @@ python experiments/activation_attention_gradient_probe.py --model-dir local-stat
 - 不自动给研究者发消息、发 issue 或 PR。本仓库原创代码使用 MIT；固定引用的 pi [适配器](third_party/pi/README.md)及[上下文模块](third_party/pi-context/README.md)保留上游 MIT 许可，真实激活 fixture 保留 [Pythia Apache-2.0 来源](fixtures/real-activation/README.md)，其他外部材料的权利归原作者。
 
 欢迎提交能复现的负结果、反例、真实显存/吞吐数据，以及新的一手来源。
+
+2026-10-17 跟进：完成[后代进程镜像普查与版本证据审查](research/2026-10-17-child-images-and-versioned-evidence.md)。新身份/清理工具保持额外进程未批准；没有模型加载、训练或科学结论升级，旧失败记录保留。

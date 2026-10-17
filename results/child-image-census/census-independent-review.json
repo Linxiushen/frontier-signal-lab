@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T00:54:54.319738+00:00",
+  "review_type": "Independent static and guarded stdlib/mock review only",
+  "passed": true,
+  "checks_passed": 15,
+  "checks_total": 15,
+  "checks": [
+    {
+      "name": "all guarded producer mock tests pass",
+      "passed": true,
+      "detail": {
+        "tests_run": 15,
+        "failures": 0,
+        "errors": 0
+      }
+    },
+    {
+      "name": "new wait wrapper rejects invalid nonce/role/PID 0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new wait wrapper rejects invalid nonce/role/PID 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new wait wrapper rejects invalid nonce/role/PID 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new wait wrapper rejects invalid nonce/role/PID 3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "controller cannot release an undeclared command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cleanup uses remaining nonrenewable suite budget and requires zero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exhausted cleanup budget fails before a new wait",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "handshake failure and termination error remain failed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all handle-close actions attempted despite termination/job-close errors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "census AST has no ML/site import",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "guarded run never attempts real native/process/network/ML entrypoints",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ML packages remain unloaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protocol keeps two identity-only cases and false training permission",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protocol preserves sync/continuous-coverage and policy-admission limits",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "producer_mock_tests": {
+    "tests_run": 15,
+    "failures": 0,
+    "errors": 0
+  },
+  "forbidden_entrypoint_attempts": [],
+  "input_files": [
+    {
+      "path": "experiments/child_image_census.py",
+      "bytes": 25305,
+      "sha256": "999707e2b92b3e7b7a75b252b740c20efd1d770bf76eea745f65fa3c1de90ed4"
+    },
+    {
+      "path": "tests/test_child_image_census.py",
+      "bytes": 14776,
+      "sha256": "798bc931ffd8dcf9edbd3efb157ea1d56cf359212c13bc88e424e59212dd8686"
+    },
+    {
+      "path": "fixtures/child-image-census/protocol.json",
+      "bytes": 5555,
+      "sha256": "361c3bbe3d4cbdfbeb444db9d6c308311a6e8e8d06892a0dd5ae0fc61370ba87"
+    },
+    {
+      "path": "experiments/process_observer.py",
+      "bytes": 21181,
+      "sha256": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175"
+    },
+    {
+      "path": "experiments/process_observer_probe.py",
+      "bytes": 23642,
+      "sha256": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740"
+    },
+    {
+      "path": "experiments/workload_observer_probe.py",
+      "bytes": 35651,
+      "sha256": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3"
+    },
+    {
+      "path": "fixtures/process-observer/protocol.json",
+      "bytes": 6623,
+      "sha256": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0"
+    },
+    {
+      "path": "fixtures/process-observer/implementation.json",
+      "bytes": 1643,
+      "sha256": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954"
+    },
+    {
+      "path": "fixtures/workload-observer/protocol.json",
+      "bytes": 7986,
+      "sha256": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463"
+    },
+    {
+      "path": "fixtures/workload-observer/implementation.json",
+      "bytes": 5418,
+      "sha256": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c"
+    }
+  ],
+  "resolved_findings": [
+    "All cached PID/parent rows retained beyond query cap, with unqueried errors and failure.",
+    "Partial OS image basename/path digest retained when file hash fails.",
+    "Unknown image errors omit arbitrary absolute image paths.",
+    "System32 classification independent of native executable parent directory.",
+    "Case deadline rechecked after job and process-handle close."
+  ],
+  "remaining_limits": [
+    "Only root may freeze/execute the two identity census controls. No actual OS/process/model execution occurred in this review.",
+    "Census completion may retain identified unapproved processes; it is observation success, never workload authorization.",
+    "Nonce helper remains outside known policy even if its executable equals the approved base interpreter; whole-job termination/cleanup must be verified by actual receipts.",
+    "Synchronous OS/image/hash/CloseHandle calls cannot be hard-preempted; late returns fail bounded acceptance. Snapshot coverage is not continuous and file hash is not loaded-image/DLL attestation.",
+    "No historical unknown child identity, training-loader acceptance, memory/cost/quality result or scientific gate is repaired."
+  ],
+  "recommendation": "Ready for root review/freeze of this exact identity-only producer/protocol, conditional on passed=true and matching hashes; not training authorization."
+}

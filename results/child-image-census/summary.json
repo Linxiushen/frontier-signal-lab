@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "derived_at": "2026-10-17T01:02:07.348680+00:00",
+  "experiment_id": "windows-child-image-census-v1",
+  "report_file_sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+  "started_at": "2026-10-17T00:59:56.844334+00:00",
+  "completed_at": "2026-10-17T00:59:58.228609+00:00",
+  "wall_seconds": 1.3841340999351814,
+  "producer_reported_passed": true,
+  "acceptance_passed": false,
+  "cases_passed": 2,
+  "cases": [
+    {
+      "id": "native_census_graceful",
+      "passed": true,
+      "wall_seconds": 0.5685787999536842,
+      "outcome": "graceful_census_no_training",
+      "error": null,
+      "snapshots": [
+        {
+          "label": "before_native",
+          "complete": true,
+          "processes_observed": 3,
+          "unapproved_pids": [
+            58156
+          ],
+          "job_count_before": 3,
+          "job_count_after": 3
+        },
+        {
+          "label": "after_native",
+          "complete": true,
+          "processes_observed": 5,
+          "unapproved_pids": [
+            46672,
+            58156
+          ],
+          "job_count_before": 5,
+          "job_count_after": 5
+        }
+      ],
+      "retained_processes": 5,
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.020799800055101514
+    },
+    {
+      "id": "injected_python_rejection",
+      "passed": true,
+      "wall_seconds": 0.7986652998952195,
+      "outcome": "identified_helper_rejected_no_training",
+      "error": null,
+      "snapshots": [
+        {
+          "label": "before_native",
+          "complete": true,
+          "processes_observed": 3,
+          "unapproved_pids": [
+            58548
+          ],
+          "job_count_before": 3,
+          "job_count_after": 3
+        },
+        {
+          "label": "after_native",
+          "complete": true,
+          "processes_observed": 5,
+          "unapproved_pids": [
+            43160,
+            58548
+          ],
+          "job_count_before": 5,
+          "job_count_after": 5
+        },
+        {
+          "label": "after_helper",
+          "complete": true,
+          "processes_observed": 7,
+          "unapproved_pids": [
+            11448,
+            43160,
+            56020,
+            58548
+          ],
+          "job_count_before": 7,
+          "job_count_after": 7
+        }
+      ],
+      "retained_processes": 7,
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_seconds": 0.02057930000592023
+    }
+  ],
+  "census_snapshot_count": 5,
+  "retained_processes_across_cases": 12,
+  "all_cases_verified_cleanup": true,
+  "acceptance_attempts": 1,
+  "retries": 0,
+  "training_permitted": false,
+  "actual_pretrained_model_loads": 0,
+  "actual_optimizer_updates": 0,
+  "portable_receipt_audit": {
+    "passed": false,
+    "check_count": 424,
+    "checks_passed": 422,
+    "failures": [
+      "native_census_graceful:base_worker_self_hash",
+      "injected_python_rejection:base_worker_self_hash"
+    ]
+  },
+  "unapproved_image_observations": [
+    {
+      "case": "native_census_graceful",
+      "stage": "before_native",
+      "pid": 58156,
+      "creation_filetime": 134366723968862061,
+      "parent_pid": 34492,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "native_census_graceful",
+      "stage": "after_native",
+      "pid": 46672,
+      "creation_filetime": 134366723972916744,
+      "parent_pid": 44056,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "native_census_graceful",
+      "stage": "after_native",
+      "pid": 58156,
+      "creation_filetime": 134366723968862061,
+      "parent_pid": 34492,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "before_native",
+      "pid": 58548,
+      "creation_filetime": 134366723974552296,
+      "parent_pid": 6728,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_native",
+      "pid": 43160,
+      "creation_filetime": 134366723978236352,
+      "parent_pid": 58272,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_native",
+      "pid": 58548,
+      "creation_filetime": 134366723974552296,
+      "parent_pid": 6728,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_helper",
+      "pid": 11448,
+      "creation_filetime": 134366723978932951,
+      "parent_pid": 9412,
+      "image": {
+        "basename": "python.exe",
+        "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+        "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+        "exact_path_matches": [
+          "base_python"
+        ],
+        "path_classification": "exact_executable",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_helper",
+      "pid": 43160,
+      "creation_filetime": 134366723978236352,
+      "parent_pid": 58272,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_helper",
+      "pid": 56020,
+      "creation_filetime": 134366723979166254,
+      "parent_pid": 11448,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    },
+    {
+      "case": "injected_python_rejection",
+      "stage": "after_helper",
+      "pid": 58548,
+      "creation_filetime": 134366723974552296,
+      "parent_pid": 6728,
+      "image": {
+        "basename": "conhost.exe",
+        "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+        "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+        "exact_path_matches": [],
+        "path_classification": "system32",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "error": null,
+      "policy_role": "unapproved"
+    }
+  ],
+  "limitations": [
+    "These are new held point snapshots, not identification of the eight unrecorded historical children.",
+    "Image basename/path classification/file hash is not policy approval or loaded image/DLL integrity.",
+    "Job count agreement is a completeness check for a bounded sample, not continuous coverage.",
+    "No Torch/Transformers/model/training/provider/GPU run; no memory, overhead, quality or cost gate cleared.",
+    "Historical failed training/cost/quality receipts and invalid parent RSS remain unchanged."
+  ]
+}

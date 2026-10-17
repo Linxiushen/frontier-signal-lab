@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T01:03:57.246324+00:00",
+  "review_completed": true,
+  "checks_passed": 18,
+  "checks_total": 18,
+  "laundering_found": false,
+  "experiment_acceptance_passed": false,
+  "scope": "Static code/docs review and saved JSON/stdlib auditor/mock calls only. No producer import, OS image API, process enumeration, real suite, network or model execution. Frozen files unchanged. This posthoc review is not a new acceptance auditor.",
+  "observations": [
+    "Checker pins original report bytes and exact failed frozen audit. Its consistency success preserves a negative result; experiment_acceptance_passed is always false.",
+    "Four controls reject byte-equivalent rewritten JSON, a mocked green audit, an unexpected failure and altered audit count.",
+    "Public copies preserve original report/audit/13 trace bytes; summary and prose separate producer flags from joint acceptance.",
+    "Freeze/test semantics remain unchanged. Any future fix needs a newly declared dual-identity contract and venv-split mock."
+  ],
+  "minor_wording_suggestions": [
+    "Rename the report table Passed header to Producer runtime flag, so a detached table retains the acceptance distinction.",
+    "State that the shown frozen-auditor verification command is expected to exit1 with the two preserved failures."
+  ],
+  "reviewed_files_sha256": {
+    "scripts/check_child_image_census_record.py": "909ae0682bf4c714ba5d5eec90a74d6db703b63a9eafd3a6c24083326a0fc136",
+    "results/child-image-census/report.md": "0d7a288f6a2c24569d74ab2d3134508967ea512a8cf74d4d35e6cba346a77af6",
+    "results/child-image-census/summary.json": "071bba81030d58d4db20b8332d9d01f24da7f70f3a81f9349901b08c6575e68f",
+    "research/2026-10-17-child-images-and-versioned-evidence.md": "21a790d25b9a77745cb1e23613c26b9e8a221858c3f2cd99dfbb0ef4fcb091f6"
+  },
+  "checks": [
+    {
+      "name": "posthoc has no OS/process/network/ML import",
+      "passed": true
+    },
+    {
+      "name": "frozen auditor has no OS/process/network/ML import",
+      "passed": true
+    },
+    {
+      "name": "posthoc actual saved result equals stored check",
+      "passed": true
+    },
+    {
+      "name": "all seven negative-record checks pass",
+      "passed": true
+    },
+    {
+      "name": "posthoc status explicitly false preregistration and acceptance",
+      "passed": true
+    },
+    {
+      "name": "equivalent parsed report with altered bytes fails pinned consistency",
+      "passed": true
+    },
+    {
+      "name": "green audit cannot yield negative consistency or acceptance",
+      "passed": true
+    },
+    {
+      "name": "different rejection cannot yield negative consistency or acceptance",
+      "passed": true
+    },
+    {
+      "name": "different count cannot yield negative consistency or acceptance",
+      "passed": true
+    },
+    {
+      "name": "public report copied byte-for-byte from only real suite",
+      "passed": true
+    },
+    {
+      "name": "public census-audit-portable.json matches original",
+      "passed": true
+    },
+    {
+      "name": "public census-audit-local.json matches original",
+      "passed": true
+    },
+    {
+      "name": "all public raw traces match manifest and originals",
+      "passed": true
+    },
+    {
+      "name": "summary retains producer true and joint false",
+      "passed": true
+    },
+    {
+      "name": "summary counts and zero work preserved",
+      "passed": true
+    },
+    {
+      "name": "public result report states NOT ACCEPTED and posthoc boundary",
+      "passed": true
+    },
+    {
+      "name": "public research note preserves failed joint acceptance and no retry",
+      "passed": true
+    },
+    {
+      "name": "all protected producer auditor protocol results remain unchanged",
+      "passed": true
+    }
+  ],
+  "protected_before_and_after_sha256": {
+    "fixtures/child-image-census/implementation.json": "9d969018db57b4aac7f6fe797496a9f3663a5957975535e6a953b9a7c26a7ed8",
+    "fixtures/child-image-census/protocol.json": "361c3bbe3d4cbdfbeb444db9d6c308311a6e8e8d06892a0dd5ae0fc61370ba87",
+    "reports/runs/20261017T004420Z/census-acceptance/report.json": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+    "reports/runs/20261017T004420Z/census-audit-portable.json": "440de9c80d4cc41e880e3369fa7b11b80d8fda0b0c3a3caff885e5ff231b4ae5",
+    "reports/runs/20261017T004420Z/census-audit-local.json": "ac1e1f2c8a3427cefbfc8937124529bff996ddb0b866037460e132e375fe4183",
+    "experiments/child_image_census.py": "999707e2b92b3e7b7a75b252b740c20efd1d770bf76eea745f65fa3c1de90ed4",
+    "tests/test_child_image_census.py": "798bc931ffd8dcf9edbd3efb157ea1d56cf359212c13bc88e424e59212dd8686",
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c",
+    "scripts/audit_child_image_census.py": "d7fd2a28147d0a93cf345dff620b042acd6eab16d0c95dd89e8569ca5521909d",
+    "tests/test_child_image_census_auditor.py": "f6cdcc667aa58d7c797c48cb615d8c691205c9498084ff65ad68515537f5fdc9"
+  }
+}

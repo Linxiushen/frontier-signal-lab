@@ -1,0 +1,1023 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-child-image-census-v1",
+  "started_at": "2026-10-17T00:59:56.844334+00:00",
+  "started_perf_counter": 856500.776864,
+  "training_permitted": false,
+  "model_loads": 0,
+  "optimizer_steps": 0,
+  "os_name": "nt",
+  "no_fallback": true,
+  "passed": true,
+  "cases": [
+    {
+      "id": "native_census_graceful",
+      "injected": false,
+      "nonce": "f9fe70aea64e73b13e56260648fde6ba8bfd6300157808def840d839f76a369d",
+      "helper_nonce": "61513c6491a349f6b7c9446b8c890fdf5389518ff5f5490e7501bbfd636dadad",
+      "started_at": "2026-10-17T00:59:56.860334+00:00",
+      "started_perf_counter": 856500.7930264,
+      "passed": true,
+      "training_permitted": false,
+      "model_loads": 0,
+      "optimizer_steps": 0,
+      "censuses": [
+        {
+          "label": "before_native",
+          "started_perf_counter": 856501.0834691,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 34492,
+              "parent_pid": 19464,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134366723968629241,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 50632,
+              "parent_pid": 34492,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134366723969325876,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58156,
+              "parent_pid": 34492,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723968862061,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            58156
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 3,
+          "observed_pids": [
+            34492,
+            50632,
+            58156
+          ],
+          "snapshot_observed_count": 3,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 3,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 856501.1088063,
+          "wall_seconds": 0.02533720002975315,
+          "census_complete": true
+        },
+        {
+          "label": "after_native",
+          "started_perf_counter": 856501.2575288,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 34492,
+              "parent_pid": 19464,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134366723968629241,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 44056,
+              "parent_pid": 50632,
+              "policy_role": "native",
+              "approved_known": true,
+              "creation_filetime": 134366723971970357,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "cmd.exe",
+                "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+                "normalized_path_sha256": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+                "exact_path_matches": [
+                  "native"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 50632,
+              "parent_pid": 34492,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134366723969325876,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 46672,
+              "parent_pid": 44056,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723972916744,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58156,
+              "parent_pid": 34492,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723968862061,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            46672,
+            58156
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 5,
+          "observed_pids": [
+            34492,
+            44056,
+            46672,
+            50632,
+            58156
+          ],
+          "snapshot_observed_count": 5,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 5,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 856501.2914408,
+          "wall_seconds": 0.03391199989710003,
+          "census_complete": true
+        }
+      ],
+      "launcher": {
+        "pid": 34492,
+        "creation_filetime": 134366723968629241,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "f9fe70aea64e73b13e56260648fde6ba8bfd6300157808def840d839f76a369d",
+          "role": "worker",
+          "pid": 50632,
+          "parent_pid": 34492,
+          "creation_filetime": 134366723969325876,
+          "memory": {
+            "resident_bytes": 20611072,
+            "private_bytes": 12070912,
+            "peak_resident_bytes": 20615168,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 856501.0501506,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 50632,
+            "creation_filetime": 134366723969325876,
+            "parent_pid": 34492,
+            "job_member": true
+          },
+          {
+            "pid": 34492,
+            "creation_filetime": 134366723968629241,
+            "parent_pid": 19464,
+            "job_member": true
+          }
+        ]
+      },
+      "worker_census_state": {
+        "nonce": "f9fe70aea64e73b13e56260648fde6ba8bfd6300157808def840d839f76a369d",
+        "role": "worker",
+        "pid": 50632,
+        "training_permitted": false,
+        "torch_imported": false,
+        "transformers_imported": false,
+        "model_loads": 0,
+        "optimizer_steps": 0
+      },
+      "before_native_unapproved_pids": [
+        58156
+      ],
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "f9fe70aea64e73b13e56260648fde6ba8bfd6300157808def840d839f76a369d",
+          "role": "worker",
+          "pid": 50632,
+          "native_pid": 44056,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 44056,
+          "creation_filetime": 134366723971970357,
+          "parent_pid": 50632
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "prefinish_live_members": [
+        {
+          "pid": 50632,
+          "creation_filetime": 134366723969325876,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 856501.2914572
+        },
+        {
+          "pid": 44056,
+          "creation_filetime": 134366723971970357,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 856501.2914615
+        }
+      ],
+      "completion": {
+        "nonce": "f9fe70aea64e73b13e56260648fde6ba8bfd6300157808def840d839f76a369d",
+        "role": "worker",
+        "pid": 50632,
+        "native_exit_code": 0,
+        "native_released_nonempty_line": true,
+        "training_permitted": false,
+        "torch_imported": false,
+        "transformers_imported": false,
+        "model_loads": 0,
+        "optimizer_steps": 0
+      },
+      "outcome": "graceful_census_no_training",
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 34492,
+            "creation_filetime": 134366723968629241,
+            "exit_code": 0
+          },
+          {
+            "pid": 50632,
+            "creation_filetime": 134366723969325876,
+            "exit_code": 0
+          },
+          {
+            "pid": 58156,
+            "creation_filetime": 134366723968862061,
+            "exit_code": 0
+          },
+          {
+            "pid": 44056,
+            "creation_filetime": 134366723971970357,
+            "exit_code": 0
+          },
+          {
+            "pid": 46672,
+            "creation_filetime": 134366723972916744,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 856501.3406124,
+        "completed_perf_counter": 856501.3614122,
+        "wall_seconds": 0.020799800055101514,
+        "timeout_seconds": 3.9999985999893397
+      },
+      "completed_at": "2026-10-17T00:59:57.429198+00:00",
+      "completed_perf_counter": 856501.3616052,
+      "wall_seconds": 0.5685787999536842
+    },
+    {
+      "id": "injected_python_rejection",
+      "injected": true,
+      "nonce": "e95fe8637812d0f470272cca50a6f3ff2edb0643910547705558b2c20aa4e709",
+      "helper_nonce": "065753d245b3d93568cb6340d02c37f2d26fe1363d9b5b22773671743388cbfc",
+      "started_at": "2026-10-17T00:59:57.430184+00:00",
+      "started_perf_counter": 856501.3623173,
+      "passed": true,
+      "training_permitted": false,
+      "model_loads": 0,
+      "optimizer_steps": 0,
+      "censuses": [
+        {
+          "label": "before_native",
+          "started_perf_counter": 856501.6519386,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 6728,
+              "parent_pid": 19464,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134366723974318905,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 9412,
+              "parent_pid": 6728,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134366723975025478,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58548,
+              "parent_pid": 6728,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723974552296,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            58548
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 3,
+          "observed_pids": [
+            6728,
+            9412,
+            58548
+          ],
+          "snapshot_observed_count": 3,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 3,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 856501.6769524,
+          "wall_seconds": 0.02501380001194775,
+          "census_complete": true
+        },
+        {
+          "label": "after_native",
+          "started_perf_counter": 856501.7835819,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 6728,
+              "parent_pid": 19464,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134366723974318905,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 9412,
+              "parent_pid": 6728,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134366723975025478,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58272,
+              "parent_pid": 9412,
+              "policy_role": "native",
+              "approved_known": true,
+              "creation_filetime": 134366723977618311,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "cmd.exe",
+                "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+                "normalized_path_sha256": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+                "exact_path_matches": [
+                  "native"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 43160,
+              "parent_pid": 58272,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723978236352,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58548,
+              "parent_pid": 6728,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723974552296,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            43160,
+            58548
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 5,
+          "observed_pids": [
+            6728,
+            9412,
+            43160,
+            58272,
+            58548
+          ],
+          "snapshot_observed_count": 5,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 5,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 856501.8176944,
+          "wall_seconds": 0.03411250002682209,
+          "census_complete": true
+        },
+        {
+          "label": "after_helper",
+          "started_perf_counter": 856502.0939614,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 6728,
+              "parent_pid": 19464,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134366723974318905,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 9412,
+              "parent_pid": 6728,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134366723975025478,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58272,
+              "parent_pid": 9412,
+              "policy_role": "native",
+              "approved_known": true,
+              "creation_filetime": 134366723977618311,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "cmd.exe",
+                "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+                "normalized_path_sha256": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+                "exact_path_matches": [
+                  "native"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 11448,
+              "parent_pid": 9412,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723978932951,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 43160,
+              "parent_pid": 58272,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723978236352,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 56020,
+              "parent_pid": 11448,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723979166254,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 58548,
+              "parent_pid": 6728,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134366723974552296,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [],
+                "path_classification": "system32",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            11448,
+            43160,
+            56020,
+            58548
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 7,
+          "observed_pids": [
+            6728,
+            9412,
+            11448,
+            43160,
+            56020,
+            58272,
+            58548
+          ],
+          "snapshot_observed_count": 7,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 7,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 856502.1358284,
+          "wall_seconds": 0.04186700005084276,
+          "census_complete": true
+        }
+      ],
+      "launcher": {
+        "pid": 6728,
+        "creation_filetime": 134366723974318905,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "e95fe8637812d0f470272cca50a6f3ff2edb0643910547705558b2c20aa4e709",
+          "role": "worker",
+          "pid": 9412,
+          "parent_pid": 6728,
+          "creation_filetime": 134366723975025478,
+          "memory": {
+            "resident_bytes": 20631552,
+            "private_bytes": 12115968,
+            "peak_resident_bytes": 20635648,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 856501.6159685,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 9412,
+            "creation_filetime": 134366723975025478,
+            "parent_pid": 6728,
+            "job_member": true
+          },
+          {
+            "pid": 6728,
+            "creation_filetime": 134366723974318905,
+            "parent_pid": 19464,
+            "job_member": true
+          }
+        ]
+      },
+      "worker_census_state": {
+        "nonce": "e95fe8637812d0f470272cca50a6f3ff2edb0643910547705558b2c20aa4e709",
+        "role": "worker",
+        "pid": 9412,
+        "training_permitted": false,
+        "torch_imported": false,
+        "transformers_imported": false,
+        "model_loads": 0,
+        "optimizer_steps": 0
+      },
+      "before_native_unapproved_pids": [
+        58548
+      ],
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "e95fe8637812d0f470272cca50a6f3ff2edb0643910547705558b2c20aa4e709",
+          "role": "worker",
+          "pid": 9412,
+          "native_pid": 58272,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 58272,
+          "creation_filetime": 134366723977618311,
+          "parent_pid": 9412
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "injected_helper": {
+        "launch_receipt": {
+          "nonce": "e95fe8637812d0f470272cca50a6f3ff2edb0643910547705558b2c20aa4e709",
+          "role": "worker",
+          "pid": 9412,
+          "helper_launcher_pid": 11448,
+          "base_executable_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "shell": false,
+          "close_fds": true,
+          "creationflags": 134217728
+        },
+        "self_receipt": {
+          "nonce": "065753d245b3d93568cb6340d02c37f2d26fe1363d9b5b22773671743388cbfc",
+          "role": "helper",
+          "pid": 11448,
+          "parent_pid": 9412,
+          "creation_filetime": 134366723978932951,
+          "memory": {
+            "resident_bytes": 20807680,
+            "private_bytes": 12292096,
+            "peak_resident_bytes": 20811776,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 856502.0525436,
+          "runtime_executable_basename": "python.exe",
+          "runtime_executable_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+        },
+        "verified_ancestry": [
+          {
+            "pid": 11448,
+            "creation_filetime": 134366723978932951,
+            "parent_pid": 9412,
+            "job_member": true
+          },
+          {
+            "pid": 9412,
+            "creation_filetime": 134366723975025478,
+            "parent_pid": 6728,
+            "job_member": true
+          }
+        ]
+      },
+      "rejection": {
+        "helper_pid": 11448,
+        "training_permitted": false,
+        "ML_release_absent": true,
+        "reason": "helper PID/creation is outside fixed known-role policy even though its image is identified"
+      },
+      "pretermination_live_members": [
+        {
+          "pid": 9412,
+          "creation_filetime": 134366723975025478,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 856502.1358509
+        },
+        {
+          "pid": 58272,
+          "creation_filetime": 134366723977618311,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 856502.1358544
+        },
+        {
+          "pid": 11448,
+          "creation_filetime": 134366723978932951,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 856502.1358573
+        }
+      ],
+      "termination_started_perf_counter": 856502.1358588,
+      "termination_returned_perf_counter": 856502.1401465,
+      "outcome": "identified_helper_rejected_no_training",
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 6728,
+            "creation_filetime": 134366723974318905,
+            "exit_code": 57347
+          },
+          {
+            "pid": 9412,
+            "creation_filetime": 134366723975025478,
+            "exit_code": 57347
+          },
+          {
+            "pid": 58548,
+            "creation_filetime": 134366723974552296,
+            "exit_code": 57347
+          },
+          {
+            "pid": 58272,
+            "creation_filetime": 134366723977618311,
+            "exit_code": 57347
+          },
+          {
+            "pid": 43160,
+            "creation_filetime": 134366723978236352,
+            "exit_code": 57347
+          },
+          {
+            "pid": 11448,
+            "creation_filetime": 134366723978932951,
+            "exit_code": 57347
+          },
+          {
+            "pid": 56020,
+            "creation_filetime": 134366723979166254,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 856502.140157,
+        "completed_perf_counter": 856502.1607363,
+        "wall_seconds": 0.02057930000592023,
+        "timeout_seconds": 3.9999974999809638
+      },
+      "completed_at": "2026-10-17T00:59:58.228609+00:00",
+      "completed_perf_counter": 856502.1609826,
+      "wall_seconds": 0.7986652998952195
+    }
+  ],
+  "scope": "identity census and rejection only; no loader/training/provider/GPU acceptance; no old child identification",
+  "protocol_sha256": "361c3bbe3d4cbdfbeb444db9d6c308311a6e8e8d06892a0dd5ae0fc61370ba87",
+  "implementation_sha256": "9d969018db57b4aac7f6fe797496a9f3663a5957975535e6a953b9a7c26a7ed8",
+  "source_sha256": {
+    "experiments/child_image_census.py": "999707e2b92b3e7b7a75b252b740c20efd1d770bf76eea745f65fa3c1de90ed4",
+    "tests/test_child_image_census.py": "798bc931ffd8dcf9edbd3efb157ea1d56cf359212c13bc88e424e59212dd8686"
+  },
+  "dependencies_sha256": {
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/process_observer_probe.py": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740",
+    "experiments/workload_observer_probe.py": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3",
+    "fixtures/process-observer/protocol.json": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0",
+    "fixtures/process-observer/implementation.json": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954",
+    "fixtures/workload-observer/protocol.json": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463",
+    "fixtures/workload-observer/implementation.json": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c"
+  },
+  "executables_sha256": {
+    "launcher": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+    "base_python": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+    "native": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0"
+  },
+  "executable_path_sha256": {
+    "launcher": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+    "base_python": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+    "native": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4"
+  },
+  "protocol_predeclared_at": "2026-10-17T00:49:17.699700+00:00",
+  "implementation_frozen_at": "2026-10-17T00:59:44.932123+00:00",
+  "completed_at": "2026-10-17T00:59:58.228609+00:00",
+  "completed_perf_counter": 856502.1609981,
+  "wall_seconds": 1.3841340999351814
+}

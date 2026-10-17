@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-child-image-census-v1",
+  "predeclared_at": "2026-10-17T00:49:17.699700+00:00",
+  "source_paths": [
+    "experiments/child_image_census.py",
+    "tests/test_child_image_census.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json"
+  ],
+  "config": {
+    "case_timeout_seconds": 20.0,
+    "suite_timeout_seconds": 45.0,
+    "stage_timeout_seconds": 5.0,
+    "cleanup_timeout_seconds": 4.0,
+    "maximum_descendants": 16,
+    "maximum_depth": 16,
+    "maximum_json_bytes": 1048576
+  },
+  "training_permitted": false,
+  "cases_in_order": [
+    {
+      "id": "native_census_graceful",
+      "injected": false
+    },
+    {
+      "id": "injected_python_rejection",
+      "injected": true
+    }
+  ],
+  "purpose": "Two fixed Windows stdlib identity-only controls after failed training-observer v1. Not a training rerun. No Torch/Transformers/site/model/assets/download/install/network/provider/GPU calls. No inference of historical8unknown child identities.",
+  "known_policy": "Approved-known roles are exact retained PID+creation launcher/actual base interpreter/native cmd, with actual OS image path and frozen file hash verified per snapshot. Before native only launcher/actual known. Any other PID, including image-identical base Python or identified System32 processes, remains unapproved. Classification/identity success is not training authorization. training_permitted=false at every stage, no ML release command/file/code path exists.",
+  "cases": {
+    "native_census_graceful": "Authenticated stdlib worker held before native; take before_native census. Release only fixed native cmd identity control; verify direct native parent/OSimage/hash/job; hold and take after_native census. All extras remain unapproved but do not prohibit completing this observational census. Release cmd with nonempty done line, verify known launcher/worker/cmd normal0 and all retained handles exited/job0. Unknown exit codes preserved; census pass is not policy admission.",
+    "injected_python_rejection": "Same first2snapshots, then controlled additional frozen base-python -S helper with distinct nonce. Authenticate helper PID/creation/actual-worker ancestry. after_helper census uses unchanged known-role policy excluding helper. Explicit helper must have OS-image base path/hash and remain unapproved even with image identical to actual worker. Parent releases no helper/ML finish and terminates whole job with actual/native/helper live. All observed retained refs exited/job0."
+  },
+  "identity_and_images": "Reuse frozen suspended assign/resume WindowsJob, worker nonce identity, Toolhelp ancestry, live membership, fixed native cmd launch and verified cleanup unchanged. For each cached descendant retain native handle, creation and live job, query OS QueryFullProcessImageNameW, record basename/file SHA256/normalized-realpath SHA256/exact path matches/path classification and verify PID/creation again. Public artifacts omit actual local absolute image paths. System32 classification uses SystemRoot/System32 directory, independent of basename. File-path bytes are hashed at query time, not proof of loaded image/DLL integrity.",
+  "bounded_snapshot": "Snapshot full cached descendant PID/parent relations through16levels from launcher; root+at most16descendants may receive OS queries. If count limit exceeded, retain full observed cached PID/parent rows, known roles queried first and remaining rows explicitly unqueried/error; depth/count/query errors fail case. Every queried unknown OS image/error retained, continue within fixed budget to other observed rows. Each stage records job count before/after vs observed count and requires both match for census completeness. Counts do not establish identity or continuous coverage. Missing/extra-to-expected roles do not grant workload approval. OS API/hash calls are synchronous and cannot be hard-preempted; check monotonic budget around stages and rows; late return fails acceptance.",
+  "freeze_execution": "Root reviews exact protocol/new-source/dependency/executable hashes, writes implementation freeze with executables_sha256 keys launcher/base_python/native before exactly one fresh-output real suite. Only pure stdlib/mock tests prefreeze, no live OS/process/model preflight. Two fixed cases20s each, suite45s, bounded stage5s and cleanup4s clamped to nonrenewable case/suite deadlines. No retry, result replacement, classification/allowlist changes or threshold tuning after results. Keep all failures and prior frozen files unchanged.",
+  "report": "Full nonce/PIDcreation/parent/job/live/image per queried row; partial image basename/pathdigest before file-hash failure retained with sha=null/error. Exact known image hashes bound to freeze/CLI paths. Snapshot counts, retained process identities, case/suite clock spans, normal/termination/cleanup evidence. Parent permits only census controls; reported training_permitted alwaysfalse, model_loads/update0. Success means bounded census/cleanup controls only; no loader/training/overhead/memory/quality/production proof. Unknown-image error strings retain exception type/query phase/native error code only; unknown absolute paths embedded in OS/file exceptions are omitted."
+}

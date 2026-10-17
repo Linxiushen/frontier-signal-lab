@@ -31,6 +31,8 @@ jobs:
         run: python -S -m scripts.audit_workload_observer --report results/workload-observer/report.json --protocol fixtures/workload-observer/protocol.json --freeze fixtures/workload-observer/implementation.json --output reports/workload-observer-ci-audit.json
       - name: Preserve the failed pretrained integration and verify its negative receipts without model execution
         run: python -S -m scripts.audit_training_observer_failure --report results/training-observer/report.json --output reports/training-observer-failure-ci-audit.json
+      - name: Preserve the frozen child-image audit rejection without process or model execution
+        run: python -S -m scripts.check_child_image_census_record --output reports/child-image-rejection-ci-check.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

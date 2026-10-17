@@ -1,0 +1,1760 @@
+{
+  "schema_version": 1,
+  "audit_kind": "saved_child_image_census_consistency",
+  "passed": false,
+  "training_permitted": false,
+  "model_loads": 0,
+  "optimizer_steps": 0,
+  "check_count": 425,
+  "checks_passed": 423,
+  "failures": [
+    "native_census_graceful:base_worker_self_hash",
+    "injected_python_rejection:base_worker_self_hash"
+  ],
+  "checks": [
+    {
+      "check": "schema_experiment",
+      "passed": true
+    },
+    {
+      "check": "fixed_protocol_sources_config",
+      "passed": true
+    },
+    {
+      "check": "fixed_cases_no_training",
+      "passed": true
+    },
+    {
+      "check": "protocol_freeze_hash_chain",
+      "passed": true
+    },
+    {
+      "check": "new_source_files_sha256:actual_hash_inventory",
+      "passed": true
+    },
+    {
+      "check": "frozen_dependency_files_sha256:actual_hash_inventory",
+      "passed": true
+    },
+    {
+      "check": "frozen_executable_and_opaque_path_hashes",
+      "passed": true
+    },
+    {
+      "check": "optional_local_executable_hashes",
+      "passed": true
+    },
+    {
+      "check": "declaration_freeze_run_chronology",
+      "passed": true
+    },
+    {
+      "check": "reported_acceptance_Windows_no_fallback",
+      "passed": true
+    },
+    {
+      "check": "suite:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "suite:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "suite:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "exact_two_cases_in_order",
+      "passed": true
+    },
+    {
+      "check": "four_distinct_nonces",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:no_hidden_failure",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:case:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:case:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:UTC_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:launcher:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:suspended_assignment_no_handle_inherit",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:ready_clock",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:bounded_ancestry_endpoints",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:self_parent_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:worker:self_executable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:launcher_actual_distinct",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:base_worker_self_hash",
+      "passed": false
+    },
+    {
+      "check": "native_census_graceful:state:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:state:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:state:no_ML_imports",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:native_launch:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:fixed_native_command",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:native_parent_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exact_stage_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:complete_no_errors",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:bounded_full_observed_set",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:two_job_counts_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:all_exact_known_identities",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:native_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_native:every_extra_stays_unapproved",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_no_errors",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_full_observed_set",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:two_job_counts_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:all_exact_known_identities",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:native_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:after_native:every_extra_stays_unapproved",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:before_unknowns_retained",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:native_snapshot_parent_matches_identity",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:authenticated_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:authenticated_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:completion:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:completion:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:completion:no_ML_imports",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:graceful_outcome",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:live:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:live:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exact_live_known_controls",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:live_clock_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:live_clock_job",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:cleanup:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:bounded_all_retained_exit_job_zero",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:all_observed_identities_have_exact_exit_receipts",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "native_census_graceful:controlled_exit_codes",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:no_hidden_failure",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:case:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:case:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:case:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:UTC_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:launcher:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:suspended_assignment_no_handle_inherit",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:ready_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:bounded_ancestry_endpoints",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:self_parent_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:worker:self_executable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:launcher_actual_distinct",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:base_worker_self_hash",
+      "passed": false
+    },
+    {
+      "check": "injected_python_rejection:state:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:state:training_forbidden_zero_work",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:state:no_ML_imports",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:native_launch:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:fixed_native_command",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:native_parent_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exact_stage_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:complete_no_errors",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:bounded_full_observed_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:two_job_counts_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:all_exact_known_identities",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:native_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_native:every_extra_stays_unapproved",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_no_errors",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_full_observed_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:two_job_counts_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:all_exact_known_identities",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:native_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_native:every_extra_stays_unapproved",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_no_errors",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_full_observed_set",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:two_job_counts_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:all_exact_known_identities",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:native_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:known_OS_image_matches_freeze",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_path_hash_agrees",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:live_retained_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:no_PID_reuse",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:retained_parent_stable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:complete_retained_OS_image",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:path_classification_not_basename",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:exact_PID_creation_policy",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:bounded_launcher_ancestry",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:after_helper:every_extra_stays_unapproved",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:before_unknowns_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:native_snapshot_parent_matches_identity",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:authenticated_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:authenticated_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:ready_clock",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:ancestor:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:bounded_ancestry_endpoints",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:self_parent_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:parent_creation_order",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper:self_executable",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper_launch:nonce_role_PID",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:fixed_helper_launch",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper_node:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:identified_same_image_helper_rejected",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper_absent_before_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:helper_chain_retained",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:no_helper_or_ML_release",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:termination_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:rejection_outcome",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exact_live_known_controls",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live_clock_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live_clock_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:live_clock_job",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:cleanup:bounded_interval",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:cleanup:wall_recomputed",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:bounded_all_retained_exit_job_zero",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:exit:PID_creation",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:all_observed_identities_have_exact_exit_receipts",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:preserved_exit_code",
+      "passed": true
+    },
+    {
+      "check": "injected_python_rejection:controlled_exit_codes",
+      "passed": true
+    }
+  ],
+  "case_summaries": [
+    {
+      "id": "native_census_graceful",
+      "unapproved_identities": [
+        {
+          "pid": 46672,
+          "creation_filetime": 134366723972916744
+        },
+        {
+          "pid": 58156,
+          "creation_filetime": 134366723968862061
+        }
+      ],
+      "exit_receipts": 5,
+      "training_permitted": false
+    },
+    {
+      "id": "injected_python_rejection",
+      "unapproved_identities": [
+        {
+          "pid": 11448,
+          "creation_filetime": 134366723978932951
+        },
+        {
+          "pid": 43160,
+          "creation_filetime": 134366723978236352
+        },
+        {
+          "pid": 56020,
+          "creation_filetime": 134366723979166254
+        },
+        {
+          "pid": 58548,
+          "creation_filetime": 134366723974552296
+        }
+      ],
+      "exit_receipts": 7,
+      "training_permitted": false
+    }
+  ],
+  "scope": "Portable stdlib audit of saved child-image census receipts; launches nothing.\n\nSuccess is saved receipt/hash consistency, not fresh OS measurement, authenticity\nof rewritten evidence, loaded-image integrity, continuous coverage or training approval.\n",
+  "report_sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+  "protocol_sha256": "361c3bbe3d4cbdfbeb444db9d6c308311a6e8e8d06892a0dd5ae0fc61370ba87",
+  "implementation_sha256": "9d969018db57b4aac7f6fe797496a9f3663a5957975535e6a953b9a7c26a7ed8"
+}

@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T01:02:43.923773+00:00",
+  "review_scope": "Independent saved JSON, frozen source/AST and file-byte hash review only. No frozen auditor/producer invocation, real OS image query, process enumeration, experiment retry, network or ML run.",
+  "review_completed": true,
+  "review_checks_passed": 48,
+  "review_checks_total": 48,
+  "experiment_acceptance": {
+    "producer_report_passed": true,
+    "frozen_portable_audit_passed": false,
+    "frozen_portable_checks_passed": 422,
+    "frozen_portable_checks_total": 424,
+    "frozen_local_audit_passed": false,
+    "frozen_local_checks_passed": 423,
+    "frozen_local_checks_total": 425,
+    "joint_acceptance": false,
+    "original_failures_preserved": [
+      "native_census_graceful:base_worker_self_hash",
+      "injected_python_rejection:base_worker_self_hash"
+    ],
+    "training_permitted": false,
+    "model_loads": 0,
+    "optimizer_steps": 0
+  },
+  "diagnosis": {
+    "summary": "Both failed checks equate the application-level sys.executable file hash with the OS process image hash. In these two Windows venv-launched workers the saved sys.executable-derived digest equals the frozen venv launcher, while every retained-handle OS image/path digest for the authenticated actual worker equals the distinct frozen base interpreter.",
+    "evidence_status": "Explained by immutable saved receipts and the frozen publish_identity/auditor sources. The literal full sys.executable string was intentionally not logged; its source-derived digest and basename are recorded. No fresh interpreter/OS probe was performed.",
+    "root_cause": "The frozen auditor assumes a worker self-reported executable hash must be the OS base image hash. That assumption is invalid for this observed launcher/base split. Its synthetic fixture always sets worker/helper self hash to base_python and therefore does not exercise this Windows venv behavior. Producer admission independently validates the retained OS image/path/hash, so producer.passed and frozen audit.passed answer different checks.",
+    "source_references": [
+      {
+        "path": "experiments/process_observer_probe.py",
+        "line": 84,
+        "fact": "publish_identity hashes sys.executable at lines86–87; it does not derive an OS image hash."
+      },
+      {
+        "path": "scripts/audit_child_image_census.py",
+        "line": 75,
+        "fact": "base_worker_self_hash requires ready runtime_executable_sha256 == frozen base_python."
+      },
+      {
+        "path": "experiments/child_image_census.py",
+        "line": 69,
+        "fact": "image_identity queries QueryFullProcessImageNameW from the retained handle, hashes that path and rechecks PID/creation."
+      },
+      {
+        "path": "tests/test_child_image_census_auditor.py",
+        "line": 21,
+        "fact": "Synthetic ready() assigns base_python hash to every worker/helper self receipt."
+      }
+    ],
+    "frozen_executable_hashes": {
+      "launcher": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+      "base_python": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+      "native": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0"
+    },
+    "acceptance_implication": "Do not waive the two failures, replace the result, weaken the allowlist or rerun. Report producer two-case census completion separately from failed joint producer-plus-frozen-auditor acceptance."
+  },
+  "case_summaries": [
+    {
+      "id": "native_census_graceful",
+      "producer_passed": true,
+      "worker_identity": {
+        "pid": 50632,
+        "creation_filetime": 134366723969325876,
+        "parent_pid": 34492
+      },
+      "self_receipt_hash": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+      "self_hash_matches_frozen_role": "launcher",
+      "OS_hash_matches_frozen_role": "base_python",
+      "snapshots": [
+        {
+          "label": "before_native",
+          "worker_OS_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "worker_OS_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "self_hash_differs_from_OS_image": true,
+          "observed_count": 3,
+          "unapproved_pids": [
+            58156
+          ]
+        },
+        {
+          "label": "after_native",
+          "worker_OS_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "worker_OS_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "self_hash_differs_from_OS_image": true,
+          "observed_count": 5,
+          "unapproved_pids": [
+            46672,
+            58156
+          ]
+        }
+      ],
+      "unknown_identities_still_unapproved": [
+        {
+          "pid": 58156,
+          "creation_filetime": 134366723968862061,
+          "basename": "conhost.exe",
+          "image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+          "classification": "system32",
+          "approved_known": false
+        },
+        {
+          "pid": 46672,
+          "creation_filetime": 134366723972916744,
+          "basename": "conhost.exe",
+          "image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+          "classification": "system32",
+          "approved_known": false
+        }
+      ],
+      "retained_exit_receipt_count": 5,
+      "job_active_count_after_cleanup": 0,
+      "outcome": "graceful_census_no_training",
+      "case_wall_seconds": 0.5685787999536842
+    },
+    {
+      "id": "injected_python_rejection",
+      "producer_passed": true,
+      "worker_identity": {
+        "pid": 9412,
+        "creation_filetime": 134366723975025478,
+        "parent_pid": 6728
+      },
+      "self_receipt_hash": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+      "self_hash_matches_frozen_role": "launcher",
+      "OS_hash_matches_frozen_role": "base_python",
+      "snapshots": [
+        {
+          "label": "before_native",
+          "worker_OS_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "worker_OS_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "self_hash_differs_from_OS_image": true,
+          "observed_count": 3,
+          "unapproved_pids": [
+            58548
+          ]
+        },
+        {
+          "label": "after_native",
+          "worker_OS_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "worker_OS_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "self_hash_differs_from_OS_image": true,
+          "observed_count": 5,
+          "unapproved_pids": [
+            43160,
+            58548
+          ]
+        },
+        {
+          "label": "after_helper",
+          "worker_OS_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "worker_OS_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "self_hash_differs_from_OS_image": true,
+          "observed_count": 7,
+          "unapproved_pids": [
+            11448,
+            43160,
+            56020,
+            58548
+          ]
+        }
+      ],
+      "unknown_identities_still_unapproved": [
+        {
+          "pid": 58548,
+          "creation_filetime": 134366723974552296,
+          "basename": "conhost.exe",
+          "image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+          "classification": "system32",
+          "approved_known": false
+        },
+        {
+          "pid": 43160,
+          "creation_filetime": 134366723978236352,
+          "basename": "conhost.exe",
+          "image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+          "classification": "system32",
+          "approved_known": false
+        },
+        {
+          "pid": 11448,
+          "creation_filetime": 134366723978932951,
+          "basename": "python.exe",
+          "image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+          "classification": "exact_executable",
+          "approved_known": false
+        },
+        {
+          "pid": 56020,
+          "creation_filetime": 134366723979166254,
+          "basename": "conhost.exe",
+          "image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+          "classification": "system32",
+          "approved_known": false
+        }
+      ],
+      "retained_exit_receipt_count": 7,
+      "job_active_count_after_cleanup": 0,
+      "outcome": "identified_helper_rejected_no_training",
+      "case_wall_seconds": 0.7986652998952195
+    }
+  ],
+  "remaining_blind_spots": [
+    "This review establishes saved-receipt and frozen-file consistency; it cannot authenticate altered evidence or re-measure already-exited processes. Raw worker-ready receipts match embedded records, but the literal sys.executable path is absent by design.",
+    "Only five bounded snapshots were taken. Equal job counts at snapshot boundaries do not give continuous child coverage; short-lived between-snapshot processes and external/provider processes are not excluded.",
+    "File hashes bind queried path bytes at observation, not loaded image pages, DLLs, signatures, execution lineage outside retained ancestry or filesystem stability across all time.",
+    "The five System32-classified conhost identities are observations from these new cases and remain unapproved. They cannot retrospectively identify the historical eight unknown children or authorize training.",
+    "Synchronous Windows/file/hash/CloseHandle calls cannot be hard-preempted. Recorded completed intervals and cleanup passed their budgets here; this does not establish behavior under blocked/slow native calls.",
+    "The frozen auditor and its mocks missed the sys.executable/OS-image semantic split. Other passing checks are limited to their declared saved fields; their count is not proof that the auditor is complete.",
+    "No model import/load, loader success, optimizer step, quality/cost/memory comparison, full upstream runtime harness, provider cleanup, authority lifecycle, durable effects or restart proof is established. All historical failed results and scientific gates remain unchanged."
+  ],
+  "checks": [
+    {
+      "name": "producer reports both cases passed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable audit retains exact two failures and 422/424",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "local audit retains exact two failures and 423/425",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable audit counts recompute",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portable audit binds saved result/protocol/freeze",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "local audit counts recompute",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "local audit binds saved result/protocol/freeze",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "freeze and run hash chain matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_source_files_sha256 read-only bytes unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_dependency_files_sha256 read-only bytes unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen auditor and auditor tests unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "three executable hashes match freeze and report",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "launcher and base executable hashes are distinct",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen self receipt hashes sys.executable rather than an OS query",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen auditor equates worker self hash with OS base role",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic fixture hard-codes all worker/helper self hashes as base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "producer separately queries OS retained-handle image and freezes role hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: saved worker-ready equals embedded receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: self hash equals launcher and differs from base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:before_native: OS worker exact base identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:before_native: snapshot completed without error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:before_native: all retained role hashes/extra rejection consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:after_native: OS worker exact base identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:after_native: snapshot completed without error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful:after_native: all retained role hashes/extra rejection consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: cleanup retains all observed PID creations and job0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: no hidden execution failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: no training or model work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_census_graceful: all retained exit codes are normal zero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: saved worker-ready equals embedded receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: self hash equals launcher and differs from base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:before_native: OS worker exact base identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:before_native: snapshot completed without error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:before_native: all retained role hashes/extra rejection consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_native: OS worker exact base identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_native: snapshot completed without error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_native: all retained role hashes/extra rejection consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_helper: OS worker exact base identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_helper: snapshot completed without error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection:after_helper: all retained role hashes/extra rejection consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: cleanup retains all observed PID creations and job0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: no hidden execution failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: no training or model work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: direct-base helper self and OS hash agree but remain unapproved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "injected_python_rejection: all retained exit codes preserve job termination value",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "five saved snapshots and twelve distinct retained exit receipts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "five current conhost identities and one helper remain unapproved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all protected frozen inputs results audits and raw receipts unchanged during review",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "preserved_artifact_manifest": [
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/report.json",
+      "sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0"
+    },
+    {
+      "path": "fixtures/child-image-census/protocol.json",
+      "sha256": "361c3bbe3d4cbdfbeb444db9d6c308311a6e8e8d06892a0dd5ae0fc61370ba87"
+    },
+    {
+      "path": "fixtures/child-image-census/implementation.json",
+      "sha256": "9d969018db57b4aac7f6fe797496a9f3663a5957975535e6a953b9a7c26a7ed8"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-audit-portable.json",
+      "sha256": "440de9c80d4cc41e880e3369fa7b11b80d8fda0b0c3a3caff885e5ff231b4ae5"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-audit-local.json",
+      "sha256": "ac1e1f2c8a3427cefbfc8937124529bff996ddb0b866037460e132e375fe4183"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-execution-plan.json",
+      "sha256": "1da25008db8dd109ecf3b6854b12f1cc7620467a37cf343eb746bc9d3dd9a43b"
+    },
+    {
+      "path": "experiments/child_image_census.py",
+      "sha256": "999707e2b92b3e7b7a75b252b740c20efd1d770bf76eea745f65fa3c1de90ed4"
+    },
+    {
+      "path": "tests/test_child_image_census.py",
+      "sha256": "798bc931ffd8dcf9edbd3efb157ea1d56cf359212c13bc88e424e59212dd8686"
+    },
+    {
+      "path": "experiments/process_observer.py",
+      "sha256": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175"
+    },
+    {
+      "path": "experiments/process_observer_probe.py",
+      "sha256": "cfbc7de447cdf7b1dbae98e34c9e642c7d7cc8d93343c961f6aec8f78ea31740"
+    },
+    {
+      "path": "experiments/workload_observer_probe.py",
+      "sha256": "cdb14b85a40f866676e3181eca513041d6c6fa5bc679429654b4b72b9e63eba3"
+    },
+    {
+      "path": "fixtures/process-observer/protocol.json",
+      "sha256": "e4b77a96ab8aa1a2857b3156f485226791c877b923f847798eaad97e1f4b58a0"
+    },
+    {
+      "path": "fixtures/process-observer/implementation.json",
+      "sha256": "535c3e78a9abf53fd89452876796c1df8c39a5a8d2b21963f173f148fc03e954"
+    },
+    {
+      "path": "fixtures/workload-observer/protocol.json",
+      "sha256": "659146a5f05ed88b23886fefc3a389268883b88c5ad8b3a869712c1d27dbb463"
+    },
+    {
+      "path": "fixtures/workload-observer/implementation.json",
+      "sha256": "db207618c0f5226dc5f2e509fdbf99cb32ae9d24af4066f1bd3a23fba47e293c"
+    },
+    {
+      "path": "scripts/audit_child_image_census.py",
+      "sha256": "d7fd2a28147d0a93cf345dff620b042acd6eab16d0c95dd89e8569ca5521909d"
+    },
+    {
+      "path": "tests/test_child_image_census_auditor.py",
+      "sha256": "f6cdcc667aa58d7c797c48cb615d8c691205c9498084ff65ad68515537f5fdc9"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/after-native-continue.json",
+      "sha256": "1de5bbbdf8c82861d57c1f5ca0c08b5fc7e0d20055da65ff302594346b63adb1"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/before-native-continue.json",
+      "sha256": "8e5b0192dd7a6dccdfa6dd361df580c4c20bb0237f5b0fed156e5b1a1ab2b870"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/helper-launch.json",
+      "sha256": "80a5a837eaa49fdf3f18664258757e5b6ab2b59f82b4e362a8f930bec2e3ac81"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/helper-ready.json",
+      "sha256": "6d725fee41079d5e8714cab6b6cd44fad1c663f628ee5376f6452358c0a76a9d"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/native-ready.json",
+      "sha256": "94c870a3144a8fb0811ee1b0e1e8974975daad2120562e39fa7509df05e31013"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/worker-census-state.json",
+      "sha256": "6c0669c0b9397a0237006b81cce15ad0e7dfbc261a4ed9ebf82b040fb4f7b460"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/injected_python_rejection/worker-ready.json",
+      "sha256": "3850d03c084244d2a7f5b7679a5bb9814b9d0cc218a49f97414985760ff71712"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/after-native-continue.json",
+      "sha256": "598a3f984fe9b8f565b793690e9853ab9d0bad2013713482256f2e66ec173ea7"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/before-native-continue.json",
+      "sha256": "f41e442206756034ecec14759fb8f3dee9a82bd54fd64d2077dcf3f0169f9e2b"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/native-ready.json",
+      "sha256": "2cbc28a10221f5cab09f5076cba93eeaedf720ffb3cd5b6d6c368c3121a97396"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/worker-census-state.json",
+      "sha256": "5cdb425ee92b1d956f72fb6e94126a85c29e4c7cdf7bf4939c316bd9ab65d99c"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/worker-completed.json",
+      "sha256": "51b1a11bb81bc27a0d23eeff2a5c6d305ecc824266bca769208a3129e87111cd"
+    },
+    {
+      "path": "reports/runs/20261017T004420Z/census-acceptance/native_census_graceful/worker-ready.json",
+      "sha256": "b33d983dab9c00430c1547e9cafbd88cf84cd24e048b727ebd7aabb8422eaf04"
+    }
+  ],
+  "future_work_boundary": "Any correction needs a new version with distinct self-report and OS-image fields plus a venv-split mock. This review makes no such change or new-run authorization."
+}

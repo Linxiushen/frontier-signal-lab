@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-16T21:07:06.636407+00:00",
-  "observation_note": "Historical source objects retained exactly. New causal-prefix/graph tests, selected A2 logs, worker close/intake/replay/pressure/pipe/config/ACP source evidence retain authors, event dates, adjacent versions, CI failures and execution limits. Local training integration is reported separately; historical scientific negatives remain unchanged.",
+  "last_updated_at": "2026-10-17T01:03:01.656263+00:00",
+  "observation_note": "All 133 historical source objects retained exactly. Added bounded public source/version/selected-log evidence with original event and actual read times. Windows child-image census is a separate no-ML engineering result; scientific negatives and employer uncertainty remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -5033,6 +5033,272 @@
       "review_record": "research/2026-10-16-pretrained-training-observer.md",
       "review_receipt": "results/training-observer/result-review.json",
       "limitations": "Local single host, no external timestamp authority. Frozen success auditor rejects14checks; post-run negative receipt audit validates failure preservation only. No model quality/cost/compression/GPU/provider/production result."
+    },
+    {
+      "id": "fla-singleton-compiled-source-and-base-a2-runtime",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1490",
+      "type": "newly_observed_test_revisions_and_new_selected_runtime",
+      "published_at": "2026-10-16T23:17:38Z",
+      "published_at_kind": "new A2completion; source PRupdates and older authored commits retained separately",
+      "author": "Original proposals Aphelios183 / zhiyuan1i; these two revision commits are yzhangcs, not Nathan Chen.",
+      "claim": "The old84singleton matrix becomes168eager/torch.compile cells with cache reset, seven activations/four layouts/three dtypes, finite output/all-input-gradient checks at unchanged1e-3. A pre-dispatch canonicalization assertion replaces padded baseline kernel access and local empty_like monkeypatch. The base revision adds only comments to implementation and reorganizes tests.",
+      "status": "reviewed_public_source_or_selected_upstream_runtime_no_local_scientific_upgrade",
+      "repository_public": true,
+      "license_metadata": "MIT metadata; upstream not executed or incorporated into public source",
+      "limitations": [
+        "PR metadata updates 21:01:03/21:01:02 are in the window. Both source commits were authored/committed before the lower cutoff; do not label newly authored research.",
+        "Standard autouse fixture remains, but guarded allocations bypass poisoning while is_compiling(), requires_grad, or outside fla callers. Do not claim every compiled allocation is NaN poisoned or independently establish memory safety.",
+        "Synthetic checkout actual parents were not fetched within the16GETcap; do not replace them with advertised PRbase/head.",
+        "1490remains unchanged4725012with0check-runs. Its335GB200/168compiled claims remain earlier author assertions. No full standalone head/sanitizer/memory-safety proof.",
+        "1490exacttip4725012still has0checks; old84singletonA2log and newbase2PowGLUpasses do not establish expanded168runtime."
+      ],
+      "next_falsifiable_gate": "Pin revised standalone and stacked parents on exact device; verify all outputs/gradients with unchanged tolerance, standard-fixture bypasses, original-allocation safety, dispatch modes, full dependent suites and sanitizer separately.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "fla-gdn2-ascend-compile-failure-selected-runtime",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1404",
+      "type": "new_completed_failure_on_unchanged_old_proposal_head",
+      "published_at": "2026-10-16T20:51:03Z",
+      "author": "alfredclwong original source/test author, not Nathan Chen.",
+      "claim": "Selected Ascend job on PR head888c2da but actual synthetic checkout37ec949 fails2GDN2cases with1303pass348skip. Both tracebacks reject non-int32 block-pointer offsets during Triton compilation. xdist --exitfirst truncates the planned selected matrix; no graph-stage result follows.",
+      "status": "reviewed_public_source_or_selected_upstream_runtime_no_local_scientific_upgrade",
+      "repository_public": true,
+      "license_metadata": "MIT metadata; upstream not executed or incorporated into public source",
+      "limitations": [
+        "No new kernel or test commit versus last pass; PR body/status updated and now draft.",
+        "Observed candidate-synthetic-merge compiler failure is retained; exact-parent comparative reproduction was not run and inheritance/root-cause attribution remains unestablished.",
+        "The old B30020recurrence/4graph results and earlier cost remain historical author assertions, not new successful Ascend validation."
+      ],
+      "our_inference": "Numerical and graph correctness do not establish backend compiler admissibility; a typed-addressing compiler gate is separate from decay equations.",
+      "next_falsifiable_gate": "Retain this exact failure; compare actual parent/candidate and source manifests on the same backend, include 32/64-bit addressing boundary controls, then execute the previously truncated remaining matrix without tolerance changes.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "fla-gdn2-low-precision-gates-and-state-gradient-boundary",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1404",
+      "type": "new_test_only_commit_and_public_author_negative_range_reports",
+      "published_at": "2026-10-17T00:20:04Z",
+      "published_at_kind": "PRmetadata update; actual commit00:09:52retained",
+      "author": "alfredclwong, not Nathan Chen.",
+      "claim": "One adjacent test-only commit adds FP16/BF16gate operands to recurrence controls and expands CUDA/HIPgraph replay from BF16toFP16/BF16. Recurrence now has7dtype/gate/head cells×direct/fused×dense/packed=28; graph2dtypes×recompute/retain×direct/fused=8. No kernel source changes.",
+      "status": "reviewed_public_source_or_selected_upstream_runtime_no_local_scientific_upgrade",
+      "repository_public": true,
+      "license_metadata": "MIT metadata; upstream not executed or incorporated into public source",
+      "limitations": [
+        "Current8b11da93tip has0check-runs; earlier888c2daAscend2compiler failures remain unresolved and are not evidence for the new tip.",
+        "No raw range-probe artifact was inspected, no baseline attribution independently reproduced, and arbitrary FP32state-gradient support is not established."
+      ],
+      "our_inference": "Low-precision gate coverage and dynamic graph replay do not establish representability of larger FP32state gradients through FP16intermediates.",
+      "next_falsifiable_gate": "Independently reproduce finite reference/output/state/all-gradient comparisons across FP16cast range and accumulation boundaries on exact parent/head/device; preserve nonfinite/underflow negatives and unresolved Ascendcompiler failure separately.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "fla-gdn2-landed-and-original-a2-selected-runtime",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1496",
+      "type": "two_new_selected_runtime_completions_on_distinct_landed_and_synthetic_checkouts",
+      "published_at": "2026-10-16T23:04:50Z",
+      "published_at_kind": "latest new original-head job completion; earlier landed22:22event retained",
+      "author": "yzhangcs merge/revision incorporating earlier xy200303 work; not Nathan Chen.",
+      "claim": "The selected A2job checks out landed squash e4adbb8 exactly, reports1620pass469skip, then separate KDAgraph15pass16skip. GDN2outcome occurrences72pass60skip; all22causality,36lower-bound and2default-shift cases are skipped. Newly completed original-head A2job reports1620pass469skip then separateKDAgraph15pass16skip. It actually checks out synthetic e0b931, whose actual parents are33af5256 and493ce030, not landed squash e4adbb8.",
+      "status": "reviewed_public_source_or_selected_upstream_runtime_no_local_scientific_upgrade",
+      "repository_public": true,
+      "license_metadata": "MIT metadata; upstream not executed or incorporated into public source",
+      "limitations": [
+        "This replaces the previous pending-landed-test coverage gap only for the selected A2command. It is not a GPU causality/gradient proof or comprehensive native-backend execution.",
+        "Selected log includes CPU/Gluon skip/fallback boundaries; no same-setting performance baseline or compression/quality measurement.",
+        "All22GDN2causality,36lower-bound and2default-shift cases are skipped, as in the earlier landed A2log. This is selected downstream compatibility, not GPU prefix-output/gradient validation.",
+        "An additional warning appears in the graph summary; saved log retained. No performance comparison or compression/quality result.",
+        "23:04original-head completion was excluded from the carried22:48window and is counted only in this supplement."
+      ],
+      "our_inference": "A landed commit needs its own observed runtime evidence, while mathematical causality and skipped GPU-specific paths retain independent gates.",
+      "next_falsifiable_gate": "Run the exact future-perturbation prefix-output/all-supported-gradient controls on GPU at fixed source/parent and backend; preserve CP negatives, shift policy and latency variability separately.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "openclaw-shared-startup-error-and-custody",
+      "url": "https://github.com/openclaw/openclaw/commit/1e604e0e9e1139ed7abe296bda846082c32bf492",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-16T22:16:07Z",
+      "published_at_kind": "PR merged_at; commit committer timestamp recorded separately",
+      "author": "steipete",
+      "claim": "Shared/isolated registration rejection settling during late cleanup preserves its concrete error; an observed shared client before lease acquisition is diagnostics-only, so a sole waiter abandoning acquisition does not retire service-owned shared startup. Acquired leases and isolated/custom factories retain cleanup paths.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "limitations": [
+        "Prepared PR head differs from landed mainline contents in both production modules; selected landed patches were checked against their actual adjacent parent, not equated to exact-head CI.",
+        "Tests use start spies, fake timers and test transports. Native child teardown, current role/device revocation and durable effects remain unexecuted."
+      ],
+      "our_inference": "Separate the lifetime of a shared producer from a cancelled subscriber; inspect cleanup custody before treating caller timeout as producer extinction.",
+      "next_falsifiable_gate": "Real shipped entrypoint with two authenticated waiters and a sole-waiter control: cancel before lease/thread write, then show later admission reuses the same native startup; separately reject registration after timeout while preserving the concrete error and retaining all process cleanup receipts.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "openclaw-deferred-service-reload",
+      "url": "https://github.com/openclaw/openclaw/commit/e69e34001fb5e5439dfac48f53e821d970112625",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-16T22:39:39Z",
+      "published_at_kind": "PR merged_at; commit committer timestamp recorded separately",
+      "author": "steipete",
+      "claim": "After the five-second observation deadline, a pending service reload retains original cleanup custody and starts its replacement through the current owner reload queue only after successful cleanup. Newer queued config/handoff can update pending config; full/selective shutdown deletes pending restart. Failed or never-settling cleanup does not authorize a competing replacement.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "limitations": [
+        "Unresolved source-identified P2: registry handoff while the deferred replacement is still starting can retain the prior config and publish before start settles; author explicitly accepts this follow-up. No demonstrated data loss/security failure.",
+        "Linked Package Acceptance run remains failure with npm12 installed-tree budget and aggregate verification failures. Its workflow head is f82e6b..., not PR head6a78...; dispatch candidate input was not log-audited. Author inherited-failure/count attribution is not independently established.",
+        "Service API cleanup settlement is not OS/provider extinction. Wall-clock Date.now observation deadlines here do not satisfy our monotonic terminal-drain gate."
+      ],
+      "our_inference": "An observation deadline should not discard physical cleanup ownership; configuration freshness must also survive the replacement startup interval.",
+      "next_falsifiable_gate": "Hold asynchronous replacement.start after late cleanup; hand off to newer config and prove either the successor awaits/adopts the exact in-flight start or replaces it after complete cleanup. Verify current authority and full/selective shutdown cancellation, with rejected and never-settling cleanup negative controls.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "openclaw-independent-reconnect-reads",
+      "url": "https://github.com/openclaw/openclaw/commit/8a4345e0e42d077cf3b4deb7741cf511a3f6873a",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-16T22:43:05Z",
+      "published_at_kind": "PR merged_at; commit committer timestamp recorded separately",
+      "author": "steipete",
+      "claim": "Four exact reconnect reads (push.web.vapidPublicKey, sessions.github.options, workboard.cards.list, github.preview) join the existing independent-read list; persisted VAPID lookup calls the existing machine-state reader instead of a dedicated writer command. Subscription mutations remain ordered and the key insertion transaction keeps first-committed-writer behavior.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "limitations": [
+        "Four-run body updated22:43:07 is later than the22:39:16 bot review still describing pending candidate runs; these are distinct author/report snapshots, not independent replication.",
+        "First120s filters calls by start time, allowing already-started slow calls to drain later; synthetic GitHub excludes external latency, account refresh and browser rendering.",
+        "Downloaded adjacent modules retain guard calls, but authenticated dispatch and the implementation of the imported reader were not audited end to end. Source read is not complete current-authority execution."
+      ],
+      "our_inference": "Distinguish parked preparation saturation, writer contention and general runnable/event-loop backlog; queue totals alone cannot identify the bottleneck.",
+      "next_falsifiable_gate": "Real authenticated entrypoint on the target platform: hold four preparations, verify only the four named reads progress under current authority while subscription writes retain order; independently hold the writer and measure VAPID read. Keep errors and admitted-call counts alongside success latencies.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "verifiers-decision-judge-clef-default",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/1f5ada9db987bc93f393cc1e0617911138bcc0e0",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-16T21:55:55Z",
+      "published_at_kind": "PR merged_at; commit committer timestamp recorded separately",
+      "author": "xeophon",
+      "claim": "DecisionJudgeConfig default model changes from typesafe-ai/jev to cloudflare/clef at the existing Prime evaluations endpoint. evaluate reads self.config.model; explicit model overrides and score normalization/source logic are unchanged. Only one line changes, with no new regression test.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": "MIT",
+      "limitations": [
+        "Contribution is xeophon/Florian Brand, not Will Brown; ecosystem membership does not transfer authorship.",
+        "Cloudflare Clef is an API model identifier here; no claim is made about its quality, internals or future research plans."
+      ],
+      "our_inference": "Reward comparisons must pin the actual judge model/config even when the surrounding scoring code is unchanged. A changed default can change a reward distribution without a policy improvement.",
+      "next_falsifiable_gate": "Pin task snapshots, immutable judge/runtime versions, explicit model, criteria/view and raw judge request/response; use a fixed candidate budget and blind evaluation before interpreting reward changes. H4 replay/mask and real harness teardown remain separate unmet gates.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "openclaw-preparation-monotonic-caller-budget",
+      "url": "https://github.com/openclaw/openclaw/commit/50cf3cd338114cbc68cbd443f1c625910a16b7d1",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-17T00:40:08Z",
+      "published_at_kind": "PR merged_at",
+      "author": "vincentkoc",
+      "claim": "The common Decision V1/V2 runtime subtracts monotonic elapsed preparation from the original caller timeout before provider-host entry. Expired preparation skips provider evaluation; a positive remainder is passed to either host path after existing cancellation and current-authority checks.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "url": "https://api.github.com/licenses/mit",
+        "spdx_id": "MIT",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "limitations": [
+        "The full runtime.ts actual-parent→landed patch reconstructs its downloaded landed bytes; all five PR file patches/blob IDs equal the landed adjacent diff. Other imported owners and provider-host implementations were not audited end to end.",
+        "Added tests use performance.now spies, fake timers, controlled deferrals and synthetic generated providers/in-process Gateway fixtures. Native Decision-path test naming does not establish native OS-process or live-provider execution.",
+        "Author reports 96 selected hosted cases and exact-head green CI38985031182; we read current run metadata only, not jobs/logs/tested-merge parents. Prepared head differs from landed SHA. Old failed CI and claimed inherited-failure attribution remain historical, not independently re-audited here.",
+        "No hard wall-clock return, live latency/billing/throughput, packaged build, reliability or training benefit is established."
+      ],
+      "our_inference": "A deadline must follow preparation and provider admission as one budget; caller expiry still cannot establish physical provider cleanup or immediate return.",
+      "next_falsifiable_gate": "Exercise the shipped authenticated entrypoint with controlled preparation and held provider settlement: expire before admission with zero provider calls, then spend 200ms of a 500ms budget and retain the slot until real cleanup ends. Verify current authority and cancellation precedence with OS/provider receipts.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "openclaw-durable-missing-source-completion",
+      "url": "https://github.com/openclaw/openclaw/commit/2b83983070664230fc3934fad18427835ceabbed",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-17T00:25:13Z",
+      "published_at_kind": "PR merged_at",
+      "author": "steipete",
+      "claim": "Legacy individual terminal completions lacking the original operator source now request permanent non-delivery through the existing completion writer. Changed paths preserve execution/results, already-delivered receipts, correlated queue settlement ownership, replaced-store precedence and retry after rejected writes; missing authority suppresses the requester notification.",
+      "status": "merged_source_and_test_assertions_read_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "url": "https://api.github.com/licenses/mit",
+        "spdx_id": "MIT",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "limitations": [
+        "All ten PR patches/blob IDs equal the actual-parent→landed commit diff; only changed patches, not full imported completion-writer/durability/entrypoint modules, were read.",
+        "Final-head ClawSweeper review at00:19 still says blocked before merge for missing latest-stable→candidate data-model compatibility proof, despite no introduced code finding. PR merged00:25:13; the evidence gap remains. This review is source evidence, not an approval requirement imposed on our own publication.",
+        "SQLite two-restart regression assertions use in-process owners, test resolvers/probes and controlled write rejection. We did not run the shipped Gateway, transport, upgrade or upstream tests.",
+        "Exact prepared-head CI38985401212 is successful metadata; job contents/logs and landed execution remain unverified. Author production post-deploy verification remains pending."
+      ],
+      "our_inference": "Execution outcome, permission to deliver and delivery receipt are distinct durable facts. Restart recovery should settle a permanent refusal once without inventing authority or erasing acknowledged delivery.",
+      "next_falsifiable_gate": "Upgrade a retained latest-stable store through the shipped Gateway and restart twice. Cover successful/interrupted/quiet/delivered legacy entries, pending/acknowledged/failed queue receipts, rejected write retry and replacement-store handoff, preserving exact run/database/lifecycle identity and proving zero unauthorized messages.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "verifiers-rust-agent-shared-kernel-proposal",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2887",
+      "type": "open_PR_proposal_and_current_head_review",
+      "published_at": "2026-10-16T23:53:26Z",
+      "published_at_kind": "PR created_at; still open at observation",
+      "author": "xeophon",
+      "claim": "An unmerged xeophon proposal replaces Node/npm Prime Agent0.9.5 setup with platform-selected Rust0.10.0 binaries pinned to commit763094e1, hard-coded archive SHA256 checks, bootstrap and bundled Python-skill installation. Sessions switch to PRIME_AGENT_KERNEL_PYTHON and receive explicit MCP helper-discovery guidance; failed tool-reward assertions expose assistant/tool trace messages.",
+      "status": "open_proposal_source_read_bootstrap_P1_runtime_unverified",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "url": "https://api.github.com/licenses/mit",
+        "spdx_id": "MIT",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "limitations": [
+        "Open/unmerged at actual observation. Current-head commit00:19:37 is before cutoff; its one-file MCP-guidance diff is distinct from the full two-file PR-base proposal. The PR merge_commit_sha is a synthetic prospective merge, not a landed commit.",
+        "Current-head automated review identifies P1: Rust bootstrap ignores legacy PRIME_AGENT_KERNEL_VENV and creates its default managed environment while uv/session paths expect a shared interpreter never created on fresh install. We read the finding and patch, not the Rust bootstrap implementation or a fresh reproduction.",
+        "Tests CI38985853662 currently reports success on attempt2, Style success on attempt1. Earlier attempt1 status, rerun cause, job/log coverage and the live fresh-install matrix were not inspected; green metadata does not resolve the P1.",
+        "No release archive, Rust binary, bootstrap, shell installer, uv skill installation, ACP/MCP session or evaluation was executed. Hard-coded checksum source is not an independent binary/release attestation. Authored by xeophon/Florian Brand, not William Brown."
+      ],
+      "our_inference": "The replay/evaluation contract includes executable release, shared interpreter path, writable bootstrap owner and MCP namespace guidance. A binary/runtime migration needs fresh-install and non-root parent/child evidence before quality comparisons.",
+      "next_falsifiable_gate": "After resolving the current bootstrap-path discrepancy, test clean Linux/macOS x64/arm64 installation and non-root parent/child sessions using the exact shared interpreter, verifying release bytes/sidecars, Python skills, MCP discovery/call and replay normalization with runtime/wire/stored-message/token/mask/reward versions sealed.",
+      "evidence_record": "research/receipts/20261017T004420Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T01:01:28.467057+00:00"
+    },
+    {
+      "id": "windows-child-image-census-frozen-rejection-v1",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/child-image-census/report.json",
+      "type": "original_local_execution_with_preserved_frozen_audit_rejection",
+      "published_at": "2026-10-17T00:59:58.228609+00:00",
+      "published_at_kind": "actual_execution_completion_not_repository_publication_time",
+      "recorded_at": "2026-10-17T01:03:01.656263+00:00",
+      "license_metadata": "MIT original tooling; no third-party code copied in this change",
+      "claim": "One frozen no-ML two-case census records five held snapshots and twelve retained process identities, all exited/job0. Producer runtime flags pass but joint acceptance false: frozen portable auditor422/424 rejects two self sys.executable vs actual OS-image hash assumptions. Extras stay unapproved; model loads/updates0. No retry or old child identification.",
+      "status": "runtime_flags_true_frozen_auditor_rejected_joint_acceptance_false",
+      "dedupe_key": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+      "report_sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+      "evidence_record": "research/2026-10-17-child-images-and-versioned-evidence.md",
+      "next_falsifiable_gate": "Separately declare distinct runtime self-path and retained OS-image identities before further admission; preserve same-image unknown-child rejection and all unmet real training gates."
     }
   ]
 }

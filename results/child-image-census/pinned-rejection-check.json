@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "post_hoc": true,
+  "preregistered": false,
+  "negative_record_consistency_passed": true,
+  "experiment_acceptance_passed": false,
+  "producer_reported_passed": true,
+  "frozen_audit_passed": false,
+  "frozen_audit_failures": [
+    "native_census_graceful:base_worker_self_hash",
+    "injected_python_rejection:base_worker_self_hash"
+  ],
+  "report_sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
+  "checks": {
+    "exact_original_report_bytes": true,
+    "frozen_auditor_bytes": true,
+    "producer_runtime_pass_not_joint_acceptance": true,
+    "exact_frozen_rejection": true,
+    "no_training_permission": true,
+    "native_census_graceful:self_and_OS_identity_distinct": true,
+    "injected_python_rejection:self_and_OS_identity_distinct": true
+  },
+  "scope": "Post-run check of one pinned rejected census audit; performs no OS/ML work.\n\nPassing preserves the negative result. It is not preregistered acceptance and\ndoes not change the frozen producer, auditor or failed self-hash contract.\n"
+}

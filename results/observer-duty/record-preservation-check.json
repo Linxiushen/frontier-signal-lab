@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "record_preservation_checks_passed": true,
+  "experiment_acceptance_passed": false,
+  "frozen_success_auditor_passed": false,
+  "post_outcome_checker": true,
+  "preregistered_acceptance": false,
+  "check_count": 28,
+  "checks_passed": 28,
+  "failures": [],
+  "checks": [
+    {
+      "check": "exact_original_report_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_protocol_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_freeze_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_audit_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_auditor_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_auditor_tests_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_original_raw_inventory_bytes",
+      "passed": true
+    },
+    {
+      "check": "exact_frozen_producer_sources",
+      "passed": true
+    },
+    {
+      "check": "exact_historical_dependencies",
+      "passed": true
+    },
+    {
+      "check": "exact_176_raw_JSON_files_no_extras",
+      "passed": true
+    },
+    {
+      "check": "original_producer_success_claim_preserved_not_joint_acceptance",
+      "passed": true
+    },
+    {
+      "check": "original_protocol_implementation_chain",
+      "passed": true
+    },
+    {
+      "check": "saved_frozen_auditor_still_rejects",
+      "passed": true
+    },
+    {
+      "check": "saved_exact_unchanged_four_rejections_and_counts",
+      "passed": true
+    },
+    {
+      "check": "saved_frozen_pins_enforced",
+      "passed": true
+    },
+    {
+      "check": "recomputed_frozen_auditor_still_rejects",
+      "passed": true
+    },
+    {
+      "check": "recomputed_exact_unchanged_four_rejections_and_counts",
+      "passed": true
+    },
+    {
+      "check": "recomputed_frozen_pins_enforced",
+      "passed": true
+    },
+    {
+      "check": "frozen_checks_replayed_exactly_no_new_or_removed_acceptance_checks",
+      "passed": true
+    },
+    {
+      "check": "original_ABBA_inventory",
+      "passed": true
+    },
+    {
+      "check": "pair1_off:observed_parent_release_live_finish_before_worker_acceptance_preserved",
+      "passed": true
+    },
+    {
+      "check": "pair1_off:original_normal_exit_evidence",
+      "passed": true
+    },
+    {
+      "check": "pair1_on:observed_parent_release_live_finish_before_worker_acceptance_preserved",
+      "passed": true
+    },
+    {
+      "check": "pair1_on:original_normal_exit_evidence",
+      "passed": true
+    },
+    {
+      "check": "pair2_on:observed_parent_release_live_finish_before_worker_acceptance_preserved",
+      "passed": true
+    },
+    {
+      "check": "pair2_on:original_normal_exit_evidence",
+      "passed": true
+    },
+    {
+      "check": "pair2_off:observed_parent_release_live_finish_before_worker_acceptance_preserved",
+      "passed": true
+    },
+    {
+      "check": "pair2_off:original_normal_exit_evidence",
+      "passed": true
+    }
+  ],
+  "known_frozen_failures": [
+    "pair1_off:exact_worker_native_prefinish_liveness",
+    "pair1_on:exact_worker_native_prefinish_liveness",
+    "pair2_on:exact_worker_native_prefinish_liveness",
+    "pair2_off:exact_worker_native_prefinish_liveness"
+  ],
+  "prefinish_timing": [
+    {
+      "id": "pair1_off",
+      "continue_emitted": 892839.0252726,
+      "continue_accepted": 892839.0492257,
+      "prefinish_live_verified": [
+        892839.0304642,
+        892839.0304704
+      ],
+      "finish_emitted": 892839.0304724,
+      "continue_accept_after_live_seconds": [
+        0.01876150001771748,
+        0.018755299970507622
+      ]
+    },
+    {
+      "id": "pair1_on",
+      "continue_emitted": 892854.1448616,
+      "continue_accepted": 892854.1554603,
+      "prefinish_live_verified": [
+        892854.1500494,
+        892854.1500542
+      ],
+      "finish_emitted": 892854.1500566,
+      "continue_accept_after_live_seconds": [
+        0.005410899990238249,
+        0.005406100070104003
+      ]
+    },
+    {
+      "id": "pair2_on",
+      "continue_emitted": 892869.7768939,
+      "continue_accepted": 892869.8059324,
+      "prefinish_live_verified": [
+        892869.7855277,
+        892869.7855328
+      ],
+      "finish_emitted": 892869.7855353,
+      "continue_accept_after_live_seconds": [
+        0.02040470007341355,
+        0.020399600034579635
+      ]
+    },
+    {
+      "id": "pair2_off",
+      "continue_emitted": 892884.8776772,
+      "continue_accepted": 892884.8859025,
+      "prefinish_live_verified": [
+        892884.882881,
+        892884.882886
+      ],
+      "finish_emitted": 892884.8828882,
+      "continue_accept_after_live_seconds": [
+        0.003021499956957996,
+        0.003016500035300851
+      ]
+    }
+  ],
+  "original_report_sha256": "1b838a380db6ef6cef8b025c678d68d4d6e124b05e1f2229dc04711cc535de3a",
+  "scope": "Post-outcome preservation of one REJECTED observer-duty study.\n\nThis checker was written after seeing the outcome. It is not preregistered\nacceptance and cannot upgrade the unchanged frozen auditor's four rejections.\nIt reads saved bytes and replays the frozen stdlib auditor only; no workload,\nML imports, native process, socket or provider operation is performed.\n"
+}

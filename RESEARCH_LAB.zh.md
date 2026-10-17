@@ -48,6 +48,8 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 最新工程产出：单独冻结的真实预训练集成 v3 一次执行，**5/5 场景通过，3 次模型加载、6 次稠密更新**。16 组内存对照、22 次角色普查、37 对时间戳控制和全部21个保留进程退出通过；原始收据与无模型审计器已公开。每个模型导入的精确 urllib3 IPv6 bind 尝试有来源记录，但不证明 OS bind 成功，也不追认 v2 原因。观察器 held 窗口的父进程 CPU 成本0.140625秒与内存阈值越界量保留；不能当压缩提速、显存节省或质量收益。旧科学负结果和无效 RSS 不变。见[完整结果](results/training-observer-v3/report.md)、[复核命令](fixtures/training-observer-v3/README.md)及[新合并源码与下一门槛](research/2026-10-17-training-integration-and-replacement-failure.md)。
 
+本轮实际测量：4 次固定模型加载、64 次稠密更新的 observer duty 研究完成一次，但冻结审计拒绝全部四组结束屏障顺序。5524/5528 项通过不等于验收通过；耗时比仅保留描述值，20 个保留进程正常退出、4 个 Job 归零。见[失败结果](results/observer-duty/report.md)与[来源及下一门槛](research/2026-10-17-observer-duty-and-validation-lifetime.md)。
+
 ## 快速运行
 
 需要 Python 3.11+；pi 适配器实验、完整测试和一键复现另需 Node.js 24.19+。在线雷达另需 [GitHub CLI](https://cli.github.com/) 已登录（或 CI 中的 `GH_TOKEN`）。实验离线运行，不调用模型 API。

@@ -5697,6 +5697,87 @@
       },
       "dedupe_key": "windows-pinned-pythia-training-observer-integration-v3@714310728dec612e64876e5637b52fdfade03748f208948ed9c2f4b0b003179d",
       "recorded_at": "2026-10-17T09:12:22.803434+00:00"
+    },
+    {
+      "id": "fla-iplr-packed-final-state-per-sequence-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/c067059dd60fafd96f83120327bd7d8d72fc7d02",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1419",
+      "type": "new_landing_of_older_restored_contribution_first_detailed_read_source_and_CI_metadata",
+      "author": "adenzhou1350; not Nathan Chen",
+      "merged_by": "yzhangcs",
+      "published_at": "2026-10-17T10:20:46Z",
+      "published_at_kind": "actual PR landing and squash commit time; proposal created2026-10-15T18:00:14Z, replacing older1396 after repository-history incident",
+      "claim": "PR1419 lands as c067059d over sole actual parent e1983ab0. Complete2file patches match PR/commit/adjacent-parent comparison and reconstruct exact contents. The host wrapper allocates requested final state with N=len(cu_seqlens)-1 for packed inputs instead of flattened B, retaining N=B for dense input; state-shape documentation follows N. Complete forward/backward Triton kernel ASTs are unchanged. One added regression expands to10packed cases: five shape/boundary inputs with/without initial state, output/final-state/all supported input-gradient comparisons at unchanged0.003tolerance, an exact empty-middle-state check and partial K/V dimensions. All earlier test ASTs are unchanged.",
+      "author_assertions": "Current-head29f4364a GB20024passed/0failed/0skipped in175.61s, historical8b31be78 RTX509018passed and an allocation-only probe are author reports. No numerical logs, benchmark artifacts, unsafe baseline kernel or upstream tests were read/run here. Author discloses no compute-sanitizer or other accelerator validation and makes no speedup claim.",
+      "ci_metadata": "Saved default-latest PR-head25checks:13success10skipped1failure1queued; the failure is check-pr-title39023134825, with saved annotations saying dependent-tests checklist was unticked at that historical run. Exact PR-head H10039024545313 has2success4skipped jobs, and latest selected A2 test39024530991 has1success1skipped. Landed11checks:7success2skipped1cancelled1in-progress. Landed A2 test39024544862 has1successful Detect NPU-related changes job and1cancelled test job; landed benchmark39024544857 has1successful change-detection job and1in-progress benchmark job at later read. PR-head/landed workflow lists complete16/10runs. These are metadata, not reviewed numerical tests or all-backend proof.",
+      "actual_parent": "e1983ab05bf824e2604d6517ca3ab9ad9487e02d",
+      "pr_head": "29f4364a918a0a7dd27635d7b8d806b75204d25d",
+      "status": "landed_packed_state_shape_correction_source_only_no_local_scientific_upgrade",
+      "our_inference": "Packed sequence count is part of the state-allocation contract. Cost or memory comparisons must preserve per-sequence state cardinality, empty sequences and initial-state semantics before interpreting a smaller allocation as a saving. This is our measurement implication, not an inferred private research plan.",
+      "next_falsifiable_gate": "On a pinned suitable device compare authentic adjacent parent/landing with separate dense, one/multiple packed, empty-middle and partial K/V controls, initial-state modes, requested/omitted final state, all supported gradients and poisoned allocations. Use a safe prelaunch allocation probe before any unsafe-baseline execution; preserve current scientific negatives, compiler costs and absent sanitizer/backend coverage.",
+      "limitations": [
+        "Old proposal/restored production change is not a newly invented method or Nathan contribution.",
+        "Unchanged kernel ASTs do not establish compiled numerical equivalence; local GPU execution and numerical logs remain absent.",
+        "The historical title/checklist failure is retained even though the current PR body now ticks dependent tests; no failure-erasure or GPU-failure attribution.",
+        "Complete bounded latest-filter checks/workflows are from separate mutable intervals, not all-historical filter=all checks or one atomic snapshot.",
+        "Public upstream and author-fork MIT metadata and pinned upstream license endpoint verified; no third-party implementation copied."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T104831Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1419@c067059dd60fafd96f83120327bd7d8d72fc7d02",
+      "recorded_at": "2026-10-17T11:00:24.461766+00:00"
+    },
+    {
+      "id": "openclaw-overlapping-prewarmed-bundle-integrity-validation-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/0b67f431457abc15ce4d9b9122d981594a6ef159",
+      "related_url": "https://github.com/openclaw/openclaw/pull/175399",
+      "type": "new_first_party_landing_source_and_CI_metadata_not_local_reproduction",
+      "author": "steipete / Peter Steinberger",
+      "merged_by": "steipete",
+      "published_at": "2026-10-17T10:05:51Z",
+      "published_at_kind": "actual new PR landing and commit time; proposal created2026-10-17T09:50:15Z",
+      "claim": "PR175399 lands as0b67f431 over sole actual parent94a1c5fd. Complete3file patches match PR/commit/adjacent-parent comparison and reconstruct exact contents. A namespace-keyed pending-validation map joins only overlapping already-prewarmed bundle checks passing the existing sameWorkerBuild identity helper; settled promises are evicted by identity. Validation still enters the namespace queue and existing manifest/hash/receipt/containment validation. Each caller checks its own cancellation before/after shared validation and records its own successful install; downloads/prewarm retain caller custody. Retention and possible replacement invalidate pending sharing before queueing. Two added tests cover12overlapping callers with one cancellation, later same-length corruption repair, and retention-separated revalidation.",
+      "author_assertions": "Author reports12to1directory scans,35candidate owner tests, retained240s launch-wire timeout and candidate-only launch-wire/dispatch timings. Qualified-host alternating timing pairs were not run; canceled Testbox/local runners and inherited Knip findings remain disclosed. We read no upstream numerical/job logs or private QA artifacts and executed no upstream code. No before/after latency improvement is established.",
+      "ci_metadata": "Exact PR-head a2931ae5 CI39022633884 completed success with49successful/27skipped jobs across the complete76job inventory. Exact landed CI39023604481 reports success but only1successful/41skipped jobs across42jobs; it is not equivalent repeated runtime coverage. Saved default-latest check totals159PR-head (82success74skip2cancel1neutral) and129landed (12success108skip9cancel) are complete over2pages each; workflow lists37/53complete over1page each. Author-linked exact CI ID matches the saved PR-head run. No job-log runtime or production proof.",
+      "actual_parent": "94a1c5fdb892aa702549602a066047a09dbcaedf",
+      "pr_head": "a2931ae589de35aca7949f0e45bb766b0d581ecb",
+      "status": "landed_overlapping_validation_coalescing_source_only_actual_integrity_harness_unverified",
+      "our_inference": "An integrity observation may be shared only within its declared overlap/identity lifetime; caller cancellation and successful effects remain separate. Mutable-file trust must expire on settlement, retention and replacement. This motivates a falsifiable durable-custody test, not a production integrity or throughput claim.",
+      "next_falsifiable_gate": "In an actual pinned harness overlap same/different build requests; cancel first/middle/late callers independently; inject same-length tampering before/during/after validation, retained deletion and replacement; reopen/restart twice. Count real scan/download/effect receipts, preserve per-caller outcomes and queue order, and test honest damaged-state behavior. Measure alternating qualified-host latency separately; do not claim a settled scan proves later executable integrity.",
+      "limitations": [
+        "A single pending slot per namespace can be displaced by alternating builds, reducing optimization hits; this does not establish performance for mixed builds.",
+        "Already overlapping callers share one observation of mutable files; this source does not eliminate validation-to-use races or continuously attest executed code.",
+        "The imported sameWorkerBuild helper is retained; its complete transitive implementation and live authority/provider effects were not independently executed.",
+        "Added source fixtures and green/skipped CI metadata do not establish persistence across restart, native process/provider extinction, production security or latency gains.",
+        "Complete default-latest checks and workflow pages were saved at separate mutable intervals, not one atomic snapshot or all historical check runs."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T104831Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/175399@0b67f431457abc15ce4d9b9122d981594a6ef159",
+      "recorded_at": "2026-10-17T11:00:24.461766+00:00"
+    },
+    {
+      "id": "pythia14m-observer-duty-end-barrier-rejection",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/observer-duty/report.md",
+      "type": "our_original_frozen_actual_measurement_joint_acceptance_rejected",
+      "author": "Linxiushen/frontier-signal-lab",
+      "published_at": "2026-10-17T11:06:21.446523+00:00",
+      "claim": "One immutable OFF/ON/ON/OFF study,4pinnedlocalPythia14m loads/64denseAdamWupdates; all4parameter/loss trajectories exactly match. Producer reports passed but independent frozen portable5524/5528 and local5528/5532 reject each prefinish worker-accept-before-live condition. No retry/frozen edits; all20retainedexits0/fouremptyJobs. Ratios/sampledcurrentmemory remain descriptive rejected-study data, no cost/quality upgrade.",
+      "status": "joint_acceptance_false_prefinish_worker_ack_order_missing",
+      "result_file_sha256": "1b838a380db6ef6cef8b025c678d68d4d6e124b05e1f2229dc04711cc535de3a",
+      "protocol_sha256": "759d841360550416d9f000a82d6449dffb577a37c8e6e42c5875741c3e4601cd",
+      "implementation_freeze_sha256": "7f054ebaba39db23180e792535fcbd8e8a7a65c197e3f8bff4c31e7ea75a07a6",
+      "evidence_record": "research/2026-10-17-observer-duty-and-validation-lifetime.md",
+      "dedupe_key": "our:observer-duty@1b838a380db6ef6cef8b025c678d68d4d6e124b05e1f2229dc04711cc535de3a",
+      "recorded_at": "2026-10-17T11:09:24.989219+00:00"
     }
   ]
 }

@@ -1,0 +1,371 @@
+{
+  "reviewed_at": "2026-10-17T11:07:31.930255+00:00",
+  "kind": "postoutcome_descriptive_summary_preserving_frozen_rejection_not_acceptance",
+  "report_sha256": "1b838a380db6ef6cef8b025c678d68d4d6e124b05e1f2229dc04711cc535de3a",
+  "producer_reported_passed": true,
+  "joint_acceptance_passed": false,
+  "frozen_audit": {
+    "passed": false,
+    "check_count": 5528,
+    "checks_passed": 5524,
+    "failures": [
+      "pair1_off:exact_worker_native_prefinish_liveness",
+      "pair1_on:exact_worker_native_prefinish_liveness",
+      "pair2_on:exact_worker_native_prefinish_liveness",
+      "pair2_off:exact_worker_native_prefinish_liveness"
+    ]
+  },
+  "local_audit": {
+    "passed": false,
+    "check_count": 5532,
+    "checks_passed": 5528,
+    "failures": [
+      "pair1_off:exact_worker_native_prefinish_liveness",
+      "pair1_on:exact_worker_native_prefinish_liveness",
+      "pair2_on:exact_worker_native_prefinish_liveness",
+      "pair2_off:exact_worker_native_prefinish_liveness"
+    ]
+  },
+  "wall_seconds": 61.906890899990685,
+  "producer_paired_summary_descriptive_unaccepted": {
+    "valid": true,
+    "all_four_trajectories_matched": true,
+    "pairs": [
+      {
+        "off_case": "pair1_off",
+        "on_case": "pair1_on",
+        "exact_trajectory_matched": true,
+        "on_off_wall_ratio": 1.0599544202711246
+      },
+      {
+        "off_case": "pair2_off",
+        "on_case": "pair2_on",
+        "exact_trajectory_matched": true,
+        "on_off_wall_ratio": 1.1113018451233125
+      }
+    ],
+    "geometric_mean_on_off_wall_ratio": 1.085324515061699,
+    "boundary": "two counterbalanced pairs, descriptive conditional fixed intervention; no population inference or general causal/production claim"
+  },
+  "cases": [
+    {
+      "id": "pair1_off",
+      "producer_passed": true,
+      "case_wall": 15.770186500041746,
+      "loop_wall": 3.1227021999657154,
+      "loop_cpu": 3.125,
+      "training_memory": null,
+      "active_sampling": null,
+      "window_wall": 3.165904799941927,
+      "parent_CPU_wide": 0.03125,
+      "raw_observations": 0,
+      "polls": 158,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "postvalidation_continue_worker_accepted": 892839.0492257,
+        "finish_controller_emitted": 892839.0304724,
+        "live_member_verified": [
+          892839.0304642,
+          892839.0304704
+        ],
+        "live_checks_before_worker_acceptance": [
+          true,
+          true
+        ],
+        "live_member_alive": [
+          true,
+          true
+        ],
+        "live_member_job_member": [
+          true,
+          true
+        ]
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 47812,
+            "creation_filetime": 134367087198457791,
+            "exit_code": 0
+          },
+          {
+            "pid": 10704,
+            "creation_filetime": 134367087199172072,
+            "exit_code": 0
+          },
+          {
+            "pid": 50784,
+            "creation_filetime": 134367087198698215,
+            "exit_code": 0
+          },
+          {
+            "pid": 39512,
+            "creation_filetime": 134367087203086499,
+            "exit_code": 0
+          },
+          {
+            "pid": 53916,
+            "creation_filetime": 134367087204163705,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 892839.0790588,
+        "completed_perf_counter": 892839.53887,
+        "wall_seconds": 0.45981120003852993,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair1_on",
+      "producer_passed": true,
+      "case_wall": 15.076564399991184,
+      "loop_wall": 3.3099220000440255,
+      "loop_cpu": 3.3125,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 583827456,
+        "sampled_current_private_max_bytes": 691802112,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 109,
+        "maximum_gap_including_boundaries_seconds": 0.0528773000696674,
+        "realized_samples_per_second": 32.93128961907567,
+        "memory_cpu_query_wall_seconds": 0.005697000422514975,
+        "snapshot_wall_seconds": 2.0160541004734114,
+        "combined_query_wall_fraction": 0.6108153306540259
+      },
+      "window_wall": 3.3593214999418706,
+      "parent_CPU_wide": 1.984375,
+      "raw_observations": 111,
+      "polls": 111,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "postvalidation_continue_worker_accepted": 892854.1554603,
+        "finish_controller_emitted": 892854.1500566,
+        "live_member_verified": [
+          892854.1500494,
+          892854.1500542
+        ],
+        "live_checks_before_worker_acceptance": [
+          true,
+          true
+        ],
+        "live_member_alive": [
+          true,
+          true
+        ],
+        "live_member_job_member": [
+          true,
+          true
+        ]
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 49724,
+            "creation_filetime": 134367087356164120,
+            "exit_code": 0
+          },
+          {
+            "pid": 41496,
+            "creation_filetime": 134367087356948946,
+            "exit_code": 0
+          },
+          {
+            "pid": 28000,
+            "creation_filetime": 134367087356475607,
+            "exit_code": 0
+          },
+          {
+            "pid": 53752,
+            "creation_filetime": 134367087360854845,
+            "exit_code": 0
+          },
+          {
+            "pid": 56348,
+            "creation_filetime": 134367087361515771,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 892854.1979698,
+        "completed_perf_counter": 892854.6153952,
+        "wall_seconds": 0.41742539999540895,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_on",
+      "producer_passed": true,
+      "case_wall": 15.697595400037244,
+      "loop_wall": 3.4825326000573114,
+      "loop_cpu": 3.46875,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 583987200,
+        "sampled_current_private_max_bytes": 691744768,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 102,
+        "maximum_gap_including_boundaries_seconds": 0.05161049996968359,
+        "realized_samples_per_second": 29.28902948340567,
+        "memory_cpu_query_wall_seconds": 0.0056005994556471705,
+        "snapshot_wall_seconds": 2.030763699905947,
+        "combined_query_wall_fraction": 0.5847366078721221
+      },
+      "window_wall": 3.527331699966453,
+      "parent_CPU_wide": 2.0625,
+      "raw_observations": 104,
+      "polls": 104,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "postvalidation_continue_worker_accepted": 892869.8059324,
+        "finish_controller_emitted": 892869.7855353,
+        "live_member_verified": [
+          892869.7855277,
+          892869.7855328
+        ],
+        "live_checks_before_worker_acceptance": [
+          true,
+          true
+        ],
+        "live_member_alive": [
+          true,
+          true
+        ],
+        "live_member_job_member": [
+          true,
+          true
+        ]
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 19752,
+            "creation_filetime": 134367087506935713,
+            "exit_code": 0
+          },
+          {
+            "pid": 57048,
+            "creation_filetime": 134367087507706046,
+            "exit_code": 0
+          },
+          {
+            "pid": 43500,
+            "creation_filetime": 134367087507239965,
+            "exit_code": 0
+          },
+          {
+            "pid": 23144,
+            "creation_filetime": 134367087511836620,
+            "exit_code": 0
+          },
+          {
+            "pid": 12368,
+            "creation_filetime": 134367087512489099,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 892869.8334332,
+        "completed_perf_counter": 892870.3140033,
+        "wall_seconds": 0.4805701000150293,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_off",
+      "producer_passed": true,
+      "case_wall": 15.056576200062409,
+      "loop_wall": 3.1337414000881836,
+      "loop_cpu": 3.125,
+      "training_memory": null,
+      "active_sampling": null,
+      "window_wall": 3.169382099993527,
+      "parent_CPU_wide": 0.0,
+      "raw_observations": 0,
+      "polls": 158,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "postvalidation_continue_worker_accepted": 892884.8859025,
+        "finish_controller_emitted": 892884.8828882,
+        "live_member_verified": [
+          892884.882881,
+          892884.882886
+        ],
+        "live_checks_before_worker_acceptance": [
+          true,
+          true
+        ],
+        "live_member_alive": [
+          true,
+          true
+        ],
+        "live_member_job_member": [
+          true,
+          true
+        ]
+      },
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 52472,
+            "creation_filetime": 134367087663922072,
+            "exit_code": 0
+          },
+          {
+            "pid": 37412,
+            "creation_filetime": 134367087665237448,
+            "exit_code": 0
+          },
+          {
+            "pid": 43600,
+            "creation_filetime": 134367087664227314,
+            "exit_code": 0
+          },
+          {
+            "pid": 58684,
+            "creation_filetime": 134367087669575861,
+            "exit_code": 0
+          },
+          {
+            "pid": 52272,
+            "creation_filetime": 134367087670231616,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 892884.9316697,
+        "completed_perf_counter": 892885.3717078,
+        "wall_seconds": 0.4400381000014022,
+        "timeout_seconds": 4.0
+      }
+    }
+  ],
+  "actual_loads": 4,
+  "actual_updates": 64,
+  "all_jobs_empty": true,
+  "retained_exit_count": 20,
+  "limits": "Four failed frozen prefinish order checks remain rejected. Other passing receipt checks and descriptive timings do not confer protocol acceptance or repair historical scientific failure/RSS. No new model/native execution or frozen code modification."
+}

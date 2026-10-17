@@ -1,0 +1,35 @@
+{
+  "kind": "root_postoutcome_guarded_failure_preservation_tests",
+  "started_at": "2026-10-17T07:09:59.795938+00:00",
+  "completed_at": "2026-10-17T07:10:02.322069+00:00",
+  "tests_run": 15,
+  "tests_ok": true,
+  "forbidden_attempts": [],
+  "before_sha256": {
+    "experiments/training_observer_v2.py": "8355af96bebca468b458401b3a70fd5de75e15ec4ac640c4678e0f48e72fc30b",
+    "tests/test_training_observer_v2.py": "cce005f32ce87f65fc0b119d19c4d759fb79bc06f7fcb5ad97137ad9caa66b31",
+    "scripts/audit_training_observer_v2.py": "57c76b3cb0ac1dccbc222835cb71a09df06f812d8b9dda8e587480f713539822",
+    "tests/test_training_observer_v2_auditor.py": "ae1ec687d059249f80b696378e9a4102ebe10da51bdae15f6e57700cee0c3a11",
+    "fixtures/training-observer-v2/protocol.json": "d381c42ac6f21fc33ac27a4fdc9980b1cd7beeee32f82f7295c58afa742cfd23",
+    "scripts/check_training_observer_v2_record.py": "365bbcfa6c3fd86562f200e1d6b89dfa8de659475e646b3b28e00239271e1b84",
+    "tests/test_training_observer_v2_failure.py": "494fdb7f0011118b96a18adef0a3d4c6587e803e57df5eff969747b29a2ea107",
+    "results/training-observer-v2/report.json": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+    "results/training-observer-v2/frozen-audit.json": "f2d012b248ed3c50ccee2372f581982b3da12ce67948857a817d9d9e832439b6"
+  },
+  "after_sha256": {
+    "experiments/training_observer_v2.py": "8355af96bebca468b458401b3a70fd5de75e15ec4ac640c4678e0f48e72fc30b",
+    "tests/test_training_observer_v2.py": "cce005f32ce87f65fc0b119d19c4d759fb79bc06f7fcb5ad97137ad9caa66b31",
+    "scripts/audit_training_observer_v2.py": "57c76b3cb0ac1dccbc222835cb71a09df06f812d8b9dda8e587480f713539822",
+    "tests/test_training_observer_v2_auditor.py": "ae1ec687d059249f80b696378e9a4102ebe10da51bdae15f6e57700cee0c3a11",
+    "fixtures/training-observer-v2/protocol.json": "d381c42ac6f21fc33ac27a4fdc9980b1cd7beeee32f82f7295c58afa742cfd23",
+    "scripts/check_training_observer_v2_record.py": "365bbcfa6c3fd86562f200e1d6b89dfa8de659475e646b3b28e00239271e1b84",
+    "tests/test_training_observer_v2_failure.py": "494fdb7f0011118b96a18adef0a3d4c6587e803e57df5eff969747b29a2ea107",
+    "results/training-observer-v2/report.json": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+    "results/training-observer-v2/frozen-audit.json": "f2d012b248ed3c50ccee2372f581982b3da12ce67948857a817d9d9e832439b6"
+  },
+  "stable": true,
+  "actual_experiments_executed": 0,
+  "broad_numerical_model_regression_executed": false,
+  "test_output": "test_actual_import_completion_chronology_is_retained (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_actual_import_completion_chronology_is_retained) ... ok\ntest_canonical_file_check_recomputes_original_rejection_and_detects_changes (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_canonical_file_check_recomputes_original_rejection_and_detects_changes) ... ok\ntest_cleanup_identity_omission_reuse_and_nonzero_job_fail (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_cleanup_identity_omission_reuse_and_nonzero_job_fail) ... ok\ntest_exact_emitted_and_worker_accepted_controls_are_bound (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_exact_emitted_and_worker_accepted_controls_are_bound) ... ok\ntest_exact_frozen_rejection_list_and_counts_remain_negative (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_exact_frozen_rejection_list_and_counts_remain_negative) ... ok\ntest_exact_negative_record_can_pass_preservation_only (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_exact_negative_record_can_pass_preservation_only) ... ok\ntest_exact_report_audit_protocol_and_implementation_bytes_are_pinned (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_exact_report_audit_protocol_and_implementation_bytes_are_pinned) ... ok\ntest_expected_exit_controls_are_precise (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_expected_exit_controls_are_precise) ... ok\ntest_experiment_failure_is_never_upgraded (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_experiment_failure_is_never_upgraded) ... ok\ntest_healthy_failure_cannot_substitute_another_census_or_console (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_healthy_failure_cannot_substitute_another_census_or_console) ... ok\ntest_hidden_or_added_provider_events_cannot_be_laundered (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_hidden_or_added_provider_events_cannot_be_laundered) ... ok\ntest_missing_or_changed_raw_receipts_fail_even_with_original_report (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_missing_or_changed_raw_receipts_fail_even_with_original_report) ... ok\ntest_postimport_or_training_cannot_be_added_after_failure (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_postimport_or_training_cannot_be_added_after_failure) ... ok\ntest_raw_postimport_identity_threads_and_version_custody (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_raw_postimport_identity_threads_and_version_custody) ... ok\ntest_source_and_dependency_freezes_are_not_self_asserted (tests.test_training_observer_v2_failure.TrainingV2FailureRecordTests.test_source_and_dependency_freezes_are_not_self_asserted) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 2.429s\n\nOK\n",
+  "passed": true
+}

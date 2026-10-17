@@ -49,6 +49,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Windows child-image census](results/child-image-census/report.md) | Runtime identity controls complete; frozen audit rejects two self-hash assumptions, training remains forbidden |
 | [Dual self-path / OS-image census](results/dual-identity-census/report.md) | Two bounded identity/cleanup controls and frozen audits pass; extras remain unapproved and training remains forbidden |
 | [Narrow process-role policy](results/role-policy-probe/report.md) | Three controls pass; exact console roles admitted, same-image Python/cmd extras rejected; actual training integration remains unvalidated |
+| [Timestamped pretrained integration v2](results/training-observer-v2/report.md) | Failed after three package imports on denied `socket.bind`; zero model loads/updates; both precise failure controls pass |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -99,6 +100,16 @@ The separate [child-image census](fixtures/child-image-census/README.md) now rec
 A new [dual-identity version](fixtures/dual-identity-census/README.md) independently binds self executable and retained OS image roles to frozen file/path hashes. Both controlled cases pass, while the earlier frozen rejection remains unchanged. This establishes bounded engineering identity controls only.
 
 The [separate narrow role policy](fixtures/role-policy-probe/README.md) now passes three fixed no-ML controls: healthy admission plus rejection of an extra Python interpreter and native command using the same frozen executable files. Eight held inventories retain nineteen exited identities and three empty Jobs; the independent portable auditor passes 1053 checks. This environment-specific role contract clears one engineering prerequisite. Actual pretrained training, continuous child coverage, historical RSS and scientific cost/quality remain separate gates.
+
+The [v2 actual integration](fixtures/training-observer-v2/README.md) then ran once
+with timestamped controller/worker controls. Three workload arms completed
+Torch/Transformers import but stopped on a denied Python `socket.bind` event;
+the saved worker PID and seven threads satisfy their checks. Model loads and
+updates remain zero. Both exact failure controls passed; all 21 retained
+identities exited and all five Jobs were empty. The frozen success auditor
+still rejects ten checks. A separate post-outcome checker preserves this
+failure. [Static diagnosis and next gate](research/2026-10-17-pretrained-observer-and-teardown-bounds.md)
+distinguish a possible IPv6 probe from an established runtime cause.
 
 ## Bring one counterexample
 

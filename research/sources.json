@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-17T05:05:01.646476+00:00",
-  "observation_note": "All 149 historical source objects retained exactly. Added two bounded open-proposal source/mergebase/CI metadata records and one original frozen no-ML role-policy result, with actual head events and later read times separate. Current failed/in-progress upstream CI, fork NOASSERTION, earlier frozen rejection, scientific negatives, unidentified historical child images and next-employer uncertainty remain.",
+  "last_updated_at": "2026-10-17T07:11:24.703580+00:00",
+  "observation_note": "All 152 historical source objects retained exactly. Added two newly landed public source/CI metadata records and one original frozen v2 actual-integration failure. Actual event times and later bounded reads are separate. Three package imports, zero model loads/updates; frozen rejection preserved. Historical scientific negatives/invalid RSS, source-only recovery gates and unverified next employer remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -5488,6 +5488,106 @@
       "report_sha256": "251410d4fce3d6784d1cd3f0b76d5db18650904c48d189d90e40994509db0ac5",
       "evidence_record": "research/2026-10-17-role-admission-and-request-identity.md",
       "next_falsifiable_gate": "Separately freeze pinned pretrained loader/thread/native/provider, two updates, healthy/import failure/busy/private-memory/overhead/cleanup controls."
+    },
+    {
+      "id": "fla-token-shift-unused-bucket-specialization-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/749524ca2924f58fb80b41823eab5bad89a6cccb",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1494",
+      "type": "new_landing_of_previously_reviewed_proposal_source_and_CI_metadata_only",
+      "author": "Windyskr; not Nathan Chen",
+      "published_at": "2026-10-17T05:57:47Z",
+      "published_at_kind": "actual new upstream squash-merge commit and PR merge time; earlier proposal and selected A2 logs remain historical",
+      "claim": "Previously reviewed PR1494 is now merged as749524ca. All2 landed patches exactly match the full PR-file set and adjacent-parent comparison. Both long token_shift kernels remove unused NB from their autotune keys, constexpr signatures and launches; offline AST comparison confirms their kernel bodies are unchanged. This is a source-landing observation, not an executed speedup or output-equivalence result.",
+      "author_assertions": "Earlier A800 cold-cache timing, bitwise equality and config-reuse tradeoffs in the PR body are unchanged author reports; they were not reproduced this pass.",
+      "ci_metadata": "At saved reads, landed main A2 run39008147760 has1successful job and1in-progress job; main H100 smoke39008147668 is pending. Unchanged PR-head H100 run39008148673 completed with2successful jobs and4skipped jobs; prior PR-head A2 run38941383393 still has2successful jobs. No new logs were downloaded; the prior selected A2 runtime receipt remains the only reviewed numerical log for that head.",
+      "actual_parent": "e4adbb8f8f2124df611f31101d41a1c98ba648fa",
+      "pr_head": "2261092e7a2b45a7d3c54a6cd05887811b435444",
+      "status": "landed_public_source_no_local_runtime_or_scientific_upgrade",
+      "our_inference": "Shape-dependent autotune and compile stalls remain a separate first-call cost dimension. Landing raises integration maturity; unchanged kernel bodies and green/skipped CI metadata do not establish all backend or cold-cache performance gates.",
+      "next_falsifiable_gate": "On a pinned suitable device compare the exact adjacent parent and landed source in alternating fresh-cache processes. Retain initial input and each new packed/dense size cost, compile/autotune counts, selected-config warm tradeoff and output/gradient/CP controls. No change to current local training-observer admission or failed scientific screens.",
+      "limitations": [
+        "Both original1494 proposal entries and prior selected A2 logs remain unchanged; this is not a new proposal or new local benchmark.",
+        "1495 PaTH proposal is separate and is not claimed merged.",
+        "No job logs or benchmark gist read this pass; queued/skipped/in-progress paths are gaps.",
+        "Repository and contributor-fork MIT metadata verified; no third-party implementation copied."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T065243Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1494@749524ca2924f58fb80b41823eab5bad89a6cccb",
+      "recorded_at": "2026-10-17T07:01:59.377103+00:00"
+    },
+    {
+      "id": "openclaw-dedicated-worker-cleanup-deadline-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/8457e29a4d0140c7185e74bab673f5f72db94844",
+      "related_url": "https://github.com/openclaw/openclaw/pull/175189",
+      "type": "new_merged_first_party_source_and_CI_metadata_not_local_reproduction",
+      "author": "steipete / Peter Steinberger",
+      "published_at": "2026-10-17T06:25:19Z",
+      "published_at_kind": "actual PR merge time; squash commit authored/committed06:25:18Z",
+      "claim": "PR175189 adds a60-second bound around each closeEnvironmentComputers callback. Computer cleanup failure is rethrown unless the stored environment has sharedHost===false and nodeDeviceId!==null and the stop reason is defined. On that dedicated path it warns and allows provider teardown to continue. All4 landed patches match the full PR-file set and adjacent-parent comparison. The stop reason alone cannot establish isolation.",
+      "author_assertions": "PR body reports16passing fake-timer teardown cases and earlier red baselines. Those assertions and its prepared-dependency/typecheck limitation were read; no test execution or log validation occurred locally.",
+      "ci_metadata": "Exact unchanged PR head d0672cb2e655c41c34400e321b98f9f4f01de6e1 CI39009247568 completed success with53successful jobs and26skipped jobs. Landed commit CI39009847696 was cancelled and returned0jobs. PR-head success is not landed-head execution; no logs downloaded.",
+      "actual_parent": "9a35d1a97cff8263fa36dcacc3343da1d037d778",
+      "pr_head": "d0672cb2e655c41c34400e321b98f9f4f01de6e1",
+      "status": "landed_liveness_boundary_source_only_local_harness_gate_unmet",
+      "our_inference": "A deadline can unblock an owner with independently established isolation while leaving the cleanup promise unresolved. Reliable agent infrastructure should record timeout, cleanup settlement and physical/provider exit as separate events; arbitrary stop reasons cannot replace current ownership evidence.",
+      "next_falsifiable_gate": "Use an actual pinned harness with healthy cleanup, stalled preparation/action/native-close and shared/unknown/dedicated-host controls; revoke authority during waits, prove exact physical process/provider settlement separately, and retain per-phase deadlines, late callbacks and second restart. Existing real-harness recovery gate remains unmet.",
+      "limitations": [
+        "The dedicated mocked driver promise is released in finally after timeout; timeout itself does not terminate that promise or prove machine destruction.",
+        "The merged added test explicitly instantiates sharedHost true; unknown/null follows the same predicate but has no separate new null-host test in this patch.",
+        "Two cleanup callbacks may each consume60seconds; this is not a single global60-second teardown budget.",
+        "Other transport cleanup remains joined; this patch does not establish a bound for every joined transport.",
+        "Source and PR-head CI metadata are not local execution or a production reliability guarantee."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T065243Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/175189@8457e29a4d0140c7185e74bab673f5f72db94844",
+      "recorded_at": "2026-10-17T07:01:59.377103+00:00"
+    },
+    {
+      "id": "windows-pinned-pythia-training-observer-integration-v2-failure",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/training-observer-v2/report.json",
+      "type": "our_predeclared_actual_engineering_integration_failed_not_scientific_result",
+      "author": "This project; original code",
+      "published_at": "2026-10-17T07:04:20.848275+00:00",
+      "published_at_kind": "actual suite completion; original raw report is authoritative",
+      "claim": "One frozen five-case suite: three actual Torch/Transformers import completions stop on socket.bind guard denial; correct worker PID/thread7, zero model loads/updates. Precise exit37 and injected import38 controls pass; eight held inventories, twelve monotonic emitted/accepted controls, twenty-one retained exits and five empty Jobs. Healthy/busy/cap/overhead training acceptance unexecuted.",
+      "status": "failed_engineering_acceptance_no_retry",
+      "our_inference": "Generic identity/thread error hides the guard predicate. Static urllib3 IPv6 source is a compatible candidate, not observed caller/endpoint attribution. Next separately freeze actual training integration with bounded diagnostics and exact capability policy; historical scientific failures and invalid RSS unchanged.",
+      "experiment_acceptance_passed": false,
+      "result_sha256": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+      "protocol_sha256": "d381c42ac6f21fc33ac27a4fdc9980b1cd7beeee32f82f7295c58afa742cfd23",
+      "implementation_sha256": "a07656ffb21da55e750300b88e69ceead85b914dbef48855072a3fe1af5722ec",
+      "frozen_audit": {
+        "passed": false,
+        "checks_passed": 11715,
+        "check_count": 11725,
+        "failures": 10,
+        "sha256": "f2d012b248ed3c50ccee2372f581982b3da12ce67948857a817d9d9e832439b6"
+      },
+      "postoutcome_check": {
+        "acceptance_upgrade": false,
+        "checks_passed": 800,
+        "check_count": 800,
+        "path": "results/training-observer-v2/negative-record-check.json"
+      },
+      "record": "research/2026-10-17-pretrained-observer-and-teardown-bounds.md",
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT"
+      },
+      "dedupe_key": "windows-pinned-pythia-training-observer-integration-v2@5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+      "recorded_at": "2026-10-17T07:11:24.703580+00:00"
     }
   ]
 }

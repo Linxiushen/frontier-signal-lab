@@ -1,0 +1,817 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T07:07:49.704240+00:00",
+  "reviewer": "ci_sources independent of v2 producer and root outcome narration",
+  "scope": "Saved artifacts and frozen source read only; no rerun, process query, ML import, model execution or network query.",
+  "decision": "REVIEW_FAILURE",
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v2",
+  "execution": {
+    "started_at": "2026-10-17T07:04:00.499375+00:00",
+    "completed_at": "2026-10-17T07:04:20.848275+00:00",
+    "wall_seconds": 20.349146699998528,
+    "passed": false,
+    "case_passes": 2,
+    "case_count": 5,
+    "planned_model_loads": 3,
+    "planned_optimizer_updates": 6,
+    "observed_completed_package_imports": 3,
+    "actual_model_loads": 0,
+    "actual_optimizer_updates": 0,
+    "zero_load_update_basis": "Frozen worker flow waits for postimport-parent-done and postimport-continue before prepare_model; both controls and all later receipts are absent in all three workload cases. The precise import-failure receipt explicitly records0loads/updates, and prehandshake exits before authentication."
+  },
+  "case_summaries": [
+    {
+      "id": "healthy_dense2",
+      "passed": false,
+      "outcome": null,
+      "error": "ObserverError: stage identity/thread count differs",
+      "sample_count": 272,
+      "parent_query_counts": {
+        "held_role_census_and_liveness": 2,
+        "actual_interpreter_memory_and_cpu_query": 272
+      },
+      "held_census_sizes": [
+        3,
+        5
+      ],
+      "role_decisions": 2,
+      "timestamped_saved_controls": 3,
+      "preimport_bracket_passed": true,
+      "retained_exit_count": 5,
+      "exit_codes": {
+        "57347": 5
+      },
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_wall_seconds": 0.04122589994221926,
+      "cleanup_exact_identity_set_independently_checked": true,
+      "raw_postimport": {
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "native_thread_count": 7,
+        "identity_predicate_passed": true,
+        "thread_predicate_passed": true,
+        "unexpected_denied_events": [
+          "socket.bind"
+        ],
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "model_loader_blocked_behind_missing_postimport_continue": true
+      }
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "passed": false,
+      "outcome": null,
+      "error": "ObserverError: stage identity/thread count differs",
+      "sample_count": 261,
+      "parent_query_counts": {
+        "held_role_census_and_liveness": 2,
+        "actual_interpreter_memory_and_cpu_query": 261
+      },
+      "held_census_sizes": [
+        3,
+        5
+      ],
+      "role_decisions": 2,
+      "timestamped_saved_controls": 3,
+      "preimport_bracket_passed": true,
+      "retained_exit_count": 5,
+      "exit_codes": {
+        "57347": 5
+      },
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_wall_seconds": 0.041698699933476746,
+      "cleanup_exact_identity_set_independently_checked": true,
+      "raw_postimport": {
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "native_thread_count": 7,
+        "identity_predicate_passed": true,
+        "thread_predicate_passed": true,
+        "unexpected_denied_events": [
+          "socket.bind"
+        ],
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "model_loader_blocked_behind_missing_postimport_continue": true
+      }
+    },
+    {
+      "id": "dense2_private_cap64",
+      "passed": false,
+      "outcome": null,
+      "error": "ObserverError: stage identity/thread count differs",
+      "sample_count": 261,
+      "parent_query_counts": {
+        "held_role_census_and_liveness": 2,
+        "actual_interpreter_memory_and_cpu_query": 261
+      },
+      "held_census_sizes": [
+        3,
+        5
+      ],
+      "role_decisions": 2,
+      "timestamped_saved_controls": 3,
+      "preimport_bracket_passed": true,
+      "retained_exit_count": 5,
+      "exit_codes": {
+        "57347": 5
+      },
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_wall_seconds": 0.04141649999655783,
+      "cleanup_exact_identity_set_independently_checked": true,
+      "raw_postimport": {
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "native_thread_count": 7,
+        "identity_predicate_passed": true,
+        "thread_predicate_passed": true,
+        "unexpected_denied_events": [
+          "socket.bind"
+        ],
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "model_loader_blocked_behind_missing_postimport_continue": true
+      }
+    },
+    {
+      "id": "prehandshake_exit37",
+      "passed": true,
+      "outcome": "expected_prehandshake_exit37",
+      "error": null,
+      "sample_count": 0,
+      "parent_query_counts": {},
+      "held_census_sizes": [],
+      "role_decisions": 0,
+      "timestamped_saved_controls": 0,
+      "preimport_bracket_passed": null,
+      "retained_exit_count": 1,
+      "exit_codes": {
+        "37": 1
+      },
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_wall_seconds": 2.889998722821474e-05,
+      "cleanup_exact_identity_set_independently_checked": true
+    },
+    {
+      "id": "injected_import_failure38",
+      "passed": true,
+      "outcome": "expected_injected_import_failure38",
+      "error": null,
+      "sample_count": 3,
+      "parent_query_counts": {
+        "held_role_census_and_liveness": 2,
+        "actual_interpreter_memory_and_cpu_query": 3
+      },
+      "held_census_sizes": [
+        3,
+        5
+      ],
+      "role_decisions": 2,
+      "timestamped_saved_controls": 3,
+      "preimport_bracket_passed": true,
+      "retained_exit_count": 5,
+      "exit_codes": {
+        "38": 2,
+        "0": 2,
+        "1": 1
+      },
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "cleanup_wall_seconds": 0.02082249999511987,
+      "cleanup_exact_identity_set_independently_checked": true
+    }
+  ],
+  "totals": {
+    "held_censuses": 8,
+    "held_census_process_observations": 32,
+    "distinct_retained_exits": 21,
+    "empty_jobs": 5,
+    "samples": 797,
+    "saved_controller_controls": 12,
+    "completed_package_imports": 3,
+    "unexpected_socket_bind_denials": 3,
+    "exit_codes": {
+      "57347": 15,
+      "37": 1,
+      "38": 2,
+      "0": 2,
+      "1": 1
+    }
+  },
+  "frozen_acceptance_auditor": {
+    "passed": false,
+    "receipt_consistency_passed": false,
+    "check_count": 11725,
+    "checks_passed": 11715,
+    "failures": [
+      "reported_acceptance_pass_not_laundered",
+      "healthy_dense2:no_hidden_failure",
+      "healthy_dense2:exact_stage_inventory",
+      "healthy_dense2:invalid_or_incomplete_receipt:'postimport'",
+      "dense2_busy_deadline:no_hidden_failure",
+      "dense2_busy_deadline:exact_stage_inventory",
+      "dense2_busy_deadline:invalid_or_incomplete_receipt:'postimport'",
+      "dense2_private_cap64:no_hidden_failure",
+      "dense2_private_cap64:exact_stage_inventory",
+      "dense2_private_cap64:invalid_or_incomplete_receipt:'postimport'"
+    ]
+  },
+  "hashes": {
+    "raw_report_sha256": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+    "protocol_sha256": "d381c42ac6f21fc33ac27a4fdc9980b1cd7beeee32f82f7295c58afa742cfd23",
+    "implementation_sha256": "a07656ffb21da55e750300b88e69ceead85b914dbef48855072a3fe1af5722ec",
+    "frozen_acceptance_audit_sha256": "f2d012b248ed3c50ccee2372f581982b3da12ce67948857a817d9d9e832439b6"
+  },
+  "raw_artifact_count": 52,
+  "raw_artifact_manifest": [
+    {
+      "path": "dense2_busy_deadline/create-native-accepted.json",
+      "bytes": 703,
+      "sha256": "ad35ba5401a445a37cd060617eb76a4ecc6e14ae892e0647da74d81985bf9df2"
+    },
+    {
+      "path": "dense2_busy_deadline/create-native.json",
+      "bytes": 432,
+      "sha256": "b53f68bb8e47ffecaf27ec14a2ecf0f54adebb6c1094cc02af89b1c9d999e40f"
+    },
+    {
+      "path": "dense2_busy_deadline/native-ready.json",
+      "bytes": 491,
+      "sha256": "16394e19a153c58e1b8a615b62ea1378dde95c609e2557772a0b938037c758c9"
+    },
+    {
+      "path": "dense2_busy_deadline/postimport-before.json",
+      "bytes": 363,
+      "sha256": "43a06dab900d45f4d17a1e3e673fae56dab3bae6f3ffc1722826421c8858f912"
+    },
+    {
+      "path": "dense2_busy_deadline/postimport-ready.json",
+      "bytes": 863,
+      "sha256": "8d60ee19b07353c41379979ca4871dfaa317ea71f210fa7ac13b5c58d942aee1"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-after.json",
+      "bytes": 359,
+      "sha256": "25bbb98704d181db1b696a1e832df9d19846df8cf18d9d189baae13b9241a646"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-before.json",
+      "bytes": 359,
+      "sha256": "53e5183421239bf3adb26c0ff20d539b32096b3ed513ebffc5e01ba73173ea7f"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-continue-accepted.json",
+      "bytes": 699,
+      "sha256": "b2d7e9172c049954bfd96cda1b549f1d6b770e75598608796c83d1dfb69961c7"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-continue.json",
+      "bytes": 423,
+      "sha256": "18af2c02aea73f8e30836b4d16230330a7af6b1078a267d311f1ed22749c6039"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-parent-done-accepted.json",
+      "bytes": 708,
+      "sha256": "69f8a17d93f90f765a84858302a02dbc34c00f597feccae6935f87b2e6afbef5"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-parent-done.json",
+      "bytes": 429,
+      "sha256": "16c6ed10fc634ba66d1670d26ffc56a26fe0f5e0651a941e03b81371171ca7e1"
+    },
+    {
+      "path": "dense2_busy_deadline/preimport-ready.json",
+      "bytes": 731,
+      "sha256": "a13611befa0046fa6d2fb6f049c8e0a178628b6245d267c91eef358010953771"
+    },
+    {
+      "path": "dense2_busy_deadline/worker-ready.json",
+      "bytes": 651,
+      "sha256": "37161fb32027d2d2f42d46225e76f3049feb4cdbdce2626bb3badb2880345b3c"
+    },
+    {
+      "path": "dense2_private_cap64/create-native-accepted.json",
+      "bytes": 702,
+      "sha256": "53efaaa34d7f4001c7edaf09728882e49b7c4b581316146eb8d90292d5fa2ef6"
+    },
+    {
+      "path": "dense2_private_cap64/create-native.json",
+      "bytes": 431,
+      "sha256": "766acfdbdb67590df8d307e3248bd37e19e04e0d486f766f4e45618459fd40bd"
+    },
+    {
+      "path": "dense2_private_cap64/native-ready.json",
+      "bytes": 491,
+      "sha256": "7461151e8d1c999093e881508ad406c6ba9d3af424781db05f16dbab43c7c584"
+    },
+    {
+      "path": "dense2_private_cap64/postimport-before.json",
+      "bytes": 363,
+      "sha256": "87025ee29df3c13f13e7511bbeef30294f70c449ffd37441051438a972ccc500"
+    },
+    {
+      "path": "dense2_private_cap64/postimport-ready.json",
+      "bytes": 864,
+      "sha256": "0962bfc613a88cfb631bbec6a17f5b2b22c8fd8712c3063a70370361d01ea2bd"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-after.json",
+      "bytes": 360,
+      "sha256": "47b752d606e8fcead132397a1f1f384b0235973b14ec86a7acca8ea41d0e4f3e"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-before.json",
+      "bytes": 360,
+      "sha256": "1f1a7b269d9dee5c043c3b196a53930040e38f337bcf8a706a0160667e0aecd1"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-continue-accepted.json",
+      "bytes": 699,
+      "sha256": "94135483c9d190df2a03aedc34a2f280f0bf0cb1e29baebbc0aabaa80cc04ddd"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-continue.json",
+      "bytes": 423,
+      "sha256": "466702194413265372dbe04cb20ac36b0aaa7b979c27a71d77517ba6fbe985a6"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-parent-done-accepted.json",
+      "bytes": 708,
+      "sha256": "62c5785db8056774f41494d04e5bc588d6133b07854def50e5a7d62ebfc62656"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-parent-done.json",
+      "bytes": 429,
+      "sha256": "e27ae0140542000ac7e0586082a63e17ede9cd55c9e6f3ce01d3f56dab1994a5"
+    },
+    {
+      "path": "dense2_private_cap64/preimport-ready.json",
+      "bytes": 731,
+      "sha256": "e9107aec7653d7e59c8418ecd0826bbf4c1aa3ed35e851ef17a9af12949b016b"
+    },
+    {
+      "path": "dense2_private_cap64/worker-ready.json",
+      "bytes": 652,
+      "sha256": "46be525e40aeb4605ba24185c8b39b53476cab9894dd851880637758e607ddc3"
+    },
+    {
+      "path": "healthy_dense2/create-native-accepted.json",
+      "bytes": 702,
+      "sha256": "aa3af7b99bd2369b63661a1f086196f13cb7a5b2f7d5ab602011cc76e36cead1"
+    },
+    {
+      "path": "healthy_dense2/create-native.json",
+      "bytes": 432,
+      "sha256": "e35317f1d92d612e6cc03208d10ec279c3f3473ae11e2df3d84e568c2704f609"
+    },
+    {
+      "path": "healthy_dense2/native-ready.json",
+      "bytes": 489,
+      "sha256": "ea7938c48ee6a97b250500c94fe106daf4fdbd62e2f8b694032230d07558860f"
+    },
+    {
+      "path": "healthy_dense2/postimport-before.json",
+      "bytes": 362,
+      "sha256": "767c58ece4101ed30914ad3bd62334c0b50a1c2c099f96223354bacb6c70b03c"
+    },
+    {
+      "path": "healthy_dense2/postimport-ready.json",
+      "bytes": 863,
+      "sha256": "4958d32122ee47b2d919423b36a092dfa0e207b8f4994da54a3755ab49cc8eba"
+    },
+    {
+      "path": "healthy_dense2/preimport-after.json",
+      "bytes": 359,
+      "sha256": "166cc7a7ee83970c957630bc533b8542b9da3d287583086328b4921124858f49"
+    },
+    {
+      "path": "healthy_dense2/preimport-before.json",
+      "bytes": 359,
+      "sha256": "94543114e3d683d1c7e10b155f487fe7365f905b2b7f5b1611a456e5b0b9f7fa"
+    },
+    {
+      "path": "healthy_dense2/preimport-continue-accepted.json",
+      "bytes": 698,
+      "sha256": "2058bc932bb3f9cdf1aa223bf6dace12a51bd9fdccba635385d4a106071749e1"
+    },
+    {
+      "path": "healthy_dense2/preimport-continue.json",
+      "bytes": 423,
+      "sha256": "ede318d13e8918d173a36f7d70643ec33b76582f81dfb42edf23609a8828e621"
+    },
+    {
+      "path": "healthy_dense2/preimport-parent-done-accepted.json",
+      "bytes": 707,
+      "sha256": "ddff633321d69ba70ced9c689c561fafc7c42ddb1139544755cce4c171d38955"
+    },
+    {
+      "path": "healthy_dense2/preimport-parent-done.json",
+      "bytes": 429,
+      "sha256": "dddd9e92d6ccbdafc7c6ad7e41775e42a18aa38478739b72f5b60fdf2ae6cb10"
+    },
+    {
+      "path": "healthy_dense2/preimport-ready.json",
+      "bytes": 730,
+      "sha256": "d515dd288fbead4e40b394efc5c7c5e0b4ae9419d9f5893c4cc4b4d044df1edd"
+    },
+    {
+      "path": "healthy_dense2/worker-ready.json",
+      "bytes": 651,
+      "sha256": "d057962dbecb5cec79802c521d9163b0d052475ba1b65c203ae1e17e4ee633a0"
+    },
+    {
+      "path": "injected_import_failure38/create-native-accepted.json",
+      "bytes": 703,
+      "sha256": "0b2c01ae84a89efc59534eb90a575e2dadda71f362beeba3e580e13b29da1e85"
+    },
+    {
+      "path": "injected_import_failure38/create-native.json",
+      "bytes": 432,
+      "sha256": "6d7577f9719dc092225c9ef2745152c49b0a958f04b7458b524755d59a4b95d7"
+    },
+    {
+      "path": "injected_import_failure38/expected-import-failure.json",
+      "bytes": 988,
+      "sha256": "2b5e0cfbfae88b130198e5a5948291fc4ddcc0b6f19980a5634789e1177e56a4"
+    },
+    {
+      "path": "injected_import_failure38/native-ready.json",
+      "bytes": 491,
+      "sha256": "d7dc8d6536060af1d60a20fdb4971a79d3ca6652004832108b8e0f9817cc7b1c"
+    },
+    {
+      "path": "injected_import_failure38/preimport-after.json",
+      "bytes": 360,
+      "sha256": "29b015788e6841b29868172cf35d34f3af484a74aa603c85d35ccfed01ec4e26"
+    },
+    {
+      "path": "injected_import_failure38/preimport-before.json",
+      "bytes": 360,
+      "sha256": "f6383759605e5f0aa60eee361032008b9ddfc7af3535385f7a9673d07657b9b6"
+    },
+    {
+      "path": "injected_import_failure38/preimport-continue-accepted.json",
+      "bytes": 698,
+      "sha256": "b9313bfccc5371c51773214dd11856858dabd4ba420edb65d30256ad6b506d85"
+    },
+    {
+      "path": "injected_import_failure38/preimport-continue.json",
+      "bytes": 422,
+      "sha256": "0b92bd3ef3b2ad7698368080ff60c8e331dd18683bab5da60c33b47314f19ca4"
+    },
+    {
+      "path": "injected_import_failure38/preimport-parent-done-accepted.json",
+      "bytes": 708,
+      "sha256": "514086f1fc9ef459ab1b92298e4f656635eef12419a3982240d21bfee4e98e85"
+    },
+    {
+      "path": "injected_import_failure38/preimport-parent-done.json",
+      "bytes": 429,
+      "sha256": "fb4e6cd2cdb961eeffd0ea66bbdd03a8331cd882148aab844a852c1fe35e9fc4"
+    },
+    {
+      "path": "injected_import_failure38/preimport-ready.json",
+      "bytes": 731,
+      "sha256": "fc1d9b5ddbd8014338f791fa63c7a8a6e0bff6bf1e7bb0d1120c6523b3cea060"
+    },
+    {
+      "path": "injected_import_failure38/worker-ready.json",
+      "bytes": 652,
+      "sha256": "de36035245d5b74bb906ad9ba6626fadbdcdc452ac44fd8fe9176daf3ca97106"
+    },
+    {
+      "path": "report.json",
+      "bytes": 746021,
+      "sha256": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873"
+    }
+  ],
+  "review_checks": {
+    "total": 77,
+    "passed": 65,
+    "checks": [
+      {
+        "check": "sole saved suite acceptance failed with five fixed cases",
+        "passed": true
+      },
+      {
+        "check": "two expected failure controls pass three workloads fail",
+        "passed": true
+      },
+      {
+        "check": "frozen acceptance auditor remains red with ten checks failed",
+        "passed": true
+      },
+      {
+        "check": "report exactly binds actual protocol and freeze bytes",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches new producer/tests:experiments/training_observer_v2.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches new producer/tests:tests/test_training_observer_v2.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/activation_cost_probe.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:scripts/capture_real_activation.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/process_observer.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/process_observer_probe.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/workload_observer_probe.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/process-observer/protocol.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/process-observer/implementation.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/workload-observer/protocol.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/workload-observer/implementation.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/activation-cost/train.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/activation-cost/manifest.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/activation-cost/protocol.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/activation-cost/implementation.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/training_observer_probe.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/role_policy_probe.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:experiments/dual_identity_census.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/role-policy-probe/protocol.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen dependencies:fixtures/role-policy-probe/implementation.json",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen audit tools:scripts/audit_training_observer_v2.py",
+        "passed": true
+      },
+      {
+        "check": "current file hash matches frozen audit tools:tests/test_training_observer_v2_auditor.py",
+        "passed": true
+      },
+      {
+        "check": "declaration precedes freeze precedes sole execution",
+        "passed": true
+      },
+      {
+        "check": "suite wall matches saved monotonic boundaries",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:exact retained exit identities match admitted pins or prehandshake launcher",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:all retained handles exited job empty cleanup bounded",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:no cleanup/handle error keys",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:saved timestamped control custody create-native.json",
+        "passed": false
+      },
+      {
+        "check": "healthy_dense2:saved timestamped control custody preimport-parent-done.json",
+        "passed": false
+      },
+      {
+        "check": "healthy_dense2:saved timestamped control custody preimport-continue.json",
+        "passed": false
+      },
+      {
+        "check": "healthy_dense2:ordered controller emissions",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:no postimport release/load/update/allocation/completion receipts",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:postimport identity/thread checks valid but guard denial present",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:raw packages imported pinned versions",
+        "passed": true
+      },
+      {
+        "check": "healthy_dense2:postimport absent only from accepted report not from raw",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:exact retained exit identities match admitted pins or prehandshake launcher",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:all retained handles exited job empty cleanup bounded",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:no cleanup/handle error keys",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:saved timestamped control custody create-native.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_busy_deadline:saved timestamped control custody preimport-parent-done.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_busy_deadline:saved timestamped control custody preimport-continue.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_busy_deadline:ordered controller emissions",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:no postimport release/load/update/allocation/completion receipts",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:postimport identity/thread checks valid but guard denial present",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:raw packages imported pinned versions",
+        "passed": true
+      },
+      {
+        "check": "dense2_busy_deadline:postimport absent only from accepted report not from raw",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:exact retained exit identities match admitted pins or prehandshake launcher",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:all retained handles exited job empty cleanup bounded",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:no cleanup/handle error keys",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:saved timestamped control custody create-native.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_private_cap64:saved timestamped control custody preimport-parent-done.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_private_cap64:saved timestamped control custody preimport-continue.json",
+        "passed": false
+      },
+      {
+        "check": "dense2_private_cap64:ordered controller emissions",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:no postimport release/load/update/allocation/completion receipts",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:postimport identity/thread checks valid but guard denial present",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:raw packages imported pinned versions",
+        "passed": true
+      },
+      {
+        "check": "dense2_private_cap64:postimport absent only from accepted report not from raw",
+        "passed": true
+      },
+      {
+        "check": "prehandshake_exit37:exact retained exit identities match admitted pins or prehandshake launcher",
+        "passed": true
+      },
+      {
+        "check": "prehandshake_exit37:all retained handles exited job empty cleanup bounded",
+        "passed": true
+      },
+      {
+        "check": "prehandshake_exit37:no cleanup/handle error keys",
+        "passed": true
+      },
+      {
+        "check": "prehandshake_exit37:ordered controller emissions",
+        "passed": true
+      },
+      {
+        "check": "prehandshake_exit37:no postimport release/load/update/allocation/completion receipts",
+        "passed": true
+      },
+      {
+        "check": "injected_import_failure38:exact retained exit identities match admitted pins or prehandshake launcher",
+        "passed": true
+      },
+      {
+        "check": "injected_import_failure38:all retained handles exited job empty cleanup bounded",
+        "passed": true
+      },
+      {
+        "check": "injected_import_failure38:no cleanup/handle error keys",
+        "passed": true
+      },
+      {
+        "check": "injected_import_failure38:saved timestamped control custody create-native.json",
+        "passed": false
+      },
+      {
+        "check": "injected_import_failure38:saved timestamped control custody preimport-parent-done.json",
+        "passed": false
+      },
+      {
+        "check": "injected_import_failure38:saved timestamped control custody preimport-continue.json",
+        "passed": false
+      },
+      {
+        "check": "injected_import_failure38:ordered controller emissions",
+        "passed": true
+      },
+      {
+        "check": "injected_import_failure38:no postimport release/load/update/allocation/completion receipts",
+        "passed": true
+      },
+      {
+        "check": "eight complete held censuses three/five across four authenticated cases",
+        "passed": true
+      },
+      {
+        "check": "twenty one distinct retained exit identities five empty Jobs",
+        "passed": true
+      },
+      {
+        "check": "twelve saved controller actions before import release",
+        "passed": true
+      }
+    ]
+  },
+  "boundaries": [
+    "This review preserves the failed sole execution and red frozen acceptance auditor; it does not retroactively accept the protocol.",
+    "Three workloads imported both ML packages; no pretrained model load or optimizer update was admitted. Do not describe the run as no ML imports.",
+    "The generic controller error combines identity/thread/provider predicates. Saved raw identity and positive thread counts pass; the unexpected socket.bind denial fails provider validation.",
+    "The raw audit denial saves no address, stack or initiating module. Neither external provider contact, local telemetry, loopback intent nor an actual successful bind is established.",
+    "The guard is a Python audit hook, not a native network sandbox or complete provider attestation.",
+    "Saved held snapshots and retained exits are bounded observations; they do not prove continuous process coverage or production reliability.",
+    "Only preimport synchronized memory brackets completed; postimport raw self memory and unsynchronized samples do not form validated postimport brackets or a training-memory/cap/overhead result.",
+    "Original training failure, unknown old images, invalid historical parent RSS and scientific cost/quality negatives remain unchanged."
+  ]
+}

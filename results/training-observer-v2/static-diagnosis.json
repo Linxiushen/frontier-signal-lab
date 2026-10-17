@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "diagnosed_at": "2026-10-17T07:07:09.096919+00:00",
+  "kind": "offline static installed-source candidate and raw-receipt comparison; no model/package import or rerun",
+  "static_candidate": {
+    "path": "urllib3/util/connection.py",
+    "function": "_has_ipv6",
+    "callsite_line": 127,
+    "import_time_trigger_line": 137,
+    "conditional": "if socket.has_ipv6",
+    "address_in_static_source": "::1, port0, AF_INET6",
+    "operation": "creates IPv6 socket; tries bind; catches Exception and closes socket",
+    "compatibility_with_observation": "PermissionError from v2 Python audit hook is an Exception. This code can swallow it, complete import with HAS_IPV6=False and retain one denied socket.bind event. Three postimport receipts show precisely one denied bind each.",
+    "proof_status": "candidate_only; event arguments, endpoint, calling stack and loaded module origin were not recorded in v2, so this is not attribution proof"
+  },
+  "bounded_static_import_chain": [
+    "transformers/__init__.py:28 imports .utils",
+    "transformers/utils/__init__.py:82 imports .hub",
+    "transformers/utils/hub.py:31 imports requests",
+    "requests/__init__.py:45 imports urllib3",
+    "urllib3/__init__.py:18 imports .connectionpool",
+    "urllib3/connectionpool.py:16 imports .connection",
+    "urllib3/connection.py:25 imports .util.response, initializing .util",
+    "urllib3/util/__init__.py:4 imports .connection",
+    "urllib3/util/connection.py:137 calls _has_ipv6(::1) at module scope"
+  ],
+  "installed_metadata": [
+    {
+      "path": "urllib3-2.8.0.dist-info/METADATA",
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "Name": "urllib3",
+      "Version": "2.8.0"
+    },
+    {
+      "path": "requests-2.34.2.dist-info/METADATA",
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "Name": "requests",
+      "Version": "2.34.2"
+    },
+    {
+      "path": "huggingface_hub-0.36.2.dist-info/METADATA",
+      "sha256": "4dc2b0a3fb27bcba8b091f98bccff4b94369d269c9768aeaecd0b99d970665d9",
+      "Name": "huggingface_hub",
+      "Version": "0.36.2"
+    }
+  ],
+  "gaps": [
+    "No dynamic stack/address/socket-family receipt exists for the denied bind",
+    "Other imported code could issue a bind; bounded source inspection is not an exhaustive import graph",
+    "Selected source-file hashes attest saved installed bytes, not continuous loaded-code integrity",
+    "Python audit guard is not a native networking sandbox; no actual external provider behavior tested"
+  ],
+  "next_separately_declared_actual_integration_proposal": {
+    "status": "proposal_only_not_implemented_or_executed",
+    "must_remain_actual_training_integration": "same pinned local loader and fixed healthy/busy/cap/precise-failure controls with planned two updates; no extra inventory-only campaign",
+    "minimum_diagnostics": "bounded denied/allowed audit event receipt (up to4 events), safe socket family/type and exact loopback/ephemeral-port classification plus at most8 source frames using package-relative path/function/line/hash; no locals or full user paths",
+    "policy_choice_to_predeclare": "If permitting the standard capability probe, allow only at most one bind per ML worker at exact AF_INET6 (::1,0) from frozen urllib3 _has_ipv6 callsite; record separately as allowed local capability probe. Keep connect/DNS/sendto/nonmatching bind denied. Do not remove bind silently or retrospectively change v2. New protocol/freeze and independent mocks/audit required before one real suite.",
+    "uncertainty_gate": "actual caller/address differs or more than one probe fails closed; preserve new failure without retry/adaptive whitelist",
+    "scientific_boundary": "A loopback capability allowance is an engineering compatibility contract, not external provider execution, native sandbox proof, model-quality evidence, or historical measurement repair"
+  },
+  "scope": "Selected offline source/receipt diagnosis only. Static candidate is not runtime caller attribution. No inspected third-party package import, model load, observer execution or network operation was performed for this diagnosis.",
+  "observed_result": {
+    "report_sha256": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
+    "suite_passed": false,
+    "three_ml_cases_fail_before_postimport_acceptance": true,
+    "accepted_stages": [
+      "preimport"
+    ],
+    "model_loads": 0,
+    "optimizer_updates": 0,
+    "generic_parent_error": "ObserverError: stage identity/thread count differs",
+    "specific_reason_from_raw_and_frozen_validator": "correct worker PID and positive integer thread7 pass their subconditions; unexpected_denied_events=[socket.bind] makes validate_provider false",
+    "raw_postimport_receipts": [
+      {
+        "sha256": "4958d32122ee47b2d919423b36a092dfa0e207b8f4994da54a3755ab49cc8eba",
+        "case": "healthy_dense2",
+        "stage": "postimport",
+        "native_thread_count": 7,
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "provider_guard": {
+          "installed": true,
+          "python_audit_only": true,
+          "native_network_sandbox": false,
+          "external_providers_permitted": false,
+          "synthetic_probe_denials": 1,
+          "unexpected_denied_events": [
+            "socket.bind"
+          ],
+          "denied_audit_events": [
+            "socket.connect",
+            "socket.getaddrinfo",
+            "socket.gethostbyname",
+            "socket.gethostbyname_ex",
+            "socket.gethostbyaddr",
+            "socket.sendto",
+            "socket.bind"
+          ]
+        },
+        "import_started_perf_counter": 878345.4559931,
+        "import_completed_perf_counter": 878351.0741037,
+        "artifact_path": "results/training-observer-v2/healthy_dense2/postimport-ready.json"
+      },
+      {
+        "sha256": "8d60ee19b07353c41379979ca4871dfaa317ea71f210fa7ac13b5c58d942aee1",
+        "case": "dense2_busy_deadline",
+        "stage": "postimport",
+        "native_thread_count": 7,
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "provider_guard": {
+          "installed": true,
+          "python_audit_only": true,
+          "native_network_sandbox": false,
+          "external_providers_permitted": false,
+          "synthetic_probe_denials": 1,
+          "unexpected_denied_events": [
+            "socket.bind"
+          ],
+          "denied_audit_events": [
+            "socket.connect",
+            "socket.getaddrinfo",
+            "socket.gethostbyname",
+            "socket.gethostbyname_ex",
+            "socket.gethostbyaddr",
+            "socket.sendto",
+            "socket.bind"
+          ]
+        },
+        "import_started_perf_counter": 878351.8935855,
+        "import_completed_perf_counter": 878357.253963,
+        "artifact_path": "results/training-observer-v2/dense2_busy_deadline/postimport-ready.json"
+      },
+      {
+        "sha256": "0962bfc613a88cfb631bbec6a17f5b2b22c8fd8712c3063a70370361d01ea2bd",
+        "case": "dense2_private_cap64",
+        "stage": "postimport",
+        "native_thread_count": 7,
+        "torch_version": "2.9.1+cpu",
+        "transformers_version": "4.57.3",
+        "provider_guard": {
+          "installed": true,
+          "python_audit_only": true,
+          "native_network_sandbox": false,
+          "external_providers_permitted": false,
+          "synthetic_probe_denials": 1,
+          "unexpected_denied_events": [
+            "socket.bind"
+          ],
+          "denied_audit_events": [
+            "socket.connect",
+            "socket.getaddrinfo",
+            "socket.gethostbyname",
+            "socket.gethostbyname_ex",
+            "socket.gethostbyaddr",
+            "socket.sendto",
+            "socket.bind"
+          ]
+        },
+        "import_started_perf_counter": 878358.1385385,
+        "import_completed_perf_counter": 878363.4991073,
+        "artifact_path": "results/training-observer-v2/dense2_private_cap64/postimport-ready.json"
+      }
+    ]
+  },
+  "candidate_source_files": [
+    {
+      "package_relative_path": "urllib3/util/connection.py",
+      "bytes": 4444,
+      "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74"
+    },
+    {
+      "package_relative_path": "urllib3/util/__init__.py",
+      "bytes": 1001,
+      "sha256": "faa792d1071e8af6b3bc110a0cd142008fba00271d0ce1384ccbe8ed22cd9404"
+    },
+    {
+      "package_relative_path": "urllib3/connection.py",
+      "bytes": 47903,
+      "sha256": "8a59dab3d7b6a0e1b38a5fd6e565ef6a49381bb995729d015e4f6440ab8523e0"
+    },
+    {
+      "package_relative_path": "urllib3/connectionpool.py",
+      "bytes": 45250,
+      "sha256": "6a147869216b94449a053e869d4311cba23294551c83ee20fe5d2f1eaff50a3e"
+    },
+    {
+      "package_relative_path": "urllib3/__init__.py",
+      "bytes": 6979,
+      "sha256": "24ca35b60d67215d40789daf10d0bf4f17e5d1ee61e86ce5f43195935ad645ba"
+    },
+    {
+      "package_relative_path": "requests/__init__.py",
+      "bytes": 5922,
+      "sha256": "311157e7fa4aa9166c827d5237e6fd694eeb5ca549ee40e2e90f89f21abcd56e"
+    },
+    {
+      "package_relative_path": "transformers/utils/hub.py",
+      "bytes": 50071,
+      "sha256": "bc8f49e9360b904c4382c830b58b5b70d7df5ed66fd90b298bfb0edc23e2e846"
+    },
+    {
+      "package_relative_path": "transformers/utils/__init__.py",
+      "bytes": 10400,
+      "sha256": "46e7a2353a583661a492dfe940d119de003526799e56851d8beb4537a1e65263"
+    },
+    {
+      "package_relative_path": "transformers/__init__.py",
+      "bytes": 47000,
+      "sha256": "7eb0743ed843f24c1d4e8b8daf4b18249cb81403b4571a70c00be0a4c0a67bd4"
+    }
+  ]
+}

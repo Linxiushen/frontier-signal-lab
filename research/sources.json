@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-17T09:12:22.803434+00:00",
-  "observation_note": "All 155 historical source objects retained exactly. Added two newly landed public source/CI metadata records and one original frozen v3 actual-integration pass. Actual event times and later bounded reads are separate. Five controlled cases pass with three model loads and six dense updates; the earlier v2 failure remains preserved. Historical scientific negatives/invalid RSS, source-only recovery gates and unverified next employer remain.",
+  "last_updated_at": "2026-10-17T21:12:19.267233+00:00",
+  "observation_note": "All 170 prior source objects retained exactly. Added two existing official SQLite documentation references and one separately frozen original WAL snapshot correctness canary. Documentation retrieval times are not new announcement dates. A stale main-file copy passes structural integrity while source/online backup preserve committed rows. Known primitive evidence does not clear actual packaged-Gateway authority, external-effect or restart/liveness gates. Historical H1 failures, H3/H4 planned state and Nathan next employer uncertainty remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6054,6 +6054,60 @@
       "evidence_record": "research/2026-10-17-training-phase-memory.md",
       "dedupe_key": "our:training-phase-memory@f48812bf945a7fdfcb76afcde2336dd545e9263876f2cb363c9189a60f87b8ca",
       "recorded_at": "2026-10-17T17:19:10.018598+00:00"
+    },
+    {
+      "id": "sqlite-official-wal-persistent-state",
+      "url": "https://www.sqlite.org/wal.html#the_wal_file",
+      "type": "official_existing_documentation_not_new_announcement",
+      "author": "SQLite project, official sqlite.org documentation",
+      "published_at": null,
+      "observed_at": "2026-10-17T21:05:10.424070+00:00",
+      "claim": "The WAL file is part of the persistent state of the database and should be kept with the database if the database is copied or moved. If a database file is separated from its WAL file, then transactions that were previously committed to the database might be lost, or the database file might become corrupted.",
+      "status": "documentary_semantics_not_runtime_evidence",
+      "body_sha256": "f3467b530b883d4a00574fe1a898b3d121ed72764ae28cf66941080ac0badb9e",
+      "body_bytes": 42143,
+      "license_scope": "Reference and short quotations only; no example code copied, full HTML not redistributed or relicensed.",
+      "evidence_record": "research/receipts/20261017T210009Z-sqlite-documentation.json",
+      "our_inference": "Snapshot freshness needs exact application-row acceptance in addition to structural integrity; this is known SQLite behavior, not a novelty claim.",
+      "dedupe_key": "https://www.sqlite.org/wal.html@f3467b530b883d4a00574fe1a898b3d121ed72764ae28cf66941080ac0badb9e",
+      "license": "Official public-domain dedication for deliverable SQLite code/documentation; build-script exceptions separately noted.",
+      "license_url": "https://www.sqlite.org/copyright.html"
+    },
+    {
+      "id": "sqlite-official-online-backup-snapshot",
+      "url": "https://www.sqlite.org/backup.html#file_and_database_connection_locking",
+      "type": "official_existing_documentation_not_new_announcement",
+      "author": "SQLite project, official sqlite.org documentation",
+      "published_at": null,
+      "observed_at": "2026-10-17T21:05:10.406633+00:00",
+      "claim": "Whether or not the backup process is restarted as a result of writes to the source database mid-backup, the user can be sure that when the backup operation is completed the backup database contains a consistent and up-to-date snapshot of the original.",
+      "status": "documentary_semantics_not_runtime_evidence",
+      "body_sha256": "306b6cca5c7c2f93b648040ae139f14d7d3221c0d16d79b5749e69d808382e04",
+      "body_bytes": 28195,
+      "license_scope": "Reference and short quotations only; no example code copied, full HTML not redistributed or relicensed.",
+      "evidence_record": "research/receipts/20261017T210009Z-sqlite-documentation.json",
+      "our_inference": "Snapshot freshness needs exact application-row acceptance in addition to structural integrity; this is known SQLite behavior, not a novelty claim.",
+      "dedupe_key": "https://www.sqlite.org/backup.html@306b6cca5c7c2f93b648040ae139f14d7d3221c0d16d79b5749e69d808382e04",
+      "license": "Official public-domain dedication for deliverable SQLite code/documentation; build-script exceptions separately noted.",
+      "license_url": "https://www.sqlite.org/copyright.html"
+    },
+    {
+      "id": "sqlite-wal-snapshot-correctness-canary-v1",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/sqlite-snapshot-canary/report.json",
+      "type": "our_original_predeclared_actual_sqlite_primitive_canary",
+      "author": "this project; not an upstream claim",
+      "published_at": null,
+      "recorded_at": "2026-10-17T21:12:19.267233+00:00",
+      "claim": "One frozen Windows SQLite3.53.1 suite, seed0/no randomness, eight direct processes. Main-file-only copy restores stale generation0 despite two integrity_check=ok observations. Source+WAL and Connection.backup each restore committed generation1, exclude uncommitted generation2, across two fresh readers each. Writer exits86; backup/six readers exit0. 14 pure guarded tests, saved receipt audit and independent raw review pass; no retries. Readonly connections create/change WAL auxiliary files. Known primitive acceptance, not Gateway restart/authority/external effects, power-loss, sustained-write, performance, general liveness or production proof.",
+      "status": "primitive_acceptance_passed_intended_stale_copy_negative_retained_full_harness_unverified",
+      "result_file_sha256": "6bae51f09195905f3c6abd51ba7a075bcc0285d74ed85ddc55e71e010998ca07",
+      "result_payload_sha256": "557721dab016458ebf28f53bffde3dcd8070d925e79572508c6532adcc60e7ca",
+      "protocol_sha256": "b71f003b291191f260d5b450bcf2fc7f7be66622ef7d5907854fc55a93c930fe",
+      "implementation_freeze_sha256": "1aa7fa1809dbe25786e45245c4f687a2448b69d2d635cdd9c9cb23cc0f044cb2",
+      "evidence_record": "results/sqlite-snapshot-canary/report.md",
+      "dedupe_key": "our:sqlite-snapshot-canary@557721dab016458ebf28f53bffde3dcd8070d925e79572508c6532adcc60e7ca",
+      "executed_at": "2026-10-17T21:10:02.293002+00:00",
+      "publication_note": "Execution time is recorded separately; this record accompanies the later repository publication."
     }
   ]
 }

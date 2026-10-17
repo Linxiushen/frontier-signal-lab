@@ -134,5 +134,8 @@ experiments. Their [history](RESEARCH_LAB.zh.md), [source ledger](research/sourc
 [hypotheses](research/hypotheses.json), and [operating protocol](OPERATIONS.md)
 remain available. Employment announcements are discovery leads, not evidence
 of anyone's private research plans or endorsement of this project.
+The [SQLite snapshot canary](results/sqlite-snapshot-canary/report.md) adds a
+stdlib-only recovery check: a copy can pass integrity checks while omitting
+committed messages; it preserves raw files and offers an offline receipt audit.
 
 MIT for original tooling and examples. No model weights are bundled.

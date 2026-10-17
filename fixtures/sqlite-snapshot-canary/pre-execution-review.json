@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T21:09:28.9421093Z",
+  "reviewer": "snapshot_independent_review",
+  "status": "pre_execution_static_review_accepted",
+  "real_sqlite_opened": false,
+  "suite_executed": false,
+  "files": {
+    "experiments/sqlite_snapshot_canary.py": "b20060bb52ef6c1feee22f0527e123c6ef75643dde1a1e304815b6a2a06320a5",
+    "tests/test_sqlite_snapshot_canary.py": "c86aba3db117c0104c50b56cb076494f089acb2347d2f033fbede06107d88012",
+    "fixtures/sqlite-snapshot-canary/protocol.json": "b71f003b291191f260d5b450bcf2fc7f7be66622ef7d5907854fc55a93c930fe",
+    "scripts/audit_sqlite_snapshot_canary.py": "8599c9948f648fec951c6bb35b6a891452aa945676d3be258bcba7568251e049"
+  },
+  "duplicate_assessment": "Distinct from sqlite_migration_probe: migration/fail-stop/replay lacks Connection.backup, WAL main-file-only-copy and freshness-vs-integrity control.",
+  "design_gates": [
+    "fixed literal generation0/generation1 oracle",
+    "WAL/FULL/autocheckpoint0 plus baseline checkpoint",
+    "committed g1 acknowledgment then open uncommitted g2 acknowledgment",
+    "main-file-only copy and independent backup while writer retained alive",
+    "hard exit86 followed by six fresh readonly process observations",
+    "raw JSON event/PID binding and phase physical file hashes",
+    "pre-run source/tests/protocol freeze and existing-output refusal",
+    "malformed writer JSON preserved as data rather than finally exception"
+  ],
+  "limitations": [
+    "Known SQLite primitive, no novelty claim",
+    "Fresh readers are not Gateway service restarts",
+    "No power-loss/disk-corruption/torn-write simulation",
+    "Uncommitted writes may remain in page cache; no claim they reached WAL disk",
+    "No provider side effect, performance, general liveness or production proof"
+  ],
+  "pending_minor_fixes": [],
+  "audit_recommendations": [
+    "All three independent-audit recommendations implemented before execution"
+  ],
+  "addressed_failure_paths": [
+    "malformed writer JSON retained without masking suite_error",
+    "freeze OSError preserved as failed completion gate",
+    "worker and writer kill races poll/wait or record cleanup_error",
+    "collector join still alive records cleanup_error"
+  ],
+  "execution_authorization": "Root may freeze these exact reviewed hashes and execute at most the one planned suite; no execution performed by reviewer."
+}

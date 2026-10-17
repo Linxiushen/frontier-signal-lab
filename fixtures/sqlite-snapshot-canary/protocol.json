@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "sqlite-snapshot-correctness-canary-v1",
+  "seed": 0,
+  "randomness": "none; fixed literal rows and ordered barriers",
+  "journal_mode": "wal",
+  "synchronous": 2,
+  "wal_autocheckpoint": 0,
+  "worker_timeout_seconds": 10,
+  "suite_timeout_seconds": 60,
+  "cleanup_timeout_seconds": 10,
+  "crash_exit_code": 86,
+  "capture_order": ["main_file_copy", "sqlite_backup"],
+  "reader_order": ["source", "main_file_copy", "sqlite_backup"],
+  "fresh_readers_per_database": 2,
+  "expected_snapshots": {
+    "generation0": {
+      "contexts": [["session-0", 0, "turn-0", "ready"]],
+      "messages": [["message-0", 0, "literal generation zero"]],
+      "receipts": [["receipt-0", "message-0", 0, "committed"]]
+    },
+    "generation1": {
+      "contexts": [["session-0", 1, "turn-1", "ready"]],
+      "messages": [["message-0", 0, "literal generation zero"], ["message-1", 1, "literal generation one"]],
+      "receipts": [["receipt-0", "message-0", 0, "committed"], ["receipt-1", "message-1", 1, "committed"]]
+    }
+  },
+  "uncommitted_generation2": {
+    "context": ["session-0", 2, "turn-2", "ready"],
+    "message": ["message-2", 2, "uncommitted generation two"],
+    "receipt": ["receipt-2", "message-2", 2, "committed"]
+  },
+  "limitations": [
+    "A known SQLite primitive correctness canary, not a novel backup algorithm or a packaged Gateway reproduction.",
+    "Generic context/message/receipt rows contain no actual provider request or external business effect.",
+    "The writer is quiescent at explicit barriers; no sustained concurrent writers, lock stress or backup performance claim.",
+    "Hard process exit is not power loss, disk corruption, torn writes or storage durability certification.",
+    "Two fresh read-only reopenings establish these literal snapshots only, not general liveness or production reliability.",
+    "integrity_check=ok is structural validity, not evidence of snapshot freshness or application completeness."
+  ]
+}

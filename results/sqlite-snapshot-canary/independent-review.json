@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T21:11:19.526899+00:00",
+  "reviewer": "snapshot_independent_review",
+  "method": "Separate stdlib receipt reader; exact literals typed independently; hashes recomputed from bytes. Neither producer nor auditor imported. SQLite databases were never opened and no process/suite was launched.",
+  "passed": true,
+  "checks": {
+    "result_payload_hash_recomputed": true,
+    "saved_artifact_bytes_all_match": true,
+    "reviewed_code_protocol_tests_and_auditor_unchanged": true,
+    "freeze_precedes_suite_start": true,
+    "protocol_and_implementation_bytes_bound": true,
+    "one_declared_suite_no_retry": true,
+    "writer_exact_sequence": true,
+    "writer_fixed_settings_baseline_literal": true,
+    "writer_committed_g1_and_open_g2_literals": true,
+    "writer_identity_and_capture_raw_binding": true,
+    "source_two_literal_integrity_hash_reads": true,
+    "main_file_copy_two_literal_integrity_hash_reads": true,
+    "sqlite_backup_two_literal_integrity_hash_reads": true,
+    "backup_complete_g1_read_while_writer_held": true,
+    "strict_causal_parent_event_sequence": true,
+    "seven_direct_worker_exit0_receipts": true,
+    "actor_pids_bound_to_raw_receipts": true,
+    "writer_fail_stop86_waited_no_cleanup_error": true,
+    "main_file_negative_control_captured_baseline_bytes": true,
+    "nonempty_wal_captured_before_crash": true
+  },
+  "failed_artifacts": [],
+  "source_result_payload_sha256": "557721dab016458ebf28f53bffde3dcd8070d925e79572508c6532adcc60e7ca",
+  "report_file_sha256": "6bae51f09195905f3c6abd51ba7a075bcc0285d74ed85ddc55e71e010998ca07",
+  "reviewed_implementation_sha256": "1aa7fa1809dbe25786e45245c4f687a2448b69d2d635cdd9c9cb23cc0f044cb2",
+  "frozen_file_hashes_unchanged": {
+    "experiments/sqlite_snapshot_canary.py": "b20060bb52ef6c1feee22f0527e123c6ef75643dde1a1e304815b6a2a06320a5",
+    "tests/test_sqlite_snapshot_canary.py": "c86aba3db117c0104c50b56cb076494f089acb2347d2f033fbede06107d88012",
+    "fixtures/sqlite-snapshot-canary/protocol.json": "b71f003b291191f260d5b450bcf2fc7f7be66622ef7d5907854fc55a93c930fe",
+    "scripts/audit_sqlite_snapshot_canary.py": "8599c9948f648fec951c6bb35b6a891452aa945676d3be258bcba7568251e049"
+  },
+  "observed_actors": {
+    "writer": 51312,
+    "backup": 43948,
+    "readers": {
+      "source": [
+        40360,
+        47172
+      ],
+      "main_file_copy": [
+        30532,
+        49860
+      ],
+      "sqlite_backup": [
+        29176,
+        2720
+      ]
+    }
+  },
+  "literal_logical_hashes": {
+    "generation0": "adf152982f0aa68e2222fa94e5cc412baa98d9719128db481f4ec7bf95bb0158",
+    "generation1": "d9afc285afda28e694c95801fcff258a39a28cba9254273055ef77e4a2727341"
+  },
+  "core_outcome": "One deterministic suite: both main-file-only-copy readers report structural integrity ok but stale generation0. Both source and SQLite-backup readers report exact committed generation1, excluding staged uncommitted generation2.",
+  "physical_read_observation": "Read-only WAL opens in this writable directory created empty WAL and 32768-byte SHM sidecars for copied/backup DBs. Source SHM hash changed on first read; original source main/WAL bytes remained as captured. Logical read-only does not establish zero physical file changes.",
+  "limits": [
+    "Known SQLite behavior; no novelty claim.",
+    "One suite and six reopenings are not scientific independent replications. Check cardinality is evidence bookkeeping.",
+    "Fresh reader processes are not Gateway/service restarts.",
+    "No external provider effect, sustained concurrent workload, throughput/cost measurement or liveness proof.",
+    "Process os._exit is not power loss, corruption, torn-write durability certification or production reliability.",
+    "No evidence uncommitted generation2 pages reached disk; the test establishes their absence from committed reader snapshots."
+  ],
+  "independent_review_sha256": "93cb3369562833daa63ad51701f54994e5c4b6cedce31856f65c5431c5e067d0"
+}

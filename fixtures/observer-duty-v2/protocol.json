@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-observer-duty-v2",
+  "predeclared_at": "2026-10-17T12:50:56.461929+00:00",
+  "kind": "Separately predeclared v2 corrects only final-continue acknowledgment barrier after v1 frozen rejection; identical dense workload and observation treatment, no scientific rescue.",
+  "platform": "Windows JobObject and exact frozen v3 identity/provider policy; no fallback.",
+  "source_paths": [
+    "experiments/observer_duty_v2.py",
+    "tests/test_observer_duty_v2.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/capture_real_activation.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/activation-cost/train.json",
+    "fixtures/activation-cost/manifest.json",
+    "fixtures/activation-cost/protocol.json",
+    "fixtures/activation-cost/implementation.json",
+    "experiments/training_observer_probe.py",
+    "experiments/role_policy_probe.py",
+    "experiments/dual_identity_census.py",
+    "fixtures/role-policy-probe/protocol.json",
+    "fixtures/role-policy-probe/implementation.json",
+    "experiments/training_observer_v2.py",
+    "fixtures/training-observer-v2/protocol.json",
+    "fixtures/training-observer-v2/implementation.json",
+    "experiments/training_observer_v3.py",
+    "fixtures/training-observer-v3/protocol.json",
+    "fixtures/training-observer-v3/implementation.json",
+    "experiments/observer_duty_probe.py",
+    "tests/test_observer_duty_probe.py",
+    "fixtures/observer-duty/protocol.json",
+    "fixtures/observer-duty/implementation.json",
+    "scripts/audit_observer_duty.py",
+    "tests/test_observer_duty_auditor.py"
+  ],
+  "review_tool_paths": [
+    "scripts/audit_observer_duty_v2.py",
+    "tests/test_observer_duty_v2_auditor.py"
+  ],
+  "config": {
+    "seed": 503,
+    "optimizer_steps": 16,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "train_blocks": 128,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "sampler_interval_seconds": 0.02,
+    "maximum_recorded_sample_gap_seconds": 0.5,
+    "minimum_active_samples": 20,
+    "maximum_active_observations": 800,
+    "maximum_active_polls": 800,
+    "case_timeout_seconds": 60.0,
+    "total_timeout_seconds": 240.0,
+    "cleanup_timeout_seconds": 4.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "training_timeout_seconds": 15.0,
+    "barrier_timeout_seconds": 5.0,
+    "memory_bracket_tolerance_bytes": 4194304
+  },
+  "cases_in_order": [
+    {
+      "id": "pair1_off",
+      "sampling_enabled": false
+    },
+    {
+      "id": "pair1_on",
+      "sampling_enabled": true
+    },
+    {
+      "id": "pair2_on",
+      "sampling_enabled": true
+    },
+    {
+      "id": "pair2_off",
+      "sampling_enabled": false
+    }
+  ],
+  "control_plan": [
+    {
+      "filename": "create-native.json",
+      "command": "create-native",
+      "decision_label": "before_native",
+      "decision_index": 0
+    },
+    {
+      "filename": "preimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "preimport-continue.json",
+      "command": "continue",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "postimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "postimport-continue.json",
+      "command": "continue",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "pretrain-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "pretrain",
+      "decision_index": 3
+    },
+    {
+      "filename": "pretrain-continue.json",
+      "command": "continue",
+      "decision_label": "pretrain",
+      "decision_index": 3
+    },
+    {
+      "filename": "postloop-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postloop",
+      "decision_index": 4
+    },
+    {
+      "filename": "postloop-continue.json",
+      "command": "continue",
+      "decision_label": "postloop",
+      "decision_index": 4
+    },
+    {
+      "filename": "postvalidation-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postvalidation",
+      "decision_index": 5
+    },
+    {
+      "filename": "postvalidation-continue.json",
+      "command": "continue",
+      "decision_label": "postvalidation",
+      "decision_index": 5
+    },
+    {
+      "filename": "finish.json",
+      "command": "finish",
+      "decision_label": "postvalidation",
+      "decision_index": 5
+    }
+  ],
+  "control_purpose": "pinned observer duty v2; fixed dense measurement controls",
+  "role_requested_control": "observer-duty",
+  "stages": [
+    "preimport",
+    "postimport",
+    "pretrain",
+    "postloop",
+    "postvalidation"
+  ],
+  "provider_stage_phases": {
+    "preimport": "preimport",
+    "postimport": "postimport",
+    "pretrain": "postload",
+    "postloop": "postupdate",
+    "postvalidation": "complete"
+  },
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "assets": {
+      "README.md": {
+        "bytes": 10560,
+        "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+      },
+      "config.json": {
+        "bytes": 698,
+        "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+      },
+      "generation_config.json": {
+        "bytes": 111,
+        "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+      },
+      "model.safetensors": {
+        "bytes": 28143920,
+        "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+      },
+      "special_tokens_map.json": {
+        "bytes": 441,
+        "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+      },
+      "tokenizer.json": {
+        "bytes": 2114042,
+        "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+      },
+      "tokenizer_config.json": {
+        "bytes": 4834,
+        "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+      }
+    },
+    "planned_model_loads": 4,
+    "planned_optimizer_updates": 64
+  },
+  "training": {
+    "seed": 503,
+    "steps": 16,
+    "schedule": [
+      [
+        116,
+        73
+      ],
+      [
+        14,
+        52
+      ],
+      [
+        20,
+        75
+      ],
+      [
+        112,
+        108
+      ],
+      [
+        65,
+        69
+      ],
+      [
+        98,
+        85
+      ],
+      [
+        123,
+        0
+      ],
+      [
+        41,
+        84
+      ],
+      [
+        119,
+        64
+      ],
+      [
+        40,
+        124
+      ],
+      [
+        83,
+        122
+      ],
+      [
+        50,
+        22
+      ],
+      [
+        31,
+        23
+      ],
+      [
+        86,
+        74
+      ],
+      [
+        72,
+        127
+      ],
+      [
+        16,
+        26
+      ]
+    ],
+    "schedule_sha256": "bae11ee562d5be78ca73f0ace2028992e43796e27ac5349c8aa4ee48e03b2548",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "optimizer_state_entries_before_loop": 0,
+    "dense_only": true,
+    "holdout_opened": false,
+    "checkpoint_written": false
+  },
+  "provider_custody": {
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "provider_config": {
+      "version_label": "2.8.0",
+      "family_code": 23,
+      "type_code": 1,
+      "protocol": 0,
+      "maximum_allowed_probes_per_ML_worker": 1,
+      "maximum_diagnostic_events": 4,
+      "maximum_saved_frames": 8,
+      "maximum_scanned_frames": 9,
+      "maximum_source_file_bytes": 1048576,
+      "caller_function": "_has_ipv6",
+      "caller_line": 127,
+      "module_function": "<module>",
+      "module_line": 137
+    },
+    "provider_source_relative_path": "urllib3/util/connection.py",
+    "provider_source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+    "frame_scope": "contiguous_initial_urllib3_frames",
+    "native_network_sandbox": false,
+    "external_providers_permitted": false
+  },
+  "freeze_and_execution": "All v2 source/protocol/auditor/exact executable+opaque path/provider pins frozen before one root execution in fresh directory. This new study fixes only final-continue acknowledgment ordering; v1 frozen producer/protocol/auditor/results stay rejected and immutable. Same four fresh workers OFF/ON/ON/OFF, no ML/native preflight, retry, thresholds, seed/lr or sampler changes; failure preserved. No GPU/download/provider API/compression arm.",
+  "pairing": "Fresh pinned weights/empty AdamW in each worker, exactly16 same fixed batches, seed503, CPU float32/eager/thread1/1 and exact offline environment. All4initial parameter/schedule hashes, all4final parameter hashes and complete16loss lists must match exactly before ratios are interpreted. Per-step losses/parameter change are trajectory receipts, not quality evidence. No favorable slowdown threshold. Two ON/OFF wall ratios and n2 geometric mean descriptive conditional fixed intervention; ABBA balances first-order order effects but does not prove general causality or population/production claims.",
+  "measurement_boundary": "Worker before-loop signal emitted only after authenticated pretrain release. Unchanged cost.training_loop returns full loop monotonic clocks, fixed16 update/loss receipts. After-loop signal is emitted immediately after helper returns and before postloop held bracket, final_validity and final parameter hash. Pretrain current bracket includes loaded model/empty optimizer/batches and prior loading/hash allocation history. Postloop current bracket is held before postvalidation. Whole-process current samples inside loop include model/optimizer/gradients/allocator history; no isolated backward or allocation-only peak.",
+  "active_treatment": "Both arms use same20ms completion-file polling, failure/deadline checks and single immutable loop. ON performs actual retained interpreter current memory/native CPU query plus global Toolhelp snapshot; OFF performs neither while training. Target20ms deadlines skip missed slots without bursts, actual query cadence/gaps retained. Global snapshot_process_count is only query metadata, not active admitted role census. Exact bounded role inventories/held liveness and boundary memory brackets occur outside loop under unchanged frozen role evaluator. Continuous child absence is not proved.",
+  "active_filter": "Save every raw query/snapshot interval. Active selection requires query start <= sample clock <= query end <= snapshot start <= snapshot end, all wholly inside unchanged helper loop start/end. Nonselected boundary observations retained and excluded. ON requires >=20 selected observations and max gap including loop boundaries <=0.5s. Current resident/private maxima are sampled lower bounds only; lifetime peak remains raw backend diagnostic and is never primary memory result. OFF memory/active_sampling are null, not zero. No comparison of memory savings, hard cap, backward/full peak or GPU memory.",
+  "parent_CPU": "Native parent CPU start/end and monotonic wall window run from before training control release to after completion-file detection. This window is explicitly wider than worker loop and includes common control/polling plus observation costs. Sum of query/snapshot wall durations and realized frequency describe duty, not exclusive CPU attribution or total observer cost. Query/snapshot wall sums and combined_query_wall_fraction use only wholly contained selected observations; they exclude raw boundary-crossing observations and are not total observer overhead.",
+  "identity_cleanup": "Reuse frozen Job start-suspended/authenticated actual base interpreter image, exact cmd native stdin gate and one conhost per launcher/native, retained PID+creation/image/file/opaque path policy. No role allowance added. Before_native requires3 roles;5held stages require5. Provider guard exact one pinned urllib3 import probe remains cumulative unchanged through stages/signals/terminal. Native released nonempty done line, all5retained exits0/job0 within4s. Any worker failure file rejects success and bounded diagnostic custody retained.",
+  "limits": "Separately frozen acknowledgment barrier correction after v1 rejection; no historical rerun or retrospective repair. Prior six joint cost/final-quality failures/invalid historical RSS unchanged. All v1 duty timings remain rejected-study descriptive values. Sampling lower bounds and two new pairs do not establish compression advantage, quality, negligible overhead, isolation, production safety or backward peak.",
+  "end_barrier": {
+    "control_filename": "postvalidation-continue.json",
+    "filename": "postvalidation-continue-accepted.json",
+    "controller_control_index": 10,
+    "worker_next_control_index": 11,
+    "timeout_seconds": 5.0,
+    "worker_identity_fields": [
+      "pid",
+      "creation_filetime"
+    ],
+    "acknowledgment_fields": [
+      "nonce",
+      "role",
+      "pid",
+      "filename",
+      "control_envelope",
+      "accepted_perf_counter",
+      "next_control_index"
+    ],
+    "success_receipt_fields": [
+      "control_filename",
+      "filename",
+      "requested_perf_counter",
+      "started_perf_counter",
+      "deadline_perf_counter",
+      "worker_identity",
+      "accepted_receipt",
+      "completed_perf_counter",
+      "wall_seconds",
+      "passed"
+    ],
+    "order": "request <= acknowledgment <= wait completion <= both retained live checks <= finish emission; acknowledgment may precede wait start",
+    "deadline": "min(wait start + original five-second barrier budget, original case deadline, original suite deadline); never renewed"
+  }
+}

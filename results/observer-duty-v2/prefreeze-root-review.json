@@ -1,0 +1,37 @@
+{
+  "reviewed_at": "2026-10-17T12:56:34.435044+00:00",
+  "reviewer": "root static exact producer/auditor/protocol/mock review",
+  "passed": true,
+  "files_sha256": {
+    "experiments/observer_duty_v2.py": "633fe591ebe5438a70faa672ae6365e480e2cc0e10eecedf6695a5128cea8d74",
+    "tests/test_observer_duty_v2.py": "8a9545baac306b8ae512c339b20ad0035ad9077090ec0746f4cf1fc91f3cd844",
+    "scripts/audit_observer_duty_v2.py": "932262a7f65386d2570b1d6639e8d28c03267aca7c21e373ac92ca9a7bce8819",
+    "tests/test_observer_duty_v2_auditor.py": "08f5409b4ddf0ceb93c515f81720893bf2457e3f516a5b63f1990eb108db2459",
+    "fixtures/observer-duty-v2/protocol.json": "b5c845cd2df375f063aa245f48b2dc5d13dea7e1c11e9f233cd5dc3f5e38652d"
+  },
+  "historical_files_unchanged": 854,
+  "changed_prior_producer_functions": [
+    "run_case",
+    "validate_freeze",
+    "verify_controls"
+  ],
+  "unchanged_prior_producer_function_count": 17,
+  "unchanged_prior_auditor_function_count": 20,
+  "reviewed_gates": [
+    "Only final acknowledgment wait, end-barrier revalidation and new-version pin/inventory changed. Same dense workload, seed, training data, AdamW, sampler, treatment and thresholds as frozen v1.",
+    "Parent consumes exact existing worker acknowledgment with nonce, PID, original control envelope and next index11; one wait bounded by five seconds and original case/suite deadlines. No deadline renewal.",
+    "Authoritative acknowledgment may precede wait start but cannot precede controller request or follow wait completion. Wait completion must precede exact retained worker/native liveness and finish emission.",
+    "Raw acknowledgment must match worker_controls and retained raw JSON. Independent auditor retains original workeraccept-before-live check and adds explicit parentwait custody/deadline/order replay.",
+    "33 producer mock groups include real helper under controller delayedack and timeout/wrongPID/futureack cases: no live or finish on failure; cleanup retained. Auditor mutation groups independently reject broken clocks/custody/deadlines and earlyfinish.",
+    "Four new workers OFF/ON/ON/OFF, four pinned model loads and64dense updates planned once, allfour initial/schedule/final hashes and entire loss trajectories exact before any ratios interpreted. No favorable ratio threshold."
+  ],
+  "limitations": [
+    "Prefreeze source and guarded mocks are not runtime acceptance. Sole actual suite remains unexecuted.",
+    "ON current memory maxima are whole-process sampled lower bounds, OFF unknown. No isolated backward/full peak, saving, cap, GPU, quality or compression advantage.",
+    "Two short paired wall ratios are descriptive, not population or production proof. Selected querywall duty is not CPU or total cost; wider native parent CPU window differs from loop.",
+    "All854historical files and v1fourrejections/sixscientificfailures/invalidRSS remain unchanged. No rerun or retrospective acceptance."
+  ],
+  "actual_suites_executed": 0,
+  "model_loads": 0,
+  "optimizer_updates": 0
+}

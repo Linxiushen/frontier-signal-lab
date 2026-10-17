@@ -5778,6 +5778,93 @@
       "evidence_record": "research/2026-10-17-observer-duty-and-validation-lifetime.md",
       "dedupe_key": "our:observer-duty@1b838a380db6ef6cef8b025c678d68d4d6e124b05e1f2229dc04711cc535de3a",
       "recorded_at": "2026-10-17T11:09:24.989219+00:00"
+    },
+    {
+      "id": "fla-cached-prompt-generation-protocol-alignment-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/68a2bdf1521fee0e8e993f9b57fd8ccec9d16352",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1506",
+      "type": "new_two_commit_landing_of_preserved_contribution_source_and_CI_metadata_not_local_reproduction",
+      "author": "aniruddhaadak80 (preserved first commit); yzhangcs (second alignment commit); not Nathan Chen",
+      "merged_by": "yzhangcs",
+      "published_at": "2026-10-17T11:27:40Z",
+      "published_at_kind": "actual two-commit PR landing; PR created2026-10-17T11:23:04Z; older1282 contribution preservation is author-described history, not a newly invented method",
+      "claim": "PR1506 lands a two-commit chain from8e7bcf38 through aniruddhaadak80 eeb043cd to yzhangcs68a2bdf. Complete original2file patches match the PR-branch original1f06fa55 and reconstruct the preserved predecessor. Final6file patches match exact adjacent-parent comparison and PR-head90a18fb2; aggregate2commit patches separately match PR files and final bytes. Shared FLAGenerationMixin selects the sequence-length protocol by supported upstream signature or explicit optional arguments, uses embeddings only for an explicit first iteration, slices only the selected IDs/embeddings when a next length is supplied, retains unsliced modern prompts and the legacy cache-position path, and makes token IDs contiguous. Cached optional dependency version/signature helpers and expanded modern/legacy/import regressions accompany it. No kernel files are changed.",
+      "author_assertions": "Author reports Transformers4.52.4:43pass3skip;4.57.1:290pass5skip;5.6.2/5.20.1:44pass2skip each;GB200:59pass6skip including generate/manual-greedy checks. Full45dependent-files/operator matrix was not rerun. ARM input-preparation timings include explicit-full-suffix2.460to13.378microseconds because the old path ignored the argument; standard2.461to2.416 and decode19.446to19.297microseconds. These are author reports, not reviewed numerical artifacts or end-to-end generation throughput.",
+      "ci_metadata": "Saved complete default-latest PR-head28checks:14success6skip5cancel1failure1in-progress1queued; landed10checks:8success2queued. Workflow lists13head/9landed complete over one page each. Historical check-pr-title39028491473 failed with the saved dependent-tests-unticked annotation; later same-head title workflow39028742399 succeeded, without erasing the former run. Exact-head H10039028780311 has2successful detection/decision jobs and4skipped test/benchmark/eligibility jobs. A2 run39028742356 has1successful detection job and1in-progress test job. Combined legacy status lists are empty, whose API state pending is not an additional failing job. No upstream test logs were read.",
+      "actual_parent": "eeb043cd270ecf361888267e117a1b24a3da7fe9",
+      "pr_head": "90a18fb236ddbe92c5744edb5b152ebfcabb984b",
+      "original_contribution": {
+        "author": "aniruddhaadak80",
+        "landed_predecessor": "eeb043cd270ecf361888267e117a1b24a3da7fe9",
+        "pr_branch_sha": "1f06fa558f08a8ec4330b96ba7258eb12bde8c80",
+        "base": "8e7bcf382b995982c33a1757f638d417a23d44dc"
+      },
+      "status": "landed_generation_input_protocol_alignment_source_only_no_local_quality_or_throughput_upgrade",
+      "our_inference": "A cached-state identity includes which prompt tokens were actually presented under the library protocol. A smaller/reused state or faster wrapper is uninterpretable if the baseline silently ignores suffix length or consumes stale embeddings. This is a public source-grounded measurement implication; it does not establish the authors private roadmap.",
+      "next_falsifiable_gate": "On pinned compatible devices and Transformers versions, compare authentic original/base/landing with empty/populated/no-cache, first/decode, IDs/embeddings, already-sliced prompts, explicit/omitted suffix lengths and legacy positions. Preserve actual token IDs, input shapes, state sequence length, next-token/loss and gradient outputs, then measure alternating full-generation cost separately from wrapper timing. Retain the disclosed argument-correctness cost regression.",
+      "limitations": [
+        "Exact source reconstruction and syntax parsing are not executed upstream tests or compiled/numerical equivalence.",
+        "A passing H100 workflow with skipped runtime jobs is not H100 numerical qualification; A2 remained unfinished at the saved read.",
+        "Shared mixin preparation does not independently qualify every downstream architecture or the separate CAT path.",
+        "Old restored contribution, new merge, author benchmark and our inference are separate evidence categories; no Nathan contribution or hiring claim.",
+        "Complete bounded latest-filter checks, workflow and legacy status contexts were read at separate mutable intervals, not an atomic state or all historical checks."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T124922Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1506@68a2bdf1521fee0e8e993f9b57fd8ccec9d16352",
+      "recorded_at": "2026-10-17T13:02:50.594089+00:00"
+    },
+    {
+      "id": "openclaw-abandoned-pool-and-source-generation-retirement-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/12048edd2e1bfb332ef945066b8bc1f1d06bc75c",
+      "related_url": "https://github.com/openclaw/openclaw/pull/175496",
+      "type": "new_first_party_landing_source_and_CI_metadata_not_local_reproduction",
+      "author": "steipete / Peter Steinberger",
+      "merged_by": "steipete",
+      "published_at": "2026-10-17T12:30:06Z",
+      "published_at_kind": "actual PR landing; commit12:30:05Z; proposal created2026-10-17T12:03:24Z",
+      "claim": "PR175496 lands12048edd over sole actual parent03fed2eb. Complete7file patches match PR/commit/head/adjacent-parent comparison and reconstruct full contents. Worker-pool broadcast discovery changes from strong Set<Pool> to Set<WeakRef<Pool>>, pruning unreachable references and retaining identity deduplication; explicit close still joins owned closures and finishes before deregistration. Source-aware test retirement expands reader/WAL/device/publication singleton generations, pairs plugin observation cache retirement with its publication bus, and keeps failed SQLite custody guards. Regressions add collection of an unused real pool/options/captured1MiBcontext and two successive test-file publication generations: current subscription reinstall, no registration growth, real cache update/delete and old/current WAL listener separation.",
+      "author_assertions": "On one32GBLinuxhost the author reports combined30-main-file retained-heap OLS slope50.498to22.845MiB/file on pinned Bun and35.626to18.409 on Node,31files/567tests. Six-file ablations show weak pools alone58.090to58.453 and source retirement alone58.090to57.953, both49.230; individual changes are not independently claimed full-run gains. Dropped leads, overlapping roots and an earlier temporary-filesystem failure remain disclosed. Snapshot reachability does not establish exclusive ownership or retained size; throughput/full-shard qualification is not claimed. We read no heap snapshots, driver samples or test logs and ran no upstream code.",
+      "ci_metadata": "Complete default-latest checks: current PR-head6431f1c has122checks (64success57skip1neutral) over2pages; landed12048edd has94 (11success80skip3cancel) over1page. Complete workflow lists18head/32landed; combined legacy statuses3successfulhead/0landed. Exact current-head CI39032024900 has70jobs:43success27skip. Exact landed CI39032770783 reports success with42jobs:1success41skip. The PR body cites39031047217 for superseded aaae0f64b6d4cd4b836d9bb74c37dc2abd7f95a4, which does not certify current6431f1c; current head metadata was independently fetched. No production or numerical job logs were read.",
+      "actual_parent": "03fed2ebe6bd442deccce7fcfdbe2c098c349318",
+      "pr_head": "6431f1c032b25788b21259e0e2dc74de01e0b8b5",
+      "status": "landed_weak_pool_discovery_and_test_generation_retirement_source_only_actual_retention_and_liveness_unverified",
+      "our_inference": "Discovery must not become hidden resource ownership, while live native custody must outlast the real drainage operation. Retiring a publication bus also requires retiring/rebinding its surviving observation cache. This supports measuring retention and liveness together, not treating dereference/GC or logical deregistration as native process/provider extinction.",
+      "next_falsifiable_gate": "In a pinned actual runtime distinguish unused pools, active pools with callbacks, explicit close failure and overlapping generations. Track real worker handles, resources, callback receipts and retained heap before/after full cleanup; inject failed drainage and confirm custody survives. Verify old listeners stop, current listeners remain live, cache publication update/delete persists and repeated recovery does not accumulate registrations. Alternate controls and candidates on a qualified host; report heap/GC costs separately from throughput and process extinction.",
+      "limitations": [
+        "An unused pool collection fixture does not prove active worker process/provider extinction or production memory savings.",
+        "Source-only generation fixtures preserve intended custody ordering but do not establish durable crash recovery or liveness under real provider failures.",
+        "Reported combined retained-heap gains are author claims with overlapping roots; individual6file ablations do not show isolated gains.",
+        "Landed CI success contains41skipped jobs; passing current-head jobs do not reproduce the heap driver, full-shard or production qualification.",
+        "Complete bounded latest-filter check/workflow/status metadata was read at separate mutable intervals, not an atomic state or all historical checks."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T124922Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/175496@12048edd2e1bfb332ef945066b8bc1f1d06bc75c",
+      "recorded_at": "2026-10-17T13:02:50.594089+00:00"
+    },
+    {
+      "id": "pythia14m-observer-duty-exact-ack-barrier-v2",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/observer-duty-v2/report.md",
+      "type": "our_original_separately_frozen_actual_measurement_finite_engineering_acceptance",
+      "author": "Linxiushen/frontier-signal-lab",
+      "published_at": "2026-10-17T12:57:56.203284+00:00",
+      "claim": "One separately frozen OFF/ON/ON/OFF study fixes finalcontinue acknowledgment wait only:4pinnedlocalPythia14m loads/64denseAdamWupdates, all4exactinitial/schedule/finalparameter hashes and16loss trajectories. Portable6185/6185/local6189/6189replay pass,59independentoutcome checks,176rawJSON/20normalretainedexits/fouremptyJobs. Exactack→parentwaitcomplete→bothlive→finish. TwoON/OFFwallratios1.039975/1.061819,GM1.050840 descriptive n2 only. ONsampledcurrentmemory lowerbounds/OFFnull; Toolhelpselectedquerywall70.82–73.39%≠CPU/totalcost. No quality/compression/GPU/production claim or retrospectivev1acceptance.",
+      "status": "finite_engineering_acceptance_passed_scientific_status_unchanged",
+      "result_file_sha256": "1d6d27ea419e36df6de92407ee2682dbfec7e0e817e6249af6119ae7fe35be37",
+      "protocol_sha256": "b5c845cd2df375f063aa245f48b2dc5d13dea7e1c11e9f233cd5dc3f5e38652d",
+      "implementation_freeze_sha256": "9c870a8cdfda231bb6b6f0bee780de26ac47c4d7ebb50c2d8b223c3758bf33c2",
+      "evidence_record": "research/2026-10-17-observer-duty-acknowledgment.md",
+      "dedupe_key": "our:observer-duty-v2@1d6d27ea419e36df6de92407ee2682dbfec7e0e817e6249af6119ae7fe35be37",
+      "recorded_at": "2026-10-17T13:04:07.724258+00:00"
     }
   ]
 }

@@ -1,0 +1,325 @@
+{
+  "reviewed_at": "2026-10-17T12:59:05.084053+00:00",
+  "kind": "frozen_v2_actual_measurement_saved_receipt_and_local_file_audits",
+  "report_sha256": "1d6d27ea419e36df6de92407ee2682dbfec7e0e817e6249af6119ae7fe35be37",
+  "producer_reported_passed": true,
+  "joint_acceptance_passed": true,
+  "frozen_audit": {
+    "passed": true,
+    "check_count": 6185,
+    "checks_passed": 6185,
+    "failures": []
+  },
+  "local_audit": {
+    "passed": true,
+    "check_count": 6189,
+    "checks_passed": 6189,
+    "failures": []
+  },
+  "wall_seconds": 60.06470549991354,
+  "paired_summary": {
+    "valid": true,
+    "all_four_trajectories_matched": true,
+    "pairs": [
+      {
+        "off_case": "pair1_off",
+        "on_case": "pair1_on",
+        "exact_trajectory_matched": true,
+        "on_off_wall_ratio": 1.0399748958996018
+      },
+      {
+        "off_case": "pair2_off",
+        "on_case": "pair2_on",
+        "exact_trajectory_matched": true,
+        "on_off_wall_ratio": 1.0618193963163718
+      }
+    ],
+    "geometric_mean_on_off_wall_ratio": 1.0508403856667752,
+    "boundary": "two counterbalanced pairs, descriptive conditional fixed intervention; no population inference or general causal/production claim"
+  },
+  "cases": [
+    {
+      "id": "pair1_off",
+      "producer_passed": true,
+      "loop_wall": 3.053043599938974,
+      "loop_cpu": 3.046875,
+      "training_memory": null,
+      "active_sampling": null,
+      "window_wall": 3.0881796000758186,
+      "parent_CPU_wide": 0.015625,
+      "raw_observations": 0,
+      "polls": 154,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 899535.2908391,
+        "parent_wait_start": 899535.2961948,
+        "worker_accepted": 899535.2994336,
+        "parent_wait_complete": 899535.3182475,
+        "live_checks": [
+          899535.3182791,
+          899535.3182846
+        ],
+        "finish_emitted": 899535.3182871
+      },
+      "barrier_wall_seconds": 0.022052700049243867,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 41304,
+            "creation_filetime": 134367154164744348,
+            "exit_code": 0
+          },
+          {
+            "pid": 47884,
+            "creation_filetime": 134367154167766792,
+            "exit_code": 0
+          },
+          {
+            "pid": 51772,
+            "creation_filetime": 134367154167286048,
+            "exit_code": 0
+          },
+          {
+            "pid": 21540,
+            "creation_filetime": 134367154172036001,
+            "exit_code": 0
+          },
+          {
+            "pid": 46584,
+            "creation_filetime": 134367154173070138,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 899535.3672559,
+        "completed_perf_counter": 899535.7845575,
+        "wall_seconds": 0.41730159998405725,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair1_on",
+      "producer_passed": true,
+      "loop_wall": 3.1750887000234798,
+      "loop_cpu": 3.171875,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584208384,
+        "sampled_current_private_max_bytes": 691773440,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 147,
+        "maximum_gap_including_boundaries_seconds": 0.04724969994276762,
+        "realized_samples_per_second": 46.29791917275033,
+        "memory_cpu_query_wall_seconds": 0.00685219990555197,
+        "snapshot_wall_seconds": 2.3232565004145727,
+        "combined_query_wall_fraction": 0.7338720018445134
+      },
+      "window_wall": 3.2203444000333548,
+      "parent_CPU_wide": 2.328125,
+      "raw_observations": 149,
+      "polls": 149,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 899550.2471724,
+        "parent_wait_start": 899550.2522662,
+        "worker_accepted": 899550.2570884,
+        "parent_wait_complete": 899550.2738906,
+        "live_checks": [
+          899550.2739218,
+          899550.2739262
+        ],
+        "finish_emitted": 899550.273928
+      },
+      "barrier_wall_seconds": 0.021624399931170046,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 21984,
+            "creation_filetime": 134367154318705636,
+            "exit_code": 0
+          },
+          {
+            "pid": 42180,
+            "creation_filetime": 134367154319942305,
+            "exit_code": 0
+          },
+          {
+            "pid": 37228,
+            "creation_filetime": 134367154319124206,
+            "exit_code": 0
+          },
+          {
+            "pid": 34952,
+            "creation_filetime": 134367154323956682,
+            "exit_code": 0
+          },
+          {
+            "pid": 56528,
+            "creation_filetime": 134367154324635416,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 899550.3226524,
+        "completed_perf_counter": 899550.7404134,
+        "wall_seconds": 0.41776099998969585,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_on",
+      "producer_passed": true,
+      "loop_wall": 3.2020951999584213,
+      "loop_cpu": 3.203125,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584470528,
+        "sampled_current_private_max_bytes": 692207616,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 142,
+        "maximum_gap_including_boundaries_seconds": 0.04431189992465079,
+        "realized_samples_per_second": 44.345964480332704,
+        "memory_cpu_query_wall_seconds": 0.006859600311145186,
+        "snapshot_wall_seconds": 2.260963400476612,
+        "combined_query_wall_fraction": 0.7082309735254607
+      },
+      "window_wall": 3.270160400075838,
+      "parent_CPU_wide": 2.34375,
+      "raw_observations": 144,
+      "polls": 144,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 899565.0680825,
+        "parent_wait_start": 899565.0733698,
+        "worker_accepted": 899565.0753808,
+        "parent_wait_complete": 899565.0953428,
+        "live_checks": [
+          899565.0953729,
+          899565.0953773
+        ],
+        "finish_emitted": 899565.0953792
+      },
+      "barrier_wall_seconds": 0.021973000024445355,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 55688,
+            "creation_filetime": 134367154468211436,
+            "exit_code": 0
+          },
+          {
+            "pid": 32576,
+            "creation_filetime": 134367154469433416,
+            "exit_code": 0
+          },
+          {
+            "pid": 33880,
+            "creation_filetime": 134367154468611427,
+            "exit_code": 0
+          },
+          {
+            "pid": 27004,
+            "creation_filetime": 134367154473746891,
+            "exit_code": 0
+          },
+          {
+            "pid": 2636,
+            "creation_filetime": 134367154474438624,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 899565.1224925,
+        "completed_perf_counter": 899565.5602486,
+        "wall_seconds": 0.4377560999710113,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_off",
+      "producer_passed": true,
+      "loop_wall": 3.015668399981223,
+      "loop_cpu": 3.015625,
+      "training_memory": null,
+      "active_sampling": null,
+      "window_wall": 3.0467278000433,
+      "parent_CPU_wide": 0.0,
+      "raw_observations": 0,
+      "polls": 152,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 899579.6109473,
+        "parent_wait_start": 899579.6168279,
+        "worker_accepted": 899579.627864,
+        "parent_wait_complete": 899579.6389234,
+        "live_checks": [
+          899579.6389509,
+          899579.6389551
+        ],
+        "finish_emitted": 899579.6389573
+      },
+      "barrier_wall_seconds": 0.022095499909482896,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 53556,
+            "creation_filetime": 134367154616384380,
+            "exit_code": 0
+          },
+          {
+            "pid": 34440,
+            "creation_filetime": 134367154617587380,
+            "exit_code": 0
+          },
+          {
+            "pid": 30748,
+            "creation_filetime": 134367154616783615,
+            "exit_code": 0
+          },
+          {
+            "pid": 30596,
+            "creation_filetime": 134367154621771140,
+            "exit_code": 0
+          },
+          {
+            "pid": 18976,
+            "creation_filetime": 134367154622411019,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 899579.6866843,
+        "completed_perf_counter": 899580.126477,
+        "wall_seconds": 0.4397926999954507,
+        "timeout_seconds": 4.0
+      }
+    }
+  ],
+  "actual_loads": 4,
+  "actual_updates": 64,
+  "all_jobs_empty": true,
+  "retained_exit_count": 20,
+  "limits": "New v2 finite receipt/role/provider/cleanup acceptance with two descriptive fixed dense pairs only. Previous v1fourtiming rejections, sixscientific failures and invalid historicalRSS unchanged. Current sampled maxima are whole-process lower bounds, OFF unknown; no isolated backward/fullpeak, compressionadvantage, GPU, quality, hardcap or productionclaim."
+}

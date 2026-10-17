@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-observer-duty-v2",
+  "reviewed_at": "2026-10-17T12:55:55.591803+00:00",
+  "reviewer": "training_v2_audit independent saved-receipt auditor author",
+  "passed": true,
+  "files_sha256": {
+    "experiments/observer_duty_v2.py": "633fe591ebe5438a70faa672ae6365e480e2cc0e10eecedf6695a5128cea8d74",
+    "tests/test_observer_duty_v2.py": "8a9545baac306b8ae512c339b20ad0035ad9077090ec0746f4cf1fc91f3cd844",
+    "fixtures/observer-duty-v2/protocol.json": "b5c845cd2df375f063aa245f48b2dc5d13dea7e1c11e9f233cd5dc3f5e38652d",
+    "scripts/audit_observer_duty_v2.py": "932262a7f65386d2570b1d6639e8d28c03267aca7c21e373ac92ca9a7bce8819",
+    "tests/test_observer_duty_v2_auditor.py": "08f5409b4ddf0ceb93c515f81720893bf2457e3f516a5b63f1990eb108db2459"
+  },
+  "pure_synthetic_tests": {
+    "command": "local-state/activation-venv/Scripts/python.exe -S -X utf8 -m unittest tests.test_observer_duty_v2_auditor -v",
+    "test_count": 28,
+    "passed": true
+  },
+  "independent_static_review": {
+    "full_producer_and_protocol_diff_reviewed": true,
+    "full_new_auditor_and_tests_reviewed": true,
+    "unchanged_old_auditor_functions_classes": [
+      "sha",
+      "finite",
+      "integer",
+      "fingerprint",
+      "canonical",
+      "stamp",
+      "schedule",
+      "Replay",
+      "replay_roles",
+      "replay_provider",
+      "replay_controls",
+      "raw_payloads",
+      "bounded",
+      "provider_file_hash",
+      "reading",
+      "close",
+      "replay_training",
+      "replay_active",
+      "audit_files",
+      "main"
+    ],
+    "changed_old_auditor_functions_classes": [
+      "audit"
+    ],
+    "new_auditor_functions": [
+      "replay_postvalidation_ack_barrier"
+    ],
+    "findings": [
+      "No unresolved blocker remains. Producer finalwait consumes the authoritative existing postvalidation-continue accepted raw worker receipt before either retained live check or finish emission, and failure cannot proceed to either action.",
+      "Independent replay requires exact closed parentwait/ack fields, nonce/worker PID/retained creation identity, original controller index10 envelope and worker nextindex11, immutable min(start+5,case,suite) deadline, request<=ack<=waitcomplete<=both live<=finish. Ack may precede parent waitstart because file publication is asynchronous.",
+      "All prior exact worker-accept-before-live, raw inventory, role/provider/identity/image, control, training boundary, sampling/math, full four-trajectory equality and exact retained5 exits0/Job0 checks remain unchanged. Separate end_barrier protocol declaration and all30historical dependency bytes independently pinned.",
+      "Full producer diff reviewed; model preparation, dense_loop, worker, active observation/schedule/sampler/summary and role/provider helper usage unchanged. Only final wait behavior and explicit posthoc producer validation/freezing differ under separate v2 identity.",
+      "Caught draft native identity schema mistake before stabilization and verified correction to native_descendant.os_identity. No historical v1 source, auditor, protocol, freeze, raw records, rejected outcome or preservation checker changed.",
+      "28independent synthetic mutation groups cover delayed/missing/late/early ack, timeout/deadline renewal, early live/finish, wrong sender/control envelope/index, raw files, full training trajectories, roles/provider/cleanup and valid unfavorable slowdown without success threshold."
+    ]
+  },
+  "frozen_hashes_set": {
+    "protocol": true,
+    "producer_sources": true,
+    "historical_dependencies_count": 30
+  },
+  "execution_boundary": {
+    "actual_model_loads": 0,
+    "actual_optimizer_updates": 0,
+    "actual_native_child_starts": 0,
+    "socket_operations": 0,
+    "provider_calls": 0,
+    "historical_files_modified": false,
+    "staging_commit_push_performed": false
+  },
+  "ready_for_root_freeze_and_sole_execution": true,
+  "freeze_requirements": "Root must freeze new five reviewed files and protocol SHA, all30 historical deps, four exact executable bytes/opaque paths, pinned provider bytes/opaque path and preexecution timezone-aware frozen_at. Root owns one fresh actual suite; this receipt author performed no actual workload or native/provider execution."
+}

@@ -6,6 +6,8 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 追踪前沿实验室研究者与开源作者的个人公告、原创仓库、实际贡献、issue/PR/discussion。每个判断附原始链接、观察时间、替代解释和下一次检查条件。入职消息用于发现人物；研究优先级由技术证据决定。
 
+本轮交付：[观察器 v2 真实测量](results/observer-duty-v2/report.md)完成 4 次加载、64 次更新，确认屏障和冻结收据审计通过；两对 ON/OFF 耗时比 1.040/1.062 仅作描述值。保留上一版四项拒绝、六项科学负结果和无效历史 RSS。见[复核命令](fixtures/observer-duty-v2/README.md)及[研究判断](research/2026-10-17-observer-duty-acknowledgment.md)。
+
 ## 第一轮：2026-10-15
 
 - **陈广宇 / Nathan Chen** 的[原帖](https://x.com/nathancgy4/status/2110522061953327565)发布于北京时间 **08:04:05**，宣布离开 Kimi；该帖没有宣布加入 Anthropic。新去向暂记 **未核验**。

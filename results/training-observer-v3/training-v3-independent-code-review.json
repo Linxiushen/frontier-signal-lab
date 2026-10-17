@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-17T09:04:29.835015+00:00",
+  "reviewer": "independent training_v2_audit agent",
+  "review_kind": "v3 prefreeze static producer/protocol/interface review plus stdlib synthetic/mutation auditor validation",
+  "new_file_sha256": {
+    "experiments/training_observer_v3.py": "74d470e41ce5268c6cc761b7cd004e0e7d8b264095b045e8207912710662d6d5",
+    "tests/test_training_observer_v3.py": "b2a06a4988f5c5a1a47b2fc1a584e31c740af72897fddd881e1af69bf091dac5",
+    "fixtures/training-observer-v3/protocol.json": "b248a981ffe9db8aea50f4a0c85d057e968620df372c74acb0835e2b046e3552",
+    "scripts/audit_training_observer_v3.py": "e9a80250ed9b7d6caf8415165eab24cd62735f52e0b62158d7190e8bb4fc09ea",
+    "tests/test_training_observer_v3_auditor.py": "0bdd4534ba9e659de771ccb6406210bbcec8dc2f094c4ff185cb6ca531e6ab94"
+  },
+  "new_files_are_LF": true,
+  "immutable_v2_files_read_only_confirmed_sha256": {
+    "experiments/training_observer_v2.py": "8355af96bebca468b458401b3a70fd5de75e15ec4ac640c4678e0f48e72fc30b",
+    "tests/test_training_observer_v2.py": "cce005f32ce87f65fc0b119d19c4d759fb79bc06f7fcb5ad97137ad9caa66b31",
+    "fixtures/training-observer-v2/protocol.json": "d381c42ac6f21fc33ac27a4fdc9980b1cd7beeee32f82f7295c58afa742cfd23",
+    "fixtures/training-observer-v2/implementation.json": "a07656ffb21da55e750300b88e69ceead85b914dbef48855072a3fe1af5722ec",
+    "scripts/audit_training_observer_v2.py": "57c76b3cb0ac1dccbc222835cb71a09df06f812d8b9dda8e587480f713539822",
+    "tests/test_training_observer_v2_auditor.py": "ae1ec687d059249f80b696378e9a4102ebe10da51bdae15f6e57700cee0c3a11",
+    "results/training-observer-v2/report.json": "5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873"
+  },
+  "protocol_source_dependency_literal_contracts_match": true,
+  "frozen_dependency_count": 21,
+  "auditor_tests": {
+    "command": "local-state/activation-venv/Scripts/python.exe -S -X utf8 -m unittest tests.test_training_observer_v3_auditor -v",
+    "tests_run": 29,
+    "passed": 29,
+    "elapsed_seconds": 2.331,
+    "fixture_kind": "synthetic receipt dictionaries only",
+    "synthetic_receipt_checks": 3865,
+    "synthetic_receipt_checks_passed": 3865,
+    "unperformed_optional_file_checks": [
+      "raw_controller_and_worker_receipt_files",
+      "raw_worker_stage_receipt_files",
+      "local_provider_source_file",
+      "local_provider_source_path"
+    ]
+  },
+  "review_findings": [
+    "New v3 files only; v2 acceptance failure remains immutable and is not attributed retrospectively.",
+    "One exact import-phase Windows AF_INET6 23 / SOCK_STREAM1 / proto0 bind of tuple2 (::1, integer0) per ML worker; import38 budget0. One separate synthetic denial; all other monitored events denied.",
+    "Fresh bounded source hashing, opaque canonical path SHA256, exact two contiguous nearest urllib3 source frames _has_ipv6@127 and <module>@137, one outside-package boundary inspection. No full-stack or native-network-sandbox claim.",
+    "At most4 saved real network events and8 saved package frames/9 inspected frames/1MiB source bound. Denial, overflow, truncation, incomplete hashes, wrong arguments/phase or dropped event prevents success.",
+    "Independent auditor reconstructs each guard snapshot and unchanged cumulative diagnostic event, links event time to actual import interval and checks optional local provider bytes and actual opaque canonical path.",
+    "Fixed raw worker identity/native/stage/self-memory/terminal files independently match report. Worker-failure file included in fixed inventory and cannot silently coexist with acceptance.",
+    "V2 identity, role census, four executable paths/hashes, memory brackets, actual training semantics, busy/cap/timeout, precise exit37/import38, nonrenewable budgets and complete cleanup checks retained.",
+    "Producer lifecycle static review retains original local-only loader and exact two dense updates, freezes before a single root actual suite, differentiates provider rejection from identity/thread errors, persists guard diagnostics in worker-failure receipts."
+  ],
+  "prohibited_execution_performed": {
+    "ML_import": false,
+    "model_load": false,
+    "optimizer_update": false,
+    "native_workload_child": false,
+    "socket_or_network_probe": false,
+    "acceptance_suite": false
+  },
+  "root_review_required_before_sole_execution": true,
+  "implementation_freeze_present_at_review": false,
+  "limitations": [
+    "Synthetic receipt consistency and mock coverage do not validate an actual OS/workload execution.",
+    "Saved event/caller metadata cannot authenticate a coherent rewrite or prove native network isolation/continuous child absence.",
+    "No scientific compression, quality, cost or production reliability conclusion."
+  ],
+  "passed": true
+}

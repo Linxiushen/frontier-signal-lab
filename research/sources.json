@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-17T07:11:24.703580+00:00",
-  "observation_note": "All 152 historical source objects retained exactly. Added two newly landed public source/CI metadata records and one original frozen v2 actual-integration failure. Actual event times and later bounded reads are separate. Three package imports, zero model loads/updates; frozen rejection preserved. Historical scientific negatives/invalid RSS, source-only recovery gates and unverified next employer remain.",
+  "last_updated_at": "2026-10-17T09:12:22.803434+00:00",
+  "observation_note": "All 155 historical source objects retained exactly. Added two newly landed public source/CI metadata records and one original frozen v3 actual-integration pass. Actual event times and later bounded reads are separate. Five controlled cases pass with three model loads and six dense updates; the earlier v2 failure remains preserved. Historical scientific negatives/invalid RSS, source-only recovery gates and unverified next employer remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -5588,6 +5588,115 @@
       },
       "dedupe_key": "windows-pinned-pythia-training-observer-integration-v2@5a6cec898c46c1daaebd48d3ce0543eac3d097b6848b737c2047b379aa495873",
       "recorded_at": "2026-10-17T07:11:24.703580+00:00"
+    },
+    {
+      "id": "fla-path-backward-runtime-length-specialization-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/38108034e574aab34ae30e0e647ed3952f446f32",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1495",
+      "type": "new_landing_of_previously_reviewed_proposal_source_and_CI_metadata_only",
+      "author": "Windyskr; not Nathan Chen",
+      "merged_by": "zhiyuan1i",
+      "published_at": "2026-10-17T07:36:56Z",
+      "published_at_kind": "actual new PR landing; squash commit time07:36:55Z; old proposal and author benchmark remain historical",
+      "claim": "Previously reviewed PR1495 lands as38108034 over actual parent749524ca. All5 full patches match PR/commit/adjacent-parent comparison and reconstruct exact parent-to-landed contents. Four PaTH kernel definitions replace length-dependent T/NUM_BLOCKS constexpr annotations with runtime arguments excluded from specialization; their kernel-body ASTs are unchanged. The added parametrized test asserts runtime/non-specialized parameters for five helpers including the already-dynamic backward helper. This is source maturity, not independently measured speed or dynamic compiler equivalence.",
+      "author_assertions": "The old A800 empty-cache/alternating-run timings, first-input compile cost, warm spread and atomic-gradient observations remain PR-body author reports. No benchmark gist or runtime log was downloaded this pass.",
+      "ci_metadata": "At saved reads, unchanged PR-head eb034f39 H100 run39014293072 completed success with2successful and4skipped jobs. PR-head latest-filter28check runs include14success12skipped2cancelled; older A2 run38941385466 is successful metadata, not a newly read runtime log. Landed latest-filter20checks include7success11skipped2queued; A2 test/benchmark runs39014292893/39014293081 remain queued and H100 smoke39014292898 cancelled. No local upstream execution or new numerical-log claim.",
+      "actual_parent": "749524ca2924f58fb80b41823eab5bad89a6cccb",
+      "pr_head": "eb034f39ee643ec54b0df5380a3d506353ca2c55",
+      "status": "landed_public_source_no_local_runtime_or_scientific_upgrade",
+      "our_inference": "Compile specialization deserves a separate first-call cost dimension in variable-length training. Integration maturity changed; current residual-bank training-observer admission and failed cost/final-quality screens remain unchanged.",
+      "next_falsifiable_gate": "On a pinned suitable device compare exact adjacent parent/landing in alternating fresh-cache processes. Retain first-input and every new packed/dense length cost, specialization/compile counts, warm time, output/all-gradient controls and device/CP coverage. Preserve initial compile cost and atomic nondeterminism controls.",
+      "limitations": [
+        "Old1495proposal/benchmark and prior1494selected A2 logs remain historical; this new record is a landing event.",
+        "Unchanged source bodies do not guarantee equal compiled behavior; queued/skipped/cancelled paths remain gaps.",
+        "Workflow pages and latest-filter check pages were complete for saved totals at their respective intervals, not a single atomic snapshot or all historical filter=all records.",
+        "Public upstream and author-fork MIT metadata verified; no third-party implementation copied."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T085247Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1495@38108034e574aab34ae30e0e647ed3952f446f32",
+      "recorded_at": "2026-10-17T09:01:47.419173+00:00"
+    },
+    {
+      "id": "openclaw-canvas-replacement-removal-failure-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/5f4d940ea796fd0e8176feedc92010054f04c5c9",
+      "related_url": "https://github.com/openclaw/openclaw/pull/175343",
+      "type": "new_first_party_landing_source_and_CI_metadata_not_local_reproduction",
+      "author": "steipete / Peter Steinberger",
+      "merged_by": "steipete",
+      "published_at": "2026-10-17T08:46:31Z",
+      "published_at_kind": "actual new PR landing; squash commit time08:46:30Z; created08:30:54Z",
+      "claim": "PR175343 lands as5f4d940e over actual parentdb27a3a8. The production one-line change removes catch-and-ignore from awaited recursive forced removal of the old Canvas document directory. Removal rejection now propagates before mkdir and replacement writes. The new test injects an external pre-delete EBUSY refusal, requires the exact original Error object and checks the previous HTML. Both full patches match PR/commit/adjacent-parent comparison and reconstruct exact contents.",
+      "author_assertions": "The PR and author landing comment report original-regression failure, fixed18/18document-plus-HTTP-host tests,14/14suppression tests and a disclosed local missing-parse5/type limitation. Those are author assertions; no local upstream tests or job logs were executed/read. The old count189check runs in the landing comment is a timestamped report; our later default-latest capture finds201.",
+      "ci_metadata": "Exact PR-head c8ce50c4 primary CI39017717559 completed success with36successful and28skipped jobs. Later complete default-latest check capture totals201:67success133skipped1neutral. Landed main CI39018632821 was cancelled and has0jobs; landed default-latest180checks include21success145skipped14cancelled. Complete workflow-list pagination retains35PR-head and111landed runs at saved reads. PR-head success is not landed-head runtime proof.",
+      "actual_parent": "db27a3a8d2dadc69ca7f45d3755a966bd1d90ba5",
+      "pr_head": "c8ce50c47ea438f4c0f8516316c5f640d5b184c8",
+      "status": "landed_fail_closed_replacement_source_only_actual_harness_gate_unmet",
+      "our_inference": "A failed prerequisite cleanup must remain distinguishable from successful replacement. Suppressing the failure can create a mixed old/new durable view. Stopping later writes preserves failure visibility but does not establish transactionality or restoration after partial removal.",
+      "next_falsifiable_gate": "In an actual pinned persistence harness inject pre-delete refusal and partial-delete I/O failures separately. Retain exact failure identity, verify no post-failure replacement writes, preserve honest damaged-state receipts, and test bounded cleanup, explicit retry policy and a second restart. Do not infer whole-document preservation from the pre-delete refusal fixture.",
+      "limitations": [
+        "Recursive removal may partially delete before error; no rollback, atomic replacement or original-byte preservation in that case.",
+        "The new regression models pre-delete refusal, not actual filesystem/provider failure, concurrent ownership revocation or a second restart.",
+        "Author-reported local type failures remain disclosed and are not repaired by hosted PR-head metadata.",
+        "Latest-filter check runs are not the author comment historical filter=all enumeration; intervals/counts differ.",
+        "No upstream execution, live Gateway proof, provider teardown or production reliability guarantee."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T085247Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/175343@5f4d940ea796fd0e8176feedc92010054f04c5c9",
+      "recorded_at": "2026-10-17T09:01:47.419173+00:00"
+    },
+    {
+      "id": "windows-pinned-pythia-training-observer-integration-v3-pass",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/training-observer-v3/report.json",
+      "type": "our_predeclared_actual_engineering_integration_not_scientific_result",
+      "author": "This project; original code",
+      "published_at": "2026-10-17T09:08:11.087094+00:00",
+      "published_at_kind": "actual sole-suite completion; saved report authoritative",
+      "claim": "One separately frozen five-case Windows suite passes: three local pinned Pythia loads, six dense updates, 16memory brackets,22held role inventories,37timestamped controls,21retained exits/fiveemptyJobs. Three exact allowed urllib3 IPv6 bind audit attempts with source/path/frame/argument/phase/time/cumulative custody; no unexpected denials or overflow. Precise exit37/import38 controls pass.",
+      "status": "bounded_actual_dense2_training_observer_acceptance_passed_no_scientific_upgrade",
+      "experiment_acceptance_passed": true,
+      "our_inference": "Bounded loader/observer integration prerequisite cleared. Held sampler-on parentCPU .140625s over about .401wallseconds is visible descriptive observation cost, not causal training overhead. Sampled post-training cap overshoots16,908,288bytes; no training hard cap/backward peak/memory-saving claim. Next separately freeze duty-cycle and training-memory measurement controls before cost science.",
+      "result_sha256": "714310728dec612e64876e5637b52fdfade03748f208948ed9c2f4b0b003179d",
+      "protocol_sha256": "b248a981ffe9db8aea50f4a0c85d057e968620df372c74acb0835e2b046e3552",
+      "implementation_sha256": "3e72671b15a04e0ec99b6968e721d0f74f70bff51a30d7052ecb24cc229e1c21",
+      "frozen_audit": {
+        "passed": true,
+        "checks_passed": 27204,
+        "check_count": 27204,
+        "path": "results/training-observer-v3/frozen-audit.json"
+      },
+      "local_file_audit": {
+        "passed": true,
+        "check_count": 27211,
+        "unperformed_optional_file_checks": [],
+        "path": "results/training-observer-v3/local-file-audit.json"
+      },
+      "independent_outcome_review": "results/training-observer-v3/independent-outcome-summary.json",
+      "boundaries": [
+        "Allowed bind audit attempt is not OS bind success; v2 caller remains historically unobserved.",
+        "Python audit guard is not native network sandbox or whole-stack evidence.",
+        "Held census is not continuous child absence; current brackets/lifetime peaks are not isolated backward peaks.",
+        "Earlier six scientific cost/final-quality screens fail; invalid historical parent RSS remains invalid.",
+        "No compression, GPU, external provider, full training or production reliability result."
+      ],
+      "record": "research/2026-10-17-training-integration-and-replacement-failure.md",
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT"
+      },
+      "dedupe_key": "windows-pinned-pythia-training-observer-integration-v3@714310728dec612e64876e5637b52fdfade03748f208948ed9c2f4b0b003179d",
+      "recorded_at": "2026-10-17T09:12:22.803434+00:00"
     }
   ]
 }

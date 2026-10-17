@@ -50,6 +50,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | [Dual self-path / OS-image census](results/dual-identity-census/report.md) | Two bounded identity/cleanup controls and frozen audits pass; extras remain unapproved and training remains forbidden |
 | [Narrow process-role policy](results/role-policy-probe/report.md) | Three controls pass; exact console roles admitted, same-image Python/cmd extras rejected; actual training integration remains unvalidated |
 | [Timestamped pretrained integration v2](results/training-observer-v2/report.md) | Failed after three package imports on denied `socket.bind`; zero model loads/updates; both precise failure controls pass |
+| [Actual pretrained integration v3](results/training-observer-v3/report.md) | Five controlled cases pass; three pinned model loads and six dense updates; scientific cost/quality unchanged |
 | [Earlier matched-token training](results/activation-training/report.md) | Slower CPU execution, higher process peak, both synthetic holdouts regressed |
 
 The tool reports numerical disagreement without hiding failed scientific gates.
@@ -110,6 +111,13 @@ identities exited and all five Jobs were empty. The frozen success auditor
 still rejects ten checks. A separate post-outcome checker preserves this
 failure. [Static diagnosis and next gate](research/2026-10-17-pretrained-observer-and-teardown-bounds.md)
 distinguish a possible IPv6 probe from an established runtime cause.
+
+The separate [v3 actual integration](fixtures/training-observer-v3/README.md)
+now passes all five controlled cases: three pinned local model loads and six
+dense updates, exact import-phase probe provenance, stage memory, busy/cap and
+cleanup. Held sampler observation cost is retained. This clears a bounded
+engineering prerequisite; earlier scientific failures and invalid historical
+RSS remain unchanged. [Measured result and limits](results/training-observer-v3/report.md).
 
 ## Bring one counterexample
 

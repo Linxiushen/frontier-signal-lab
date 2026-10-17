@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-pinned-pythia-training-observer-integration-v3",
+  "predeclared_at": "2026-10-17T08:59:37.645813+00:00",
+  "kind": "Engineering acceptance of offline pinned Pythia loader and exactly two dense AdamW steps; no quality/compression/cost rescue study.",
+  "platform": "Windows JobObject only; no uncontained/platform fallback.",
+  "source_paths": [
+    "experiments/training_observer_v3.py",
+    "tests/test_training_observer_v3.py"
+  ],
+  "frozen_dependency_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/capture_real_activation.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/activation-cost/train.json",
+    "fixtures/activation-cost/manifest.json",
+    "fixtures/activation-cost/protocol.json",
+    "fixtures/activation-cost/implementation.json",
+    "experiments/training_observer_probe.py",
+    "experiments/role_policy_probe.py",
+    "experiments/dual_identity_census.py",
+    "fixtures/role-policy-probe/protocol.json",
+    "fixtures/role-policy-probe/implementation.json",
+    "experiments/training_observer_v2.py",
+    "fixtures/training-observer-v2/protocol.json",
+    "fixtures/training-observer-v2/implementation.json"
+  ],
+  "config": {
+    "torch_version": "2.9.1+cpu",
+    "transformers_version": "4.57.3",
+    "seed": 503,
+    "optimizer_steps": 2,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "train_blocks": 128,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "trainable_parameter_count": 14067712,
+    "parameter_tensors": 76,
+    "manual_allocation_bytes": 67108864,
+    "private_cap_increment_bytes": 50331648,
+    "minimum_allocation_delta_bytes": 58720256,
+    "memory_bracket_tolerance_bytes": 4194304,
+    "sampler_interval_seconds": 0.02,
+    "maximum_recorded_sample_gap_seconds": 0.5,
+    "handshake_timeout_seconds": 5.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "training_timeout_seconds": 15.0,
+    "barrier_timeout_seconds": 5.0,
+    "overhead_window_seconds": 0.4,
+    "busy_timeout_seconds": 1.5,
+    "busy_minimum_cpu_seconds": 0.25,
+    "busy_backstop_seconds": 10.0,
+    "cap_ready_to_termination_maximum_seconds": 1.0,
+    "cleanup_timeout_seconds": 4.0,
+    "case_timeout_seconds": 60.0,
+    "total_timeout_seconds": 180.0,
+    "prehandshake_expected_exit_code": 37,
+    "import_failure_expected_exit_code": 38
+  },
+  "cases_in_order": [
+    {
+      "id": "healthy_dense2",
+      "mode": "healthy",
+      "manual_allocation_bytes": 67108864
+    },
+    {
+      "id": "dense2_busy_deadline",
+      "mode": "timeout",
+      "manual_allocation_bytes": 0
+    },
+    {
+      "id": "dense2_private_cap64",
+      "mode": "private_cap",
+      "manual_allocation_bytes": 67108864
+    },
+    {
+      "id": "prehandshake_exit37",
+      "mode": "prehandshake_fail",
+      "manual_allocation_bytes": 0
+    },
+    {
+      "id": "injected_import_failure38",
+      "mode": "import_fail",
+      "manual_allocation_bytes": 0
+    }
+  ],
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "assets": {
+      "README.md": {
+        "bytes": 10560,
+        "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+      },
+      "config.json": {
+        "bytes": 698,
+        "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+      },
+      "generation_config.json": {
+        "bytes": 111,
+        "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+      },
+      "model.safetensors": {
+        "bytes": 28143920,
+        "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+      },
+      "special_tokens_map.json": {
+        "bytes": 441,
+        "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+      },
+      "tokenizer.json": {
+        "bytes": 2114042,
+        "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+      },
+      "tokenizer_config.json": {
+        "bytes": 4834,
+        "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+      }
+    },
+    "load_model_helper": "unchanged experiments.activation_cost_probe.load_model",
+    "planned_model_loads": 3,
+    "planned_optimizer_updates": 6,
+    "dense_only": true,
+    "no_download_install_or_GPU": true
+  },
+  "training": {
+    "fixture": "fixtures/activation-cost",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "schedule": [
+      [
+        116,
+        73
+      ],
+      [
+        14,
+        52
+      ]
+    ],
+    "schedule_sha256": "6669c93b80a0ed4edf521463a92516ed068611eea85b20fb067bff5972e65c6c",
+    "seed": 503,
+    "steps": 2,
+    "batch_shape": [
+      2,
+      65
+    ],
+    "input_tokens_per_batch": 128,
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "helpers": [
+      "load_model",
+      "optimizer_for",
+      "training_loop",
+      "final_validity",
+      "parameter_hash"
+    ],
+    "method": "dense",
+    "arm": "token",
+    "holdout_opened": false,
+    "checkpoint_written": false,
+    "interpretation": "Two finite engineering updates with exact AdamW counters and changed parameter digest; losses are trajectory receipts, not final quality or training efficiency evidence."
+  },
+  "identity": "Explicit frozen launcher, base interpreter, native cmd and conhost image/file/opaque path roles. Worker self executable is venv launcher claim; retained worker OS image is base interpreter. Reuse dual census and immutable no-ML role evaluator solely for exact current identity admission. New v3 controller separately authorizes fixed training actions after admitted census, with monotonic emit/accept traces and action ordering.",
+  "native_child": "Reuse frozen workload observer launch and identity contract for System32 cmd.exe /d /q /c and literal set /p workload_observer_gate=, anonymous stdin pipe, no inherited job handle, close_fds, shell=False and CREATE_NO_WINDOW. Healthy release writes nonempty done line and checks exit0; retained live worker/native handles checked before healthy finish and busy termination. EOF after worker termination may contribute to child exit; no exclusive kill-cause claim.",
+  "stages": "Authenticated held self-before/parent/self-after memory brackets at preimport, postimport, postload (model+optimizer object+two fixed batches+initial digest), postupdate (two updates+postvalidation+final digest), then allocated control. Parent waits fixed stage budgets; four primary stages preserve current resident/private and process lifetime peak separately. Postupdate includes validation/digest temporary history, not an isolated backward peak. No new peak/cost benefit claim. Retain exact unchanged load_model start/end/wall inside enclosing prepare interval (asset/train verification, schedule, load, optimizer/batches, initial digest); these descriptive engineering clocks are not comparative model-loading cost science.",
+  "process_discovery": "Held before_native census requires launcher/base/one launcher conhost (3); held preimport/postimport/postload/postupdate/allocated/pretermination require exactly launcher/base/native and one pinned conhost per launcher/native (5). Exact one topology is environment-specific. Unknown descendants fail closed. Each snapshot reconciles Job counts; held liveness and all image/path/PID/creation owner pins checked. Continuous coverage and loaded-code integrity are not proved; ephemeral children may escape snapshots.",
+  "overhead": "Healthy worker remains held at postupdate while parent records fixed0.4s nonsampling then0.4s sampling windows. Preserve raw OS parent CPU start/end and clocks plus sample/query index spans. Sampled window performs actual-worker handle memory/CPU query and Toolhelp snapshot every20ms; record each query and scan wall/process CPU costs, as well as active-stage polling query costs. Every complete role census plus held-liveness call is separately timed as held_role_census_and_liveness, including its internal OS image/path/file hashing, Job/liveness and retained-handle queries in that aggregate; these internal costs are not separately attributed. The memory/CPU sample and overhead snapshot categories exclude authentication, worker-side thread scans, other non-census cleanup/Job checks and parent-CPU measurement calls. OS CPU quantization, instrumentation and wake scheduling apply. Neither per-query sums, census aggregate nor idle windows establish total observer cost or causal training slowdown/noninterference.",
+  "timeout_and_private_threshold": "After actual load/two updates, timeout case performs repeated model no_grad forward, at least one completed, no extra backward/optimizer. Sample actual worker for1.5s, max recorded sample gap including boundaries<=0.5s and native CPU progress>=0.25s, verify known subtree live, then terminate whole job. Private threshold uses postupdate private+48MiB, holds touched64MiB, compares parent/self, proves at least one no_grad model forward and sampled crossing, then termination return within1s of allocated self-before. Healthy also holds64MiB with threshold disabled. This is a post-training sampled threshold with overshoot, not a hard import/training/all-descendant cap.",
+  "expected_failures": "Prehandshake deliberate exit37 has absent handshake and actual interpreter identity unavailable. Import38 occurs only after authenticated preimport bracket/native child, nonce-named missing module exact ModuleNotFoundError, no Torch/Transformers/model/update; actual interpreter and launcher exact38. Other exceptions never satisfy these controls. Cleanup retained handles exited and job0 within4s required for all cases. Prehandshake cleanup covers retained launcher only, actual interpreter unavailable and Job count0 required. Other authenticated cases cleanup exactly all five observed/retained roles; healthy exits0, timeout/cap held Python identities Job exit57347, import failure both Python identities38; native/conhost individual exit codes retained without universal rule.",
+  "freeze_and_execution": "Root reviews protocol, exact new source/dependency/Python/base-Python/cmd hashes and pure mocked tests, then writes implementation.json before exactly one acceptance suite in fresh directory. No real model/acceptance preflight, retry, replacement or adaptive threshold change after results. Preserve every case in fixed order and negative result. Each deadline clamps stage/case60s/suite180s; no launch beyond suite deadline; cleanup fits4s and remaining case/suite budget. Three model loads and six dense updates maximum planned. No historical files or results changed. Exact new auditor source/tests, four executable file hashes and opaque canonical path hashes also frozen. No automatic retries. Failure receipts and raw worker logs retained, no postoutcome implementation repair for this suite. V3 provider source path supplied explicitly and its canonical path hash plus file hash frozen. New producer, protocol and independent auditor are frozen before one actual suite; no provider/network/ML preflight. Historical v2 failure and files stay unchanged. Planned provider checks are at most three loopback bind capability attempts during three ML imports; these are new execution diagnostics and not retrospective v2 attribution.",
+  "scientific_boundary": "Does not repair historical parent RSS/cap measurements, validate pretrained compression, isolate an actual backward peak, clear failed natural-text joint cost/quality screens, validate external providers/GPU/production, or justify same-setting seed/lr rescue sweeps. Existing role-policy evaluator metadata is unchanged and does not itself authorize training. Python audit guard is not an OS/network sandbox.",
+  "review_tool_paths": [
+    "scripts/audit_training_observer_v3.py",
+    "tests/test_training_observer_v3_auditor.py"
+  ],
+  "provider_custody": {
+    "kind": "offline pinned local loader plus Python audit narrow loopback capability policy",
+    "denied_python_audit_events": [
+      "socket.connect",
+      "socket.getaddrinfo",
+      "socket.gethostbyname",
+      "socket.gethostbyname_ex",
+      "socket.gethostbyaddr",
+      "socket.sendto",
+      "socket.bind"
+    ],
+    "external_providers_permitted": false,
+    "synthetic_probe_denials": 1,
+    "unexpected_denied_events_allowed": 0,
+    "native_network_sandbox": false,
+    "boundary": "New compatibility policy declared before a new sole suite; does not attribute historical v2 bind. Explicit --provider-source canonical path hash and bounded fresh source SHA256 frozen. Only one import-phase socket.bind is allowed per ML worker: Windows AF_INET6=23, SOCK_STREAM=1, protocol=0, original exact tuple2 (::1, integer0), nearest exact source frames _has_ipv6@127 and <module>@137, both pinned source/path, exactly two saved urllib3 frames and one outside-package boundary inspection. No other bind/connect/DNS/sendto event allowed. Synthetic socket.connect audit denial creates no socket and is separate. No native-network sandbox or external-provider evidence.",
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "provider_config": {
+      "version_label": "2.8.0",
+      "family_code": 23,
+      "type_code": 1,
+      "protocol": 0,
+      "maximum_allowed_probes_per_ML_worker": 1,
+      "maximum_diagnostic_events": 4,
+      "maximum_saved_frames": 8,
+      "maximum_scanned_frames": 9,
+      "maximum_source_file_bytes": 1048576,
+      "caller_function": "_has_ipv6",
+      "caller_line": 127,
+      "module_function": "<module>",
+      "module_line": 137
+    },
+    "provider_source_relative_path": "urllib3/util/connection.py",
+    "provider_source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+    "frame_scope": "contiguous_initial_urllib3_frames",
+    "diagnostic_scope": "Record at most4 real network audit events; overflow increments separate count and denies. At most8 initial contiguous urllib3 source frames and9 scans, bounded source read1MiB; stop at first outside frame without saving its path/locals. Save only package-relative paths, canonical path SHA256, source SHA256, function/line, socket metadata codes and fixed endpoint classifications, event phase/time/decision. No actual address, port, user path or locals. Truncation, incomplete source hashing, invalid metadata, nonexact callsite or any denied/overflow event prevents success. One allowed import diagnostic persists byte-for-value across later stages and terminal receipts; its monotonic timestamp must lie inside the recorded import interval.",
+    "phase_expectations": {
+      "preimport": "zero observed events; budget1 for ML workers and0 for import38",
+      "injected_import": "zero events and budget0",
+      "postimport_and_later": "exactly one unchanged allowed import event, budget1/count1; no denied/overflow/truncation",
+      "failure": "bounded guard receipt plus phase/failure_perf_counter retained when worker exception propagates"
+    }
+  },
+  "control_plan": [
+    {
+      "filename": "create-native.json",
+      "command": "create-native",
+      "decision_label": "before_native",
+      "decision_index": 0
+    },
+    {
+      "filename": "preimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "preimport-continue.json",
+      "command": "continue",
+      "decision_label": "preimport",
+      "decision_index": 1
+    },
+    {
+      "filename": "postimport-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "postimport-continue.json",
+      "command": "continue",
+      "decision_label": "postimport",
+      "decision_index": 2
+    },
+    {
+      "filename": "postload-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postload",
+      "decision_index": 3
+    },
+    {
+      "filename": "postload-continue.json",
+      "command": "continue",
+      "decision_label": "postload",
+      "decision_index": 3
+    },
+    {
+      "filename": "postupdate-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "postupdate",
+      "decision_index": 4
+    },
+    {
+      "filename": "postupdate-continue.json",
+      "command": "continue",
+      "decision_label": "postupdate",
+      "decision_index": 4
+    },
+    {
+      "filename": "allocated-parent-done.json",
+      "command": "parent-sampled",
+      "decision_label": "allocated",
+      "decision_index": 5
+    },
+    {
+      "filename": "allocated-continue.json",
+      "command": "continue",
+      "decision_label": "allocated",
+      "decision_index": 5
+    },
+    {
+      "filename": "finish.json",
+      "command": "finish",
+      "decision_label": "allocated",
+      "decision_index": 5
+    }
+  ],
+  "controls": "Fresh nonce, exact controller envelope, fixed sequential control index and census decision label/index. Each emission after decision completed and within case/suite; each worker acceptance after emission and before native launch/import/load/train/allocation/busy action where recorded. Measurement parent-done commands also follow current role decision. The immutable role-policy training_permitted=False remains a no-ML identity-policy field; only this new v3 protocol authorizes ML. Controls copied in worker -accepted receipts and report; no legacy global monkeypatch. emitted_perf_counter is controller publish-start immediately before write_new atomically links the complete control file; it is not an observed timestamp of the OS hard-link operation. Worker accepted_perf_counter follows authenticated reading of that published file. This gives bounded emit-start/accept/action ordering; it does not independently timestamp the atomic publication instant.",
+  "thread_custody": "Worker records raw OS native thread counts at each held memory stage. Loader sets and verifies Torch intraop=1 and interop=1 with frozen OMP/MKL/etc1 environment. Native count is descriptive, not exact thread ownership or hard thread limit."
+}

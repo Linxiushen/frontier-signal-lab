@@ -44,7 +44,9 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 此前工程产出：真实预训练加载/训练集成代码已冻结并执行一次，**在模型导入前失败**。四个已认证场景各发现两个未知后代而停止，只有exit37对照通过；实际模型加载和训练更新均为0。21个保留handle全部退出、五个Job归零；未知进程缺少image证据，下一版本须先查明完整进程身份。原始失败与14项成功审计拒绝结果完整公开，没有放宽规则重试。见[结果和下一门槛](research/2026-10-16-pretrained-training-observer.md)、[代码和复现命令](fixtures/training-observer/README.md)。本轮另有[因果前缀、配置版本和退出责任的公开证据](research/2026-10-16-causal-prefix-and-worker-custody.md)，不代表任何人的私下研究计划。
 
-最新工程产出：带时间戳控制链的预训练集成 v2 冻结后执行一次，三组完成 Torch/Transformers 导入，随后因 Python 守卫拒绝 `socket.bind` 而失败；实际身份和 7 个线程通过对应检查，不能把通用报错当身份漂移。**模型加载和更新均为 0**，健康完成、忙循环、内存阈值与开销门槛尚未执行。两项精确失败对照通过，21 个保留身份退出、5 个 Job 为空。冻结成功审计保留 10 项拒绝；后验 800 项检查仅证明负记录未被改写。静态源码中的 IPv6 探测只是候选原因，缺少运行时地址和调用栈。下一步单独冻结有来源诊断和明确本地探测策略的真实训练集成。见[失败结果](results/training-observer-v2/report.md)、[复核命令](fixtures/training-observer-v2/README.md)及[上游编译/退出边界](research/2026-10-17-pretrained-observer-and-teardown-bounds.md)。
+此前工程产出：带时间戳控制链的预训练集成 v2 冻结后执行一次，三组完成 Torch/Transformers 导入，随后因 Python 守卫拒绝 `socket.bind` 而失败；实际身份和 7 个线程通过对应检查，不能把通用报错当身份漂移。**模型加载和更新均为 0**，健康完成、忙循环、内存阈值与开销门槛尚未执行。两项精确失败对照通过，21 个保留身份退出、5 个 Job 为空。冻结成功审计保留 10 项拒绝；后验 800 项检查仅证明负记录未被改写。静态源码中的 IPv6 探测只是候选原因，缺少运行时地址和调用栈。下一步单独冻结有来源诊断和明确本地探测策略的真实训练集成。见[失败结果](results/training-observer-v2/report.md)、[复核命令](fixtures/training-observer-v2/README.md)及[上游编译/退出边界](research/2026-10-17-pretrained-observer-and-teardown-bounds.md)。
+
+最新工程产出：单独冻结的真实预训练集成 v3 一次执行，**5/5 场景通过，3 次模型加载、6 次稠密更新**。16 组内存对照、22 次角色普查、37 对时间戳控制和全部21个保留进程退出通过；原始收据与无模型审计器已公开。每个模型导入的精确 urllib3 IPv6 bind 尝试有来源记录，但不证明 OS bind 成功，也不追认 v2 原因。观察器 held 窗口的父进程 CPU 成本0.140625秒与内存阈值越界量保留；不能当压缩提速、显存节省或质量收益。旧科学负结果和无效 RSS 不变。见[完整结果](results/training-observer-v3/report.md)、[复核命令](fixtures/training-observer-v3/README.md)及[新合并源码与下一门槛](research/2026-10-17-training-integration-and-replacement-failure.md)。
 
 ## 快速运行
 

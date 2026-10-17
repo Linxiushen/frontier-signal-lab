@@ -39,6 +39,8 @@ jobs:
         run: python -S -m scripts.audit_role_policy_probe --report results/role-policy-probe/report.json --output reports/role-policy-ci-audit.json
       - name: Preserve failed v2 training integration without process or model execution
         run: python -S -m scripts.check_training_observer_v2_record --output reports/training-observer-v2-negative-record-ci-check.json
+      - name: Audit frozen v3 pretrained training observer receipts without process or model execution
+        run: python -S -m scripts.audit_training_observer_v3 --report results/training-observer-v3/report.json --protocol fixtures/training-observer-v3/protocol.json --freeze fixtures/training-observer-v3/implementation.json --output reports/training-observer-v3-ci-audit.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

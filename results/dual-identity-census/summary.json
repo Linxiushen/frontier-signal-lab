@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "experiment_id": "windows-dual-identity-census-v1",
+  "acceptance_scope": "Two controlled Windows identity-census and cleanup cases only",
+  "producer_reported_passed": true,
+  "acceptance_passed": true,
+  "started_at": "2026-10-17T03:00:34.298764+00:00",
+  "completed_at": "2026-10-17T03:00:35.681458+00:00",
+  "wall_seconds": 1.3829081000294536,
+  "attempts": 1,
+  "retries": 0,
+  "held_snapshots": 5,
+  "retained_process_identities": 12,
+  "training_permitted": false,
+  "actual_pretrained_model_loads": 0,
+  "actual_optimizer_updates": 0,
+  "audits": {
+    "portable": {
+      "passed": true,
+      "checks": 430,
+      "checks_passed": 430,
+      "failures": []
+    },
+    "local": {
+      "passed": true,
+      "checks": 431,
+      "checks_passed": 431,
+      "failures": []
+    }
+  },
+  "report_sha256": "b245d25cc280acfda611c07b8990e56732978a152568b1730fc1c138af0d0863",
+  "cases": [
+    {
+      "id": "native_census_graceful",
+      "producer_runtime_flag": true,
+      "outcome": "graceful_census_no_training",
+      "worker_self_executable": {
+        "source": "sys.executable",
+        "basename": "python.exe",
+        "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+        "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+      },
+      "worker_OS_image": {
+        "basename": "python.exe",
+        "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+        "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+        "exact_path_matches": [
+          "base_python"
+        ],
+        "path_classification": "exact_executable",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "snapshots": [
+        {
+          "label": "before_native",
+          "observed_count": 3,
+          "unapproved_pids": [
+            2628
+          ],
+          "complete": true
+        },
+        {
+          "label": "after_native",
+          "observed_count": 5,
+          "unapproved_pids": [
+            2628,
+            45736
+          ],
+          "complete": true
+        }
+      ],
+      "all_retained_handles_exited": true,
+      "retained_exit_receipts": 5,
+      "final_job_count": 0,
+      "cleanup_wall_seconds": 0.02113059989642352
+    },
+    {
+      "id": "injected_python_rejection",
+      "producer_runtime_flag": true,
+      "outcome": "identified_helper_rejected_no_training",
+      "worker_self_executable": {
+        "source": "sys.executable",
+        "basename": "python.exe",
+        "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+        "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+      },
+      "worker_OS_image": {
+        "basename": "python.exe",
+        "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+        "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+        "exact_path_matches": [
+          "base_python"
+        ],
+        "path_classification": "exact_executable",
+        "queried_from_retained_handle": true,
+        "retained_identity_stable": true
+      },
+      "snapshots": [
+        {
+          "label": "before_native",
+          "observed_count": 3,
+          "unapproved_pids": [
+            39988
+          ],
+          "complete": true
+        },
+        {
+          "label": "after_native",
+          "observed_count": 5,
+          "unapproved_pids": [
+            19364,
+            39988
+          ],
+          "complete": true
+        },
+        {
+          "label": "after_helper",
+          "observed_count": 7,
+          "unapproved_pids": [
+            11284,
+            19364,
+            30416,
+            39988
+          ],
+          "complete": true
+        }
+      ],
+      "all_retained_handles_exited": true,
+      "retained_exit_receipts": 7,
+      "final_job_count": 0,
+      "cleanup_wall_seconds": 0.02036869991570711
+    }
+  ],
+  "limitations": [
+    "Bounded held snapshots, not continuous or loaded-code attestation.",
+    "All extra identities remain unapproved, including identified System32 children and the same-image helper.",
+    "Old eight unrecorded child images remain unidentified; old frozen census remains rejected.",
+    "No pretrained-loader/training/provider/overhead/isolated-memory or scientific quality/cost acceptance."
+  ]
+}

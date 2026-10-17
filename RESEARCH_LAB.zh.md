@@ -165,3 +165,5 @@ python experiments/activation_attention_gradient_probe.py --model-dir local-stat
 欢迎提交能复现的负结果、反例、真实显存/吞吐数据，以及新的一手来源。
 
 2026-10-17 跟进：完成[后代进程镜像普查与版本证据审查](research/2026-10-17-child-images-and-versioned-evidence.md)。新身份/清理工具保持额外进程未批准；没有模型加载、训练或科学结论升级，旧失败记录保留。
+
+2026-10-17 新版本：独立声明的[双身份普查](results/dual-identity-census/report.md)分别校验自报路径和真实 OS 镜像，两个身份/清理控制及冻结审计通过。同镜像 helper 仍被拒绝，额外进程未获训练批准；旧拒绝、历史八个未知镜像和科学负结果保留。

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-17T01:03:01.656263+00:00",
-  "observation_note": "All 133 historical source objects retained exactly. Added bounded public source/version/selected-log evidence with original event and actual read times. Windows child-image census is a separate no-ML engineering result; scientific negatives and employer uncertainty remain.",
+  "last_updated_at": "2026-10-17T03:08:06.303953+00:00",
+  "observation_note": "All 145 historical source objects retained exactly. Added three bounded public source/adjacent-version/CI-metadata records and one original dual-identity no-ML engineering result, with event and actual read times separate. Old frozen rejection, scientific negatives, unknown historical child images and next-employer uncertainty remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -5299,6 +5299,108 @@
       "report_sha256": "d43d85b84e0634b6b460d6db529367fa9cd44f41141a765d043935d4c8aec6b0",
       "evidence_record": "research/2026-10-17-child-images-and-versioned-evidence.md",
       "next_falsifiable_gate": "Separately declare distinct runtime self-path and retained OS-image identities before further admission; preserve same-image unknown-child rejection and all unmet real training gates."
+    },
+    {
+      "id": "fla-packed-rotary-per-sequence-offset-draft",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1497",
+      "type": "draft_PR_proposal_and_adjacent_source_review",
+      "published_at": "2026-10-17T02:25:22Z",
+      "published_at_kind": "PR created_at; open draft at actual observation",
+      "author": "Aphelios183",
+      "claim": "An open draft validates compact packed-RoPE scalar cache bounds per sequence in the CUDA and Ascend wrappers. Lengths [3,5], offset2, cache7 become valid instead of incorrectly requiring10 total packed positions. Existing accepted large-cache scalar calls retain their host fast path; no numerical kernel changes are proposed.",
+      "status": "open_draft_source_and_test_assertions_read_author_runtime_reports_not_reproduced",
+      "limitations": [
+        "Authored by Aphelios183, not Nathan Chen. Draft/unmerged at observation; the prospective merge SHA is not a landed commit.",
+        "All three PR patches/blob IDs equal the actual-parent-to-head commit inventory. Full rotary ops.py parent/head bytes and patch reconstruction are separately checked; other files are changed patches only.",
+        "Source expands the old16 varlen cases with36 valid numerical/gradient/scalar-tensor controls and7 CPU exception/message rejection cases. CPU rejection assertions do not prove invalid-input CUDA or CUDA Graph behavior.",
+        "Author reports L40 SM89 105 rotary passes,43 added base-fail/head-pass cases and367 selected dependent passes/38 skips. Supplementary forward graph/XPos/YOCO/inplace coverage is author-reported; no independent upstream execution or raw test logs were inspected.",
+        "Eight exact-head workflow records: five successful, one queued and two in progress at02:56. nvidia-h100-ci success is workflow metadata; jobs/logs and actual H100 numerical coverage were not inspected. Author had no local H100/Ascend; torch.compile, graph backward, invalid graph assertions and FlashAttention numerical callers remain unverified.",
+        "Supplementary L40 timings had unlocked clocks. Baseline rejects the new compact-cache input, so no speedup, memory saving, SM90+ or end-to-end training benefit is established."
+      ],
+      "our_inference": "Packed sequence boundaries, offsets and cache extent are part of the numerical contract. Compression and memory studies should validate per-sequence semantics, gradients and hardware dispatch before treating acceptance or microtimings as a quality/cost gain.",
+      "next_falsifiable_gate": "Pin actual parent and candidate and run independent CUDA/Ascend valid and invalid inputs, empty/uneven segments, scalar/tensor offsets, partial/interleaved rotation, forward/backward, graph replay and compile. Then measure locked-hardware end-to-end callers with identical accepted inputs and quality/memory budgets; preserve earlier failed activation-cost/quality results.",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T024821Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T03:06:45.288634Z",
+      "review_record": "research/2026-10-17-dual-identity-and-inspection-boundaries.md"
+    },
+    {
+      "id": "openclaw-inspection-errors-versus-confirmed-absence",
+      "url": "https://github.com/openclaw/openclaw/commit/47cf3f1d4d306efc01832f75523aa54b8a06f04d",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-17T02:11:23Z",
+      "published_at_kind": "PR merged_at",
+      "author": "steipete",
+      "claim": "Managed Crabbox executable inspection normalizes only ENOENT as absence; other filesystem failures propagate without authorizing replacement. Sandbox listing distinguishes exact-ID missing leases from provider/process/parse/identity failures, and validates recovery inspection success before interpreting released JSON, preserving the original redacted warmup failure.",
+      "status": "merged_source_and_test_assertions_read_exact_prepared_head_CI_failed_runtime_not_independently_reproduced",
+      "limitations": [
+        "All six PR patches/blob IDs equal the actual-parent-to-landed commit inventory; full imported classifier, installer, transport and caller modules were not read.",
+        "Regression assertions use actual acquisition/manager owners with injected lstat EACCES/EIO and process seams. They check original error identity, no fetch, preserved files, four listing failures, exact-ID absence/released controls and failed-inspection recovery. We did not execute these tests, a real Crabbox lease or a shipped Gateway command.",
+        "Author reports targeted types, syntax lint, docs and3 suppression cases passing. Runtime baseline preparation stopped after about ten minutes before assertions with exit130; this is incomplete proof, not a reproduction or pass. Type-aware lint also stopped before assertions.",
+        "Exact prepared-head CI38992276706 failed, attempt1. Complete54-job/419-step metadata records23 successful jobs,29 skipped and two failures: checks-fast-baseline-ratchets step7 and openclaw/ci-gate step4. Logs were not downloaded; the mock-export signature, identical main failure and inherited-only landing attribution are author reports, not independently established here.",
+        "All51 exact-head workflow records were retained:22 success,24 skipped,1 failure,4 cancelled. Cancelled auto-response zero-step/optional attribution is author-reported; its jobs were not inspected. Three skipped CI jobs have upstream completed_at one second before started_at; no durations are derived.",
+        "The public02:04 ClawSweeper comment for the exact prepared head still said needs changes before merge, requested CI failure classification and noted missing executed base-fail/head-pass or shipped-command trace, despite no code finding. Later02:11 author explanation and02:11:23 merge do not turn the CI failure green."
+      ],
+      "our_inference": "An unsuccessful probe provides uncertainty, not permission to replace an executable or declare a lease absent. Agent resource lifecycles need explicit confirmed-absence and failure states, preserving authority and durable claims across recovery.",
+      "next_falsifiable_gate": "Use packaged adjacent-parent/candidate commands against isolated supported executable and real lease controls. Inject permission/I/O/provider/process/JSON/foreign-ID faults and confirmed ENOENT/exact-ID absence/released controls; verify byte preservation, no unauthorized download/reprovision/retirement and original redacted errors across restart. Independently classify the red CI using exact main/head logs before making a passing claim.",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T024821Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T03:06:45.288634Z",
+      "review_record": "research/2026-10-17-dual-identity-and-inspection-boundaries.md"
+    },
+    {
+      "id": "openclaw-postcommit-transcript-publication-warning",
+      "url": "https://github.com/openclaw/openclaw/commit/4513e9e09633a740f58b4ccf8802597968868c47",
+      "type": "merged_commit_and_adjacent_source_review",
+      "published_at": "2026-10-17T02:27:48Z",
+      "published_at_kind": "PR merged_at",
+      "author": "steipete",
+      "claim": "The shared session append guard catches rejected post-commit transcript publication, logs a content-free warning with saved session/message identity and refresh guidance, and preserves the successful append receipt. Source regression cases cover synchronous and asynchronous appends, retained SQLite messages, subsequent append progress and no process-level unhandled rejection; failed notifications are not automatically replayed.",
+      "status": "merged_source_and_test_assertions_read_prepared_head_CI_success_author_runtime_not_reproduced",
+      "limitations": [
+        "The landed commit has five changed files, including updater mock importOriginal export repair and a mock-export baseline deletion. Do not describe it as only the three transcript files or attribute green CI solely to the publication handler.",
+        "Four PR files exactly match actual-parent patch/blob metadata. The baseline file has identical context/add/remove lines but its hunk location shifts4794→4791 and its blob differs after landing; actual-parent landed inventory is authoritative.",
+        "Added sync/async regressions use real persistence/reload owners but replace only the publisher with a rejecting closure. No upstream tests or packaged Gateway/model-provider round trip were independently executed here.",
+        "Author reports unchanged-main2fail/18skip, repaired20/20, actual guard/incognito owner/publisher fresh-process authority-revocation proof and48 importer files678pass/3skip. Raw logs and fresh-process probe source were not independently inspected; fresh-owner proof is not full Gateway/model round-trip evidence.",
+        "Author explicitly reports final check:changed dry-run scanner SIGILL; full changed checks and slow SQLite inventory were not run. Cold34.942s versus warm2.404s timing is unprofiled and cannot establish its cause.",
+        "Exact prepared-head CI38993183776 completed success on attempt1;16 workflow records show15success/1skipped. Jobs/logs and landed runtime were not inspected. A ClawSweeper progress comment references an older head and is not completed review evidence for this final head."
+      ],
+      "our_inference": "Committed message, current publication authority and delivery receipt are separate facts. A notification failure must not misreport a saved append as failed or silently create duplicate replay; evaluation/reward traces should retain these boundaries.",
+      "next_falsifiable_gate": "Run packaged actual-parent/candidate sync/async appends with post-commit authority revocation, notification transport failure, redacted-warning and healthy controls. Reopen SQLite and restart twice, verifying exact saved session/message/owner identity, one saved append, continued progress, no unhandled rejection and no automatic duplicate notification. Keep full harness and real training/replay gates separate.",
+      "repository_public": true,
+      "license_metadata": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "evidence_record": "research/receipts/20261017T024821Z-reviewed-sources.json",
+      "recorded_at": "2026-10-17T03:06:45.288634Z",
+      "review_record": "research/2026-10-17-dual-identity-and-inspection-boundaries.md"
+    },
+    {
+      "id": "windows-dual-identity-census-v1",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/dual-identity-census/report.json",
+      "type": "original_local_frozen_bounded_engineering_execution",
+      "published_at": "2026-10-17T03:00:35.681458+00:00",
+      "published_at_kind": "actual_execution_completion_not_repository_publication_time",
+      "recorded_at": "2026-10-17T03:08:06.303953+00:00",
+      "license_metadata": "MIT original tooling; no third-party implementation copied",
+      "claim": "A separately frozen dual self-path and retained OS-image census passes two no-ML identity/cleanup cases, 430 portable and 431 local-rehash audit checks. Five held snapshots retain twelve exited process identities and both Jobs empty. All extras stay unapproved; same-image helper rejected; model loads/updates0. No retry. Old frozen census rejection and historical scientific failures unchanged.",
+      "status": "bounded_engineering_acceptance_passed_training_forbidden",
+      "dedupe_key": "b245d25cc280acfda611c07b8990e56732978a152568b1730fc1c138af0d0863",
+      "report_sha256": "b245d25cc280acfda611c07b8990e56732978a152568b1730fc1c138af0d0863",
+      "evidence_record": "research/2026-10-17-dual-identity-and-inspection-boundaries.md",
+      "next_falsifiable_gate": "Separately declare a narrow role policy preserving unknown and same-image helper rejection, then actual pretrained loader/thread/native/provider/two-update/healthy/failure/busy/cap/overhead/cleanup gates. Old eight missing images remain unknown; no historical RSS repair."
     }
   ]
 }

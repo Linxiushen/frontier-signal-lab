@@ -33,6 +33,8 @@ jobs:
         run: python -S -m scripts.audit_training_observer_failure --report results/training-observer/report.json --output reports/training-observer-failure-ci-audit.json
       - name: Preserve the frozen child-image audit rejection without process or model execution
         run: python -S -m scripts.check_child_image_census_record --output reports/child-image-rejection-ci-check.json
+      - name: Audit separately frozen dual self-path and OS-image receipts without process execution
+        run: python -S -m scripts.audit_dual_identity_census --report results/dual-identity-census/report.json --output reports/dual-identity-census-ci-audit.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

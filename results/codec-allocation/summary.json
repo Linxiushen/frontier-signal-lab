@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-17T23:27:50.525505+00:00",
+  "outcome": "failed_before_ML_import_no_allocator_measurement",
+  "producer_reported_passed": false,
+  "execution_acceptance": false,
+  "actual_suites": 1,
+  "attempted_cases": 1,
+  "planned_case_ceiling": 8,
+  "retries": 0,
+  "model_loads": 0,
+  "forward_calls": 0,
+  "backward_calls": 0,
+  "optimizer_updates": 0,
+  "allocation_traces": 0,
+  "controller_releases": 0,
+  "heldout_opened": false,
+  "configured_but_unexecuted": {
+    "seed": 503,
+    "batch_indices": [
+      116,
+      73
+    ],
+    "CPU_dtype": "float32",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac"
+  },
+  "error": "ObserverError: codec held identity/provider/thread gate failed: preimport",
+  "diagnosis": {
+    "classification": "preimport provider-budget caller/worker contract mismatch",
+    "actual_allowed_probe_budget": 1,
+    "parent_expected_probe_budget": 0,
+    "expected_and_observed_probe_count": 0,
+    "failed_provider_predicates": [
+      "allowed_local_probe_budget"
+    ],
+    "provider_predicates": {
+      "phase": true,
+      "installed": true,
+      "python_audit_only": true,
+      "native_network_sandbox": true,
+      "external_providers_permitted": true,
+      "synthetic_probe_denials": true,
+      "unexpected_denied_events": true,
+      "denied_audit_events": true,
+      "policy_id": true,
+      "source_relative_path": true,
+      "source_hash": true,
+      "source_path_hash_format": true,
+      "allowed_local_probe_budget": false,
+      "allowed_local_probe_count": true,
+      "diagnostic_event_limit": true,
+      "diagnostic_overflow_count": true,
+      "observed_event_count": true,
+      "diagnostic_events": true
+    },
+    "other_visible_outer_gate_predicates_pass": true,
+    "decision_time_recorded_interval": [
+      936969.4509309,
+      936969.4534928
+    ],
+    "raw_failure_omission": "preimport-ready.json exists, but report.stages is empty because the parent saves a stage only after validating it; frozen report is preserved."
+  },
+  "retained_cleanup": {
+    "all_retained_handles_exited": true,
+    "job_active_count": 0,
+    "exit_codes": [
+      {
+        "pid": 61060,
+        "creation_filetime": 134367528650830547,
+        "exit_code": 57347
+      },
+      {
+        "pid": 10960,
+        "creation_filetime": 134367528651703588,
+        "exit_code": 57347
+      }
+    ],
+    "started_perf_counter": 936969.4534928,
+    "completed_perf_counter": 936969.4740109,
+    "wall_seconds": 0.020518100005574524,
+    "timeout_seconds": 4.0
+  },
+  "hashes": {
+    "report_file_sha256": "f4f56619ebc50a8234e2fd93bbf00940dbf9934d13c79008e6e40a46b805ffe4",
+    "result_payload_sha256": "600d4a50e5b1af65d7f09634169e225ccb948e8d63de0353b17f12ec566cf5aa",
+    "protocol_sha256": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d",
+    "implementation_sha256": "76034998b53d90fbaf62e0498606ea45f22435b1bbae8925b0e58bd933327ce0",
+    "independent_review_sha256": "1ed8b97bcd062569a5c2060e5e40e946b38a9945d9fffc5b2b9e940fe2b36d57",
+    "postoutcome_tests_sha256": "4d54b7f2d6410d6d1248065f3cc469aa9b3a68c3192ed8ce91469fe2492dfc40"
+  },
+  "frozen_receipt_audit": {
+    "passed": true,
+    "check_count": 42,
+    "execution_acceptance": false,
+    "omitted_raw_preimport_and_failure_cleanup_verified_by_this_audit": false
+  },
+  "postoutcome_independent_review": {
+    "passed": true,
+    "check_count": 82,
+    "execution_acceptance": false,
+    "review_tool_sha256": "57b87e497178e20e571ad02d2551fd3513f2b99486cfc867e938533e8ff94da0"
+  },
+  "prefreeze_guarded_tests": 27,
+  "postoutcome_guarded_tests": {
+    "total": 37,
+    "repeated_prefreeze": 27,
+    "additional": 10,
+    "new_actual_suites": 0,
+    "model_loads": 0,
+    "forbidden_attempts": []
+  },
+  "unperformed_predeclared_receipt_controls": [
+    {
+      "name": "raw_byte_mutation",
+      "executed": false,
+      "reason": "No allocation trace, poststudy receipt or gradient operation was produced; none of the three registered actual-receipt mutation controls can be exercised on this outcome."
+    },
+    {
+      "name": "poststudy_stale_hash",
+      "executed": false,
+      "reason": "No allocation trace, poststudy receipt or gradient operation was produced; none of the three registered actual-receipt mutation controls can be exercised on this outcome."
+    },
+    {
+      "name": "gradient_equality_corruption",
+      "executed": false,
+      "reason": "No allocation trace, poststudy receipt or gradient operation was produced; none of the three registered actual-receipt mutation controls can be exercised on this outcome."
+    }
+  ],
+  "postoutcome_mutation_checks": "Six saved-failure audit tests include raw-byte anchoring, budget-field mutation, exact cleanup identity and exit code with refreshed outer hashes, clock/extra-case rejection; these are supplementary tests, not the three absent predeclared allocator/gradient controls.",
+  "historical_scientific_status_unchanged": true,
+  "original_raw_files": 4,
+  "upstream_code_executed": false,
+  "external_community_posts_sent": 0,
+  "next_gate": "Separately predeclare corrected budget contract and real-validator mocked parent/worker handshake before another actual allocator suite; preserve this failed frozen snapshot.",
+  "limits": [
+    "No cost/memory/quality comparison exists; profiler/weak-reference runtime interface remains unvalidated.",
+    "Failure cleanup is forced termination57347, not normal exit0.",
+    "Independent review is post-outcome saved evidence verification, not a native runtime reproduction or signature.",
+    "Observed allocator requested bytes, when later available, are not OS/GPU memory peak, OS return or training benefit."
+  ]
+}

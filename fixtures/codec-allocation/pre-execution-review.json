@@ -1,0 +1,216 @@
+{
+  "root": {
+    "at": "2026-10-17T23:20:59.358556+00:00",
+    "passed": true,
+    "files_sha256": {
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "choice": "One H1 matched codec allocator lifetime/callback workspace and timing diagnostic, not a new quality screen",
+    "actual_suites_before_freeze": 0,
+    "model_loads_before_freeze": 0,
+    "optimizer_updates_before_freeze": 0,
+    "maximum_actual_suites": 1,
+    "retries": 0,
+    "guarded_pure_tests": 27,
+    "review_receipts_sha256": {
+      "codec-prefreeze-independent.json": "9807fd710eb2471af860c861877ead0662929831e89b167182c9930387b30cf6",
+      "codec-auditor-prefreeze-review.json": "6a947b6853cf1a6f3a77537a7f413e89ef49491c7d4154d45b4746496121f89c"
+    },
+    "measurement_scope": "Observed CPU allocator requests and weak backing ownership; ON perturbs lifetime; OFF allocation result null. No OS/GPU memory, optimizer, holdout or quality improvement."
+  },
+  "guarded_tests": {
+    "tested_at": "2026-10-17T23:18:31.913747+00:00",
+    "passed": true,
+    "tests_run": 27,
+    "failures": 0,
+    "errors": 0,
+    "forbidden_attempts": [],
+    "stable": true,
+    "before_sha256": {
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "after_sha256": {
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "actual_suites": 0,
+    "model_loads": 0,
+    "scope": "Pure mocked/synthetic tests under ML import, subprocess and socket audit denials; no actual profiler/model measurement."
+  },
+  "producer_static_review": {
+    "schema_version": 1,
+    "reviewed_at": "2026-10-17T23:18:44.1419898Z",
+    "reviewer": "snapshot_independent_review",
+    "passed": true,
+    "status": "prefreeze_static_review_accepted",
+    "actual_torch_imports": 0,
+    "actual_model_executions": 0,
+    "real_processes_launched": 0,
+    "tests_executed_by_reviewer": false,
+    "final_file_sha256": {
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "reviewed_scope": [
+      "New producer/events/protocol and both pure-test files; targeted existing CostCodec, preservation scopes, v3 loader/control helpers, and installed Torch profiler/StorageWeakRef source read as text",
+      "Raw Allocation events only, same-pointer epochs, optional allocation-id agreement, signed-byte pairing and equal-timestamp ambiguity",
+      "StorageWeakRef registry keeps weak handles and primitive metadata; alias deduplication and resize/backing-change rejection",
+      "Same-method OFF/ON literal loss, gradient hash, initial parameter hash and batch hash controls",
+      "Frozen one-suite eight-worker order, fixed model/assets/input/seed; no optimizer or heldout rescue",
+      "Six exact timestamped controller/worker acknowledgments, retained identity/Job cleanup, bounded output/deadlines"
+    ],
+    "blocking_findings": [],
+    "resolved_findings": [
+      "Outer save count corrected from mistaken19 to historical33; eligible/compressed saves separately19",
+      "Callback unknown frees, foreign-thread overlap, endpoint ties and mixed-sign equal timestamps produce unknown/null and reject measurement gate",
+      "Boundary endpoint ties are unknown; incomplete owner coverage exposes labeled partial subtotal",
+      "All callback summary validity participates in measurement acceptance",
+      "Source StorageImpl pointer/bytes changes fail closed",
+      "Explicit hooked dense baseline and ON-only instrumentation lifetime limits",
+      "Exact acknowledgment time and envelope custody plus same-input/parameter mathematical checks added"
+    ],
+    "historical_layout_evidence": "Existing results/activation-cost/report.json outer save_calls33, eligible19; prior independent-review records compressed19. This is historical evidence, not execution of the new producer.",
+    "remaining_limits": [
+      "No profiler/model runtime capability was exercised by this reviewer; missing or incompatible raw interface must retain the negative result without fallback or retry",
+      "Allocator coverage is the saved observed CPU event stream; complete paired event loss cannot be excluded. total_allocated is retained but not a cumulative completeness proof",
+      "Unknown unmatched frees outside callbacks remain preexisting-or-missing ambiguity, and live tails remain right-censored",
+      "Profiler/weak registry and held boundaries perturb ON lifetimes; OFF has no allocator/owner result",
+      "Dense baseline includes exact saved-tensor hooks, so it is not the historical native dense baseline",
+      "Callback temporary live maxima concern same-thread observed requests created and destroyed inside that marker, excluding identified return backing; no process/RSS/private/GPU peak claim",
+      "Native thread ceiling32 is a bound, not a validated exact topology or continuous isolation proof",
+      "No active memory sampler/hard private-memory cap. No optimizer, training-quality, sealed holdout, production or superiority claim. Existing negative scientific results remain unchanged"
+    ],
+    "next_action": "Root may freeze these exact files after its guarded pure tests. Reviewer will pause during the sole actual suite to avoid observational interference."
+  },
+  "auditor_static_review": {
+    "schema_version": 1,
+    "reviewed_at": "2026-10-17T23:18:51.235482+00:00",
+    "reviewer": "independent /root/new_pass_triage subagent",
+    "review_kind": "static prefreeze source/schema review; no producer/auditor imports or execution",
+    "files": {
+      "scripts/audit_codec_allocation.py": {
+        "bytes": 13878,
+        "sha256": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7"
+      },
+      "experiments/codec_allocation_probe.py": {
+        "bytes": 47762,
+        "sha256": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c"
+      },
+      "experiments/codec_allocation_events.py": {
+        "bytes": 10717,
+        "sha256": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf"
+      },
+      "tests/test_codec_allocation_probe.py": {
+        "bytes": 9224,
+        "sha256": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0"
+      },
+      "tests/test_codec_allocation_events.py": {
+        "bytes": 8274,
+        "sha256": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636"
+      },
+      "fixtures/codec-allocation/protocol.json": {
+        "bytes": 8834,
+        "sha256": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+      }
+    },
+    "static_checks": {
+      "reported_and_validated_acceptance_separate": true,
+      "accepted_observer_contract": true,
+      "pure_reducer_replay": true,
+      "measurement_gates_recomputed": true,
+      "boundary_id_and_callback_inventory": true,
+      "raw_hash_and_stage_custody": true,
+      "bounded_partial_prefix": true,
+      "accepted_gradient_basic_fields": true,
+      "ack_parent_wait_and_retained_cleanup": true,
+      "gradient_independence_limit_explicit": true,
+      "explicit_no_native_memory_cap": true,
+      "one_bounded_suite_and_no_rescue": true
+    },
+    "blocking_findings": [],
+    "resolved_findings": [
+      "An invalid raw/stale hash now produces receipt passed=false and validated execution_acceptance=null while preserving reported_execution_acceptance separately.",
+      "Accepted ON operations now require measurement_valid=true and observer_enabled matching the spec.",
+      "Ten measurement gates are recomputed; accepted boundary IDs and callback inventory are checked against protocol/raw marker identities.",
+      "Accepted operations receive finite loss/time, unchanged parameter hash, gradient finite/count, exact-scope checks; math equality additionally checks starting parameter and batch producer digests.",
+      "Control receipts include six acknowledgments with controller wait order; successful cleanup compares exact final census identity set."
+    ],
+    "expected_saved_receipt_semantics": {
+      "faithful_complete_negative_or_partial_failure": "May pass saved consistency while validated execution_acceptance=false; preserves the failure; never upgrades execution.",
+      "raw_byte_mutation_or_stale_hash": "Should reject saved consistency; validated execution_acceptance=null.",
+      "gradient_digest_corruption_with_recomputed_outer_custody": "Changed cross-arm equality and acceptance claim should be recomputed; producer digests are compared, original gradient bytes unavailable."
+    },
+    "not_executed": [
+      "Torch/model/process workload",
+      "saved-receipt mutation controls",
+      "actual saved receipt independent recomputation"
+    ],
+    "limits": [
+      "Static review is not executed test evidence. Root must run the predeclared pure tests and saved mutation controls.",
+      "Reuses a reducer in the published auditor; independent actual-result recalculation will separately avoid importing either producer or auditor.",
+      "No signature/hostile fully rewritten receipt authenticity, full Windows/provider-policy reproduction, allocator native reproducibility, OS/GPU peak or quality proof.",
+      "Final protocol JSON was read; implementation/freeze JSON is intentionally not yet present. Freeze must bind these final source/protocol hashes; later source changes require a new prefreeze review."
+    ],
+    "passed": true,
+    "files_sha256": {
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "file_bytes": {
+      "scripts/audit_codec_allocation.py": 13878,
+      "experiments/codec_allocation_probe.py": 47762,
+      "experiments/codec_allocation_events.py": 10717,
+      "tests/test_codec_allocation_probe.py": 9224,
+      "tests/test_codec_allocation_events.py": 8274,
+      "fixtures/codec-allocation/protocol.json": 8834
+    },
+    "previous_prefreeze_receipt_sha256": "9787791cb14f024341d4f5634fddd3f97640d85ba74299ad8e8da856dd572d34",
+    "final_source_read": true,
+    "protocol_schema_read": {
+      "schema_version": 1,
+      "experiment_id": "pythia14m-matched-codec-allocation-cost-v1",
+      "cases": 8,
+      "stages": [
+        "preimport",
+        "postimport",
+        "postload",
+        "poststudy",
+        "complete"
+      ],
+      "boundaries": [
+        "after_forward_loss",
+        "after_backward",
+        "after_loss_logits_delete",
+        "after_zero_grad"
+      ],
+      "saved_receipt_rejection_controls": [
+        "raw_byte_mutation",
+        "poststudy_stale_hash",
+        "gradient_equality_corruption"
+      ]
+    },
+    "root_reported_pure_tests": 27,
+    "root_reported_pure_tests_independently_executed_by_this_review": false
+  }
+}

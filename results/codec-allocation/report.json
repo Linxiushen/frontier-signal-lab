@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "experiment_id": "pythia14m-matched-codec-allocation-cost-v1",
+  "started_at": "2026-10-17T23:21:05.078742+00:00",
+  "started_perf_counter": 936969.0114745,
+  "cases": [
+    {
+      "id": "01_off_dense",
+      "spec": {
+        "id": "01_off_dense",
+        "observer_enabled": false,
+        "method": "dense"
+      },
+      "nonce": "e96611fc3707487730e308c9ad51131c9612e9f9799cc1a1fd054d8577b1c798",
+      "started_at": "2026-10-17T23:21:05.080742+00:00",
+      "started_perf_counter": 936969.0133749,
+      "case_deadline_perf_counter": 937059.0133749,
+      "suite_deadline_perf_counter": 937449.0114745,
+      "passed": false,
+      "stages": {},
+      "controller_controls": [],
+      "worker_controls": [],
+      "censuses": [],
+      "role_decisions": [],
+      "samples": [],
+      "parent_query_costs": [],
+      "executables_sha256": {
+        "launcher": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+        "base_python": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+        "native": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+        "conhost": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963"
+      },
+      "executable_path_sha256": {
+        "launcher": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+        "base_python": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+        "native": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+        "conhost": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+      },
+      "launcher": {
+        "pid": 61060,
+        "creation_filetime": 134367528650830547,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 61060,
+          "creation_filetime": 134367528650830547,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 936969.4509309
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "e96611fc3707487730e308c9ad51131c9612e9f9799cc1a1fd054d8577b1c798",
+          "role": "worker",
+          "pid": 10960,
+          "parent_pid": 61060,
+          "creation_filetime": 134367528651703588,
+          "memory": {
+            "resident_bytes": 26968064,
+            "private_bytes": 18313216,
+            "peak_resident_bytes": 27938816,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 936969.4056868,
+          "self_executable": {
+            "source": "sys.executable",
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+          }
+        },
+        "verified_ancestry": [
+          {
+            "pid": 10960,
+            "creation_filetime": 134367528651703588,
+            "parent_pid": 61060,
+            "job_member": true
+          },
+          {
+            "pid": 61060,
+            "creation_filetime": 134367528650830547,
+            "parent_pid": 60800,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 10960,
+          "creation_filetime": 134367528651703588,
+          "basename": "python.exe",
+          "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 936969.4484899
+        },
+        "self_executable_expected_role": "launcher",
+        "retained_os_image_expected_role": "base_python"
+      },
+      "error": "ObserverError: codec held identity/provider/thread gate failed: preimport",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 61060,
+            "creation_filetime": 134367528650830547,
+            "exit_code": 57347
+          },
+          {
+            "pid": 10960,
+            "creation_filetime": 134367528651703588,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 936969.4534928,
+        "completed_perf_counter": 936969.4740109,
+        "wall_seconds": 0.020518100005574524,
+        "timeout_seconds": 4.0
+      },
+      "completed_perf_counter": 936969.4744275,
+      "wall_seconds": 0.46105260006152093,
+      "completed_at": "2026-10-17T23:21:05.541739+00:00"
+    }
+  ],
+  "suite_launches": 1,
+  "retries": 0,
+  "passed": false,
+  "protocol_sha256": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d",
+  "implementation_sha256": "76034998b53d90fbaf62e0498606ea45f22435b1bbae8925b0e58bd933327ce0",
+  "limitations": [
+    "One frozen eight-worker suite, one load/forward/exact-CE/backward per worker, no optimizer, holdout or repeated trial",
+    "Same-method OFF/ON loss and gradient byte equality controls instrumentation mathematics, not compression accuracy or model quality",
+    "Dense uses the same exact saved-tensor hooks and protected module scopes; this is a hooked dense baseline",
+    "Two observations per method/observer setting; elapsed ratios are descriptive, not causal speed or efficiency claims",
+    "Raw events measure reported PyTorch CPU allocator requested bytes, not OS resident/private capacity, process peak or GPU memory",
+    "StorageWeakRef expiry concerns backing strong ownership; neither it nor allocator free establishes OS memory returned",
+    "ON-only registry/profiler/held boundaries perturb lifetimes and timing; OFF has no corresponding allocator or owner result",
+    "Only callback-created allocations destroyed before return count as temporary workspace; returned payload allocations stay separate",
+    "Missing allocator IDs use predeclared pointer epochs only; equal-time same-pointer events and unresolved bindings remain unknown",
+    "Unknown baseline frees and right-censored live tails are retained; incomplete source/payload coverage rejects the measurement gate",
+    "No record_shapes/with_stack, export-memory-timeline fallback, interface substitution, seed/lr/threshold rescue or automatic retry",
+    "Historical six failed training-cost/final-quality screens and invalid old parent RSS remain unchanged; no sealed quality gate is rerun",
+    "Held role checks are not continuous process isolation, and the Python audit provider guard is not an OS network sandbox",
+    "Metadata/file/deadline limits are enforced; no active memory sampler or hard native private-memory cap is present"
+  ],
+  "math_controls": {},
+  "completed_at": "2026-10-17T23:21:05.549725+00:00",
+  "wall_seconds": 0.470387400011532,
+  "result_sha256": "600d4a50e5b1af65d7f09634169e225ccb948e8d63de0353b17f12ec566cf5aa"
+}

@@ -51,6 +51,10 @@ jobs:
         run: python -S -m scripts.audit_training_phase_memory --report results/training-phase-memory/report.json --protocol fixtures/training-phase-memory/protocol.json --freeze fixtures/training-phase-memory/implementation.json --output reports/training-phase-memory-ci-audit.json
       - name: Audit saved SQLite snapshot freshness and fail-stop receipts without opening databases
         run: python -S scripts/audit_sqlite_snapshot_canary.py --result results/sqlite-snapshot-canary
+      - name: Preserve the frozen failed codec suite without model execution
+        run: python -S scripts/audit_codec_allocation.py --result results/codec-allocation
+      - name: Independently audit the omitted codec preimport failure receipt
+        run: python -S scripts/audit_codec_preimport_failure.py --result results/codec-allocation --expected-review results/codec-allocation/independent-review.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

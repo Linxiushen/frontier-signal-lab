@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scope": "Existing official API/source semantics, not a new research announcement or an executed measurement. No upstream implementation code copied or redistributed.",
+  "sources": [
+    {
+      "key": "profiler-2.9",
+      "url": "https://docs.pytorch.org/docs/2.9/profiler.html",
+      "final_url": "https://docs.pytorch.org/docs/2.9/profiler.html",
+      "started_at": "2026-10-17T23:09:18.890327+00:00",
+      "completed_at": "2026-10-17T23:09:20.299709+00:00",
+      "status": 200,
+      "body_bytes": 147919,
+      "body_sha256": "ce108655b4dad0aca62c60b05ec837eabb2abba62020f31352510130c5c0ed1d",
+      "truncated": false,
+      "source_kind": "official_versioned_documentation",
+      "published_at": null,
+      "exact_short_quote": "When record_shapes=True is specified, profiler will temporarily hold references to the tensors;",
+      "implications": [
+        "Disable record_shapes and with_stack for this lifetime diagnostic.",
+        "Profiler API is experimental; unprofiled execution can have different lifetimes and overhead.",
+        "Only direct allocation records are reduced; nested operator memory aggregates are not summed."
+      ]
+    },
+    {
+      "key": "reductions-v2.9.1",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.9.1/torch/multiprocessing/reductions.py",
+      "final_url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.9.1/torch/multiprocessing/reductions.py",
+      "started_at": "2026-10-17T23:09:18.891326+00:00",
+      "completed_at": "2026-10-17T23:09:19.951699+00:00",
+      "status": 200,
+      "body_bytes": 23141,
+      "body_sha256": "6a4d539f7d434176f8520b6fb36aa1edcb0af586e90a0fc6e1f33053118ca4dc",
+      "truncated": false,
+      "source_kind": "official_tagged_implementation",
+      "published_at": null,
+      "exact_short_quote": "A weak reference to a Storage.",
+      "observed_API_semantics": "StorageWeakRef stores a weak Storage handle; expired delegates to the Storage expired check. It does not report OS RSS/private or a CUDA allocator peak.",
+      "installed_file_sha256": "6090213df56879e94f8fa6d704c3a1dada4bb2205a40a6af74c33da76403d0a1",
+      "installed_newline_normalized_matches_tagged_file": true,
+      "note": "A tag/file semantic check, not a signed distribution or runtime measurement; internal API version must remain pinned."
+    },
+    {
+      "key": "license-v2.9.1",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.9.1/LICENSE",
+      "final_url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.9.1/LICENSE",
+      "started_at": "2026-10-17T23:09:18.891326+00:00",
+      "completed_at": "2026-10-17T23:09:19.912809+00:00",
+      "status": 200,
+      "body_bytes": 3464,
+      "body_sha256": "a8a2c6b67cf8a597ffaa5c82380a6bd1b82629c0417e00673d8013d662eb500a",
+      "truncated": false,
+      "source_kind": "official_tagged_license",
+      "published_at": null,
+      "observation": "PyTorch license permits redistribution/use with conditions, including retention of notices and no endorsement. This project invokes installed APIs; upstream implementation code is not copied into our producer."
+    }
+  ]
+}

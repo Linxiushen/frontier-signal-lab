@@ -6,7 +6,7 @@ Public evidence → falsifiable hypotheses → reproducible experiments.
 
 追踪前沿实验室研究者与开源作者的个人公告、原创仓库、实际贡献、issue/PR/discussion。每个判断附原始链接、观察时间、替代解释和下一次检查条件。入职消息用于发现人物；研究优先级由技术证据决定。
 
-本轮交付：[观察器 v2 真实测量](results/observer-duty-v2/report.md)完成 4 次加载、64 次更新，确认屏障和冻结收据审计通过；两对 ON/OFF 耗时比 1.040/1.062 仅作描述值。保留上一版四项拒绝、六项科学负结果和无效历史 RSS。见[复核命令](fixtures/observer-duty-v2/README.md)及[研究判断](research/2026-10-17-observer-duty-acknowledgment.md)。
+本轮交付：[内存查询与全局快照对照](results/observer-query-treatment/report.md)完成 4 次加载、64 次更新，8894 项便携审计通过；两对 T/M 耗时比 1.069/1.016，轻量查询约 50 Hz，仅为两对短运行的描述值。保留六项科学负结果、无效历史 RSS 和旧时序拒绝。见[复核命令](fixtures/observer-query-treatment/README.md)与[研究判断](research/2026-10-17-observer-query-treatment.md)。
 
 ## 第一轮：2026-10-15
 

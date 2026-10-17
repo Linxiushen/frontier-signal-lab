@@ -5865,6 +5865,104 @@
       "evidence_record": "research/2026-10-17-observer-duty-acknowledgment.md",
       "dedupe_key": "our:observer-duty-v2@1d6d27ea419e36df6de92407ee2682dbfec7e0e817e6249af6119ae7fe35be37",
       "recorded_at": "2026-10-17T13:04:07.724258+00:00"
+    },
+    {
+      "id": "fla-cache-generation-module-extraction-compatibility-merged",
+      "url": "https://github.com/fla-org/flash-linear-attention/commit/44464f64e8f4d3d1da22ba6364915254331f3cf8",
+      "related_url": "https://github.com/fla-org/flash-linear-attention/pull/1502",
+      "type": "new_landing_of_earlier_same_day_proposal_complete_metadata_selected_source_not_runtime_reproduction",
+      "author": "yzhangcs; not Nathan Chen",
+      "merged_by": "yzhangcs",
+      "published_at": "2026-10-17T14:24:49Z",
+      "published_at_kind": "actual squash landing; proposal created2026-10-17T10:22:00Z, previously visible; three PR-branch commits authored by yzhangcs",
+      "claim": "PR1502 lands44464f64 over sole actual parent68a2bdf. Paginated PR/commit and adjacent-parent comparison inventories contain104paths with matching patch payloads. Exact full bytes and patch reconstruction cover9selectedcorepaths, not all104: compatibility exports, new cache/generation modules, cache/generation/public-API tests and three consumers. Canonical cache classes move to cache_utils and generation classes to generation_utils while utils reexports the six existing symbols. FLALayer shares a state-transfer helper across five named state families; source tests cover empty states, transfer, pickle/legacy alias loading and continued updates. prepare_inputs_for_generation method and unsupported generation class ASTs exactly match the parent; whole FLAGenerationMixin also changes docstring and removes a forwarding constructor. Only benchmark/KDA-layer/KDA-model import-stripped ASTs were checked as unchanged. Generation tests rebind module-qualified helper references to generation_utils.",
+      "author_assertions": "Author describes this as the first native-stack layer1502→1503→1505; Transformers dependency/protocol, model computation and state-dict names remain unchanged. The claimed80consumer import-only AST audit was not independently repeated. Author reports CPU suites across four Transformers versions,106pass8skip on GB200 and final-head cache33pass7skip. Accelerator model/kernel matrix and distributed context-parallel benchmark were not run. Microbenchmarks at earlier candidate7db053ec report recurrent update0.764to0.715microseconds and offload/prefetch14.949to15.116microseconds: transfer is1.1%slower; no end-to-end speedup. We executed no embedded benchmark or upstream tests and read no numerical artifacts.",
+      "ci_metadata": "Complete default-latest PR-head42985b65 check inventory33:17success9skip5cancel2queued; landed44464f64 inventory16:13success1skip2pending. Complete workflow lists17head/15landed. Selected exact-head H10039040641876 has6jobs,2successful decision/detection and4skipped test/benchmark/eligibility; A2 39040541503 has1successful detection/1skipped test. Workflow success therefore does not establish accelerator numerical qualification. Legacy combined status contexts and job numerical logs were not read.",
+      "actual_parent": "68a2bdf1521fee0e8e993f9b57fd8ccec9d16352",
+      "pr_head": "42985b65871a4646875ba7a29080676ebcfd499f",
+      "status": "landed_cache_generation_extraction_selected_core_source_compatibility_unexecuted",
+      "our_inference": "Serialization module identity, state-family transfer and token counters are part of the reusable-state contract. Before interpreting cache reuse or offload as cheaper, verify that old saved objects still load and continue with the same values and tokens; an unchanged generation preparation method alone cannot establish full model or checkpoint equivalence. This is a measurement implication, not an inferred private research plan.",
+      "next_falsifiable_gate": "Use a pinned compatible runtime to load old-module serialized caches, alias/current-module objects and fresh states; continue identical tokens, transfer each state family and empty states across actual devices, compare exact state values/counters and model outputs, then separately measure synchronized transfer and full generation cost. Keep constructor skips and the author-reported transfer regression visible.",
+      "source_coverage": {
+        "complete_metadata_paths": 104,
+        "exact_content_pairs": 9,
+        "unreconstructed_paths": 95
+      },
+      "limitations": [
+        "Only9selectedcorepairs reconstructed; full80consumer import-only equivalence remains an author assertion.",
+        "Two FLA source archives completed before scope narrowed; only selected paths inspected. No upstream implementation copied into our package.",
+        "Syntax/AST comparison is source inspection, not executed pickle/GPU/cache correctness or all-model qualification.",
+        "Complete latest-filter check/workflow inventories are from separate mutable intervals; skipped and pending jobs remain.",
+        "Proposal was already visible; this is a new landing event and engineering extraction, not Nathan authorship or a new algorithm."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T145621Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1502@44464f64e8f4d3d1da22ba6364915254331f3cf8",
+      "recorded_at": "2026-10-17T15:13:24.798799+00:00",
+      "merged_at": "2026-10-17T14:24:49Z",
+      "commit_author_at": "2026-10-17T14:24:49Z",
+      "commit_committer_at": "2026-10-17T14:24:49Z"
+    },
+    {
+      "id": "openclaw-postgres-scoped-receipts-read-snapshots-merged",
+      "url": "https://github.com/openclaw/openclaw/commit/271f240ec5a6d360b8f0ab970c2433f90429f9d2",
+      "related_url": "https://github.com/openclaw/openclaw/pull/175498",
+      "type": "new_landing_complete_metadata_selected_source_and_historical_CI_not_runtime_reproduction",
+      "author": "steipete / Peter Steinberger",
+      "merged_by": "steipete",
+      "published_at": "2026-10-17T14:49:47Z",
+      "published_at_kind": "landing commit committer time; GitHub merge event separately recorded at merged_at, one second later; earlier same-day proposal already visible",
+      "claim": "PR175498 lands271f240e over sole actual parent6919d603. All31API file inventories and adjacent-parent patch payloads match; one PR hunk differs only by line offsets. Exact full-content reconstruction covers10selectedbridge/connection/lexer/receipt/locking/reuse/decoder core paths. The bridge preserves mutation evidence across multi-statement results and returns server transaction status. Connection-local pending-write ownership controls settlement; empty/nonmutating transactions publish no receipt, certified DML borrows scopes, schema/unknown mutations remain broad and rollback retains the monotonic attempted-write witness. Classified mutations in read snapshots are refused before receipt bookkeeping, preventing a read handle from publishing a sibling writer receipt. Lexer handling distinguishes modifying CTEs and SELECT INTO while consuming qualified/quoted names and numeric tokens. Selected source regressions exercise scope prediction, sibling handles, CTE/schema boundaries, batches, loss and eager-lock-before-read concurrent increments.",
+      "author_assertions": "Author reports21pure-read callers switched to snapshot owner with uncertain/repairing paths retained,54targetedPG plus SQLite/mixed-engine and matching SQLite statement-count replays. Earlier measured revision02db95bb reports traced warm worker requests44.00to36.33,SQL193.67to173.67, but full-window requests61to67 and SQL258.33to283.67 increase. C64 timing observed0.793to3.171successfulturns/s and p9594224.2to24079.8ms; host load50.28baseline versus18.29candidate confounds causality. Those measurements precede final035edd37 mutation guard; author reports finalSQLite parity, not a new finalPG performance study. Inherited shard failures, original Git-backup failure, one failed-job recovery and a separate inherited lost-reply-after-embedded-COMMIT gap remain disclosed. No logs, PG cluster, provider or timing replay was independently executed/read.",
+      "ci_metadata": "Exact head035edd37 CI39038871417 attempt1 completed failure:83jobs=57success2failure24skip, failures PostgreSQL conformance(infra) and aggregate gate. Exact attempt2 completed success:83jobs=59success24skip. Both complete inventories and failure-step metadata retained; latest jobs match attempt2. The author recovery/flake explanation is unverified author attribution. Landed271f240e CI39042410627 succeeds with42jobs=1success41skip. Complete latest-filter check totals189head (103success84skip1neutral1cancel),98landed (6success88skip4cancel); workflow lists48/31complete. Author-linked exact CI run/head matches. No broad runtime proof follows from skipped landed checks.",
+      "actual_parent": "6919d60344e9d773a217b9ff12ce29a0c5b64808",
+      "pr_head": "035edd3749bbd8afc8f32d4367117ee3116f5774",
+      "status": "landed_scoped_postgres_mutation_receipts_selected_source_durable_and_causal_performance_unverified",
+      "our_inference": "A reusable snapshot needs evidence of a relevant mutation and the writing connection lifetime; COMMIT text alone is insufficient. Narrow invalidation can save traced work while background/full-window work worsens. Cost claims should bind the measured revision, all-window counts and unknown outcome behavior, with conservative invalidation kept for ambiguous mutations.",
+      "next_falsifiable_gate": "On an actual pinned engine compare authentic adjacent refs with unrelated/scoped/schema/raw writes, empty commit, rollback, sibling read handles, modifying CTE/SELECT INTO, completed/reopened batches, connection loss and restart. Track exact committed rows, pending-to-published tokens, authority refusal and old-reader invalidation; retain failed/unknown outcomes. Alternate isolated-host full-window and traced measurements at the same final revision, separately counting background work. Do not treat a SQL lexer as a complete proof for side-effecting SELECT functions.",
+      "source_coverage": {
+        "complete_metadata_paths": 31,
+        "exact_content_pairs": 10,
+        "unreconstructed_paths": 21
+      },
+      "limitations": [
+        "Only10selectedcorepairs reconstructed;21other file contents and transitive owners were not independently reconstructed or executed.",
+        "Two in-flight whole-repo downloads were cancelled after scope narrowed; status200/exit-1 partial bytes/hashes retained and excluded. Selected content was fetched independently via20successful pinned GETs.",
+        "Author performance results use an earlier measured head and unequal shared-host loads; no current-head isolated causal speedup or SQLite request parity claim.",
+        "Side-effecting SELECT functions and an author-disclosed inherited embedded-COMMIT lost-reply gap remain outside verified runtime coverage.",
+        "Historical CI failure is preserved beside successful attempt2; no logs were read to establish failure cause. Complete metadata does not establish durable recovery, production integrity or liveness.",
+        "Latest-filter metadata was read at separate mutable intervals; legacy status contexts and all-historical checks were not read."
+      ],
+      "repository_public": true,
+      "license_metadata": {
+        "spdx_id": "MIT",
+        "key": "mit"
+      },
+      "evidence_record": "research/receipts/20261017T145621Z-reviewed-sources.json",
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/175498@271f240ec5a6d360b8f0ab970c2433f90429f9d2",
+      "recorded_at": "2026-10-17T15:13:24.798799+00:00",
+      "merged_at": "2026-10-17T14:49:48Z",
+      "commit_author_at": "2026-10-17T14:49:47Z",
+      "commit_committer_at": "2026-10-17T14:49:47Z"
+    },
+    {
+      "id": "pythia14m-observer-memory-toolhelp-query-treatment",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/observer-query-treatment/report.json",
+      "type": "our_original_predeclared_actual_dense_training_query_treatment_with_frozen_auditor",
+      "author": "this project; not an upstream author claim",
+      "published_at": "2026-10-17T15:07:32.946781+00:00",
+      "claim": "One separately frozen M/T/T/M suite,4pinnedPythia14mloads64denseAdamWupdates. Both treatments query retained actual worker current memory/nativeCPU; T alone Toolhelp. Four exact initial/schedule/finalhashes/16loss trajectories. Portable8894/local8898 and97independent outcome checks pass;176rawJSON20retainedexits0/fourJobs empty. T/M1.0693918121/1.0164691880,signedwall+0.2137332/+0.0518342s,GM1.0425947568 descriptive n2 only. M49.9985/49.8833Hz vs T40.6822/43.4487Hz; M snapshotnull/unperformed and parentCPU0resolution observation, not zerocost. No OFF/totalcost, wholeprocess sampledmaxlowerbounds not isolatedbackward/fullpeak/savings/GPU/quality/production. Historical failures/RSS unchanged.",
+      "status": "finite_engineering_acceptance_passed_scientific_status_unchanged",
+      "result_file_sha256": "f8dfa485ee8151419a37e8c3cde9c003dad083a87b4e5b91cf71532465cdcce5",
+      "protocol_sha256": "370bc2918f4954e8afdfdcb9ec630e4252cd16717254dce084a87a3ec4a5672d",
+      "implementation_freeze_sha256": "0a72def74988fa2a9d0fb3fed72aeaa1209cf1f47822cf638b9f033039d82a38",
+      "evidence_record": "research/2026-10-17-observer-query-treatment.md",
+      "dedupe_key": "our:observer-query-treatment@f8dfa485ee8151419a37e8c3cde9c003dad083a87b4e5b91cf71532465cdcce5",
+      "recorded_at": "2026-10-17T15:15:29.152689+00:00"
     }
   ]
 }

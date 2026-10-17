@@ -1,0 +1,356 @@
+{
+  "reviewed_at": "2026-10-17T15:08:18.706082+00:00",
+  "kind": "frozen_MTTM_query_treatment_actual_measurement_saved_receipt_and_local_file_audits",
+  "report_sha256": "f8dfa485ee8151419a37e8c3cde9c003dad083a87b4e5b91cf71532465cdcce5",
+  "producer_reported_passed": true,
+  "joint_acceptance_passed": true,
+  "frozen_audit": {
+    "passed": true,
+    "check_count": 8894,
+    "checks_passed": 8894,
+    "failures": []
+  },
+  "local_audit": {
+    "passed": true,
+    "check_count": 8898,
+    "checks_passed": 8898,
+    "failures": []
+  },
+  "wall_seconds": 63.45686059992295,
+  "paired_summary": {
+    "valid": true,
+    "all_four_trajectories_matched": true,
+    "pairs": [
+      {
+        "memory_case": "pair1_memory",
+        "toolhelp_case": "pair1_toolhelp",
+        "exact_trajectory_matched": true,
+        "toolhelp_memory_wall_ratio": 1.0693918120894939,
+        "signed_toolhelp_minus_memory_wall_seconds": 0.21373319998383522,
+        "signed_relative_wall_change": 0.06939181208949385
+      },
+      {
+        "memory_case": "pair2_memory",
+        "toolhelp_case": "pair2_toolhelp",
+        "exact_trajectory_matched": true,
+        "toolhelp_memory_wall_ratio": 1.016469188001794,
+        "signed_toolhelp_minus_memory_wall_seconds": 0.05183420004323125,
+        "signed_relative_wall_change": 0.016469188001793977
+      }
+    ],
+    "geometric_mean_toolhelp_memory_wall_ratio": 1.0425947567920983,
+    "geometric_mean_relative_wall_change": 0.04259475679209834,
+    "boundary": "two M/T/T/M pairs with common memory queries, descriptive signed T/M fixed intervention; no off baseline, favorable threshold, population inference or general causal/production claim"
+  },
+  "cases": [
+    {
+      "id": "pair1_memory",
+      "query_treatment": "memory_only",
+      "producer_passed": true,
+      "loop_wall": 3.0800925000803545,
+      "loop_cpu": 3.0625,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584409088,
+        "sampled_current_private_max_bytes": 692174848,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 154,
+        "maximum_gap_including_boundaries_seconds": 0.020519599900580943,
+        "realized_samples_per_second": 49.998498420415096,
+        "memory_cpu_query_wall_seconds": 0.008848400670103729,
+        "snapshot_wall_seconds": null,
+        "combined_query_wall_fraction": 0.0028727710839440337
+      },
+      "window_wall": 3.1338927999604493,
+      "parent_CPU_wide": 0.0,
+      "raw_observations": 156,
+      "polls": 156,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 907311.2345026,
+        "parent_wait_start": 907311.2392012,
+        "worker_accepted": 907311.2505189,
+        "parent_wait_complete": 907311.2614895,
+        "live_checks": [
+          907311.261523,
+          907311.261529
+        ],
+        "finish_emitted": 907311.2615313
+      },
+      "barrier_wall_seconds": 0.022288299980573356,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 33076,
+            "creation_filetime": 134367231897388842,
+            "exit_code": 0
+          },
+          {
+            "pid": 1244,
+            "creation_filetime": 134367231898490324,
+            "exit_code": 0
+          },
+          {
+            "pid": 49632,
+            "creation_filetime": 134367231897754525,
+            "exit_code": 0
+          },
+          {
+            "pid": 24604,
+            "creation_filetime": 134367231902443663,
+            "exit_code": 0
+          },
+          {
+            "pid": 57012,
+            "creation_filetime": 134367231903366744,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 907311.3095498,
+        "completed_perf_counter": 907311.768475,
+        "wall_seconds": 0.4589252000441775,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair1_toolhelp",
+      "query_treatment": "memory_and_toolhelp",
+      "producer_passed": true,
+      "loop_wall": 3.2938257000641897,
+      "loop_cpu": 3.28125,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584388608,
+        "sampled_current_private_max_bytes": 692142080,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 134,
+        "maximum_gap_including_boundaries_seconds": 0.04595800000242889,
+        "realized_samples_per_second": 40.68217695835837,
+        "memory_cpu_query_wall_seconds": 0.006624100147746503,
+        "snapshot_wall_seconds": 2.2309749993728474,
+        "combined_query_wall_fraction": 0.6793313621534338
+      },
+      "window_wall": 3.3423027999233454,
+      "parent_CPU_wide": 2.34375,
+      "raw_observations": 136,
+      "polls": 136,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 907326.1150285,
+        "parent_wait_start": 907326.1207106,
+        "worker_accepted": 907326.1324231,
+        "parent_wait_complete": 907326.1424093,
+        "live_checks": [
+          907326.1424398,
+          907326.142444
+        ],
+        "finish_emitted": 907326.142446
+      },
+      "barrier_wall_seconds": 0.021698699914850295,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 42648,
+            "creation_filetime": 134367232078470134,
+            "exit_code": 0
+          },
+          {
+            "pid": 43148,
+            "creation_filetime": 134367232079718782,
+            "exit_code": 0
+          },
+          {
+            "pid": 48756,
+            "creation_filetime": 134367232078898047,
+            "exit_code": 0
+          },
+          {
+            "pid": 20160,
+            "creation_filetime": 134367232084006362,
+            "exit_code": 0
+          },
+          {
+            "pid": 52388,
+            "creation_filetime": 134367232084642172,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 907326.189793,
+        "completed_perf_counter": 907326.6301276,
+        "wall_seconds": 0.44033460004720837,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_toolhelp",
+      "query_treatment": "memory_and_toolhelp",
+      "producer_passed": true,
+      "loop_wall": 3.199178200098686,
+      "loop_cpu": 3.1875,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584081408,
+        "sampled_current_private_max_bytes": 691970048,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 139,
+        "maximum_gap_including_boundaries_seconds": 0.04776779992971569,
+        "realized_samples_per_second": 43.44865815718306,
+        "memory_cpu_query_wall_seconds": 0.007070800638757646,
+        "snapshot_wall_seconds": 2.255355699802749,
+        "combined_query_wall_fraction": 0.7071898965714748
+      },
+      "window_wall": 3.254600299987942,
+      "parent_CPU_wide": 2.328125,
+      "raw_observations": 142,
+      "polls": 142,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 907341.6551276,
+        "parent_wait_start": 907341.6606655,
+        "worker_accepted": 907341.6683226,
+        "parent_wait_complete": 907341.6821627,
+        "live_checks": [
+          907341.6821937,
+          907341.6821979
+        ],
+        "finish_emitted": 907341.6822
+      },
+      "barrier_wall_seconds": 0.021497200010344386,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 42952,
+            "creation_filetime": 134367232227080712,
+            "exit_code": 0
+          },
+          {
+            "pid": 49408,
+            "creation_filetime": 134367232228324265,
+            "exit_code": 0
+          },
+          {
+            "pid": 34652,
+            "creation_filetime": 134367232227491277,
+            "exit_code": 0
+          },
+          {
+            "pid": 26444,
+            "creation_filetime": 134367232241082487,
+            "exit_code": 0
+          },
+          {
+            "pid": 40132,
+            "creation_filetime": 134367232241759153,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 907341.7302687,
+        "completed_perf_counter": 907342.1679047,
+        "wall_seconds": 0.4376359999878332,
+        "timeout_seconds": 4.0
+      }
+    },
+    {
+      "id": "pair2_memory",
+      "query_treatment": "memory_only",
+      "producer_passed": true,
+      "loop_wall": 3.1473440000554547,
+      "loop_cpu": 3.15625,
+      "training_memory": {
+        "sampled_current_resident_max_bytes": 584531968,
+        "sampled_current_private_max_bytes": 692056064,
+        "boundary": "lower bounds on process current readings during full dense loop, not backward/full peak or memory saving"
+      },
+      "active_sampling": {
+        "selected_count": 157,
+        "maximum_gap_including_boundaries_seconds": 0.022290000109933317,
+        "realized_samples_per_second": 49.883330197536,
+        "memory_cpu_query_wall_seconds": 0.009637700393795967,
+        "snapshot_wall_seconds": null,
+        "combined_query_wall_fraction": 0.0030621693699913817
+      },
+      "window_wall": 3.187595900031738,
+      "parent_CPU_wide": 0.0,
+      "raw_observations": 159,
+      "polls": 159,
+      "held_censuses": 6,
+      "held_memory_brackets": 5,
+      "controls": 12,
+      "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+      "final_parameter_sha256": "eb98cc941d16772d9938cff71cdd09dde8c887e6cca9811b66e9b0747fc278dc",
+      "prefinish_order": {
+        "controller_request": 907356.2598189,
+        "parent_wait_start": 907356.2648736,
+        "worker_accepted": 907356.2848896,
+        "parent_wait_complete": 907356.3070682,
+        "live_checks": [
+          907356.3070994,
+          907356.3071091
+        ],
+        "finish_emitted": 907356.3071116
+      },
+      "barrier_wall_seconds": 0.04219459998421371,
+      "cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 49136,
+            "creation_filetime": 134367232382456266,
+            "exit_code": 0
+          },
+          {
+            "pid": 13024,
+            "creation_filetime": 134367232383681053,
+            "exit_code": 0
+          },
+          {
+            "pid": 59100,
+            "creation_filetime": 134367232382865810,
+            "exit_code": 0
+          },
+          {
+            "pid": 51772,
+            "creation_filetime": 134367232387666381,
+            "exit_code": 0
+          },
+          {
+            "pid": 58984,
+            "creation_filetime": 134367232388288212,
+            "exit_code": 0
+          }
+        ],
+        "started_perf_counter": 907356.3548431,
+        "completed_perf_counter": 907356.7958866,
+        "wall_seconds": 0.4410435000900179,
+        "timeout_seconds": 4.0
+      }
+    }
+  ],
+  "actual_loads": 4,
+  "actual_updates": 64,
+  "all_jobs_empty": true,
+  "retained_exit_count": 20,
+  "limits": "New query-treatment finite receipt/role/provider/cleanup acceptance with two descriptive fixed dense M/T pairs only. Previous v2 finite acceptance, v1fourtiming rejections, sixscientific failures and invalid historicalRSS unchanged. Both M/T current sampled maxima are whole-process lower bounds; M snapshot cost null/unperformed and no off baseline; no isolated backward/fullpeak, compressionadvantage, GPU, quality, hardcap or productionclaim."
+}

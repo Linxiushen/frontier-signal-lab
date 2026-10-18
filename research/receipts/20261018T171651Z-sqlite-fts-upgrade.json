@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "kind": "selected_first_party_source_review_no_local_runtime",
+  "subject_url": "https://github.com/openclaw/openclaw/pull/176234",
+  "observed_at": "2026-10-18T17:27:48.591142+00:00",
+  "identity_and_license": {
+    "repository": "openclaw/openclaw",
+    "public": true,
+    "archived": false,
+    "PR_author_login": "steipete",
+    "PR_author_id": 58493,
+    "PR_author_association": "CONTRIBUTOR",
+    "landed_author_login": "steipete",
+    "landed_committer_login": "web-flow",
+    "merged_by_login": "steipete",
+    "attribution_scope": "GitHub account/PR/landing metadata verified. Three PR commits are a count only; individual commit authors were not fetched. ndakota79 reproduction credit is an upstream statement,not separately authenticated here.",
+    "license": "MIT",
+    "license_url": "https://raw.githubusercontent.com/openclaw/openclaw/b6af6279cbf82eb76940b808a196274518c5e5c2/LICENSE",
+    "license_body_bytes": 1076,
+    "license_body_sha256": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4",
+    "license_observed_at": "2026-10-18T17:27:44.921453+00:00",
+    "metadata_observed_at": "2026-10-18T17:26:28.537555+00:00",
+    "redistribution_scope": "Review contains facts,short labels and hashes; full upstream source stays in ignored run. No source is executed or publicly copied by this lane."
+  },
+  "verified_metadata": {
+    "PR_title": "fix: recover intact agent databases after SQLite FTS changes",
+    "PR_created_at": "2026-10-18T14:32:02Z",
+    "PR_updated_at": "2026-10-18T16:13:34Z",
+    "PR_state": "closed",
+    "PR_draft": false,
+    "PR_merged_at": "2026-10-18T16:13:31Z",
+    "PR_head_sha": "11b06e2592739837237ae99edae86103ef62c263",
+    "PR_base_sha": "ca5ac6f5b69aa8704b653fade36e2fa59937c7fb",
+    "landed_sha": "b6af6279cbf82eb76940b808a196274518c5e5c2",
+    "landed_first_parent": "b2e85fadecb2d19aa4a501e9729b508c3975eb22",
+    "landed_parent_count": 1,
+    "landed_author_time": "2026-10-18T16:13:30Z",
+    "landed_committer_time": "2026-10-18T16:13:30Z",
+    "PR_commits_count": 3,
+    "changed_files": 14,
+    "additions": 457,
+    "deletions": 42,
+    "issue_comments_unread": 5,
+    "inline_reviews_unread": 1,
+    "time_classification": "Already tracked Oct18 14:32 proposal; new landed event16:13:30Z/PRmerged16:13:31Z,review observed17:26-17:27Z. Not a newly created proposal at discovery."
+  },
+  "request_bounds": {
+    "requests_attempted": 11,
+    "request_budget": 12,
+    "budget_unused": 1,
+    "retries": 0,
+    "redirects": 0,
+    "pagination": 0,
+    "body_ceiling_bytes": 2097152,
+    "timeout_seconds": 20,
+    "timeout_scope": "Socket timeout,not hard total deadline",
+    "HTTP200_responses": 11,
+    "untruncated_responses": 10,
+    "truncated_responses": 1,
+    "upstream_execution": 0,
+    "ML_imports": 0,
+    "tests_run": 0,
+    "local_experiments": 0,
+    "public_writes": 0,
+    "monitor_writes": 0
+  },
+  "file_review": {
+    "inventory": [
+      {
+        "filename": "config/assertion-safety-baseline.txt",
+        "status": "modified",
+        "sha": "f3f62da59af0728fe91e99cc3b88e74eb6a04d1c",
+        "additions": 1,
+        "deletions": 1,
+        "changes": 2,
+        "hunks": 1,
+        "patch_sha256": "4bde4d6fd3108cba08e2746ec40a0acad2ec106520cc75ccf44f527c92dbd5b0"
+      },
+      {
+        "filename": "docs/reference/database-schemas/integrity-and-recovery.md",
+        "status": "modified",
+        "sha": "1775272ba2795ff005fb664847863c333e721fce",
+        "additions": 17,
+        "deletions": 0,
+        "changes": 17,
+        "hunks": 1,
+        "patch_sha256": "c9913a3adee9792d2d148f2b38a5a67a08cb21ef2b5c93429f399b42a5c17dc7"
+      },
+      {
+        "filename": "src/commands/doctor-session-sqlite-recover-report.ts",
+        "status": "modified",
+        "sha": "63f4dd4993ea94093b93f2e7d57f9b0b17fbe6b3",
+        "additions": 23,
+        "deletions": 5,
+        "changes": 28,
+        "hunks": 7,
+        "patch_sha256": "a02f077fb5d058f1a12f0452d4f0393d7b3944a82f7a6a64666176afc23bd52e"
+      },
+      {
+        "filename": "src/commands/doctor-session-sqlite.fts-recovery.test.ts",
+        "status": "added",
+        "sha": "ee4ad4345f2f6ce0c04b606f74af4738579ae33d",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "hunks": 1,
+        "patch_sha256": "ba737c88b21535fffe546640d6274b2f65ba4380493940624882012f4dcd0c75"
+      },
+      {
+        "filename": "src/infra/database-engine/sqlite-memory-search-fragments.ts",
+        "status": "modified",
+        "sha": "aa26aab14c1306b70483bef4ebb6d5e1e8109e46",
+        "additions": 16,
+        "deletions": 0,
+        "changes": 16,
+        "hunks": 1,
+        "patch_sha256": "0e1b281beadd5c3af35319ebc3f476bbf1d832b281e3e043239fe91328c92f57"
+      },
+      {
+        "filename": "src/infra/sqlite-fts-integrity.test.ts",
+        "status": "added",
+        "sha": "82ed87ce8382b5f0fe3fb490966a7c0918e37aa4",
+        "additions": 120,
+        "deletions": 0,
+        "changes": 120,
+        "hunks": 1,
+        "patch_sha256": "d3481b0904f59a4434aefa9b7f789da8f336a6603b62eb7893ca24830e0abe1a"
+      },
+      {
+        "filename": "src/infra/sqlite-index-corruption.test-support.ts",
+        "status": "modified",
+        "sha": "8833b52182464945535a1419a8a3b33bd87ee227",
+        "additions": 35,
+        "deletions": 0,
+        "changes": 35,
+        "hunks": 1,
+        "patch_sha256": "a7fa1b8ea692f1f3db82eff6abd381a509802157a47c4f34626b48f38e110503"
+      },
+      {
+        "filename": "src/infra/sqlite-index-recovery.ts",
+        "status": "modified",
+        "sha": "b93461c6bcfb360f1f866d5c262a4bb0f525ed16",
+        "additions": 2,
+        "deletions": 1,
+        "changes": 3,
+        "hunks": 1,
+        "patch_sha256": "4d79718a88bb08148755c4e7bb75793dc0d7994fc67b41adb73091a97a089a5f"
+      },
+      {
+        "filename": "src/infra/sqlite-index-schema.ts",
+        "status": "modified",
+        "sha": "9322b53daa8f5c1f651d3a127d4d2b0a101a445e",
+        "additions": 69,
+        "deletions": 8,
+        "changes": 77,
+        "hunks": 6,
+        "patch_sha256": "71c3d1e5e4ea5e96d7474c252bfec0451d22acb1b1327623582f667fb38152f5"
+      },
+      {
+        "filename": "src/infra/sqlite-integrity.test.ts",
+        "status": "modified",
+        "sha": "020404c8b74e176479d1ae5e906df24c906cb67e",
+        "additions": 27,
+        "deletions": 0,
+        "changes": 27,
+        "hunks": 2,
+        "patch_sha256": "b35c69fb94e6d73ee7d929dc0f5e03790ee8d35d7c7c6da7846a73280db804e1"
+      },
+      {
+        "filename": "src/infra/sqlite-integrity.ts",
+        "status": "modified",
+        "sha": "0083cb01af6cd4f65c75909fef2908a337369822",
+        "additions": 56,
+        "deletions": 19,
+        "changes": 75,
+        "hunks": 5,
+        "patch_sha256": "fb74a3988a53eb76555640490d106163267664991dd29b6fd4d92b8efa299da1"
+      },
+      {
+        "filename": "src/infra/state-migrations.media-persistence.ts",
+        "status": "modified",
+        "sha": "4485fd5532d0770bd8dd73347dfb972fe7ee4671",
+        "additions": 6,
+        "deletions": 8,
+        "changes": 14,
+        "hunks": 6,
+        "patch_sha256": "6b977f164a3d4957031a121a34adcfd3aa042eaecdf65a251df6c018671ff434"
+      },
+      {
+        "filename": "src/state/openclaw-agent-db-maintenance.ts",
+        "status": "modified",
+        "sha": "217f38f7b308978c390ed7878b3eb81278ade949",
+        "additions": 2,
+        "deletions": 0,
+        "changes": 2,
+        "hunks": 2,
+        "patch_sha256": "d5721e19c1f32b13536237eed559474ed53ba838f20b89748b022fe45a33b402"
+      },
+      {
+        "filename": "src/state/openclaw-agent-fts-schema.ts",
+        "status": "added",
+        "sha": "265e67b1ab871c185b3ccbef0bcad323ac1b2e4f",
+        "additions": 8,
+        "deletions": 0,
+        "changes": 8,
+        "hunks": 1,
+        "patch_sha256": "343ac6ac3e9293a14e9565800bf6e90dfea9661794eda9f90b6dd6e6a8d56568"
+      }
+    ],
+    "exact_adjacent_parent_landing_pairs": [
+      {
+        "path": "src/infra/sqlite-index-schema.ts",
+        "parent_revision": "b2e85fadecb2d19aa4a501e9729b508c3975eb22",
+        "parent_bytes": 10484,
+        "parent_sha256": "56108be0a06ebae25e5f9e8defe4981f65a75089b99aadcbe1569746c17b4d62",
+        "parent_git_blob_sha1": "7f52e6c356f08229bd642726259247fb2156ba56",
+        "landed_revision": "b6af6279cbf82eb76940b808a196274518c5e5c2",
+        "landed_bytes": 12560,
+        "landed_sha256": "a9c468b8ec8aca1e71fe2977a0863a6e330051050a167f6462c13de4d40af153",
+        "landed_git_blob_sha1": "9322b53daa8f5c1f651d3a127d4d2b0a101a445e",
+        "parent_patch_exactly_equals_landed": true
+      },
+      {
+        "path": "src/infra/sqlite-index-recovery.ts",
+        "parent_revision": "b2e85fadecb2d19aa4a501e9729b508c3975eb22",
+        "parent_bytes": 3402,
+        "parent_sha256": "7c90ef3347571b6e06aff1f92df853fa400c71406baa9fab74f06b5c57ff9fb7",
+        "parent_git_blob_sha1": "47c74d22719674a1b2a777927573ba4c9ce86bd1",
+        "landed_revision": "b6af6279cbf82eb76940b808a196274518c5e5c2",
+        "landed_bytes": 3472,
+        "landed_sha256": "3cae1bc0437a73e8cf393b8374000e364f864fb1e002a8232723849c08217d7f",
+        "landed_git_blob_sha1": "b93461c6bcfb360f1f866d5c262a4bb0f525ed16",
+        "parent_patch_exactly_equals_landed": true
+      },
+      {
+        "path": "src/commands/doctor-session-sqlite-recover-report.ts",
+        "parent_revision": "b2e85fadecb2d19aa4a501e9729b508c3975eb22",
+        "parent_bytes": 14459,
+        "parent_sha256": "96efa15a21347b212f1ce6f8f7efcc6ef098e630559ac0edeaa8ed2510aac935",
+        "parent_git_blob_sha1": "b8e9f9cf31c46adb3ed178605dee255d76868111",
+        "landed_revision": "b6af6279cbf82eb76940b808a196274518c5e5c2",
+        "landed_bytes": 15135,
+        "landed_sha256": "f378d34d9b8e6067def8eca8d2dd1278ac2c7ddbf41a487ebec95bf540faf9fe",
+        "landed_git_blob_sha1": "63f4dd4993ea94093b93f2e7d57f9b0b17fbe6b3",
+        "parent_patch_exactly_equals_landed": true
+      }
+    ],
+    "added_patch_blob_checks": [
+      {
+        "path": "src/commands/doctor-session-sqlite.fts-recovery.test.ts",
+        "bytes": 3748,
+        "git_blob_sha1": "ee4ad4345f2f6ce0c04b606f74af4738579ae33d",
+        "sha256": "6c52525c492fc7c0deec221f4cdb01dd49b42676cac19cf5f37485ba8be80952",
+        "scope": "Full added patch reconstructed in memory; no execution."
+      },
+      {
+        "path": "src/infra/sqlite-fts-integrity.test.ts",
+        "bytes": 4716,
+        "git_blob_sha1": "82ed87ce8382b5f0fe3fb490966a7c0918e37aa4",
+        "sha256": "d770c8e164ce0d7e732a7098184889f58e6c78b31b0a50c8c0166d5874e3e262",
+        "scope": "Full added patch reconstructed in memory; no execution."
+      },
+      {
+        "path": "src/state/openclaw-agent-fts-schema.ts",
+        "bytes": 380,
+        "git_blob_sha1": "265e67b1ab871c185b3ccbef0bcad323ac1b2e4f",
+        "sha256": "351a193602d553a1870a012335639176593d43e317ba7e863d5691707535a817",
+        "scope": "Full added patch reconstructed in memory; no execution."
+      }
+    ],
+    "scope": "All14file patches manually read and hunk/changed-line counts validated. Exactly3full parent/landed core pairs reconstructed. This is not a14full-file or dependency-tree audit."
+  },
+  "verified_source_facts": [
+    {
+      "file": "src/infra/sqlite-index-schema.ts",
+      "fact": "FTS-only classification requires every non-ok finding to match the exact malformed-inverted-index FTS5 main.table form,and all named tables to have an approved normalized canonical FTS definition. Unknown/nonstring/mixed findings or drifted/unowned DDL return undefined."
+    },
+    {
+      "file": "src/infra/database-engine/sqlite-memory-search-fragments.ts",
+      "fact": "Approved schema sources combine agent DDL with lazy memory-owner fragments,including deployed explicit unicode61 quote spellings and trigram variants. These supplied definitions are an ownership allowlist,not arbitrary user schema recovery."
+    },
+    {
+      "file": "src/infra/sqlite-index-schema.ts",
+      "fact": "The existing immediate-transaction owner reads all integrity findings,selects only named canonical FTS tables for rebuild,invokes backup before rebuild,then runs integrity/foreign-key verification. withCommit invokes current authority before commit when repairs occurred."
+    },
+    {
+      "file": "src/infra/sqlite-index-recovery.ts",
+      "fact": "Backup uses the existing snapshot owner,normalizes the snapshot journal,fsync/hash-verifies an exclusive private copy and syncs directories. Authority is checked before and after backup; exceptions refuse repair. Backup/prepare cleanup can still leave filesystem side effects if an intermediate copy/hash/sync fails; no independent fault byte test was executed."
+    },
+    {
+      "file": "src/commands/doctor-session-sqlite-recover-report.ts",
+      "fact": "Recovery copies the source DB/sidecars to disposable writable inspection files,uses captured typed allFindings once,and treats canonical FTS-only findings as the existing maintenance-repair path. A refused/failed attempted repair reports an issue without authorizing replacement; successful repair is reinspected before quarantine clearing."
+    },
+    {
+      "file": "src/commands/doctor-session-sqlite-recover-report.ts",
+      "fact": "Unknown or mixed cases do not receive the new FTS repair classification. Existing generic corrupt-file move-aside behavior still exists; this change does not promise every unknown/structural recovery remains in place."
+    },
+    {
+      "file": "src/infra/sqlite-integrity.ts",
+      "fact": "Offline allFindings uses integrity_check(2147483647),captures results with .all and attaches findings to SqliteIntegrityError; ordinary startup keeps its previous limit/query behavior. Synchronous exhaustive scanning/rebuild/copy is not a bounded monotonic liveness guarantee."
+    },
+    {
+      "file": "docs/reference/database-schemas/integrity-and-recovery.md",
+      "fact": "Documentation directs offline Doctor with the same Node version intended for Gateway;startup/runtime do not automatically rebuild because offline maintenance owns exclusive custody. Changing SQLite again can require another rebuild."
+    }
+  ],
+  "test_source_assertions_unexecuted": [
+    "The added portable fixture probes the CURRENT library tokenizer and deliberately writes an opposite separators/tokenchars FTS schema,rebuilds,then restores canonical declaration before reopening. It generates a tokenizer/index mismatch without intentionally changing source rows;it is not an actual old released package/binary upgrade fixture.",
+    "Added FTS tests assert canonical memory/transcript content preservation,search match,retained pre-repair backup still containing original mismatch,unknown/drifted/mixed rejection and rollback when commit authority is lost.",
+    "Added Doctor fix/recover tests assert preserved transcript and external standing-intent text,preexisting persisted quarantine release and no .corrupt displacement for this canonical FTS fixture.",
+    "The105finding regression asserts one exhaustive integrity read retains all105findings. No local test or upstream code was run;source assertions are not executed proofs.",
+    "The reviewed added tests do not independently establish interrupted/failed backup byte preservation,full latest-stable package upgrade,two service restarts,current provider effects or bounded exhaustive-scan liveness."
+  ],
+  "author_reports_not_replicated": {
+    "mechanism": "PR/landed message attributes U+FFFE unicode61 incompatibility to SQLite3.54 bundled with Node26.12,not underlying agent-content damage;no independent SQLite release-note or cross-binary reproduction fetched here.",
+    "reported_native_and_CLI": "Author reports native Node26.12/SQLite3.54 base-fails/head-repairs plus two isolated Doctor fix/recover CLI flows retaining content/backup and avoiding .corrupt. Default-profile attempt was refused by the runtime-publication service guard;named isolated profiles were used.",
+    "reported_test_campaigns": "Body lists earlier62importing files(61passed/1PostgreSQLfile skipped,635tests/2skipped),later57focused tests and40siblingfiles681tests/2skipped. These are different reported groups/revisions,not pooled or independently verified.",
+    "reported_negative_and_omitted": "Full latest-stable v2026.10.4 package upgrade remains unperformed;live runs use this PR canonical-schema fixture. Full check:changed SQLite inventory skipped. APFS private-handoff case timed out past120s at140.55s and inherited graph-root budgets overflowed;optional broad run was stopped/replaced. Do not erase these or label all upstream tests green.",
+    "reported_review": "No-actionable-P0-P2 independent review is an author assertion;the5issue/1inline review bodies were not fetched."
+  },
+  "landed_CI_unknown": {
+    "url": "https://api.github.com/repos/openclaw/openclaw/commits/b6af6279cbf82eb76940b808a196274518c5e5c2/check-runs?per_page=100",
+    "pinned_commit": "b6af6279cbf82eb76940b808a196274518c5e5c2",
+    "http_status": 200,
+    "body_truncated": true,
+    "stored_bytes": 2097152,
+    "bytes_read_including_probe": 2097153,
+    "body_sha256": "d5c8c10138925b7ca68d27ac4b38c748c7b9df49ccc25636d94aa3527e3fbb88",
+    "declared_total_count_from_incomplete_prefix": 150,
+    "complete_JSON_parsed": false,
+    "complete_check_inventory": false,
+    "verified_outcomes": null,
+    "interpretation": "2MiB ceiling hit; retained partial body and request. No retry,second page,logs or inference of overall CI/GPU/runtime success."
+  },
+  "project_inference_and_unexecuted_gate": {
+    "new_material_source_progression": true,
+    "judgment": "A previously tracked open proposal is now a pinned landed fail-closed derived-index classification and preserving Doctor repair integration. It supplies a concrete H2 source boundary,not local runtime or production acceptance.",
+    "H2_next_gate": "Use an authenticated actual packaged/runtime entrypoint under the target SQLite/Node version. Separately freeze adjacent-parent and landed controls distinguishing tokenizer-only mismatch from genuine base/unknown/mixed corruption; retain original DB/WAL/sidecar and backup hashes through copy/hash/fsync/authority/rebuild/verification/quarantine failures,real old-package upgrade,two service restarts and exact current authority/provider-effect receipts. Bound monotonic cancellation/deadline behavior for large exhaustive scans and maintenance,then independently inspect durable contents and cleanup.",
+    "scientific_acceptance_changed": false,
+    "H1_changed": false,
+    "H3_changed": false,
+    "H4_changed": false,
+    "local_experiments_selected": 0,
+    "caution": "Canonical error strings/DDL and a clean integrity result do not establish arbitrary corruption recovery,byte identity,no side effects,or general liveness. Source assertions and truncated CI do not clear the existing full-harness gate."
+  },
+  "blind_spots": [
+    "Noissue176220/comments,PRcommits list,5issuecomments/1inline review,CIlogs or fullCIinventory fetched.",
+    "No full source for unchanged transaction/snapshot/schema/quarantine/lease dependencies;exact3core full files and14patches only.",
+    "No real old-release fixture,current packaged installation,two-process restart/failure injection or provider-effect execution.",
+    "Check-run JSON response truncation at2MiB remains unknown;one unusedGET is intentionally not used for retry."
+  ],
+  "requests": [
+    {
+      "key": "core-1-merge",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b6af6279cbf82eb76940b808a196274518c5e5c2/src/infra/sqlite-index-schema.ts",
+      "started_at": "2026-10-18T17:27:41.760047+00:00",
+      "completed_at": "2026-10-18T17:27:43.150836+00:00",
+      "http_status": 200,
+      "body_bytes": 12560,
+      "body_sha256": "a9c468b8ec8aca1e71fe2977a0863a6e330051050a167f6462c13de4d40af153",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "core-1-parent",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b2e85fadecb2d19aa4a501e9729b508c3975eb22/src/infra/sqlite-index-schema.ts",
+      "started_at": "2026-10-18T17:27:41.759080+00:00",
+      "completed_at": "2026-10-18T17:27:43.050806+00:00",
+      "http_status": 200,
+      "body_bytes": 10484,
+      "body_sha256": "56108be0a06ebae25e5f9e8defe4981f65a75089b99aadcbe1569746c17b4d62",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "core-2-merge",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b6af6279cbf82eb76940b808a196274518c5e5c2/src/infra/sqlite-index-recovery.ts",
+      "started_at": "2026-10-18T17:27:42.949766+00:00",
+      "completed_at": "2026-10-18T17:27:44.125084+00:00",
+      "http_status": 200,
+      "body_bytes": 3472,
+      "body_sha256": "3cae1bc0437a73e8cf393b8374000e364f864fb1e002a8232723849c08217d7f",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "core-2-parent",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b2e85fadecb2d19aa4a501e9729b508c3975eb22/src/infra/sqlite-index-recovery.ts",
+      "started_at": "2026-10-18T17:27:41.760047+00:00",
+      "completed_at": "2026-10-18T17:27:42.947492+00:00",
+      "http_status": 200,
+      "body_bytes": 3402,
+      "body_sha256": "7c90ef3347571b6e06aff1f92df853fa400c71406baa9fab74f06b5c57ff9fb7",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "core-3-merge",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b6af6279cbf82eb76940b808a196274518c5e5c2/src/commands/doctor-session-sqlite-recover-report.ts",
+      "started_at": "2026-10-18T17:27:43.153809+00:00",
+      "completed_at": "2026-10-18T17:27:44.122085+00:00",
+      "http_status": 200,
+      "body_bytes": 15135,
+      "body_sha256": "f378d34d9b8e6067def8eca8d2dd1278ac2c7ddbf41a487ebec95bf540faf9fe",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "core-3-parent",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b2e85fadecb2d19aa4a501e9729b508c3975eb22/src/commands/doctor-session-sqlite-recover-report.ts",
+      "started_at": "2026-10-18T17:27:43.053805+00:00",
+      "completed_at": "2026-10-18T17:27:44.021085+00:00",
+      "http_status": 200,
+      "body_bytes": 14459,
+      "body_sha256": "96efa15a21347b212f1ce6f8f7efcc6ef098e630559ac0edeaa8ed2510aac935",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "license",
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/b6af6279cbf82eb76940b808a196274518c5e5c2/LICENSE",
+      "started_at": "2026-10-18T17:27:44.024084+00:00",
+      "completed_at": "2026-10-18T17:27:44.921453+00:00",
+      "http_status": 200,
+      "body_bytes": 1076,
+      "body_sha256": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "merge-check-runs",
+      "method": "GET",
+      "url": "https://api.github.com/repos/openclaw/openclaw/commits/b6af6279cbf82eb76940b808a196274518c5e5c2/check-runs?per_page=100",
+      "started_at": "2026-10-18T17:27:44.124084+00:00",
+      "completed_at": "2026-10-18T17:27:48.591142+00:00",
+      "http_status": 200,
+      "body_bytes": 2097152,
+      "body_sha256": "d5c8c10138925b7ca68d27ac4b38c748c7b9df49ccc25636d94aa3527e3fbb88",
+      "body_truncated": true,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "merge-commit",
+      "method": "GET",
+      "url": "https://api.github.com/repos/openclaw/openclaw/commits/b6af6279cbf82eb76940b808a196274518c5e5c2?per_page=100",
+      "started_at": "2026-10-18T17:26:27.468937+00:00",
+      "completed_at": "2026-10-18T17:26:28.929317+00:00",
+      "http_status": 200,
+      "body_bytes": 49737,
+      "body_sha256": "28a53fc924ca7bc30511905fe25d189e45014448132bd0f4973acbc32f73bb4f",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "pull",
+      "method": "GET",
+      "url": "https://api.github.com/repos/openclaw/openclaw/pulls/176234",
+      "started_at": "2026-10-18T17:26:27.467937+00:00",
+      "completed_at": "2026-10-18T17:26:28.766555+00:00",
+      "http_status": 200,
+      "body_bytes": 27522,
+      "body_sha256": "a72202371a3328f0ebe49f963daa8ee025205490f89575dd012065b06858a2ee",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    },
+    {
+      "key": "repository",
+      "method": "GET",
+      "url": "https://api.github.com/repos/openclaw/openclaw",
+      "started_at": "2026-10-18T17:26:27.467937+00:00",
+      "completed_at": "2026-10-18T17:26:28.537555+00:00",
+      "http_status": 200,
+      "body_bytes": 6278,
+      "body_sha256": "9b04f885713447a29ac89c472f4739517c936b0e330ecd58598df9ed03ceef7f",
+      "body_truncated": false,
+      "retries": 0,
+      "redirects_followed": 0,
+      "pagination_requests": 0
+    }
+  ],
+  "offline_validation": {
+    "source_checks_passed": 79,
+    "root_checks_passed": 43,
+    "root_exact_pairs": 3,
+    "root_added_blobs": 3,
+    "raw_local_source_receipt_sha256": "af3099171e804b1ff02455e08c12f2a2dcad54abcdf80c8d5a4f1c7b686ab381",
+    "raw_local_root_audit_sha256": "adae515f84cd1c48ba95716b7f3ee2b79995d413658fca30c895cac6f02872a0",
+    "raw_artifacts_bundled": false,
+    "note": "Raw bounded responses and independent audit remain in ignored local runs; public URLs, revisions and hashes identify the reviewed upstream material."
+  },
+  "dedupe_key": "https://github.com/openclaw/openclaw/pull/176234@b6af6279cbf82eb76940b808a196274518c5e5c2@28a53fc924ca7bc30511905fe25d189e45014448132bd0f4973acbc32f73bb4f",
+  "canonical_payload": {
+    "ensure_ascii": false,
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "allow_nan": false,
+    "encoding": "utf-8",
+    "excludes": [
+      "payload_sha256"
+    ]
+  },
+  "payload_sha256": "e9323e39620a7585ab0707983626051420570a7d1101fc89c8ce1fa75fa9cc55"
+}

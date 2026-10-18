@@ -42,7 +42,11 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_savescope*.py' -v
       - run: python -m savescope demo --output reports/tiny-audit
       - run: python -m savescope inspect reports/tiny-audit/report.json
+      - name: Reproduce the frozen caller AdamW state integration
+        run: python experiments/savescope_optimizer_probe.py --output reports/optimizer-state
       - uses: actions/upload-artifact@v4
         with:
           name: savescope-tiny-execution
-          path: reports/tiny-audit/
+          path: |
+            reports/tiny-audit/
+            reports/optimizer-state/

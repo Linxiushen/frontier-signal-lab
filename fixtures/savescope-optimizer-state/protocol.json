@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "savescope_accumulated_adamw_product_integration",
+  "seed": 20261018,
+  "device": "cpu",
+  "dtype": "float32",
+  "threads": 1,
+  "warmup_steps": 4,
+  "batch_shape": [4, 16, 32],
+  "hidden": 64,
+  "outputs": 8,
+  "optimizer": {"lr": 0.001, "betas": [0.8, 0.95], "eps": 0.000001, "weight_decay": 0.01},
+  "policies": ["dense", "int8", "int8_keep_sensitive"],
+  "cases": [
+    "Four dense warmups; extra parameter used in steps0/2 only; reserve parameter never used. Audit excludes extra so initialized unused state and absent lazy state both remain unchanged.",
+    "Dense audit parameter/update/gradient hashes match a separately cloned authentic native AdamW from the exact same accumulated snapshot.",
+    "Same parameters and batch with fresh zero moments produce at least one different dense update: accidental state reset must be observable.",
+    "Negative exp_avg_sq rejects before the forward callback. Invalid input state remains unchanged.",
+    "A forward callback exception restores registered model/grad/RNG and leaves caller optimizer unchanged."
+  ],
+  "success": "Every control true and every policy numerically valid. No fidelity/quality threshold assigned to compressed arms.",
+  "execution_budget": {"actual_suites": 1, "pretrained_model_loads": 0, "source_warmup_updates": 4, "cloned_native_updates": 5, "retries": 0},
+  "stopping_rule": "Run once after source freeze and unit/code review. Preserve a failure without changing seed, hyperparameters or controls and without rerunning this frozen suite.",
+  "claim_limit": "Tiny original random fixture checks reusable product correctness at one common optimizer state. It does not test training quality, convergence, performance, memory savings, GPU or trajectory equivalence. Existing six H1 cost/quality failures remain unchanged."
+}

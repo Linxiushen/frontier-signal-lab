@@ -45,7 +45,7 @@ def as_report(audit_result, *, mode="executed_audit", title="Your model", run_la
             {"label": "API and scope contract", "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/SAVESCOPE.md"}],
         "audit_result": audit_result, "runs": [{"label": run_label, "context": title,
             "gradient_gate": "No scientific threshold assigned to this generic audit." if all(a["numerically_valid"] for a in arms) else "INVALID EXECUTION: one or more arms could not compute finite gradients. See report.json.",
-            "update_gate": "One fresh-state AdamW step on independent clones; no scientific threshold assigned." if all(a["update_executed"] for a in arms) else "INCOMPLETE: one or more optimizer steps were skipped. See report.json.",
+            "update_gate": "One AdamW step on independent clones (" + audit_result.get("optimizer", {}).get("initial_state", "state recorded in report.json") + "); no scientific threshold assigned." if all(a["update_executed"] for a in arms) else "INCOMPLETE: one or more optimizer steps were skipped. See report.json.",
             "parameter_tensors": len(arms[0]["gradient"].get("per_parameter", [])),
             "exact_scopes": ["loss outside SaveScope hooks"] + ["Exact type: " + name for name in sensitive_types], "arms": arms}]})
 

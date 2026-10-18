@@ -446,7 +446,7 @@ def _first_step(torch, np, named, gradients, present, options):
 
 def audit(model, forward_fn, loss_fn, *,
           policies=("dense", "int8", "int8_keep_sensitive"), optimizer_kwargs=None,
-          exact_module_types=()):
+          exact_module_types=(), optimizer=None):
     """Compare saved-operand policies at one initial model state.
 
     Actual ``model.forward`` calls made by ``forward_fn(model)`` run under
@@ -454,7 +454,10 @@ def audit(model, forward_fn, loss_fn, *,
     ``loss_fn(outputs)`` runs outside SaveScope hooks and cannot re-enter the model. It must
     return one differentiable scalar. All arms start with identical registered
     model state and global CPU/Python/NumPy RNG state; each makes one backward
-    and one fresh-state AdamW step on independent parameter clones. Registered state, modes and grad
+    and one AdamW step on independent parameter clones. By default moments are
+    fresh; ``optimizer=`` captures a supported caller AdamW's state once and
+    starts every arm from that same state. The caller optimizer is never stepped.
+    Registered state, modes and grad
     objects/values are restored even when a callback raises.
 
     Supported: CPU float32 strided parameters, eager first-order autograd,
@@ -479,6 +482,8 @@ def audit(model, forward_fn, loss_fn, *,
             not isinstance(cls, type) or not issubclass(cls, torch.nn.Module) for cls in exact_module_types):
         raise SaveScopeError("exact_module_types must contain nn.Module classes")
     sensitive_types = (torch.nn.LayerNorm, torch.nn.MultiheadAttention) + tuple(exact_module_types)
+    if optimizer is not None and optimizer_kwargs is not None:
+        raise SaveScopeError("optimizer and optimizer_kwargs are mutually exclusive")
     options = _optimizer_options(optimizer_kwargs)
     for _, tensor in list(model.named_parameters()) + list(model.named_buffers()):
         if tensor.device.type != "cpu" or tensor.layout != torch.strided:
@@ -504,12 +509,22 @@ def audit(model, forward_fn, loss_fn, *,
     named = [(name, p) for name, p in model.named_parameters() if p.requires_grad]
     if not named:
         raise SaveScopeError("model needs at least one trainable parameter")
+    optimizer_snapshot = None
+    if optimizer is not None:
+        from .optimizer_state import snapshot_adamw
+        optimizer_snapshot = snapshot_adamw(
+            torch, named, optimizer,
+            protected_tensors=[tensor for _, tensor in
+                               list(model.named_parameters()) + list(model.named_buffers())])
+        options = optimizer_snapshot.options
     state = _State(model, torch, np)
     arms, comparisons = [], []
     dense_gradients = dense_updates = None
     with _exclusive(state.modules):
         try:
             for policy in policies:
+                if optimizer_snapshot is not None:
+                    optimizer_snapshot.assert_unchanged()
                 state.restore()
                 for _, p in state.parameters:
                     p.grad = None
@@ -533,6 +548,8 @@ def audit(model, forward_fn, loss_fn, *,
                     if math.isfinite(loss_value):
                         loss.backward()
                 state.assert_contract()
+                if optimizer_snapshot is not None:
+                    optimizer_snapshot.assert_unchanged()
                 present = {name: p.grad is not None for name, p in named}
                 if any(p.grad is not None and p.grad.layout != torch.strided for _, p in named):
                     raise SaveScopeError("sparse gradients are unsupported")
@@ -542,7 +559,10 @@ def audit(model, forward_fn, loss_fn, *,
                 valid = math.isfinite(loss_value) and gradient["finite"] and any(present.values())
                 updates = None
                 if valid:
-                    update, updates = _first_step(torch, np, named, gradients, present, options)
+                    if optimizer_snapshot is None:
+                        update, updates = _first_step(torch, np, named, gradients, present, options)
+                    else:
+                        update, updates = optimizer_snapshot.step(torch, np, named, gradients, present)
                     valid = update["finite"]
                 else:
                     update = {"executed": False, "reason": "nonfinite loss/gradient or no parameter gradient",
@@ -567,6 +587,8 @@ def audit(model, forward_fn, loss_fn, *,
                                                   {"available": False, "relative_l2": None, "cosine_similarity": None}})
         finally:
             state.restore()
+            if optimizer_snapshot is not None:
+                optimizer_snapshot.assert_unchanged()
     report = {"schema_version": 1, "kind": "savescope_audit", "mode": "executed",
               "created_at_utc": datetime.now(timezone.utc).isoformat(),
               "model": {"class": _type_name(model), "parameter_tensors": len(state.parameters),
@@ -577,7 +599,8 @@ def audit(model, forward_fn, loss_fn, *,
                         "sensitive_module_types": [cls.__module__ + "." + cls.__qualname__ for cls in sensitive_types],
                         "selection": "actual module classes; innermost forward scope wins", "min_compressed_elements": 256,
                         "protected": "registered parameter and buffer backing-storage aliases"},
-              "optimizer": {"type": "AdamW", "initial_state": "fresh zero moments for every arm",
+              "optimizer": {"type": "AdamW", "initial_state": "fresh zero moments for every arm" if optimizer_snapshot is None
+                            else "captured caller AdamW state for every arm",
                             "execution": "independent parameter and gradient clones; model is never stepped", **options},
               "arms": arms, "comparisons": comparisons,
               "runtime": {"torch": torch.__version__, "numpy": np.__version__},
@@ -585,9 +608,12 @@ def audit(model, forward_fn, loss_fn, *,
                               "Caller-installed saved_tensors_hooks are unsupported; loss and callback postprocessing are outside SaveScope hooks only.",
                               "Registered values/storage, modes, existing grad objects and global CPU/Python/NumPy RNG restored; arbitrary callback state and external inputs are not restored.",
                               "Call between steps without an external live autograd graph. Arbitrary callback mutations and external input state are unsupported.",
-                              "One fresh-state AdamW step is not a training-quality or steady-state optimizer result; scientific error is reported without a success threshold.",
+                              "One common-state AdamW step is not a training-quality or trajectory-equivalence result; scientific error is reported without a success threshold.",
                               "Int8 changes backward operands; repeated module calls and repeated unpacks are counted, not assumed to occur once.",
                               "Logical payload counts are not peak memory, speed, end-to-end savings, scale or architecture claims."]}
+    if optimizer_snapshot is not None:
+        report["optimizer"]["snapshot"] = optimizer_snapshot.receipt
+        report["limitations"].append("Caller AdamW must have one supported group covering exactly the trainable model parameters. Callback/concurrent optimizer mutations are rejected, not restored.")
     # Refuse accidental NaN/Infinity output at this public serialization boundary.
     json.dumps(report, allow_nan=False)
     return report

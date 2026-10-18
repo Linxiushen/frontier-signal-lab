@@ -3,9 +3,14 @@
 **A 0.999 gradient cosine can still leave an inaccurate optimizer update. Inspect both.**
 
 SaveScope audits saved-tensor compression against exact backward: full gradients,
-actual first-step AdamW deltas, explicit module scopes, and per-parameter errors.
+actual AdamW deltas, explicit module scopes, and per-parameter errors.
 It includes a reusable Python API, an executable CPU example, and an offline
 interactive evidence viewer.
+
+The API can also compare one update from your **existing AdamW moments and
+per-parameter step counters**: pass `optimizer=optimizer` to `audit`. Each policy
+uses private clones of the same captured state. See the
+[supported state contract](SAVESCOPE.md#use-your-own-model).
 
 [Open the interactive case](https://linxiushen.github.io/frontier-signal-lab/) ·
 [Install & API guide](SAVESCOPE.md) · [贡献反例](CONTRIBUTING.md) ·
@@ -38,6 +43,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [v0.2 caller AdamW state integration](results/savescope-optimizer-state/report.md) | Reusable existing-moments API; one tiny CPU fixture passes 16 controls, with dense native hash parity and a fresh-reset negative control |
 | [Full-gradient scope diagnostic](results/activation-attention-gradient/report.md) | All three attention-scope gradient gates passed |
 | [Actual AdamW update diagnostic](results/activation-update/report.md) | All three joint update gates failed; controls passed |
 | [Separate accumulated-state follow-up](results/activation-state-update/report.md) | Four dense warmup steps; matched-state gates pass, fresh-state controls at warmed weights fail |

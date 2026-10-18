@@ -11,7 +11,7 @@ from .report import load_report, recorded_case, write_report
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Inspect saved-tensor compression before a training run.")
-    parser.add_argument("--version", action="version", version="SaveScope 0.1.0")
+    parser.add_argument("--version", action="version", version="SaveScope 0.2.0")
     commands = parser.add_subparsers(dest="command", required=True)
     replay = commands.add_parser("replay", help="Verify and render recorded Pythia evidence; no model execution")
     replay.add_argument("--output", required=True, help="New output directory")

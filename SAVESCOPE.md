@@ -75,9 +75,36 @@ write_report(as_report(result, title="My model / fixed batch"), "my-audit")
 
 `audit` requires CPU float32 strided parameters and eager, first-order execution.
 It restores registered parameters, buffers, original gradients, module training
-modes and RNG state. The caller's optimizer is never stepped. Each arm gets
-fresh zero moments for one cloned AdamW step; this does not replay an existing
-optimizer's state or prove a stateful training trajectory.
+modes and RNG state. By default each arm gets fresh zero moments for one cloned
+AdamW step. To inspect a point during training, pass your existing optimizer:
+
+```python
+# Between training steps; audit recomputes gradients from these callbacks:
+result = audit(model, lambda m: m(x), lambda y: (y - target).square().mean(),
+               optimizer=optimizer)
+```
+
+SaveScope captures the current moments and each parameter's step counter once,
+then starts every policy from that same snapshot on private clones. It never
+steps or loads state into the caller's optimizer. The report records the input
+state and checks the actual native update against an independent NumPy reference.
+Parameters with no audit gradient keep their moments and counters unchanged;
+parameters whose optimizer state is still absent retain lazy initialization.
+Existing caller gradients are restored afterward; they are not accumulated into
+the audit's gradients. Use callbacks that define the batch/loss you want to inspect.
+
+This initial stateful API supports an exact `torch.optim.AdamW` with **one group
+covering every trainable model parameter exactly once**. Use ordinary CPU
+float32 moments and CPU float32/float64 scalar step counters with integral values
+in `[0, 2**24)`. AMSGrad, maximize, capturable,
+differentiable, fused/foreach execution, custom optimizer subclasses or step
+hooks, extra/missing parameters, multiple groups and malformed/nonfinite state
+are rejected before the forward callback. `optimizer_kwargs` and `optimizer`
+are mutually exclusive. Unsupported input never silently falls back to fresh
+moments. Callback or concurrent optimizer mutations are unsupported: they are
+detected and rejected, and their external effects are not restored.
+
+One common-state update does not prove a stateful training trajectory or quality.
 
 Policies:
 
@@ -100,8 +127,9 @@ autograd, caller-installed saved-tensor hooks, and arbitrary custom autograd
 code are outside v0's contract. Use a
 fresh model instance if your forward has side effects that cannot be restored.
 
-The independent NumPy first-step formula checks native parameter and moment
-updates with explicit float32 rounding bounds. Scientific disagreement with
+Independent NumPy formulas check native parameter and moment updates with
+explicit float32 rounding bounds, including per-parameter bias correction when
+an existing optimizer is supplied. Scientific disagreement with
 dense is a valid diagnostic result. Invalid execution/control failures raise an
 error; low fidelity is not disguised as a program crash.
 
@@ -165,6 +193,17 @@ agreement is not a scientific requirement.
 
 To render another SaveScope report: `python -m savescope report input.json --output rendered`.
 To test only this toolkit: `python -m unittest discover -s tests -p "test_savescope*.py" -v`.
+
+The [frozen accumulated-state integration](fixtures/savescope-optimizer-state/protocol.json)
+uses a tiny original random fixture, four warmup updates, unequal parameter
+counters and a never-used parameter. It compares the dense audit against a
+separately cloned native optimizer and retains fresh-reset and failure controls.
+Run it into a new directory with
+`python experiments/savescope_optimizer_probe.py --output my-state-check`.
+This verifies product behavior; the six historical compression cost/quality
+failures remain separate.
+The [recorded result, trajectory and hashes](results/savescope-optimizer-state/report.md)
+are available for inspection.
 
 ## The useful next contribution
 

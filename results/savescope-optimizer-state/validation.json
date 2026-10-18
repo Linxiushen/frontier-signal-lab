@@ -1,0 +1,80 @@
+{
+  "kind": "savescope_v02_product_validation",
+  "unit_tests": {
+    "started_at": "2026-10-18T11:29:50.364243+00:00",
+    "completed_at": "2026-10-18T11:29:56.127270+00:00",
+    "tests_run": 43,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "log_sha256": "25d3fa27dd71841763ffc21db6d9be8d3c165384906432d3d8097bfe75ef1138",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "kind": "unit_and_native_optimizer_contract_checks_not_the_frozen_product_suite"
+  },
+  "focused_initial": {
+    "kind": "focused_native_optimizer_unit_contract_checks_not_frozen_product_suite",
+    "started_at": "2026-10-18T11:27:14.796229+00:00",
+    "completed_at": "2026-10-18T11:27:37.892360+00:00",
+    "tests_run": 14,
+    "skipped": 0,
+    "failures": 2,
+    "errors": 0,
+    "passed": false,
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "log_sha256": "8ad6e14301ab10c30943fd110a13060d71ac9381c2ffaf5be71cd4b5a76f2bea"
+  },
+  "focused_corrected": {
+    "kind": "focused_native_optimizer_unit_contract_checks_not_frozen_product_suite",
+    "started_at": "2026-10-18T11:29:27.913640+00:00",
+    "completed_at": "2026-10-18T11:29:32.831325+00:00",
+    "tests_run": 14,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "log_sha256": "ee2e5db7a652f20d56732ffaf7a930dab86aa75b7d78fbf5321ac405ffd1f094"
+  },
+  "prefreeze_static_review": {
+    "passed": true,
+    "checks": 80,
+    "receipt_sha256": "fbf3a7d9691b4c78afac8a08ca024298ea7365a2bbffbaf7e1b51eb06d9df02a"
+  },
+  "wheel_smoke": {
+    "passed": true,
+    "kind": "built_wheel_zip_import_and_offline_replay_no_model_execution",
+    "wheel_sha256": "b26006988f36cccd8ab5c244880a8e61f6f9a33ce87f975282fa206a6804c4e6",
+    "version": "0.2.0",
+    "new_optimizer_helper_packaged": true,
+    "all_package_python_matches_workspace": true
+  },
+  "initial_failure_explanation": "Parameter deepcopy omits existing .grad; corrected oracle explicitly captures original gradient identities and cloned values, rather than clearing gradients.",
+  "review_hash_explanation": "Focused runner hashes UTF8 LF text before Windows CRLF write. Corrected independent review checks both normalized text hashes and raw file hashes; retained initial rejected review.",
+  "limits": "Unit and saved-receipt controls are engineering validation, not further frozen model experiments or training benefit evidence.",
+  "independent_saved_review": {
+    "passed": true,
+    "checks": 437,
+    "dense_scalar_intervals": 8328,
+    "receipt_sha256": "16a0137ad9998aebc44d032b6b4b9b26b5840992217db328afbb7249304f6bdf",
+    "payload_sha256": "5e86bf4194a6a341f70b8e552e6e10bc0f49ef3cb4b2ce7021d41b1cc84d17db",
+    "limitations": [
+      "Saved JSON and frozen source only; no model, optimizer, Torch, NumPy, suite or scientific replay executed.",
+      "Dense native parameter, gradient and update hashes plus m/v/t intervals recomputed from saved float32 values with stdlib.",
+      "Warmup gradients were not saved; warmup steps/state/parameters were checked for structure, consistency and source hash binding, not independently regenerated.",
+      "Compressed native tensor values were not saved; their three-policy interval receipts were checked structurally and bound to frozen source, not numerically regenerated.",
+      "Caller pointer/version/RNG preservation and clone storage disjointness are source-bound producer controls, not independent runtime measurements.",
+      "One tiny common-state diagnostic is not training quality, convergence, performance, memory saving, GPU or trajectory equivalence evidence."
+    ]
+  },
+  "saved_receipt_corruption_controls": {
+    "passed": true,
+    "count": 2,
+    "receipt_sha256": "432aa08436d3ca60cfdae2a22d0a0556ea8fa633f3ab1526e25e38e964b0c899",
+    "note": "First in-memory counter-control harness reserialized unchanged CRLF trajectory as LF, causing an extra integrity failure. Retained failure; corrected harness updates filehash without changing the saved product suite."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "prepared_at": "2026-10-18T01:30:06.554605+00:00",
+  "experiment_id": "pythia14m-matched-codec-allocation-cost-v2",
+  "status": "accepted_frozen_allocator_and_callback_diagnostic_no_training_benefit_claim",
+  "source": "experiments/codec_allocation_v2.py",
+  "protocol": "fixtures/codec-allocation-v2/protocol.json",
+  "protocol_sha256": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc",
+  "implementation_freeze_sha256": "cb578ff31dcf9337794dbc7c5210a751a1c82db1ccbdb50919da6f6e3d59809b",
+  "report_file_sha256": "5ddc1e3a94f13ff30f78adbb8f2089b303d471269f7588ac3747e84d2082f237",
+  "report_payload_sha256": "eb89a3a9e4dc40f6b28fdbada8d21edce6cbd37ded3111abb4708f326baf07b8",
+  "started_at": "2026-10-18T01:18:08.096713+00:00",
+  "completed_at": "2026-10-18T01:19:48.409758+00:00",
+  "suite_wall_seconds": 100.3136053000344,
+  "actual_suites": 1,
+  "retries": 0,
+  "cases": 8,
+  "model_loads": 8,
+  "forwards": 8,
+  "backwards": 8,
+  "optimizer_updates": 0,
+  "accepted_stages": 40,
+  "controls_and_acknowledgments": 48,
+  "retained_process_exits": 24,
+  "all_exit_codes_zero": true,
+  "empty_jobs": 8,
+  "ON_traces": 4,
+  "original_raw_files": 173,
+  "frozen_receipt_checks": 739,
+  "independent_saved_outcome_checks": 13925,
+  "independent_numerical_checks": 19478,
+  "three_saved_mutation_controls_rejected": true,
+  "same_method_observer_math_controls": {
+    "dense": {
+      "four_matched_operations": true,
+      "loss_identical": true,
+      "gradient_bytes_identical": true,
+      "initial_parameter_bytes_identical": true,
+      "batch_bytes_identical": true
+    },
+    "int8": {
+      "four_matched_operations": true,
+      "loss_identical": true,
+      "gradient_bytes_identical": true,
+      "initial_parameter_bytes_identical": true,
+      "batch_bytes_identical": true
+    }
+  },
+  "descriptive_operator_time_ratios": {
+    "dense_ON_OFF_geomean": 1.207220973,
+    "int8_ON_OFF_geomean": 1.204161422,
+    "OFF_int8_dense_geomean": 1.092615776,
+    "observations_per_ratio": 2,
+    "causal_total_observer_overhead": false
+  },
+  "selected_registered_forward_backing_bytes": {
+    "dense": 37321728,
+    "int8": 34628096,
+    "difference": 2693632,
+    "whole_process_or_bank_only": false
+  },
+  "single_callback_temporary_requested_live_max_bytes": {
+    "dense": 0,
+    "int8_pack": 524800,
+    "int8_unpack": 262144,
+    "OS_or_GPU_peak": false
+  },
+  "outer_eligible_storage_bytes": {
+    "source": 3604480,
+    "int8_codes": 901120,
+    "int8_scales": 9728,
+    "int8_payload": 910848,
+    "int8_decoded": 3604480
+  },
+  "right_censored_each_ON_trace": {
+    "allocations": 78,
+    "requested_bytes": 56271904
+  },
+  "independent_review_sha256": "ec4be8b37e68cf3e71ae8d70fda721fa8cfb881349c2a9d8ca8c589a9b7e0d69",
+  "scientific_status_unchanged": true,
+  "historical_six_training_cost_final_quality_screens_passed": false,
+  "historical_parent_RSS_valid": false,
+  "not_measured": [
+    "OS returned capacity",
+    "whole-process training or GPU peak",
+    "sealed final quality",
+    "production reliability",
+    "causal total observer overhead"
+  ],
+  "next_gate": "A separate predeclared matched dense/bank training-cost and sealed final-quality study with authenticated worker/observer controls, actual packing/retrieval cost and endpoint-appropriate memory measurement. No seed/lr/threshold rescue.",
+  "same_method_observer_math_control_evidence_scope": "Original producer math-control field names retained. Equality is recomputed from recorded losses/digests; no independently saved gradient tensor bytes are available to rehash. These controls compare observer settings within each method, not dense/INT8 fidelity or model quality."
+}

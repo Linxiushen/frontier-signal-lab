@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-18T01:22:12.061593+00:00",
+  "passed": true,
+  "controls": [
+    {
+      "name": "raw_byte_mutation",
+      "performed": true,
+      "rejected": true,
+      "reported_execution_acceptance": true,
+      "execution_acceptance": null,
+      "failed_checks": [
+        "05_on_dense:trace_custody"
+      ]
+    },
+    {
+      "name": "poststudy_stale_hash",
+      "performed": true,
+      "rejected": true,
+      "reported_execution_acceptance": true,
+      "execution_acceptance": null,
+      "failed_checks": [
+        "01_off_dense:v2:raw_poststudy_custody",
+        "01_off_dense:operation_custody"
+      ]
+    },
+    {
+      "name": "gradient_equality_corruption",
+      "performed": true,
+      "rejected": true,
+      "reported_execution_acceptance": true,
+      "execution_acceptance": null,
+      "failed_checks": [
+        "acceptance_claim_recomputed"
+      ]
+    }
+  ],
+  "original_result_files_unchanged": true,
+  "baseline_execution_acceptance": true,
+  "actual_additional_suites": 0,
+  "suite_payload_sha256": "eb89a3a9e4dc40f6b28fdbada8d21edce6cbd37ded3111abb4708f326baf07b8",
+  "consumer_sha256": "3855b55bfa9f6001f7478a15af9caf281d965127a0f6d85a22b9304452a0a38d",
+  "limits": "Post-outcome consumer of three predeclared saved-receipt controls. No model/process/allocator execution; no independent gradient tensor rehash or OS/GPU/quality claim."
+}

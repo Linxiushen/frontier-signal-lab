@@ -55,6 +55,12 @@ jobs:
         run: python -S scripts/audit_codec_allocation.py --result results/codec-allocation
       - name: Independently audit the omitted codec preimport failure receipt
         run: python -S scripts/audit_codec_preimport_failure.py --result results/codec-allocation --expected-review results/codec-allocation/independent-review.json
+      - name: Audit the separately frozen accepted codec v2 receipts without model execution
+        run: python -S scripts/audit_codec_allocation_v2.py --result results/codec-allocation-v2 --output reports/codec-allocation-v2-ci-audit.json
+      - name: Reject the three preregistered codec v2 saved-receipt corruptions
+        run: python -S scripts/check_codec_allocation_v2_controls.py --output reports/codec-allocation-v2-ci-controls.json
+      - name: Independently reconstruct saved codec allocator lifetimes and costs
+        run: python -S results/codec-allocation-v2/numerical-review/summarize.py --expected-summary results/codec-allocation-v2/numerical-review/numerical-summary.json --output reports/codec-allocation-v2-ci-numerical.json
       - run: python experiments/attnres_budget_probe.py --output results/attnres-budget
       - run: python experiments/attnres_memory_probe.py --output results/attnres-memory
       - run: python experiments/recovery_contract_probe.py --output results/recovery-contract

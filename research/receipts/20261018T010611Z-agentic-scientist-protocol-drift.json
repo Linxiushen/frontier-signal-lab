@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-18T01:17:42.769358+00:00",
+  "review_kind": "bounded_public_first_party_paper_source_review_not_replication",
+  "source_id": "agentic-scientist-v1-evaluation-protocol-drift",
+  "paper_url": "https://arxiv.org/abs/2610.18933v1",
+  "paper_html_url": "https://arxiv.org/html/2610.18933v1",
+  "original_publication": "2026-10-13T11:28:03Z",
+  "first_deep_review_this_project": "2026-10-18T01:17:42.769358+00:00",
+  "source_not_new_release": true,
+  "paper_license": "CC BY4.0 displayed at arXiv abs",
+  "repository_license": "Apache-2.0 metadata plus pinned LICENSE",
+  "identity_and_contribution": {
+    "paper_authors": [
+      "Robert Tjarko Lange",
+      "Luca Grillotti",
+      "Yutaro Yamada",
+      "Rujikorn Charakorn",
+      "David Ha"
+    ],
+    "submitter": "Robert Tjarko Lange, as named in arXiv submission history",
+    "repository_primary_commit_author": "Luca Grillotti / Lookatator",
+    "Robert_contribution": "Explicit coauthor trailer; do not attribute whole repository to Robert alone",
+    "pinned_commit": "2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+    "commit_signature": "unsigned"
+  },
+  "dedupe": {
+    "existing_ledger_source": {
+      "id": "ai-scientist-v3",
+      "url": "https://github.com/SakanaAI/AI-Scientist-v3",
+      "type": "official_repository",
+      "published_at": "2026-10-11T13:20:48Z",
+      "claim": "New public repository; README includes sealed final evaluation, immutable task snapshots, ablations and optimizer memory. These mechanisms already exist publicly.",
+      "status": "verified_repository_and_readme"
+    },
+    "known_commit_previously_seen": true,
+    "known_readme_already_had_paper_link_and_evaluation_mechanisms": true,
+    "newly_reviewed_paper_not_newly_published": true,
+    "not_counted_as_new_commit_or_new_repo": true,
+    "prior_ledger_count": 176,
+    "prior_monitor_seen_event_count": 2157
+  },
+  "evidence_class": "Author-reported manuscript observations, public repository metadata and pinned README; not independent performance or reliability proof",
+  "bounded_raw_excerpts": {
+    "arxiv_api_entry": "<entry>\n    <id>http://arxiv.org/abs/2610.18933v1</id>\n    <title>The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery</title>\n    <updated>2026-10-13T11:28:03Z</updated>\n    <link href=\"https://arxiv.org/abs/2610.18933v1\" rel=\"alternate\" type=\"text/html\"/>\n    <link href=\"https://arxiv.org/pdf/2610.18933v1\" rel=\"related\" type=\"application/pdf\" title=\"pdf\"/>\n    <summary>Modern coding agents are fundamentally reshaping the role of human input for computational research: they write code, launch in silico experiments, analyze their results, and autonomously operate with ever-increasing time horizons. Despite these developments, fully autonomous research agents suffer from a limited ideation radius and myopic hill-climbing search dynamics. To bridge this gap, we introduce The Agentic Scientist, an end-to-end distributed pipeline for human researchers to conduct computational research alongside modern coding agents. Building on its predecessor, our system decomposes research into task drafting, idea generation, planning, sandboxed experimentation, result aggregation, baseline and ablation construction, post-hoc analysis, and report writing. Importantly, each step in the pipeline is powered by the next generation of coding agents and leverages agentic self-verification. The overall research process is driven by a meta-controller that manages parallel research agents and enforces rubric verification at each stage. This design enables the same orchestration layer to be reused across heterogeneous domains with different execution environments, agentic coding harnesses, and evaluation metrics. Our system can be used across a spectrum of autonomy: either as a co-scientist tool or to perform end-to-end scientific investigation. Within the co-scientist setting, we leveraged a development version of our system to submit a single research paper, which got accepted for publication at ALIFE 2026. We further apply The Agentic Scientist fully autonomously to open problem-solving tasks in machine learning, and demonstrate the system's capability of scientific discovery across different domains of computational research. Our ablations suggest that reliable scientific autonomy depends not only on base model capabilities, but also on the cross-agent orchestration layer.</summary>\n    <category term=\"cs.AI\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <category term=\"cs.CL\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <category term=\"cs.LG\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <published>2026-10-13T11:28:03Z</published>\n    <arxiv:comment>88 pages</arxiv:comment>\n    <arxiv:primary_category term=\"cs.AI\"/>\n    <author>\n      <name>Robert Tjarko Lange</name>\n    </author>\n    <author>\n      <name>Luca Grillotti</name>\n    </author>\n    <author>\n      <name>Yutaro Yamada</name>\n    </author>\n    <author>\n      <name>Rujikorn Charakorn</name>\n    </author>\n    <author>\n      <name>David Ha</name>\n    </author>\n  </entry>",
+    "rubric_protocol_drift_section_html": "<section id=\"S6.SS3.SSS0.Px6\" class=\"ltx_paragraph\">\n<h5 class=\"ltx_title ltx_title_paragraph\">Rubric-specification sensitivity.</h5>\n\n<div id=\"S6.SS3.SSS0.Px6.p1\" class=\"ltx_para ltx_noindent\">\n<p id=\"S6.SS3.SSS0.Px6.p1.1\" class=\"ltx_p\">We observe a failure mode introduced by structural limitations of rubric-based verification: rubrics check only the criteria they enumerate, so they cannot catch violations of constraints that were never stated, and human researchers remain responsible for specifying tasks precisely and verifying that results respect their full intent.\nIn two of the three Pi runs, we observed that the agent also modified the test-time evaluation procedure itself (e.g., using <math id=\"S6.SS3.SSS0.Px6.p1.m1\" class=\"ltx_Math\" alttext=\"k\" display=\"inline\" intent=\":literal\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math>-sample majority voting instead of the baseline’s pass@1), which inflates the reported validation accuracy without improving the training algorithm.\nThe task prompt asks the agent to improve the “training” algorithm, but never explicitly requires a fixed evaluation procedure. No initial rubric item covers this evaluation-protocol integrity. Neither the evaluator nor the rubric gates flagged these programs, and we identified them after a manual post-hoc audit.\nAfter excluding protocol-violating programs, Pi still reaches high scores faster and more consistently than all other agents.</p>\n</div>\n<figure id=\"S6.F16\" class=\"ltx_figure\"><object type=\"image/svg+xml\" data=\"2610.18933v1/score_evo_grpo_agents.svg\" id=\"S6.F16.g1\" class=\"ltx_graphics ltx_centering ltx_img_landscape\" style=\"aspect-ratio:471/137;\" width=\"471\" height=\"137\"></object>\n<figcaption class=\"ltx_caption ltx_centering\"><span class=\"ltx_tag ltx_tag_figure\"><span id=\"S6.F16.5\" class=\"ltx_text\" style=\"font-size:90%;\">Figure 16</span>: </span><span id=\"S6.F16.6\" class=\"ltx_text\" style=\"font-size:90%;\">Cross-agent comparison under the same orchestration scaffold across three seeds per agent.\n<span id=\"S6.F16.6.1\" class=\"ltx_text ltx_font_italic\">Left</span> to <span id=\"S6.F16.6.2\" class=\"ltx_text ltx_font_italic\">Right</span>: score evolution during the search, test performance after reevaluation, and cumulative API cost per evolution cycle.\nCrosses mark evaluations whose program modified the evaluation protocol (identified by manual audit); they are excluded from all running-best curves.\n</span></figcaption>\n</figure>\n</section>",
+    "manuscript_limits_section_html": "<section id=\"S8.SS0.SSS0.Px3\" class=\"ltx_paragraph\">\n<h5 class=\"ltx_title ltx_title_paragraph\">Limitations.</h5>\n\n<div id=\"S8.SS0.SSS0.Px3.p1\" class=\"ltx_para ltx_noindent\">\n<p id=\"S8.SS0.SSS0.Px3.p1.1\" class=\"ltx_p\">At present, <span id=\"S8.SS0.SSS0.Px3.p1.1.1\" class=\"ltx_text ltx_font_smallcaps\">The Agentic Scientist</span> could be enhanced by a reliable literature-to-code pipeline for constructing state-of-the-art baselines.\nThe task drafting pipeline (<a href=\"#S3.SS1\" title=\"3.1 Research Task Setup ‣ 3 The Agentic Scientist: An Orchestration Layer for Research Agents ‣ The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Section</span> <span class=\"ltx_text ltx_ref_tag\">3.1</span></a>) is also not fully robust: it can draft simple tasks such as circle packing from a research brief, but for larger tasks such as the world-model and tabular distribution-shift tasks in <a href=\"#S5\" title=\"5 Evaluating The Agentic Scientist Across Tasks, Harnesses, and LLMs ‣ The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Section</span> <span class=\"ltx_text ltx_ref_tag\">5</span></a>, it may fail to produce an initial program, evaluators, and task contract that exactly match the full <span id=\"S8.SS0.SSS0.Px3.p1.1.2\" class=\"ltx_text ltx_font_smallcaps\">Agentic Scientist</span> scaffold.\nReliable task drafting nevertheless remains an important capability, since it removes the last manual step between a research brief and an automated campaign.\nUnlike <span id=\"S8.SS0.SSS0.Px3.p1.1.3\" class=\"ltx_text ltx_font_smallcaps\">AI Scientist-v1</span> and <span id=\"S8.SS0.SSS0.Px3.p1.1.4\" class=\"ltx_text ltx_font_smallcaps\">AI Scientist-v2</span> <cite class=\"ltx_cite ltx_citemacro_citep\">(<a href=\"#bib.bib59\" title=\"\" class=\"ltx_ref\">Lu et al., 2024b</a>; <a href=\"#bib.bib98\" title=\"\" class=\"ltx_ref\">Yamada et al., 2025</a>)</cite>, <span id=\"S8.SS0.SSS0.Px3.p1.1.5\" class=\"ltx_text ltx_font_smallcaps\">The Agentic Scientist</span> only explicitly searches the literature during manuscript writing rather than during initial ideation. That being said, we repeatedly observe that coding agents leverage general web access to inform idea investigation.\nBeyond these capability gaps, the system’s verification is only as complete as its task-specific evaluators and rubrics, which may omit methodological errors or reward unintended shortcuts.\nResults that pass verification should therefore still be inspected and validated by human researchers.\nAlthough the cross-harness and model evaluation covers 70 campaigns, its paper-level metric is an AI-reviewer proxy rather than full evidence of scientific correctness, and only the Error Diffusion paper underwent external peer review.\nOur evaluations are also restricted to computational machine learning, so they do not establish the feasibility of transferring the orchestration workflow to domains requiring physical experiments or human-subject studies.\nFinally, for <span id=\"S8.SS0.SSS0.Px3.p1.1.6\" class=\"ltx_text ltx_font_smallcaps\">autoillustrate</span> we present additional component-specific limitations and failure cases in <a href=\"#A5.SS3\" title=\"E.3 Limitations ‣ Appendix E autoillustrate: Supplementary Material ‣ The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery\" class=\"ltx_ref\"><span class=\"ltx_text ltx_ref_tag\">Section</span> <span class=\"ltx_text ltx_ref_tag\">E.3</span></a>.</p>\n</div>\n</section>",
+    "repository_api_fields": {
+      "full_name": "SakanaAI/AI-Scientist-v3",
+      "private": false,
+      "fork": false,
+      "visibility": "public",
+      "created_at": "2026-10-11T13:20:48Z",
+      "pushed_at": "2026-10-15T08:53:39Z",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    "commit_api_fields": {
+      "sha": "2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "primary_author_login": "Lookatator",
+      "author_name": "Luca Grillotti",
+      "author_date": "2026-10-14T06:47:09Z",
+      "committer_date": "2026-10-15T08:53:34Z",
+      "coauthor_trailer_exact_substring": "Co-authored-by: Robert Tjarko Lange",
+      "parents": []
+    },
+    "pinned_license_opening": "Apache License\nVersion 2.0, January 2004\nhttp://www.apache.org/licenses/\n\nTERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n1. Definitions.\n\n\"License\" shall mean the terms and conditions for use, reproduction,\nand distribution as defined by Sections 1 through 9 of this document.\n\n\"Licensor\" shall mean the copyright owner or entity authorized by\nthe copyright owner that is granting the License.\n\n\"Legal Entity\" shall mean the union of the acting entity and all\nother entities that contr"
+  },
+  "requests": [
+    {
+      "key": "paper-abs",
+      "method": "GET",
+      "url": "https://arxiv.org/abs/2610.18933",
+      "final_url": "https://arxiv.org/abs/2610.18933",
+      "started_at": "2026-10-18T01:15:03.433557+00:00",
+      "completed_at": "2026-10-18T01:15:04.017041+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "8321d64f33553b6d021433d172b4cee42d4e894a9eba8cb64abb8f2161db0672",
+      "body_sha256": "f4d478831021fbea8c7851b1018e8c85cad512a8b2347bbfb81b6ee3f930e7eb",
+      "body_bytes": 44422,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "paper-atom",
+      "method": "GET",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.18933",
+      "final_url": "https://export.arxiv.org/api/query?id_list=2610.18933",
+      "started_at": "2026-10-18T01:15:03.434557+00:00",
+      "completed_at": "2026-10-18T01:15:04.250139+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "d14da34c7803333dfbfb86437042ed7c45d103f7f926d29a5ed773d329e0903c",
+      "body_sha256": "5065c37634061d1f955b44b3086b644b0a34b5dab62c3e408cbd0e495e68b387",
+      "body_bytes": 3690,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "paper-html",
+      "method": "GET",
+      "url": "https://arxiv.org/html/2610.18933v1",
+      "final_url": "https://arxiv.org/html/2610.18933v1",
+      "started_at": "2026-10-18T01:15:33.758114+00:00",
+      "completed_at": "2026-10-18T01:15:34.652449+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "a8ce3e2ec2092108db5c39289ea7fcb2a1f5feddd1e4bc9cab2db3693f9f1708",
+      "body_sha256": "ece78fdc7f1b8e2df3b728667ee61b125921501c3fa92bb0896911bbf247d228",
+      "body_bytes": 1400665,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "repo",
+      "method": "GET",
+      "url": "repos/SakanaAI/AI-Scientist-v3",
+      "final_url": "https://api.github.com/repos/SakanaAI/AI-Scientist-v3",
+      "started_at": "2026-10-18T01:15:03.434557+00:00",
+      "completed_at": "2026-10-18T01:15:04.605743+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "cfaf36439b8bda0db1e31651f73dd291ea823fde02499582f5c574f203f4f524",
+      "body_sha256": "90b8d4e3b23641ecb3bac065a4e265f7d40d57bc61081d32fee2b620162e443c",
+      "body_bytes": 6586,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "known-commit",
+      "method": "GET",
+      "url": "repos/SakanaAI/AI-Scientist-v3/commits/2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "final_url": "https://api.github.com/repos/SakanaAI/AI-Scientist-v3/commits/2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "started_at": "2026-10-18T01:15:04.020750+00:00",
+      "completed_at": "2026-10-18T01:15:06.036190+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "b8996a2ff4a2999c9c9820faf9770b7ac55c3a1cd255b80ac34e57bc3097747f",
+      "body_sha256": "02a486dd3713044a68f07e99b038259f9d7e6b66e9d98e2fc52c4359b824c11a",
+      "body_bytes": 936212,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "readme-pinned",
+      "method": "GET",
+      "url": "repos/SakanaAI/AI-Scientist-v3/readme?ref=2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "final_url": "https://api.github.com/repos/SakanaAI/AI-Scientist-v3/readme?ref=2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "started_at": "2026-10-18T01:15:04.254136+00:00",
+      "completed_at": "2026-10-18T01:15:05.371142+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "765351989694f4e3d65200073497c43e45bb826ece075b567cfa74a713979c74",
+      "body_sha256": "cd132cce3dbe2db0be010b4f438c713259f75a1f925476417f0c594f677e57ab",
+      "body_bytes": 20827,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    },
+    {
+      "key": "license-pinned",
+      "method": "GET",
+      "url": "repos/SakanaAI/AI-Scientist-v3/contents/LICENSE?ref=2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "final_url": "https://api.github.com/repos/SakanaAI/AI-Scientist-v3/contents/LICENSE?ref=2b8aa39285c35aaca3b0e06dd121061ef8a2d854",
+      "started_at": "2026-10-18T01:15:33.758114+00:00",
+      "completed_at": "2026-10-18T01:15:35.085460+00:00",
+      "exit_code": 0,
+      "status": 200,
+      "http_sha256": "4aa89ac4fd681f09a6dc1c9c65abf1d862cabe0a444f0615b19241a71359f834",
+      "body_sha256": "62d5c8a57b6f134aff898f170bbaab85fa5edc1484e910275a3c74cd5729715c",
+      "body_bytes": 15085,
+      "scope": "One candidate: author-linked Agentic Scientist paper and already-known official repository; read-only source review only."
+    }
+  ],
+  "review_scope": {
+    "paper": "arXiv v1 HTML, not original TeX/PDF rendering",
+    "decoded_text_lines": 5316,
+    "reviewed_text_ranges": [
+      [
+        405,
+        452
+      ],
+      [
+        790,
+        1030
+      ]
+    ],
+    "additional_keyword_review": "selected rubric, cost, final-evaluation, ablation lines before line850",
+    "not_reviewed": [
+      "all 88 pages",
+      "all figures and supplements",
+      "raw campaign artifacts",
+      "statistical calculations",
+      "exact upstream code execution",
+      "full initial commit diff"
+    ],
+    "repository_commit_detail": "metadata and coauthor trailer only; large initial-commit API file list may be truncated and is not a complete code audit"
+  },
+  "checks": {
+    "passed": 61,
+    "total": 61,
+    "receipt_consistency_and_text_only": true
+  },
+  "limitations": [
+    "Paper observations and all comparative results remain author assertions; no local rerun or raw campaign/statistical audit.",
+    "Old Oct13 paper and Oct15 repository are first deeply reviewed now, not new publications in this polling window.",
+    "No full88page reading, full initial commit code review, cryptographic identity proof or independent peer-review check.",
+    "No new H3/H4 execution; no change to H1 historical negatives or H2 production/runtime gates."
+  ],
+  "our_next_gate": "Before candidate selection, freeze evaluator bytes, data IDs, scorer protocol including pass@k/aggregation/denominators and budget. Evaluation-only mutation control must be rejected before score or winner changes. Pin heldout unseal/checkpoint policy independently; this is proposed and unexecuted."
+}

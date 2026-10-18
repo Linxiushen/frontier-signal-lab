@@ -1,0 +1,261 @@
+{
+  "root": {
+    "at": "2026-10-18T01:18:00.835045+00:00",
+    "passed": true,
+    "files_sha256": {
+      "experiments/codec_allocation_v2.py": "50ddce7fe9b087bf56cc19ac55f26667656a24aaf8fd621ff77678885dda9a42",
+      "tests/test_codec_allocation_v2.py": "26a88374f7619e4ed9b748e6af548c119cb87b57ac2e9f9c4a1dc7550ff2589a",
+      "scripts/audit_codec_allocation_v2.py": "39736442da6b223afa16b844439671efccd90b2087d0f1b848273cb9d1053bfd",
+      "tests/test_codec_allocation_v2_auditor.py": "6af9aa05bba324626d49fce51074bdf1bad34e74f0d43080214fb28cecd2c218",
+      "fixtures/codec-allocation-v2/protocol.json": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc",
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "choice": "One separately corrected v2 H1 matched codec allocator lifetime/callback workspace and timing diagnostic, not a new quality screen",
+    "actual_suites_before_freeze": 0,
+    "model_loads_before_freeze": 0,
+    "optimizer_updates_before_freeze": 0,
+    "maximum_actual_suites": 1,
+    "retries": 0,
+    "guarded_pure_tests": 48,
+    "review_receipts_sha256": {
+      "codec-v2-producer-independent.json": "ac1872f6d66921c286dfcf122111a2e1f071162277e552efb33af6625c9f0b2f",
+      "codec-v2-auditor-independent.json": "bbc1b81fa6e4fbc2feac05eacc4a4fb075f7ac5516d04bc0d100504b4df5788d"
+    },
+    "measurement_scope": "Observed CPU allocator requests and weak backing ownership; ON perturbs lifetime; OFF allocation result null. No OS/GPU memory, optimizer, holdout or quality improvement."
+  },
+  "guarded_tests": {
+    "tested_at": "2026-10-18T01:16:04.330899+00:00",
+    "passed": true,
+    "tests_run": 48,
+    "failures": 0,
+    "errors": 0,
+    "forbidden_attempts": [],
+    "stable": true,
+    "before_sha256": {
+      "experiments/codec_allocation_v2.py": "50ddce7fe9b087bf56cc19ac55f26667656a24aaf8fd621ff77678885dda9a42",
+      "tests/test_codec_allocation_v2.py": "26a88374f7619e4ed9b748e6af548c119cb87b57ac2e9f9c4a1dc7550ff2589a",
+      "scripts/audit_codec_allocation_v2.py": "39736442da6b223afa16b844439671efccd90b2087d0f1b848273cb9d1053bfd",
+      "tests/test_codec_allocation_v2_auditor.py": "6af9aa05bba324626d49fce51074bdf1bad34e74f0d43080214fb28cecd2c218",
+      "fixtures/codec-allocation-v2/protocol.json": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc",
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "after_sha256": {
+      "experiments/codec_allocation_v2.py": "50ddce7fe9b087bf56cc19ac55f26667656a24aaf8fd621ff77678885dda9a42",
+      "tests/test_codec_allocation_v2.py": "26a88374f7619e4ed9b748e6af548c119cb87b57ac2e9f9c4a1dc7550ff2589a",
+      "scripts/audit_codec_allocation_v2.py": "39736442da6b223afa16b844439671efccd90b2087d0f1b848273cb9d1053bfd",
+      "tests/test_codec_allocation_v2_auditor.py": "6af9aa05bba324626d49fce51074bdf1bad34e74f0d43080214fb28cecd2c218",
+      "fixtures/codec-allocation-v2/protocol.json": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc",
+      "experiments/codec_allocation_probe.py": "a8e1c633e6ad4a31de638a4710d2f32375a042ea3e5308a60f1887589a2d0f3c",
+      "experiments/codec_allocation_events.py": "64ad9ef7449cbeee34a5aaf8d0fbce95e53d765afd9f8c59f79404fb610b71bf",
+      "tests/test_codec_allocation_probe.py": "7176b598d88316608fb492a03618af81d0030434a8d04dfc45c471c4db8110f0",
+      "tests/test_codec_allocation_events.py": "725b22d26c9ec598df44712cf87de1bd0dc9443ebcb6e2941a43045e181f3636",
+      "scripts/audit_codec_allocation.py": "91a134ad46adcf411e93e5724c11142e3f83ad678820bee39a981d870ba0dea7",
+      "fixtures/codec-allocation/protocol.json": "9c9ba51f4196bc5544f097e7d352424b3bdb87f65319dd50344bf29b5d0e892d"
+    },
+    "actual_suites": 0,
+    "model_loads": 0,
+    "scope": "Pure mocked/synthetic tests under ML import, subprocess and socket audit denials; no actual profiler/model measurement."
+  },
+  "producer_static_review": {
+    "schema_version": 1,
+    "reviewed_at": "2026-10-18T01:11:58.496203+00:00",
+    "reviewer": "snapshot_independent_review",
+    "review_kind": "read-only prefreeze complete producer source/protocol/test and exact-v1-diff review",
+    "passed": true,
+    "blocking_findings": [],
+    "checks": {
+      "final_preflight_hashes_match": true,
+      "v1_all_freeze_bound_files_preserved": true,
+      "v1_protocol_preserved": true,
+      "measurement_and_numeric_protocol_unchanged": true,
+      "only_expected_functions_changed": true,
+      "all_measurement_functions_AST_identical": true,
+      "explicit_real_validator_keyword_budget_one": true,
+      "raw_stage_retained_before_diagnostics_and_acceptance": true,
+      "root_8_pure_tests_log_bound": true,
+      "source_files_LF_only": true
+    },
+    "files_sha256": {
+      "experiments/codec_allocation_v2.py": "50ddce7fe9b087bf56cc19ac55f26667656a24aaf8fd621ff77678885dda9a42",
+      "tests/test_codec_allocation_v2.py": "26a88374f7619e4ed9b748e6af548c119cb87b57ac2e9f9c4a1dc7550ff2589a",
+      "fixtures/codec-allocation-v2/protocol.json": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc"
+    },
+    "file_bytes": {
+      "experiments/codec_allocation_v2.py": 50163,
+      "tests/test_codec_allocation_v2.py": 16649,
+      "fixtures/codec-allocation-v2/protocol.json": 10232
+    },
+    "v1_frozen_file_checks": {
+      "experiments/codec_allocation_probe.py": true,
+      "experiments/codec_allocation_events.py": true,
+      "tests/test_codec_allocation_probe.py": true,
+      "tests/test_codec_allocation_events.py": true,
+      "experiments/activation_cost_probe.py": true,
+      "scripts/capture_real_activation.py": true,
+      "experiments/process_observer.py": true,
+      "experiments/process_observer_probe.py": true,
+      "experiments/workload_observer_probe.py": true,
+      "fixtures/process-observer/protocol.json": true,
+      "fixtures/process-observer/implementation.json": true,
+      "fixtures/workload-observer/protocol.json": true,
+      "fixtures/workload-observer/implementation.json": true,
+      "fixtures/activation-cost/train.json": true,
+      "fixtures/activation-cost/manifest.json": true,
+      "fixtures/activation-cost/protocol.json": true,
+      "fixtures/activation-cost/implementation.json": true,
+      "experiments/training_observer_probe.py": true,
+      "experiments/role_policy_probe.py": true,
+      "experiments/dual_identity_census.py": true,
+      "fixtures/role-policy-probe/protocol.json": true,
+      "fixtures/role-policy-probe/implementation.json": true,
+      "experiments/training_observer_v2.py": true,
+      "fixtures/training-observer-v2/protocol.json": true,
+      "fixtures/training-observer-v2/implementation.json": true,
+      "experiments/training_observer_v3.py": true,
+      "fixtures/training-observer-v3/protocol.json": true,
+      "fixtures/training-observer-v3/implementation.json": true,
+      "scripts/audit_codec_allocation.py": true
+    },
+    "unchanged_protocol_fields": {
+      "config": true,
+      "cases_in_order": true,
+      "training": true,
+      "model": true,
+      "boundaries": true,
+      "allocator_identity_policy": true,
+      "measurement_gate": true,
+      "stages": true,
+      "provider_custody": true,
+      "saved_receipt_rejection_controls": true,
+      "stop": true
+    },
+    "AST_unchanged_top_level_definitions": [
+      "canonical",
+      "digest",
+      "write_bounded",
+      "finite_clock",
+      "case_spec",
+      "validate_protocol",
+      "budget",
+      "validate_freeze",
+      "require_control",
+      "held_stage",
+      "LifetimeRegistry",
+      "InstrumentedCodec",
+      "opaque_trace",
+      "extract_trace",
+      "gradient_hash_and_validity",
+      "perform_study",
+      "prepare",
+      "finalize_trace",
+      "worker",
+      "validate_operation",
+      "validate_model",
+      "validate_acceptance",
+      "wait_acceptance",
+      "verify_cleanup",
+      "parent_control",
+      "math_controls",
+      "main"
+    ],
+    "AST_changed_top_level_definitions": [
+      "protocol_template",
+      "run_case",
+      "acceptance"
+    ],
+    "AST_added_top_level_definitions": [
+      "stage_diagnostics"
+    ],
+    "reviewed_contract": [
+      "Every normal worker retains allowed budget1; real immutable v3 validator separately expects preimport count0 and later count1. Both stage and completion calls use explicit expected_budget=1.",
+      "New received_stage_receipts captures raw parsed stages before admission, and gate_diagnostics binds check time, expected phase/budget and all8 independent predicates. Accepted stages remain separate.",
+      "Full five-stage mocked parent handshake preserves real validator through mock wraps, six exact controls+acks and cleanup identity path; bad budget, wrong preimport count, postimport unexpected bind, simultaneous failures and the actual saved v1 preimport receipt covered.",
+      "Sole8-worker stop-first-failure/no-retry policy, original time/output/thread bounds, model/data/seed, source/payload lifetime reducer and math interfaces are preserved.",
+      "Tests block ML imports/OS child creation/socket entry points. Root8puretest execution is a hash-bound recorded preflight, not live model/profiler/runtime evidence."
+    ],
+    "unreviewed_pending": [
+      "New v2 auditor and auditor tests are still being prepared; this producer-only review does not approve their later bytes.",
+      "Implementation freeze is not yet present and must bind these exact reviewed source/test/protocol bytes plus reviewed auditor/dependencies before any actual suite."
+    ],
+    "reviewer_imported_producer_or_auditor": false,
+    "reviewer_tests_executed": false,
+    "reviewer_ML_imports": 0,
+    "reviewer_actual_workload_launches": 0,
+    "limits": [
+      "Static review and mocked parent/transport tests do not establish actual Windows/provider/profiler compatibility or allocator trace validity.",
+      "Inherited registry/profiler instrumentation perturbs ON lifetimes; saved allocator requests are not OS/GPU peaks or model quality.",
+      "The previous v1 failure and all historical scientific negatives must remain unchanged.",
+      "No retry, interface fallback or unregistered parameter rescue should be used if the sole new frozen suite fails."
+    ]
+  },
+  "auditor_static_review": {
+    "schema_version": 1,
+    "reviewed_at": "2026-10-18T01:16:34.674538+00:00",
+    "reviewer": "snapshot_independent_review",
+    "review_kind": "complete read-only prefreeze v2 auditor and pure mutation-test review",
+    "passed": true,
+    "blocking_findings": [],
+    "checks": {
+      "auditor_final_hash_matches_reviewed": true,
+      "auditor_tests_final_hash_matches_reviewed": true,
+      "producer_protocol_test_hashes_unchanged_since_independent_review": true,
+      "recorded_13_pure_tests_bound": true,
+      "auditor_declared_with_its_tests_in_protocol": true,
+      "completion_contract_real_validator_budget1": true,
+      "pinned_postload_literal_gate_added": true,
+      "ack_role_pid_filename_original_deadline_added": true,
+      "pure_auditor_has_no_producer_import": true
+    },
+    "files_sha256": {
+      "scripts/audit_codec_allocation_v2.py": "39736442da6b223afa16b844439671efccd90b2087d0f1b848273cb9d1053bfd",
+      "tests/test_codec_allocation_v2_auditor.py": "6af9aa05bba324626d49fce51074bdf1bad34e74f0d43080214fb28cecd2c218",
+      "experiments/codec_allocation_v2.py": "50ddce7fe9b087bf56cc19ac55f26667656a24aaf8fd621ff77678885dda9a42",
+      "tests/test_codec_allocation_v2.py": "26a88374f7619e4ed9b748e6af548c119cb87b57ac2e9f9c4a1dc7550ff2589a",
+      "fixtures/codec-allocation-v2/protocol.json": "7ea4efb34ca94f5ab04c4569a5ba562e3ab6a672adba129f91b69ec4fee61afc"
+    },
+    "file_bytes": {
+      "scripts/audit_codec_allocation_v2.py": 23724,
+      "tests/test_codec_allocation_v2_auditor.py": 19678,
+      "experiments/codec_allocation_v2.py": 50163,
+      "tests/test_codec_allocation_v2.py": 16649,
+      "fixtures/codec-allocation-v2/protocol.json": 10232
+    },
+    "prior_producer_review_sha256": "ac1872f6d66921c286dfcf122111a2e1f071162277e552efb33af6625c9f0b2f",
+    "pure_auditor_test_receipt_sha256": "89e30edd9d5d77da3327993706616a83bb94365dbb8b24911f077b629fd61c83",
+    "resolved_findings": [
+      "Accepted completion receipt now recomputes nonce/role/PID/spec/1load/1forward/1backward/0update and real complete-phase provider budget1/count1, instead of only matching raw file to report.",
+      "Accepted postload model preparation now recomputes pinned model/revision/train/indices/shape/seed/thread/determinism/no-optimizer/no-holdout/hash/control fields.",
+      "Accepted ack identity now checks worker role, authenticated PID, corresponding filename, finite time and both original deadlines. Pure tests include semantic mutations after refreshing file/outer custody."
+    ],
+    "reviewed_scope": [
+      "Full new auditor source and v1 base behavior, including source/protocol/report hashes, bounded stopped prefix, failed received/accepted stage separation and all8 gate predicate recomputations.",
+      "Raw identity/nonce/files, frozen executable custody, retained image receipts, failure cleanup exact union of retained census identities, exited Job0 and timing.",
+      "Unchanged pure allocator reducer/boundary replay, measurement gate recomputation, trace/poststudy hashes and same-method loss/gradient/model/input digest equality.",
+      "13 pure test methods cover honest failure, raw-file/nonce/diagnostic/admission mutations, cleanup identity/live-status/timing, missingfile behavior, all5 provider phases and completion/model/ack regressions."
+    ],
+    "prefreeze_pending": [
+      "Root must complete the combined guarded prefreeze tests and freeze these exact files/dependencies before the sole new actual suite.",
+      "After actual outcome, independently audit saved evidence and run the3declared allocator/poststudy/gradient mutations where their artifacts exist; absent controls must remain unperformed."
+    ],
+    "reviewer_imported_producer_or_auditor": false,
+    "reviewer_tests_executed": false,
+    "reviewer_ML_imports": 0,
+    "reviewer_actual_workloads": 0,
+    "limits": [
+      "Static review and hash-bound pure fixture tests are not actual Windows/native/provider/profiler or allocator compatibility evidence.",
+      "Auditor reuses immutable v3 provider validator and the existing pure event reducer; independent actual-result recomputation must be separately identified.",
+      "Gradient digests are compared, not independently rebuilt from gradient bytes; saved receipt checks are not signatures or full native process isolation proofs.",
+      "No observed allocation trace or cost/quality outcome exists before the new sole actual suite; prior v1 failure/scientific negatives remain unchanged."
+    ]
+  }
+}

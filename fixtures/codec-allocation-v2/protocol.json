@@ -1,0 +1,275 @@
+{
+  "schema_version": 2,
+  "experiment_id": "pythia14m-matched-codec-allocation-cost-v2",
+  "predeclared_at": "2026-10-18T01:10:12.128346+00:00",
+  "config": {
+    "seed": 503,
+    "batch_indices": [
+      116,
+      73
+    ],
+    "batch_shape": [
+      2,
+      65
+    ],
+    "forward_calls_per_worker": 1,
+    "backward_calls_per_worker": 1,
+    "optimizer_updates": 0,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "maximum_native_threads": 32,
+    "profile_memory": true,
+    "record_shapes": false,
+    "with_stack": false,
+    "case_timeout_seconds": 90.0,
+    "total_timeout_seconds": 480.0,
+    "handshake_timeout_seconds": 5.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "study_timeout_seconds": 30.0,
+    "barrier_timeout_seconds": 5.0,
+    "cleanup_timeout_seconds": 4.0,
+    "maximum_tree_nodes": 100000,
+    "maximum_allocation_events": 20000,
+    "maximum_storage_records": 4096,
+    "maximum_callbacks": 2048,
+    "maximum_references": 8192,
+    "maximum_markers": 2052,
+    "maximum_boundaries": 4,
+    "maximum_json_file_bytes": 33554432,
+    "maximum_case_output_bytes": 50331648,
+    "maximum_output_bytes": 402653184,
+    "hard_native_private_memory_cap_enforced": false,
+    "active_memory_sampler": false
+  },
+  "cases_in_order": [
+    {
+      "id": "01_off_dense",
+      "observer_enabled": false,
+      "method": "dense"
+    },
+    {
+      "id": "02_off_int8",
+      "observer_enabled": false,
+      "method": "int8"
+    },
+    {
+      "id": "03_off_int8",
+      "observer_enabled": false,
+      "method": "int8"
+    },
+    {
+      "id": "04_off_dense",
+      "observer_enabled": false,
+      "method": "dense"
+    },
+    {
+      "id": "05_on_dense",
+      "observer_enabled": true,
+      "method": "dense"
+    },
+    {
+      "id": "06_on_int8",
+      "observer_enabled": true,
+      "method": "int8"
+    },
+    {
+      "id": "07_on_int8",
+      "observer_enabled": true,
+      "method": "int8"
+    },
+    {
+      "id": "08_on_dense",
+      "observer_enabled": true,
+      "method": "dense"
+    }
+  ],
+  "source_paths": [
+    "experiments/codec_allocation_v2.py",
+    "tests/test_codec_allocation_v2.py"
+  ],
+  "review_tool_paths": [
+    "scripts/audit_codec_allocation_v2.py",
+    "tests/test_codec_allocation_v2_auditor.py"
+  ],
+  "saved_receipt_rejection_controls": [
+    "raw_byte_mutation",
+    "poststudy_stale_hash",
+    "gradient_equality_corruption"
+  ],
+  "v2_changes": {
+    "expected_provider_budget_every_normal_stage": 1,
+    "provider_count": "validated by immutable v3 validator: preimport zero, later stages one",
+    "stage_evidence": "received_stage_receipts stores each raw stage before any gate; stages stores accepted stages only",
+    "gate_diagnostics": {
+      "per_stage_fields": [
+        "checked_perf_counter",
+        "expected_provider_phase",
+        "expected_provider_budget",
+        "predicates"
+      ],
+      "predicates": [
+        "pid_matches",
+        "stage_matches",
+        "stage_clock_finite",
+        "stage_clock_in_original_budget",
+        "stage_after_previous_acceptance",
+        "native_threads_bounded",
+        "provider_policy_budget_one",
+        "preimport_no_ML"
+      ]
+    },
+    "measurement_interface_or_numeric_controls_changed": false,
+    "v1_outcome_preserved": true
+  },
+  "frozen_dependency_paths": [
+    "experiments/activation_cost_probe.py",
+    "scripts/capture_real_activation.py",
+    "experiments/process_observer.py",
+    "experiments/process_observer_probe.py",
+    "experiments/workload_observer_probe.py",
+    "fixtures/process-observer/protocol.json",
+    "fixtures/process-observer/implementation.json",
+    "fixtures/workload-observer/protocol.json",
+    "fixtures/workload-observer/implementation.json",
+    "fixtures/activation-cost/train.json",
+    "fixtures/activation-cost/manifest.json",
+    "fixtures/activation-cost/protocol.json",
+    "fixtures/activation-cost/implementation.json",
+    "experiments/training_observer_probe.py",
+    "experiments/role_policy_probe.py",
+    "experiments/dual_identity_census.py",
+    "fixtures/role-policy-probe/protocol.json",
+    "fixtures/role-policy-probe/implementation.json",
+    "experiments/training_observer_v2.py",
+    "fixtures/training-observer-v2/protocol.json",
+    "fixtures/training-observer-v2/implementation.json",
+    "experiments/training_observer_v3.py",
+    "fixtures/training-observer-v3/protocol.json",
+    "fixtures/training-observer-v3/implementation.json",
+    "experiments/codec_allocation_probe.py",
+    "experiments/codec_allocation_events.py",
+    "tests/test_codec_allocation_probe.py",
+    "tests/test_codec_allocation_events.py",
+    "tests/test_codec_preimport_failure.py",
+    "scripts/audit_codec_allocation.py",
+    "fixtures/codec-allocation/protocol.json",
+    "fixtures/codec-allocation/implementation.json",
+    "results/codec-allocation/01_off_dense/preimport-ready.json"
+  ],
+  "stages": [
+    "preimport",
+    "postimport",
+    "postload",
+    "poststudy",
+    "complete"
+  ],
+  "boundaries": [
+    "after_forward_loss",
+    "after_backward",
+    "after_loss_logits_delete",
+    "after_zero_grad"
+  ],
+  "model": {
+    "id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "assets": {
+      "README.md": {
+        "bytes": 10560,
+        "sha256": "d1f2cf1d5181daedeaa70208ddd5cc5251867bde9acf6db7bb45a2265e25e163"
+      },
+      "config.json": {
+        "bytes": 698,
+        "sha256": "f97f966a66c444890ed461fff2a51eefb15d74303df05b948124719f199b0b17"
+      },
+      "generation_config.json": {
+        "bytes": 111,
+        "sha256": "494cbba887cc299273f0c54d7612596918e74c7881a27cbd95e4e7e2464ea090"
+      },
+      "model.safetensors": {
+        "bytes": 28143920,
+        "sha256": "116a02532db461f91386a5b20f942ff2c8d4de7341e21b55caafc3d7b25f49a1"
+      },
+      "special_tokens_map.json": {
+        "bytes": 441,
+        "sha256": "10b8c8852c1e1f70b54d9aff61728408c28971c0e97a6c5a7b2debbd1d3e9c0c"
+      },
+      "tokenizer.json": {
+        "bytes": 2114042,
+        "sha256": "870f4e2baa6b683221fa52004d5d6f40ab8c9d31961617304b78c910c2c3caf2"
+      },
+      "tokenizer_config.json": {
+        "bytes": 4834,
+        "sha256": "eee017c5bd133137f45907bd0a6e781e2ccd1a533734b7ed2a2f2f4446659809"
+      }
+    },
+    "planned_model_loads": 8,
+    "planned_forwards": 8,
+    "planned_backwards": 8,
+    "planned_optimizer_updates": 0
+  },
+  "training": {
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "batch_indices": [
+      116,
+      73
+    ],
+    "exact_layernorm_scopes": 13,
+    "exact_attention_scopes": 6,
+    "expected_outer_saves": 33,
+    "expected_outer_eligible_saves": 19,
+    "int8_expected_compressed_outer_saves": 19,
+    "holdout_opened": false,
+    "final_quality_gate_changed": false
+  },
+  "allocator_identity_policy": "pointer epochs; optional allocation IDs must agree; equal-time same-pointer events unknown",
+  "measurement_gate": "raw CPU Allocation events present; all eligible saved-source/payload and decoded observations bound uniquely; owner probes agree where bound; no reduction problems",
+  "stop": "Any protocol/identity/provider/thread/deadline/math/trace failure is retained; do not retry or replace the measurement interface",
+  "provider_custody": {
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "provider_config": {
+      "version_label": "2.8.0",
+      "family_code": 23,
+      "type_code": 1,
+      "protocol": 0,
+      "maximum_allowed_probes_per_ML_worker": 1,
+      "maximum_diagnostic_events": 4,
+      "maximum_saved_frames": 8,
+      "maximum_scanned_frames": 9,
+      "maximum_source_file_bytes": 1048576,
+      "caller_function": "_has_ipv6",
+      "caller_line": 127,
+      "module_function": "<module>",
+      "module_line": 137
+    },
+    "provider_source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+    "denied_python_audit_events": [
+      "socket.connect",
+      "socket.getaddrinfo",
+      "socket.gethostbyname",
+      "socket.gethostbyname_ex",
+      "socket.gethostbyaddr",
+      "socket.sendto",
+      "socket.bind"
+    ],
+    "external_providers_permitted": false,
+    "native_network_sandbox": false
+  },
+  "limitations": [
+    "One frozen eight-worker suite, one load/forward/exact-CE/backward per worker, no optimizer, holdout or repeated trial",
+    "Same-method OFF/ON loss and gradient byte equality controls instrumentation mathematics, not compression accuracy or model quality",
+    "Dense uses the same exact saved-tensor hooks and protected module scopes; this is a hooked dense baseline",
+    "Two observations per method/observer setting; elapsed ratios are descriptive, not causal speed or efficiency claims",
+    "Raw events measure reported PyTorch CPU allocator requested bytes, not OS resident/private capacity, process peak or GPU memory",
+    "StorageWeakRef expiry concerns backing strong ownership; neither it nor allocator free establishes OS memory returned",
+    "ON-only registry/profiler/held boundaries perturb lifetimes and timing; OFF has no corresponding allocator or owner result",
+    "Only callback-created allocations destroyed before return count as temporary workspace; returned payload allocations stay separate",
+    "Missing allocator IDs use predeclared pointer epochs only; equal-time same-pointer events and unresolved bindings remain unknown",
+    "Unknown baseline frees and right-censored live tails are retained; incomplete source/payload coverage rejects the measurement gate",
+    "No record_shapes/with_stack, export-memory-timeline fallback, interface substitution, seed/lr/threshold rescue or automatic retry",
+    "Historical six failed training-cost/final-quality screens and invalid old parent RSS remain unchanged; no sealed quality gate is rerun",
+    "Held role checks are not continuous process isolation, and the Python audit provider guard is not an OS network sandbox",
+    "Metadata/file/deadline limits are enforced; no active memory sampler or hard native private-memory cap is present",
+    "V2 fixes the v1 preimport caller budget/count confusion; v1 remains a failed frozen run with no allocator or cost observations"
+  ]
+}

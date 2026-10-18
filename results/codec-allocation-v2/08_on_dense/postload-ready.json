@@ -1,0 +1,102 @@
+{
+  "nonce": "716ce219460f7d043105337110fca0924090b5a287273343fd6c9f6c944c8213",
+  "role": "worker",
+  "pid": 12812,
+  "stage": "postload",
+  "stage_ready_perf_counter": 944090.2135889,
+  "provider_guard": {
+    "installed": true,
+    "python_audit_only": true,
+    "native_network_sandbox": false,
+    "external_providers_permitted": false,
+    "synthetic_probe_denials": 1,
+    "unexpected_denied_events": [],
+    "denied_audit_events": [
+      "socket.connect",
+      "socket.getaddrinfo",
+      "socket.gethostbyname",
+      "socket.gethostbyname_ex",
+      "socket.gethostbyaddr",
+      "socket.sendto",
+      "socket.bind"
+    ],
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "phase": "postload",
+    "provider_source": {
+      "package_relative_path": "urllib3/util/connection.py",
+      "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+      "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+    },
+    "allowed_local_probe_budget": 1,
+    "allowed_local_probe_count": 1,
+    "diagnostic_event_limit": 4,
+    "diagnostic_overflow_count": 0,
+    "observed_event_count": 1,
+    "diagnostic_events": [
+      {
+        "event_index": 0,
+        "event": "socket.bind",
+        "perf_counter": 944083.5484047,
+        "phase": "import",
+        "socket_family_code": 23,
+        "socket_type_code": 1,
+        "socket_protocol": 0,
+        "endpoint": {
+          "shape": "tuple2",
+          "host_kind": "exact_ipv6_loopback",
+          "port_kind": "ephemeral_zero",
+          "address_logged": false
+        },
+        "frames": [
+          {
+            "package_relative_path": "urllib3/util/connection.py",
+            "function": "_has_ipv6",
+            "line": 127,
+            "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+            "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+          },
+          {
+            "package_relative_path": "urllib3/util/connection.py",
+            "function": "<module>",
+            "line": 137,
+            "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+            "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+          }
+        ],
+        "frame_scope": "contiguous_initial_urllib3_frames",
+        "frame_boundary": "outside_selected_package",
+        "frames_scanned_count": 3,
+        "saved_frame_count": 2,
+        "frames_truncated": false,
+        "source_hashes_complete": true,
+        "diagnostic_errors": [],
+        "decision": "allowed_local_capability_probe"
+      }
+    ]
+  },
+  "native_thread_count": 8,
+  "model": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "batch_indices": [
+      116,
+      73
+    ],
+    "batch_shape": [
+      2,
+      65
+    ],
+    "batch_sha256": "0304502fc43b1b98bcd50e451c665d4af593429deab124f56112d5a232e623a1",
+    "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+    "seed": 503,
+    "parameter_tensors": 76,
+    "parameter_elements": 14067712,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "deterministic_algorithms": true,
+    "holdout_opened": false,
+    "optimizer_created": false,
+    "load_wall_seconds": 2.244284800020978
+  }
+}

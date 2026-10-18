@@ -1,0 +1,2433 @@
+{
+  "schema_version": 2,
+  "id": "06_on_int8",
+  "spec": {
+    "id": "06_on_int8",
+    "observer_enabled": true,
+    "method": "int8"
+  },
+  "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+  "started_at": "2026-10-18T01:19:08.945703+00:00",
+  "started_perf_counter": 944052.8787265,
+  "case_deadline_perf_counter": 944142.8787265,
+  "suite_deadline_perf_counter": 944472.0288277,
+  "passed": true,
+  "stages": {
+    "preimport": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "preimport",
+      "stage_ready_perf_counter": 944053.3614182,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "preimport",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 0,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 0,
+        "diagnostic_events": []
+      },
+      "native_thread_count": 4,
+      "torch_imported": false,
+      "transformers_imported": false
+    },
+    "postimport": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "postimport",
+      "stage_ready_perf_counter": 944058.6973183,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postimport",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 7,
+      "torch_version": "2.9.1+cpu",
+      "transformers_version": "4.57.3"
+    },
+    "postload": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "postload",
+      "stage_ready_perf_counter": 944062.9634916,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postload",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "model": {
+        "model_id": "EleutherAI/pythia-14m",
+        "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+        "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+        "batch_indices": [
+          116,
+          73
+        ],
+        "batch_shape": [
+          2,
+          65
+        ],
+        "batch_sha256": "0304502fc43b1b98bcd50e451c665d4af593429deab124f56112d5a232e623a1",
+        "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+        "seed": 503,
+        "parameter_tensors": 76,
+        "parameter_elements": 14067712,
+        "intraop_threads": 1,
+        "interop_threads": 1,
+        "deterministic_algorithms": true,
+        "holdout_opened": false,
+        "optimizer_created": false,
+        "load_wall_seconds": 2.1733087999746203
+      }
+    },
+    "poststudy": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "poststudy",
+      "stage_ready_perf_counter": 944066.7686214,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postupdate",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "operation_sha256": "d0cd8b9438e34db5c9e2aa5e20ab6fe3a8159a6ec95631e0c8898afa20f4f665",
+      "intraop_threads": 1,
+      "interop_threads": 1
+    },
+    "complete": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "complete",
+      "stage_ready_perf_counter": 944066.9803824,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "complete",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "model_loads": 1,
+      "forward_calls": 1,
+      "backward_calls": 1,
+      "optimizer_updates": 0
+    }
+  },
+  "controller_controls": [
+    {
+      "filename": "preimport-continue.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "preimport",
+      "command": "continue",
+      "control_index": 0,
+      "admitted": true,
+      "emitted_perf_counter": 944053.4534665
+    },
+    {
+      "filename": "postimport-continue.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "postimport",
+      "command": "continue",
+      "control_index": 1,
+      "admitted": true,
+      "emitted_perf_counter": 944058.8149972
+    },
+    {
+      "filename": "postload-continue.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "postload",
+      "command": "continue",
+      "control_index": 2,
+      "admitted": true,
+      "emitted_perf_counter": 944063.1203408
+    },
+    {
+      "filename": "poststudy-continue.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "poststudy",
+      "command": "continue",
+      "control_index": 3,
+      "admitted": true,
+      "emitted_perf_counter": 944066.8860311
+    },
+    {
+      "filename": "complete-continue.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "complete",
+      "command": "continue",
+      "control_index": 4,
+      "admitted": true,
+      "emitted_perf_counter": 944067.073604
+    },
+    {
+      "filename": "complete-finish.json",
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "controller",
+      "pid": 56000,
+      "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+      "stage": "complete",
+      "command": "finish",
+      "control_index": 5,
+      "admitted": true,
+      "emitted_perf_counter": 944067.1715816
+    }
+  ],
+  "worker_controls": [
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "preimport-continue.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "preimport",
+        "command": "continue",
+        "control_index": 0,
+        "admitted": true,
+        "emitted_perf_counter": 944053.4534665
+      },
+      "accepted_perf_counter": 944053.4987193,
+      "next_control_index": 1,
+      "parent_wait": {
+        "started_perf_counter": 944053.4798794,
+        "completed_perf_counter": 944053.5438249
+      }
+    },
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "postimport-continue.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "postimport",
+        "command": "continue",
+        "control_index": 1,
+        "admitted": true,
+        "emitted_perf_counter": 944058.8149972
+      },
+      "accepted_perf_counter": 944058.8711295,
+      "next_control_index": 2,
+      "parent_wait": {
+        "started_perf_counter": 944058.8523581,
+        "completed_perf_counter": 944058.9371021
+      }
+    },
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "postload-continue.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "postload",
+        "command": "continue",
+        "control_index": 2,
+        "admitted": true,
+        "emitted_perf_counter": 944063.1203408
+      },
+      "accepted_perf_counter": 944063.1729689,
+      "next_control_index": 3,
+      "parent_wait": {
+        "started_perf_counter": 944063.1529236,
+        "completed_perf_counter": 944063.2589795
+      }
+    },
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "poststudy-continue.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "poststudy",
+        "command": "continue",
+        "control_index": 3,
+        "admitted": true,
+        "emitted_perf_counter": 944066.8860311
+      },
+      "accepted_perf_counter": 944066.934459,
+      "next_control_index": 4,
+      "parent_wait": {
+        "started_perf_counter": 944066.915449,
+        "completed_perf_counter": 944067.0012547
+      }
+    },
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "complete-continue.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "complete",
+        "command": "continue",
+        "control_index": 4,
+        "admitted": true,
+        "emitted_perf_counter": 944067.073604
+      },
+      "accepted_perf_counter": 944067.1445567,
+      "next_control_index": 5,
+      "parent_wait": {
+        "started_perf_counter": 944067.1289378,
+        "completed_perf_counter": 944067.1715474
+      }
+    },
+    {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "filename": "complete-finish.json",
+      "control_envelope": {
+        "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+        "role": "controller",
+        "pid": 56000,
+        "purpose": "pythia14m-matched-codec-allocation-cost-v2",
+        "stage": "complete",
+        "command": "finish",
+        "control_index": 5,
+        "admitted": true,
+        "emitted_perf_counter": 944067.1715816
+      },
+      "accepted_perf_counter": 944067.2353122,
+      "next_control_index": 6,
+      "parent_wait": {
+        "started_perf_counter": 944067.2140464,
+        "completed_perf_counter": 944067.2782221
+      }
+    }
+  ],
+  "received_stage_receipts": {
+    "preimport": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "preimport",
+      "stage_ready_perf_counter": 944053.3614182,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "preimport",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 0,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 0,
+        "diagnostic_events": []
+      },
+      "native_thread_count": 4,
+      "torch_imported": false,
+      "transformers_imported": false
+    },
+    "postimport": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "postimport",
+      "stage_ready_perf_counter": 944058.6973183,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postimport",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 7,
+      "torch_version": "2.9.1+cpu",
+      "transformers_version": "4.57.3"
+    },
+    "postload": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "postload",
+      "stage_ready_perf_counter": 944062.9634916,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postload",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "model": {
+        "model_id": "EleutherAI/pythia-14m",
+        "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+        "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+        "batch_indices": [
+          116,
+          73
+        ],
+        "batch_shape": [
+          2,
+          65
+        ],
+        "batch_sha256": "0304502fc43b1b98bcd50e451c665d4af593429deab124f56112d5a232e623a1",
+        "initial_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+        "seed": 503,
+        "parameter_tensors": 76,
+        "parameter_elements": 14067712,
+        "intraop_threads": 1,
+        "interop_threads": 1,
+        "deterministic_algorithms": true,
+        "holdout_opened": false,
+        "optimizer_created": false,
+        "load_wall_seconds": 2.1733087999746203
+      }
+    },
+    "poststudy": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "poststudy",
+      "stage_ready_perf_counter": 944066.7686214,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "postupdate",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "operation_sha256": "d0cd8b9438e34db5c9e2aa5e20ab6fe3a8159a6ec95631e0c8898afa20f4f665",
+      "intraop_threads": 1,
+      "interop_threads": 1
+    },
+    "complete": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "stage": "complete",
+      "stage_ready_perf_counter": 944066.9803824,
+      "provider_guard": {
+        "installed": true,
+        "python_audit_only": true,
+        "native_network_sandbox": false,
+        "external_providers_permitted": false,
+        "synthetic_probe_denials": 1,
+        "unexpected_denied_events": [],
+        "denied_audit_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyname",
+          "socket.gethostbyname_ex",
+          "socket.gethostbyaddr",
+          "socket.sendto",
+          "socket.bind"
+        ],
+        "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+        "phase": "complete",
+        "provider_source": {
+          "package_relative_path": "urllib3/util/connection.py",
+          "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+          "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+        },
+        "allowed_local_probe_budget": 1,
+        "allowed_local_probe_count": 1,
+        "diagnostic_event_limit": 4,
+        "diagnostic_overflow_count": 0,
+        "observed_event_count": 1,
+        "diagnostic_events": [
+          {
+            "event_index": 0,
+            "event": "socket.bind",
+            "perf_counter": 944056.2859921,
+            "phase": "import",
+            "socket_family_code": 23,
+            "socket_type_code": 1,
+            "socket_protocol": 0,
+            "endpoint": {
+              "shape": "tuple2",
+              "host_kind": "exact_ipv6_loopback",
+              "port_kind": "ephemeral_zero",
+              "address_logged": false
+            },
+            "frames": [
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "_has_ipv6",
+                "line": 127,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              },
+              {
+                "package_relative_path": "urllib3/util/connection.py",
+                "function": "<module>",
+                "line": 137,
+                "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+                "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+              }
+            ],
+            "frame_scope": "contiguous_initial_urllib3_frames",
+            "frame_boundary": "outside_selected_package",
+            "frames_scanned_count": 3,
+            "saved_frame_count": 2,
+            "frames_truncated": false,
+            "source_hashes_complete": true,
+            "diagnostic_errors": [],
+            "decision": "allowed_local_capability_probe"
+          }
+        ]
+      },
+      "native_thread_count": 8,
+      "model_loads": 1,
+      "forward_calls": 1,
+      "backward_calls": 1,
+      "optimizer_updates": 0
+    }
+  },
+  "gate_diagnostics": {
+    "preimport": {
+      "checked_perf_counter": 944053.4215663,
+      "expected_provider_phase": "preimport",
+      "expected_provider_budget": 1,
+      "predicates": {
+        "pid_matches": true,
+        "stage_matches": true,
+        "stage_clock_finite": true,
+        "stage_clock_in_original_budget": true,
+        "stage_after_previous_acceptance": true,
+        "native_threads_bounded": true,
+        "provider_policy_budget_one": true,
+        "preimport_no_ML": true
+      }
+    },
+    "postimport": {
+      "checked_perf_counter": 944058.7841257,
+      "expected_provider_phase": "postimport",
+      "expected_provider_budget": 1,
+      "predicates": {
+        "pid_matches": true,
+        "stage_matches": true,
+        "stage_clock_finite": true,
+        "stage_clock_in_original_budget": true,
+        "stage_after_previous_acceptance": true,
+        "native_threads_bounded": true,
+        "provider_policy_budget_one": true,
+        "preimport_no_ML": true
+      }
+    },
+    "postload": {
+      "checked_perf_counter": 944063.0896922,
+      "expected_provider_phase": "postload",
+      "expected_provider_budget": 1,
+      "predicates": {
+        "pid_matches": true,
+        "stage_matches": true,
+        "stage_clock_finite": true,
+        "stage_clock_in_original_budget": true,
+        "stage_after_previous_acceptance": true,
+        "native_threads_bounded": true,
+        "provider_policy_budget_one": true,
+        "preimport_no_ML": true
+      }
+    },
+    "poststudy": {
+      "checked_perf_counter": 944066.8484711,
+      "expected_provider_phase": "postupdate",
+      "expected_provider_budget": 1,
+      "predicates": {
+        "pid_matches": true,
+        "stage_matches": true,
+        "stage_clock_finite": true,
+        "stage_clock_in_original_budget": true,
+        "stage_after_previous_acceptance": true,
+        "native_threads_bounded": true,
+        "provider_policy_budget_one": true,
+        "preimport_no_ML": true
+      }
+    },
+    "complete": {
+      "checked_perf_counter": 944067.0433715,
+      "expected_provider_phase": "complete",
+      "expected_provider_budget": 1,
+      "predicates": {
+        "pid_matches": true,
+        "stage_matches": true,
+        "stage_clock_finite": true,
+        "stage_clock_in_original_budget": true,
+        "stage_after_previous_acceptance": true,
+        "native_threads_bounded": true,
+        "provider_policy_budget_one": true,
+        "preimport_no_ML": true
+      }
+    }
+  },
+  "censuses": [
+    {
+      "label": "preimport",
+      "started_perf_counter": 944053.4219395,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 34708,
+          "parent_pid": 61080,
+          "policy_role": "base_python",
+          "approved_known": true,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "base_python"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 61080,
+          "parent_pid": 56000,
+          "policy_role": "launcher",
+          "approved_known": true,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+            "exact_path_matches": [
+              "launcher"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 60936,
+          "parent_pid": 61080,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        60936
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 3,
+      "observed_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "snapshot_observed_count": 3,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 3,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 944053.4504385,
+      "wall_seconds": 0.028499000007286668,
+      "census_complete": true
+    },
+    {
+      "label": "postimport",
+      "started_perf_counter": 944058.7842086,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 34708,
+          "parent_pid": 61080,
+          "policy_role": "base_python",
+          "approved_known": true,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "base_python"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 61080,
+          "parent_pid": 56000,
+          "policy_role": "launcher",
+          "approved_known": true,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+            "exact_path_matches": [
+              "launcher"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 60936,
+          "parent_pid": 61080,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        60936
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 3,
+      "observed_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "snapshot_observed_count": 3,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 3,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 944058.8119985,
+      "wall_seconds": 0.027789900079369545,
+      "census_complete": true
+    },
+    {
+      "label": "postload",
+      "started_perf_counter": 944063.0897972,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 34708,
+          "parent_pid": 61080,
+          "policy_role": "base_python",
+          "approved_known": true,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "base_python"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 61080,
+          "parent_pid": 56000,
+          "policy_role": "launcher",
+          "approved_known": true,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+            "exact_path_matches": [
+              "launcher"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 60936,
+          "parent_pid": 61080,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        60936
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 3,
+      "observed_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "snapshot_observed_count": 3,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 3,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 944063.1172586,
+      "wall_seconds": 0.02746139990631491,
+      "census_complete": true
+    },
+    {
+      "label": "poststudy",
+      "started_perf_counter": 944066.8560118,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 34708,
+          "parent_pid": 61080,
+          "policy_role": "base_python",
+          "approved_known": true,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "base_python"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 61080,
+          "parent_pid": 56000,
+          "policy_role": "launcher",
+          "approved_known": true,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+            "exact_path_matches": [
+              "launcher"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 60936,
+          "parent_pid": 61080,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        60936
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 3,
+      "observed_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "snapshot_observed_count": 3,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 3,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 944066.8829225,
+      "wall_seconds": 0.026910700020380318,
+      "census_complete": true
+    },
+    {
+      "label": "complete",
+      "started_perf_counter": 944067.0434523,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 34708,
+          "parent_pid": 61080,
+          "policy_role": "base_python",
+          "approved_known": true,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "base_python"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 61080,
+          "parent_pid": 56000,
+          "policy_role": "launcher",
+          "approved_known": true,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+            "exact_path_matches": [
+              "launcher"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 60936,
+          "parent_pid": 61080,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        60936
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 3,
+      "observed_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "snapshot_observed_count": 3,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 3,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 944067.0705158,
+      "wall_seconds": 0.027063500019721687,
+      "census_complete": true
+    }
+  ],
+  "role_decisions": [
+    {
+      "label": "preimport",
+      "admitted": true,
+      "training_permitted": false,
+      "primary_roles": [
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "role": "launcher",
+          "parent_ref": null,
+          "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+        },
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "role": "base_python",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "frozen_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+        }
+      ],
+      "auxiliary_roles": [
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "role": "console_auxiliary",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "owner_role": "launcher",
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      ],
+      "admitted_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "rejected_pids": [],
+      "rejections": [],
+      "errors": [],
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "auxiliary_ref": {
+            "pid": 60936,
+            "creation_filetime": 134367599489888857
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "census_index": 0,
+      "decision_index": 0,
+      "requested_control": "training-v3",
+      "permitted_control": "training-v3",
+      "held_liveness": [
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944053.4534363
+        },
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944053.4534466
+        },
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944053.453455
+        }
+      ],
+      "started_perf_counter": 944053.4219395,
+      "job_count_before": 3,
+      "job_count_after": 3,
+      "completed_perf_counter": 944053.4534607,
+      "wall_seconds": 0.03152119996957481
+    },
+    {
+      "label": "postimport",
+      "admitted": true,
+      "training_permitted": false,
+      "primary_roles": [
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "role": "launcher",
+          "parent_ref": null,
+          "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+        },
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "role": "base_python",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "frozen_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+        }
+      ],
+      "auxiliary_roles": [
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "role": "console_auxiliary",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "owner_role": "launcher",
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      ],
+      "admitted_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "rejected_pids": [],
+      "rejections": [],
+      "errors": [],
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "auxiliary_ref": {
+            "pid": 60936,
+            "creation_filetime": 134367599489888857
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "census_index": 1,
+      "decision_index": 1,
+      "requested_control": "training-v3",
+      "permitted_control": "training-v3",
+      "held_liveness": [
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944058.8149663
+        },
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944058.8149766
+        },
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944058.814985
+        }
+      ],
+      "started_perf_counter": 944058.7842086,
+      "job_count_before": 3,
+      "job_count_after": 3,
+      "completed_perf_counter": 944058.8149909,
+      "wall_seconds": 0.030782300047576427
+    },
+    {
+      "label": "postload",
+      "admitted": true,
+      "training_permitted": false,
+      "primary_roles": [
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "role": "launcher",
+          "parent_ref": null,
+          "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+        },
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "role": "base_python",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "frozen_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+        }
+      ],
+      "auxiliary_roles": [
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "role": "console_auxiliary",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "owner_role": "launcher",
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      ],
+      "admitted_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "rejected_pids": [],
+      "rejections": [],
+      "errors": [],
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "auxiliary_ref": {
+            "pid": 60936,
+            "creation_filetime": 134367599489888857
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "census_index": 2,
+      "decision_index": 2,
+      "requested_control": "training-v3",
+      "permitted_control": "training-v3",
+      "held_liveness": [
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944063.120311
+        },
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944063.1203211
+        },
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944063.1203293
+        }
+      ],
+      "started_perf_counter": 944063.0897972,
+      "job_count_before": 3,
+      "job_count_after": 3,
+      "completed_perf_counter": 944063.1203353,
+      "wall_seconds": 0.030538099934346974
+    },
+    {
+      "label": "poststudy",
+      "admitted": true,
+      "training_permitted": false,
+      "primary_roles": [
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "role": "launcher",
+          "parent_ref": null,
+          "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+        },
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "role": "base_python",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "frozen_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+        }
+      ],
+      "auxiliary_roles": [
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "role": "console_auxiliary",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "owner_role": "launcher",
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      ],
+      "admitted_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "rejected_pids": [],
+      "rejections": [],
+      "errors": [],
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "auxiliary_ref": {
+            "pid": 60936,
+            "creation_filetime": 134367599489888857
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "census_index": 3,
+      "decision_index": 3,
+      "requested_control": "training-v3",
+      "permitted_control": "training-v3",
+      "held_liveness": [
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944066.8860003
+        },
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944066.8860104
+        },
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944066.8860193
+        }
+      ],
+      "started_perf_counter": 944066.8560118,
+      "job_count_before": 3,
+      "job_count_after": 3,
+      "completed_perf_counter": 944066.8860254,
+      "wall_seconds": 0.030013600015081465
+    },
+    {
+      "label": "complete",
+      "admitted": true,
+      "training_permitted": false,
+      "primary_roles": [
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "role": "launcher",
+          "parent_ref": null,
+          "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+        },
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "role": "base_python",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "frozen_image_sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+          "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+        }
+      ],
+      "auxiliary_roles": [
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "role": "console_auxiliary",
+          "parent_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "owner_role": "launcher",
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      ],
+      "admitted_pids": [
+        34708,
+        60936,
+        61080
+      ],
+      "rejected_pids": [],
+      "rejections": [],
+      "errors": [],
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 61080,
+            "creation_filetime": 134367599489480993
+          },
+          "auxiliary_ref": {
+            "pid": 60936,
+            "creation_filetime": 134367599489888857
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "census_index": 4,
+      "decision_index": 4,
+      "requested_control": "training-v3",
+      "permitted_control": "training-v3",
+      "held_liveness": [
+        {
+          "pid": 34708,
+          "creation_filetime": 134367599490691714,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944067.0735732
+        },
+        {
+          "pid": 61080,
+          "creation_filetime": 134367599489480993,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944067.0735833
+        },
+        {
+          "pid": 60936,
+          "creation_filetime": 134367599489888857,
+          "job_member": true,
+          "alive": true,
+          "verified_perf_counter": 944067.0735922
+        }
+      ],
+      "started_perf_counter": 944067.0434523,
+      "job_count_before": 3,
+      "job_count_after": 3,
+      "completed_perf_counter": 944067.0735981,
+      "wall_seconds": 0.030145799973979592
+    }
+  ],
+  "samples": [],
+  "parent_query_costs": [
+    {
+      "kind": "held_role_census_and_liveness",
+      "started_perf_counter": 944053.4219247,
+      "completed_perf_counter": 944053.4534622,
+      "wall_seconds": 0.03153749997727573,
+      "started_process_cpu_seconds": 1.8125,
+      "completed_process_cpu_seconds": 1.84375,
+      "parent_process_cpu_seconds": 0.03125
+    },
+    {
+      "kind": "held_role_census_and_liveness",
+      "started_perf_counter": 944058.7841984,
+      "completed_perf_counter": 944058.8149922,
+      "wall_seconds": 0.03079380001872778,
+      "started_process_cpu_seconds": 1.84375,
+      "completed_process_cpu_seconds": 1.875,
+      "parent_process_cpu_seconds": 0.03125
+    },
+    {
+      "kind": "held_role_census_and_liveness",
+      "started_perf_counter": 944063.0897872,
+      "completed_perf_counter": 944063.1203367,
+      "wall_seconds": 0.0305495000211522,
+      "started_process_cpu_seconds": 1.890625,
+      "completed_process_cpu_seconds": 1.921875,
+      "parent_process_cpu_seconds": 0.03125
+    },
+    {
+      "kind": "held_role_census_and_liveness",
+      "started_perf_counter": 944066.8559952,
+      "completed_perf_counter": 944066.8860267,
+      "wall_seconds": 0.030031500034965575,
+      "started_process_cpu_seconds": 1.9375,
+      "completed_process_cpu_seconds": 1.96875,
+      "parent_process_cpu_seconds": 0.03125
+    },
+    {
+      "kind": "held_role_census_and_liveness",
+      "started_perf_counter": 944067.0434433,
+      "completed_perf_counter": 944067.0735994,
+      "wall_seconds": 0.030156100052408874,
+      "started_process_cpu_seconds": 1.96875,
+      "completed_process_cpu_seconds": 2.0,
+      "parent_process_cpu_seconds": 0.03125
+    }
+  ],
+  "executables_sha256": {
+    "launcher": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+    "base_python": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+    "native": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+    "conhost": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963"
+  },
+  "executable_path_sha256": {
+    "launcher": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+    "base_python": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+    "native": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+    "conhost": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+  },
+  "launcher": {
+    "pid": 61080,
+    "creation_filetime": 134367599489480993,
+    "assigned_while_suspended": true,
+    "job_handle_inherited": false,
+    "os_image": {
+      "pid": 61080,
+      "creation_filetime": 134367599489480993,
+      "basename": "python.exe",
+      "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+      "queried_from_retained_handle": true,
+      "matches_frozen_path_and_hash": true,
+      "verified_perf_counter": 944053.3994868
+    }
+  },
+  "worker_identity": {
+    "self_receipt": {
+      "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+      "role": "worker",
+      "pid": 34708,
+      "parent_pid": 61080,
+      "creation_filetime": 134367599490691714,
+      "memory": {
+        "resident_bytes": 27185152,
+        "private_bytes": 18685952,
+        "peak_resident_bytes": 28155904,
+        "backend": "Windows GetProcessMemoryInfo"
+      },
+      "perf_counter": 944053.314066,
+      "self_executable": {
+        "source": "sys.executable",
+        "basename": "python.exe",
+        "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+        "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+      }
+    },
+    "verified_ancestry": [
+      {
+        "pid": 34708,
+        "creation_filetime": 134367599490691714,
+        "parent_pid": 61080,
+        "job_member": true
+      },
+      {
+        "pid": 61080,
+        "creation_filetime": 134367599489480993,
+        "parent_pid": 56000,
+        "job_member": true
+      }
+    ],
+    "launcher_differs_from_interpreter": true,
+    "os_image": {
+      "pid": 34708,
+      "creation_filetime": 134367599490691714,
+      "basename": "python.exe",
+      "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+      "queried_from_retained_handle": true,
+      "matches_frozen_path_and_hash": true,
+      "verified_perf_counter": 944053.3970449
+    },
+    "self_executable_expected_role": "launcher",
+    "retained_os_image_expected_role": "base_python"
+  },
+  "pinned_auxiliaries": {
+    "launcher": {
+      "owner_ref": {
+        "pid": 61080,
+        "creation_filetime": 134367599489480993
+      },
+      "auxiliary_ref": {
+        "pid": 60936,
+        "creation_filetime": 134367599489888857
+      },
+      "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+      "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+    }
+  },
+  "operation": {
+    "spec": {
+      "id": "06_on_int8",
+      "observer_enabled": true,
+      "method": "int8"
+    },
+    "forward_calls": 1,
+    "backward_calls": 1,
+    "optimizer_updates": 0,
+    "loss": 4.076991558074951,
+    "gradient": {
+      "sha256": "af722e13addff01baf1556648dd774794b5f9793c0d4380457cc5e4081c88857",
+      "finite": true,
+      "count": 76
+    },
+    "forward_loss_wall_seconds": 0.07804399996530265,
+    "backward_wall_seconds": 0.08894940000027418,
+    "forward_plus_backward_wall_seconds": 0.16699339996557683,
+    "forward_started_perf_counter": 944063.2463284,
+    "backward_completed_perf_counter": 944063.4136112,
+    "exact_norm_scopes": 13,
+    "exact_attention_scopes": 6,
+    "holdout_opened": false,
+    "checkpoint_written": false,
+    "observer_enabled": true,
+    "codec_counts": {
+      "outer": {
+        "pack": 33,
+        "unpack": 33,
+        "eligible": 19,
+        "compressed": 19
+      },
+      "exact": {
+        "gpt_neox.layers.0.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.0.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.1.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.1.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.2.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.2.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.3.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.3.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.4.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.4.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.5.input_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.5.post_attention_layernorm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.final_layer_norm": {
+          "pack": 5,
+          "unpack": 5,
+          "eligible": 1,
+          "compressed": 0
+        },
+        "gpt_neox.layers.0.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        },
+        "gpt_neox.layers.1.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        },
+        "gpt_neox.layers.2.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        },
+        "gpt_neox.layers.3.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        },
+        "gpt_neox.layers.4.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        },
+        "gpt_neox.layers.5.attention": {
+          "pack": 13,
+          "unpack": 13,
+          "eligible": 11,
+          "compressed": 0
+        }
+      }
+    },
+    "final_parameter_sha256": "20db486869e839f80554c84da5d405b831de170a49841a85b3af3c530bcabd04",
+    "parameters_unchanged": true,
+    "trace_sha256": "baf0e04fab9bb8c6e3ccbc79e1cf6fa886922c0b7fe4fa7d99a3c095ba4937e2",
+    "measurement_valid": true,
+    "measurement_gates": {
+      "raw_cpu_events_present": true,
+      "event_reduction_valid": true,
+      "all_required_observations_uniquely_bound": true,
+      "required_owner_agreement": true,
+      "four_owner_boundaries": true,
+      "callback_markers_complete": true,
+      "all_callback_summaries_valid": true,
+      "outer33save_calls": true,
+      "outer19eligible_saves": true,
+      "outer19compressed_or_zero": true
+    },
+    "profiler_settings": {
+      "profile_memory": true,
+      "record_shapes": false,
+      "with_stack": false
+    },
+    "callback_pack_wall_seconds": 0.011303099105134606,
+    "callback_unpack_wall_seconds": 0.0016952004516497254
+  },
+  "prefinish_live_members": [
+    {
+      "pid": 34708,
+      "creation_filetime": 134367599490691714,
+      "job_member": true,
+      "alive": true,
+      "verified_perf_counter": 944067.1715753
+    },
+    {
+      "pid": 61080,
+      "creation_filetime": 134367599489480993,
+      "job_member": true,
+      "alive": true,
+      "verified_perf_counter": 944067.1715802
+    }
+  ],
+  "completion": {
+    "nonce": "2ff18d57d82424cf22c88103f72ea2337d08c41974a9eba8f0296ac6e3e7c348",
+    "role": "worker",
+    "pid": 34708,
+    "spec": {
+      "id": "06_on_int8",
+      "observer_enabled": true,
+      "method": "int8"
+    },
+    "model_loads": 1,
+    "forward_calls": 1,
+    "backward_calls": 1,
+    "optimizer_updates": 0,
+    "provider_guard": {
+      "installed": true,
+      "python_audit_only": true,
+      "native_network_sandbox": false,
+      "external_providers_permitted": false,
+      "synthetic_probe_denials": 1,
+      "unexpected_denied_events": [],
+      "denied_audit_events": [
+        "socket.connect",
+        "socket.getaddrinfo",
+        "socket.gethostbyname",
+        "socket.gethostbyname_ex",
+        "socket.gethostbyaddr",
+        "socket.sendto",
+        "socket.bind"
+      ],
+      "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+      "phase": "complete",
+      "provider_source": {
+        "package_relative_path": "urllib3/util/connection.py",
+        "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+        "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+      },
+      "allowed_local_probe_budget": 1,
+      "allowed_local_probe_count": 1,
+      "diagnostic_event_limit": 4,
+      "diagnostic_overflow_count": 0,
+      "observed_event_count": 1,
+      "diagnostic_events": [
+        {
+          "event_index": 0,
+          "event": "socket.bind",
+          "perf_counter": 944056.2859921,
+          "phase": "import",
+          "socket_family_code": 23,
+          "socket_type_code": 1,
+          "socket_protocol": 0,
+          "endpoint": {
+            "shape": "tuple2",
+            "host_kind": "exact_ipv6_loopback",
+            "port_kind": "ephemeral_zero",
+            "address_logged": false
+          },
+          "frames": [
+            {
+              "package_relative_path": "urllib3/util/connection.py",
+              "function": "_has_ipv6",
+              "line": 127,
+              "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+              "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+            },
+            {
+              "package_relative_path": "urllib3/util/connection.py",
+              "function": "<module>",
+              "line": 137,
+              "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+              "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+            }
+          ],
+          "frame_scope": "contiguous_initial_urllib3_frames",
+          "frame_boundary": "outside_selected_package",
+          "frames_scanned_count": 3,
+          "saved_frame_count": 2,
+          "frames_truncated": false,
+          "source_hashes_complete": true,
+          "diagnostic_errors": [],
+          "decision": "allowed_local_capability_probe"
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "all_retained_handles_exited": true,
+    "job_active_count": 0,
+    "exit_codes": [
+      {
+        "pid": 61080,
+        "creation_filetime": 134367599489480993,
+        "exit_code": 0
+      },
+      {
+        "pid": 34708,
+        "creation_filetime": 134367599490691714,
+        "exit_code": 0
+      },
+      {
+        "pid": 60936,
+        "creation_filetime": 134367599489888857,
+        "exit_code": 0
+      }
+    ],
+    "started_perf_counter": 944067.3004241,
+    "completed_perf_counter": 944067.7410931,
+    "wall_seconds": 0.44066900003235787,
+    "timeout_seconds": 4.0
+  },
+  "cleanup_exact_retained_identity_set": true,
+  "completed_perf_counter": 944067.7413888,
+  "wall_seconds": 14.86266230000183,
+  "completed_at": "2026-10-18T01:19:23.808833+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "completed_at": "2026-10-18T01:28:27.906431+00:00",
+  "scope": "Post-outcome public saved-receipt numerical review; outside frozen experiment implementation. No ML, network, provider, observer or new experimental workload.",
+  "inputs": "Public results/codec-allocation-v2 evidence and fixtures/codec-allocation-v2/protocol.json; input paths/hashes listed in numerical-summary.json.",
+  "reproduction_command": "python results/codec-allocation-v2/numerical-review/summarize.py --expected-summary results/codec-allocation-v2/numerical-review/numerical-summary.json",
+  "output_behavior": "No file writes by default; optional --output PATH exclusively creates a new full summary.",
+  "comparison": "All summary fields match saved public summary except summarized_at review timestamp; original numerical content and check outcomes preserved with public input path rewrite.",
+  "independent_checks": {
+    "passed": 19478,
+    "total": 19478,
+    "all_passed": true
+  },
+  "stable_payload_sha256": "5d697ab01455846c1c07b1540c126456f29ac292393cc7b310222c201450442e",
+  "files": [
+    {
+      "path": "results/codec-allocation-v2/numerical-review/summarize.py",
+      "sha256": "1c0645b2964371510b83c048f7d1b44130d40e16c09d4e050519b54157080370",
+      "bytes": 21242
+    },
+    {
+      "path": "results/codec-allocation-v2/numerical-review/numerical-summary.json",
+      "sha256": "a2187c9a65e428c98f27bc833914a051a52e5b3cbe454daf25b843176d903863",
+      "bytes": 2293293
+    },
+    {
+      "path": "results/codec-allocation-v2/numerical-review/methods.md",
+      "sha256": "cf5c3df77523a82ef322452f09236df5cbe46d2277259048a3490fc7b5e224c0",
+      "bytes": 10039
+    }
+  ]
+}

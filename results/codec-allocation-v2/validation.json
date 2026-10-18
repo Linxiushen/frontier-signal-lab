@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-18T01:30:06.554605+00:00",
+  "actual_suite_runs": 1,
+  "actual_retries": 0,
+  "prefreeze_guarded_pure_tests": {
+    "passed": true,
+    "count": 48,
+    "forbidden_attempts": [],
+    "receipt_sha256": "22f340889c7b1358861fe67657dbde446fae41d24240709df9f96cff0c9f7ada"
+  },
+  "frozen_saved_receipt_audit": {
+    "checks": 739,
+    "passed": true,
+    "execution_acceptance": true
+  },
+  "independent_saved_outcome": {
+    "checks": 13925,
+    "passed": true,
+    "receipt_sha256": "ec4be8b37e68cf3e71ae8d70fda721fa8cfb881349c2a9d8ca8c589a9b7e0d69"
+  },
+  "independent_numerical_reconstruction": {
+    "checks": 19478,
+    "passed": true,
+    "receipt": "numerical-review/numerical-summary.json"
+  },
+  "portable_regression": {
+    "started_at": "2026-10-18T01:27:20.082988+00:00",
+    "completed_at": "2026-10-18T01:27:58.005556+00:00",
+    "profile": "Python -S; existing NumPy package exposed alone by root-package PathFinder; no ML libraries exposed",
+    "tests_run": 915,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 67,
+    "successful": true,
+    "numpy_lookups": [
+      "numpy"
+    ],
+    "ml_modules_loaded": [],
+    "failure_ids": [],
+    "error_ids": [],
+    "attempts_preserved": [
+      "portable-regression.log",
+      "portable-numpy-regression.log",
+      "portable-numpy-regression-r2.log"
+    ],
+    "new_actual_experiments": 0
+  },
+  "earlier_attempts_preserved": [
+    {
+      "profile": "Python -S full discovery without NumPy",
+      "tests": 838,
+      "failures": 1,
+      "errors": 11,
+      "skipped": 27,
+      "classification": "11 missing-NumPy import errors; unchanged legacy provider-diagnostics test substring false positive in perf_counter."
+    },
+    {
+      "profile": "Initial ignored NumPy/no-ML runner",
+      "tests": 91,
+      "failures": 0,
+      "errors": 51,
+      "classification": "Harness omitted repository root from sys.path; not an experiment failure."
+    },
+    {
+      "profile": "Second ignored NumPy/no-ML runner",
+      "tests": 845,
+      "failures": 1,
+      "errors": 9,
+      "skipped": 20,
+      "classification": "Harness incorrectly raised from find_spec for absent optional ML packages; same legacy timer substring false positive."
+    }
+  ],
+  "legacy_test_observation": {
+    "test": "tests/test_training_observer_v3.py:ProviderTests.test_diagnostics_bound_frames_and_source_bytes_and_never_save_secrets",
+    "cause": "assertNotIn(443 string, serialized receipt) matches an unrelated perf_counter decimal. Endpoint stores categorical host_kind/port_kind and address_logged=false; frozen source/test unchanged. No clock mocking used in final pass.",
+    "original_tests_preserved": true
+  },
+  "local_log_sha256": {
+    "portable-regression.log": "b1b133d6b5219041309dd747c10da825bf53015a8a5fb218819697b15d3af9d4",
+    "portable-numpy-regression.log": "38b29cdd7c4ac2790fc5ef4c7cbf5a91d14258fee58bf1ba7947d5e511a5cf77",
+    "portable-numpy-regression-r2.log": "5d101e625e17877e3573283c88476db92ff126a2af09272f856ae157ac6f1fbf",
+    "portable-numpy-regression-r3.log": "267b5c3912d62b69662d2a6d7279218db0b8b27b9a178076a02250b3dadd783b"
+  },
+  "limits": "Portable profile exposes existing NumPy root package alone through PathFinder; -S excludes ML packages. Platform/optional ML cases skipped. These are pure/saved-evidence tests, not extra actual model suites. Remote CI checked separately."
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-19T09:46:41.887341+00:00",
-  "observation_note": "All180 prior source objects retained exactly. Added one original frozen seven-arm thread-ledger engineering fixture with raw traces, final isolated unit tests and independent saved-byte audit. No new upstream source campaign or scientific-status upgrade. The component is not integrated into the native observer and does not repair prior topology/events; H1 cost/quality failures and invalid historical RSS, H2 full-harness/recovery/liveness gaps, H3/H4 planned status and unverified Nathan next employer remain.",
+  "last_updated_at": "2026-10-19T11:29:43.121591+00:00",
+  "observation_note": "All181 prior source objects retained exactly. Added one bounded exact-head review of deferred open FLA1524 by yzhangcs, with conditional finite-normalization gradient/training-tape/timing gates. Source-derived logical bytes and author GB200 test/benchmark reports are not local execution, measured peak or residual-bank benefit. No new local experiment or scientific-status upgrade. H1 six cost/quality failures and invalid historical parentRSS, old native observer rejections, H2 full recovery/liveness gaps, H3/H4 planned status and unverified Nathan next employer remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6262,6 +6262,84 @@
       "next_falsifiable_gate": "Separately review and freeze actual native integration and process-topology policy before another suite; require unique contiguous saved events, exact identities/caps, physical cleanup and independent saved-byte validation. Preserve old rejections and all broad scientific gates.",
       "evidence_record": "results/trace-ledger/report.md",
       "dedupe_key": "our:thread-ledger-serialization@ee1ed08e413e016fb36b97db8ed7b36aabdc90aad9355683a789c85427344f8e"
+    },
+    {
+      "id": "fla-sinkhorn-finite-iteration-training-history-open",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1524",
+      "type": "public_first_party_open_PR_source_review_not_runtime_result",
+      "author": "yzhangcs (GitHub profile Yu Zhang); not Nathan Chen",
+      "repository_public": true,
+      "license": "MIT; exact head license body verified; no upstream implementation redistributed",
+      "published_at": "2026-10-19T07:42:20Z",
+      "updated_at": "2026-10-19T10:38:36Z",
+      "recorded_at": "2026-10-19T11:29:43.121591+00:00",
+      "head": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "comparison_parent": "5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "status": "open_unmerged_static_source_only",
+      "fact": [
+        "Public API validates NVIDIA CUDA, FP16/BF16/FP32 square logits1<=N<=8 and positive integer iterations. Output is FP32; input gradient returns input dtype; once_differentiable excludes higher-order autograd.",
+        "Triton/Gluon/TileLang wrappers allocate history(2*iterations,M,N,N) FP32 iff grad enabled and logits requires_grad. M is the product of leading dimensions, not necessarily sequence length. Saved output is separate.",
+        "Custom autograd retains the backward callable returned by the selected forward wrapper. Backward reverses the finite row/column normalization sequence.",
+        "Tests compare outputs/VJPs to the same finite naive reference and assert row sums. They do not establish exact double stochasticity; non-NVIDIA and unavailable optional backends skip.",
+        "Unified benchmark input TensorSpec defaults requires_grad=True, logits FP32. fwd callable does not disable autograd. The default fwd label therefore includes history allocation; it is not no-grad inference."
+      ],
+      "author_reports": {
+        "GB200_tests": 330,
+        "triton_only_tests": 53,
+        "host_tests": 158,
+        "benchmark_rows": 40,
+        "execution_independently_verified": false,
+        "timing_protocols": "Author supplies unified-CLI do_bench and separate cudagraph before/after tables. Do not combine launch-including and graph replay timing or assert cross-device/model speedup."
+      },
+      "our_inference": "Finite normalization has a training-memory and gradient-semantic cost that must be accounted for before considering a learned-routing residual-bank intervention; no consumer integration or benefit follows from this operator source.",
+      "source_derived_arithmetic": {
+        "formula": "2 * iterations * M * N * N FP32 entries = 8 * iterations * M * N * N bytes",
+        "examples": [
+          {
+            "B": 1,
+            "T": 8192,
+            "H": 1,
+            "N": 4,
+            "iterations": 20,
+            "FP32_history_bytes": 20971520,
+            "FP32_history_MiB": 20
+          },
+          {
+            "B": 1,
+            "T": 8192,
+            "H": 1,
+            "N": 8,
+            "iterations": 20,
+            "FP32_history_bytes": 83886080,
+            "FP32_history_MiB": 80
+          },
+          {
+            "B": 1,
+            "T": 32768,
+            "H": 1,
+            "N": 4,
+            "iterations": 20,
+            "FP32_history_bytes": 83886080,
+            "FP32_history_MiB": 80
+          },
+          {
+            "B": 1,
+            "T": 32768,
+            "H": 1,
+            "N": 8,
+            "iterations": 20,
+            "FP32_history_bytes": 335544320,
+            "FP32_history_MiB": 320
+          }
+        ],
+        "measurement": false,
+        "scope": "Logical history allocation only; excludes saved output, input gradients, copies/workspace and allocator/runtime overhead. Not peak memory, residual-bank bytes, additive peak cost or measured saving."
+      },
+      "next_falsifiable_gate": "If finite-iteration Sinkhorn is proposed inside a residual-bank or learned-routing mechanism, first freeze the exact consumer, finite column-then-row algorithm/iteration count, input/gradient dtypes, actual forward-selected backward callable and runtime/compiler dependency closure. Independently compare forward values and VJPs against that same finite algorithm, with an independent derivative check and row/column residuals, extreme logits, strides/empty shapes and backend-flag-change controls. Separately measure grad-enabled forward, full forward/backward and no-grad inference; record saved history/output lifetimes, copies/workspace, allocator/device peak and synchronized packing/retrieval/normalization cost under one declared timing protocol. Preregister same-model/data/optimizer/token/time/quality budgets and sealed final evaluation before benefit claims; reject any numerical/backend mismatch or missed cost/peak/quality budget. Logical tape bytes alone and a fwd timing label are not measured memory or inference. No experiment released by this source review.",
+      "limitations": "No upstream import/execution, GPU/host test/log reproduction, consumer integration, measured peak, model-quality or scientific status upgrade. Finite iteration is not exact double stochasticity; default benchmark fwd retains autograd history. Already sampled deferred lead, not a new release.",
+      "evidence_record": "research/2026-10-19-sinkhorn-training-cost.md",
+      "source_receipt": "research/receipts/20261019T111651Z-sinkhorn-training-cost.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1524@1524@755e8476c6e59ebd222e3e5f4cb2422badf56656"
     }
   ]
 }

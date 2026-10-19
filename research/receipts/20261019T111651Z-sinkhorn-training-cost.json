@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-19T11:29:43.121591+00:00",
+  "kind": "bounded_static_source_review_not_experiment",
+  "source_id": "fla-sinkhorn-finite-iteration-training-history-open",
+  "url": "https://github.com/fla-org/flash-linear-attention/pull/1524",
+  "title": "[Ops] Add Sinkhorn normalization kernels",
+  "created_at": "2026-10-19T07:42:20Z",
+  "updated_at": "2026-10-19T10:38:36Z",
+  "state": "open",
+  "merged": false,
+  "head": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+  "comparison_parent": "5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+  "time_classification": "Deferred old lead first sampled in the preceding pass; current exact-head review is new evidence, not a new release announcement.",
+  "repository_public": true,
+  "author": {
+    "login": "yzhangcs",
+    "name": "Yu Zhang",
+    "html_url": "https://github.com/yzhangcs",
+    "identity_scope": "GitHub account and commit attribution; no broader biographical or affiliation verification"
+  },
+  "commit_attribution": [
+    {
+      "sha": "db11d49d0f8902c4ada08b0a57ed907be41edcbb",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T07:38:06Z",
+      "committer_date": "2026-10-19T07:38:06Z",
+      "subject": "[Ops] Add Sinkhorn normalization with GPU backends",
+      "signature_verified": false
+    },
+    {
+      "sha": "a1a8d6dcab986d19a9c7086b710be6ca81c7fe61",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T07:45:11Z",
+      "committer_date": "2026-10-19T07:45:11Z",
+      "subject": "[Test] Check Sinkhorn fallback without optional imports",
+      "signature_verified": false
+    },
+    {
+      "sha": "0b2e2fdcbdae131366b1b6d92090c25cf5af41ad",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T08:05:07Z",
+      "committer_date": "2026-10-19T08:05:07Z",
+      "subject": "[Refactor] Register utils Ascend implementations at their entry points",
+      "signature_verified": false
+    },
+    {
+      "sha": "e5979bc4fed123a109c61957acd9f1e613c031c0",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T08:06:20Z",
+      "committer_date": "2026-10-19T08:06:20Z",
+      "subject": "[Refactor] Stack Sinkhorn on per-entry utils backend registration",
+      "signature_verified": false
+    },
+    {
+      "sha": "b1991f23c1ae0012247f9eafb9c71927c9af6484",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T08:08:20Z",
+      "committer_date": "2026-10-19T08:08:20Z",
+      "subject": "[Docs] Use the standalone Sinkhorn reference in the benchmark example",
+      "signature_verified": false
+    },
+    {
+      "sha": "fc5899db66fa4cdc3fdc77f36701f9c7dfd1d96d",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T08:26:58Z",
+      "committer_date": "2026-10-19T08:26:58Z",
+      "subject": "[Docs] Update the Ascend utility implementation reference",
+      "signature_verified": false
+    },
+    {
+      "sha": "38c0c25beedc156ea09c744c92a282e5f7e65c77",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T08:27:03Z",
+      "committer_date": "2026-10-19T08:27:03Z",
+      "subject": "Merge branch 'refactor/utils-backends' into ops/sinkhorn",
+      "signature_verified": false
+    },
+    {
+      "sha": "800542e954d630d1e5ea26175123af27506ca834",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T09:29:11Z",
+      "committer_date": "2026-10-19T09:29:11Z",
+      "subject": "[Refactor] Simplify utils dispatch tests and align optional annotations",
+      "signature_verified": false
+    },
+    {
+      "sha": "3acfa46c19de46d567faf9ea3c4c247721da3ba5",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T09:29:25Z",
+      "committer_date": "2026-10-19T09:29:25Z",
+      "subject": "Merge branch 'refactor/utils-backends' into ops/sinkhorn",
+      "signature_verified": false
+    },
+    {
+      "sha": "0c5d293e6024a2655a2447aab5dcf5f6f8db0cdf",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T09:44:54Z",
+      "committer_date": "2026-10-19T09:44:54Z",
+      "subject": "Merge remote-tracking branch 'origin/main' into ops/sinkhorn",
+      "signature_verified": false
+    },
+    {
+      "sha": "3e83c027b0beeb0f8148b5969801eac707123c05",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T09:49:14Z",
+      "committer_date": "2026-10-19T09:49:14Z",
+      "subject": "[Refactor] Register Sinkhorn backends directly and clarify benchmark shapes",
+      "signature_verified": false
+    },
+    {
+      "sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "author": "yzhangcs",
+      "committer": "yzhangcs",
+      "author_date": "2026-10-19T10:22:51Z",
+      "committer_date": "2026-10-19T10:25:57Z",
+      "subject": "[Refactor] Organize Sinkhorn implementations and align benchmark coverage",
+      "signature_verified": false
+    }
+  ],
+  "authorship_limit": "All 12 returned commit author/committer accounts are yzhangcs; commits are unsigned. Account attribution, not cryptographic personal identity or Nathan authorship.",
+  "license": {
+    "spdx": "MIT",
+    "git_blob_sha1": "7ced50191b7f5f0eec4e14114d2bc613922bc3b2",
+    "sha256": "41a83c8187efc1e3ccc21909e806a9e52338e69448554d9754706c3d1cd610e7",
+    "bytes": 1096
+  },
+  "custody_gates": {
+    "exact_pr": true,
+    "public_repo": true,
+    "repo_identity": true,
+    "open_unmerged": true,
+    "author_account": true,
+    "exact_head": true,
+    "commit_endpoint_head": true,
+    "compare_endpoint_head": true,
+    "file_counts": true,
+    "commit_count": true,
+    "exact_file_sha_set": true,
+    "check_count_complete": true,
+    "check_head_identity": true,
+    "requests_successful_untruncated": true,
+    "head-0_git_blob": true,
+    "head-0_size": true,
+    "head-0_path": true,
+    "head-0_diff_sha": true,
+    "head-1_git_blob": true,
+    "head-1_size": true,
+    "head-1_path": true,
+    "head-1_diff_sha": true,
+    "head-2_git_blob": true,
+    "head-2_size": true,
+    "head-2_path": true,
+    "head-2_diff_sha": true,
+    "head-3_git_blob": true,
+    "head-3_size": true,
+    "head-3_path": true,
+    "head-3_diff_sha": true,
+    "head-4_git_blob": true,
+    "head-4_size": true,
+    "head-4_path": true,
+    "head-4_diff_sha": true,
+    "head-5_git_blob": true,
+    "head-5_size": true,
+    "head-5_path": true,
+    "head-5_diff_sha": true,
+    "head-6_git_blob": true,
+    "head-6_size": true,
+    "head-6_path": true,
+    "head-6_diff_sha": true,
+    "head-7_git_blob": true,
+    "head-7_size": true,
+    "head-7_path": true,
+    "head-7_diff_sha": true,
+    "head-8_git_blob": true,
+    "head-8_size": true,
+    "head-8_path": true,
+    "head-8_diff_sha": true,
+    "head-9_git_blob": true,
+    "head-9_size": true,
+    "head-9_path": true,
+    "head-9_diff_sha": true,
+    "head-10_git_blob": true,
+    "head-10_size": true,
+    "head-10_path": true,
+    "head-10_diff_sha": true,
+    "parent-0_git_blob": true,
+    "parent-0_size": true,
+    "parent-0_path": true,
+    "parent-1_git_blob": true,
+    "parent-1_size": true,
+    "parent-1_path": true,
+    "parent-2_git_blob": true,
+    "parent-2_size": true,
+    "parent-2_path": true,
+    "parent-3_git_blob": true,
+    "parent-3_size": true,
+    "parent-3_path": true,
+    "parent-10_git_blob": true,
+    "parent-10_size": true,
+    "parent-10_path": true,
+    "license_blob_sha": true,
+    "license_MIT_body": true
+  },
+  "blobs": [
+    {
+      "role": "head",
+      "path": "benchmarks/ops/registry.py",
+      "bytes": 25490,
+      "git_blob_sha1": "fc7d66829a0a8e9da0b0768399fe157f769356f2",
+      "sha256": "35ab73d6c87df06ad473f06571b2ae044fd36a76e72db86a9aaed18e3aa99623"
+    },
+    {
+      "role": "head",
+      "path": "benchmarks/ops/run.py",
+      "bytes": 32599,
+      "git_blob_sha1": "83ac315a4f124c01264ee8702ababf8c6d1db5df",
+      "sha256": "65f27cbf869a4e11049e89e093e588af2ad86a3d92a9b4dbdd3ead7e975eb374"
+    },
+    {
+      "role": "head",
+      "path": "benchmarks/ops/verify.py",
+      "bytes": 10764,
+      "git_blob_sha1": "cf9bdb5957a59c5a5f95d11a97e6d2b987f2b041",
+      "sha256": "96f38186e832df000e9f5b2d23798cf82c0181ea7510620fbc40c1fb2aa86310"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/__init__.py",
+      "bytes": 2204,
+      "git_blob_sha1": "c7410204f7ea34521b69ff53d349cb33cd12e506",
+      "sha256": "4704f561ee37029c5e1b8546bf5823c26c94103234394a6db38244418763c2ca"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/sinkhorn/__init__.py",
+      "bytes": 696,
+      "git_blob_sha1": "f0c59012cc9dbe390196da8db7cf62abe1078d03",
+      "sha256": "2c74adfc374e981dcfa8bfcf09aae8df834fb00c6dbaf17be5518c6652b70bc1"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/sinkhorn/gluon.py",
+      "bytes": 5331,
+      "git_blob_sha1": "6f32cf67a7ad449dafe5df833a4fdcbbbc9dcc18",
+      "sha256": "cb487ee9144911db41afe7fcc4c9397a3d62cf7e4d1fdb3357d8b9bbca64cf8f"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/sinkhorn/naive.py",
+      "bytes": 630,
+      "git_blob_sha1": "a1fab9ae92487fc5f15a1bbf75193e17b359e968",
+      "sha256": "599619ce527f6ad0e65f346724514c59f07fb79248cada73c4bcfdf296a5ceaf"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/sinkhorn/ops.py",
+      "bytes": 5846,
+      "git_blob_sha1": "aa94da950244b2ce035ea3ebd1aac0b17f0c4f0b",
+      "sha256": "b8775e87d6cb515721d34aa1eb8a7f92653cc68b5382544d4741a98394240ede"
+    },
+    {
+      "role": "head",
+      "path": "fla/ops/utils/sinkhorn/tilelang.py",
+      "bytes": 7609,
+      "git_blob_sha1": "390592c6fe9d6a57049c711720523697040e150e",
+      "sha256": "eb33d3bf4f53240e8cf0727e47bee5961a02f29407daa64c21a09715cb2eb01a"
+    },
+    {
+      "role": "head",
+      "path": "tests/ops/utils/test_sinkhorn.py",
+      "bytes": 6949,
+      "git_blob_sha1": "b9af5d6c8afb0b107b479f3231fb0b4bd5893902",
+      "sha256": "93bcb3cc8f7d42a9a59a94fe0f816759187955e04f00a1c8517e1325b9e33410"
+    },
+    {
+      "role": "head",
+      "path": "tests/test_dispatch.py",
+      "bytes": 26838,
+      "git_blob_sha1": "5944e39bca12024edef321e575dbf99cad99e0b9",
+      "sha256": "f5d4800387cc3dbf0d7fa93c9c1e8c715441dbd1f024eb2d26040c7af5574925"
+    },
+    {
+      "role": "parent",
+      "path": "benchmarks/ops/registry.py",
+      "bytes": 24365,
+      "git_blob_sha1": "897eb6a1d8ebc2b93b7a8bc02e56afe273b8538f",
+      "sha256": "366257916109baa96126b4eb0bdaf9c52de2bcbe4028eb3712ae304a6d13bcd6"
+    },
+    {
+      "role": "parent",
+      "path": "benchmarks/ops/run.py",
+      "bytes": 32295,
+      "git_blob_sha1": "e3dbb03a95771e34506fd80aab7875fffe6679c9",
+      "sha256": "bb947e674b47d440badf404d233d3e08ab213d57899a8d497c6c09110a463d2a"
+    },
+    {
+      "role": "parent",
+      "path": "benchmarks/ops/verify.py",
+      "bytes": 10782,
+      "git_blob_sha1": "869054dbc7002c2b576b13324f276fb49dca578a",
+      "sha256": "c2151af9300417525784fdfe661e6b5081a77696670614587fe4eef2c3e57c91"
+    },
+    {
+      "role": "parent",
+      "path": "fla/ops/utils/__init__.py",
+      "bytes": 2144,
+      "git_blob_sha1": "779922c05ab5705b73522827b650802bfe853c5e",
+      "sha256": "b654822ff56ae5adff75cbf0f74b4641d594d298b0a0adb5546d1d122b61558a"
+    },
+    {
+      "role": "parent",
+      "path": "tests/test_dispatch.py",
+      "bytes": 26766,
+      "git_blob_sha1": "e5dc96b1bd83e51c075cf90b86b8d333b1d4f9e6",
+      "sha256": "731e72d0c035fed48ca417e77d2201e60619b9213ea9cb9249f6fcc527c974ee"
+    }
+  ],
+  "request_count": 24,
+  "request_policy": "Read-only public GitHub API, 30s per GET, saved ceiling2MiB, no retries; 2 discovery +6 metadata +16 full contents responses. No comments/reviews/logs/dependency closure or linked mHC consumer fetched.",
+  "requests": [
+    {
+      "name": "pull",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1524",
+      "started_at": "2026-10-19T11:20:47.020735+00:00",
+      "completed_at": "2026-10-19T11:20:48.587388+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 22844,
+      "saved_sha256": "a2ee536e12770cbaa1a038509ccd6754efe3c532b1e890806efdb3033dd2ba3c",
+      "retry": 0
+    },
+    {
+      "name": "repository",
+      "endpoint": "repos/fla-org/flash-linear-attention",
+      "started_at": "2026-10-19T11:20:48.587388+00:00",
+      "completed_at": "2026-10-19T11:20:49.739373+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 6965,
+      "saved_sha256": "053d2645088c8da24c61370983f91381d5b9737a36007dae0ede2eb335b54218",
+      "retry": 0
+    },
+    {
+      "name": "files",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1524/files?per_page=100",
+      "started_at": "2026-10-19T11:22:03.852730+00:00",
+      "completed_at": "2026-10-19T11:22:05.561378+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 51627,
+      "retry": 0,
+      "saved_sha256": "2e1aa3380f82a73567934df4be8754ba56658ae812739fa8d4f932a1537429a6"
+    },
+    {
+      "name": "commits",
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1524/commits?per_page=100",
+      "started_at": "2026-10-19T11:22:03.853729+00:00",
+      "completed_at": "2026-10-19T11:22:05.358596+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 41592,
+      "retry": 0,
+      "saved_sha256": "720d706f7ec8640097b12110a82bc749aa99244c239c07f82b548ba9b64b0e28"
+    },
+    {
+      "name": "compare",
+      "endpoint": "repos/fla-org/flash-linear-attention/compare/5299e4f74a43effcb8a63dd8c479e9c7c2a085b2...755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:03.853729+00:00",
+      "completed_at": "2026-10-19T11:22:05.548746+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 103941,
+      "retry": 0,
+      "saved_sha256": "5fdc8978274f45e0d17273c31af061158c5ea195bdfb2d0635ae4f7d03ca7b4f"
+    },
+    {
+      "name": "author",
+      "endpoint": "users/yzhangcs",
+      "started_at": "2026-10-19T11:22:03.853729+00:00",
+      "completed_at": "2026-10-19T11:22:05.187703+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 1295,
+      "retry": 0,
+      "saved_sha256": "8374a1f7e37173c0a32f7de5ca7c87163eee27facf1bcc37ef5b07168d6d9313"
+    },
+    {
+      "name": "license",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/LICENSE?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:05.187703+00:00",
+      "completed_at": "2026-10-19T11:22:06.339089+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 2532,
+      "retry": 0,
+      "saved_sha256": "381065eba761b61706d7ba634af86bfe0ccfb51fcc9b55d15f20b5f12888b796"
+    },
+    {
+      "name": "checks",
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/755e8476c6e59ebd222e3e5f4cb2422badf56656/check-runs?per_page=100",
+      "started_at": "2026-10-19T11:22:05.358596+00:00",
+      "completed_at": "2026-10-19T11:22:06.787412+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 64769,
+      "retry": 0,
+      "saved_sha256": "0b6690a000164b1be3832d0aa973ae4772e3c0f0fd75eacc20a613f4b90ca5ab"
+    },
+    {
+      "name": "head-0",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/registry.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:06.792397+00:00",
+      "completed_at": "2026-10-19T11:22:23.596497+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 36259,
+      "retry": 0,
+      "saved_sha256": "8f4b91c3fc090fd3efb74913d137477c393ab28d71a08c845a7efe8fafb49b9c"
+    },
+    {
+      "name": "parent-0",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/registry.py?ref=5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "started_at": "2026-10-19T11:22:06.792397+00:00",
+      "completed_at": "2026-10-19T11:22:23.604647+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 34709,
+      "retry": 0,
+      "saved_sha256": "d8c297072bcaf42fc4fbefb713cf18e138e9959af2060b5207840cc899297164"
+    },
+    {
+      "name": "head-1",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/run.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:06.793382+00:00",
+      "completed_at": "2026-10-19T11:22:23.777351+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 46020,
+      "retry": 0,
+      "saved_sha256": "3bb0442b4bbe889732e4de67db9a9d3c3af1236c914e1ef9db6e427ab95eb586"
+    },
+    {
+      "name": "parent-1",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/run.py?ref=5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "started_at": "2026-10-19T11:22:06.793382+00:00",
+      "completed_at": "2026-10-19T11:22:23.651853+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 45598,
+      "retry": 0,
+      "saved_sha256": "54b780e0f24eb062a703049d5781d86a757986736b609b4cd57e6a0076946d50"
+    },
+    {
+      "name": "head-2",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/verify.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:23.596497+00:00",
+      "completed_at": "2026-10-19T11:22:25.060028+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 15955,
+      "retry": 0,
+      "saved_sha256": "d068b1131441f2f40f8aba5461f3a5470ab764cd848c6bc71c2b94ed2f6e190e"
+    },
+    {
+      "name": "parent-2",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/verify.py?ref=5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "started_at": "2026-10-19T11:22:23.604647+00:00",
+      "completed_at": "2026-10-19T11:22:25.057946+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 15979,
+      "retry": 0,
+      "saved_sha256": "6b27b53149b6414c7f85a376caf9b4f8945f1dd70d214d09062b5e50a8181408"
+    },
+    {
+      "name": "head-3",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/__init__.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:23.651853+00:00",
+      "completed_at": "2026-10-19T11:22:24.934107+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 4168,
+      "retry": 0,
+      "saved_sha256": "493b8bfcc7c30ff8643f6b25ac3748f55d30ce6cb4837dda251060b38618f569"
+    },
+    {
+      "name": "parent-3",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/__init__.py?ref=5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "started_at": "2026-10-19T11:22:23.777528+00:00",
+      "completed_at": "2026-10-19T11:22:24.968648+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 4086,
+      "retry": 0,
+      "saved_sha256": "3b3a003e5ec3cac2e1556516df7ddb512df722b5e74b8d161eb7d7ce8e685d52"
+    },
+    {
+      "name": "head-4",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/__init__.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:24.934107+00:00",
+      "completed_at": "2026-10-19T11:22:26.127105+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 2143,
+      "retry": 0,
+      "saved_sha256": "fdc3366df883e8162b62e417cd3608101728468ad97338687699a29dbdd92c20"
+    },
+    {
+      "name": "head-5",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/gluon.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:24.968648+00:00",
+      "completed_at": "2026-10-19T11:22:26.265620+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 8509,
+      "retry": 0,
+      "saved_sha256": "3175457f4441311b513551c3aa7f18508bfce857f382991d50ade3cb05c503f2"
+    },
+    {
+      "name": "head-6",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/naive.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:25.057946+00:00",
+      "completed_at": "2026-10-19T11:22:26.338082+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 2030,
+      "retry": 0,
+      "saved_sha256": "60d1886cd5a48605fc5e48985d69c5d293143a9516c997237f24138d29b7a787"
+    },
+    {
+      "name": "head-7",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/ops.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:25.060038+00:00",
+      "completed_at": "2026-10-19T11:22:26.374904+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 9205,
+      "retry": 0,
+      "saved_sha256": "47bab4304d6a1da4f6a022f7620bf78503c2235b3545c160890131d3cc7f185d"
+    },
+    {
+      "name": "head-8",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/tilelang.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:26.127105+00:00",
+      "completed_at": "2026-10-19T11:22:27.270552+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 11672,
+      "retry": 0,
+      "saved_sha256": "77791eadad07659f5bd453cb2becc829234d581a4ee9f7625084aced09cbbeaa"
+    },
+    {
+      "name": "head-9",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/tests/ops/utils/test_sinkhorn.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:26.265620+00:00",
+      "completed_at": "2026-10-19T11:22:27.448724+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 10755,
+      "retry": 0,
+      "saved_sha256": "d5ca56271d0ec2a6c37982d2ac4c2a45d1718f9efaeeb080c829332527fef48c"
+    },
+    {
+      "name": "head-10",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/tests/test_dispatch.py?ref=755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "started_at": "2026-10-19T11:22:26.338082+00:00",
+      "completed_at": "2026-10-19T11:22:30.977927+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 38096,
+      "retry": 0,
+      "saved_sha256": "c740f0f9d292ca27c373b1fad4a87844af536e63732f403a8352d175572ee4a0"
+    },
+    {
+      "name": "parent-10",
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/tests/test_dispatch.py?ref=5299e4f74a43effcb8a63dd8c479e9c7c2a085b2",
+      "started_at": "2026-10-19T11:22:26.374904+00:00",
+      "completed_at": "2026-10-19T11:22:30.964919+00:00",
+      "exit_code": 0,
+      "truncated": false,
+      "bytes_returned": 37996,
+      "retry": 0,
+      "saved_sha256": "d52da2e1e9d40c32f90510e8e50997d960785bd3ff315ff018eacc747e2e7283"
+    }
+  ],
+  "checks": [
+    {
+      "id": 118014777995,
+      "name": "Test H100 (PyTorch 2.12) / test-ops",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915272/job/118014777995"
+    },
+    {
+      "id": 118014775440,
+      "name": "Test A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-8)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238916625/job/118014775440"
+    },
+    {
+      "id": 118014770750,
+      "name": "Benchmark A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-4)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "in_progress",
+      "conclusion": null,
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238916382/job/118014770750"
+    },
+    {
+      "id": 118014740190,
+      "name": "Benchmark A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-4)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915447/job/118014740190"
+    },
+    {
+      "id": 118014737710,
+      "name": "Test A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-8)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915414/job/118014737710"
+    },
+    {
+      "id": 118014695661,
+      "name": "Decide whether the full pipeline runs",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915272/job/118014695661"
+    },
+    {
+      "id": 118014695485,
+      "name": "Detect NPU-only changes",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915272/job/118014695485"
+    },
+    {
+      "id": 118014693768,
+      "name": "Smoke (PyTorch 2.12)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "queued",
+      "conclusion": null,
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915663/job/118014693768"
+    },
+    {
+      "id": 118014692956,
+      "name": "Detect NPU-related changes",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238916625/job/118014692956"
+    },
+    {
+      "id": 118014692530,
+      "name": "Detect NPU-related changes",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238916382/job/118014692530"
+    },
+    {
+      "id": 118014691557,
+      "name": "check-pr-title",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238916210/job/118014691557"
+    },
+    {
+      "id": 118014689668,
+      "name": "Detect NPU-related changes",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915414/job/118014689668"
+    },
+    {
+      "id": 118014689632,
+      "name": "check-pr-title",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915406/job/118014689632"
+    },
+    {
+      "id": 118014689622,
+      "name": "Detect NPU-related changes",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915447/job/118014689622"
+    },
+    {
+      "id": 118014688919,
+      "name": "check-header",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915301/job/118014688919"
+    },
+    {
+      "id": 118014688428,
+      "name": "Ensure tests/oj/ is removed before merge",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915220/job/118014688428"
+    },
+    {
+      "id": 118014687591,
+      "name": "lint (3.12)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238915116/job/118014687591"
+    },
+    {
+      "id": 118014679614,
+      "name": "Analyze (python)",
+      "head_sha": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39238911206/job/118014679614"
+    }
+  ],
+  "CI_scope": "18 exact-head check-run metadata rows only: {\"cancelled\": 2, \"in_progress\": 2, \"queued\": 2, \"success\": 12}. No job logs or numerical runtime verification; repeated check names retained.",
+  "fact": [
+    "Public API validates NVIDIA CUDA, FP16/BF16/FP32 square logits1<=N<=8 and positive integer iterations. Output is FP32; input gradient returns input dtype; once_differentiable excludes higher-order autograd.",
+    "Triton/Gluon/TileLang wrappers allocate history(2*iterations,M,N,N) FP32 iff grad enabled and logits requires_grad. M is the product of leading dimensions, not necessarily sequence length. Saved output is separate.",
+    "Custom autograd retains the backward callable returned by the selected forward wrapper. Backward reverses the finite row/column normalization sequence.",
+    "Tests compare outputs/VJPs to the same finite naive reference and assert row sums. They do not establish exact double stochasticity; non-NVIDIA and unavailable optional backends skip.",
+    "Unified benchmark input TensorSpec defaults requires_grad=True, logits FP32. fwd callable does not disable autograd. The default fwd label therefore includes history allocation; it is not no-grad inference."
+  ],
+  "source_derived_arithmetic": {
+    "formula": "2 * iterations * M * N * N FP32 entries = 8 * iterations * M * N * N bytes",
+    "examples": [
+      {
+        "B": 1,
+        "T": 8192,
+        "H": 1,
+        "N": 4,
+        "iterations": 20,
+        "FP32_history_bytes": 20971520,
+        "FP32_history_MiB": 20
+      },
+      {
+        "B": 1,
+        "T": 8192,
+        "H": 1,
+        "N": 8,
+        "iterations": 20,
+        "FP32_history_bytes": 83886080,
+        "FP32_history_MiB": 80
+      },
+      {
+        "B": 1,
+        "T": 32768,
+        "H": 1,
+        "N": 4,
+        "iterations": 20,
+        "FP32_history_bytes": 83886080,
+        "FP32_history_MiB": 80
+      },
+      {
+        "B": 1,
+        "T": 32768,
+        "H": 1,
+        "N": 8,
+        "iterations": 20,
+        "FP32_history_bytes": 335544320,
+        "FP32_history_MiB": 320
+      }
+    ],
+    "measurement": false,
+    "scope": "Logical history allocation only; excludes saved output, input gradients, copies/workspace and allocator/runtime overhead. Not peak memory, residual-bank bytes, additive peak cost or measured saving."
+  },
+  "author_reports": {
+    "GB200_tests": 330,
+    "triton_only_tests": 53,
+    "host_tests": 158,
+    "benchmark_rows": 40,
+    "execution_independently_verified": false,
+    "timing_protocols": "Author supplies unified-CLI do_bench and separate cudagraph before/after tables. Do not combine launch-including and graph replay timing or assert cross-device/model speedup."
+  },
+  "our_inference": "Finite normalization has a training-memory and gradient-semantic cost that must be accounted for before considering a learned-routing residual-bank intervention; no consumer integration or benefit follows from this operator source.",
+  "next_falsifiable_gate": "If finite-iteration Sinkhorn is proposed inside a residual-bank or learned-routing mechanism, first freeze the exact consumer, finite column-then-row algorithm/iteration count, input/gradient dtypes, actual forward-selected backward callable and runtime/compiler dependency closure. Independently compare forward values and VJPs against that same finite algorithm, with an independent derivative check and row/column residuals, extreme logits, strides/empty shapes and backend-flag-change controls. Separately measure grad-enabled forward, full forward/backward and no-grad inference; record saved history/output lifetimes, copies/workspace, allocator/device peak and synchronized packing/retrieval/normalization cost under one declared timing protocol. Preregister same-model/data/optimizer/token/time/quality budgets and sealed final evaluation before benefit claims; reject any numerical/backend mismatch or missed cost/peak/quality budget. Logical tape bytes alone and a fwd timing label are not measured memory or inference. No experiment released by this source review.",
+  "local_experiments": 0,
+  "upstream_imports": 0,
+  "model_loads": 0,
+  "optimizer_updates": 0,
+  "scientific_status_upgrade": false,
+  "retained_limits": [
+    "H1 six cost/final-quality failures and12regressed endpoints; historical parentRSS invalid.",
+    "Old native topology/event/sequence rejection remains; new ledger component is not integrated.",
+    "H2 packaged recovery/authority/provider effects/two restarts/liveness remain open; H3/H4 planned.",
+    "Scanner truncation/disabled discussions and partial X/blog coverage persist."
+  ],
+  "raw_custody_audit_sha256": "f066ed5bda75262a954a47e1404f8b4fe60736c49c377c00880660ad94b9df48",
+  "CI_counts": {
+    "queued": 2,
+    "in_progress": 2,
+    "cancelled": 2,
+    "success": 12
+  },
+  "comparison_scope": "Full PR merge-base5299e4f versus head755e8476, not immediate parent3e83c027. No independently verified last-refactor kernel equivalence or performance regression bound.",
+  "payload_sha256": "4796822dc33fc10bcc074d1f358e452ec8f028913c46cb268cf435a141c41223"
+}

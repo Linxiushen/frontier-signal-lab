@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-19",
+  "purpose": "Discovery candidates for substantive AI contributions; authenticate current official ownership, policy and exact base before work.",
+  "heartbeat_hours": 2,
+  "repository_screening_target_per_pass": [
+    6,
+    10
+  ],
+  "parallel_fix_lanes_max": 3,
+  "lifetime_submission_limit": null,
+  "scope": [
+    "inference",
+    "training",
+    "evaluation",
+    "agents",
+    "multimodal",
+    "AI data and tooling"
+  ],
+  "targets": [
+    {
+      "organization": "OpenAI",
+      "repositories": [
+        "openai/openai-agents-python",
+        "openai/evals",
+        "openai/whisper",
+        "openai/tiktoken"
+      ],
+      "focus": [
+        "agent runtime",
+        "evaluation",
+        "speech",
+        "tokenization"
+      ]
+    },
+    {
+      "organization": "Anthropic",
+      "repositories": [
+        "anthropics/claude-agent-sdk-python",
+        "anthropics/anthropic-sdk-python",
+        "anthropics/anthropic-sdk-typescript"
+      ],
+      "focus": [
+        "tool use",
+        "streaming",
+        "agent SDK correctness"
+      ]
+    },
+    {
+      "organization": "Google and Google DeepMind",
+      "repositories": [
+        "google/adk-python",
+        "google-deepmind/optax",
+        "google-deepmind/chex",
+        "google-deepmind/treescope"
+      ],
+      "focus": [
+        "agents",
+        "optimization",
+        "numerical validation",
+        "model inspection"
+      ]
+    },
+    {
+      "organization": "Meta",
+      "repositories": [
+        "facebookresearch/faiss",
+        "facebookresearch/dinov2"
+      ],
+      "focus": [
+        "retrieval",
+        "vision representations"
+      ]
+    },
+    {
+      "organization": "NVIDIA",
+      "repositories": [
+        "NVIDIA/NeMo",
+        "NVIDIA/TensorRT-LLM"
+      ],
+      "focus": [
+        "training",
+        "inference",
+        "supported CPU utilities where GPU validation is unavailable"
+      ]
+    },
+    {
+      "organization": "Microsoft",
+      "repositories": [
+        "microsoft/agent-lightning",
+        "microsoft/autogen",
+        "microsoft/Olive"
+      ],
+      "focus": [
+        "agent training",
+        "agent runtime",
+        "model optimization"
+      ]
+    },
+    {
+      "organization": "Hugging Face",
+      "repositories": [
+        "huggingface/transformers",
+        "huggingface/datasets",
+        "huggingface/smolagents",
+        "huggingface/lerobot"
+      ],
+      "focus": [
+        "models",
+        "data",
+        "agents",
+        "robotics"
+      ]
+    },
+    {
+      "organization": "Alibaba / Qwen",
+      "repositories": [
+        "QwenLM/Qwen-Agent",
+        "QwenLM/Qwen2.5-Omni"
+      ],
+      "focus": [
+        "tool use",
+        "multimodal input handling"
+      ]
+    },
+    {
+      "organization": "ByteDance",
+      "repositories": [
+        "bytedance/Protenix",
+        "bytedance/tarsier"
+      ],
+      "focus": [
+        "AI for science",
+        "video understanding"
+      ]
+    },
+    {
+      "organization": "Tencent",
+      "repositories": [
+        "Tencent/WeKnora",
+        "TencentCloudADP/youtu-agent",
+        "TencentARC/InstantMesh"
+      ],
+      "focus": [
+        "retrieval augmented generation",
+        "agents",
+        "3D generation"
+      ]
+    },
+    {
+      "organization": "Independent AI infrastructure and research",
+      "repositories": [
+        "vllm-project/vllm",
+        "sgl-project/sglang",
+        "EleutherAI/lm-evaluation-harness",
+        "fla-org/flash-linear-attention"
+      ],
+      "focus": [
+        "inference",
+        "evaluation",
+        "attention kernels"
+      ],
+      "ownership_note": "Relevant ecosystem projects; do not attribute them to a leading company without current first-party evidence."
+    }
+  ],
+  "eligibility_observations": [
+    {
+      "repository": "openai/openai-agents-python",
+      "observed_at": "2026-10-19T13:52:25.533774+00:00",
+      "head": "9abc9182d06dbd28330af888306031269d57a175",
+      "status": "excluded_noncollaborator_PRs",
+      "evidence_url": "https://github.com/openai/openai-agents-python/blob/9abc9182d06dbd28330af888306031269d57a175/CONTRIBUTING.md",
+      "rule": "PRs limited to repository collaborators; do not prepare or submit an external PR unless collaborator eligibility is independently established."
+    },
+    {
+      "repository": "huggingface/smolagents",
+      "observed_at": "2026-10-19T13:52:25.533774+00:00",
+      "status": "prior_maintainer_acceptance_required",
+      "rule": "Check current CONTRIBUTING.md: wait for status:accepted before implementing; respect one-open-PR rule until first merge. PIL schema lead overlaps existing work and is excluded."
+    }
+  ]
+}

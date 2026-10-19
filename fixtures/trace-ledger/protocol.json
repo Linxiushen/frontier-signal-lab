@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "experiment": "thread-ledger-serialization",
+  "seed": 20261019,
+  "workers": 4,
+  "rows_per_worker": 64,
+  "max_row_bytes": 512,
+  "max_total_bytes": 65536,
+  "cap_attempts_per_worker": 8,
+  "cap_commits": 7,
+  "thread_join_seconds": 5,
+  "suite_seconds": 10,
+  "arm_order": ["all-admitted", "row-cap", "byte-cap", "short-write", "write-exception", "flush-exception", "recursive-write"],
+  "suites": 1,
+  "retries": 0,
+  "target_launches": 0,
+  "network_calls": 0,
+  "prior_evidence": "The separately rejected 20261019T072145Z native ledger has duplicate seq 6 and missing 8. Its files remain frozen. This pure-thread suite cannot repair its topology, missing events or scientific status.",
+  "preregistration": "One frozen suite. The three concurrent arms use four daemon threads, a single start barrier, seeded fixed-width original IDs and one nonrenewable 5 second join deadline within 10 seconds total. all-admitted requires 256 unique contiguous rows. Row/byte-cap arms each admit exactly 7 of 32 attempts and reject 25 before I/O; byte budget is independently set to the exact bytes of 7 fixed-width rows 0..6. Each fault arm must poison at the failed first row, retain zero committed rows/bytes, expose uncertain sink state and deny a subsequent append without further I/O. Recursive sink callback must fail explicitly rather than deadlock. All thread exceptions, missing/duplicate IDs, invalid saved lines, cap breaches, unfinished threads or deadline breaches reject once. Seed fixes generated inputs, not thread scheduling, admitted IDs or trace order. No scheduling/performance/production-durability claim.",
+  "validation": "After all threads stop, save exact sink bytes, read each file back, require byte equality with the stopped sink and independently decode admitted prefixes from saved bytes without writer state. Fault tails remain explicitly uncertain. Require final newline, strict UTF8 finite/unique-key JSON including exponent-overflow rejection, exact kind/seq/item keys, expected arm kind, integer seq exactly 0..N-1, exact unique admitted-ID set drawn from original fixed IDs, and row/total byte caps. Bind trace/result/config/source hashes. Reader controls reject duplicated/missing sequences, truncated/oversized traces, duplicate keys, NaN and exponent overflow. Unit tests first force the old unlocked sequence race with a gated sink and validate new serialization/cap admission and I/O failure behavior.",
+  "scope": "Original standard-library single-process Python thread engineering only. Flush is not fsync or power-loss durability. Sink must be exclusively owned and initially empty; multiple ledger objects must not share it. Encoded output caps do not bound temporary serialization memory. Arbitrary sink write/flush can block; deadlines apply to this cooperative in-memory fixture, not arbitrary I/O or production liveness. No native Job/Node/helper/manager/SDK/model/provider acquisition or call, no broad H1/H2/H3/H4 gate upgrade."
+}

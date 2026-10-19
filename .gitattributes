@@ -29,3 +29,10 @@ results/codec-allocation-v2/** -text whitespace=cr-at-eol
 fixtures/codec-allocation-v2/*.json -text whitespace=cr-at-eol
 research/receipts/20261018T010611Z-*.json -text whitespace=cr-at-eol
 results/savescope-optimizer-state/** -text whitespace=cr-at-eol
+# Preserve exact pre-execution thread-ledger source and receipt hashes.
+experiments/trace_ledger.py -text whitespace=cr-at-eol,-blank-at-eof
+experiments/trace_ledger_probe.py -text whitespace=cr-at-eol,-blank-at-eof
+experiments/audit_trace_ledger.py -text whitespace=cr-at-eol,-blank-at-eof
+tests/test_trace_ledger.py -text whitespace=cr-at-eol,-blank-at-eof
+fixtures/trace-ledger/** -text whitespace=cr-at-eol
+results/trace-ledger/** -text whitespace=cr-at-eol

@@ -1,0 +1,26 @@
+# Merged Sinkhorn changes the training cost mechanism
+
+Our [earlier review](2026-10-19-sinkhorn-training-cost.md) remains an observation of head `755e8476`. Its 20–320 MiB global-history examples apply to that historical version. A fresh bounded read finds [FLA #1524](https://github.com/fla-org/flash-linear-attention/pull/1524) merged on **19 October 2026 at 13:18:04 UTC**, before the preceding completed scan's 21:20:31 UTC cutoff. We discovered this correction late; it is not a new announcement. The author is `yzhangcs` (Yu Zhang), not Nathan Chen. Public status and the pinned MIT license were rechecked.
+
+Final head `503d2c1132b308727ac19a04774241b5a340000a` and squash merge `6dff3e1995195d6f192b1b01f5ddf66be7cc0a35` have the same entire tree, `23221232bd41dd57a4cfbddb511743cd5c00a048`. We checked all 11 complete landed changed-file bodies against their blobs and the final-head tree. Relative to our saved old head, the three backend kernels and Sinkhorn test file change; the other seven files are byte-identical.
+
+The merged implementation removes the global probability tape from all three wrappers. Autograd retains the input logits and the backward callable selected by forward. Backward recomputes normalization prefixes in reverse blocks of at most 20 iterations, keeping intermediate probabilities within each kernel program. The storage/time tradeoff therefore changes. Retained input may prolong a backing allocation or layout copy; recomputation, compiler workspaces, registers and spills need their own measurements. There is no save/recompute switch.
+
+For `BI = min(iterations, 20)`, the source declares the following probability caches:
+
+| Backend | Source storage per program | Largest declared logical shape for N ≤ 8 |
+| --- | --- | ---: |
+| Gluon / TileLang | `2 * BI * BT * BN²` FP32 entries | 40 KiB |
+| Triton | Tuple of `2 * BI` FP32 `BN × BN` tiles | 10 KiB |
+
+Here `BN = next_power_of_2(N)` and `BT = 1` for fewer than 128 matrices, otherwise `max(4, 128 // min(32, BN²))`. These are source-derived bytes **per program**, excluding other buffers and simultaneously running programs. They are not total shared memory, physical register allocation, compiler spills, actual device peak or measured savings. The old global `8 * iterations * M * N²` formula cannot describe this final implementation.
+
+The numerical objective remains a finite column-then-row normalization sequence. The final kernels first shift column maxima and use base-2 log/exp with `RCP_LN2`. NVIDIA CUDA, FP16/BF16/FP32 inputs, square side 1–8, FP32 output, input-dtype gradients and `once_differentiable` remain. Finite iteration still does not guarantee exact double stochasticity. Final test source retains the same `1e-4` reference output/VJP tolerance, tests iteration-block boundaries up to 100, and includes near-uniform/extreme logits, layout, empty, inference and backend-flag controls. We did not execute those tests.
+
+The author reports 221 Sinkhorn test passes on GB200, 260 passes on a combined HC branch, plus tests at an earlier revision. An additional 324-case sweep includes **12 gradient mismatches**, across four extreme input cases and three backends. The author's high-precision audit attributes the dominant difference to FP32 reference rounding; this attribution is not independently verified. We retain the mismatches and do not infer broad numerical equivalence.
+
+Two performance stages must stay separate. For recomputation `f3a1d293 → e7ff8236`, the author reports additional peak allocated memory falling from 336 to 16 MiB at T=32,768, N=8, while full forward/backward latency increases by up to 55.7% across the declared shapes. This is not our GPU measurement or a measured comparison of our old head with the merge. The later base-2 stage `e7ff8236 → 503d2c11` has separate paired CUDA-graph timings, excluding Python launch overhead. Neither table establishes model training benefit. We read 47 exact-merge check-run metadata rows, including successful comment/A2 jobs and skipped pytest jobs, with no numerical logs.
+
+The conditional H1 requirement now freezes input retention and block recomputation as well as the finite algorithm, iteration count, selected callable and runtime/compiler dependencies. It needs independent derivative and row/column residual controls at block boundaries, then separate synchronized grad-forward, full backward and no-grad cost measurements, actual allocator/device peak, and matched consumer training with sealed final quality. Any numerical/backend mismatch or failed cost, peak or quality budget rejects the candidate. No experiment is released by this correction. H1's six failed cost/final-quality screens, 12 regressed endpoints and invalid historical parent RSS, H2's unproven recovery/liveness gates and H3/H4's planned status remain.
+
+The [public receipt](receipts/20261019T232320Z-sinkhorn-recomputation.json) binds 18 bounded GETs, the old immutable receipt, all 11 old/final file hashes, 80 custody assertions and the pinned license. It contains selected metadata, hashes and source observations; no upstream implementation is redistributed. Linked consumer and dependency implementations were not reviewed or executed.

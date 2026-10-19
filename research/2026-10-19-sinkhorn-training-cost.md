@@ -1,5 +1,7 @@
 # Finite Sinkhorn needs a training cost budget
 
+> Version scope: this note preserves the saved open head `755e8476`. The [merged-version correction](2026-10-19-sinkhorn-recomputation-correction.md) replaces the current global-tape cost expectation with input retention and block recomputation. The original receipt and observations below remain historical.
+
 [FLA #1524](https://github.com/fla-org/flash-linear-attention/pull/1524), by `yzhangcs` (GitHub profile: Yu Zhang), is open and unmerged at our saved read. It was created on 19 October 2026 at 07:42:20 UTC; this was already a deferred lead in the preceding pass. The new evidence here is review of head `755e8476c6e59ebd222e3e5f4cb2422badf56656`, not a new release. The public repository and that head's MIT license were read. The 12 returned commits carry the same account's author/committer attribution, including branch merges; this is not Nathan Chen's contribution or evidence of his next employer.
 
 The proposed operator alternates column and row log normalizations for a fixed positive iteration count. The CUDA entry accepts square matrices with side 1–8, computes/returns FP32 and returns input gradients in the input dtype. Backward differentiates this finite sequence, rather than an implicitly converged doubly stochastic projection. Its saved callable comes from the forward-selected backend, so a later dispatch-flag change need not choose a different backward implementation. Higher-order gradients are excluded by `once_differentiable`.

@@ -1,0 +1,597 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-19T23:40:31.181760+00:00",
+  "kind": "public_source_version_and_cost_mechanism_correction_not_runtime_result",
+  "source_id": "fla-sinkhorn-merged-input-retention-and-block-recompute",
+  "supersedes_source_observation": "fla-sinkhorn-finite-iteration-training-history-open",
+  "url": "https://github.com/fla-org/flash-linear-attention/pull/1524",
+  "title": "[Ops] Add Sinkhorn normalization kernels",
+  "created_at": "2026-10-19T07:42:20Z",
+  "updated_at": "2026-10-19T13:18:07Z",
+  "merged_at": "2026-10-19T13:18:04Z",
+  "state": "closed",
+  "merged": true,
+  "old_head": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+  "final_head": "503d2c1132b308727ac19a04774241b5a340000a",
+  "merge": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+  "merge_parent": "8bfb24ba51e1146a422f06ab6ca78a7f05c6b00d",
+  "same_entire_tree_sha": "23221232bd41dd57a4cfbddb511743cd5c00a048",
+  "time_classification": "Previously sampled source; merge predates previous completed scan cutoff. Late-discovered implementation correction, not a new announcement.",
+  "author": {
+    "PR_account": "yzhangcs",
+    "head_and_landed_commit_author_account": "yzhangcs",
+    "commit_author_name": "Yu Zhang",
+    "squash_committer_account": "web-flow",
+    "Nathan_authorship_or_employer_inference": false
+  },
+  "repository_public": true,
+  "license": {
+    "name": "MIT",
+    "git_blob_sha1": "7ced50191b7f5f0eec4e14114d2bc613922bc3b2",
+    "bytes": 1096,
+    "sha256": "41a83c8187efc1e3ccc21909e806a9e52338e69448554d9754706c3d1cd610e7",
+    "copyright": "2023-2026 Songlin Yang, Yu Zhang, Zhiyuan Li"
+  },
+  "custody_gates": {
+    "pr_identity": true,
+    "repo_public_identity": true,
+    "merged_not_draft": true,
+    "exact_merge_head_parent": true,
+    "same_entire_head_and_landed_tree": true,
+    "tree_endpoint_pinned_head_identity": true,
+    "head_tree_not_truncated": true,
+    "account_attribution": true,
+    "merge_time": true,
+    "full_landed_file_count": true,
+    "old_receipt_payload_intact": true,
+    "old_version_intact": true,
+    "check_page_complete": true,
+    "check_merge_identity": true,
+    "requests_complete": true,
+    "file_00_identity_and_size": true,
+    "file_00_git_blob_and_tree": true,
+    "file_00_saved_bytes": true,
+    "old_file_00_receipt_custody": true,
+    "file_01_identity_and_size": true,
+    "file_01_git_blob_and_tree": true,
+    "file_01_saved_bytes": true,
+    "old_file_01_receipt_custody": true,
+    "file_02_identity_and_size": true,
+    "file_02_git_blob_and_tree": true,
+    "file_02_saved_bytes": true,
+    "old_file_02_receipt_custody": true,
+    "file_03_identity_and_size": true,
+    "file_03_git_blob_and_tree": true,
+    "file_03_saved_bytes": true,
+    "old_file_03_receipt_custody": true,
+    "file_04_identity_and_size": true,
+    "file_04_git_blob_and_tree": true,
+    "file_04_saved_bytes": true,
+    "old_file_04_receipt_custody": true,
+    "file_05_identity_and_size": true,
+    "file_05_git_blob_and_tree": true,
+    "file_05_saved_bytes": true,
+    "old_file_05_receipt_custody": true,
+    "file_06_identity_and_size": true,
+    "file_06_git_blob_and_tree": true,
+    "file_06_saved_bytes": true,
+    "old_file_06_receipt_custody": true,
+    "file_07_identity_and_size": true,
+    "file_07_git_blob_and_tree": true,
+    "file_07_saved_bytes": true,
+    "old_file_07_receipt_custody": true,
+    "file_08_identity_and_size": true,
+    "file_08_git_blob_and_tree": true,
+    "file_08_saved_bytes": true,
+    "old_file_08_receipt_custody": true,
+    "file_09_identity_and_size": true,
+    "file_09_git_blob_and_tree": true,
+    "file_09_saved_bytes": true,
+    "old_file_09_receipt_custody": true,
+    "file_10_identity_and_size": true,
+    "file_10_git_blob_and_tree": true,
+    "file_10_saved_bytes": true,
+    "old_file_10_receipt_custody": true,
+    "license_git_blob_and_tree": true,
+    "license_MIT_body": true,
+    "license_unchanged_from_old": true,
+    "fla-pr1524_raw_response_hash": true,
+    "fla-repo_raw_response_hash": true,
+    "fla-commit1524_raw_response_hash": true,
+    "fla-license1524_raw_response_hash": true,
+    "fla-landed-checks_raw_response_hash": true,
+    "fla-landed-00_raw_response_hash": true,
+    "fla-landed-01_raw_response_hash": true,
+    "fla-landed-02_raw_response_hash": true,
+    "fla-landed-03_raw_response_hash": true,
+    "fla-landed-04_raw_response_hash": true,
+    "fla-landed-05_raw_response_hash": true,
+    "fla-landed-06_raw_response_hash": true,
+    "fla-landed-07_raw_response_hash": true,
+    "fla-landed-08_raw_response_hash": true,
+    "fla-landed-09_raw_response_hash": true,
+    "fla-landed-10_raw_response_hash": true,
+    "fla-final-head-tree_raw_response_hash": true,
+    "fla-final-head-commit_raw_response_hash": true
+  },
+  "custody_gates_passed": 80,
+  "old_receipt_sha256": "21af6b599ec40e2f5a53658259f736424f9e0cbc4c3620e70a2bf83b414988ec",
+  "local_custody_audit_sha256": "e0292e6d743109e4e2d6b08b15f9ef1c458660abed3e0b0aacdb508ac9a45edf",
+  "files": [
+    {
+      "path": "benchmarks/ops/registry.py",
+      "bytes": 25490,
+      "git_blob_sha1": "fc7d66829a0a8e9da0b0768399fe157f769356f2",
+      "sha256": "35ab73d6c87df06ad473f06571b2ae044fd36a76e72db86a9aaed18e3aa99623",
+      "old_head_git_blob_sha1": "fc7d66829a0a8e9da0b0768399fe157f769356f2",
+      "old_head_sha256": "35ab73d6c87df06ad473f06571b2ae044fd36a76e72db86a9aaed18e3aa99623",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "benchmarks/ops/run.py",
+      "bytes": 32599,
+      "git_blob_sha1": "83ac315a4f124c01264ee8702ababf8c6d1db5df",
+      "sha256": "65f27cbf869a4e11049e89e093e588af2ad86a3d92a9b4dbdd3ead7e975eb374",
+      "old_head_git_blob_sha1": "83ac315a4f124c01264ee8702ababf8c6d1db5df",
+      "old_head_sha256": "65f27cbf869a4e11049e89e093e588af2ad86a3d92a9b4dbdd3ead7e975eb374",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "benchmarks/ops/verify.py",
+      "bytes": 10764,
+      "git_blob_sha1": "cf9bdb5957a59c5a5f95d11a97e6d2b987f2b041",
+      "sha256": "96f38186e832df000e9f5b2d23798cf82c0181ea7510620fbc40c1fb2aa86310",
+      "old_head_git_blob_sha1": "cf9bdb5957a59c5a5f95d11a97e6d2b987f2b041",
+      "old_head_sha256": "96f38186e832df000e9f5b2d23798cf82c0181ea7510620fbc40c1fb2aa86310",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "fla/ops/utils/__init__.py",
+      "bytes": 2204,
+      "git_blob_sha1": "c7410204f7ea34521b69ff53d349cb33cd12e506",
+      "sha256": "4704f561ee37029c5e1b8546bf5823c26c94103234394a6db38244418763c2ca",
+      "old_head_git_blob_sha1": "c7410204f7ea34521b69ff53d349cb33cd12e506",
+      "old_head_sha256": "4704f561ee37029c5e1b8546bf5823c26c94103234394a6db38244418763c2ca",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "fla/ops/utils/sinkhorn/__init__.py",
+      "bytes": 696,
+      "git_blob_sha1": "f0c59012cc9dbe390196da8db7cf62abe1078d03",
+      "sha256": "2c74adfc374e981dcfa8bfcf09aae8df834fb00c6dbaf17be5518c6652b70bc1",
+      "old_head_git_blob_sha1": "f0c59012cc9dbe390196da8db7cf62abe1078d03",
+      "old_head_sha256": "2c74adfc374e981dcfa8bfcf09aae8df834fb00c6dbaf17be5518c6652b70bc1",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "fla/ops/utils/sinkhorn/gluon.py",
+      "bytes": 5962,
+      "git_blob_sha1": "3ade934e01e8793580599936383ec88e1932a6a1",
+      "sha256": "8ccd06b67e266c684c374cae67ce8e70da0657c1688f6279173a0e01705577a3",
+      "old_head_git_blob_sha1": "6f32cf67a7ad449dafe5df833a4fdcbbbc9dcc18",
+      "old_head_sha256": "cb487ee9144911db41afe7fcc4c9397a3d62cf7e4d1fdb3357d8b9bbca64cf8f",
+      "changed_from_old_observation": true
+    },
+    {
+      "path": "fla/ops/utils/sinkhorn/naive.py",
+      "bytes": 630,
+      "git_blob_sha1": "a1fab9ae92487fc5f15a1bbf75193e17b359e968",
+      "sha256": "599619ce527f6ad0e65f346724514c59f07fb79248cada73c4bcfdf296a5ceaf",
+      "old_head_git_blob_sha1": "a1fab9ae92487fc5f15a1bbf75193e17b359e968",
+      "old_head_sha256": "599619ce527f6ad0e65f346724514c59f07fb79248cada73c4bcfdf296a5ceaf",
+      "changed_from_old_observation": false
+    },
+    {
+      "path": "fla/ops/utils/sinkhorn/ops.py",
+      "bytes": 6454,
+      "git_blob_sha1": "7730e2fc2683ce835c143f9ad568602f9d02aecc",
+      "sha256": "d8f4b53336de3fefca2d83a8d15fead73c638acabaa6b0b22fb1af979f25871c",
+      "old_head_git_blob_sha1": "aa94da950244b2ce035ea3ebd1aac0b17f0c4f0b",
+      "old_head_sha256": "b8775e87d6cb515721d34aa1eb8a7f92653cc68b5382544d4741a98394240ede",
+      "changed_from_old_observation": true
+    },
+    {
+      "path": "fla/ops/utils/sinkhorn/tilelang.py",
+      "bytes": 9588,
+      "git_blob_sha1": "935856914e4cc02318c96e3c213541443dacd79e",
+      "sha256": "6bab042877a436778c3efd0ce0901670f8589ab57f1caa7ceabef12dcc0a43c2",
+      "old_head_git_blob_sha1": "390592c6fe9d6a57049c711720523697040e150e",
+      "old_head_sha256": "eb33d3bf4f53240e8cf0727e47bee5961a02f29407daa64c21a09715cb2eb01a",
+      "changed_from_old_observation": true
+    },
+    {
+      "path": "tests/ops/utils/test_sinkhorn.py",
+      "bytes": 6198,
+      "git_blob_sha1": "ab165d2003171883ebda77b4760b578ac26fc50e",
+      "sha256": "961a7c261c427456c56d989797d8a9d30744a50c921f1053b9dba6acdd69b542",
+      "old_head_git_blob_sha1": "b9af5d6c8afb0b107b479f3231fb0b4bd5893902",
+      "old_head_sha256": "93bcb3cc8f7d42a9a59a94fe0f816759187955e04f00a1c8517e1325b9e33410",
+      "changed_from_old_observation": true
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "bytes": 26838,
+      "git_blob_sha1": "5944e39bca12024edef321e575dbf99cad99e0b9",
+      "sha256": "f5d4800387cc3dbf0d7fa93c9c1e8c715441dbd1f024eb2d26040c7af5574925",
+      "old_head_git_blob_sha1": "5944e39bca12024edef321e575dbf99cad99e0b9",
+      "old_head_sha256": "f5d4800387cc3dbf0d7fa93c9c1e8c715441dbd1f024eb2d26040c7af5574925",
+      "changed_from_old_observation": false
+    }
+  ],
+  "changed_from_old_observation": [
+    "fla/ops/utils/sinkhorn/gluon.py",
+    "fla/ops/utils/sinkhorn/ops.py",
+    "fla/ops/utils/sinkhorn/tilelang.py",
+    "tests/ops/utils/test_sinkhorn.py"
+  ],
+  "requests_count": 18,
+  "request_policy": "One fresh GET per endpoint,timeout90s,max2MiB,no retries;18successes,untruncated. Saved bytes and git blobs checked; no upstream code copied into public receipt.",
+  "requests": [
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/pulls/1524",
+      "query": {},
+      "ref": null,
+      "observed_at": "2026-10-19T23:30:27.462664+00:00",
+      "completed_at": "2026-10-19T23:30:29.943265+00:00",
+      "bytes": 24153,
+      "sha256": "51c32405ea946fc1b90f27e9425e5d26858b326af5d1c849138cee29451ad6c9",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention",
+      "query": {},
+      "ref": null,
+      "observed_at": "2026-10-19T23:31:21.325250+00:00",
+      "completed_at": "2026-10-19T23:31:22.793949+00:00",
+      "bytes": 6965,
+      "sha256": "101b765b6376ab9768e3a4cb75ea2659157a79d426aa4cb8fbeb198d919efab7",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "query": {
+        "per_page": 100
+      },
+      "ref": null,
+      "observed_at": "2026-10-19T23:31:21.326252+00:00",
+      "completed_at": "2026-10-19T23:31:22.997136+00:00",
+      "bytes": 60225,
+      "sha256": "72834e095286e2d569d81204e7be829a98e9776d133095e81a789b8e42806877",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/LICENSE",
+      "query": {
+        "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35"
+      },
+      "ref": null,
+      "observed_at": "2026-10-19T23:31:21.326252+00:00",
+      "completed_at": "2026-10-19T23:31:22.659841+00:00",
+      "bytes": 2532,
+      "sha256": "9a543463ca6b4fc61dff935bb1353698c52b748eda1ec4fe9bbe41e16cc85bd1",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/6dff3e1995195d6f192b1b01f5ddf66be7cc0a35/check-runs",
+      "query": {
+        "per_page": 100
+      },
+      "ref": null,
+      "observed_at": "2026-10-19T23:31:21.326252+00:00",
+      "completed_at": "2026-10-19T23:31:23.398005+00:00",
+      "bytes": 216356,
+      "sha256": "8350b805063df4a957f21710a86119d0007c9aa365eb71ca1c04ecd69ada98b0",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/registry.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:11.771959+00:00",
+      "completed_at": "2026-10-19T23:32:13.669522+00:00",
+      "bytes": 36259,
+      "sha256": "03cbadaf130ed388a7ef3addb311662e2f9c77010dddac2100b26c66990d0fb7",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/run.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:11.772959+00:00",
+      "completed_at": "2026-10-19T23:32:13.840647+00:00",
+      "bytes": 46020,
+      "sha256": "3c64f07fa9d5977ef863f74435c251e172ae209c65a09416c20d1739449f6035",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/benchmarks/ops/verify.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:11.772959+00:00",
+      "completed_at": "2026-10-19T23:32:13.720136+00:00",
+      "bytes": 15955,
+      "sha256": "a8b9f219438f271fcd04aa96e07902658fdf2fa722f4a6a18153cbb7f9f78bd1",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/__init__.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:11.773956+00:00",
+      "completed_at": "2026-10-19T23:32:13.495232+00:00",
+      "bytes": 4168,
+      "sha256": "88288983f0b907e3133d2cd79da32e6fcf0569d842256f2153963aaacffc11a0",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/__init__.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:13.499694+00:00",
+      "completed_at": "2026-10-19T23:32:14.617371+00:00",
+      "bytes": 2143,
+      "sha256": "be0698816d77b59fe98e21986415ad2041929b45f302a5f7ffb0feeb299771fd",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/gluon.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:13.670521+00:00",
+      "completed_at": "2026-10-19T23:32:14.873940+00:00",
+      "bytes": 9381,
+      "sha256": "ba59800715ddfe8cbcf6d359fef83eae1040e9eea822e7d94e1c1fa4fbc03c1a",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/naive.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:13.720648+00:00",
+      "completed_at": "2026-10-19T23:32:14.932320+00:00",
+      "bytes": 2030,
+      "sha256": "6956f50a339a307d976be99ccdba293ee8e467ccd709289fab06acbc6ab0bf45",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/ops.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:13.844646+00:00",
+      "completed_at": "2026-10-19T23:32:14.996893+00:00",
+      "bytes": 10045,
+      "sha256": "fcb25c70d8d9ad539c4836dc3cda4fb3fa5c997cf42f4f9b2bfb490bec59e269",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/fla/ops/utils/sinkhorn/tilelang.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:14.620371+00:00",
+      "completed_at": "2026-10-19T23:32:15.846202+00:00",
+      "bytes": 14396,
+      "sha256": "ef5f78a6ccb2a18119c27d45bda6fed0e199401c3e46be77c70d6fbef1b286be",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/tests/ops/utils/test_sinkhorn.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:14.878938+00:00",
+      "completed_at": "2026-10-19T23:32:16.111412+00:00",
+      "bytes": 9717,
+      "sha256": "d31a22f4445ade240f4695dad526223b6ae1a6ea6e55792105b70de02181fe91",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/contents/tests/test_dispatch.py",
+      "query": {},
+      "ref": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "observed_at": "2026-10-19T23:32:14.934439+00:00",
+      "completed_at": "2026-10-19T23:32:16.324226+00:00",
+      "bytes": 38096,
+      "sha256": "c77ca0c027d3e13bdd26d6f2774bc92aee592888aae4917e6bb26806cae34967",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/git/trees/503d2c1132b308727ac19a04774241b5a340000a",
+      "query": {
+        "recursive": 1
+      },
+      "ref": null,
+      "observed_at": "2026-10-19T23:32:11.816048+00:00",
+      "completed_at": "2026-10-19T23:32:13.949648+00:00",
+      "bytes": 256297,
+      "sha256": "d0ed40c1a7146efd7880ded883c16d7a68cd5447de39ba1257943a9a60254883",
+      "truncated": false,
+      "exit_code": 0
+    },
+    {
+      "endpoint": "repos/fla-org/flash-linear-attention/commits/503d2c1132b308727ac19a04774241b5a340000a",
+      "query": {
+        "per_page": 100
+      },
+      "ref": null,
+      "observed_at": "2026-10-19T23:32:11.817052+00:00",
+      "completed_at": "2026-10-19T23:32:13.622338+00:00",
+      "bytes": 16778,
+      "sha256": "b0890a3acfa3018abf9aef30336f05e3921200f25b2887c7eb13681491371b01",
+      "truncated": false,
+      "exit_code": 0
+    }
+  ],
+  "CI_metadata_counts": [
+    {
+      "name": "Analyze (python)",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 2
+    },
+    {
+      "name": "Benchmark A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-4)",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 1
+    },
+    {
+      "name": "Detect NPU-related changes",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 2
+    },
+    {
+      "name": "Test A2 NPU (PyTorch 2.9.0) (3.12, linux-aarch64-a2-8)",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 1
+    },
+    {
+      "name": "check-header",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 1
+    },
+    {
+      "name": "comment",
+      "status": "completed",
+      "conclusion": "skipped",
+      "count": 4
+    },
+    {
+      "name": "comment",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 27
+    },
+    {
+      "name": "lint (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "count": 1
+    },
+    {
+      "name": "parse",
+      "status": "completed",
+      "conclusion": "skipped",
+      "count": 2
+    },
+    {
+      "name": "post-result",
+      "status": "completed",
+      "conclusion": "skipped",
+      "count": 2
+    },
+    {
+      "name": "react",
+      "status": "completed",
+      "conclusion": "skipped",
+      "count": 2
+    },
+    {
+      "name": "run-pytest",
+      "status": "completed",
+      "conclusion": "skipped",
+      "count": 2
+    }
+  ],
+  "CI_scope": "47/47 exact-merge check-run metadata rows; allcompleted,35success/12skip.27successful comment jobs; both run-pytest rows skipped. A2success is not NVIDIA Sinkhorn validation. No logs read or local upstream tests executed.",
+  "fact": [
+    "PR1524 was merged at 2026-10-19T13:18:04Z, before the previous completed scan cutoff 2026-10-19T21:20:31.452761+00:00. This is a late-discovered correction of our earlier source observation, not a newly published merge.",
+    "Final branch head 503d2c11 and squash merge 6dff3e19 have identical entire commit.tree SHA23221232bd41dd57a4cfbddb511743cd5c00a048. All11 landed changed-file bodies match their blob SHAs and the pinned head tree. Relative to our old755e8476 observation, only3kernels and test_sinkhorn.py change; the other7files are byte-identical.",
+    "All3backend wrappers remove the full global probability-history allocation. Custom autograd saves logits and the forward-selected backward callable, then backward recomputes the finite normalization sequence in reverse blocks. There is no save/recompute option. Input storage/copy lifetime remains relevant.",
+    "BI=min(iterations,20). Triton holds2*BI probability tiles in a tuple; Gluon and TileLang allocate a probability cache shaped(2*BI,BT,BN,BN)FP32 per program, where BN=next_power_of_2(N) and BT=1 for fewer than128matrices, otherwise max(4,128//min(32,BN**2)). These source shapes do not establish physical compiler allocations, spills or device peak.",
+    "Kernels use an initial column-max shift and base-2 log/exp normalization with RCP_LN2. NVIDIA CUDA,FP16/BF16/FP32,square1<=N<=8 and positive integer iteration contracts remain. OutputFP32/input-gradient inputdtype and once_differentiable remain; finite iteration is not exact double stochasticity.",
+    "Final test source retains1e-4 output/VJP comparisons to the same finite reference and row-sum assertions, adds21/40/41/100iteration and near-uniform cases, and retains layout/empty/inference/forward-selected-backward controls. This is source coverage, not our execution."
+  ],
+  "source_derived_arithmetic": {
+    "measurement": false,
+    "scope": "Only source-declared probability storage, per program; no total shared-memory/register/spill/allocator/device peak or savings claim.",
+    "Gluon_TileLang": {
+      "formula": "2*BI*BT*BN*BN*4 bytes per program",
+      "maximum_source_shape_bytes": 40960,
+      "maximum_source_shape_KiB": 40,
+      "scope": "For validated1<=N<=8 and positive iterations; maximum at BI20,BN8,BT4. Excludes every other buffer and concurrent program."
+    },
+    "Triton": {
+      "formula": "2*BI*BN*BN*4 logical tuple bytes per program",
+      "maximum_logical_bytes": 10240,
+      "maximum_logical_KiB": 10,
+      "scope": "Compiler may place/reuse/spill values; this is not measured registers or physical allocation."
+    },
+    "historical_755e_only": {
+      "source_id": "fla-sinkhorn-finite-iteration-training-history-open",
+      "formula": "8*iterations*M*N*N bytes for global FP32 history",
+      "selected_20_iteration_shapes_MiB": [
+        20,
+        80,
+        80,
+        320
+      ],
+      "applies_to_final_head": false
+    }
+  },
+  "author_reports": {
+    "independently_executed": false,
+    "environment": "NVIDIA GB200; PyTorch2.11.0.post1,CUDA13.2,Triton3.5.1,TileLang0.1.15.",
+    "test_claims": {
+      "final_kernel_test_passes": 221,
+      "combined_HC_branch_passes": 260,
+      "earlier_dispatch_backend_benchmark_passes": 158,
+      "earlier_triton_only_passes": 64,
+      "earlier_triton_only_deselected": 139,
+      "benchmark_rows": 40
+    },
+    "additional_numerical_sweep": {
+      "cases": 324,
+      "reference_passes": 312,
+      "gradient_mismatches": 12,
+      "scope": "Four input cases across3backends,1iteration,logits scale1000; author says present before base2. Author80digit audit attributes dominant discrepancy to FP32reference. Not independently verified; mismatch retained."
+    },
+    "recomputation_tradeoff": {
+      "baseline": "f3a1d293 -> e7ff8236",
+      "additional_peak_allocated_MiB_before": 336,
+      "additional_peak_allocated_MiB_after": 16,
+      "memory_case": "B=H=1,T32768,N8,FP32,20iterations on sameGB200",
+      "full_forward_backward_latency_increase_max_percent": 55.7,
+      "scope": "Author report across declared shapes, not our measurement or a measured755e-to-merge comparison."
+    },
+    "base2_timing": {
+      "baseline": "e7ff8236 -> 503d2c11",
+      "protocol": "Two paired rounds,five warmups and3cudagraph samples per round; six-sample medians with do_bench_cudagraph(rep=100); excludes Python launch overhead. Forward builds autograd state; fwd+bwd uses autograd.grad.",
+      "scope": "Separate stage from recomputation; no cross-device/model inference."
+    },
+    "NCU_run": false,
+    "other_GPUs_or_higher_order_gradients_covered": false
+  },
+  "our_inference": "The current cost gate changes from retaining a full global probability tape to retaining input and paying recomputation plus kernel-local cache/compiler resources. This source-level revision removes our old tape formula from current-version expectations, without establishing correctness, memory savings, speed or model quality.",
+  "next_falsifiable_gate": "If finite-iteration Sinkhorn is proposed inside a residual-bank or learned-routing mechanism, freeze the actual consumer, exact merged implementation, finite column-then-row iteration count, input/gradient dtypes, forward-selected backward callable and complete runtime/compiler dependencies. Compare forward values and VJPs against the same finite algorithm with an independent derivative check, row/column residuals, extreme and near-uniform logits, strides/empty shapes, block boundaries and backend-flag changes. Measure grad-enabled forward, full forward/backward and no-grad inference separately under one synchronized timing protocol; include retained logits/input-layout copies, recomputation arithmetic, per-program cache/register/spill/workspace and actual allocator/device peak. Retaining input is not zero storage, and per-program logical cache is not total shared memory or peak memory. The old 755e8476 global-history formula remains historical. Preregister matched model/data/optimizer/token/time/cost/peak budgets and sealed final quality before benefit claims; reject numerical/backend mismatches or any failed budget. No experiment or scientific upgrade is released by this source correction.",
+  "local_scientific_experiments": 0,
+  "upstream_imports": 0,
+  "GPU_tests": 0,
+  "scientific_status_upgrade": false,
+  "limits": [
+    "11 complete landed changed files and exact old head bytes; no full runtime/compiler/dependency or HC consumer closure.",
+    "Final head and merge tree identity establishes version identity, not execution or correctness.",
+    "47 complete exact-merge check-run metadata rows only; no logs read. Comment jobs, skips and A2 jobs do not independently verify NVIDIA Sinkhorn.",
+    "Author timing/peak/reference audit claims are not our measurements.",
+    "Old source note/receipt remain historical and valid for755e8476 only.",
+    "No consumer1519,DeepSeek linked strategy,full dependency/runtime closure or actual end-to-end training verified."
+  ],
+  "payload_sha256": "80e593276c691355a7bb5e9081a556767ff5cc2c9458ec3747c352bac4e64926"
+}

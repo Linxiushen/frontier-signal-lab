@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-19T13:30:38.081122+00:00",
+  "last_updated_at": "2026-10-19T23:40:31.181760+00:00",
   "observation_note": "All182 prior source objects retained exactly. Added one exact adjacent-pair OpenClaw177223 review: queued recovery cancellation versus joining started effects, cleanup binding lifetime, negative author timing and unrestored parent authority. Source/author reports/partial CI are not local runtime proof; H2 failure criteria refined without scientific status upgrade or local experiment. H1 failures/invalid historical RSS and prior observer rejections, H2 full harness gaps, H3/H4 planned status and Nathan unknown next employer remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -6339,7 +6339,9 @@
       "limitations": "No upstream import/execution, GPU/host test/log reproduction, consumer integration, measured peak, model-quality or scientific status upgrade. Finite iteration is not exact double stochasticity; default benchmark fwd retains autograd history. Already sampled deferred lead, not a new release.",
       "evidence_record": "research/2026-10-19-sinkhorn-training-cost.md",
       "source_receipt": "research/receipts/20261019T111651Z-sinkhorn-training-cost.json",
-      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1524@1524@755e8476c6e59ebd222e3e5f4cb2422badf56656"
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1524@1524@755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "observation_scope": "Historical saved open-head observation at755e8476; preserved, not current merged implementation.",
+      "superseded_by": "fla-sinkhorn-merged-input-retention-and-block-recompute"
     },
     {
       "id": "openclaw-shutdown-binding-and-queued-recovery-cancellation-merged",
@@ -6411,6 +6413,99 @@
       "evidence_record": "research/2026-10-19-shutdown-admission-and-recovery-authority.md",
       "source_receipt": "research/receipts/20261019T132018Z-shutdown-admission.json",
       "dedupe_key": "https://github.com/openclaw/openclaw/pull/177223@177223@3825c6a60b81ec0348d55b60708e70ea5312858e"
+    },
+    {
+      "id": "fla-sinkhorn-merged-input-retention-and-block-recompute",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1524",
+      "type": "public_first_party_merged_PR_source_version_correction_not_runtime_result",
+      "author": "yzhangcs (Yu Zhang), PR and head/landed commit author; squash committer web-flow; not Nathan Chen",
+      "repository_public": true,
+      "license": "MIT; exact merge license body/git blob verified and unchanged from old head; no upstream implementation redistributed",
+      "published_at": "2026-10-19T07:42:20Z",
+      "updated_at": "2026-10-19T13:18:07Z",
+      "merged_at": "2026-10-19T13:18:04Z",
+      "recorded_at": "2026-10-19T23:40:31.181760+00:00",
+      "previous_observation_id": "fla-sinkhorn-finite-iteration-training-history-open",
+      "old_head": "755e8476c6e59ebd222e3e5f4cb2422badf56656",
+      "final_head": "503d2c1132b308727ac19a04774241b5a340000a",
+      "merge_commit": "6dff3e1995195d6f192b1b01f5ddf66be7cc0a35",
+      "comparison_parent": "8bfb24ba51e1146a422f06ab6ca78a7f05c6b00d",
+      "status": "merged_late_discovered_source_cost_mechanism_correction_only",
+      "time_classification": "Previously sampled source; merge predates previous completed scan cutoff. Late-discovered implementation correction, not a new announcement.",
+      "fact": [
+        "PR1524 was merged at 2026-10-19T13:18:04Z, before the previous completed scan cutoff 2026-10-19T21:20:31.452761+00:00. This is a late-discovered correction of our earlier source observation, not a newly published merge.",
+        "Final branch head 503d2c11 and squash merge 6dff3e19 have identical entire commit.tree SHA23221232bd41dd57a4cfbddb511743cd5c00a048. All11 landed changed-file bodies match their blob SHAs and the pinned head tree. Relative to our old755e8476 observation, only3kernels and test_sinkhorn.py change; the other7files are byte-identical.",
+        "All3backend wrappers remove the full global probability-history allocation. Custom autograd saves logits and the forward-selected backward callable, then backward recomputes the finite normalization sequence in reverse blocks. There is no save/recompute option. Input storage/copy lifetime remains relevant.",
+        "BI=min(iterations,20). Triton holds2*BI probability tiles in a tuple; Gluon and TileLang allocate a probability cache shaped(2*BI,BT,BN,BN)FP32 per program, where BN=next_power_of_2(N) and BT=1 for fewer than128matrices, otherwise max(4,128//min(32,BN**2)). These source shapes do not establish physical compiler allocations, spills or device peak.",
+        "Kernels use an initial column-max shift and base-2 log/exp normalization with RCP_LN2. NVIDIA CUDA,FP16/BF16/FP32,square1<=N<=8 and positive integer iteration contracts remain. OutputFP32/input-gradient inputdtype and once_differentiable remain; finite iteration is not exact double stochasticity.",
+        "Final test source retains1e-4 output/VJP comparisons to the same finite reference and row-sum assertions, adds21/40/41/100iteration and near-uniform cases, and retains layout/empty/inference/forward-selected-backward controls. This is source coverage, not our execution."
+      ],
+      "author_reports": {
+        "independently_executed": false,
+        "environment": "NVIDIA GB200; PyTorch2.11.0.post1,CUDA13.2,Triton3.5.1,TileLang0.1.15.",
+        "test_claims": {
+          "final_kernel_test_passes": 221,
+          "combined_HC_branch_passes": 260,
+          "earlier_dispatch_backend_benchmark_passes": 158,
+          "earlier_triton_only_passes": 64,
+          "earlier_triton_only_deselected": 139,
+          "benchmark_rows": 40
+        },
+        "additional_numerical_sweep": {
+          "cases": 324,
+          "reference_passes": 312,
+          "gradient_mismatches": 12,
+          "scope": "Four input cases across3backends,1iteration,logits scale1000; author says present before base2. Author80digit audit attributes dominant discrepancy to FP32reference. Not independently verified; mismatch retained."
+        },
+        "recomputation_tradeoff": {
+          "baseline": "f3a1d293 -> e7ff8236",
+          "additional_peak_allocated_MiB_before": 336,
+          "additional_peak_allocated_MiB_after": 16,
+          "memory_case": "B=H=1,T32768,N8,FP32,20iterations on sameGB200",
+          "full_forward_backward_latency_increase_max_percent": 55.7,
+          "scope": "Author report across declared shapes, not our measurement or a measured755e-to-merge comparison."
+        },
+        "base2_timing": {
+          "baseline": "e7ff8236 -> 503d2c11",
+          "protocol": "Two paired rounds,five warmups and3cudagraph samples per round; six-sample medians with do_bench_cudagraph(rep=100); excludes Python launch overhead. Forward builds autograd state; fwd+bwd uses autograd.grad.",
+          "scope": "Separate stage from recomputation; no cross-device/model inference."
+        },
+        "NCU_run": false,
+        "other_GPUs_or_higher_order_gradients_covered": false
+      },
+      "source_derived_arithmetic": {
+        "measurement": false,
+        "scope": "Only source-declared probability storage, per program; no total shared-memory/register/spill/allocator/device peak or savings claim.",
+        "Gluon_TileLang": {
+          "formula": "2*BI*BT*BN*BN*4 bytes per program",
+          "maximum_source_shape_bytes": 40960,
+          "maximum_source_shape_KiB": 40,
+          "scope": "For validated1<=N<=8 and positive iterations; maximum at BI20,BN8,BT4. Excludes every other buffer and concurrent program."
+        },
+        "Triton": {
+          "formula": "2*BI*BN*BN*4 logical tuple bytes per program",
+          "maximum_logical_bytes": 10240,
+          "maximum_logical_KiB": 10,
+          "scope": "Compiler may place/reuse/spill values; this is not measured registers or physical allocation."
+        },
+        "historical_755e_only": {
+          "source_id": "fla-sinkhorn-finite-iteration-training-history-open",
+          "formula": "8*iterations*M*N*N bytes for global FP32 history",
+          "selected_20_iteration_shapes_MiB": [
+            20,
+            80,
+            80,
+            320
+          ],
+          "applies_to_final_head": false
+        }
+      },
+      "our_inference": "The current cost gate changes from retaining a full global probability tape to retaining input and paying recomputation plus kernel-local cache/compiler resources. This source-level revision removes our old tape formula from current-version expectations, without establishing correctness, memory savings, speed or model quality.",
+      "next_falsifiable_gate": "If finite-iteration Sinkhorn is proposed inside a residual-bank or learned-routing mechanism, freeze the actual consumer, exact merged implementation, finite column-then-row iteration count, input/gradient dtypes, forward-selected backward callable and complete runtime/compiler dependencies. Compare forward values and VJPs against the same finite algorithm with an independent derivative check, row/column residuals, extreme and near-uniform logits, strides/empty shapes, block boundaries and backend-flag changes. Measure grad-enabled forward, full forward/backward and no-grad inference separately under one synchronized timing protocol; include retained logits/input-layout copies, recomputation arithmetic, per-program cache/register/spill/workspace and actual allocator/device peak. Retaining input is not zero storage, and per-program logical cache is not total shared memory or peak memory. The old 755e8476 global-history formula remains historical. Preregister matched model/data/optimizer/token/time/cost/peak budgets and sealed final quality before benefit claims; reject numerical/backend mismatches or any failed budget. No experiment or scientific upgrade is released by this source correction.",
+      "limitations": "No upstream execution, numerical logs, GPU peak/timing reproduction, HC consumer or dependency closure. Old global tape20–320MiB applies only755e. Per-program40KiB/10KiB source caches are not total shared/register/device peak. Author336→16MiB and55.7% tradeoff uses its own f3a1d293→e7ff8236 baseline. No H1/H2/H3/H4 scientific upgrade.",
+      "evidence_record": "research/2026-10-19-sinkhorn-recomputation-correction.md",
+      "source_receipt": "research/receipts/20261019T232320Z-sinkhorn-recomputation.json",
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1524@1524@503d2c1132b308727ac19a04774241b5a340000a@6dff3e1995195d6f192b1b01f5ddf66be7cc0a35"
     }
   ]
 }

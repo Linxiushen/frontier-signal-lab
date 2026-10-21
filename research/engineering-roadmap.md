@@ -22,7 +22,7 @@
 
 下一轮先冻结并推进上述集成切口，普通准入上游修复继续推进。每轮至多一个 H1–H4 科学实验；实际模型训练仍受该限制。前置工具只在一个具体集成失败阻塞目标时单独立项，写明所解除的阻碍和结束条件。完成后返回原集成；连续受阻则缩小支持范围或记录阻塞，避免持续扩展独立测量工具。
 
-最新集成边界（2026-10-21）：ledger→native v2 的四个真实 stdlib producer 用例均执行完成，十个保留进程退出、四个 Job 清空；冻结审计仍因部分写入 JSON 前缀和拒绝用例的 helper-console 拓扑假设失败。下一项只修正这两个**同一集成内的审计 schema**，用运行前的真实序列化故障夹具及 helper-console 夹具锁定，再单独冻结；通过后直接返回实际训练调用方。保留 v1/v2 原代码和负结果，不另扩通用诊断工具。详见 [v2 原始证据与限制](../results/observed-job-v2/report.md)；科学实验和模型更新均为零。
+最新集成边界（2026-10-21）：ledger→native v3 沿用未修改的 v2 producer/worker/admission/adapter/native/ledger，在运行前冻结修正后的审计 schema 和真实序列化/helper-console 回归夹具。四个真实 stdlib 用例与独立保存字节审计全部通过：32 次采样、38 条提交记录、十个保留进程退出、四个 Job 清空。**该前置项已关闭**，下一项直接回到 `experiments/training_observer_v3.py` 的 `sample` / `read_stage` / `run_case` 实际训练调用方，保持 launcher/native 身份区分、provider guard、确认屏障与清理。实际调用方冻结前不运行模型；不再另开 observer-only 前置工具。其后完整 dense/bank 训练成本、合适内存端点与封闭终评仍须单独预注册。V1/v2 冻结失败与全部科学负结果保留，本轮模型加载/更新与科学实验均为零。详见 [v3 集成证据与限制](../results/observed-job-v3/report.md)。
 
 ## 每项工程验证必须回答的问题
 

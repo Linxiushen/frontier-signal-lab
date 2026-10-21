@@ -46,8 +46,9 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 | --- | --- |
 | [Native observer / ledger integration attempt](results/observed-job/report.md) | Failed before sampling: Job count2 versus frozen1; extra process unidentified, worker exit/empty Job verified; two fault cases unrun |
 | [Native observer / ledger v2](results/observed-job-v2/report.md) | Four native producer cases complete, 32 samples/10 retained exits/four empty Jobs; frozen audit rejects partial-tail and helper-console assumptions. Post-outcome preservation is separate; no acceptance or training upgrade |
+| [Native observer / ledger v3](results/observed-job-v3/report.md) | Same producer, corrected pre-frozen auditor: four cases/32 samples/10 exits/four empty Jobs accepted; stdlib prerequisite closed, return to actual pretrained caller; zero model loads/updates |
 | [v0.2 caller AdamW state integration](results/savescope-optimizer-state/report.md) | Reusable existing-moments API; one tiny CPU fixture passes 16 controls, with dense native hash parity and a fresh-reset negative control |
-| [Thread-safe trace ledger prerequisite](results/trace-ledger/report.md) | One frozen seven-arm thread fixture passes sequence/cap/fault controls; reusable component, native observer integration still pending |
+| [Thread-safe trace ledger prerequisite](results/trace-ledger/report.md) | One frozen seven-arm thread fixture passes sequence/cap/fault controls; native stdlib integration now accepted in v3, actual pretrained caller remains next |
 | [Full-gradient scope diagnostic](results/activation-attention-gradient/report.md) | All three attention-scope gradient gates passed |
 | [Actual AdamW update diagnostic](results/activation-update/report.md) | All three joint update gates failed; controls passed |
 | [Separate accumulated-state follow-up](results/activation-state-update/report.md) | Four dense warmup steps; matched-state gates pass, fresh-state controls at warmed weights fail |

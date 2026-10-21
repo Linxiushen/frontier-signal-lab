@@ -1,0 +1,267 @@
+{
+  "name": "partial_write",
+  "nonce": "2e48ff1022da1f708a4bee53f5711f341c5217a6254d1f8cc6e581efb3dcc02d",
+  "parent_pid": 51844,
+  "error": null,
+  "started_perf_counter": 1255531.2331612,
+  "censuses": [
+    {
+      "label": "before_sampling",
+      "started_perf_counter": 1255531.5010408,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 41400,
+          "parent_pid": 51844,
+          "policy_role": "worker",
+          "approved_known": true,
+          "creation_filetime": 134370714297948703,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "worker"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 49600,
+          "parent_pid": 41400,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134370714298324832,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        49600
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 2,
+      "observed_pids": [
+        41400,
+        49600
+      ],
+      "snapshot_observed_count": 2,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 2,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 1255531.525554,
+      "wall_seconds": 0.02451319992542267,
+      "census_complete": true
+    },
+    {
+      "label": "before_cleanup",
+      "started_perf_counter": 1255531.5270855,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 41400,
+          "parent_pid": 51844,
+          "policy_role": "worker",
+          "approved_known": true,
+          "creation_filetime": 134370714297948703,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "worker"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 49600,
+          "parent_pid": 41400,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134370714298324832,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        49600
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 2,
+      "observed_pids": [
+        41400,
+        49600
+      ],
+      "snapshot_observed_count": 2,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 2,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 1255531.5511235,
+      "wall_seconds": 0.024038000032305717,
+      "census_complete": true
+    }
+  ],
+  "decisions": [
+    {
+      "label": "before_sampling",
+      "admitted": true,
+      "errors": [],
+      "admitted_pids": [
+        41400,
+        49600
+      ],
+      "rejected_pids": [],
+      "pin": {
+        "owner": {
+          "pid": 41400,
+          "creation_filetime": 134370714297948703
+        },
+        "auxiliary": {
+          "pid": 49600,
+          "creation_filetime": 134370714298324832
+        }
+      },
+      "training_permitted": false
+    },
+    {
+      "label": "before_cleanup",
+      "admitted": true,
+      "errors": [],
+      "admitted_pids": [
+        41400,
+        49600
+      ],
+      "rejected_pids": [],
+      "pin": {
+        "owner": {
+          "pid": 41400,
+          "creation_filetime": 134370714297948703
+        },
+        "auxiliary": {
+          "pid": 49600,
+          "creation_filetime": 134370714298324832
+        }
+      },
+      "training_permitted": false
+    }
+  ],
+  "worker_ref": {
+    "pid": 41400,
+    "creation_filetime": 134370714297948703
+  },
+  "ready": {
+    "pid": 41400,
+    "creation_filetime": 134370714297948703,
+    "memory": {
+      "resident_bytes": 20271104,
+      "private_bytes": 12808192,
+      "peak_resident_bytes": 20275200,
+      "backend": "Windows GetProcessMemoryInfo"
+    },
+    "perf_counter": 1255531.4862494,
+    "parent_pid": 51844,
+    "nonce": "2e48ff1022da1f708a4bee53f5711f341c5217a6254d1f8cc6e581efb3dcc02d",
+    "executable_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b"
+  },
+  "expected_error": "LedgerIOError",
+  "later_sampling_refused": true,
+  "work_completed_perf_counter": 1255531.5522869,
+  "shutdown": {
+    "native_cleanup": {
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "exit_codes": [
+        {
+          "pid": 41400,
+          "creation_filetime": 134370714297948703,
+          "exit_code": 57347
+        },
+        {
+          "pid": 49600,
+          "creation_filetime": 134370714298324832,
+          "exit_code": 57347
+        }
+      ],
+      "started_perf_counter": 1255531.5535935,
+      "completed_perf_counter": 1255531.5741126,
+      "wall_seconds": 0.020519099896773696,
+      "timeout_seconds": 4
+    },
+    "native_errors": [],
+    "handles_closed": true,
+    "trace_complete": false,
+    "trace_error": {
+      "kind": "sample",
+      "error_type": "LedgerIOError"
+    },
+    "ledger": {
+      "committed_rows": 1,
+      "committed_bytes": 142,
+      "records": [
+        {
+          "creation_filetime": 134370714297948703,
+          "emitted_perf_counter": 1255531.2696728,
+          "kind": "started",
+          "native_thread_id": 65696,
+          "pid": 41400,
+          "seq": 0
+        }
+      ],
+      "failure": {
+        "seq": 1,
+        "row_bytes": 349,
+        "row_sha256": "a1fdfd3945615704a8856ecdc198374164ce71308f08882ea24852f1736e1a44",
+        "stage": "write",
+        "write_return": null,
+        "flush_completed": false,
+        "sink_may_have_uncommitted_bytes": true,
+        "error_type": "OSError"
+      },
+      "poisoned": true,
+      "commit_scope": "exact binary write plus successful flush; no fsync/power-loss claim"
+    }
+  },
+  "write_calls": 2,
+  "trace_sha256": "cfa2f53ac98a5617fac339ff40324a565fb12f93a12b477b6f53c92cffdbfd6d",
+  "completed_perf_counter": 1255531.575276,
+  "passed": true
+}

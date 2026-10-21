@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Actual training caller / ledger v1](results/training-ledger/report.md) | Frozen import-stage timeout before model load; one native sample/two rows, five retained exits/empty Job; acceptance remains rejected, no retry |
 | [Native observer / ledger integration attempt](results/observed-job/report.md) | Failed before sampling: Job count2 versus frozen1; extra process unidentified, worker exit/empty Job verified; two fault cases unrun |
 | [Native observer / ledger v2](results/observed-job-v2/report.md) | Four native producer cases complete, 32 samples/10 retained exits/four empty Jobs; frozen audit rejects partial-tail and helper-console assumptions. Post-outcome preservation is separate; no acceptance or training upgrade |
 | [Native observer / ledger v3](results/observed-job-v3/report.md) | Same producer, corrected pre-frozen auditor: four cases/32 samples/10 exits/four empty Jobs accepted; stdlib prerequisite closed, return to actual pretrained caller; zero model loads/updates |

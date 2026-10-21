@@ -1,0 +1,59 @@
+{
+  "reviewed_at": "2026-10-21T18:06:13.604682+00:00",
+  "material_source_change": true,
+  "local_upstream_execution": false,
+  "scientific_status_upgrade": false,
+  "merged_pair": [
+    {
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2935",
+      "merged_at": "2026-10-21T16:03:23Z",
+      "merge_commit": "9154ec945b531e7a2b2222093cd480e0cb45a030",
+      "head": "4c631ab5d67ef220e511e758636b98edfd969b5c",
+      "author": "rasdani"
+    },
+    {
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2936",
+      "merged_at": "2026-10-21T16:55:53Z",
+      "merge_commit": "01a9fb072ef06565eb13b8b7d7b0f382f2796553",
+      "head": "1a2a9f9e362140f80358ef5937a706eb7f83b573",
+      "author": "xeophon"
+    }
+  ],
+  "complete_verified_blobs": [
+    {
+      "path": "verifiers/v1/judges/rubric.py",
+      "git_blob": "6d60c55c85770c52965b9f7ca0d7b3ba899b7bc7",
+      "sha256": "c3775400e64c6391b928c373953e5ae52e8c014d02b963b854ef5504ee8d8f57",
+      "bytes": 14058,
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/9154ec945b531e7a2b2222093cd480e0cb45a030/verifiers/v1/judges/rubric.py"
+    },
+    {
+      "path": "verifiers/v1/rollout.py",
+      "git_blob": "d41704b57bb957ab2e9dc7833a5277c7ca2865d5",
+      "sha256": "af1f49cf9f88e2a39a7912745b95a36bd665199355cc67837fd8a9ddb6ba7487",
+      "bytes": 45448,
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/9154ec945b531e7a2b2222093cd480e0cb45a030/verifiers/v1/rollout.py"
+    },
+    {
+      "path": "verifiers/v1/task.py",
+      "git_blob": "75c8da7d921b19486d43e498febd26b24a8989f5",
+      "sha256": "b6b225a914ac81b2639c048f7094f1833847b911821d5d961d8470f68148aff7",
+      "bytes": 15720,
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/01a9fb072ef06565eb13b8b7d7b0f382f2796553/verifiers/v1/task.py"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+      "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+      "bytes": 1072,
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/01a9fb072ef06565eb13b8b7d7b0f382f2796553/LICENSE"
+    }
+  ],
+  "facts": [
+    "Rubric mapping choices use explicit scores; nan choice is unscored. Zero-weight criteria are excluded before weighted mean.",
+    "rollout.close after scoring clears nan rewards to None and fails trace with UnscoredError; source comment says it is not retried as scoring failure.",
+    "Task.rescore now performs analogous NaN-to-None and raises UnscoredError; replay no longer simply returns nan reward.",
+    "These are merged source semantics, not our execution, downstream drop-rate measurement, or proof of retry/denominator consistency."
+  ],
+  "H4_next_gate": "Pin rubric/score semantics through actual runner and Task.rescore; include zero-weight NaN vs weighted NaN, unscored-vs-zero failure, replay/resume and attempted/scored/failed denominators under one version. No scientific upgrade."
+}

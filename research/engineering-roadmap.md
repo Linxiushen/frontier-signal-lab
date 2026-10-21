@@ -24,6 +24,8 @@
 
 最新集成边界（2026-10-21）：ledger→native v3 沿用未修改的 v2 producer/worker/admission/adapter/native/ledger，在运行前冻结修正后的审计 schema 和真实序列化/helper-console 回归夹具。四个真实 stdlib 用例与独立保存字节审计全部通过：32 次采样、38 条提交记录、十个保留进程退出、四个 Job 清空。**该前置项已关闭**，下一项直接回到 `experiments/training_observer_v3.py` 的 `sample` / `read_stage` / `run_case` 实际训练调用方，保持 launcher/native 身份区分、provider guard、确认屏障与清理。实际调用方冻结前不运行模型；不再另开 observer-only 前置工具。其后完整 dense/bank 训练成本、合适内存端点与封闭终评仍须单独预注册。V1/v2 冻结失败与全部科学负结果保留，本轮模型加载/更新与科学实验均为零。详见 [v3 集成证据与限制](../results/observed-job-v3/report.md)。
 
+实际调用方最新尝试（2026-10-21 UTC／北京时间22日）：新增 `training_ledger_integration.py` 把 ledger 注入既有 pretrained caller 的 held/active native 查询路径，原 duty-v2 worker/provider/role/ack 保持不变。单次冻结尝试在等待 `postimport-ready.json` 的20秒期限停止，零模型加载/更新；仅完成实际解释器绑定、一次preimport采样与两次census。两条记录776字节、五个退出57347、Job清空；冻结验收仍拒绝，事后保存核验不算通过。下一步仍在该实际调用方内，另行预注册有界导入进度证据与原身份/provider/清理门槛，不盲目延长超时、不另开observer-only前置项。基础Python文件hash在冻结前变化且已重新固定，尚不能归因。详见[原始失败](../results/training-ledger/report.md)。H4同时把Verifiers新合并的weighted-NaN→unscored与replay拒绝纳入实际runner的版本/分母验收；只是源码证据，未本地运行。
+
 ## 每项工程验证必须回答的问题
 
 在运行前确定下列内容；阈值来自调用方要求、基线与可用资源，不能在看到结果后调整。没有可信基线的指标先作为诊断，不能承诺收益。

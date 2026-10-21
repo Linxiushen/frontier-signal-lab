@@ -1,0 +1,225 @@
+{
+  "id": "actual-pretrained-training-ledger-v1",
+  "predeclared_at": "2026-10-21T18:00:31.674503+00:00",
+  "cases": [
+    "healthy",
+    "partial_pretrain"
+  ],
+  "limits": {
+    "max_rows": 900,
+    "max_row_bytes": 8192,
+    "max_total_bytes": 4194304
+  },
+  "sampled_private_byte_stop": 1073741824,
+  "training_config": {
+    "seed": 503,
+    "optimizer_steps": 16,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "train_blocks": 128,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "sampler_interval_seconds": 0.02,
+    "maximum_recorded_sample_gap_seconds": 0.5,
+    "minimum_active_samples": 20,
+    "maximum_active_observations": 800,
+    "maximum_active_polls": 800,
+    "case_timeout_seconds": 60.0,
+    "total_timeout_seconds": 240.0,
+    "cleanup_timeout_seconds": 4.0,
+    "import_timeout_seconds": 20.0,
+    "load_timeout_seconds": 25.0,
+    "training_timeout_seconds": 15.0,
+    "barrier_timeout_seconds": 5.0,
+    "memory_bracket_tolerance_bytes": 4194304
+  },
+  "worker_control_plan": [
+    [
+      "create-native.json",
+      "create-native",
+      "before_native",
+      0
+    ],
+    [
+      "preimport-parent-done.json",
+      "parent-sampled",
+      "preimport",
+      1
+    ],
+    [
+      "preimport-continue.json",
+      "continue",
+      "preimport",
+      1
+    ],
+    [
+      "postimport-parent-done.json",
+      "parent-sampled",
+      "postimport",
+      2
+    ],
+    [
+      "postimport-continue.json",
+      "continue",
+      "postimport",
+      2
+    ],
+    [
+      "pretrain-parent-done.json",
+      "parent-sampled",
+      "pretrain",
+      3
+    ],
+    [
+      "pretrain-continue.json",
+      "continue",
+      "pretrain",
+      3
+    ],
+    [
+      "postloop-parent-done.json",
+      "parent-sampled",
+      "postloop",
+      4
+    ],
+    [
+      "postloop-continue.json",
+      "continue",
+      "postloop",
+      4
+    ],
+    [
+      "postvalidation-parent-done.json",
+      "parent-sampled",
+      "postvalidation",
+      5
+    ],
+    [
+      "postvalidation-continue.json",
+      "continue",
+      "postvalidation",
+      5
+    ],
+    [
+      "finish.json",
+      "finish",
+      "postvalidation",
+      5
+    ]
+  ],
+  "actual_caller": "unchanged observer_duty_v2 pretrained CPU worker; new parent read_held/observe_training/run_case query injection",
+  "workload": {
+    "model_id": "EleutherAI/pythia-14m",
+    "revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "train_sha256": "8c48afcc68af60070b1f31b36c38bbe412ce3578bffec3283f956ed3f07b4681",
+    "seed": 503,
+    "schedule": [
+      [
+        116,
+        73
+      ],
+      [
+        14,
+        52
+      ],
+      [
+        20,
+        75
+      ],
+      [
+        112,
+        108
+      ],
+      [
+        65,
+        69
+      ],
+      [
+        98,
+        85
+      ],
+      [
+        123,
+        0
+      ],
+      [
+        41,
+        84
+      ],
+      [
+        119,
+        64
+      ],
+      [
+        40,
+        124
+      ],
+      [
+        83,
+        122
+      ],
+      [
+        50,
+        22
+      ],
+      [
+        31,
+        23
+      ],
+      [
+        86,
+        74
+      ],
+      [
+        72,
+        127
+      ],
+      [
+        16,
+        26
+      ]
+    ],
+    "healthy_updates": 16,
+    "fault_updates": 0,
+    "model_loads_ceiling": 2,
+    "optimizer_updates_ceiling": 16,
+    "holdout": false
+  },
+  "bottleneck": "unbounded/ambiguous observer logging can conceal actual-interpreter samples or allow progress after uncertain I/O",
+  "integration_point": "retained actual handle membership -> native memory/CPU -> serialized bounded binary JSONL -> held release/active continuation",
+  "acceptance": [
+    "exact original healthy caller/provider/role/trajectory/acknowledgment/cleanup gates",
+    "every held and active actual reading matches one contiguous ledger sample row, no launcher replacement",
+    "partial pretrain sink fault is retained as uncertain 5-byte tail and denies training release and later query",
+    "both arms exact retained exit sets and empty Job plus handle closes; no unexpected failure or retry",
+    "independent saved-byte replay accepts untouched raw receipts and exact source/freeze hashes"
+  ],
+  "resources": {
+    "cpu_threads": 1,
+    "simultaneous_training_workers": 1,
+    "case_seconds": 60,
+    "suite_seconds": 240,
+    "outer_seconds": 260,
+    "trace_total_admitted_bytes": 4194304,
+    "max_observations": 800,
+    "observed_actual_private_stop_bytes": 1073741824,
+    "memory_stop_scope": "sampled cooperative stop; overshoot/missed peaks possible, not hard OS memory cap"
+  },
+  "provider_policy": {
+    "id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+    "external_providers": false,
+    "native_network_sandbox": false,
+    "allowed_local_import_capability_probe_count": 1
+  },
+  "validation_level": "local Windows CPU actual pretrained caller, single observer parent and bounded exclusive sink",
+  "metrics": "16/2048 effective update/target positions, loop/case/end-to-end wall, sample count/gaps/native current maxima and parent CPU/query cost; descriptive one healthy case, no percentile or speedup claim",
+  "rollback": "select immutable duty_v2 entry point; new module has no monkeypatches and changes no frozen dependency",
+  "boundaries": [
+    "one model execution experiment, not another stdlib observer prerequisite",
+    "no bank/holdout/final-quality or matched cost comparison",
+    "no GPU/multinode/production assertion",
+    "flush is not fsync; arbitrary blocking sinks unsupported; caps do not bound temporary serialization memory",
+    "historical six H1 joint failures and invalid parent RSS preserved; no source or scientific hypothesis upgrade"
+  ]
+}

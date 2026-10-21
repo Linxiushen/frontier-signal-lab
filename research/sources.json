@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-19T23:40:31.181760+00:00",
-  "observation_note": "All182 prior source objects retained exactly. Added one exact adjacent-pair OpenClaw177223 review: queued recovery cancellation versus joining started effects, cleanup binding lifetime, negative author timing and unrestored parent authority. Source/author reports/partial CI are not local runtime proof; H2 failure criteria refined without scientific status upgrade or local experiment. H1 failures/invalid historical RSS and prior observer rejections, H2 full harness gaps, H3/H4 planned status and Nathan unknown next employer remain.",
+  "last_updated_at": "2026-10-21T18:08:23.474902+00:00",
+  "observation_note": "All184prior source objects preserved. One merged Verifiers source pair binds explicit rubric scores, unscored NaN and Task.rescore refusal; source review only, no local upstream execution or scientific upgrade. Current training-ledger attempt failed before model load; historical negatives and Nathan unknown next affiliation remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6506,6 +6506,40 @@
       "evidence_record": "research/2026-10-19-sinkhorn-recomputation-correction.md",
       "source_receipt": "research/receipts/20261019T232320Z-sinkhorn-recomputation.json",
       "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1524@1524@503d2c1132b308727ac19a04774241b5a340000a@6dff3e1995195d6f192b1b01f5ddf66be7cc0a35"
+    },
+    {
+      "id": "verifiers-v1-rubric-unscored-and-replay-boundary",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2936",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "rasdani(PR2935); xeophon(PR2936)",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE body/blob verified; no implementation redistributed",
+      "published_at": "2026-10-21T16:03:23Z",
+      "updated_at": "2026-10-21T16:55:53Z",
+      "recorded_at": "2026-10-21T18:08:23.468931+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "Rubric mapping choices use explicit scores; nan choice is unscored. Zero-weight criteria are excluded before weighted mean.",
+        "rollout.close after scoring clears nan rewards to None and fails trace with UnscoredError; source comment says it is not retried as scoring failure.",
+        "Task.rescore now performs analogous NaN-to-None and raises UnscoredError; replay no longer simply returns nan reward.",
+        "These are merged source semantics, not our execution, downstream drop-rate measurement, or proof of retry/denominator consistency."
+      ],
+      "our_inference": "Pin rubric/score semantics through actual runner and Task.rescore; include zero-weight NaN vs weighted NaN, unscored-vs-zero failure, replay/resume and attempted/scored/failed denominators under one version. No scientific upgrade.",
+      "merge_commits": [
+        "9154ec945b531e7a2b2222093cd480e0cb45a030",
+        "01a9fb072ef06565eb13b8b7d7b0f382f2796553"
+      ],
+      "time_classification": "Both merges occur after prior15:43:20Z scan cutoff and within current24h window; original PR creation times are separate.",
+      "measured": {
+        "local_upstream_executions": 0,
+        "model_or_rollout_runs": 0,
+        "denominator_or_replay_consistency_proven": false
+      },
+      "next_falsifiable_gate": "Pin rubric/score semantics through actual runner and Task.rescore; include zero-weight NaN vs weighted NaN, unscored-vs-zero failure, replay/resume and attempted/scored/failed denominators under one version. No scientific upgrade.",
+      "limitations": "No local Verifiers runner, replay, retry, distribution or quality experiment. Source semantics do not establish downstream treatment of failed/unscored rollouts.",
+      "source_receipt": "research/receipts/20261021T174423Z-verifiers-unscored.json",
+      "evidence_record": "research/2026-10-21-training-ledger-and-unscored-replay.md",
+      "dedupe_key": "verifiers:2935@9154ec945b531e7a2b2222093cd480e0cb45a030+2936@01a9fb072ef06565eb13b8b7d7b0f382f2796553"
     }
   ]
 }

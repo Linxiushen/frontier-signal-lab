@@ -1,0 +1,885 @@
+{
+  "id": "actual-pretrained-training-ledger-v1",
+  "started_at": "2026-10-21T18:00:59.219517+00:00",
+  "started_perf_counter": 1263360.660628,
+  "protocol_sha256": "4b590a2916203dc9d4b1e614609f16932ddf44c6c6177407779a38fc379f03ec",
+  "freeze_sha256": "7c4916ca1c2544f49cf52ff2cdafddbc1e0df244a097885706014d27aff20ee9",
+  "cases": [
+    {
+      "id": "healthy",
+      "sampling_enabled": true,
+      "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+      "started_at": "2026-10-21T18:00:59.222516+00:00",
+      "started_perf_counter": 1263360.6638817,
+      "passed": false,
+      "case_deadline_perf_counter": 1263420.6638817,
+      "suite_deadline_perf_counter": 1263600.660628,
+      "censuses": [
+        {
+          "label": "before_native",
+          "started_perf_counter": 1263361.1974936,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 12868,
+              "parent_pid": 64124,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134370792592270349,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 59508,
+              "parent_pid": 12868,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134370792594074086,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 60636,
+              "parent_pid": 12868,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134370792593413316,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [
+                  "conhost"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            60636
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 3,
+          "observed_pids": [
+            12868,
+            59508,
+            60636
+          ],
+          "snapshot_observed_count": 3,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 3,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 1263361.2257078,
+          "wall_seconds": 0.02821419993415475,
+          "census_complete": true
+        },
+        {
+          "label": "preimport",
+          "started_perf_counter": 1263361.4046806,
+          "training_permitted": false,
+          "processes": [
+            {
+              "pid": 12868,
+              "parent_pid": 64124,
+              "policy_role": "launcher",
+              "approved_known": true,
+              "creation_filetime": 134370792592270349,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+                "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+                "exact_path_matches": [
+                  "launcher"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 59508,
+              "parent_pid": 12868,
+              "policy_role": "base_python",
+              "approved_known": true,
+              "creation_filetime": 134370792594074086,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "python.exe",
+                "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+                "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+                "exact_path_matches": [
+                  "base_python"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 66408,
+              "parent_pid": 59508,
+              "policy_role": "native",
+              "approved_known": true,
+              "creation_filetime": 134370792598049385,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "cmd.exe",
+                "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+                "normalized_path_sha256": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+                "exact_path_matches": [
+                  "native"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 49464,
+              "parent_pid": 66408,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134370792599142443,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [
+                  "conhost"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            },
+            {
+              "pid": 60636,
+              "parent_pid": 12868,
+              "policy_role": "unapproved",
+              "approved_known": false,
+              "creation_filetime": 134370792593413316,
+              "job_member": true,
+              "alive": true,
+              "image": {
+                "basename": "conhost.exe",
+                "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+                "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+                "exact_path_matches": [
+                  "conhost"
+                ],
+                "path_classification": "exact_executable",
+                "queried_from_retained_handle": true,
+                "retained_identity_stable": true
+              }
+            }
+          ],
+          "unapproved_pids": [
+            49464,
+            60636
+          ],
+          "errors": [],
+          "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+          "job_count_before": 5,
+          "observed_pids": [
+            12868,
+            49464,
+            59508,
+            60636,
+            66408
+          ],
+          "snapshot_observed_count": 5,
+          "truncated": false,
+          "query_budget_exceeded": false,
+          "job_count_after": 5,
+          "job_count_matches_before": true,
+          "job_count_matches_after": true,
+          "all_known_present": true,
+          "completed_perf_counter": 1263361.4479845,
+          "wall_seconds": 0.043303900165483356,
+          "census_complete": true
+        }
+      ],
+      "role_decisions": [
+        {
+          "label": "before_native",
+          "admitted": true,
+          "training_permitted": false,
+          "primary_roles": [
+            {
+              "pid": 12868,
+              "creation_filetime": 134370792592270349,
+              "role": "launcher",
+              "parent_ref": null,
+              "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+              "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+            },
+            {
+              "pid": 59508,
+              "creation_filetime": 134370792594074086,
+              "role": "base_python",
+              "parent_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "frozen_image_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+              "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+            }
+          ],
+          "auxiliary_roles": [
+            {
+              "pid": 60636,
+              "creation_filetime": 134370792593413316,
+              "role": "console_auxiliary",
+              "parent_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "owner_role": "launcher",
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            }
+          ],
+          "admitted_pids": [
+            12868,
+            59508,
+            60636
+          ],
+          "rejected_pids": [],
+          "rejections": [],
+          "errors": [],
+          "pinned_auxiliaries": {
+            "launcher": {
+              "owner_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "auxiliary_ref": {
+                "pid": 60636,
+                "creation_filetime": 134370792593413316
+              },
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            }
+          },
+          "census_index": 0,
+          "decision_index": 0,
+          "requested_control": "observer-duty",
+          "permitted_control": "observer-duty",
+          "held_liveness": [
+            {
+              "pid": 12868,
+              "creation_filetime": 134370792592270349,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.2292026
+            },
+            {
+              "pid": 59508,
+              "creation_filetime": 134370792594074086,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.2292144
+            },
+            {
+              "pid": 60636,
+              "creation_filetime": 134370792593413316,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.229223
+            }
+          ],
+          "started_perf_counter": 1263361.1974936,
+          "job_count_before": 3,
+          "job_count_after": 3,
+          "completed_perf_counter": 1263361.2292286,
+          "wall_seconds": 0.031734999967738986
+        },
+        {
+          "label": "preimport",
+          "admitted": true,
+          "training_permitted": false,
+          "primary_roles": [
+            {
+              "pid": 12868,
+              "creation_filetime": 134370792592270349,
+              "role": "launcher",
+              "parent_ref": null,
+              "frozen_image_sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+              "frozen_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+            },
+            {
+              "pid": 59508,
+              "creation_filetime": 134370792594074086,
+              "role": "base_python",
+              "parent_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "frozen_image_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+              "frozen_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694"
+            },
+            {
+              "pid": 66408,
+              "creation_filetime": 134370792598049385,
+              "role": "native",
+              "parent_ref": {
+                "pid": 59508,
+                "creation_filetime": 134370792594074086
+              },
+              "frozen_image_sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+              "frozen_path_sha256": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4"
+            }
+          ],
+          "auxiliary_roles": [
+            {
+              "pid": 60636,
+              "creation_filetime": 134370792593413316,
+              "role": "console_auxiliary",
+              "parent_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "owner_role": "launcher",
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            },
+            {
+              "pid": 49464,
+              "creation_filetime": 134370792599142443,
+              "role": "console_auxiliary",
+              "parent_ref": {
+                "pid": 66408,
+                "creation_filetime": 134370792598049385
+              },
+              "owner_role": "native",
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            }
+          ],
+          "admitted_pids": [
+            12868,
+            49464,
+            59508,
+            60636,
+            66408
+          ],
+          "rejected_pids": [],
+          "rejections": [],
+          "errors": [],
+          "pinned_auxiliaries": {
+            "launcher": {
+              "owner_ref": {
+                "pid": 12868,
+                "creation_filetime": 134370792592270349
+              },
+              "auxiliary_ref": {
+                "pid": 60636,
+                "creation_filetime": 134370792593413316
+              },
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            },
+            "native": {
+              "owner_ref": {
+                "pid": 66408,
+                "creation_filetime": 134370792598049385
+              },
+              "auxiliary_ref": {
+                "pid": 49464,
+                "creation_filetime": 134370792599142443
+              },
+              "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+              "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+            }
+          },
+          "census_index": 1,
+          "decision_index": 1,
+          "requested_control": "observer-duty",
+          "permitted_control": "observer-duty",
+          "held_liveness": [
+            {
+              "pid": 12868,
+              "creation_filetime": 134370792592270349,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.4546045
+            },
+            {
+              "pid": 59508,
+              "creation_filetime": 134370792594074086,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.4546148
+            },
+            {
+              "pid": 66408,
+              "creation_filetime": 134370792598049385,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.4546236
+            },
+            {
+              "pid": 49464,
+              "creation_filetime": 134370792599142443,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.4546317
+            },
+            {
+              "pid": 60636,
+              "creation_filetime": 134370792593413316,
+              "job_member": true,
+              "alive": true,
+              "verified_perf_counter": 1263361.4546402
+            }
+          ],
+          "started_perf_counter": 1263361.4046806,
+          "job_count_before": 5,
+          "job_count_after": 5,
+          "completed_perf_counter": 1263361.4546471,
+          "wall_seconds": 0.049966500140726566
+        }
+      ],
+      "samples": [
+        {
+          "pid": 59508,
+          "creation_filetime": 134370792594074086,
+          "memory": {
+            "resident_bytes": 27312128,
+            "private_bytes": 18554880,
+            "peak_resident_bytes": 28639232,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 1263361.4043441,
+          "native_cpu_seconds": 0.34375
+        }
+      ],
+      "parent_query_costs": [
+        {
+          "kind": "held_role_census_and_liveness",
+          "started_perf_counter": 1263361.1974781,
+          "completed_perf_counter": 1263361.2292304,
+          "wall_seconds": 0.0317522999830544,
+          "started_process_cpu_seconds": 1.109375,
+          "completed_process_cpu_seconds": 1.140625,
+          "parent_process_cpu_seconds": 0.03125
+        },
+        {
+          "kind": "boundary_worker_memory_and_cpu",
+          "started_perf_counter": 1263361.4042941,
+          "completed_perf_counter": 1263361.4046594,
+          "wall_seconds": 0.00036530010402202606,
+          "started_process_cpu_seconds": 1.171875,
+          "completed_process_cpu_seconds": 1.171875,
+          "parent_process_cpu_seconds": 0.0
+        },
+        {
+          "kind": "held_role_census_and_liveness",
+          "started_perf_counter": 1263361.4046671,
+          "completed_perf_counter": 1263361.4546488,
+          "wall_seconds": 0.04998170002363622,
+          "started_process_cpu_seconds": 1.171875,
+          "completed_process_cpu_seconds": 1.21875,
+          "parent_process_cpu_seconds": 0.046875
+        }
+      ],
+      "executables_sha256": {
+        "launcher": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+        "base_python": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+        "native": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+        "conhost": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963"
+      },
+      "executable_path_sha256": {
+        "launcher": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f",
+        "base_python": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+        "native": "aff50af76ffba4b4b7b54b3f259c25ca785085d1e9e339463924d5913d1171d4",
+        "conhost": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+      },
+      "provider_source_sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+      "provider_source_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a",
+      "launcher": {
+        "pid": 12868,
+        "creation_filetime": 134370792592270349,
+        "assigned_while_suspended": true,
+        "job_handle_inherited": false,
+        "os_image": {
+          "pid": 12868,
+          "creation_filetime": 134370792592270349,
+          "basename": "python.exe",
+          "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 1263361.1972688
+        }
+      },
+      "worker_identity": {
+        "self_receipt": {
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "worker",
+          "pid": 59508,
+          "parent_pid": 12868,
+          "creation_filetime": 134370792594074086,
+          "memory": {
+            "resident_bytes": 27148288,
+            "private_bytes": 18554880,
+            "peak_resident_bytes": 28119040,
+            "backend": "Windows GetProcessMemoryInfo"
+          },
+          "perf_counter": 1263361.1681402,
+          "self_executable": {
+            "source": "sys.executable",
+            "basename": "python.exe",
+            "sha256": "82264b3fe4248d1ff3564a0296cbb4a266ef968799bd85902ab5eaaf3e17eb62",
+            "normalized_path_sha256": "475da53e1fbf3166528c66d16a24abcfdf3adc79d06487daedc5c083c59bd84f"
+          }
+        },
+        "verified_ancestry": [
+          {
+            "pid": 59508,
+            "creation_filetime": 134370792594074086,
+            "parent_pid": 12868,
+            "job_member": true
+          },
+          {
+            "pid": 12868,
+            "creation_filetime": 134370792592270349,
+            "parent_pid": 64124,
+            "job_member": true
+          }
+        ],
+        "launcher_differs_from_interpreter": true,
+        "os_image": {
+          "pid": 59508,
+          "creation_filetime": 134370792594074086,
+          "basename": "python.exe",
+          "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+          "queried_from_retained_handle": true,
+          "matches_frozen_path_and_hash": true,
+          "verified_perf_counter": 1263361.1945229
+        },
+        "self_executable_expected_role": "launcher",
+        "retained_os_image_expected_role": "base_python"
+      },
+      "pinned_auxiliaries": {
+        "launcher": {
+          "owner_ref": {
+            "pid": 12868,
+            "creation_filetime": 134370792592270349
+          },
+          "auxiliary_ref": {
+            "pid": 60636,
+            "creation_filetime": 134370792593413316
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        },
+        "native": {
+          "owner_ref": {
+            "pid": 66408,
+            "creation_filetime": 134370792598049385
+          },
+          "auxiliary_ref": {
+            "pid": 49464,
+            "creation_filetime": 134370792599142443
+          },
+          "frozen_image_sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+          "frozen_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34"
+        }
+      },
+      "controller_controls": [
+        {
+          "filename": "create-native.json",
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "controller",
+          "pid": 64124,
+          "command": "create-native",
+          "purpose": "pinned observer duty v2; fixed dense measurement controls",
+          "observer_duty_authorized": true,
+          "role_policy_admitted": true,
+          "role_decision_index": 0,
+          "role_decision_label": "before_native",
+          "control_index": 0,
+          "emitted_perf_counter": 1263361.2292377
+        },
+        {
+          "filename": "preimport-parent-done.json",
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "controller",
+          "pid": 64124,
+          "command": "parent-sampled",
+          "purpose": "pinned observer duty v2; fixed dense measurement controls",
+          "observer_duty_authorized": true,
+          "role_policy_admitted": true,
+          "role_decision_index": 1,
+          "role_decision_label": "preimport",
+          "control_index": 1,
+          "emitted_perf_counter": 1263361.454656
+        },
+        {
+          "filename": "preimport-continue.json",
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "controller",
+          "pid": 64124,
+          "command": "continue",
+          "purpose": "pinned observer duty v2; fixed dense measurement controls",
+          "observer_duty_authorized": true,
+          "role_policy_admitted": true,
+          "role_decision_index": 1,
+          "role_decision_label": "preimport",
+          "control_index": 2,
+          "emitted_perf_counter": 1263361.4822162
+        }
+      ],
+      "native_descendant": {
+        "launch_receipt": {
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "worker",
+          "pid": 59508,
+          "native_pid": 66408,
+          "launch_started_perf_counter": 1263361.2441358,
+          "launch_completed_perf_counter": 1263361.3507234,
+          "command_arguments": [
+            "/d",
+            "/q",
+            "/c",
+            "set /p workload_observer_gate="
+          ],
+          "close_fds": true,
+          "stdin_anonymous_pipe": true,
+          "shell": false,
+          "creationflags": 134217728,
+          "stdout_devnull": true,
+          "stderr_devnull": true
+        },
+        "os_identity": {
+          "pid": 66408,
+          "creation_filetime": 134370792598049385,
+          "parent_pid": 59508
+        },
+        "os_image": {
+          "basename": "cmd.exe",
+          "sha256": "badf4752413cb0cbdc03fb95820ca167f0cdc63b597ccdb5ef43111180e088b0",
+          "matches_frozen": true
+        },
+        "job_member": true,
+        "no_native_self_report": true
+      },
+      "stages": {
+        "preimport": {
+          "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+          "role": "worker",
+          "pid": 59508,
+          "stage": "preimport",
+          "stage_ready_perf_counter": 1263361.3593821,
+          "provider_guard": {
+            "installed": true,
+            "python_audit_only": true,
+            "native_network_sandbox": false,
+            "external_providers_permitted": false,
+            "synthetic_probe_denials": 1,
+            "unexpected_denied_events": [],
+            "denied_audit_events": [
+              "socket.connect",
+              "socket.getaddrinfo",
+              "socket.gethostbyname",
+              "socket.gethostbyname_ex",
+              "socket.gethostbyaddr",
+              "socket.sendto",
+              "socket.bind"
+            ],
+            "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+            "phase": "preimport",
+            "provider_source": {
+              "package_relative_path": "urllib3/util/connection.py",
+              "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+              "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+            },
+            "allowed_local_probe_budget": 1,
+            "allowed_local_probe_count": 0,
+            "diagnostic_event_limit": 4,
+            "diagnostic_overflow_count": 0,
+            "observed_event_count": 0,
+            "diagnostic_events": []
+          },
+          "native_thread_count": 4,
+          "torch_imported": false,
+          "transformers_imported": false
+        }
+      },
+      "memory_brackets": {
+        "preimport": {
+          "self_before": {
+            "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+            "role": "worker",
+            "pid": 59508,
+            "creation_filetime": 134370792594074086,
+            "memory": {
+              "resident_bytes": 27312128,
+              "private_bytes": 18554880,
+              "peak_resident_bytes": 28639232,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 1263361.3790408
+          },
+          "parent": {
+            "pid": 59508,
+            "creation_filetime": 134370792594074086,
+            "memory": {
+              "resident_bytes": 27312128,
+              "private_bytes": 18554880,
+              "peak_resident_bytes": 28639232,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 1263361.4043441,
+            "native_cpu_seconds": 0.34375
+          },
+          "self_after": {
+            "nonce": "1094ff61c3ffaf0b546e01b4a333c1fe2583c2622e32220f7754e09a830efeb8",
+            "role": "worker",
+            "pid": 59508,
+            "creation_filetime": 134370792594074086,
+            "memory": {
+              "resident_bytes": 27316224,
+              "private_bytes": 18554880,
+              "peak_resident_bytes": 28639232,
+              "backend": "Windows GetProcessMemoryInfo"
+            },
+            "perf_counter": 1263361.4757529
+          },
+          "comparison": {
+            "same_identity": true,
+            "ordered_monotonic_bracket": true,
+            "resident_within_tolerance": true,
+            "private_within_tolerance": true,
+            "passed": true
+          }
+        }
+      },
+      "error": "ObserverError: message deadline exceeded: postimport-ready.json",
+      "failure_cleanup": {
+        "all_retained_handles_exited": true,
+        "job_active_count": 0,
+        "exit_codes": [
+          {
+            "pid": 12868,
+            "creation_filetime": 134370792592270349,
+            "exit_code": 57347
+          },
+          {
+            "pid": 59508,
+            "creation_filetime": 134370792594074086,
+            "exit_code": 57347
+          },
+          {
+            "pid": 60636,
+            "creation_filetime": 134370792593413316,
+            "exit_code": 57347
+          },
+          {
+            "pid": 66408,
+            "creation_filetime": 134370792598049385,
+            "exit_code": 57347
+          },
+          {
+            "pid": 49464,
+            "creation_filetime": 134370792599142443,
+            "exit_code": 57347
+          }
+        ],
+        "started_perf_counter": 1263381.5102565,
+        "completed_perf_counter": 1263381.5522733,
+        "wall_seconds": 0.04201680002734065,
+        "timeout_seconds": 4.0
+      },
+      "ledger": {
+        "committed_rows": 2,
+        "committed_bytes": 776,
+        "records": [
+          {
+            "creation_filetime": 134370792594074086,
+            "emitted_perf_counter": 1263361.1972829,
+            "kind": "bound",
+            "launcher_creation_filetime": 134370792592270349,
+            "launcher_pid": 12868,
+            "native_thread_id": 38184,
+            "pid": 59508,
+            "seq": 0
+          },
+          {
+            "creation_filetime": 134370792594074086,
+            "emitted_perf_counter": 1263361.4043683,
+            "kind": "sample",
+            "member_verified_perf_counter": 1263361.4043185,
+            "native_thread_id": 38184,
+            "pid": 59508,
+            "query_completed_perf_counter": 1263361.4043652,
+            "query_started_perf_counter": 1263361.4043029,
+            "reading": {
+              "creation_filetime": 134370792594074086,
+              "memory": {
+                "backend": "Windows GetProcessMemoryInfo",
+                "peak_resident_bytes": 28639232,
+                "private_bytes": 18554880,
+                "resident_bytes": 27312128
+              },
+              "native_cpu_seconds": 0.34375,
+              "perf_counter": 1263361.4043441,
+              "pid": 59508
+            },
+            "request_id": "held:preimport",
+            "seq": 1
+          }
+        ],
+        "failure": null,
+        "poisoned": false,
+        "commit_scope": "exact binary write plus successful flush; no fsync/power-loss claim"
+      },
+      "fault_injected": false,
+      "completed_at": "2026-10-21T18:01:20.112057+00:00",
+      "completed_perf_counter": 1263381.5530936,
+      "wall_seconds": 20.889211900066584
+    }
+  ],
+  "scientific_experiments": 1,
+  "model_loads_ceiling": 2,
+  "optimizer_updates_ceiling": 16,
+  "passed": false,
+  "completed_at": "2026-10-21T18:01:20.112057+00:00",
+  "completed_perf_counter": 1263381.553121
+}

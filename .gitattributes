@@ -54,3 +54,10 @@ scripts/audit_observed_job_v3.py -text whitespace=cr-at-eol
 tests/test_observed_job_v3.py -text whitespace=cr-at-eol
 fixtures/observed-job-v3/*.json -text whitespace=cr-at-eol
 results/observed-job-v3/** -text whitespace=cr-at-eol
+
+# Preserve the failed actual pretrained caller integration and original receipts.
+experiments/training_ledger_integration.py -text whitespace=cr-at-eol
+scripts/audit_training_ledger.py -text whitespace=cr-at-eol
+tests/test_training_ledger.py -text whitespace=cr-at-eol
+fixtures/training-ledger/** -text whitespace=cr-at-eol
+results/training-ledger/** -text whitespace=cr-at-eol

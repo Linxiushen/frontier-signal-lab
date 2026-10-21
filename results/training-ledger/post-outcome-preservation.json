@@ -1,0 +1,201 @@
+{
+  "reviewed_at": "2026-10-21T18:03:41.355948+00:00",
+  "preservation_passed": true,
+  "frozen_acceptance": false,
+  "post_outcome_review_not_acceptance": true,
+  "checks": [
+    {
+      "check": "original_failure_never_upgraded",
+      "passed": true
+    },
+    {
+      "check": "exact_parent_postimport_deadline_failure",
+      "passed": true
+    },
+    {
+      "check": "all41_frozen_sources_preserved",
+      "passed": true
+    },
+    {
+      "check": "protocol_chain",
+      "passed": true
+    },
+    {
+      "check": "freeze_chain",
+      "passed": true
+    },
+    {
+      "check": "only_preimport_completed",
+      "passed": true
+    },
+    {
+      "check": "two_held_role_censuses",
+      "passed": true
+    },
+    {
+      "check": "no_trace_io_fault_reached",
+      "passed": true
+    },
+    {
+      "check": "exact_two_rows776bytes",
+      "passed": true
+    },
+    {
+      "check": "canonical_committed_bytes_no_tail",
+      "passed": true
+    },
+    {
+      "check": "bound_actual_distinct_from_launcher",
+      "passed": true
+    },
+    {
+      "check": "one_preimport_sample_matches_actual_query",
+      "passed": true
+    },
+    {
+      "check": "membership_query_publication_order",
+      "passed": true
+    },
+    {
+      "check": "actual_identity_and_sampled_budget",
+      "passed": true
+    },
+    {
+      "check": "complete_census:before_native",
+      "passed": true
+    },
+    {
+      "check": "all_observed_live_job_members:before_native",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:12868",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:59508",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:60636",
+      "passed": true
+    },
+    {
+      "check": "complete_census:preimport",
+      "passed": true
+    },
+    {
+      "check": "all_observed_live_job_members:preimport",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:12868",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:59508",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:66408",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:49464",
+      "passed": true
+    },
+    {
+      "check": "frozen_image_path:60636",
+      "passed": true
+    },
+    {
+      "check": "exact_five_retained_exit_identities",
+      "passed": true
+    },
+    {
+      "check": "five57347_exits_and_empty_job",
+      "passed": true
+    },
+    {
+      "check": "no_reported_cleanup_or_handle_close_error",
+      "passed": true
+    },
+    {
+      "check": "bounded_cleanup_and_case",
+      "passed": true
+    },
+    {
+      "check": "exact_three_controls_only",
+      "passed": true
+    },
+    {
+      "check": "raw_ack:create-native.json",
+      "passed": true
+    },
+    {
+      "check": "raw_ack:preimport-parent-done.json",
+      "passed": true
+    },
+    {
+      "check": "raw_ack:preimport-continue.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:postimport-ready.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:postimport-continue.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:pretrain-ready.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:before-loop.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:after-loop.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:worker-completed.json",
+      "passed": true
+    },
+    {
+      "check": "unreached:worker-failure.json",
+      "passed": true
+    },
+    {
+      "check": "fault_arm_unrun_no_retry",
+      "passed": true
+    },
+    {
+      "check": "frozen_saved_byte_acceptance_still_rejects",
+      "passed": true
+    }
+  ],
+  "actual_suites": 1,
+  "model_execution_attempts": 1,
+  "scientific_experiment_slot_consumed": 1,
+  "retries": 0,
+  "model_loads": 0,
+  "optimizer_updates": 0,
+  "committed_rows": 2,
+  "committed_bytes": 776,
+  "native_samples": 1,
+  "retained_exits": 5,
+  "empty_jobs": 1,
+  "unrun": [
+    "postimport receipt/remaining held stages",
+    "pretrained model load",
+    "16 dense updates",
+    "active sampling",
+    "final acknowledgment barrier",
+    "partial pretrain sink fault"
+  ],
+  "cause": "No postimport-ready or worker-failure receipt. Where ML import stalled is unknown. Changed base executable hash was observed and frozen before execution; it is not established as the cause.",
+  "next_gate": "Keep actual pretrained caller as the integration target. Separately preregister a new caller version that retains bounded import-progress evidence and exact identity/provider/cleanup controls before any new model attempt; do not blindly enlarge the deadline or start another standalone observer campaign."
+}

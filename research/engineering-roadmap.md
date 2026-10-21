@@ -26,6 +26,8 @@
 
 实际调用方最新尝试（2026-10-21 UTC／北京时间22日）：新增 `training_ledger_integration.py` 把 ledger 注入既有 pretrained caller 的 held/active native 查询路径，原 duty-v2 worker/provider/role/ack 保持不变。单次冻结尝试在等待 `postimport-ready.json` 的20秒期限停止，零模型加载/更新；仅完成实际解释器绑定、一次preimport采样与两次census。两条记录776字节、五个退出57347、Job清空；冻结验收仍拒绝，事后保存核验不算通过。下一步仍在该实际调用方内，另行预注册有界导入进度证据与原身份/provider/清理门槛，不盲目延长超时、不另开observer-only前置项。基础Python文件hash在冻结前变化且已重新固定，尚不能归因。详见[原始失败](../results/training-ledger/report.md)。H4同时把Verifiers新合并的weighted-NaN→unscored与replay拒绝纳入实际runner的版本/分母验收；只是源码证据，未本地运行。
 
+实际调用方 v2（2026-10-21 22:05Z／北京时间22日）：同一pretrained调用链另行冻结七个有界导入标记，保持20秒导入/60秒用例期限和原provider/身份/确认/清理。两次CPU模型加载、16次dense更新完成；健康路径113次接受采样，故障路径2次提交采样后pretrain部分写入拒绝继续，合计118条66258字节与5字节不确定尾；十个退出、两个Job清空。**冻结审计仍拒绝**：旧完整raw清单未纳入新增七个进度文件。事后独立完整并集核验通过不能修复冻结验收；61个focused和983个full测试未覆盖该集成。下一步仍在同一调用方，另行冻结完整目录schema与缺失/未知文件控制；不扩展孤立observer、不增加超时、不重跑本版。V1旧超时原因未知，H1六项失败与成本/内存/封闭终评门槛不变。[完整证据](../results/training-ledger-v2/report.md)。
+
 ## 每项工程验证必须回答的问题
 
 在运行前确定下列内容；阈值来自调用方要求、基线与可用资源，不能在看到结果后调整。没有可信基线的指标先作为诊断，不能承诺收益。

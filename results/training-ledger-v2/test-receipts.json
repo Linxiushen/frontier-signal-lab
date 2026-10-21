@@ -1,0 +1,98 @@
+{
+  "progress-prefreeze-1": {
+    "receipt": {
+      "started_at": "2026-10-21T22:00:03.721143+00:00",
+      "completed_at": "2026-10-21T22:00:05.397331+00:00",
+      "cwd": ".",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-S",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_training_import_progress",
+        "tests.test_training_ledger",
+        "tests.test_observer_duty_v2",
+        "tests.test_trace_ledger"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "62726b384d074cc5b448ae8070e2a6f3876a6e6c6fb91fac2afc6fcd9da16323"
+    },
+    "stdout": "",
+    "stderr": ".....F.......................................................\n======================================================================\nFAIL: test_independent_saved_byte_schema_and_mutations (tests.test_training_import_progress.IndependentProgressAudit.test_independent_saved_byte_schema_and_mutations) (mutation=None)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_training_import_progress.py\", line 135, in test_independent_saved_byte_schema_and_mutations\n    else:self.assertEqual(audit.audit_progress(c,Path(tmp),f)['rows'],7)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\scripts\\audit_training_ledger_v2.py\", line 356, in audit_progress\n    assert all(c[\"passed\"]for c in checks),[c for c in checks if not c[\"passed\"]]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [{'check': 'provider:closed_policy_and_Python_only_boundary', 'passed': False}]\n\n----------------------------------------------------------------------\nRan 61 tests in 1.126s\n\nFAILED (failures=1)\n"
+  },
+  "progress-prefreeze-final": {
+    "receipt": {
+      "started_at": "2026-10-21T22:00:30.817020+00:00",
+      "completed_at": "2026-10-21T22:00:32.490856+00:00",
+      "cwd": ".",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-S",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_training_import_progress",
+        "tests.test_training_ledger",
+        "tests.test_observer_duty_v2",
+        "tests.test_trace_ledger"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3ee45bd207c642c8904d7115232ac1097ae79f3ca41cbdd5bffb9e9cb445c779"
+    },
+    "stdout": "",
+    "stderr": ".............................................................\n----------------------------------------------------------------------\nRan 61 tests in 1.158s\n\nOK\n"
+  },
+  "full-tests-prefreeze": {
+    "receipt": {
+      "started_at": "2026-10-21T22:00:30.817020+00:00",
+      "completed_at": "2026-10-21T22:01:07.184496+00:00",
+      "cwd": ".",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-S",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "26c700b1b291ba39eb9c20710a1d93768fc3017a57882791960369e90704c08b",
+      "stderr_sha256": "fd46c0d7e6e18ecdbaf3c4614aeb02a8c9c55d863cad9c3877bd78103e43b89d"
+    },
+    "stdout": "Saved C:\\Users\\somle\\AppData\\Local\\Temp\\tmp7frcope6/snapshot.json and report.md (partial)\n",
+    "stderr": "Ess..........sssss..........................EE.....EEEEEEE.............................................................................................................................................................................................................................................................................................................................................................................................................E.........................................................ssssssssssssssssssss.ssssssssssssss.....................Configuration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours exceeds the supported datetime range\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\n.................................................................................................................................................................................................................................................................................................................................................\n======================================================================\nERROR: test_activation_attention_gradient (unittest.loader._FailedTest.test_activation_attention_gradient)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_attention_gradient\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_attention_gradient.py\", line 10, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_gradient (unittest.loader._FailedTest.test_activation_gradient)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_gradient\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_gradient.py\", line 10, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_history (unittest.loader._FailedTest.test_activation_history)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_history\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_history.py\", line 12, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_norm_gradient (unittest.loader._FailedTest.test_activation_norm_gradient)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_norm_gradient\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_norm_gradient.py\", line 10, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_state_update (unittest.loader._FailedTest.test_activation_state_update)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_state_update\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_state_update.py\", line 10, in <module>\n    from experiments import activation_state_update_probe as probe\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\experiments\\activation_state_update_probe.py\", line 17, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_training (unittest.loader._FailedTest.test_activation_training)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_training\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_training.py\", line 10, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_activation_update (unittest.loader._FailedTest.test_activation_update)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_activation_update\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_activation_update.py\", line 5, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_adamw_state_reference (unittest.loader._FailedTest.test_adamw_state_reference)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_adamw_state_reference\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_adamw_state_reference.py\", line 7, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_attnres_budget_probe (unittest.loader._FailedTest.test_attnres_budget_probe)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_attnres_budget_probe\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_attnres_budget_probe.py\", line 5, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_attnres_memory_probe (unittest.loader._FailedTest.test_attnres_memory_probe)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_attnres_memory_probe\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_attnres_memory_probe.py\", line 10, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n======================================================================\nERROR: test_real_activation_autograd (unittest.loader._FailedTest.test_real_activation_autograd)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_real_activation_autograd\nTraceback (most recent call last):\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\unittest\\loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\tests\\test_real_activation_autograd.py\", line 12, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n\n\n----------------------------------------------------------------------\nRan 906 tests in 35.413s\n\nFAILED (errors=11, skipped=41)\n"
+  },
+  "full-tests-prefreeze-final": {
+    "receipt": {
+      "started_at": "2026-10-21T22:02:12.699352+00:00",
+      "completed_at": "2026-10-21T22:02:50.807801+00:00",
+      "cwd": ".",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "70e6239c08c1317ccc88b37e211b9b79958bddb914e5e61835d07327c1d8b31f",
+      "stderr_sha256": "8c569d6fa44f10d1de6c9859b7dcff2d933d84f6121f38cea3fe158af1351736"
+    },
+    "stdout": "Saved C:\\Users\\somle\\AppData\\Local\\Temp\\tmpv4xueiu5/snapshot.json and report.md (partial)\n",
+    "stderr": "Configuration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours exceeds the supported datetime range\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\n----------------------------------------------------------------------\nRan 983 tests in 37.139s\n\nOK (skipped=81)\n"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "receipt": {
+    "started_at": "2026-10-21T22:06:42.771350+00:00",
+    "completed_at": "2026-10-21T22:06:42.998348+00:00",
+    "cwd": ".",
+    "command": [
+      "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "-S",
+      "-X",
+      "utf8",
+      "-m",
+      "scripts.audit_training_ledger_v2",
+      "--output",
+      "reports/runs/20261021T214727Z/native-training-ledger-v2",
+      "--protocol",
+      "fixtures/training-ledger-v2/protocol.json",
+      "--freeze",
+      "fixtures/training-ledger-v2/implementation.json"
+    ],
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "518a0d8e473d12b26217b55d779a7fd033dab9ffd1f7ad1c6580e7f4c2edac01"
+  },
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\scripts\\audit_training_ledger_v2.py\", line 393, in <module>\n    print(json.dumps(audit_files(a.output,a.protocol,a.freeze),indent=2))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\scripts\\audit_training_ledger_v2.py\", line 380, in audit_files\n    assert all(c[\"passed\"] for c in checks),[c for c in checks if not c[\"passed\"]]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [{'check': 'healthy:exact_raw_identity_controls_stages_loop_completion_files', 'passed': False}]\n",
+  "frozen_acceptance": false,
+  "rule": "No frozen file was changed; later preservation review does not repair preregistered acceptance."
+}

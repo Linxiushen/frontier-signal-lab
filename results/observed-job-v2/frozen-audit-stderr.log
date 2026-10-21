@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<repository>\scripts\audit_observed_job_v2.py", line 184, in <module>
+    print(json.dumps(audit(args.output, args.protocol, args.freeze, args.root)))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repository>\scripts\audit_observed_job_v2.py", line 172, in audit
+    audit_trace(raw, case, protocol)
+  File "<repository>\scripts\audit_observed_job_v2.py", line 97, in audit_trace
+    assert state["poisoned"] is partial and raw == prefix + (b'{"kin' if partial else b'')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

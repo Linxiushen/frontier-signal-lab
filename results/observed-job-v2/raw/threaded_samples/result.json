@@ -1,0 +1,872 @@
+{
+  "name": "threaded_samples",
+  "nonce": "47695122301bab0f53e816559f52bbac73445175c5d5b1f7beead11859d23d90",
+  "parent_pid": 64980,
+  "error": null,
+  "started_perf_counter": 1248671.1877287,
+  "censuses": [
+    {
+      "label": "before_sampling",
+      "started_perf_counter": 1248671.4463504,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 37492,
+          "parent_pid": 64980,
+          "policy_role": "worker",
+          "approved_known": true,
+          "creation_filetime": 134370645697499218,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "worker"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 65908,
+          "parent_pid": 37492,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134370645697774960,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        65908
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 2,
+      "observed_pids": [
+        37492,
+        65908
+      ],
+      "snapshot_observed_count": 2,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 2,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 1248671.4688382,
+      "wall_seconds": 0.022487799869850278,
+      "census_complete": true
+    },
+    {
+      "label": "before_cleanup",
+      "started_perf_counter": 1248671.474772,
+      "training_permitted": false,
+      "processes": [
+        {
+          "pid": 37492,
+          "parent_pid": 64980,
+          "policy_role": "worker",
+          "approved_known": true,
+          "creation_filetime": 134370645697499218,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "python.exe",
+            "sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b",
+            "normalized_path_sha256": "7ae6eff67476caf96539c771decd7535ab89133d9c020011e513770147ddf694",
+            "exact_path_matches": [
+              "worker"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        },
+        {
+          "pid": 65908,
+          "parent_pid": 37492,
+          "policy_role": "unapproved",
+          "approved_known": false,
+          "creation_filetime": 134370645697774960,
+          "job_member": true,
+          "alive": true,
+          "image": {
+            "basename": "conhost.exe",
+            "sha256": "b02ee54fb2ec69673386d41119ee8ed083a6eab3bfca6aa2155d20ce68ef8963",
+            "normalized_path_sha256": "25193318e83d0508392efa098b6d93e382601c47bc929caf9e99a02278d20e34",
+            "exact_path_matches": [
+              "conhost"
+            ],
+            "path_classification": "exact_executable",
+            "queried_from_retained_handle": true,
+            "retained_identity_stable": true
+          }
+        }
+      ],
+      "unapproved_pids": [
+        65908
+      ],
+      "errors": [],
+      "coverage": "one bounded Toolhelp snapshot plus retained queries; not continuous child coverage or provider attestation",
+      "job_count_before": 2,
+      "observed_pids": [
+        37492,
+        65908
+      ],
+      "snapshot_observed_count": 2,
+      "truncated": false,
+      "query_budget_exceeded": false,
+      "job_count_after": 2,
+      "job_count_matches_before": true,
+      "job_count_matches_after": true,
+      "all_known_present": true,
+      "completed_perf_counter": 1248671.4972686,
+      "wall_seconds": 0.02249659993685782,
+      "census_complete": true
+    }
+  ],
+  "decisions": [
+    {
+      "label": "before_sampling",
+      "admitted": true,
+      "errors": [],
+      "admitted_pids": [
+        37492,
+        65908
+      ],
+      "rejected_pids": [],
+      "pin": {
+        "owner": {
+          "pid": 37492,
+          "creation_filetime": 134370645697499218
+        },
+        "auxiliary": {
+          "pid": 65908,
+          "creation_filetime": 134370645697774960
+        }
+      },
+      "training_permitted": false
+    },
+    {
+      "label": "before_cleanup",
+      "admitted": true,
+      "errors": [],
+      "admitted_pids": [
+        37492,
+        65908
+      ],
+      "rejected_pids": [],
+      "pin": {
+        "owner": {
+          "pid": 37492,
+          "creation_filetime": 134370645697499218
+        },
+        "auxiliary": {
+          "pid": 65908,
+          "creation_filetime": 134370645697774960
+        }
+      },
+      "training_permitted": false
+    }
+  ],
+  "worker_ref": {
+    "pid": 37492,
+    "creation_filetime": 134370645697499218
+  },
+  "ready": {
+    "pid": 37492,
+    "creation_filetime": 134370645697499218,
+    "memory": {
+      "resident_bytes": 20221952,
+      "private_bytes": 12754944,
+      "peak_resident_bytes": 20226048,
+      "backend": "Windows GetProcessMemoryInfo"
+    },
+    "perf_counter": 1248671.4322574,
+    "parent_pid": 64980,
+    "nonce": "47695122301bab0f53e816559f52bbac73445175c5d5b1f7beead11859d23d90",
+    "executable_sha256": "b07b03b9ba866a341a3c13ee69710fbc8d43d4ce2523dee13f6df5c25378d15b"
+  },
+  "sampler_native_thread_ids": [
+    60768,
+    21936,
+    66220,
+    57012
+  ],
+  "work_completed_perf_counter": 1248671.4982323,
+  "finished": {
+    "pid": 37492,
+    "creation_filetime": 134370645697499218,
+    "memory": {
+      "resident_bytes": 20340736,
+      "private_bytes": 12754944,
+      "peak_resident_bytes": 21434368,
+      "backend": "Windows GetProcessMemoryInfo"
+    },
+    "perf_counter": 1248671.5068391
+  },
+  "shutdown": {
+    "native_cleanup": {
+      "all_retained_handles_exited": true,
+      "job_active_count": 0,
+      "exit_codes": [
+        {
+          "pid": 37492,
+          "creation_filetime": 134370645697499218,
+          "exit_code": 0
+        },
+        {
+          "pid": 65908,
+          "creation_filetime": 134370645697774960,
+          "exit_code": 0
+        }
+      ],
+      "started_perf_counter": 1248671.5385911,
+      "completed_perf_counter": 1248671.5595781,
+      "wall_seconds": 0.02098700008355081,
+      "timeout_seconds": 4
+    },
+    "native_errors": [],
+    "handles_closed": true,
+    "trace_complete": true,
+    "trace_error": null,
+    "ledger": {
+      "committed_rows": 34,
+      "committed_bytes": 11381,
+      "records": [
+        {
+          "creation_filetime": 134370645697499218,
+          "emitted_perf_counter": 1248671.2144883,
+          "kind": "started",
+          "native_thread_id": 73360,
+          "pid": 37492,
+          "seq": 0
+        },
+        {
+          "emitted_perf_counter": 1248671.471811,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4718077,
+            "pid": 37492
+          },
+          "request_id": "3:0",
+          "seq": 1
+        },
+        {
+          "emitted_perf_counter": 1248671.472046,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4720443,
+            "pid": 37492
+          },
+          "request_id": "3:1",
+          "seq": 2
+        },
+        {
+          "emitted_perf_counter": 1248671.4722782,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4722765,
+            "pid": 37492
+          },
+          "request_id": "3:2",
+          "seq": 3
+        },
+        {
+          "emitted_perf_counter": 1248671.4723635,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.472362,
+            "pid": 37492
+          },
+          "request_id": "3:3",
+          "seq": 4
+        },
+        {
+          "emitted_perf_counter": 1248671.4724415,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4724401,
+            "pid": 37492
+          },
+          "request_id": "3:4",
+          "seq": 5
+        },
+        {
+          "emitted_perf_counter": 1248671.4725187,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4725172,
+            "pid": 37492
+          },
+          "request_id": "3:5",
+          "seq": 6
+        },
+        {
+          "emitted_perf_counter": 1248671.4725935,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4725922,
+            "pid": 37492
+          },
+          "request_id": "3:6",
+          "seq": 7
+        },
+        {
+          "emitted_perf_counter": 1248671.472664,
+          "kind": "sample",
+          "native_thread_id": 57012,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4726627,
+            "pid": 37492
+          },
+          "request_id": "3:7",
+          "seq": 8
+        },
+        {
+          "emitted_perf_counter": 1248671.4727801,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4727783,
+            "pid": 37492
+          },
+          "request_id": "0:0",
+          "seq": 9
+        },
+        {
+          "emitted_perf_counter": 1248671.4728821,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4728807,
+            "pid": 37492
+          },
+          "request_id": "0:1",
+          "seq": 10
+        },
+        {
+          "emitted_perf_counter": 1248671.4729584,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4729569,
+            "pid": 37492
+          },
+          "request_id": "0:2",
+          "seq": 11
+        },
+        {
+          "emitted_perf_counter": 1248671.4730326,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4730311,
+            "pid": 37492
+          },
+          "request_id": "0:3",
+          "seq": 12
+        },
+        {
+          "emitted_perf_counter": 1248671.4731311,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4731298,
+            "pid": 37492
+          },
+          "request_id": "0:4",
+          "seq": 13
+        },
+        {
+          "emitted_perf_counter": 1248671.4732031,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4732019,
+            "pid": 37492
+          },
+          "request_id": "0:5",
+          "seq": 14
+        },
+        {
+          "emitted_perf_counter": 1248671.4732702,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.473269,
+            "pid": 37492
+          },
+          "request_id": "0:6",
+          "seq": 15
+        },
+        {
+          "emitted_perf_counter": 1248671.4733361,
+          "kind": "sample",
+          "native_thread_id": 60768,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4733348,
+            "pid": 37492
+          },
+          "request_id": "0:7",
+          "seq": 16
+        },
+        {
+          "emitted_perf_counter": 1248671.4734557,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4734541,
+            "pid": 37492
+          },
+          "request_id": "1:0",
+          "seq": 17
+        },
+        {
+          "emitted_perf_counter": 1248671.4735665,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4735645,
+            "pid": 37492
+          },
+          "request_id": "1:1",
+          "seq": 18
+        },
+        {
+          "emitted_perf_counter": 1248671.4736574,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4736561,
+            "pid": 37492
+          },
+          "request_id": "1:2",
+          "seq": 19
+        },
+        {
+          "emitted_perf_counter": 1248671.473732,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4737308,
+            "pid": 37492
+          },
+          "request_id": "1:3",
+          "seq": 20
+        },
+        {
+          "emitted_perf_counter": 1248671.4738031,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4738018,
+            "pid": 37492
+          },
+          "request_id": "1:4",
+          "seq": 21
+        },
+        {
+          "emitted_perf_counter": 1248671.4738725,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4738713,
+            "pid": 37492
+          },
+          "request_id": "1:5",
+          "seq": 22
+        },
+        {
+          "emitted_perf_counter": 1248671.4739411,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4739398,
+            "pid": 37492
+          },
+          "request_id": "1:6",
+          "seq": 23
+        },
+        {
+          "emitted_perf_counter": 1248671.4740076,
+          "kind": "sample",
+          "native_thread_id": 21936,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4740064,
+            "pid": 37492
+          },
+          "request_id": "1:7",
+          "seq": 24
+        },
+        {
+          "emitted_perf_counter": 1248671.4741527,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.474151,
+            "pid": 37492
+          },
+          "request_id": "2:0",
+          "seq": 25
+        },
+        {
+          "emitted_perf_counter": 1248671.4742567,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.474255,
+            "pid": 37492
+          },
+          "request_id": "2:1",
+          "seq": 26
+        },
+        {
+          "emitted_perf_counter": 1248671.4743353,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4743338,
+            "pid": 37492
+          },
+          "request_id": "2:2",
+          "seq": 27
+        },
+        {
+          "emitted_perf_counter": 1248671.4744071,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4744057,
+            "pid": 37492
+          },
+          "request_id": "2:3",
+          "seq": 28
+        },
+        {
+          "emitted_perf_counter": 1248671.4744754,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4744741,
+            "pid": 37492
+          },
+          "request_id": "2:4",
+          "seq": 29
+        },
+        {
+          "emitted_perf_counter": 1248671.4745448,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4745435,
+            "pid": 37492
+          },
+          "request_id": "2:5",
+          "seq": 30
+        },
+        {
+          "emitted_perf_counter": 1248671.4746102,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.474609,
+            "pid": 37492
+          },
+          "request_id": "2:6",
+          "seq": 31
+        },
+        {
+          "emitted_perf_counter": 1248671.4746757,
+          "kind": "sample",
+          "native_thread_id": 66220,
+          "reading": {
+            "creation_filetime": 134370645697499218,
+            "memory": {
+              "backend": "Windows GetProcessMemoryInfo",
+              "peak_resident_bytes": 21434368,
+              "private_bytes": 12754944,
+              "resident_bytes": 20336640
+            },
+            "perf_counter": 1248671.4746745,
+            "pid": 37492
+          },
+          "request_id": "2:7",
+          "seq": 32
+        },
+        {
+          "cleanup": {
+            "all_retained_handles_exited": true,
+            "completed_perf_counter": 1248671.5595781,
+            "exit_codes": [
+              {
+                "creation_filetime": 134370645697499218,
+                "exit_code": 0,
+                "pid": 37492
+              },
+              {
+                "creation_filetime": 134370645697774960,
+                "exit_code": 0,
+                "pid": 65908
+              }
+            ],
+            "job_active_count": 0,
+            "started_perf_counter": 1248671.5385911,
+            "timeout_seconds": 4,
+            "wall_seconds": 0.02098700008355081
+          },
+          "emitted_perf_counter": 1248671.55969,
+          "kind": "closed",
+          "native_thread_id": 73360,
+          "seq": 33
+        }
+      ],
+      "failure": null,
+      "poisoned": false,
+      "commit_scope": "exact binary write plus successful flush; no fsync/power-loss claim"
+    }
+  },
+  "write_calls": 34,
+  "trace_sha256": "1017644b95dd5a19a9d570ec2d30be9a721fb85a93198c60e64aaef4064c92f1",
+  "completed_perf_counter": 1248671.5612243,
+  "passed": true
+}

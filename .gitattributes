@@ -43,3 +43,9 @@ scripts/audit_observed_job.py -text whitespace=cr-at-eol
 tests/test_observed_job.py -text whitespace=cr-at-eol
 fixtures/observed-job/*.json -text whitespace=cr-at-eol
 results/observed-job/** -text whitespace=cr-at-eol
+# Preserve v2's rejected frozen audit and selected native receipts verbatim.
+experiments/observed_job_probe_v2.py -text whitespace=cr-at-eol
+scripts/audit_observed_job_v2.py -text whitespace=cr-at-eol
+tests/test_observed_job_v2.py -text whitespace=cr-at-eol
+fixtures/observed-job-v2/*.json -text whitespace=cr-at-eol
+results/observed-job-v2/** -text whitespace=cr-at-eol

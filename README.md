@@ -14,7 +14,8 @@ uses private clones of the same captured state. See the
 
 [Open the interactive case](https://linxiushen.github.io/frontier-signal-lab/) ·
 [Install & API guide](SAVESCOPE.md) · [贡献反例](CONTRIBUTING.md) ·
-[中文研究记录](RESEARCH_LAB.zh.md)
+[中文研究记录](RESEARCH_LAB.zh.md) ·
+[规模化工程研究路线](research/engineering-roadmap.md)
 
 ```bash
 git clone https://github.com/Linxiushen/frontier-signal-lab.git

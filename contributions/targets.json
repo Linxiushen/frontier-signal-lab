@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-19",
+  "updated_on": "2026-10-21",
   "purpose": "Discovery candidates for substantive AI contributions; authenticate current official ownership, policy and exact base before work.",
   "heartbeat_hours": 2,
   "repository_screening_target_per_pass": [
@@ -9,6 +9,25 @@
   ],
   "parallel_fix_lanes_max": 3,
   "lifetime_submission_limit": null,
+  "engineering_selection": {
+    "requested_on": "2026-10-21",
+    "roadmap": "research/engineering-roadmap.md",
+    "required_candidate_notes": [
+      "actual caller and affected workload",
+      "failure or cost amplified by scale",
+      "native integration point and bounded fix",
+      "reproducible validation and unrun hardware/service limits"
+    ],
+    "preferred_paths": [
+      "numerical stability in real training or inference",
+      "batching, variable-length data and scheduling/backpressure",
+      "streaming cancellation and cache/resource lifetime",
+      "durable recovery, current authority and idempotent effects",
+      "evaluation, scoring and data-version consistency"
+    ],
+    "performance_evidence": "Matched end-to-end workload with applicable quality/success, throughput, tail latency and resource costs; CPU/mock/CI evidence does not establish GPU/distributed/production performance.",
+    "quota_note": "Engineering applicability guides selection, not mandatory scale claims, unavailable-hardware tests or extra PR counts."
+  },
   "scope": [
     "inference",
     "training",

@@ -1,0 +1,21 @@
+{
+  "reviewed_at": "2026-10-21T11:54:44.486737+00:00",
+  "reviewer": "same agent; not an independent human or separate-agent review",
+  "sources_sha256": {
+    "experiments/observed_job.py": "8329274185485e403adef84d00723e5c74a756b1cede3effea3356e342925f95",
+    "experiments/observed_job_probe.py": "8991cd5697f3d9afc83e859a173ef73d0717cd0e9ef1fe6cdaf6bb0831e59564",
+    "experiments/process_observer.py": "3f247512aee1e50940d57e81a0290d658bad56cae098d45b2f92bb69deece175",
+    "experiments/trace_ledger.py": "6ace021097389e2bb540adc97ed89db517aea543ae30248fbf116a0e927752f1",
+    "tests/test_observed_job.py": "27db2a5ab9fd093ca4f4e94bc5ba12e3c5cd6645c20b2951f4c684e7c80bdb9c",
+    "scripts/audit_observed_job.py": "a67cfddcfbd2cf8014d7a02858b3edf25a83bceb65413fa12fea85ad71a8481d"
+  },
+  "review": "Native observer and ledger source remain unchanged. New adapter serializes native queries and ledger publication; launch ownership precedes diagnostic writes. Trace failure denies future queries while cleanup still terminates, verifies and attempts both handle-close paths. Healthy threaded/native and two injected sink-control cases use fixed input IDs and fresh output. No ML/provider/network target, no timing benefit or production liveness claim. API is one launch per session and arbitrary blocking sinks remain unsupported.",
+  "unit_tests": {
+    "new": 7,
+    "ledger_neighbor": 10,
+    "native_neighbor": 38,
+    "base_total": 946,
+    "base_skips": 81
+  },
+  "scientific_experiments": 0
+}

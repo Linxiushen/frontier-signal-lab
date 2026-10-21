@@ -36,3 +36,10 @@ experiments/audit_trace_ledger.py -text whitespace=cr-at-eol,-blank-at-eof
 tests/test_trace_ledger.py -text whitespace=cr-at-eol,-blank-at-eof
 fixtures/trace-ledger/** -text whitespace=cr-at-eol
 results/trace-ledger/** -text whitespace=cr-at-eol
+# Preserve the failed native-ledger integration's frozen bytes across platforms.
+experiments/observed_job.py -text whitespace=cr-at-eol
+experiments/observed_job_probe.py -text whitespace=cr-at-eol
+scripts/audit_observed_job.py -text whitespace=cr-at-eol
+tests/test_observed_job.py -text whitespace=cr-at-eol
+fixtures/observed-job/*.json -text whitespace=cr-at-eol
+results/observed-job/** -text whitespace=cr-at-eol

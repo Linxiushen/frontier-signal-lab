@@ -1,0 +1,21 @@
+{
+  "id": "native-observer-ledger-integration-v1",
+  "declared_on": "2026-10-21",
+  "kind": "engineering_integration_no_model_training",
+  "seed": 20261021,
+  "cases": ["threaded_samples", "row_cap", "partial_write"],
+  "sampler_threads": 4,
+  "samples_per_thread": 8,
+  "handshake_seconds": 3,
+  "thread_join_seconds": 2,
+  "worker_backstop_seconds": 10,
+  "cleanup_seconds": 4,
+  "suite_seconds": 25,
+  "topology": "One direct pinned Python worker per existing Windows JobObject; no child processes or model/provider calls in the worker. Native retained PID/creation, parent snapshot, OS image hash and active count must match.",
+  "limits": {"max_rows": 64, "max_row_bytes": 32768, "max_total_bytes": 1048576},
+  "healthy_expected_rows": 34,
+  "faults": "row_cap admits only the start row; partial_write injects five bytes on the second write then raises. These two controls use real native jobs and injected diagnostic-sink faults.",
+  "acceptance": "All three native jobs must have retained exit receipts, empty accounting and successful handle closes. Healthy rows are canonical and contiguous with 32 exact caller IDs. Capacity/fault arms must retain incomplete traces, deny later sampling, never retry I/O, and still clean up the native job. Independent saved-byte/source-hash audit must pass.",
+  "stop": "Fresh output and frozen sources/executable only; execute once in fixed order, stop after any unexpected failure, retain partial evidence. No retries or model loads.",
+  "boundaries": ["One process per job, one local file sink per ledger; no model or training execution", "Not integration into the pretrained training harness, distributed service, hard I/O deadline, peak-memory reduction or performance result", "Flush is not fsync; admitted trace bytes do not bound serialization memory", "Earlier rejected traces and six H1 scientific failures remain unchanged"]
+}

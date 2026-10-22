@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<WORKSPACE>\experiments\native_training_cost.py", line 538, in <module>
+    else:raise SystemExit(0 if run(a.protocol,a.freeze,a.output,json.loads(a.plan.read_bytes()))else 1)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\experiments\native_training_cost.py", line 484, in run
+    or freeze['protocol_sha256']!=cost.file_hash(protocol_path)or freeze['output_directory']!=output.relative_to(ROOT).as_posix()
+                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON_RUNTIME>\Lib\pathlib.py", line 682, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'reports\\runs\\20261022T035010Z\\native-training-cost' is not in the subpath of '<WORKSPACE>'

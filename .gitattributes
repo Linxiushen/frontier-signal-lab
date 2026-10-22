@@ -77,3 +77,10 @@ scripts/audit_training_ledger_v3.py -text whitespace=cr-at-eol
 tests/test_training_ledger_v3.py -text whitespace=cr-at-eol
 fixtures/training-ledger-v3/** -text whitespace=cr-at-eol
 results/training-ledger-v3/** -text whitespace=cr-at-eol
+
+# Preserve the complete-cost suite's frozen sources and failed launch evidence.
+experiments/native_training_cost.py -text whitespace=cr-at-eol
+scripts/audit_native_training_cost.py -text whitespace=cr-at-eol
+tests/test_native_training_cost.py -text whitespace=cr-at-eol
+fixtures/native-training-cost/** -text whitespace=cr-at-eol
+results/native-training-cost/** -text whitespace=cr-at-eol

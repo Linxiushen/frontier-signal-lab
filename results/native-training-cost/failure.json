@@ -1,0 +1,45 @@
+{
+  "id": "native-matched-training-cost-v1",
+  "started_at": "2026-10-22T04:07:54.742171+00:00",
+  "completed_at": "2026-10-22T04:07:55.137453+00:00",
+  "frozen_execution_accepted": false,
+  "actual_scientific_suite_reservations": 1,
+  "model_loads": 0,
+  "optimizer_updates": 0,
+  "native_job_launches": 0,
+  "training_cases_run": 0,
+  "training_cases_unrun": 12,
+  "evaluation_runs": 0,
+  "failure_stage": "pre-execution frozen-output-directory comparison, before output.mkdir and run_case",
+  "cause": "Our execution wrapper supplied a relative --output; frozen run() called output.relative_to(absolute ROOT). Pathlib raised ValueError before any native Job, ML import/load or training.",
+  "exit_code": 1,
+  "exception_type": "ValueError",
+  "retries": 0,
+  "freeze_sha256": "a9b38fdc341769bb29700a86a1ef920cbc891a641af8beb5da6fe607e18b681e",
+  "protocol_sha256": "68a161ff62c24451f976b8542667c60a072543db058cd2c51f04c9e913aeacc7",
+  "stderr_sha256": "5ce6dd564f11627629e800f813cb6197ce2eb26a877603dba4316d930b6069ac",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "frozen49sources_unchanged": true,
+  "prior50v3sources_unchanged": true,
+  "raw_output_directory_exists": false,
+  "corrective_entrypoint": "scripts/run_native_training_cost.py",
+  "correction_scope": "Post-outcome real-parser mocked-run regression resolves every CLI path; corrected launcher requires its own hash in a NEW freeze, so old failed freeze cannot silently authorize a retry. Native/model path remains unexecuted.",
+  "prefreeze_controls": {
+    "focused": 30,
+    "full_total": 998,
+    "full_passed": 917,
+    "full_skipped": 81
+  },
+  "post_outcome_controls": {
+    "test_methods": 7,
+    "passed": 7,
+    "model_or_native_launches": 0,
+    "not_acceptance_repair": true
+  },
+  "preparation_failures": [
+    "First full test command incorrectly used -S and could not import installed NumPy (11collection errors); corrected normal-site command passed998/81skip before freeze. No model execution.",
+    "Run helper named inspect.py shadowed stdlib inspect during freeze and printed/re-wrote the unchanged local screening job description. Renamed inspect-screening.py before actual launch; no network/model/native execution in helper. Frozen sources were unaffected."
+  ],
+  "next_gate": "Keep accepted actual ledger gate closed. In the next pass separately freeze the corrected absolute-path entrypoint and full native-cost integration, include exact invocation/path boundary regression, execute at most one original matched suite. No observer-only work or seed/LR/threshold rescue.",
+  "scope": "Prepared dense/INT8 full-cost integration only; no cost/quality/memory/scale result. Six historical scientific failures and invalid parent RSS remain unchanged."
+}

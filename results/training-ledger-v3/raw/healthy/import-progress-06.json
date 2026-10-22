@@ -1,0 +1,79 @@
+{
+  "nonce": "5dd750d27c6ddd73cffbfcf11f6a550e0a96042e31fbd941e5b17cce0cc5d3ec",
+  "role": "worker",
+  "pid": 58984,
+  "seq": 6,
+  "step": "versions-verified",
+  "creation_filetime": 134371007906700000,
+  "emitted_perf_counter": 1284898.6341558,
+  "provider_guard": {
+    "installed": true,
+    "python_audit_only": true,
+    "native_network_sandbox": false,
+    "external_providers_permitted": false,
+    "synthetic_probe_denials": 1,
+    "unexpected_denied_events": [],
+    "denied_audit_events": [
+      "socket.connect",
+      "socket.getaddrinfo",
+      "socket.gethostbyname",
+      "socket.gethostbyname_ex",
+      "socket.gethostbyaddr",
+      "socket.sendto",
+      "socket.bind"
+    ],
+    "policy_id": "urllib3-ipv6-loopback-capability-probe-v1",
+    "phase": "import",
+    "provider_source": {
+      "package_relative_path": "urllib3/util/connection.py",
+      "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+      "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+    },
+    "allowed_local_probe_budget": 1,
+    "allowed_local_probe_count": 1,
+    "diagnostic_event_limit": 4,
+    "diagnostic_overflow_count": 0,
+    "observed_event_count": 1,
+    "diagnostic_events": [
+      {
+        "event_index": 0,
+        "event": "socket.bind",
+        "perf_counter": 1284895.9808716,
+        "phase": "import",
+        "socket_family_code": 23,
+        "socket_type_code": 1,
+        "socket_protocol": 0,
+        "endpoint": {
+          "shape": "tuple2",
+          "host_kind": "exact_ipv6_loopback",
+          "port_kind": "ephemeral_zero",
+          "address_logged": false
+        },
+        "frames": [
+          {
+            "package_relative_path": "urllib3/util/connection.py",
+            "function": "_has_ipv6",
+            "line": 127,
+            "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+            "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+          },
+          {
+            "package_relative_path": "urllib3/util/connection.py",
+            "function": "<module>",
+            "line": 137,
+            "sha256": "2633bbdb69731e5ccb5cf4e4afd65605d86c7979cc5633126f50c92d5ad74a74",
+            "normalized_path_sha256": "0e32c00c1a37d8f6f1ba78d214b3e6439735ce532b5edc7a0c883cf13358d22a"
+          }
+        ],
+        "frame_scope": "contiguous_initial_urllib3_frames",
+        "frame_boundary": "outside_selected_package",
+        "frames_scanned_count": 3,
+        "saved_frame_count": 2,
+        "frames_truncated": false,
+        "source_hashes_complete": true,
+        "diagnostic_errors": [],
+        "decision": "allowed_local_capability_probe"
+      }
+    ]
+  }
+}

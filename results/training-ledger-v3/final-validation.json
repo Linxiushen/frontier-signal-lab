@@ -1,0 +1,50 @@
+{
+  "full-tests-final": {
+    "receipt": {
+      "started_at": "2026-10-22T00:03:56.571943+00:00",
+      "completed_at": "2026-10-22T00:04:43.868351+00:00",
+      "cwd": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "483a7b36a6634cead27f68acbe9b534ea5f2d0f4254051010975a0708c25e099",
+      "stderr_sha256": "39ced8f6dc1538588967ccb1fceeb54c64a90703e29c22a6f82fdcec3be21b0b"
+    },
+    "stdout": "Saved C:\\Users\\somle\\AppData\\Local\\Temp\\tmpyy4orhk4/snapshot.json and report.md (partial)\n",
+    "stderr": "ssss..ss..........sssss..........................sss...........ssssss.....ssss..........sssssss..ssssssssssss..................................................................................................................................................................................................................................................................................................................................................................................................................................ssss...........................................................ssssssssssssssssssss.ssssssssssssss.....................Configuration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours exceeds the supported datetime range\nConfiguration/output error: --since-hours must be a finite positive number\nConfiguration/output error: --since-hours must be a finite positive number\n...........................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 993 tests in 46.324s\n\nOK (skipped=81)\n"
+  },
+  "public-saved-audit": {
+    "receipt": {
+      "started_at": "2026-10-22T00:04:06.946131+00:00",
+      "completed_at": "2026-10-22T00:04:07.235165+00:00",
+      "cwd": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索",
+      "command": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-S",
+        "-X",
+        "utf8",
+        "-m",
+        "scripts.audit_training_ledger_v3",
+        "--output",
+        "results/training-ledger-v3/raw",
+        "--protocol",
+        "fixtures/training-ledger-v3/protocol.json",
+        "--freeze",
+        "fixtures/training-ledger-v3/implementation.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0d5045bb20e7928085dc99dc19c83acb695edf7f2a70ca97d2ddd884a67bc366",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": "{\n  \"passed\": true,\n  \"complete_directory_schema\": true,\n  \"raw_json_files\": {\n    \"healthy\": 51,\n    \"partial_pretrain\": 27\n  },\n  \"healthy_original_payload_checks\": 1914,\n  \"import_progress\": {\n    \"healthy\": {\n      \"rows\": 7,\n      \"bytes\": 11821,\n      \"scope\": \"actual interpreter import markers only; not native stack attribution or measured import speedup\"\n    },\n    \"partial_pretrain\": {\n      \"rows\": 7,\n      \"bytes\": 11819,\n      \"scope\": \"actual interpreter import markers only; not native stack attribution or measured import speedup\"\n    }\n  },\n  \"ledger\": {\n    \"healthy\": {\n      \"rows\": 127,\n      \"samples\": 125,\n      \"bytes\": 71730,\n      \"uncertain_tail_bytes\": 0\n    },\n    \"partial_pretrain\": {\n      \"rows\": 3,\n      \"samples\": 2,\n      \"bytes\": 1345,\n      \"uncertain_tail_bytes\": 5\n    }\n  },\n  \"model_loads\": 2,\n  \"optimizer_updates\": 16,\n  \"scientific_experiments\": 1,\n  \"retained_exits\": 10,\n  \"empty_jobs\": 2,\n  \"boundary\": \"Local CPU actual-caller integration; no matched cost, full peak, quality, GPU, distributed or production validation.\"\n}\n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "path_suffix": "transformers/utils/import_utils.py",
+  "sha256": "66b2ac40be2c538dbd9409370c1f6bf769934b8b232edac365e16299c5ec1108",
+  "bytes": 108811,
+  "source_pinned_before_run": false,
+  "scope": "Post-outcome disk read only. Stack gives location, not source-byte identity or root cause; file was not among selected runtime hashes in freeze. No package import/native/model run.",
+  "excerpts": [
+    {
+      "line": 2576,
+      "text": "    adjacent_modules = []"
+    },
+    {
+      "line": 2577,
+      "text": ""
+    },
+    {
+      "line": 2578,
+      "text": "    for f in os.listdir(module_path):"
+    },
+    {
+      "line": 2579,
+      "text": "        if f != \"__pycache__\" and os.path.isdir(os.path.join(module_path, f)):"
+    },
+    {
+      "line": 2580,
+      "text": "            import_structure[f] = create_import_structure_from_path(os.path.join(module_path, f))"
+    },
+    {
+      "line": 2581,
+      "text": ""
+    },
+    {
+      "line": 2582,
+      "text": "        elif not os.path.isdir(os.path.join(directory, f)):"
+    },
+    {
+      "line": 2583,
+      "text": "            adjacent_modules.append(f)"
+    },
+    {
+      "line": 2863,
+      "text": "    The import structure is a dict defined with frozensets as keys, and dicts of strings to sets of objects."
+    },
+    {
+      "line": 2864,
+      "text": ""
+    },
+    {
+      "line": 2865,
+      "text": "    If `prefix` is not None, it will add that prefix to all keys in the returned dict."
+    },
+    {
+      "line": 2866,
+      "text": "    \"\"\""
+    },
+    {
+      "line": 2867,
+      "text": "    import_structure = create_import_structure_from_path(module_path)"
+    },
+    {
+      "line": 2868,
+      "text": "    spread_dict = spread_import_structure(import_structure)"
+    },
+    {
+      "line": 2869,
+      "text": ""
+    },
+    {
+      "line": 2870,
+      "text": "    if prefix is None:"
+    }
+  ]
+}

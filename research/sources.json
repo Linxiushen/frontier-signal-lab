@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-21T18:08:23.474902+00:00",
-  "observation_note": "All184prior source objects preserved. One merged Verifiers source pair binds explicit rubric scores, unscored NaN and Task.rescore refusal; source review only, no local upstream execution or scientific upgrade. Current training-ledger attempt failed before model load; historical negatives and Nathan unknown next affiliation remain.",
+  "last_updated_at": "2026-10-22T08:16:59.776310+00:00",
+  "observation_note": "All185prior source objects preserved. One new FLA1554 merged-source-only safe-gate precision signal: complete two-file parent/landed/patch/AST review,8explicit dot sites, no local accelerator/numerical result or CI-log coverage. Same-caller15s import-stack observation completed but20s startup still unsupported,0model loads/updates; all scientific failures and Nathan unknown next affiliation remain.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6540,6 +6540,39 @@
       "source_receipt": "research/receipts/20261021T174423Z-verifiers-unscored.json",
       "evidence_record": "research/2026-10-21-training-ledger-and-unscored-replay.md",
       "dedupe_key": "verifiers:2935@9154ec945b531e7a2b2222093cd480e0cb45a030+2936@01a9fb072ef06565eb13b8b7d7b0f382f2796553"
+    },
+    {
+      "id": "fla-1554-safe-gate-dot-precision",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1554",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "zhiyuan1i",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE body/blob verified; no implementation redistributed",
+      "published_at": "2026-10-22T06:33:33Z",
+      "updated_at": "2026-10-22T06:51:29Z",
+      "recorded_at": "2026-10-22T08:15:20.908066+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "Both KDA and GDN2 safe-gate diagonal backward branches add explicit SAFE_GATE_DOT_PRECISION to4dot calls each; bf16x3 under TRITON_ABOVE_3_6_0 and not IS_NPU, ieee otherwise. No new tests in this2file PR.",
+        "Complete two-file parent/landed source and patch sets verified; ASTs equal after removing only declared imports/constant/eight precision keywords."
+      ],
+      "author_assertion": "TF32 rounding/context-length degradation addressed and bf16x3 faster; separate fp32 IEEE residual outside change. Author local collection blocked by no active Triton driver. No local numerical/accelerator benchmark execution here.",
+      "our_inference": "Pin precision/backend/version and include safe-gate parameter-gradient checks at long context before throughput claims; full matched cost/quality gates remain unchanged.",
+      "merge_commits": [
+        "e23056eb446e0eb815e0f855d4c8bd302205c904"
+      ],
+      "time_classification": "Merge06:51:26Z is after prior05:56:51Z event cutoff and within current24h; original PR creation is separate.",
+      "measured": {
+        "local_model_or_kernel_executions": 0,
+        "source_file_pairs_verified": 2,
+        "selected_dot_sites": 8,
+        "GPU_numerical_or_performance_proven": false
+      },
+      "next_falsifiable_gate": "Pin backend/Triton/version/precision and long-context safe-gate parameter-gradient controls before matched throughput/quality claims; existing scientific gates unchanged.",
+      "limitations": "CI metadata only: no job logs or numerical coverage reviewed; no new tests in PR; author collection blocked locally. Not Nathan contribution or a local performance result.",
+      "source_receipt": "research/receipts/20261022T075356Z-fla-safe-gate.json",
+      "evidence_record": "research/2026-10-22-import-boundary-and-safe-gate.md",
+      "dedupe_key": "fla:1554@e23056eb446e0eb815e0f855d4c8bd302205c904"
     }
   ]
 }

@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Same-caller import stack observation](results/native-training-import-observation/report.md) | One15s stack points to Transformers import-structure construction;20s startup still fails. 0 model loads/updates, five retained exits/empty Job. Location captured, root cause and cost/quality unproven; no retry |
 | [Native complete training cost v2 / import deadline](results/native-training-cost-v2/report.md) | Corrected CLI launches first native case; fixed20s import deadline stops after Transformers-start. 0 model loads/updates/evaluations, 11 remaining cases unrun; five retained exits/empty Job. No cost/quality result or retry; accepted ledger gate stays closed |
 | [Native complete training cost / failed launch](results/native-training-cost/report.md) | Frozen CLI fails on relative-output comparison before any native/model launch; 0/12 cases, no cost/quality result or retry. Separate guarded entrypoint regression passes; actual-caller ledger gate stays closed |
 | [Actual training caller / ledger v3](results/training-ledger-v3/report.md) | Same actual producer accepted after separately frozen full-directory controls; two CPU loads/16updates, partial-write refusal,10exits/twoemptyJobs; complete-cost/quality remains open |

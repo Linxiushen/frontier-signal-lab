@@ -1,0 +1,140 @@
+{
+  "reviewed_at": "2026-10-22T08:12:34.230766+00:00",
+  "passed": true,
+  "repository_public": true,
+  "license": "MIT exact landed LICENSE body/blob read",
+  "PR": "https://github.com/fla-org/flash-linear-attention/pull/1554",
+  "author": "zhiyuan1i",
+  "head": "b24c5c3100e95d9f01e79a11e5b4c9ff32a91c14",
+  "parent": "cd61447d4da1c6780712078a1095c010581b486c",
+  "landed": "e23056eb446e0eb815e0f855d4c8bd302205c904",
+  "merged_at": "2026-10-22T06:51:26Z",
+  "all_changed_files_verified": 2,
+  "files": [
+    {
+      "path": "fla/ops/gdn2/chunk_intra.py",
+      "parent_blob": "08c65e426754c40a61d73233b75141f6977836b3",
+      "landed_blob": "dfe865c9b17c09a8e3cad4dc9e0cc4faca893f36",
+      "parent_sha256": "294b31ec60042bbb44a9d068df5c201862b806d933d90837eef5480b01cbd449",
+      "landed_sha256": "8d88d591baacd4981867d2a423b63aae702e1f99b884ee37d8c6865f41e5158b",
+      "selected_dot_calls": 4,
+      "only_AST_changes": "two imported flags, precision constant, four safe-gate dot precision keywords",
+      "landed_dot_lines": [
+        574,
+        575,
+        670,
+        671
+      ]
+    },
+    {
+      "path": "fla/ops/kda/chunk_intra.py",
+      "parent_blob": "0cf6016f5d539365a6850e35dd5d027c39198f9f",
+      "landed_blob": "26704e2cf861e3889c3995d2f050b1e896862e68",
+      "parent_sha256": "c007b1828a2b419a319db5e16c937ac7196f313f625b998788043b2f8a3b827a",
+      "landed_sha256": "aa3699a807cc41d40e10bee1828d69a42b7b624958bc99d7b595da18c299eab9",
+      "selected_dot_calls": 4,
+      "only_AST_changes": "two imported flags, precision constant, four safe-gate dot precision keywords",
+      "landed_dot_lines": [
+        544,
+        545,
+        648,
+        649
+      ]
+    }
+  ],
+  "patch_sets_exact": true,
+  "AST_equivalence_after_only_declared_changes": true,
+  "fact": "Both KDA and GDN2 safe-gate diagonal backward branches add explicit SAFE_GATE_DOT_PRECISION to4dot calls each; bf16x3 under TRITON_ABOVE_3_6_0 and not IS_NPU, ieee otherwise. No new tests in this2file PR.",
+  "author_assertions_not_reproduced": "TF32 rounding/context-length degradation addressed and bf16x3 faster; separate fp32 IEEE residual outside change. Author local collection blocked by no active Triton driver. No local numerical/accelerator benchmark execution here.",
+  "CI_metadata_only": [
+    {
+      "id": 39736589555,
+      "name": "nvidia-h100-ci",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736589555"
+    },
+    {
+      "id": 39736314527,
+      "name": "nvidia-h100-ci",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314527"
+    },
+    {
+      "id": 39736314479,
+      "name": "ascend-a2-benchmark-ci",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314479"
+    },
+    {
+      "id": 39736314477,
+      "name": "ascend-a2-ci",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314477"
+    },
+    {
+      "id": 39736314509,
+      "name": "check-header",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314509"
+    },
+    {
+      "id": 39736314486,
+      "name": "check-pr-title",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314486"
+    },
+    {
+      "id": 39736314520,
+      "name": "check-no-oj",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314520"
+    },
+    {
+      "id": 39736314510,
+      "name": "nvidia-h100-smoke",
+      "status": "queued",
+      "conclusion": null,
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314510"
+    },
+    {
+      "id": 39736314507,
+      "name": "lint",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736314507"
+    },
+    {
+      "id": 39736309177,
+      "name": "Code Quality: PR #1554",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736309177"
+    },
+    {
+      "id": 39736308203,
+      "name": "lint",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736308203"
+    },
+    {
+      "id": 39736308111,
+      "name": "check-header",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39736308111"
+    }
+  ],
+  "CI_limits": "Success/cancelled/queued are metadata only; no job logs or numerical coverage were reviewed. Not our GPU/CPU runtime result. No equality/performance conclusion.",
+  "Nathan_attribution": false,
+  "local_model_or_kernel_executions": 0,
+  "scientific_hypothesis_status_upgraded": false,
+  "engineering_implication": "Pin precision/backend/version and include safe-gate parameter-gradient checks at long context before throughput claims; full matched cost/quality gates remain unchanged."
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-22T08:16:59.776310+00:00",
-  "observation_note": "All185prior source objects preserved. One new FLA1554 merged-source-only safe-gate precision signal: complete two-file parent/landed/patch/AST review,8explicit dot sites, no local accelerator/numerical result or CI-log coverage. Same-caller15s import-stack observation completed but20s startup still unsupported,0model loads/updates; all scientific failures and Nathan unknown next affiliation remain.",
+  "last_updated_at": "2026-10-22T10:12:14.326310+00:00",
+  "observation_note": "All 186 prior source objects preserved. New FLA #1552 landed-source evidence verifies four post-transform LSE tail masks and two direct forward tests. No local accelerator/model experiment or numerical/performance proof; native 20-second startup remains unsupported and scientific failures/states unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6573,6 +6573,40 @@
       "source_receipt": "research/receipts/20261022T075356Z-fla-safe-gate.json",
       "evidence_record": "research/2026-10-22-import-boundary-and-safe-gate.md",
       "dedupe_key": "fla:1554@e23056eb446e0eb815e0f855d4c8bd302205c904"
+    },
+    {
+      "id": "fla-1552-lse-tail-after-transform",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1552",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "zhiyuan1i",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE read; full implementations not bundled",
+      "published_at": "2026-10-22T03:03:43Z",
+      "updated_at": "2026-10-22T08:47:47Z",
+      "recorded_at": "2026-10-22T10:12:14.321311+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "Four post-transform tail masks added: default fused-linear LSE, Ascend rowwise and block LSE, shared utility LSE. Two direct 2 x 1025 regression functions added: fused-linear softcap 0.5 / scale 1 and utility scale 0.",
+        "Complete four-file parent/landed blobs and PR/merge patches verified; implementation ASTs equal after removing only four post-transform masks; test AST equal after only two imports/two new functions."
+      ],
+      "author_assertion": "Formatting passed; collect-only blocked by no active Triton driver. Accelerator before/after execution and same-hardware benchmarks pending in PR body.",
+      "our_inference": "Softcapping can turn a padded -inf into a finite negative softcap; zero scaling can turn padded -inf into NaN. Restoring -inf after these transforms excludes padded lanes before max/exp/sum. This is code-derived numerical reasoning, not an executed kernel result.",
+      "merge_commits": [
+        "12cb9d40bae8cd58325d1f8cbec4c8c8c55e9f3e"
+      ],
+      "time_classification": "Merge 08:47:44Z is after the prior 07:56:09Z cutoff and within the current 24 hours; initial PR creation is separate.",
+      "measured": {
+        "local_model_or_kernel_executions": 0,
+        "source_file_pairs_verified": 4,
+        "post_transform_mask_sites": 4,
+        "new_direct_forward_LSE_tests": 2,
+        "GPU_or_NPU_correctness_or_performance_proven": false
+      },
+      "next_falsifiable_gate": "For a real loss caller, pin backend/version and test nonaligned vocab sizes around tile boundaries with softcap, zero/negative scale and normal controls; check complete loss and parameter/input gradients before quality/throughput/resource comparisons. Respect unsupported dispatch branches and existing native startup block.",
+      "limitations": "Two new tests compare LSE forward only. They do not directly assert loss/parameter gradients, backward equivalence, throughput or every backend branch. Author collect-only failed locally because Triton had no active driver; no author before/after accelerator result in PR body. Exact-head metadata only: H100 success, Ascend in_progress/queued/cancelled and title-check failures are retained. No job logs, numerical test selection or backend execution coverage reviewed; not our accelerator measurement.",
+      "source_receipt": "research/receipts/20261022T095747Z-fla-lse-tail.json",
+      "evidence_record": "research/2026-10-22-lse-tail-transform-order.md",
+      "dedupe_key": "fla:1552@12cb9d40bae8cd58325d1f8cbec4c8c8c55e9f3e"
     }
   ]
 }

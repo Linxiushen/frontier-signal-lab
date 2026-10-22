@@ -1,0 +1,255 @@
+{
+  "reviewed_at": "2026-10-22T10:10:25.322266+00:00",
+  "passed": true,
+  "PR": "https://github.com/fla-org/flash-linear-attention/pull/1552",
+  "author": "zhiyuan1i",
+  "merged_at": "2026-10-22T08:47:44Z",
+  "head": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+  "parent": "e23056eb446e0eb815e0f855d4c8bd302205c904",
+  "landed": "12cb9d40bae8cd58325d1f8cbec4c8c8c55e9f3e",
+  "license": "MIT exact landed LICENSE body read",
+  "all_changed_files": 4,
+  "files": [
+    {
+      "path": "fla/modules/fused_linear_cross_entropy/ops.py",
+      "parent": {
+        "blob": "813b3e6d1d0770aea94c519b33586a892b9dfd52",
+        "sha256": "879a88eb7070a633babc36f93dfb6c04df1463293d3f58d534fac56905c643ed",
+        "bytes": 20885
+      },
+      "landed": {
+        "blob": "f0bd2c9ac22cdf047956fd15f590d18651135770",
+        "sha256": "9a4575a4ec05c2c6b4e321f8d51b90da65103885c3e022761731167121e26da1",
+        "bytes": 20929
+      },
+      "inserted_nonblank_lines": [
+        "    b_x = tl.where(m_d, b_x, -float('inf'))"
+      ],
+      "AST_equal_after_only_declared_additions": true
+    },
+    {
+      "path": "fla/modules/fused_linear_cross_entropy/triton_ascend.py",
+      "parent": {
+        "blob": "d5b49fa640e8a4af91fb0381fda04286a43ae68b",
+        "sha256": "c1f4a8fedd611c6be7c95a6e56a3dcce21c8412f38214d341ea0370dd5b0fd56",
+        "bytes": 11435
+      },
+      "landed": {
+        "blob": "1de818ef4df17df82f8adf076d96c534113399d7",
+        "sha256": "a140caf197db840c508e6a90062e994f588acd65b8ef221a129b2c78ca319a86",
+        "bytes": 11537
+      },
+      "inserted_nonblank_lines": [
+        "            b_x = tl.where(o < D, b_x, float('-inf'))",
+        "        b_x = tl.where(m_d, b_x, -float('inf'))"
+      ],
+      "AST_equal_after_only_declared_additions": true
+    },
+    {
+      "path": "fla/ops/utils/logsumexp.py",
+      "parent": {
+        "blob": "2c9f893f3063ca08ecf173504dcd14354f3b4016",
+        "sha256": "1153d18d5133600539cb464c6a71c30763316e1f6d58e40263220a7206ee3542",
+        "bytes": 2175
+      },
+      "landed": {
+        "blob": "87fa3839623617a82b263cbbeff0e0a99dc3b663",
+        "sha256": "3f4f660cb3ef282bffd4bf9ed307fdd73fb75a764b097fb2bb813c5490ca2c77",
+        "bytes": 2219
+      },
+      "inserted_nonblank_lines": [
+        "    b_x = tl.where(m_d, b_x, -float('inf'))"
+      ],
+      "AST_equal_after_only_declared_additions": true
+    },
+    {
+      "path": "tests/modules/test_cross_entropy.py",
+      "parent": {
+        "blob": "282c8e267266f16d3ff8c0c08ee015c398224de4",
+        "sha256": "e415cf3d3f899ea5abf8f9ccf34b43dc995ce596ef642140edc2d010a0b2fdc9",
+        "bytes": 25244
+      },
+      "landed": {
+        "blob": "a1f311e7952d97350831d3e657c1457c83c44c6a",
+        "sha256": "0ffa2dd3f78b7579118311ed9f06bb5ed3a0a8a3ba9ecf487a4dca707800eb41",
+        "bytes": 25937
+      },
+      "inserted_nonblank_lines": [
+        "from fla.modules.fused_linear_cross_entropy.ops import logsumexp_fwd as fused_linear_logsumexp_fwd",
+        "from fla.ops.utils.logsumexp import logsumexp_fwd",
+        "def test_fused_linear_logsumexp_row_tail():",
+        "    torch.manual_seed(42)",
+        "    x = torch.zeros(2, 1025, device=device)",
+        "    softcap = 0.5",
+        "    ref = (softcap * torch.tanh(x / softcap)).logsumexp(-1)",
+        "    tri = fused_linear_logsumexp_fwd(x, scale=1.0, softcapping=softcap)",
+        "    assert_close(\"lse\", ref, tri, ratio=1e-2)",
+        "def test_logsumexp_row_tail_zero_scale():",
+        "    torch.manual_seed(42)",
+        "    x = torch.zeros(2, 1025, device=device)",
+        "    ref = (x * 0.0).logsumexp(-1)",
+        "    tri = logsumexp_fwd(x, scale=0.0)",
+        "    assert_close(\"lse\", ref, tri, ratio=1e-2)"
+      ],
+      "AST_equal_after_only_declared_additions": true
+    }
+  ],
+  "PR_and_merge_patch_sets_exact": true,
+  "all_parent_landed_blobs_verified": true,
+  "fact": "Four post-transform tail masks added: default fused-linear LSE, Ascend rowwise and block LSE, shared utility LSE. Two direct2x1025 regression functions added: fused-linear softcap0.5/scale1 and utility scale0.",
+  "source_inference": "Softcapping can turn a padded -inf into a finite negative softcap; zero scaling can turn padded -inf into NaN. Restoring -inf after these transforms excludes padded lanes before max/exp/sum. This is code-derived numerical reasoning, not an executed kernel result.",
+  "caller_and_dispatch": "Default fused-linear logsumexp_fwd is dispatched; Ascend logsumexp_fwd_npu registers for that function and launches ROWWISE=True. The new test invokes the dispatch entry but does not itself assert selected backend; the non-rowwise Ascend branch is changed but not forced by either new test.",
+  "test_limits": "Two new tests compare LSE forward only. They do not directly assert loss/parameter gradients, backward equivalence, throughput or every backend branch. Author collect-only failed locally because Triton had no active driver; no author before/after accelerator result in PR body.",
+  "CI_metadata_only": [
+    {
+      "id": 39750429268,
+      "name": "nvidia-h100-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750429268"
+    },
+    {
+      "id": 39750186071,
+      "name": "lint",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186071"
+    },
+    {
+      "id": 39750186225,
+      "name": "check-pr-title",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186225"
+    },
+    {
+      "id": 39750186706,
+      "name": "ascend-a2-benchmark-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186706"
+    },
+    {
+      "id": 39750186027,
+      "name": "ascend-a2-benchmark-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "queued",
+      "conclusion": null,
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186027"
+    },
+    {
+      "id": 39750186655,
+      "name": "check-pr-title",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186655"
+    },
+    {
+      "id": 39750186597,
+      "name": "ascend-a2-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186597"
+    },
+    {
+      "id": 39750186184,
+      "name": "nvidia-h100-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186184"
+    },
+    {
+      "id": 39750186053,
+      "name": "nvidia-h100-smoke",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "queued",
+      "conclusion": null,
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750186053"
+    },
+    {
+      "id": 39750185924,
+      "name": "check-header",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750185924"
+    },
+    {
+      "id": 39750185938,
+      "name": "check-no-oj",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750185938"
+    },
+    {
+      "id": 39750185952,
+      "name": "ascend-a2-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750185952"
+    },
+    {
+      "id": 39750184492,
+      "name": "ascend-a2-benchmark-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750184492"
+    },
+    {
+      "id": 39750184498,
+      "name": "ascend-a2-ci",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750184498"
+    },
+    {
+      "id": 39750184499,
+      "name": "check-pr-title",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750184499"
+    },
+    {
+      "id": 39750178000,
+      "name": "Code Quality: PR #1552",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750178000"
+    },
+    {
+      "id": 39750176041,
+      "name": "lint",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750176041"
+    },
+    {
+      "id": 39750176121,
+      "name": "check-header",
+      "head_sha": "a9e9d0cf299058766f78b7667b9af2c9d8f68b09",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/fla-org/flash-linear-attention/actions/runs/39750176121"
+    }
+  ],
+  "CI_limits": "Exact-head metadata only: H100 success, Ascend in_progress/queued/cancelled and title-check failures are retained. No job logs, numerical test selection or backend execution coverage reviewed; not our accelerator measurement.",
+  "local_model_or_kernel_executions": 0,
+  "scientific_experiments": 0,
+  "scientific_status_upgrade": false,
+  "Nathan_attribution": false,
+  "engineering_gate": "For a real loss caller, pin backend/version and test nonaligned vocab sizes around tile boundaries with softcap, zero/negative scale and normal controls; check complete loss and parameter/input gradients before quality/throughput/resource comparisons. Respect unsupported dispatch branches and existing native startup block."
+}

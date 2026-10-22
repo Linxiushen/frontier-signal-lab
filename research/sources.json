@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-22T12:16:36.325669+00:00",
-  "observation_note": "All 187 prior source objects preserved. New Verifiers #2949 merged-source review verifies per-turn next-call refusal and optional task-scoring skip; empty-reward zero requires explicit status and denominator handling. H4 engineering gate only: no local upstream/runtime/provider/model execution or scientific upgrade; H1 startup failure and closed prerequisites retained.",
+  "last_updated_at": "2026-10-22T22:16:24.371249+00:00",
+  "observation_note": "All 188 prior source objects preserved. Verifiers #2960 replaces its pinned prior NaN/unscored convention with explicit trace dropping and finite reward values. H4 engineering gate adds actual trainer admission, overlapping status memberships and versioned denominators; no local upstream/runtime/provider/model execution or scientific-status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6654,6 +6654,53 @@
       "source_receipt": "research/receipts/20261022T115916Z-verifiers-scoring-policy.json",
       "evidence_record": "research/2026-10-22-rollout-cap-and-scoring-policy.md",
       "dedupe_key": "verifiers:2949@4c2738dc6d2e53e3cf187929c8f84789649a8586"
+    },
+    {
+      "id": "verifiers-2960-explicit-trace-drop",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2960",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "mikasenghaas",
+      "repository_public": true,
+      "license": "MIT; complete landed LICENSE blob verified; upstream implementations not bundled",
+      "published_at": "2026-10-22T20:28:19Z",
+      "updated_at": "2026-10-22T20:57:56Z",
+      "recorded_at": "2026-10-22T22:16:24.371249+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "Trace.dropped defaults to None; is_dropped tests is-not-None, and drop preserves the first reason, including an empty reason. ok/error status is independent of dropped. Reward aggregation still sums non-None rewards, including any recorded before a drop; empty rewards still aggregate to zero.",
+        "Criterion.drop contains unscored answers, disjoint from scored choices. Choices scores must be finite; duplicate drop answers and fewer than two total answers are rejected. A drop applies regardless of criterion weight. RubricJudge records per-answer metrics, sets the reason and returns None before weighted aggregation.",
+        "Task.score skips recording reward/judge values that are None. It does not generally turn None into dropped. AgenticJudgeEnv propagates a configured drop to the solver trace and returns before judge reward recording.",
+        "scoring_transaction snapshots/restores dropped with state/rewards/metrics/info on BaseException. Isolated grade_task copies result.dropped back only after grading/on_score completes. Task.rescore first refuses errored traces, then clears prior rewards/metrics/extra_usage and dropped before rescoring.",
+        "UnscoredError is removed from errors/exports and the old post-scoring NaN-to-None path is removed. Trace.record_reward rejects a nonfinite value. Historical #2949/weighted-NaN observations remain facts about their pinned earlier versions.",
+        "format_mean filters dropped traces before computing clean/global means. Replay displays dropped; serve deltas include dropped. This commit changes no trainer file. The PR explicitly asks prime-rl iter_trainable_traces consumers to filter dropped before adopting this version.",
+        "Four new unit test functions cover rubric drop metrics, selected criterion validation, NaN reward rejection and scoring-transaction drop rollback. No new complete rollout/resume/trainer or isolated-grading test is added in the sixteen-file commit."
+      ],
+      "author_assertion": [
+        "221 unit tests passed, nine skipped, style/type checks clean: author report only, not our execution or CI-log review.",
+        "Live private repoforge-harbor isolated-grading rollout remained ok/dropped without audit/judge reward; private run and model service are not independently accessible/verified here.",
+        "Dropped traces are not retried and resume keeps them: author claim; full retry/resume consumers outside changed code were not independently reviewed."
+      ],
+      "our_inference": "Runner acceptance must version dropped separately from ok/error/scoring_skipped/reward presence and test actual training admission. A successful scalar zero or ok alone cannot establish scored correctness or trainability. Excluding dropped examples changes the denominator and can bias apparent quality if workload/reason mix changes.",
+      "merge_commits": [
+        "2f6ed0ce6e04e26b713801a3e701e857b6f36452"
+      ],
+      "time_classification": "Merged 2026-10-22T20:57:53Z, after previous radar cutoff 2026-10-22T19:56:27.698964+00:00; within current24h. PR creation 2026-10-22T20:28:19Z is separate.",
+      "measured": {
+        "source_file_pairs_verified": 16,
+        "new_unit_test_functions": 4,
+        "local_upstream_test_executions": 0,
+        "local_model_or_kernel_executions": 0,
+        "runtime_or_provider_behavior_proven": false
+      },
+      "next_falsifiable_gate": "Freeze authentic pre/post runner, rubric/drop policy, trainer filter, workload IDs and resource ceiling. Exercise scored-zero, finite score, None-without-drop, policy skip, explicit drop (including zero-weight and prior reward), nonfinite failure, shared rollback, isolated commit/failure, replay and two process recoveries. Record attempted/scored/skipped/dropped/failed and admitted-to-training memberships with intersections rather than assuming disjoint counts; require no dropped training member or duplicate score/effect and invariant versioned denominators. Existing real wire/token/mask/score and H1/H2/H3 gates remain unmet.",
+      "limitations": [
+        "Source inspection only: no local upstream import/test/runtime/provider/model/training/GPU execution, no author private-run reproduction or CI-log/test-selection review.",
+        "Full sixteen parent/landed file pairs and exact patches verified; downstream trainer and unchanged retry/resume paths not fully reviewed.",
+        "No throughput, production reliability, model quality, novelty or scientific-status upgrade. No full upstream implementation redistributed."
+      ],
+      "source_receipt": "research/receipts/20261022T220202Z-verifiers-trace-drop.json",
+      "evidence_record": "research/2026-10-22-trace-drop-and-training-admission.md",
+      "dedupe_key": "verifiers:2960@2f6ed0ce6e04e26b713801a3e701e857b6f36452"
     }
   ]
 }

@@ -66,3 +66,5 @@
 交付按已集成入口、独立复现、可维护组件、真实 PR 接受/反馈和可测运行结果记录。新闻、额外回执数量、孤立脚本或未验证分支不能代表规模化进展。研究来源和 H1–H4 的科学状态只随新证据改变。
 
 新增实际runner评分策略门槛（2026-10-22）：Verifiers2949落地每轮token cap后拒绝下一模型调用，以及可选截断／超时跳过任务评分。空reward总和为0，必须通过scoring_skipped与正常0分、NaN→None失败区分；同一runner版本固定cap、resolved sampling和skip策略，保留attempted/scored/skipped/failed分母并验证shared/isolated、评分预算先耗尽及重试／恢复。十一份完整前后源码、patch与新增测试代码已读；未本地运行provider／wire／模型，不证明硬预算或吞吐收益，H4科学门槛不变。H1原20秒启动仍不支持，已关闭ledger／导入观察不重开。[源码依据与待验收路径](2026-10-22-rollout-cap-and-scoring-policy.md)。
+
+版本边界补充（2026-10-22）：Verifiers2960引入独立于ok/errors的dropped，None省略reward但不自动drop，非有限reward值改为报错并删除UnscoredError；前述NaN约定仅属于旧固定版本。H4须接到实际训练准入，验证drop排除、shared回滚／isolated提交、rescore清除与两次恢复，记录attempted/scored/skipped/dropped/failed/admitted成员及交集，不能假定状态互斥或只看reward均值。十六份完整前后源码及四个新增单测函数已读；没有本地runner／trainer／模型验证，科学状态及H1关闭门槛不变。[源码与待验收调用链](2026-10-22-trace-drop-and-training-admission.md)。

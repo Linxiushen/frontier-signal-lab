@@ -1,0 +1,403 @@
+{
+  "reviewed_at": "2026-10-22T22:15:04.529877+00:00",
+  "passed": true,
+  "scope": "complete_saved_source_patch_AST_and_test_code_review_only",
+  "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2960",
+  "author": "mikasenghaas",
+  "public": true,
+  "created_at": "2026-10-22T20:28:19Z",
+  "merged_at": "2026-10-22T20:57:53Z",
+  "updated_at": "2026-10-22T20:57:56Z",
+  "landed": "2f6ed0ce6e04e26b713801a3e701e857b6f36452",
+  "parent": "e859cf4493b2e634168ca0b142120179fc958854",
+  "PR_head": "47fe3116a6437232a1a6785569393896fca70948",
+  "all_changed_files": 16,
+  "files": [
+    {
+      "path": "docs/tasksets.md",
+      "additions": 1,
+      "deletions": 1,
+      "parent": {
+        "blob": "f057b28ba41cb6b2e12fc1e74240abdbaf8341c1",
+        "sha256": "566542ca10ec7747b1cc701a396a1f08749712bf445b00296617277b7e531096",
+        "bytes": 24936,
+        "response_sha256": "7d13bc4cc014230804e8b6b7c2edd3b5062a49d21cd3d4e5d099248157d3c2ec"
+      },
+      "landed": {
+        "blob": "7f88ace79550fe968bfb05d53f89c12fc23433a7",
+        "sha256": "c567bd795fc215db9088ddfee1201d66b02d2b2494835de840ee62606c2c807d",
+        "bytes": 25036,
+        "response_sha256": "e4e76e22848020dfa049ecf3a91d4871d68197a277683844aeb79fc02d52bbe2"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true
+    },
+    {
+      "path": "tests/unit/judges/test_rubric.py",
+      "additions": 40,
+      "deletions": 0,
+      "parent": {
+        "blob": "3320b32149c69df642cf41217537052676b738ec",
+        "sha256": "fdd9b562b85e389c6abeae9f71df84c663f9c6753cb50b3cae4f865fe9a4fece",
+        "bytes": 7150,
+        "response_sha256": "4f228d3fa9dc7fd7dd0c76c82258937901d0ba55fc57285990bc80126a045e01"
+      },
+      "landed": {
+        "blob": "d8166c55aeb2d051006bd32a3cee3a4ae521640a",
+        "sha256": "762d718bfe31a1d4617f98f809609b4441fd51ee9dd9b05316ff974d7745065b",
+        "bytes": 8773,
+        "response_sha256": "1a2199f550bb5fc896073c222e6a0fa860ce2a24f25add3d02dc8b0801605be3"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "criteria",
+        "defect",
+        "test_rubric_drop_answer_drops_the_trace",
+        "test_rubric_drop_validation"
+      ]
+    },
+    {
+      "path": "tests/unit/test_task.py",
+      "additions": 22,
+      "deletions": 0,
+      "parent": {
+        "blob": "cc9019606a8d4e2f2ae0697718cae663e689e8cb",
+        "sha256": "096724adcd8b455fc16eb1eac2ca5741bd7791b8024cbe9f54ba6620327d97de",
+        "bytes": 4565,
+        "response_sha256": "02c38825fa2fe9496bcf63cbeee55adf45bbbb70fe31e9b99ea9b506c21aa10a"
+      },
+      "landed": {
+        "blob": "aaa4c7de83af6a1cbc106d3ce6f966f6ec290823",
+        "sha256": "9c5d047272771aa9268057154453725dfdb961947a9bad192345ee56c8b9b6dd",
+        "bytes": 5354,
+        "response_sha256": "92aceaeb4e4975b2d664c1d7436131871b86e1e17adc967be424330d209ed4db"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "test_a_nan_reward_is_an_error",
+        "test_failed_scoring_rolls_back_its_drop"
+      ]
+    },
+    {
+      "path": "verifiers/v1/__init__.py",
+      "additions": 0,
+      "deletions": 3,
+      "parent": {
+        "blob": "40881473fa55fd4c61a22417a9d3b8b79e8c3f47",
+        "sha256": "ec372d0a29b3f196f989941abd601fa8b868a0a97bd7a55bfbf4fdc3c10f9578",
+        "bytes": 18760,
+        "response_sha256": "e99f769eddca74ac1d85f3e1daebe0f1a038b27b1a22439baf7317430d0bdc04"
+      },
+      "landed": {
+        "blob": "6557b327d3ddaa0de8760a076bc6895634b17090",
+        "sha256": "7c26abfde0ba18b984c327e378a75dd230be4e4703a65090109f937e30bc441d",
+        "bytes": 18672,
+        "response_sha256": "a8a92b04b18ba04da6427a0886226e50e3a27901982533c6a5fa6b69beb40e93"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": []
+    },
+    {
+      "path": "verifiers/v1/cli/dashboard/eval.py",
+      "additions": 23,
+      "deletions": 10,
+      "parent": {
+        "blob": "33261641824a436b98abb8019e4dae1783350a54",
+        "sha256": "ebdbca98b684635965d706a18d11af3b5ffb42c510d5446d64e1bb65ac2f442c",
+        "bytes": 38347,
+        "response_sha256": "33a68baf0f07c822b078296562286852320202a4f64b98b141f6c72972bc62f3"
+      },
+      "landed": {
+        "blob": "6b31d3abab87d0da22982497aa223fead8319cbc",
+        "sha256": "3bbfd2ce6d9872c5d1a069021601cc187e7d201d21916ff375154a7b94aa5b28",
+        "bytes": 38927,
+        "response_sha256": "b257f75b7c3fc33a886a8389ef33e4639db09a288785e716729a41879cf3925b"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "Progress",
+        "Rows"
+      ]
+    },
+    {
+      "path": "verifiers/v1/cli/dashboard/replay.py",
+      "additions": 5,
+      "deletions": 2,
+      "parent": {
+        "blob": "3cb67976cf417a817f1273c5e21ed664caa4a23d",
+        "sha256": "fd7e6ea7d309b116ddfec59ee0b80d4cf353f24d62a78c4da68e748712372e39",
+        "bytes": 2697,
+        "response_sha256": "c916c282f04b5a083713e2bbb3b809955107cbad8b440a0a7751c99cac26d19e"
+      },
+      "landed": {
+        "blob": "dcee986562e3267265fe98c432e697f2e3963c37",
+        "sha256": "37d73527c4177ebd83c385b0f9b054b61c6c92142b3709aa7ba40b1cfb6206a0",
+        "bytes": 2798,
+        "response_sha256": "87c3916bfe4c3e4858e236a2c0e7f3b74c3d044718b86d839933d090df137990"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": []
+    },
+    {
+      "path": "verifiers/v1/cli/replay.py",
+      "additions": 5,
+      "deletions": 1,
+      "parent": {
+        "blob": "e67ff22e3bbc914d482ee227ad4784599e7ca5d1",
+        "sha256": "396d7ea1aeba56d4cc491e49f8b7fa99f4b2b9c410bd9ccef68ad1f7fa61d0d1",
+        "bytes": 10213,
+        "response_sha256": "d44d69a2b89078292d9474c7352be3fb67153248ae764a6511694142d1f0846e"
+      },
+      "landed": {
+        "blob": "f211c8b98fd3fc9eacb674d37ecec136b55399d2",
+        "sha256": "83b7b0322ad9b2da54ed4360c1d309d2f3f426f78aaca91fa2717a4fe14dc57d",
+        "bytes": 10363,
+        "response_sha256": "57bcbcddfcb41978803ff2512da670bd38f47f80dd88d0b6103432ad1423aa68"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "rescore",
+        "run_replay"
+      ]
+    },
+    {
+      "path": "verifiers/v1/envs/agentic_judge/env.py",
+      "additions": 4,
+      "deletions": 0,
+      "parent": {
+        "blob": "44d1872a0e3ec01d83a0a7ddc9c8bdb43801d8dd",
+        "sha256": "9acf4085ee4b1dab0e9d6b7cb9e530761d993b66de2bd25e77509a1911d24e1c",
+        "bytes": 14809,
+        "response_sha256": "71f30e55db12f5b53b81393d790f3203297a6c7f538afa1489c8ef5bdf12bac3"
+      },
+      "landed": {
+        "blob": "0fe9cd2454ab4676d94665b10d95e399c508a4eb",
+        "sha256": "58bbc4bccedb81389e0af3ad98e2dbfb646658ec293007779b4199ba2b540b37",
+        "bytes": 14956,
+        "response_sha256": "3a3556cb113fbc0ea3131d997496d67a6e898e41105e5d4ff255e92a14b3240e"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "AgenticJudgeEnv",
+        "_record_verdict"
+      ]
+    },
+    {
+      "path": "verifiers/v1/errors.py",
+      "additions": 0,
+      "deletions": 5,
+      "parent": {
+        "blob": "7151333b28ab7e9217ee397caf17370d4247fec2",
+        "sha256": "a36011dca00164e6b9c555fb296e90d6fc75a19686a7050bf6d99eb9c49795b8",
+        "bytes": 6091,
+        "response_sha256": "6afb084cb829b31df4e9ce8ff5f3d48ca2c59d3614efa320f7a79a76e6a95a41"
+      },
+      "landed": {
+        "blob": "9870f2c3447096e4760a29a753304a9472aec5ee",
+        "sha256": "9cd69bce2e79279687980996f541d956923b91c05fcb85dccade1c42d8596ccf",
+        "bytes": 5875,
+        "response_sha256": "0e27aadedd6decd9b50e21517e1b50eeee11f5fcfed611ff79214dc87ae76786"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "UnscoredError"
+      ]
+    },
+    {
+      "path": "verifiers/v1/grading.py",
+      "additions": 6,
+      "deletions": 3,
+      "parent": {
+        "blob": "9af30daf31daf720d8b494fb81578661b3c2bc04",
+        "sha256": "fad2fcc3a090e56f6b0be9159208b34cf70f4d222174c65edc4e2895def3c301",
+        "bytes": 9590,
+        "response_sha256": "f3e67039c36efb91c3aeb929040bb876df711d7c405253d1c5fb1ee1bab08f73"
+      },
+      "landed": {
+        "blob": "4da74510a9936080a326ef9a1544093ce4d569b6",
+        "sha256": "67c27df9489003f3fc30e327d42006b03fd2826ad077af87fd53e60f6edececb",
+        "bytes": 9685,
+        "response_sha256": "c87c6e6f7c3369e049c77353c9b9cfdf0fdbe84605d69ff818eb59a648c8d83e"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "grade_task",
+        "scoring_transaction"
+      ]
+    },
+    {
+      "path": "verifiers/v1/judges/rubric.py",
+      "additions": 79,
+      "deletions": 32,
+      "parent": {
+        "blob": "6d60c55c85770c52965b9f7ca0d7b3ba899b7bc7",
+        "sha256": "c3775400e64c6391b928c373953e5ae52e8c014d02b963b854ef5504ee8d8f57",
+        "bytes": 14058,
+        "response_sha256": "ad9df76cab34f0123689bb9ae887af079bb237a9f69ccb7bc18634ba7242437a"
+      },
+      "landed": {
+        "blob": "6de0d1cc4a7ec5f036135f82d64b3b5f3f7b1247",
+        "sha256": "8e901d7941c933d0ffc3264a034d5fd2238a64fc6f275cdfaca830f80ecaadca",
+        "bytes": 16148,
+        "response_sha256": "802498c8003fd5498dd1be0ceae22764b51abfe8723f2efd0a17dce62d587b68"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "Criterion",
+        "RubricJudge",
+        "_check_choices",
+        "_check_drop",
+        "answers",
+        "criterion_metrics",
+        "drop_reason",
+        "grade_batch",
+        "render",
+        "score",
+        "score_verdicts",
+        "weighted_score"
+      ]
+    },
+    {
+      "path": "verifiers/v1/rollout.py",
+      "additions": 2,
+      "deletions": 18,
+      "parent": {
+        "blob": "54c0558744245288eaa9766f673fb37b5c61e086",
+        "sha256": "9cb1bbe0cb5481ba1d37ad1098161eddecbd1beee578e9496e53207f137b1ef3",
+        "bytes": 46561,
+        "response_sha256": "e34af69953c0db837adde45084b2d051654c8eba2b9bedf3a641ce2ba030caa1"
+      },
+      "landed": {
+        "blob": "b63986c2fcc8d86cc8e0dc6907d0d42dca71c5c4",
+        "sha256": "46b962c28f62f9afb071b13dac96594d8038be40e534904934a79ca2576b781c",
+        "bytes": 45907,
+        "response_sha256": "4c04f0cbcdc6c995fee08a31a78e5db7fad1c6a410a9d197d4eac1a0fbccddf6"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "Rollout",
+        "close"
+      ]
+    },
+    {
+      "path": "verifiers/v1/serve/delta.py",
+      "additions": 1,
+      "deletions": 0,
+      "parent": {
+        "blob": "e41bad72dd1739b99322f4f673179d41dc15c99d",
+        "sha256": "c124277eb9b9ecad9bc592db3ac222474bb5eb5a02b691f77f29187a55f0c0fa",
+        "bytes": 13633,
+        "response_sha256": "5033878f07cd570db93d9856ea4443e28092e079224c7783b1050416c9297b6b"
+      },
+      "landed": {
+        "blob": "abf4a2f3084709178561bcdfc972a944b2d97817",
+        "sha256": "42ba0d3ecd86d6c2aa0a23e2269054e7bb468e85fea7cae44f6df3a4fc790300",
+        "bytes": 13648,
+        "response_sha256": "0f2a26a27b87f641b9525ee79f7ac942be3c361ac3619dba8ed3ca9a56623f7b"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": []
+    },
+    {
+      "path": "verifiers/v1/task.py",
+      "additions": 8,
+      "deletions": 15,
+      "parent": {
+        "blob": "75c8da7d921b19486d43e498febd26b24a8989f5",
+        "sha256": "b6b225a914ac81b2639c048f7094f1833847b911821d5d961d8470f68148aff7",
+        "bytes": 15720,
+        "response_sha256": "e5d621ac5a2898ff17ea9f7629f9061a56e1c0371250174a316370b9e2fc5b6b"
+      },
+      "landed": {
+        "blob": "4c0da6ef0034a999f2c9cfba436e8582baa24d82",
+        "sha256": "ac7f5e917777dcb37ba329e9a62a206606392fab3f0c46d3c8d3d9e0640406cb",
+        "bytes": 15471,
+        "response_sha256": "4b6484a99b126326c7c4c01deaa023c7c61abefdd9008d23be73e419fff2aeb3"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "Task",
+        "rescore",
+        "score"
+      ]
+    },
+    {
+      "path": "verifiers/v1/trace.py",
+      "additions": 17,
+      "deletions": 0,
+      "parent": {
+        "blob": "34472801ded898d8ca33df4a2955dfe7482af7f3",
+        "sha256": "77c288b48a2127f40bfa4bfa71ef2c1bc7d0648b92f459fd217d534723456477",
+        "bytes": 32203,
+        "response_sha256": "cf5e1931faf38a563909d2397258563517d6ffbcc0c9a0f2cc688524e46c7e79"
+      },
+      "landed": {
+        "blob": "0b0e8e85300c80ef41870ff417d8a462c69acaea",
+        "sha256": "d946c1a8f7bd687ae158e50967442615be613a02023da34ed6e8e1c5f85b1408",
+        "bytes": 32925,
+        "response_sha256": "84604e8fca91cb9ddf0ecc5de3db247e0207f2767353e95fea065883d5beb0ae"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "Trace",
+        "drop",
+        "is_dropped",
+        "record_reward"
+      ]
+    },
+    {
+      "path": "verifiers/v1/utils/format.py",
+      "additions": 5,
+      "deletions": 4,
+      "parent": {
+        "blob": "7c205a80629e1afaece74ed7b37329fbad736083",
+        "sha256": "c97d7ad2c19ec0c3199fd889a931d16d862de19f691dab23325153d5d5eb283f",
+        "bytes": 2446,
+        "response_sha256": "23a0eb69ce5b2e446d35250c2cc3081d249234212aed2d7a74d593a2c7d5edec"
+      },
+      "landed": {
+        "blob": "fb8dfe98ad4916174d1bda1c97e325b71b7152fe",
+        "sha256": "0475c0d4f65780c9087e275cd7962cfb4d9c87251530022c7c73ec6d15441fd2",
+        "bytes": 2523,
+        "response_sha256": "51cdcb5273be80a2d16ca249249d837c88dd3aff62f48f93dddb805ed451ef79"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_named_definitions": [
+        "format_mean"
+      ]
+    }
+  ],
+  "license": {
+    "name": "MIT",
+    "path": "LICENSE",
+    "blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+    "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+    "bytes": 1072,
+    "response_sha256": "5b42a4b0e41f744449fdbaacc7e4fc1cea030777651be93b36fa2c82368eded2"
+  },
+  "facts": [
+    "Trace.dropped defaults to None; is_dropped tests is-not-None, and drop preserves the first reason, including an empty reason. ok/error status is independent of dropped. Reward aggregation still sums non-None rewards, including any recorded before a drop; empty rewards still aggregate to zero.",
+    "Criterion.drop contains unscored answers, disjoint from scored choices. Choices scores must be finite; duplicate drop answers and fewer than two total answers are rejected. A drop applies regardless of criterion weight. RubricJudge records per-answer metrics, sets the reason and returns None before weighted aggregation.",
+    "Task.score skips recording reward/judge values that are None. It does not generally turn None into dropped. AgenticJudgeEnv propagates a configured drop to the solver trace and returns before judge reward recording.",
+    "scoring_transaction snapshots/restores dropped with state/rewards/metrics/info on BaseException. Isolated grade_task copies result.dropped back only after grading/on_score completes. Task.rescore first refuses errored traces, then clears prior rewards/metrics/extra_usage and dropped before rescoring.",
+    "UnscoredError is removed from errors/exports and the old post-scoring NaN-to-None path is removed. Trace.record_reward rejects a nonfinite value. Historical #2949/weighted-NaN observations remain facts about their pinned earlier versions.",
+    "format_mean filters dropped traces before computing clean/global means. Replay displays dropped; serve deltas include dropped. This commit changes no trainer file. The PR explicitly asks prime-rl iter_trainable_traces consumers to filter dropped before adopting this version.",
+    "Four new unit test functions cover rubric drop metrics, selected criterion validation, NaN reward rejection and scoring-transaction drop rollback. No new complete rollout/resume/trainer or isolated-grading test is added in the sixteen-file commit."
+  ],
+  "author_assertions": [
+    "221 unit tests passed, nine skipped, style/type checks clean: author report only, not our execution or CI-log review.",
+    "Live private repoforge-harbor isolated-grading rollout remained ok/dropped without audit/judge reward; private run and model service are not independently accessible/verified here.",
+    "Dropped traces are not retried and resume keeps them: author claim; full retry/resume consumers outside changed code were not independently reviewed."
+  ],
+  "our_inference": "Runner acceptance must version dropped separately from ok/error/scoring_skipped/reward presence and test actual training admission. A successful scalar zero or ok alone cannot establish scored correctness or trainability. Excluding dropped examples changes the denominator and can bias apparent quality if workload/reason mix changes.",
+  "next_falsifiable_gate": "Freeze authentic pre/post runner, rubric/drop policy, trainer filter, workload IDs and resource ceiling. Exercise scored-zero, finite score, None-without-drop, policy skip, explicit drop (including zero-weight and prior reward), nonfinite failure, shared rollback, isolated commit/failure, replay and two process recoveries. Record attempted/scored/skipped/dropped/failed and admitted-to-training memberships with intersections rather than assuming disjoint counts; require no dropped training member or duplicate score/effect and invariant versioned denominators. Existing real wire/token/mask/score and H1/H2/H3 gates remain unmet.",
+  "limitations": [
+    "Source inspection only: no local upstream import/test/runtime/provider/model/training/GPU execution, no author private-run reproduction or CI-log/test-selection review.",
+    "Full sixteen parent/landed file pairs and exact patches verified; downstream trainer and unchanged retry/resume paths not fully reviewed.",
+    "No throughput, production reliability, model quality, novelty or scientific-status upgrade. No full upstream implementation redistributed."
+  ],
+  "scientific_experiments": 0,
+  "local_model_or_kernel_executions": 0,
+  "native_job_launches": 0,
+  "upstream_test_executions": 0,
+  "scientific_status_upgrade": false
+}

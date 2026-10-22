@@ -1,0 +1,338 @@
+{
+  "reviewed_at": "2026-10-22T12:15:05.075300+00:00",
+  "passed": true,
+  "scope": "complete_saved_source_and_test_code_review_only",
+  "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2949",
+  "author": "mikasenghaas",
+  "public": true,
+  "created_at": "2026-10-22T10:18:46Z",
+  "merged_at": "2026-10-22T11:10:30Z",
+  "updated_at": "2026-10-22T11:10:33Z",
+  "landed": "4c2738dc6d2e53e3cf187929c8f84789649a8586",
+  "parent": "c9cead6ffb9be73ae52a4994a0b6601897a2dc17",
+  "PR_head": "17a6f4977fdfd48cec2255634743a533f7a44134",
+  "all_changed_files": 11,
+  "files": [
+    {
+      "path": "docs/agent.md",
+      "additions": 16,
+      "deletions": 0,
+      "parent": {
+        "blob": "bb873a7ce43dcba23a7f4eaffb2d94fc2d6f279d",
+        "sha256": "0453482c6d48877ba2d7a7d2770607b8217eca63efa917a778684af54158a886",
+        "bytes": 4240,
+        "response_sha256": "437597af39572cb50ff51e8fee3372bf0dd29bc83e9ec922f535c7c3cfd2cca3"
+      },
+      "landed": {
+        "blob": "db057cc754ab86ab8fec4b137fa5eae83fdf6f0e",
+        "sha256": "462660315f08e399d838c9fa3d9c5dd7c9c07ad7a7ed4b5e60401f50d4a2df64",
+        "bytes": 5349,
+        "response_sha256": "c120091d29c15b14ea9bc82ca725da5b8dee7b52c9aac3e655d23c1295218cb5"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true
+    },
+    {
+      "path": "docs/runtimes.md",
+      "additions": 1,
+      "deletions": 1,
+      "parent": {
+        "blob": "146eb1e99c249507066a260d9f924486f9569f87",
+        "sha256": "4d40cc513e8fc566a3cd150c6b67eda9d00f25c897a868dcffee5c312276662e",
+        "bytes": 20569,
+        "response_sha256": "7e06a2ce31c3a348969cc173b34716f15b2f65b73245536c8602bc830bb6ea8f"
+      },
+      "landed": {
+        "blob": "3d366dcda53e300df68e64a693fcdd8c3fc93ea8",
+        "sha256": "8e5d3dc3120c5be116bdebc8728475dc559381eccf87bb5bae67341f21a1dc36",
+        "bytes": 20727,
+        "response_sha256": "72912ce719de15e4429dd06a426f9e5d46fc11d246ca145fed0efa5dd920f153"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true
+    },
+    {
+      "path": "tests/integration/fixtures/counter_tool.py",
+      "additions": 3,
+      "deletions": 1,
+      "parent": {
+        "blob": "5f3dbe39a6c342a27cfbc3f2fd053ee4d692e179",
+        "sha256": "e78bed18c182ebb4a189c2af5a75442c1a8cdd2bac5abe652b7ff590cd0663fd",
+        "bytes": 1627,
+        "response_sha256": "e75c8b8527347e1df8747fc5186b6619b10ecd12218b263b885fb86bb1a5db4e"
+      },
+      "landed": {
+        "blob": "7fb631a8e97527d05653e7b274c0ae11230f3cda",
+        "sha256": "48a9ffd6b13d2d974c86a6d244c41f6b773d3f9de4dc198bedf962dbef89cfab",
+        "bytes": 1767,
+        "response_sha256": "0ae8ba5c2c4284a158f74603af1b098d8a03c2b5468d50119328b6ee08fbfe64"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "CounterTask",
+        "CounterTaskConfig"
+      ],
+      "AST_changed_named_definitions": [
+        "CounterTask",
+        "CounterTaskConfig"
+      ]
+    },
+    {
+      "path": "tests/integration/test_limits.py",
+      "additions": 38,
+      "deletions": 0,
+      "parent": {
+        "blob": "245a14595af1f70dd3fb54e1d00fda061f219d3c",
+        "sha256": "10e3fc0096ac8be068f775924014853052983fbc7560e39b497466fa110e1e72",
+        "bytes": 1876,
+        "response_sha256": "02533f1ba70543ad34aa56096e7e00df82ab177125996dd7e7121802917dc814"
+      },
+      "landed": {
+        "blob": "cb95c6746785edb7e024850cdc0f656fc3011427",
+        "sha256": "6690b281679987bc25af9ff6f13ef0b948c35e3f6a7cffece5f9d97079519268",
+        "bytes": 3204,
+        "response_sha256": "74f421def8c96141cb9799da2f82f7bb53105748d0283447885a1b83001b2ddf"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "test_skip_scoring_on_timeout",
+        "test_skip_scoring_on_truncated"
+      ],
+      "AST_changed_named_definitions": [
+        "test_skip_scoring_on_timeout",
+        "test_skip_scoring_on_truncated"
+      ]
+    },
+    {
+      "path": "tests/unit/test_trace.py",
+      "additions": 27,
+      "deletions": 0,
+      "parent": {
+        "blob": "cc094d3a93427f244fd3a73640981b821dd0e164",
+        "sha256": "1a613a70a6f1f65086f6d095dfef9a6d5098fea8c33d50f50cea6aac6fb076e6",
+        "bytes": 11151,
+        "response_sha256": "9c45b60b74f981bc1c74edd0665f48371c37c0e614b36fcc12fad118fe512377"
+      },
+      "landed": {
+        "blob": "131a23b9d9bf84cfc408b2935472c0249053d129",
+        "sha256": "eadd67223ea10894593795be786e348fd73ad044f40da378c5d49b1d7b9abb39",
+        "bytes": 12370,
+        "response_sha256": "1ae5cc800abfcea390651f2101fe91f047ad92e230892d70455ef93b68712aaa"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "statement-10",
+        "statement-8",
+        "statement-9",
+        "test_max_turn_tokens_caps_sampling",
+        "test_max_turn_tokens_limit"
+      ],
+      "AST_changed_named_definitions": [
+        "test_max_turn_tokens_caps_sampling",
+        "test_max_turn_tokens_limit"
+      ]
+    },
+    {
+      "path": "verifiers/v1/agent.py",
+      "additions": 1,
+      "deletions": 0,
+      "parent": {
+        "blob": "f8d59cb6b420afb91e42177d7be6e2b35852bbcd",
+        "sha256": "9c7a640744341d3b9e52bd5e1f78de4532d02d73ca833f4d84ad1c957b6d4fc4",
+        "bytes": 47086,
+        "response_sha256": "5264455133a079ab61f84f3290128f784a06e613e7d1b279aab1064a4ea59e27"
+      },
+      "landed": {
+        "blob": "f09f4bc1b3faf188b24422359c136765e0a1d8ca",
+        "sha256": "3a5e7ee8a27056d4b7bedd6ce826b46ba083e49e4b08ab6e942b80b74696b952",
+        "bytes": 47138,
+        "response_sha256": "c681852c17f2e8f43852fdc0ef7497a0c49b5f8743d8339e668f364b937c4400"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "Agent"
+      ],
+      "AST_changed_named_definitions": [
+        "Agent"
+      ]
+    },
+    {
+      "path": "verifiers/v1/configs/agent.py",
+      "additions": 10,
+      "deletions": 0,
+      "parent": {
+        "blob": "444a778f217e97f5df96c0e4df1624369d311ea4",
+        "sha256": "a1b4b5d59317695a54ecaf1d093dc2bdb38fba2bbe4de64a7ad5e09b36edc3ea",
+        "bytes": 6568,
+        "response_sha256": "226713c92c58dea282354219c3bd897ce5d232901190d6cfa9913d4d1b29e08a"
+      },
+      "landed": {
+        "blob": "42710cd39112fee39a9d7fb836de953136cc62e0",
+        "sha256": "6a4abb4031664a791fa92dfbf15267987d9681c7dab789a8c5b43cc728bb6208",
+        "bytes": 7115,
+        "response_sha256": "511f2f9de33b2f65f960feaabd0be0082dc9a7ab135828ad6458572b80ca5d47"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "AgentConfig",
+        "resolve_agent"
+      ],
+      "AST_changed_named_definitions": [
+        "AgentConfig",
+        "resolve_agent"
+      ]
+    },
+    {
+      "path": "verifiers/v1/configs/scoring.py",
+      "additions": 6,
+      "deletions": 0,
+      "parent": {
+        "blob": "51d8faa41b07bd0cf36ee192d2f6447ebcbafd67",
+        "sha256": "c25cbbbc4cb424fed61868bedc40940a2f5cd6779e966ea11f45a2248da2f6b8",
+        "bytes": 2775,
+        "response_sha256": "ea330635b60d25efe1368199469fdc9edde5b7035fa00cb3cd61b85b856197f8"
+      },
+      "landed": {
+        "blob": "6cf039d65d93d4af9ac71bb7b57b6596a3d580e8",
+        "sha256": "f2de4dad053d6fc47d74675c1be6909bf5359b74e078c21bc3f5d43787aca05d",
+        "bytes": 3115,
+        "response_sha256": "00130d5d941e6c51b59f713cadc266a6a1167460354da77d587169645e64af64"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "ScoringConfig"
+      ],
+      "AST_changed_named_definitions": [
+        "ScoringConfig"
+      ]
+    },
+    {
+      "path": "verifiers/v1/rollout.py",
+      "additions": 16,
+      "deletions": 1,
+      "parent": {
+        "blob": "d41704b57bb957ab2e9dc7833a5277c7ca2865d5",
+        "sha256": "af1f49cf9f88e2a39a7912745b95a36bd665199355cc67837fd8a9ddb6ba7487",
+        "bytes": 45448,
+        "response_sha256": "224763372b23e343f69db36438fc77d877181ab485058db596a635f6cea55401"
+      },
+      "landed": {
+        "blob": "9b94bc7749611e925ef9d58adaec723603653e27",
+        "sha256": "d40cc41845623aefd4850579962b4c66a7137f54c13647ce50f8312202bd1725",
+        "bytes": 46197,
+        "response_sha256": "b0afb8d1555fd8ca1f55ed4430d4abb15c7b4049c1833f0b6bd7617f09c71db8"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "Rollout"
+      ],
+      "AST_changed_named_definitions": [
+        "Rollout"
+      ]
+    },
+    {
+      "path": "verifiers/v1/session.py",
+      "additions": 16,
+      "deletions": 1,
+      "parent": {
+        "blob": "ac30aa8412e474b9aff70976766e779785c752b0",
+        "sha256": "ecc057faa55611481830f7d4a1eacbcf0570969f7e8cb7e1e7dcc7d1bf8f0770",
+        "bytes": 28650,
+        "response_sha256": "4e94362cb557f900c7e0b4cf9189d58c6d65c337dca98256df7fc8d4b969b88a"
+      },
+      "landed": {
+        "blob": "1e7a0551fedcd3ef0259127186a4fe26c4ac5507",
+        "sha256": "a8dec7dde1e8250afaf634f7d14be776f46f9cb421faa633a7aca84bdf2f8e0f",
+        "bytes": 29335,
+        "response_sha256": "1887a5e7f3ab73322bcf59a7746a3ac78f86fc833ac99bbcafb1c9c7003c33f5"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "RolloutLimits"
+      ],
+      "AST_changed_named_definitions": [
+        "RolloutLimits"
+      ]
+    },
+    {
+      "path": "verifiers/v1/trace.py",
+      "additions": 1,
+      "deletions": 0,
+      "parent": {
+        "blob": "28540a472b795929aef53bc524c60541418e1b04",
+        "sha256": "01fb0e2229ab311fe1970dee7fb2c3ce6ae959909e101aa4eec30d53e0c47ef7",
+        "bytes": 32172,
+        "response_sha256": "9df84ecd3dab88f861da02511e6db653f727f17336df60ebba926ee5812590a0"
+      },
+      "landed": {
+        "blob": "34472801ded898d8ca33df4a2955dfe7482af7f3",
+        "sha256": "77c288b48a2127f40bfa4bfa71ef2c1bc7d0648b92f459fd217d534723456477",
+        "bytes": 32203,
+        "response_sha256": "aed5cb60d2426c6e9882ca1478bdcaddac4f6509f6dd8800583852308d71deb2"
+      },
+      "PR_merge_patch_equal_and_exact_replay": true,
+      "AST_changed_top_level_keys": [
+        "Trace"
+      ],
+      "AST_changed_named_definitions": [
+        "Trace"
+      ]
+    }
+  ],
+  "license": {
+    "name": "MIT",
+    "path": "LICENSE",
+    "blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+    "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+    "bytes": 1072
+  },
+  "facts": [
+    "AgentConfig.max_turn_tokens is positive when set. resolve_agent clamps merged sampling.max_tokens to the cap; Agent passes resolved sampling into ModelContext and the cap into RolloutLimits. No extra interception/provider wire code was reviewed here.",
+    "RolloutLimits.reached checks ordinary run limits first, then latest non-error call: length finish with absent usage or completion_tokens >= cap refuses the next model call. Known below-cap length does not trigger this limit. Trace.is_truncated includes this stop condition and otherwise checks the latest non-error length finish.",
+    "Scoring skip flags default false. resolve_scoring uses explicit agent fields over task defaults. _scoring_skip_reason checks truncation before timeout. close records scoring_skipped and bypasses isolated grade_task or shared verifier/score/on_score branch when reached; finalization and harness metrics paths remain.",
+    "Existing scoring-budget exhaustion check precedes the new skip branch. Other failures can prevent the skip marker; this is not an unconditional success conversion.",
+    "Trace.reward sums non-None reward values: empty rewards have aggregate zero. Skip marker/empty rewards and NaN-to-None UnscoredError failure are distinct states even if scalar totals coincide.",
+    "Two new Prime counter-tool integration functions each parameterize skip false/true for max_turns truncation and agent-stage timeout. They assert reward1 when scored versus empty rewards/reward0/reason when skipped. Two unit functions check cap stopping/below-cap length and three sampling-clamp values."
+  ],
+  "author_assertions": [
+    "PR body reports unit/integration and Prime Inference e2e results; these are author reports, not our execution.",
+    "Author deselected test_config_tree_imports_without_the_runtime for an alleged main failure and explicitly reports no RLM e2e; pinned nano-rlm code inspection only.",
+    "Every-request interception cap independent of harness request is an author claim here; actual interception/wire/provider chain not independently reviewed."
+  ],
+  "our_inference": "Actual runner versions must bind rollout cap, resolved sampling and scoring-skip policy. Preserve attempted/scored/skipped/failed status and denominators; reward0 alone cannot distinguish wrong answer, deliberate skip or unscored failure. Next-call refusal is not interruption of a live request or proof of provider hard-budget enforcement.",
+  "next_falsifiable_gate": "In an actual runner, preregister versioned cap/skip configs and attempted/scored/skipped/failed denominators; exercise length-at-cap/below-cap/missing usage, simultaneous timeout+truncation, shared/isolated scoring, exhausted scoring budget, harness overrides, replay/retry/resume and duplicate callbacks. Check wire requests separately before hard-budget claims; report useful success/throughput, latency, resources and observation cost on fixed workloads.",
+  "CI_metadata_only": [
+    {
+      "id": 39767593281,
+      "name": "Style",
+      "head_sha": "17a6f4977fdfd48cec2255634743a533f7a44134",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/PrimeIntellect-ai/verifiers/actions/runs/39767593281"
+    },
+    {
+      "id": 39767593352,
+      "name": "Tests",
+      "head_sha": "17a6f4977fdfd48cec2255634743a533f7a44134",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/PrimeIntellect-ai/verifiers/actions/runs/39767593352"
+    },
+    {
+      "id": 39767587149,
+      "name": "PR #2949",
+      "head_sha": "17a6f4977fdfd48cec2255634743a533f7a44134",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/PrimeIntellect-ai/verifiers/actions/runs/39767587149"
+    }
+  ],
+  "limitations": [
+    "No local upstream imports, test execution, runtime/provider/model/GPU run or CI log/test-selection review.",
+    "New tests do not force every harness, missing-usage path, simultaneous skip precedence, budget exhaustion, wire override, or retry/resume/reordering behavior.",
+    "No performance, reliability, novelty or scientific-status upgrade. Existing H1 startup failure and H2-H4 gates remain. Full upstream implementations not redistributed."
+  ],
+  "scientific_experiments": 0,
+  "local_model_or_kernel_executions": 0,
+  "native_job_launches": 0,
+  "upstream_test_executions": 0,
+  "scientific_status_upgrade": false
+}

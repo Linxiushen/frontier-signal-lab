@@ -64,3 +64,5 @@
 筛选时补充一句完整因果链：**哪个实际调用方 → 哪个规模放大的故障/成本 → 补丁改变什么 → 哪条实测可验证**。优先数值稳定性、变长/批处理、调度与背压、流式取消、缓存失效、恢复/幂等、评分/数据一致性及相应原生回归。具体准入、去重和发布仍按 [上游协议](../UPSTREAM_CONTRIBUTIONS.md)。
 
 交付按已集成入口、独立复现、可维护组件、真实 PR 接受/反馈和可测运行结果记录。新闻、额外回执数量、孤立脚本或未验证分支不能代表规模化进展。研究来源和 H1–H4 的科学状态只随新证据改变。
+
+新增实际runner评分策略门槛（2026-10-22）：Verifiers2949落地每轮token cap后拒绝下一模型调用，以及可选截断／超时跳过任务评分。空reward总和为0，必须通过scoring_skipped与正常0分、NaN→None失败区分；同一runner版本固定cap、resolved sampling和skip策略，保留attempted/scored/skipped/failed分母并验证shared/isolated、评分预算先耗尽及重试／恢复。十一份完整前后源码、patch与新增测试代码已读；未本地运行provider／wire／模型，不证明硬预算或吞吐收益，H4科学门槛不变。H1原20秒启动仍不支持，已关闭ledger／导入观察不重开。[源码依据与待验收路径](2026-10-22-rollout-cap-and-scoring-policy.md)。

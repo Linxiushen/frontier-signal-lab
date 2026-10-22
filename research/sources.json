@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-22T10:12:14.326310+00:00",
-  "observation_note": "All 186 prior source objects preserved. New FLA #1552 landed-source evidence verifies four post-transform LSE tail masks and two direct forward tests. No local accelerator/model experiment or numerical/performance proof; native 20-second startup remains unsupported and scientific failures/states unchanged.",
+  "last_updated_at": "2026-10-22T12:16:36.325669+00:00",
+  "observation_note": "All 187 prior source objects preserved. New Verifiers #2949 merged-source review verifies per-turn next-call refusal and optional task-scoring skip; empty-reward zero requires explicit status and denominator handling. H4 engineering gate only: no local upstream/runtime/provider/model execution or scientific upgrade; H1 startup failure and closed prerequisites retained.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6607,6 +6607,53 @@
       "source_receipt": "research/receipts/20261022T095747Z-fla-lse-tail.json",
       "evidence_record": "research/2026-10-22-lse-tail-transform-order.md",
       "dedupe_key": "fla:1552@12cb9d40bae8cd58325d1f8cbec4c8c8c55e9f3e"
+    },
+    {
+      "id": "verifiers-2949-turn-cap-scoring-skip",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2949",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "mikasenghaas",
+      "repository_public": true,
+      "license": "MIT; complete landed LICENSE blob verified; upstream implementations not bundled",
+      "published_at": "2026-10-22T10:18:46Z",
+      "updated_at": "2026-10-22T11:10:33Z",
+      "recorded_at": "2026-10-22T12:16:36.313670+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "AgentConfig.max_turn_tokens is positive when set. resolve_agent clamps merged sampling.max_tokens to the cap; Agent passes resolved sampling into ModelContext and the cap into RolloutLimits. No extra interception/provider wire code was reviewed here.",
+        "RolloutLimits.reached checks ordinary run limits first, then latest non-error call: length finish with absent usage or completion_tokens >= cap refuses the next model call. Known below-cap length does not trigger this limit. Trace.is_truncated includes this stop condition and otherwise checks the latest non-error length finish.",
+        "Scoring skip flags default false. resolve_scoring uses explicit agent fields over task defaults. _scoring_skip_reason checks truncation before timeout. close records scoring_skipped and bypasses isolated grade_task or shared verifier/score/on_score branch when reached; finalization and harness metrics paths remain.",
+        "Existing scoring-budget exhaustion check precedes the new skip branch. Other failures can prevent the skip marker; this is not an unconditional success conversion.",
+        "Trace.reward sums non-None reward values: empty rewards have aggregate zero. Skip marker/empty rewards and NaN-to-None UnscoredError failure are distinct states even if scalar totals coincide.",
+        "Two new Prime counter-tool integration functions each parameterize skip false/true for max_turns truncation and agent-stage timeout. They assert reward1 when scored versus empty rewards/reward0/reason when skipped. Two unit functions check cap stopping/below-cap length and three sampling-clamp values."
+      ],
+      "author_assertion": [
+        "PR body reports unit/integration and Prime Inference e2e results; these are author reports, not our execution.",
+        "Author deselected test_config_tree_imports_without_the_runtime for an alleged main failure and explicitly reports no RLM e2e; pinned nano-rlm code inspection only.",
+        "Every-request interception cap independent of harness request is an author claim here; actual interception/wire/provider chain not independently reviewed."
+      ],
+      "our_inference": "Actual runner versions must bind rollout cap, resolved sampling and scoring-skip policy. Preserve attempted/scored/skipped/failed status and denominators; reward0 alone cannot distinguish wrong answer, deliberate skip or unscored failure. Next-call refusal is not interruption of a live request or proof of provider hard-budget enforcement.",
+      "merge_commits": [
+        "4c2738dc6d2e53e3cf187929c8f84789649a8586"
+      ],
+      "time_classification": "Merged 2026-10-22T11:10:30Z, after previous radar cutoff 2026-10-22T09:59:04.262218+00:00; within current24h. PR creation 2026-10-22T10:18:46Z is separate.",
+      "measured": {
+        "source_file_pairs_verified": 11,
+        "new_integration_test_functions": 2,
+        "new_unit_test_functions": 2,
+        "local_upstream_test_executions": 0,
+        "local_model_or_kernel_executions": 0,
+        "runtime_or_provider_behavior_proven": false
+      },
+      "next_falsifiable_gate": "In an actual runner, preregister versioned cap/skip configs and attempted/scored/skipped/failed denominators; exercise length-at-cap/below-cap/missing usage, simultaneous timeout+truncation, shared/isolated scoring, exhausted scoring budget, harness overrides, replay/retry/resume and duplicate callbacks. Check wire requests separately before hard-budget claims; report useful success/throughput, latency, resources and observation cost on fixed workloads.",
+      "limitations": [
+        "No local upstream imports, test execution, runtime/provider/model/GPU run or CI log/test-selection review.",
+        "New tests do not force every harness, missing-usage path, simultaneous skip precedence, budget exhaustion, wire override, or retry/resume/reordering behavior.",
+        "No performance, reliability, novelty or scientific-status upgrade. Existing H1 startup failure and H2-H4 gates remain. Full upstream implementations not redistributed."
+      ],
+      "source_receipt": "research/receipts/20261022T115916Z-verifiers-scoring-policy.json",
+      "evidence_record": "research/2026-10-22-rollout-cap-and-scoring-policy.md",
+      "dedupe_key": "verifiers:2949@4c2738dc6d2e53e3cf187929c8f84789649a8586"
     }
   ]
 }

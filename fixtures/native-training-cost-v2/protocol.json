@@ -1,0 +1,180 @@
+{
+  "id": "native-matched-training-cost-v1",
+  "predeclared_at": "2026-10-22T06:02:04.598213+00:00",
+  "jobs": [
+    {
+      "id": "token-503-0",
+      "arm": "token",
+      "seed": 503,
+      "method": "dense"
+    },
+    {
+      "id": "token-503-1",
+      "arm": "token",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "token-701-2",
+      "arm": "token",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "token-701-3",
+      "arm": "token",
+      "seed": 701,
+      "method": "dense"
+    },
+    {
+      "id": "token-907-4",
+      "arm": "token",
+      "seed": 907,
+      "method": "dense"
+    },
+    {
+      "id": "token-907-5",
+      "arm": "token",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-503-6",
+      "arm": "time",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-503-7",
+      "arm": "time",
+      "seed": 503,
+      "method": "dense"
+    },
+    {
+      "id": "time-701-8",
+      "arm": "time",
+      "seed": 701,
+      "method": "dense"
+    },
+    {
+      "id": "time-701-9",
+      "arm": "time",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-907-10",
+      "arm": "time",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-907-11",
+      "arm": "time",
+      "seed": 907,
+      "method": "dense"
+    }
+  ],
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      503,
+      701,
+      907
+    ],
+    "methods": [
+      "dense",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "train_blocks": 128,
+    "holdout_blocks": 64,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "token_steps": 64,
+    "time_budget_seconds": 60.0,
+    "max_time_overshoot_seconds": 1.0,
+    "max_time_steps": 4096,
+    "profile_steps": 2,
+    "threads": 1,
+    "dtype": "float32",
+    "attention": "eager",
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "max_token_loop_seconds": 120.0,
+    "max_time_loop_seconds": 65.0,
+    "token_worker_timeout_seconds": 180,
+    "time_worker_timeout_seconds": 120,
+    "profile_worker_timeout_seconds": 120,
+    "evaluation_timeout_seconds": 300,
+    "total_timeout_seconds": 1200,
+    "max_resident_bytes": 2147483648,
+    "max_private_bytes": 3221225472,
+    "min_free_memory_bytes": 8589934592,
+    "min_free_disk_bytes": 5368709120,
+    "max_output_bytes": 1610612736,
+    "sampler_interval_seconds": 0.02,
+    "min_compressed_elements": 256,
+    "expected_layernorm_modules": 13,
+    "expected_attention_modules": 6,
+    "schedule": "stdlib Random(seed).shuffle complete128-block epochs; batch2; full4096-step schedule fixed before all loops"
+  },
+  "ledger_limits": {
+    "max_rows": 4096,
+    "max_row_bytes": 8192,
+    "max_total_bytes": 4194304
+  },
+  "actual_caller": "Accepted training_ledger_v2 run_case identity/provider/role/control/cleanup path; direct versioned training workload integration, no global patching",
+  "actual_workload": "Pinned Pythia14m CPU float32/eager/one thread, original Alice128blocks, original seeds503/701/907, fresh identical AdamW and original LR1e-4. Dense and existing saved-activation INT8 except norm/attention; this is not learned residual-bank architecture.",
+  "bottleneck": "Complete compression training cost/quality is unestablished; prior six joint failures and invalid parent RSS remain. Need retained actual-interpreter memory and complete workloads rather than observer-only diagnostics.",
+  "budgets": {
+    "suite_seconds": 1200,
+    "case_seconds": 180,
+    "import_seconds": 20,
+    "load_seconds": 25,
+    "barrier_seconds": 5,
+    "cleanup_seconds": 4,
+    "fixed_token_steps": 64,
+    "time_loop_seconds": 60,
+    "atomic_time_overshoot_seconds": 1,
+    "maximum_time_steps": 4096,
+    "actual_private_sampled_stop_bytes": 1073741824,
+    "evaluator_seconds": 300,
+    "model_loads_ceiling": 13,
+    "optimizer_updates_ceiling": 24960,
+    "active_poll_and_sample_cap": 4000,
+    "target_sample_seconds": 0.02,
+    "max_sample_gap_seconds": 0.5,
+    "min_in_loop_samples": 20,
+    "max_output_bytes": 1610612736,
+    "minimum_free_memory_bytes": 8589934592,
+    "minimum_free_disk_bytes": 5368709120
+  },
+  "loop_measurement": "Includes actual batch indexing, pack/unpack/forward/backward/AdamW/scalar extraction, hook lifetime and phase traces; initialization/modules/codec, imports/load/hash/holds/native queries/checkpoints/cleanup captured separately in complete-case wall. Eager first-step and remaining-step times, p50/p95/p99 exact nearest-rank observed step latencies; no compilation or communication work.",
+  "memory_endpoint": "GetProcessMemoryInfo peak_resident_bytes via retained actual-interpreter handle at held postloop boundary before postvalidation/checkpoint. OS lifetime working-set high-water includes import/load/training and prior holds; not isolated activations, private peak, hard quota, sum of bank bytes or device memory. Current private/resident maxima remain sampled lower bounds.",
+  "observer_cost": "Same20ms-target memory+CPU ledger queries for both methods. Query wall and parent nativeCPU report observed costs; no OFF arm, so no causal total observation-cost estimate or unobserved performance claim. Global Toolhelp only at fixed held censuses; no active-window Toolhelp.",
+  "evaluation": "After every12 endpoint checkpoint SHA and parameter hash sealed, one fresh evaluator loads baseline once then all12checkpoints;64old LookingGlass blocks once per endpoint. Original public previously evaluated fixture, procedural seal only, no fresh/general quality or pretraining cleanliness claim. Training audit hook refuses holdout.json. No best seed/endpoint selection, retries or LR/threshold rescue.",
+  "joint_screens": {
+    "all": "bankNLL<=matched dense and bankNLL<initial",
+    "token": "also bank complete-case wall<dense and actual-process lifetime working-set peak<dense",
+    "time": "also bank completes more training targets in valid original[60,61]atomic loop window",
+    "scope": "strict descriptive directional engineering screen; complete-case includes model load/checkpoint/controller and is reported for both budgets; time budget applies training loop, not total service SLA. All historical failures retained regardless of outcome."
+  },
+  "failure": "Stop suite at first failed case or resource limit; preserve partial evidence, clean whole Job, no automatic second launch or evaluation after incomplete training. One scientific suite only.",
+  "rollback": "Use immutable existing ledger entrypoint; new module changes no frozen predecessor source. Remove caller selection to revert.",
+  "validation_scope": "local single-machine CPU native/actual model only. No GPU/distributed/production claims or paid resources. No input-device/UI automation.",
+  "execution_revision": 2,
+  "previous_attempt": "results/native-training-cost/failure.json",
+  "entrypoint": "scripts/run_native_training_cost.py",
+  "invocation_boundary": "Real parser -> unchanged frozen runner output comparison exercised before launch; guarded run_case sentinel stops before any native Job in controls. Provider/executable/model/resource checks simulated in that portable control, not native validation.",
+  "unchanged_workload": "Original12jobs/seeds/LR/data/thresholds/budgets/measurement and reused-data procedural final-evaluation scope. Only corrected path-normalizing entrypoint/new freeze/output and invocation controls differ; no observer-only suite."
+}

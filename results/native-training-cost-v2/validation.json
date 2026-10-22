@@ -1,0 +1,36 @@
+{
+  "reviewed_at": "2026-10-22T06:13:01.451635+00:00",
+  "frozen_auditor": {
+    "receipt_integrity_passed": true,
+    "execution_accepted": false,
+    "cases": 1,
+    "checkpoints_rehashed": false,
+    "model_executions_in_auditor": 0,
+    "joint_screens_passed": null
+  },
+  "frozen_auditor_scope": "Failed-case branch performs limited cleanup/presence checks; exit0 means receipt review finished, not execution accepted.",
+  "independent_saved_byte_preservation": {
+    "passed": true,
+    "checks_passed": 180,
+    "model_or_native_executions": 0,
+    "receipt": "preservation-review.json"
+  },
+  "full_portable_suite": {
+    "methods": 1002,
+    "passed": 921,
+    "skipped": 81,
+    "exit_code": 0,
+    "run_before_freeze": true,
+    "stdout_sha256": "235eca0d59a458b07991dda8a6c1461f31e255f171feb87d8740c3a3a56f492b",
+    "stderr_sha256": "e2ba03b52504639783b6ae7dae92c76401972ec175d338c6317e75643f606bef"
+  },
+  "focused_invocation_controls": {
+    "methods": 9,
+    "exit_code": 0,
+    "run_before_freeze": true,
+    "scope": "Portable mocked local preconditions and parser/runner/guarded sentinel. No native Job or model."
+  },
+  "model_load_order_evidence": "Frozen experiments/native_training_cost.py worker_main imports packages, then requires controller postimport stage continuation before prepare/load. No postimport-ready or release exists. No load/optimizer/evaluation reached.",
+  "historical_failures_preserved": true,
+  "frozen_execution_accepted": false
+}

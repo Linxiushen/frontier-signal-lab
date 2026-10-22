@@ -84,3 +84,8 @@ scripts/audit_native_training_cost.py -text whitespace=cr-at-eol
 tests/test_native_training_cost.py -text whitespace=cr-at-eol
 fixtures/native-training-cost/** -text whitespace=cr-at-eol
 results/native-training-cost/** -text whitespace=cr-at-eol
+
+# Preserve v2 frozen invocation controls and raw import-failure receipts.
+tests/test_native_training_cost_entrypoint_boundary.py -text whitespace=cr-at-eol
+fixtures/native-training-cost-v2/** -text whitespace=cr-at-eol
+results/native-training-cost-v2/** -text whitespace=cr-at-eol

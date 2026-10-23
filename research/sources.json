@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-22T22:16:24.371249+00:00",
-  "observation_note": "All 188 prior source objects preserved. Verifiers #2960 replaces its pinned prior NaN/unscored convention with explicit trace dropping and finite reward values. H4 engineering gate adds actual trainer admission, overlapping status memberships and versioned denominators; no local upstream/runtime/provider/model execution or scientific-status upgrade.",
+  "last_updated_at": "2026-10-23T22:19:13.409761+00:00",
+  "observation_note": "All 189 prior source objects preserved. Verifiers #2972 adds a whole-episode rejection at native GEPA scoring when any trace is dropped; rollouts have already completed, and reflection has no independent guard. Pin optimization admission separately from persistence, spent rollout cost and downstream trainer filtering. Four immutable source pairs verified; no upstream/runtime/model execution or scientific-status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6701,6 +6701,52 @@
       "source_receipt": "research/receipts/20261022T220202Z-verifiers-trace-drop.json",
       "evidence_record": "research/2026-10-22-trace-drop-and-training-admission.md",
       "dedupe_key": "verifiers:2960@2f6ed0ce6e04e26b713801a3e701e857b6f36452"
+    },
+    {
+      "id": "verifiers-2972-gepa-rejects-dropped-episodes",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2972",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "xeophon",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE Git blob verified; upstream implementations not bundled",
+      "published_at": "2026-10-23T20:39:19Z",
+      "updated_at": "2026-10-23T20:42:29Z",
+      "recorded_at": "2026-10-23T22:18:18.313163+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "Before returning its EvaluationBatch, evaluate computes scores with _episode_score after _run_batch has completed.",
+        "The landed guard rejects an entire episode if any trace is_dropped, including a reward-less dropped seat or one retaining prior rewards.",
+        "Unchanged scoring averages trace.reward over traces with a truthy rewards map; no such traces yields 0.0. Finite recorded zero remains in that mean.",
+        "Trace.is_dropped checks dropped is not None, and drop does not clear rewards. Trace/episode definitions are identical across this parent and landing.",
+        "make_reflective_dataset has no separate dropped guard. Normal evaluate refuses to return trajectories for such a batch, but this does not validate externally constructed batches.",
+        "_run_batch passes on_complete into env.run_slot before scoring. The guard is after rollout; it provides no rollback of model cost or earlier persistence callbacks.",
+        "The merge changes one production file and adds no test. Full upstream imports, runner teardown/retry/recovery and downstream prime-rl admission were not executed or fully reviewed."
+      ],
+      "author_assertion": [
+        "The PR describes rejecting dropped examples because GEPA requires one numeric score per input; no author runtime/test result is adopted."
+      ],
+      "our_inference": "Pin this GEPA admission boundary separately from trace storage and trainer filtering. A mixed-seat drop is a failed optimization batch, not a selectively reduced scoring denominator; attempted rollout costs and persisted artifacts still need accounting.",
+      "merge_commits": [
+        "fe1f4bcd398f3783fd30d1016f59230dee1884b7"
+      ],
+      "time_classification": "New landing at 2026-10-23T20:42:29Z after the preceding radar cutoff; PR creation at 20:39:19Z is distinct.",
+      "measured": {
+        "source_file_pairs_verified": 4,
+        "changed_source_file_pairs": 1,
+        "new_test_files_in_merge": 0,
+        "local_upstream_test_executions": 0,
+        "local_model_or_kernel_executions": 0,
+        "runtime_or_provider_behavior_proven": false
+      },
+      "next_falsifiable_gate": "Freeze native GEPA/Verifiers versions, fixed candidate/task/seat IDs and resource limits. Verify finite zero and reward-less nondropped controls, empty-reason drop, dropped prior reward and mixed seats through actual evaluate(capture_traces=True). Require explicit batch failure with no returned score/trajectory membership, account for completed rollout cost and persistence, and inspect actual optimize teardown/retry/two-process recovery. Test reflection with externally supplied batches separately. This is not proof of downstream trainer filtering.",
+      "limitations": [
+        "Static inspection only; no upstream tests, package imports, service, model or training execution.",
+        "Direct adapter caller inspected; external GEPA optimize exception handling and env.run_slot persistence/recovery closure are not established.",
+        "The absence of tests refers to this exact one-file merge, not the entire upstream test suite."
+      ],
+      "source_receipt": "research/receipts/20261023T220622Z-gepa-drop-admission.json",
+      "evidence_record": "research/2026-10-22-trace-drop-and-training-admission.md",
+      "dedupe_key": "verifiers:2972@fe1f4bcd398f3783fd30d1016f59230dee1884b7"
     }
   ]
 }

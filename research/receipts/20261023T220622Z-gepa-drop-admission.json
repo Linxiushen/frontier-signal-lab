@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-23T22:18:18.313163+00:00",
+  "source": "https://github.com/PrimeIntellect-ai/verifiers/pull/2972",
+  "repository": "PrimeIntellect-ai/verifiers",
+  "author": "xeophon",
+  "published_at": "2026-10-23T20:39:19Z",
+  "merged_at": "2026-10-23T20:42:29Z",
+  "merge_commit": "fe1f4bcd398f3783fd30d1016f59230dee1884b7",
+  "parent_commit": "6bc2ea8fad467b6b4bf69a6e78e9bb37f64904b6",
+  "review_level": "immutable source bytes and static AST/caller inspection only",
+  "changed_files": 1,
+  "added_lines": 2,
+  "deleted_lines": 0,
+  "added_test_files": 0,
+  "complete_blob_pairs": {
+    "parent": {
+      "verifiers/v1/gepa/adapter.py": {
+        "git_blob": "20fc95254e6e8c80909f5aaac18e8101e048fe3f",
+        "sha256": "60dbc7311d8be54b65fafb4f7e367198309ddad4dca003d61ba6951a757589c3",
+        "bytes": 6139,
+        "response_sha256": "579de0cbecd7a8d026ecc252fab9f71b8162386101872dedc3ef3d719c8801d3"
+      },
+      "verifiers/v1/trace.py": {
+        "git_blob": "0b0e8e85300c80ef41870ff417d8a462c69acaea",
+        "sha256": "d946c1a8f7bd687ae158e50967442615be613a02023da34ed6e8e1c5f85b1408",
+        "bytes": 32925,
+        "response_sha256": "579de0cbecd7a8d026ecc252fab9f71b8162386101872dedc3ef3d719c8801d3"
+      },
+      "verifiers/v1/episode.py": {
+        "git_blob": "3335beb1c69ccb5959a4980ed4f82213d3812ae1",
+        "sha256": "50fb40d36686580f9f63c709284b9808cb505673cdd42d0148dd772e080d4fc5",
+        "bytes": 5986,
+        "response_sha256": "579de0cbecd7a8d026ecc252fab9f71b8162386101872dedc3ef3d719c8801d3"
+      },
+      "LICENSE": {
+        "git_blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+        "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+        "bytes": 1072,
+        "response_sha256": "579de0cbecd7a8d026ecc252fab9f71b8162386101872dedc3ef3d719c8801d3"
+      }
+    },
+    "landed": {
+      "verifiers/v1/gepa/adapter.py": {
+        "git_blob": "66f48b572ae9b2e953f0b10fdbc2f0cc35cb2ac6",
+        "sha256": "98ce75b244c9ef0c54e47edd855ef1ff2e74e42d3d70dbfe0a13812d478da783",
+        "bytes": 6280,
+        "response_sha256": "c6eaa87dc1e65e7db7bd2e74474750a4a53258c4144c8e03a2f1604bf0e73268"
+      },
+      "verifiers/v1/trace.py": {
+        "git_blob": "0b0e8e85300c80ef41870ff417d8a462c69acaea",
+        "sha256": "d946c1a8f7bd687ae158e50967442615be613a02023da34ed6e8e1c5f85b1408",
+        "bytes": 32925,
+        "response_sha256": "c6eaa87dc1e65e7db7bd2e74474750a4a53258c4144c8e03a2f1604bf0e73268"
+      },
+      "verifiers/v1/episode.py": {
+        "git_blob": "3335beb1c69ccb5959a4980ed4f82213d3812ae1",
+        "sha256": "50fb40d36686580f9f63c709284b9808cb505673cdd42d0148dd772e080d4fc5",
+        "bytes": 5986,
+        "response_sha256": "c6eaa87dc1e65e7db7bd2e74474750a4a53258c4144c8e03a2f1604bf0e73268"
+      },
+      "LICENSE": {
+        "git_blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+        "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+        "bytes": 1072,
+        "response_sha256": "c6eaa87dc1e65e7db7bd2e74474750a4a53258c4144c8e03a2f1604bf0e73268"
+      }
+    }
+  },
+  "exact_two_line_insertion_verified": true,
+  "PR_and_merge_patch_equal": true,
+  "unified_diff_sha256": "5a84f224eba559ca6053c0a51895065523d21cf13852786691e004388add252b",
+  "landed_function_lines": {
+    "_episode_score": {
+      "start": 119,
+      "end": 126
+    },
+    "evaluate": {
+      "start": 50,
+      "end": 68
+    },
+    "_run_batch": {
+      "start": 70,
+      "end": 82
+    },
+    "make_reflective_dataset": {
+      "start": 84,
+      "end": 116
+    }
+  },
+  "license": {
+    "spdx": "MIT",
+    "git_blob": "fc56d94758d989faa0316d627fe5d95807855c4b",
+    "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+    "bytes": 1072,
+    "response_sha256": "c6eaa87dc1e65e7db7bd2e74474750a4a53258c4144c8e03a2f1604bf0e73268"
+  },
+  "facts": [
+    "Before returning its EvaluationBatch, evaluate computes scores with _episode_score after _run_batch has completed.",
+    "The landed guard rejects an entire episode if any trace is_dropped, including a reward-less dropped seat or one retaining prior rewards.",
+    "Unchanged scoring averages trace.reward over traces with a truthy rewards map; no such traces yields 0.0. Finite recorded zero remains in that mean.",
+    "Trace.is_dropped checks dropped is not None, and drop does not clear rewards. Trace/episode definitions are identical across this parent and landing.",
+    "make_reflective_dataset has no separate dropped guard. Normal evaluate refuses to return trajectories for such a batch, but this does not validate externally constructed batches.",
+    "_run_batch passes on_complete into env.run_slot before scoring. The guard is after rollout; it provides no rollback of model cost or earlier persistence callbacks.",
+    "The merge changes one production file and adds no test. Full upstream imports, runner teardown/retry/recovery and downstream prime-rl admission were not executed or fully reviewed."
+  ],
+  "our_inference": "Pin this GEPA admission boundary separately from trace storage and trainer filtering. A mixed-seat drop is a failed optimization batch, not a selectively reduced scoring denominator; attempted rollout costs and persisted artifacts still need accounting.",
+  "local_upstream_test_executions": 0,
+  "scientific_experiments": 0,
+  "model_executions": 0,
+  "runtime_or_performance_proven": false,
+  "limitations": [
+    "Static inspection only; no upstream tests, package imports, service, model or training execution.",
+    "Direct adapter caller inspected; external GEPA optimize exception handling and env.run_slot persistence/recovery closure are not established.",
+    "The absence of tests refers to this exact one-file merge, not the entire upstream test suite."
+  ]
+}

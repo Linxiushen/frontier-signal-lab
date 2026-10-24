@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-23T22:19:13.409761+00:00",
-  "observation_note": "All 189 prior source objects preserved. Verifiers #2972 adds a whole-episode rejection at native GEPA scoring when any trace is dropped; rollouts have already completed, and reflection has no independent guard. Pin optimization admission separately from persistence, spent rollout cost and downstream trainer filtering. Four immutable source pairs verified; no upstream/runtime/model execution or scientific-status upgrade.",
+  "last_updated_at": "2026-10-24T18:39:59.396595+00:00",
+  "observation_note": "All190prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. No runtime/scientific status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6747,6 +6747,56 @@
       "source_receipt": "research/receipts/20261023T220622Z-gepa-drop-admission.json",
       "evidence_record": "research/2026-10-22-trace-drop-and-training-admission.md",
       "dedupe_key": "verifiers:2972@fe1f4bcd398f3783fd30d1016f59230dee1884b7"
+    },
+    {
+      "id": "pi-6c2fd73-deferred-progress-storage-boundary",
+      "url": "https://github.com/earendil-works/pi/commit/6c2fd73b0c545a4034672cb60e34d53e035dd751",
+      "type": "public_first_party_landed_source_semantics_not_local_runtime_result",
+      "author": "badlogic",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE verified, unchanged from parent. Upstream source not bundled in publication.",
+      "published_at": "2026-10-24T17:49:30Z",
+      "recorded_at": "2026-10-24T18:39:59.396595+00:00",
+      "status": "landed_source_only",
+      "fact": [
+        "Default immediate. Held eligibility requires every write to an existing conversation/latest/initial-fork document at stored version.",
+        "Memory/watch visibility precedes storage; subscribeCommits only publishes actual stored changes/seq.",
+        "Normal transaction must acquire held document AND have writes to reach takeHeld. Pure read and unrelated write do not force persistence.",
+        "Finite timer is queued on mutation line; spec includes line/I/O delay. Infinity arms no deadline timer.",
+        "Selected crash tests use fail/closed/MemoryStorage.reopen, not OS kill or persistent database restart.",
+        "Native generation partial and tool output throttles pass PROGRESS_COMMIT into runtime.commit on pi.live.",
+        "README/spec explicitly permit losing an unstored streamed partial and its unrecorded usage before the first store."
+      ],
+      "author_assertion": [
+        "32 SQLite streams: storage562→99tx/s, disk14.3→4.9MB/s, single-core CPU29→22%; no independent benchmark adopted."
+      ],
+      "our_inference": "H2 must separately identify visible progress, durable storage acknowledgment and external effect acknowledgment. A pure read is not a durability barrier; unknown lost usage still belongs in attempted-cost accounting.",
+      "merge_commits": [
+        "6c2fd73b0c545a4034672cb60e34d53e035dd751"
+      ],
+      "time_classification": "Commit17:49:30Z after preceding radar cutoff; first observed in18:24Z scan. No inference about release/package availability.",
+      "measured": {
+        "saved_existing_blob_pairs": 10,
+        "saved_new_test_blobs": 2,
+        "saved_additional_landed_blobs": 3,
+        "patch_line_reconstructions": 10,
+        "local_upstream_test_executions": 0,
+        "local_runtime_executions": 0,
+        "real_process_restarts": 0
+      },
+      "next_falsifiable_gate": "Separately freeze native Pi durable versions, actual persistence backend, multi-session load and resource limits. Compare immediate/deferred; require read-plus-derived-write atomic dependency and pure-read/unrelated-write negative controls; inject first-store/held/storage/derived-effect failures across two real OS restarts, current authority, cancellation and idempotent effects. Measure attempted/success/unstored/unrecorded-usage membership, useful throughput, end-to-end/tail/durability latency, peak resources and observation cost. No such experiment ran this pass.",
+      "limitations": [
+        "Complete30-file/dependency closure",
+        "Actual SQLite/fsync/crash consistency",
+        "Actual current authority/cancellation/idempotent external effects",
+        "Bounded multi-session admission/liveness",
+        "End-to-end quality/success/tail/resource/observation cost",
+        "Upstream CI and author benchmark reproducibility",
+        "Selected source/test-body review only; simulated fail/reopen tests are not process-restart evidence."
+      ],
+      "source_receipt": "research/receipts/20261024T182345Z-pi-deferred-progress.json",
+      "evidence_record": "research/2026-10-24-deferred-progress-durability.md",
+      "dedupe_key": "pi:deferred-progress@6c2fd73b0c545a4034672cb60e34d53e035dd751"
     }
   ]
 }

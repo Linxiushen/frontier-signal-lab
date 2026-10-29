@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-24T18:39:59.396595+00:00",
+  "last_updated_at": "2026-10-29T13:59:24.563678+00:00",
   "observation_note": "All190prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. No runtime/scientific status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -6797,6 +6797,50 @@
       "source_receipt": "research/receipts/20261024T182345Z-pi-deferred-progress.json",
       "evidence_record": "research/2026-10-24-deferred-progress-durability.md",
       "dedupe_key": "pi:deferred-progress@6c2fd73b0c545a4034672cb60e34d53e035dd751"
+    },
+    {
+      "id": "fla-1607-bounded-gate-derivative-stability",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1607",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "zhiyuan1i",
+      "repository_public": true,
+      "license": "MIT; exact landed LICENSE body/blob verified; no implementation redistributed",
+      "published_at": "2026-10-29T03:36:44Z",
+      "updated_at": "2026-10-29T08:08:37Z",
+      "recorded_at": "2026-10-29T13:59:24.563678+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "PR1607 is merged at08:08:37Z with the pinned54ab79 commit. Proposal creation03:36:44Z predates previous07:33 successful cutoff; landing is a new event, not a new proposal.",
+        "Both default and triton-ascend bounded-gate backward branches replace sigmoid(z)*(1-sigmoid(z)) with r=exp(-abs(z)), inv=1/(1+r), r*(inv*inv).",
+        "Full AST comparison isolates that derivative block in each file; forward functions, public interfaces, unbounded branch and remaining source AST are unchanged.",
+        "The complete landing changes only these two source files; it adds no regression-test file."
+      ],
+      "author_assertion": "Author reports saturated-gate derivative stability and formatting passed; explicitly no local accelerator tests. No new tests in the two-file landing.",
+      "our_inference": "Algebraically equivalent derivative evaluation removes the explicit subtraction from one; source inspection alone does not establish compiled-device accuracy, full-gradient trajectories, or end-to-end cost. Pin backend/version and saturated positive/negative gate inputs plus full input/A_log/bias gradient controls before a native long-context comparison.",
+      "merge_commits": [
+        "54ab79ec9cbb4c66ada960e21043870825359a7a"
+      ],
+      "time_classification": "Proposal03:36:44Z was already sampled before prior cutoff; merge08:08:37Z is a new landing within24h, not a newly created proposal.",
+      "measured": {
+        "local_model_or_kernel_executions": 0,
+        "source_file_pairs_verified": 2,
+        "complete_source_blobs": 4,
+        "full_AST_comparisons": 2,
+        "GPU_numerical_or_performance_proven": false
+      },
+      "engineering": {
+        "actual_caller": "fused_kda_gate / KDAGateFunction.backward and the Ascend analogue in KDA training.",
+        "scale_bottleneck": "Bounded-gate saturation can affect gradient propagation in long recurrent/attention training; no local magnitude, prevalence, model quality or throughput measured.",
+        "integration_point": "kda_gate_bwd_kernel and kda_gate_bwd_kernel_npu under USE_LOWER_BOUND.",
+        "validated_level": "Immutable source/metadata/full-AST comparison only; zero native/kernel/accelerator/model/numerical/test execution.",
+        "future_controls": "Before a separately supported native KDA comparison: pin backend/Triton/version/dtype/lower-bound and optional A_log/bias; fix positive/negative saturated and nonsaturated inputs, an independent higher-precision derivative reference, full g/A_log/bias gradients and tolerances before execution. Distinguish subtractive cancellation from tail underflow. Compare complete matched workload quality, useful throughput, end-to-end/tail latency, peak resources and observation cost only if actually measured.",
+        "controls_status": "Recommendations only; no runtime experiment preregistered, authorized by this receipt or executed."
+      },
+      "next_falsifiable_gate": "Before a separately supported native KDA comparison: pin backend/Triton/version/dtype/lower-bound and optional A_log/bias; fix positive/negative saturated and nonsaturated inputs, an independent higher-precision derivative reference, full g/A_log/bias gradients and tolerances before execution. Distinguish subtractive cancellation from tail underflow. Compare complete matched workload quality, useful throughput, end-to-end/tail latency, peak resources and observation cost only if actually measured.",
+      "limitations": "AST equality establishes bounded source differences, not compiled-device arithmetic, model gradients, quality, performance, GPU/multinode or production behavior. Author explicitly did not run accelerator tests; no test file added in landing.",
+      "source_receipt": "research/receipts/20261029T134004Z-kda-bounded-gate.json",
+      "evidence_record": "research/2026-10-29-kda-bounded-gate-derivative.md",
+      "dedupe_key": "fla:1607@54ab79ec9cbb4c66ada960e21043870825359a7a"
     }
   ]
 }

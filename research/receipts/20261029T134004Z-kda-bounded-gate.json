@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-29T13:59:24.563678+00:00",
+  "evidence_class": "Public first-party immutable landed source; no local runtime result.",
+  "repository": "fla-org/flash-linear-attention",
+  "repository_public": true,
+  "repository_owner": "fla-org",
+  "repository_archived": false,
+  "PR_url": "https://github.com/fla-org/flash-linear-attention/pull/1607",
+  "original_proposal_created_at": "2026-10-29T03:36:44Z",
+  "PR_head": "c3506fc272f3d62468cc1feb499e8c342d66cc79",
+  "merged_at": "2026-10-29T08:08:37Z",
+  "landed_commit": "54ab79ec9cbb4c66ada960e21043870825359a7a",
+  "parent_commit": "b0de6fc886300ef99b019591cd67abca3f77527b",
+  "actual_commit_API_author": "zhiyuan1i",
+  "prior_successful_cutoff": "2026-10-29T07:33:19.821445+00:00",
+  "time_classification": "Proposal03:36:44Z was already sampled before prior cutoff; merge08:08:37Z is a new landing within24h, not a newly created proposal.",
+  "acquisition_interval": [
+    "2026-10-29T13:51:42.775150+00:00",
+    "2026-10-29T13:57:59.874648+00:00"
+  ],
+  "GET_requests": 8,
+  "acquisition_retries": 0,
+  "license": {
+    "path": "LICENSE",
+    "ref": "54ab79ec9cbb4c66ada960e21043870825359a7a",
+    "bytes": 1096,
+    "sha256": "41a83c8187efc1e3ccc21909e806a9e52338e69448554d9754706c3d1cd610e7",
+    "git_blob": "7ced50191b7f5f0eec4e14114d2bc613922bc3b2",
+    "SPDX": "MIT"
+  },
+  "source_file_pairs": [
+    {
+      "path": "fla/ops/kda/backends/triton_ascend/gate.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "versions": {
+        "parent": {
+          "ref": "b0de6fc886300ef99b019591cd67abca3f77527b",
+          "bytes": 15971,
+          "sha256": "ee5de9d54cb81afb2cfcb7e2334fedff15cdc0f6cc5f65d407ab38e4831fcea1",
+          "git_blob": "17b75b4778c9bda60e783d903b4268c286ad2ee3",
+          "contents_API": "https://api.github.com/repos/fla-org/flash-linear-attention/contents/fla/ops/kda/backends/triton_ascend/gate.py?ref=b0de6fc886300ef99b019591cd67abca3f77527b",
+          "raw_url": "https://raw.githubusercontent.com/fla-org/flash-linear-attention/b0de6fc886300ef99b019591cd67abca3f77527b/fla/ops/kda/backends/triton_ascend/gate.py"
+        },
+        "landed": {
+          "ref": "54ab79ec9cbb4c66ada960e21043870825359a7a",
+          "bytes": 16087,
+          "sha256": "19fa6bea22c34c1be2adb47759fdc8e9aa4c9baa8fbf7914d6980997d46f3a41",
+          "git_blob": "64e93875bc7fb93003f79e304a345cdd0ef9ff04",
+          "contents_API": "https://api.github.com/repos/fla-org/flash-linear-attention/contents/fla/ops/kda/backends/triton_ascend/gate.py?ref=54ab79ec9cbb4c66ada960e21043870825359a7a",
+          "raw_url": "https://raw.githubusercontent.com/fla-org/flash-linear-attention/54ab79ec9cbb4c66ada960e21043870825359a7a/fla/ops/kda/backends/triton_ascend/gate.py"
+        }
+      },
+      "static_comparison": {
+        "complete_bytes_read": true,
+        "syntax_only_AST_parse": true,
+        "replacement_sites": 1,
+        "replacement_description": "Only the bounded backward sigmoid derivative assignments are replaced by the r=exp(-abs(z)), inv=1/(1+r), r*inv*inv form.",
+        "transformed_parent_AST_sha256": "2c372298b4442c486ef9cdf2d5574ad9525a5df775663a28a81668c4b8900e18",
+        "landed_AST_sha256": "2c372298b4442c486ef9cdf2d5574ad9525a5df775663a28a81668c4b8900e18",
+        "remaining_AST_identical": true,
+        "parent_first_changed_line": 213
+      }
+    },
+    {
+      "path": "fla/ops/kda/gate.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "versions": {
+        "parent": {
+          "ref": "b0de6fc886300ef99b019591cd67abca3f77527b",
+          "bytes": 15939,
+          "sha256": "65cfcd169e3b382f127200a3a23b837412dd39ec063363ddd6e195d57509a2be",
+          "git_blob": "24d066836b73d0059ae27d9a22723f6d3c6ceb9c",
+          "contents_API": "https://api.github.com/repos/fla-org/flash-linear-attention/contents/fla/ops/kda/gate.py?ref=b0de6fc886300ef99b019591cd67abca3f77527b",
+          "raw_url": "https://raw.githubusercontent.com/fla-org/flash-linear-attention/b0de6fc886300ef99b019591cd67abca3f77527b/fla/ops/kda/gate.py"
+        },
+        "landed": {
+          "ref": "54ab79ec9cbb4c66ada960e21043870825359a7a",
+          "bytes": 16055,
+          "sha256": "3279d5df08748932eb280a65ae120194e7a3511bd8053af6853e53ebaa72fe9a",
+          "git_blob": "6b7bd2ea0c81e109793cd9be9abf8977abea88b8",
+          "contents_API": "https://api.github.com/repos/fla-org/flash-linear-attention/contents/fla/ops/kda/gate.py?ref=54ab79ec9cbb4c66ada960e21043870825359a7a",
+          "raw_url": "https://raw.githubusercontent.com/fla-org/flash-linear-attention/54ab79ec9cbb4c66ada960e21043870825359a7a/fla/ops/kda/gate.py"
+        }
+      },
+      "static_comparison": {
+        "complete_bytes_read": true,
+        "syntax_only_AST_parse": true,
+        "replacement_sites": 1,
+        "replacement_description": "Only the bounded backward sigmoid derivative assignments are replaced by the r=exp(-abs(z)), inv=1/(1+r), r*inv*inv form.",
+        "transformed_parent_AST_sha256": "a0939409026d092bd9de175077c5a6a99881759fbb0b4a364e4f779f50abe817",
+        "landed_AST_sha256": "a0939409026d092bd9de175077c5a6a99881759fbb0b4a364e4f779f50abe817",
+        "remaining_AST_identical": true,
+        "parent_first_changed_line": 226
+      }
+    }
+  ],
+  "complete_source_blobs": 4,
+  "patch_totals": {
+    "changed_files": 2,
+    "additions": 8,
+    "deletions": 4,
+    "test_files_added": 0
+  },
+  "facts": [
+    "PR1607 is merged at08:08:37Z with the pinned54ab79 commit. Proposal creation03:36:44Z predates previous07:33 successful cutoff; landing is a new event, not a new proposal.",
+    "Both default and triton-ascend bounded-gate backward branches replace sigmoid(z)*(1-sigmoid(z)) with r=exp(-abs(z)), inv=1/(1+r), r*(inv*inv).",
+    "Full AST comparison isolates that derivative block in each file; forward functions, public interfaces, unbounded branch and remaining source AST are unchanged.",
+    "The complete landing changes only these two source files; it adds no regression-test file."
+  ],
+  "author_assertions": [
+    "The author describes improved saturated-input derivative stability and unchanged forward outputs/APIs/other gradient paths.",
+    "PR reports formatting passed and explicitly says accelerator tests were not run locally. These are author statements, not our execution evidence."
+  ],
+  "distinction_from_prior_source": {
+    "source_id": "fla-1554-safe-gate-dot-precision",
+    "url": "https://github.com/fla-org/flash-linear-attention/pull/1554",
+    "prior": "Eight dot-product input-precision settings in KDA/GDN2 safe-gate diagonal backward.",
+    "current": "Nonlinear bounded-gate derivative cancellation in two KDA gate backward implementations."
+  },
+  "actual_caller": "fused_kda_gate / KDAGateFunction.backward and the Ascend analogue in KDA training.",
+  "scale_bottleneck": "Bounded-gate saturation can affect gradient propagation in long recurrent/attention training; no local magnitude, prevalence, model quality or throughput measured.",
+  "native_integration_point": "kda_gate_bwd_kernel and kda_gate_bwd_kernel_npu under USE_LOWER_BOUND.",
+  "project_inference": "Algebraically equivalent derivative evaluation removes the explicit subtraction from one; source inspection alone does not establish compiled-device accuracy, full-gradient trajectories, or end-to-end cost. Pin backend/version and saturated positive/negative gate inputs plus full input/A_log/bias gradient controls before a native long-context comparison.",
+  "future_falsifiable_controls": "Before a separately supported native KDA comparison: pin backend/Triton/version/dtype/lower-bound and optional A_log/bias; fix positive/negative saturated and nonsaturated inputs, an independent higher-precision derivative reference, full g/A_log/bias gradients and tolerances before execution. Distinguish subtractive cancellation from tail underflow. Compare complete matched workload quality, useful throughput, end-to-end/tail latency, peak resources and observation cost only if actually measured.",
+  "controls_status": "Recommendations only; no runtime experiment preregistered, authorized by this receipt or executed.",
+  "validation_level": "Immutable source/metadata/full-AST comparison only; zero native/kernel/accelerator/model/numerical/test execution.",
+  "local_execution": {
+    "source_imports": 0,
+    "upstream_native_tests": 0,
+    "numerical_evaluations": 0,
+    "models": 0,
+    "optimizer_updates": 0,
+    "scientific_experiments": 0
+  },
+  "CI": "No CI logs or numerical coverage reviewed; no other-party CI presented as local validation.",
+  "limitations": "AST equality establishes bounded source differences, not compiled-device arithmetic, model gradients, quality, performance, GPU/multinode or production behavior. Author explicitly did not run accelerator tests; no test file added in landing.",
+  "unchanged_gates": "H1 same20s local import startup remains unsupported; accepted caller/observer prerequisites stay CLOSED and six joint negative screens/invalid historical parent RSS retained. No H2/H3/H4 gate upgrade.",
+  "implementation_redistributed": false,
+  "portable_core": "Core refs, file lengths, git blob IDs, SHA256 and AST comparison digests are contained here; no ignored run directory is required to interpret this receipt."
+}

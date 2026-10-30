@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-29T13:59:24.563678+00:00",
+  "last_updated_at": "2026-10-30T14:13:15.388604+00:00",
   "observation_note": "All190prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. No runtime/scientific status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -6841,6 +6841,68 @@
       "source_receipt": "research/receipts/20261029T134004Z-kda-bounded-gate.json",
       "evidence_record": "research/2026-10-29-kda-bounded-gate-derivative.md",
       "dedupe_key": "fla:1607@54ab79ec9cbb4c66ada960e21043870825359a7a"
+    },
+    {
+      "id": "openclaw-committed-dashboard-metadata-off-writer-queue-merged",
+      "url": "https://github.com/openclaw/openclaw/pull/188356",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "steipete",
+      "repository_public": true,
+      "license": "Not refetched in the bounded source review; no implementation redistributed.",
+      "published_at": "2026-10-30T13:19:28Z",
+      "merged_at": "2026-10-30T13:51:29Z",
+      "recorded_at": "2026-10-30T14:10:24.614647+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "First-party steipete PR188356 was created 2026-10-30T13:19:28Z and merged 13:51:29Z at 6f098f50, both after prior radar cutoff11:58:11Z. The actual adjacent parent is76db8d72; the PR API base and author benchmark base are different identities.",
+        "Exact adjacent-parent/landed admission-helper diff matches the complete commit patch. The old snapshotOnly bypass additionally required startup read-ready; the landed helper returns run() for snapshotOnly without reserving its writer admission turn. All remaining helper text except this block and the removed import is unchanged.",
+        "Landed SqliteBoardStore.getSnapshotWithHtmlViewMetadata passes snapshotOnly=true (lines252-264). useSnapshot keeps the default false (336-379), as do useWidgetDocument and readWidgetMcpApp through consumeWidgetDocument (349-359,460-489). The non-snapshot helper still obtains the canonical store path and keys:[board] queued admission (252-274).",
+        "The actual durable caller captures environment/path and physical database identity before worker use. consumeRead checks resolved.assertCurrent, reader.assertCurrent, and metadata assertAgentDatabaseReadAdmitted before publication (286-333). These are source checks, not a complete dependency or authorization proof.",
+        "The caller file is absent from the complete six-file landing change list; its landed source was read, not a second parent caller blob. Missing-file identity follows a separate ordered path at307-312 and does not pass the metadata bypass flag.",
+        "The new repository test body warms committed metadata, holds an unrelated writer, and awaits revision1 metadata inside the held writer scope before disposal (worker.test231-242). It does not execute a competing board mutation or a live Gateway request.",
+        "Existing test body244-255 queues an MCP document after an earlier widget write and expects updated revision2 after writer release. Revocation test360-420 now covers target/database revocation for both metadata=true and false, intercepting the read before consumer disclosure; consume must not run.",
+        "Both landed changed TypeScript blobs match the commit API Git blob SHA. Six full change patches were available; only one runtime production file changes. The remaining changes are docs, one performance script/Knip entry and the worker tests."
+      ],
+      "author_assertion": [
+        "PR text says board.get uses committed dashboard metadata which may be superseded, while HTML delivery/capability effects still check current revision/generation/grants. Gateway dispatch, HTML delivery and all capability consumers were not fetched in this capped review.",
+        "Author reports unchanged-main regression timeout120s,59/59 focused tests and synthetic10k-session/24-widget SQLite benchmark with a controlled20ms writer hold. Heavily loaded shared macOS host and mixed warm-wall measurements are disclosed. These are author claims, not our executions or accepted throughput/tail/CPU/allocation results.",
+        "Author records CI run41062393700 as failed and attributes PostgreSQL conformance failure to an inherited config-alias check. No CI endpoint or base/head reproduction was queried/executed here; failure attribution and other-job success remain unverified author claims."
+      ],
+      "our_inference": "H2 should classify descriptive committed metadata separately from effect-bearing ordered reads: removing writer head-of-line waiting may be a useful integration choice only when stale metadata is acceptable and current authority is rechecked at the actual effect boundary. Source control flow alone establishes no bounded capacity, eventual service, current capability safety or restart correctness.",
+      "merge_commits": [
+        "6f098f501e6959d7688334a781a91c6964e044a0"
+      ],
+      "adjacent_parent": "76db8d72287282de7ae7195bc74fdded6e571b68",
+      "time_classification": "New proposal and landing after preceding successful11:58:11Z cutoff; no package/release availability inferred.",
+      "measured": {
+        "source_followup_GETs": 6,
+        "complete_source_blobs": 4,
+        "adjacent_parent_landed_source_pairs": 1,
+        "landed_changed_blobs_hash_verified": 2,
+        "upstream_tests": 0,
+        "runtime": 0,
+        "benchmarks": 0,
+        "OS_restarts": 0
+      },
+      "engineering": {
+        "actual_caller": "SqliteBoardStore durable getSnapshotWithHtmlViewMetadata versus useSnapshot/useWidgetDocument/readWidgetMcpApp; Gateway board.get dispatch is an attributed upstream statement.",
+        "scale_bottleneck": "Descriptive committed metadata may wait behind unrelated same-database writer admission; local effect size and bounded service unmeasured.",
+        "integration_point": "snapshotOnly branch in runOpenClawAgentBoardReadAdmission and existing consumeRead worker path.",
+        "validated_level": "Exact immutable source/control-flow and test-body review only.",
+        "future_controls": "For the existing single actual multi-session H2 runtime, pin authentic adjacent packaged versions and the caller/dependency closure, fixed bounded sessions/stores/arrival load and resource limits. Distinguish committed metadata freshness from ordered document and current revision/generation/grant authorization. Hold unrelated writer and earlier board mutation separately; metadata may report an older committed revision, but effect-bearing reads must honor earlier commits and current authority. Include after-worker/before-publication target/database revocation, alias/cold/missing-store controls, cancellation, bounded admission/backpressure and two real OS restarts. Compare success/freshness/effect correctness, useful throughput, end-to-end/tail latency, queue/resource peaks and observation cost under predeclared limits. Recommendations only; no experiment released.",
+        "controls_status": "Recommendations; no runtime preregistration or experiment execution."
+      },
+      "next_falsifiable_gate": "For the existing single actual multi-session H2 runtime, pin authentic adjacent packaged versions and the caller/dependency closure, fixed bounded sessions/stores/arrival load and resource limits. Distinguish committed metadata freshness from ordered document and current revision/generation/grant authorization. Hold unrelated writer and earlier board mutation separately; metadata may report an older committed revision, but effect-bearing reads must honor earlier commits and current authority. Include after-worker/before-publication target/database revocation, alias/cold/missing-store controls, cancellation, bounded admission/backpressure and two real OS restarts. Compare success/freshness/effect correctness, useful throughput, end-to-end/tail latency, queue/resource peaks and observation cost under predeclared limits. Recommendations only; no experiment released.",
+      "limitations": [
+        "Six GETs total, zero retries; no additional source or CI/network request after the cap.",
+        "Complete adjacent-parent/landed admission helper, landed store caller and landed relevant test read; full parent test only represented by complete commit patch. No full Gateway/HTML/capability, worker/kernel/fixture or import closure.",
+        "No dependency import, native runtime/test, benchmark, numerical/model/training execution or OS-process restart.",
+        "No local performance, liveness, production, accelerator/distributed or full-harness authority acceptance. Author synthetic benchmark/test/CI claims remain separately attributed.",
+        "License not refetched in this source-only cap; proposal publishes our text/hash receipts only and no downloaded implementation."
+      ],
+      "source_receipt": "research/receipts/20261030T135252Z-board-read-admission.json",
+      "evidence_record": "research/2026-10-30-board-metadata-and-effect-order.md",
+      "dedupe_key": "openclaw:188356@6f098f501e6959d7688334a781a91c6964e044a0"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-31T02:17:09.627053+00:00",
+  "last_updated_at": "2026-10-31T06:11:49Z",
   "observation_note": "All prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. Native/runtime/scientific status is not upgraded by source-only records.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -7017,6 +7017,126 @@
       "source_receipt": "research/receipts/20261031T020126Z-openclaw-slow-shutdown.json",
       "evidence_record": "research/2026-10-31-openclaw-slow-shutdown-persistence.md",
       "dedupe_key": "openclaw:188920@4e55843a8e01be918b282a81193b96633912a858"
+    },
+    {
+      "id": "fla-mom-stable-sort-causal",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1628",
+      "type": "public_first_party_open_pr_source_semantics_not_local_runtime_result",
+      "author": "Zhe Wang (flyingdoubleG)",
+      "repository_public": true,
+      "license": "MIT; API metadata verified; no implementation redistributed.",
+      "published_at": "2026-10-31T03:49:53Z",
+      "recorded_at": "2026-10-31T06:07:34Z",
+      "status": "open_source_only",
+      "fact": [
+        "PR #1628 proposes a one-line native routing fix in fla/layers/mom.py: combined.argsort() becomes combined.argsort(stable=True). Equal (batch,memory) keys therefore retain time order before recurrent memory kernels consume the grouped tokens.",
+        "The exact reviewed PR base is f2ca71c0afb3254b564471e152e73ba5d1cddcaa and head is 7ef83cff107ba5546209a02f81598870e2cb243e. The PR remained open at review; no merge or release is inferred.",
+        "The head adds tests/layers/test_mom_causal.py and removes the known-bug skip from tests/models/test_modeling_mom.py. The new test covers T in {32,64,100} and topk in {1,2}, checking late-token perturbation and prefix/full consistency.",
+        "Immutable source pairs and Git blob hashes were checked for fla/layers/mom.py, tests/layers/test_mom_causal.py and tests/models/test_modeling_mom.py; the parent test path is a verified expected 404. The raw receipt is reports/runs/20261031T055800Z/research/raw/source-pairs/receipt.json."
+      ],
+      "author_assertion": [
+        "The PR body reports a 1-layer MomForCausalLM fp32 workload (hidden_size 64, four memories, top-2, 24-token input): prefix/full max error 2.83 before versus 1.3e-6 after; changing token 20 changes earlier logits by 3.31 before versus 0 after; eight-token prefill plus 16 cached steps diverges by 1.3-3.0 before versus 0 after.",
+        "The author reports all six new causal cases fail before the change and pass after, and that the generation test can be unskipped. These are upstream author claims, not executions by this project.",
+        "The author states validation used the CPU Triton interpreter. No CUDA/GPU run, real-model training, or production deployment was independently performed here."
+      ],
+      "our_inference": "When different routed tokens share a memory, an unstable tie sort can reorder later tokens ahead of earlier tokens before a recurrent update. That permits future information into earlier positions and makes full, prefix and cached decoding disagree. Stable ordering is a plausible minimal semantic repair at the native routing integration point; source review alone does not establish CUDA behavior, training quality or throughput.",
+      "commits": [
+        "7ef83cff107ba5546209a02f81598870e2cb243e"
+      ],
+      "adjacent_parent": "045de42cc515de7c5bd1263b24a6d78e1f2cc695",
+      "base_commit": "f2ca71c0afb3254b564471e152e73ba5d1cddcaa",
+      "head_commit": "7ef83cff107ba5546209a02f81598870e2cb243e",
+      "time_classification": "PR creation preceded this review's radar window, but the reviewed head update is after the preceding snapshot; this records an open candidate change, not a merged release.",
+      "measured": {
+        "github_api_pr_receipts": 1,
+        "source_pair_files": 5,
+        "landed_changed_blob_hash_checks": 3,
+        "local_upstream_tests": 0,
+        "local_runtime_executions": 0,
+        "local_model_training": 0,
+        "gpu_or_cuda_executions": 0,
+        "os_restarts": 0
+      },
+      "engineering": {
+        "actual_caller": "MomAttention.transform/reconstruct in fla/layers/mom.py, called by MomForCausalLM routing and recurrent memory updates.",
+        "workload": "Autoregressive MoM attention with top-k routing of sequence tokens into recurrent memory slots; prefix and cached decoding must preserve causal order.",
+        "scale_bottleneck": "Equal routing keys are reordered by an unstable sort; the resulting semantic error grows with routed sequence length and route collisions, while its cost impact was not measured.",
+        "integration_point": "The existing native route grouping in MomAttention.transform; stable sort is a minimal local change before recurrent kernels, with reconstruction unchanged.",
+        "validated_level": "Immutable GitHub PR/body, commit and source/test blobs reviewed; no local import, test, CPU execution, CUDA execution, full model, training, distributed or production validation.",
+        "future_controls": "Before an H1 gate, pin the exact package and dependencies, seed 42, hidden_size 64, head_dim 32, two heads, four memories, top-k 1/2 and T 32/64/100. Run the causal perturbation, prefix/full and prefill/cache checks independently in CPU Triton interpreter and CUDA controls, then run a fixed small real training/evaluation workload with preregistered correctness tolerances, throughput, tail latency, peak memory and observer cost. Treat GPU and training evidence as separate upgrades; no experiment is released by this source record.",
+        "controls_status": "Recommendations only; no H1/H2/H3/H4 experiment or status upgrade."
+      },
+      "next_falsifiable_gate": "A separately preregistered native MoM run must show zero earlier-position response to a later-token perturbation and prefix/full/cache agreement within fixed tolerances for all six baseline cases on both the declared CPU control and CUDA target; only then assess matched training cost and quality.",
+      "limitations": [
+        "Open PR source and author benchmark claims were not executed locally.",
+        "CPU Triton interpreter evidence does not establish CUDA sort tie behavior, GPU performance, model quality, distributed scaling or production safety.",
+        "No release/package availability, downstream caller closure, or full dependency audit was performed.",
+        "No scientific experiment was run in this round."
+      ],
+      "source_receipt": "reports/runs/20261031T055800Z/research/raw/source-pairs/receipt.json",
+      "evidence_record": "reports/runs/20261031T055800Z/research/fla-mom-1628-source-draft.md",
+      "dedupe_key": "fla:1628@7ef83cff107ba5546209a02f81598870e2cb243e"
+    },
+    {
+      "id": "openclaw-session-search-generic-plan-merged",
+      "url": "https://github.com/openclaw/openclaw/pull/188979",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "Ayaan Zaidi (obviyus)",
+      "repository_public": true,
+      "license": "MIT; API metadata verified; no implementation redistributed.",
+      "published_at": "2026-10-31T02:33:48Z",
+      "merged_at": "2026-10-31T04:23:15Z",
+      "recorded_at": "2026-10-31T06:07:34Z",
+      "status": "merged_source_only",
+      "fact": [
+        "PR #188979 changes the PostgreSQL agent-prefix predicate in src/config/sessions/session-transcript-search.ts from a bound value to Kysely sql.lit(agentPrefix), while keeping other search inputs parameterized and leaving the SQLite GLOB branch unchanged.",
+        "The exact reviewed PR base is 298546d88934bf05bc7e208d13bf6ce2c538e3f2 and head is 8341389b6a4048c3089f05954f0ab978341557bd; it merged as 4f49aa503bcda9ecc5e1a9d2b9a8b0dcea8548e4.",
+        "The source pair shows the production one-line change and a documentation note. The PostgreSQL test file is byte-identical between base and head after the candidate removed its temporary synthetic planner test; this is an observed diff fact, not a claim that the fix lacks regression coverage.",
+        "Immutable source pairs and Git blob hashes were checked for the production source, PostgreSQL test file and PostgreSQL documentation. The raw receipt is reports/runs/20261031T055800Z/research/raw/source-pairs/receipt.json."
+      ],
+      "author_assertion": [
+        "The PR body reports 300 sessions x 20 messages (6,000 rows), four independent runs, 12 real sessions.search RPCs per run on PostgreSQL 17.11 with plan_cache_mode=auto and one retained backend. After call 5, main loses the GIN path and performs 19,108 logical buffer accesses/search with 6,000 transcript primary-key probes; the candidate retains the GIN path at 116 buffers/search, about 99.39% fewer logical buffer accesses.",
+        "The author reports identical rows across all 48 PostgreSQL calls and identical repeated SQLite controls, with 38 existing tests passing. These measurements and tests are public PR claims, not executions or log audits by this project.",
+        "Logical buffer accesses are query-work evidence. They are not physical I/O, fleet latency, tail latency, capacity, or production SLO evidence."
+      ],
+      "our_inference": "Prepared PostgreSQL generic plans can lose selectivity for a stable agent-prefix scope after repeated sessions.search calls. Making only that trusted prefix literal preserves planner-visible selectivity while retaining parameterization for user search inputs and preserving SQLite behavior. The query-local repair is a concrete scaling integration choice; its production benefit still requires independent runtime and fleet measurements.",
+      "merge_commits": [
+        "4f49aa503bcda9ecc5e1a9d2b9a8b0dcea8548e4"
+      ],
+      "adjacent_parent": "4132c8dc2142269fb2d000f5fd7e4dbbe25f1750",
+      "base_commit": "298546d88934bf05bc7e208d13bf6ce2c538e3f2",
+      "head_commit": "8341389b6a4048c3089f05954f0ab978341557bd",
+      "time_classification": "PR and merge occurred after the preceding radar cutoff; this records a merged source change, not package-release or deployment availability.",
+      "measured": {
+        "github_api_pr_receipts": 1,
+        "source_pair_files": 6,
+        "landed_changed_blob_hash_checks": 2,
+        "local_upstream_tests": 0,
+        "local_runtime_executions": 0,
+        "postgresql_executions": 0,
+        "sqlite_executions": 0,
+        "os_restarts": 0,
+        "production_validation": false
+      },
+      "engineering": {
+        "actual_caller": "OpenClaw Gateway sessions.search RPC through searchSessionTranscriptsReadOnlySync and the PostgreSQL session-transcript FTS query.",
+        "workload": "Repeated per-agent transcript searches over many sessions/messages on a reused PostgreSQL connection, where prepared statements transition from custom to generic plans.",
+        "scale_bottleneck": "The generic plan estimates an unknown bound agent prefix, drops the selective GIN path and probes every transcript row in that agent scope; query work scales with transcript rows instead of matching text.",
+        "integration_point": "PostgreSQL prefix predicate in session-transcript-search.ts; literalize only the trusted agentPrefix, keep query text and session/role/search inputs parameterized, and preserve SQLite GLOB semantics.",
+        "validated_level": "Immutable GitHub API PR/merge metadata plus exact production/docs/test source pair and blob review; no local checkout, PostgreSQL/SQLite runtime, native Gateway RPC, benchmark, restart, GPU or production execution.",
+        "future_controls": "Pin the merged OpenClaw package and its adjacent parent, PostgreSQL 17.x and SQLite controls, fixed 300-session x 20-message fixture and rare-term distribution, one retained connection, plan_cache_mode=auto, 12 repeated real Gateway RPCs and fixed CPU/memory/I/O limits. Capture EXPLAIN ANALYZE BUFFERS and pg_stat_statements, result identity, useful throughput, end-to-end/p95/p99 latency, peak resources and observation cost. Add cold/warm, varying agent selectivity, concurrent sessions, cancellation and two-process restart controls before any H2 claim.",
+        "controls_status": "Recommendations only; no runtime experiment or H2 status upgrade."
+      },
+      "next_falsifiable_gate": "A separately preregistered native Gateway run must reproduce result identity while quantifying generic-plan behavior, query work, useful throughput and end-to-end tails across fixed selectivity/concurrency controls; logical-buffer reduction alone cannot pass a production or H2 gate.",
+      "limitations": [
+        "All PostgreSQL/SQLite numbers and 38-test count are author-reported PR evidence; they were not re-run or log-audited locally.",
+        "Logical buffer accesses do not identify physical I/O, host contention, fleet latency, tail behavior, resource peaks or production SLA.",
+        "No package/release availability, full Gateway/dependency closure, concurrent multi-session behavior, cancellation or OS restart was verified.",
+        "No scientific experiment was run in this round."
+      ],
+      "source_receipt": "reports/runs/20261031T055800Z/research/raw/source-pairs/receipt.json",
+      "evidence_record": "reports/runs/20261031T055800Z/research/openclaw-188979-source-draft.md",
+      "dedupe_key": "openclaw:188979@4f49aa503bcda9ecc5e1a9d2b9a8b0dcea8548e4"
     }
   ]
 }

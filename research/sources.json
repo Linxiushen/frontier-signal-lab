@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-30T14:13:15.388604+00:00",
+  "last_updated_at": "2026-10-31T00:18:18.368861+00:00",
   "observation_note": "All190prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. No runtime/scientific status upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -6903,6 +6903,67 @@
       "source_receipt": "research/receipts/20261030T135252Z-board-read-admission.json",
       "evidence_record": "research/2026-10-30-board-metadata-and-effect-order.md",
       "dedupe_key": "openclaw:188356@6f098f501e6959d7688334a781a91c6964e044a0"
+    },
+    {
+      "id": "pi-durable-scope-idle-expiry-and-wake-index",
+      "url": "https://github.com/earendil-works/pi/commit/35dfa757378bd7a8570670e99c2687bdd1039a06",
+      "type": "public_first_party_landed_source_semantics_not_local_runtime_result",
+      "author": "Mario Zechner (badlogic); Git author and committer both Mario Zechner",
+      "repository_public": true,
+      "license": "MIT; exact landed/parent LICENSE bodies fetched and identical. Upstream implementation not bundled in publication.",
+      "published_at": "2026-10-30T23:17:56Z",
+      "recorded_at": "2026-10-31T00:16:40.356717+00:00",
+      "status": "landed_source_only",
+      "fact": [
+        "TaskScheduler follows actual Session commit publications. New/terminal-task changes collect affected ancestor conversations before sweep; settleIdle uses those scopes and falls back to all scopes for unknown ownership or changed unknown-chain knowledge.",
+        "Idle context ranges use an idleSince-ordered index; expiry stops at the first unexpired record. Backward clocks re-sort; zero retention drops every idle range. Entry-only and reconcile paths retain expiry handling, including hosts declining background timers.",
+        "wake scans the sleeping-task index for future deadlines and skips the full live-task eligibility scan while invocation/reconciliation work is active. Sleeping scans, idle live scans and unknown-chain full checks remain; arbitrary graph work is not proven constant.",
+        "New SCHEDULER_IDLE_STATE getter compares incremental idle state against full recomputation on demand; it incurs reference work and is not a free timing observer.",
+        "The complete new test body uses native Harness, synthetic gated tasks, MemoryStorage/ControlledStorage and injected clocks. It covers owner chains/background work, storage reopen/unknown chain, unrelated waiters, sweep ordering, expiry/retention/clock controls, seed42/200-step incremental comparison and wake states. Tests were read, not executed; reopen is not an OS restart.",
+        "All four landed changed blobs match the commit Git blob SHA. Complete adjacent parent/landed harness and scheduler plus changelog were saved; new test is absent at parent (expected404). Exact changed patches and relevant adjacent caller paths were read; full dependency/storage/runtime closure was not audited."
+      ],
+      "author_assertion": [
+        "One Session, one-tool runs, no storage latency: 2048 conversations100→805runs/s,4096conversations46→772runs/s; localSQLite at2048conversations88→459runs/s; CPU/run approximately1.6ms.",
+        "Benchmark host/resources, fixed duration/repetitions/distributions, persistence/fsync settings, raw result hashes and observation overhead were not provided in the reviewed commit. Figures are not our measurements or proof of multi-session/multi-process scaling."
+      ],
+      "our_inference": "Incremental scope invalidation and ordered expiry are a concrete way to reduce retained-context bookkeeping in a native durable harness. This changes the candidate integration choice, not confidence in current authority, admission/backpressure, provider-effect idempotency, two-restart recovery or production capacity.",
+      "landed_commit": "35dfa757378bd7a8570670e99c2687bdd1039a06",
+      "commits": [
+        "35dfa757378bd7a8570670e99c2687bdd1039a06"
+      ],
+      "adjacent_parent": "918c6ffc226d62bc600bb4f12a571406c5e79375",
+      "time_classification": "Commit23:17:56Z is after preceding radar cutoff21:55:39Z on30October; first observed in this pass. No package/release availability inferred.",
+      "measured": {
+        "source_GETs": 10,
+        "successful_source_bodies": 9,
+        "expected_new_file_parent_absence": 1,
+        "adjacent_source_pairs": 3,
+        "landed_new_test_blobs": 1,
+        "landed_changed_blob_hash_checks": 4,
+        "local_upstream_tests": 0,
+        "local_runtime_executions": 0,
+        "local_benchmarks": 0,
+        "real_OS_restarts": 0
+      },
+      "engineering": {
+        "actual_caller": "Pi durable HarnessImpl/TaskScheduler following Session publications, retained ContextRange idle expiry and wake readiness.",
+        "scale_bottleneck": "Repeated whole-context/subtree and live-task scans may add CPU cost per task commit as kept conversations grow; measured effect here remains author-only.",
+        "integration_point": "TaskScheduler #observe→#settleIdle, #idleOrder/#expireContexts, #loadChain→reconcile and wake/#runsNow; on-demand diagnostic exported through HarnessImpl.",
+        "validated_level": "Immutable source/change/test-body review only. No native execution, imported dependency closure or independent performance acceptance.",
+        "future_controls": "Select and pin a single H2 runtime before future preregistration. Separately freeze actual supported persistence/multi-session topology, parent/candidate packages and caller closure, arrival process, fixed conversations/retention/sleeps/owner graphs and CPU/memory/time ceilings. Require zero discrepancy versus full recompute on idle/context/wake identities for normal,unknown-chain,reopen,backward-clock,zero-retention and declined-timer controls. Keep full recompute outside timed measurements; preserve current authority,cancellation,bounded admission,real idempotent effects and two OS restarts in that single H2 runtime. Report attempted/completed/cancelled/restarted/failed work,useful throughput,end-to-end/p95/p99 latency,queue/resource peaks,persistence cost and observer/reference overhead. Numerical performance thresholds must be frozen before a separately released experiment.",
+        "controls_status": "Recommendations only; no runtime preregistration, experiment or scientific gate upgrade."
+      },
+      "next_falsifiable_gate": "Select and pin a single H2 runtime before future preregistration, then independently freeze and run the complete supported native caller with fixed load/resources. Require zero incremental-vs-reference identity/wake mismatches and correct unknown-chain/clock/retention behavior, then current authority,bounded admission,cancellation,real once-only effects and two process restarts. Compare applicable correctness/useful throughput/tails/resources/observation cost under predeclared thresholds; source diagnostics or one Session author rates alone cannot pass these gates.",
+      "limitations": [
+        "No benchmark script/raw measurements/host/resource/time contract or upstream CI inspected.",
+        "No local imports/tests/runtime/model/GPU/distributed/production execution.",
+        "Native test bodies use synthetic work and in-process storage reopen; no real provider effect/current authority/two-process-restart acceptance.",
+        "Full dependency/storage/Session/multi-session package closure unreviewed.",
+        "Whole-scope unknown-chain fallback and sleeping/live scans remain; no universal constant-time or capacity guarantee."
+      ],
+      "source_receipt": "research/receipts/20261030T235954Z-pi-idle-scopes.json",
+      "evidence_record": "research/2026-10-31-pi-idle-scope-and-wake-cost.md",
+      "dedupe_key": "pi:idle-scopes@35dfa757378bd7a8570670e99c2687bdd1039a06"
     }
   ]
 }

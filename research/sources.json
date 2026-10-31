@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-31T06:11:49Z",
+  "last_updated_at": "2026-10-31T08:23:32.626828+00:00",
   "observation_note": "All prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. Native/runtime/scientific status is not upgraded by source-only records.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -7137,6 +7137,57 @@
       "source_receipt": "reports/runs/20261031T055800Z/research/raw/source-pairs/receipt.json",
       "evidence_record": "reports/runs/20261031T055800Z/research/openclaw-188979-source-draft.md",
       "dedupe_key": "openclaw:188979@4f49aa503bcda9ecc5e1a9d2b9a8b0dcea8548e4"
+    },
+    {
+      "id": "transformers-4573-scandir-initialization-backport",
+      "url": "https://github.com/huggingface/transformers/pull/44253",
+      "type": "historical_merged_source_with_local_scanner_component_validation",
+      "author": "Rocketknight1",
+      "repository_public": true,
+      "license": "Apache-2.0; adapted enumeration block attributed with license in third_party/transformers-scandir/",
+      "published_at": "2026-02-24T13:03:40Z",
+      "merged_at": "2026-03-10T12:49:40Z",
+      "recorded_at": "2026-10-31T08:23:32.626828+00:00",
+      "time_classification": "Historical merged fix first inspected this round; not a new publication or package-release claim.",
+      "base_commit": "b7e4da0443af063d531c8c272b1ba0bdfcdf0702",
+      "head_commit": "7f152b3f9e4cfbc242054d0cddfd97b0d170d26d",
+      "merge_commits": [
+        "652f2f7a50096f1fc65356b4e7bb1b50fe1888fc"
+      ],
+      "fact": [
+        "The merged patch changes recursive import-structure directory enumeration from listdir plus redundant isdir calls to scandir/DirEntry metadata; its broader modular/conversion filtering changes are not backported here.",
+        "The pinned local 4.57.3 import_utils.py still has the old enumeration block (SHA256 66b2ac40be2c538dbd9409370c1f6bf769934b8b232edac365e16299c5ec1108). Its installed models tree has 1957 Python files, 409 non-cache directories and 45057855 source bytes, with no symlink/reparse entries found.",
+        "A separately prepared source backport retains original filtering. Executing only three AST-selected stdlib scanner definitions gives identical complete old/new import structures over the actual installed model tree; canonical structure SHA256 257f579368c56c5388aaa71dbc82927ac4f076ab0a4c15989cb69fb3a9366ba0.",
+        "Newly merged PR50047 delays an eager package distribution mapping in current Transformers; that mapping is absent from the pinned 4.57.3 source and is not evidence that it caused or repairs the saved local timeout."
+      ],
+      "our_inference": "The historical enumeration fix is a concrete, narrowly testable initialization candidate for the actual training caller. Source location and directory size do not establish timeout causation; scanner semantic equivalence does not establish native startup success.",
+      "measured": {
+        "stdlib_regressions": 3,
+        "actual_tree_scanner_equivalence_runs": 1,
+        "transformers_module_executions": 0,
+        "model_loads": 0,
+        "native_training_suites": 0,
+        "scientific_experiments": 0,
+        "performance_comparisons": 0
+      },
+      "engineering": {
+        "actual_caller": "The accepted retained-interpreter/ledger caller in experiments/native_training_cost.py, still targeting the unchanged 12-case matched dense/INT8 training workload.",
+        "scale_bottleneck": "Import-structure initialization traverses the entire installed model tree before any model load; redundant per-entry metadata calls are a candidate filesystem cost, not an established cause.",
+        "integration_point": "One hash-guarded enumeration replacement in an isolated copied Transformers4.57.3 runtime; original dependency environment and caller remain intact.",
+        "validated_level": "Source review and stdlib scanner semantics over fixtures and the real installed source tree only; no Transformers import, native startup, training, model quality, GPU or production result.",
+        "acceptance_gate": "Complete isolated-copy provenance, new runtime/executable/path/provider/source freeze, unchanged 20s import and full12-case workload/resource/quality contract. Available disk must meet the original5GiB threshold before any model suite.",
+        "rollback": "Use the original untouched activation-venv; no upstream default branch or installed source was changed."
+      },
+      "next_falsifiable_gate": "After the fixed resource preflight is met, preregister one complete same-caller training attempt with the patched dependency and preserved historical failures; do not rerun the closed stack observer or widen the20s deadline.",
+      "limitations": [
+        "Static stack location is not root cause or deadlock evidence.",
+        "No native startup fix, speedup, memory benefit or scientific status upgrade is claimed.",
+        "No source-runtime or old-venv deletion was performed.",
+        "PR50047 timing remains author-reported and does not apply directly to the pinned source."
+      ],
+      "source_receipt": "reports/runs/20261031T080306Z/h1-static/pr-44253-files.json",
+      "evidence_record": "research/2026-10-31-transformers-startup-backport.md",
+      "dedupe_key": "transformers:44253@652f2f7a50096f1fc65356b4e7bb1b50fe1888fc:local-scanner-only"
     }
   ]
 }

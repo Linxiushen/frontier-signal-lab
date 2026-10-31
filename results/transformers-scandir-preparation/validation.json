@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-10-31T08:28:12.524741+00:00",
+  "status": "dependency_preparation_complete_native_execution_resource_blocked",
+  "upstream_source": "https://github.com/huggingface/transformers/pull/44253",
+  "historical_merge": "652f2f7a50096f1fc65356b4e7bb1b50fe1888fc",
+  "source_sha256": {
+    "scripts/prepare_transformers_scandir_runtime.py": "52eb5aaee28cff67fb1c81eba23a0a2e0e9d341c0cd0eef572abfa03578bab24",
+    "tests/test_transformers_scandir_backport.py": "1fb663d979c0768424ab8cc2e2147b1f47e57a8e3880e2f183c8178f39d5a13c",
+    "research/2026-10-31-transformers-startup-backport.md": "dfc674919fc412b82c9127bdb9326814b6ec25456bde5a1edac8a6017d5e1562",
+    "third_party/transformers-scandir/LICENSE": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+    "third_party/transformers-scandir/NOTICE.md": "4ad41a850bea788e7b5de498b0d822ecc564f9faa5121186a1d9165ee960cb42"
+  },
+  "original_scanner_sha256": "66b2ac40be2c538dbd9409370c1f6bf769934b8b232edac365e16299c5ec1108",
+  "patched_scanner_sha256": "a2334855248d272d4dd60df846d2ba8bc9643c1744f3a8ac63cc6a056a63bff8",
+  "runtime_files": 26720,
+  "runtime_bytes": 757706940,
+  "runtime_manifest_sha256": "18bb7780455d02c3b9d61ecdbe080160ebe7da84161e3197bc70529fdef3ceb2",
+  "changed_runtime_paths": [
+    "Lib/site-packages/transformers/utils/import_utils.py"
+  ],
+  "scanner_component_controls": {
+    "methods": 3,
+    "passed": 3,
+    "skipped": 0,
+    "actual_installed_tree_structure_equal": true,
+    "structure_sha256": "257f579368c56c5388aaa71dbc82927ac4f076ab0a4c15989cb69fb3a9366ba0"
+  },
+  "base_suite": {
+    "methods": 1008,
+    "passed": 927,
+    "skipped": 81,
+    "exit_code": 0,
+    "receipt": "reports/runs/20261031T080306Z/h1-static/full-tests-base.receipt.json"
+  },
+  "earlier_environment_failures_retained": [
+    {
+      "receipt": "full-tests.receipt.json",
+      "errors": 11,
+      "reason": "-S hid required NumPy from site-packages"
+    },
+    {
+      "receipt": "full-tests-corrected.receipt.json",
+      "failures": 3,
+      "reason": "Torch-installed full suite first imported Torch in ordinary unit tests; three historical no-Torch-import assertions are order-sensitive in that environment"
+    }
+  ],
+  "independent_review_sha256": "1107178f8afb66be372516f994608f8d45c836447062c441e0d2bb817becce7a",
+  "free_disk_bytes_observed": 3162566656,
+  "required_free_disk_bytes": 5368709120,
+  "native_pretrained_suites": 0,
+  "scientific_experiments": 0,
+  "native_startup_accepted": false,
+  "performance_compared": false,
+  "original_runtime_unchanged": true,
+  "old_frozen_caller_sources_unchanged": true,
+  "cleanup_performed": false,
+  "scope": "Static dependency backport, isolated disk copy and scanner equivalence only. Full source/runtime cloning verification is producer evidence; independent review checked manifest arithmetic/path difference and selected key bytes, not a second full-tree rehash. No native startup, complete training, quality, memory-saving, GPU or production acceptance.",
+  "next_gate": "Meet original resource preflight, then separately freeze full same-caller12 cases and unchanged20s import deadline with exact copied runtime/provider/executable pins; no observer-only expansion."
+}

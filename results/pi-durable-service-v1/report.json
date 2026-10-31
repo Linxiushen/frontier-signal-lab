@@ -1,0 +1,39 @@
+{
+  "status": "frozen_execution_failed",
+  "execution_accepted": false,
+  "started_at": "2026-10-31T10:26:05.842812+00:00",
+  "completed_at": "2026-10-31T10:26:07.393751+00:00",
+  "scientific_suites": 1,
+  "native_processes": 1,
+  "forced_terminations": 0,
+  "process_restarts": 0,
+  "admission_attempts": 0,
+  "tasks_created": 0,
+  "effects_committed": 0,
+  "model_loads": 0,
+  "retries": 0,
+  "remaining_stages_unexecuted": [
+    1,
+    2
+  ],
+  "stage0_workload_started": false,
+  "failure": "Dynamic import destructured BACKGROUND_CONTEXT from chord/dist/index.js, which does not export it; Harness.open received undefined context and threw before the first conversation or task.",
+  "source_cause_checked_after_outcome": true,
+  "next_gate": "A separate version must resolve chord/context explicitly, validate the real export boundary, and freeze the same complete bounded workload before a later single native attempt. Preserve this failed freeze. No retry or standalone observer expansion.",
+  "memory_scope": "Parent polling of one failed startup process only; no memory/cost/throughput benefit claim.",
+  "sampled_max_private_bytes": 83951616,
+  "observed_os_peak_working_set_bytes": 91418624,
+  "worker_elapsed_seconds": 1.5469999999913853,
+  "pid": 40972,
+  "exit_code": 1,
+  "H1_required_free_disk_bytes_unchanged": 5368709120,
+  "validation": {
+    "node_pure_tests": 2,
+    "canonical_python_methods": 1008,
+    "python_passed": 927,
+    "python_skipped": 81,
+    "prior_wrong_environment_attempt": "python -S hid required NumPy:931methods,11import errors,41skips; raw log retained in ignored run"
+  },
+  "limits": "One Windows host, two conversations in a single durable Session; trusted-host authority versions and SQLite-transaction effects only. No external-provider exactly-once guarantee, concurrent writer authority, independent tenants, GenerationTask/submission11635 reproduction, GPU, distributed or production validation. Request-history grows with accepted requests; only live admission is bounded. Historical H2 gaps/H1 failures and unchanged5GiB H1 gate remain.",
+  "independent_review_sha256": "de790c74294cde49f4a83bb9eb6990e0e0d6d77b23bae4684afa461649325d54"
+}

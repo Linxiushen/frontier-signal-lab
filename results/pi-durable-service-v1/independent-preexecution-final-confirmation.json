@@ -1,0 +1,27 @@
+{
+  "reviewed_at": "2026-10-31T10:25:04.9014616Z",
+  "status": "Static preexecution review complete; identified blocker resolved",
+  "source_sha256": {
+    "experiments/pi_durable_service.mjs": "35bff8e8b3835d0d1f0762a48c255bd687987bfc46ed5344ae054f408e181e89",
+    "scripts/pi_durable_recovery_worker.mjs": "0dc9b40b62789ced28e88bc8b9680cfdd47295af38bfff3476ec0c64827b98ed",
+    "scripts/run_pi_durable_recovery.py": "9426afcc9234784c1efae2facaadaaf6a1abec3c91c1e966dd0a6fe1892e69d7",
+    "experiments/pi_durable_recovery_protocol.json": "17a249aa5f35511d6ad1e48f607e4da5aa5d2336f125817221980a61602173a9",
+    "tests/pi_durable_service.test.mjs": "03d81c371b22ea46448cc3648d9b9f8c7bba0a6a3e8a2c0656be61a53eecd098"
+  },
+  "runtime_executions": 0,
+  "scientific_suites": 0,
+  "tests_executed": 0,
+  "confirmed": [
+    "All worker JSON saves write a PID temporary then same-directory renameSync, including ready files.",
+    "Controller waits bounded by remaining stage/suite times and asserts postwait wall/output limits.",
+    "Admission events emitted after awaited commit, outside transaction; known statuses assert sixadmit/threeduplicate/oneoverload/oneunauthorized/oneconflict.",
+    "Observed doc sequences strict global order; final observed seq equals retained latest SQLite seq and last observed state equals final snapshot.",
+    "Impossible all-history DB equality removed. Protocol explicitly says current-only session checkpoints compact prior revisions; no independent historical coverage claim."
+  ],
+  "limitations": [
+    "Scope and evidence remain two conversations in one Session/database with custom task local SQLite effects.",
+    "Resource memory remains sampled, not hard peak; no production/external effect/model claims.",
+    "This receipt confirms static bytes only; parent must freeze exact hashes and may perform only preregistered sole suite with no retries."
+  ],
+  "supersedes_blocker_receipt": "independent-preexecution-followup-blocker.json"
+}

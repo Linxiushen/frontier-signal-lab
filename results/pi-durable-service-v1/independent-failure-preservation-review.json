@@ -1,0 +1,128 @@
+{
+  "reviewed_at": "2026-10-31T10:27:18.386713+00:00",
+  "status": "failed_attempt_preserved_not_acceptance",
+  "freeze_sha256": "2106ad5bb653936f850092be46e2366675c2564b98d243ab2598d02ed374fd6b",
+  "execution_freeze_matches": true,
+  "source_hashes": {
+    "experiments/pi_durable_recovery_protocol.json": {
+      "expected": "17a249aa5f35511d6ad1e48f607e4da5aa5d2336f125817221980a61602173a9",
+      "actual": "17a249aa5f35511d6ad1e48f607e4da5aa5d2336f125817221980a61602173a9",
+      "match": true
+    },
+    "experiments/pi_durable_service.mjs": {
+      "expected": "35bff8e8b3835d0d1f0762a48c255bd687987bfc46ed5344ae054f408e181e89",
+      "actual": "35bff8e8b3835d0d1f0762a48c255bd687987bfc46ed5344ae054f408e181e89",
+      "match": true
+    },
+    "scripts/pi_durable_recovery_worker.mjs": {
+      "expected": "0dc9b40b62789ced28e88bc8b9680cfdd47295af38bfff3476ec0c64827b98ed",
+      "actual": "0dc9b40b62789ced28e88bc8b9680cfdd47295af38bfff3476ec0c64827b98ed",
+      "match": true
+    },
+    "scripts/run_pi_durable_recovery.py": {
+      "expected": "9426afcc9234784c1efae2facaadaaf6a1abec3c91c1e966dd0a6fe1892e69d7",
+      "actual": "9426afcc9234784c1efae2facaadaaf6a1abec3c91c1e966dd0a6fe1892e69d7",
+      "match": true
+    },
+    "tests/pi_durable_service.test.mjs": {
+      "expected": "03d81c371b22ea46448cc3648d9b9f8c7bba0a6a3e8a2c0656be61a53eecd098",
+      "actual": "03d81c371b22ea46448cc3648d9b9f8c7bba0a6a3e8a2c0656be61a53eecd098",
+      "match": true
+    }
+  },
+  "retained_native_files_before_sha256": {
+    "execution.json": "d1aa7de30857e4dea4f053450aa3849c6276ef3881fc2ec88eb6877c1d2de345",
+    "service.sqlite": "52a371445ce0812ca930aea418e7d7e9d6459f1778a6e14cb56592f08f5a08af",
+    "service.sqlite-shm": "738b58addd268a5cb2323f700e62e1bbbac6fe67f1eea5ceee583f5c40bba05e",
+    "service.sqlite-wal": "96c5231afed64cb57ee2755e433145c22c3b52895d7a0204177019e1d80fa459",
+    "stage0.stderr.txt": "13c8640ab13b11b415e5aa73db946e7a4aa41c48b62bbaa447569cb9ee5d4f21",
+    "stage0.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "original_native_files_unchanged": true,
+  "process_count": 1,
+  "stage0_pid": 40972,
+  "stage0_returncode": 1,
+  "stage0_elapsed_seconds": 1.5469999999913853,
+  "forced_terminations": 0,
+  "restarts_executed": 0,
+  "scientific_suites_consumed": 1,
+  "ready_files": [],
+  "sqlite_copy_readback": {
+    "integrity_check": [
+      [
+        "ok"
+      ]
+    ],
+    "tables": [
+      [
+        "conversations"
+      ],
+      [
+        "document_revisions"
+      ],
+      [
+        "documents"
+      ],
+      [
+        "durable_metadata"
+      ],
+      [
+        "durable_schema"
+      ],
+      [
+        "entries"
+      ],
+      [
+        "record_ids"
+      ],
+      [
+        "submissions"
+      ],
+      [
+        "tasks"
+      ]
+    ],
+    "row_counts": {
+      "conversations": 0,
+      "document_revisions": 0,
+      "documents": 0,
+      "durable_metadata": 1,
+      "durable_schema": 1,
+      "entries": 0,
+      "record_ids": 0,
+      "submissions": 0,
+      "tasks": 0
+    },
+    "tasks_rows": [],
+    "conversations_rows": [],
+    "documents_rows": [],
+    "document_revisions_rows": []
+  },
+  "failure_attribution": {
+    "observed_stack": "Harness.open line377 attempts context.abortSignal when third argument undefined. openService destructures BACKGROUND_CONTEXT from chord dist/index.js.",
+    "static_confirmed": "Installed chord dist/index.js does not export BACKGROUND_CONTEXT; dist/context/index.js exports it. Destructuring missing export yields undefined. Harness.open actual signature is(storage,options,context), so missing context value rather than wrong argument order.",
+    "scope": "Host adapter import/API compatibility failure before conversations/tasks. No upstream Pi scheduler/recovery bug conclusion."
+  },
+  "unexecuted": [
+    "Two conversations creation",
+    "All six task admissions and task effects",
+    "Overload/duplicate/conflict/authority revocation/old-version checks",
+    "Cancellation settlement",
+    "Both effect+checkpoint crash boundaries",
+    "Both forced kills/restarts and all paused-recovery/progress checks",
+    "Four-effect/final zero-active/six-terminal acceptance",
+    "Native runtime performance/quality/production claims"
+  ],
+  "denominators": {
+    "planned_conversations": 2,
+    "planned_admitted_tasks": 6,
+    "planned_success_effects": 4,
+    "planned_denied_effects": 1,
+    "planned_cancelled_effects": 1,
+    "planned_forced_kills": 2,
+    "planned_restarts": 2,
+    "observed_tasks_from_saved_sqlite": 0,
+    "observed_conversations_from_saved_sqlite": 0
+  },
+  "actions": "No native/task/model runtime rerun or test. Read only copied SQLite triple to preserve original WAL/SHM; frozen sources/ledgers unchanged. Any repair requires a separately preregistered future attempt."
+}

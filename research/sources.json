@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-31T00:18:18.368861+00:00",
-  "observation_note": "All190prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. No runtime/scientific status upgrade.",
+  "last_updated_at": "2026-10-31T02:17:09.627053+00:00",
+  "observation_note": "All prior source objects preserved. Pi deferred progress separates memory visibility from actual stored publication; pure reads do not force persistence. Native caller/source/test assertions reviewed; simulated MemoryStorage fail/reopen is not OS recovery evidence. Native/runtime/scientific status is not upgraded by source-only records.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -6964,6 +6964,59 @@
       "source_receipt": "research/receipts/20261030T235954Z-pi-idle-scopes.json",
       "evidence_record": "research/2026-10-31-pi-idle-scope-and-wake-cost.md",
       "dedupe_key": "pi:idle-scopes@35dfa757378bd7a8570670e99c2687bdd1039a06"
+    },
+    {
+      "id": "openclaw-slow-shutdown-persistence-merged",
+      "url": "https://github.com/openclaw/openclaw/pull/188920",
+      "type": "public_first_party_merged_source_semantics_not_local_runtime_result",
+      "author": "steipete",
+      "repository_public": true,
+      "license": "MIT; API metadata verified; no implementation redistributed.",
+      "published_at": "2026-10-31T01:20:26Z",
+      "merged_at": "2026-10-31T01:57:35Z",
+      "recorded_at": "2026-10-31T02:17:09.627053+00:00",
+      "status": "merged_source_only",
+      "fact": [
+        "PR #188920 was created at 2026-10-31T01:20:26Z and merged at 2026-10-31T01:57:35Z as 4e55843a8e01be918b282a81193b96633912a858; the API identifies base 403e12ae73614d77f706a796081127d21e2a2f97 and head 7ef7b81f7d8455a7af476b72bdece048c6a88106.",
+        "The landed production change keeps the required connection-work join alive until accepted finalizers settle before releasing Gateway ownership/state admission, and makes session shutdown wait for accepted persistence siblings.",
+        "The PR body preserves the existing shutdown deadline, hard-exit watchdog, marker-before-cancellation ordering and snapshot abort; it explicitly leaves the production agent-database reopen caller and wider plugin-work fence as follow-ups.",
+        "The upstream body reports a red base regression and candidate Node/Bun focused and process checks, but those executions were not run or independently audited in this project."
+      ],
+      "author_assertion": [
+        "The author reports that the fixed candidate passes restart, SIGTERM, managed-handoff, queued-input and crash/restart scenarios under Node and pinned Bun, with targeted typecheck/lint/format checks.",
+        "The incident timeline attributes persistence invalidation to a five-second diagnostic grace returning before accepted finalizers completed; the exact reopening caller and unrelated exec/spawn-broker failures remain open follow-ups."
+      ],
+      "our_inference": "This is relevant H2 source evidence for retaining custody of already-admitted durable work through shutdown. It sharpens the distinction between coordinator join/lock lifetime and the still-unverified provider, agent-database reopen, current-authority, bounded-admission and two-process-restart contract. Source claims and upstream CI metadata do not upgrade local runtime confidence.",
+      "merge_commits": [
+        "4e55843a8e01be918b282a81193b96633912a858"
+      ],
+      "adjacent_parent": "403e12ae73614d77f706a796081127d21e2a2f97",
+      "time_classification": "New PR and merge after the 2026-10-31T00:08:03Z radar cutoff; this records a landing, not a newly created proposal or package release.",
+      "measured": {
+        "github_api_pr_receipts": 1,
+        "complete_changed_source_review": 0,
+        "local_runtime_or_model_executions": 0,
+        "upstream_tests_executed_by_this_project": 0,
+        "os_restarts": 0,
+        "production_validation": false
+      },
+      "engineering": {
+        "actual_caller": "OpenClaw Gateway shutdown coordinator, state-admission owner and session persistence finalizers described by PR #188920.",
+        "scale_bottleneck": "A fixed diagnostic grace can release shared state admission while accepted finalizers still write; queue size, finalizer tail latency and effect durability were not measured here.",
+        "integration_point": "Required connection-work join and session finalizer sibling settlement before Gateway owner/state-admission retirement.",
+        "validated_level": "Immutable GitHub API PR/merge metadata and saved author patch/body evidence only; no local checkout, native process, provider, GPU or production execution.",
+        "future_controls": "Pin one authentic packaged H2 runtime and adjacent parent, hold coordinator/session admission with delayed finalizers, cancel before provider entry, contrast already-started writes, and independently verify lock/state custody, agent-database reopen, authority, idempotency, bounded settlement and two real process restarts under fixed load/resources. Compare correctness, useful throughput, tails, queue/resource peaks and observation cost only after preregistration.",
+        "controls_status": "Recommendations only; no runtime experiment or preregistration released."
+      },
+      "next_falsifiable_gate": "Pin one authentic packaged H2 runtime and its complete lifecycle/session/provider closure. Hold accepted finalizers beyond the diagnostic grace, exercise pre-entry cancellation and already-started durable writes, then verify exact lock/state/agent-database custody, current authority, once-only effects, bounded settlement and two process restarts with healthy/refused/revoked controls. Keep the upstream source and CI claims separate from local execution.",
+      "limitations": [
+        "No local OpenClaw checkout or reproduction was performed; no GPU, multi-host, provider or production evidence.",
+        "The API PR body and upstream CI/test reports are author-provided evidence; their attribution and execution were not independently audited here.",
+        "The scanner and public-page captures sample bounded endpoints; they do not establish complete repository history or package availability."
+      ],
+      "source_receipt": "research/receipts/20261031T020126Z-openclaw-slow-shutdown.json",
+      "evidence_record": "research/2026-10-31-openclaw-slow-shutdown-persistence.md",
+      "dedupe_key": "openclaw:188920@4e55843a8e01be918b282a81193b96633912a858"
     }
   ]
 }

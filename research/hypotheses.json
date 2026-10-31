@@ -798,7 +798,8 @@
         "openclaw-canonical-fts-tokenizer-upgrade-preservation-merged",
         "openclaw-shutdown-binding-and-queued-recovery-cancellation-merged",
         "openclaw-committed-dashboard-metadata-off-writer-queue-merged",
-        "pi-durable-scope-idle-expiry-and-wake-index"
+        "pi-durable-scope-idle-expiry-and-wake-index",
+        "openclaw-slow-shutdown-persistence-merged"
       ],
       "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -832,13 +833,13 @@
         "research/2026-10-19-shutdown-admission-and-recovery-authority.md"
       ],
       "latest_source_review": {
-        "source_id": "pi-durable-scope-idle-expiry-and-wake-index",
-        "status": "landed_source_only_incremental_idle_scope_and_wake_cost",
-        "record": "research/2026-10-31-pi-idle-scope-and-wake-cost.md",
-        "source_receipt": "research/receipts/20261030T235954Z-pi-idle-scopes.json",
+        "source_id": "openclaw-slow-shutdown-persistence-merged",
+        "status": "merged_source_only_shutdown_finalizer_custody_no_runtime_upgrade",
+        "record": "research/2026-10-31-openclaw-slow-shutdown-persistence.md",
+        "source_receipt": "research/receipts/20261031T020126Z-openclaw-slow-shutdown.json",
         "local_upstream_execution": false,
-        "observation": "Incremental scope invalidation and ordered expiry are a concrete way to reduce retained-context bookkeeping in a native durable harness. This changes the candidate integration choice, not confidence in current authority, admission/backpressure, provider-effect idempotency, two-restart recovery or production capacity.",
-        "next_falsifiable_gate": "Select and pin a single H2 runtime before future preregistration, then independently freeze and run the complete supported native caller with fixed load/resources. Require zero incremental-vs-reference identity/wake mismatches and correct unknown-chain/clock/retention behavior, then current authority,bounded admission,cancellation,real once-only effects and two process restarts. Compare applicable correctness/useful throughput/tails/resources/observation cost under predeclared thresholds; source diagnostics or one Session author rates alone cannot pass these gates."
+        "observation": "OpenClaw #188920 is a concrete upstream repair for releasing Gateway ownership/state admission before accepted persistence finalizers settle. It changes the H2 shutdown-custody failure criteria, while leaving agent-database reopen, provider effects, current authority, bounded admission and two-restart proof unmet.",
+        "next_falsifiable_gate": "Pin one authentic packaged H2 runtime and its complete lifecycle/session/provider closure. Hold accepted finalizers beyond the diagnostic grace, exercise pre-entry cancellation and already-started durable writes, then verify exact lock/state/agent-database custody, current authority, once-only effects, bounded settlement and two process restarts with healthy/refused/revoked controls. Keep the upstream source and CI claims separate from local execution."
       },
       "previous_source_reviews": [
         {
@@ -969,6 +970,15 @@
           "local_upstream_execution": false,
           "observation": "H2 should classify descriptive committed metadata separately from effect-bearing ordered reads: removing writer head-of-line waiting may be a useful integration choice only when stale metadata is acceptable and current authority is rechecked at the actual effect boundary. Source control flow alone establishes no bounded capacity, eventual service, current capability safety or restart correctness.",
           "next_falsifiable_gate": "For the existing single actual multi-session H2 runtime, pin authentic adjacent packaged versions and the caller/dependency closure, fixed bounded sessions/stores/arrival load and resource limits. Distinguish committed metadata freshness from ordered document and current revision/generation/grant authorization. Hold unrelated writer and earlier board mutation separately; metadata may report an older committed revision, but effect-bearing reads must honor earlier commits and current authority. Include after-worker/before-publication target/database revocation, alias/cold/missing-store controls, cancellation, bounded admission/backpressure and two real OS restarts. Compare success/freshness/effect correctness, useful throughput, end-to-end/tail latency, queue/resource peaks and observation cost under predeclared limits. Recommendations only; no experiment released."
+        },
+        {
+          "source_id": "pi-durable-scope-idle-expiry-and-wake-index",
+          "status": "landed_source_only_incremental_idle_scope_and_wake_cost",
+          "record": "research/2026-10-31-pi-idle-scope-and-wake-cost.md",
+          "source_receipt": "research/receipts/20261030T235954Z-pi-idle-scopes.json",
+          "local_upstream_execution": false,
+          "observation": "Incremental scope invalidation and ordered expiry are a concrete way to reduce retained-context bookkeeping in a native durable harness. This changes the candidate integration choice, not confidence in current authority, admission/backpressure, provider-effect idempotency, two-restart recovery or production capacity.",
+          "next_falsifiable_gate": "Select and pin a single H2 runtime before future preregistration, then independently freeze and run the complete supported native caller with fixed load/resources. Require zero incremental-vs-reference identity/wake mismatches and correct unknown-chain/clock/retention behavior, then current authority,bounded admission,cancellation,real once-only effects and two process restarts. Compare applicable correctness/useful throughput/tails/resources/observation cost under predeclared thresholds; source diagnostics or one Session author rates alone cannot pass these gates."
         }
       ],
       "latest_local_primitive_result": {
@@ -1105,5 +1115,5 @@
       }
     }
   ],
-  "last_updated_at": "2026-10-31T00:18:18.368861+00:00"
+  "last_updated_at": "2026-10-31T02:17:09.627053+00:00"
 }

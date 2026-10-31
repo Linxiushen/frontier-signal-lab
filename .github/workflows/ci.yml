@@ -31,6 +31,8 @@ jobs:
         run: python -S scripts/check_pi_durable_service_v1_failure.py
       - name: Preserve rejected durable-service v2 bytes without runtime or database execution
         run: python -S scripts/check_pi_durable_service_v2_failure.py
+      - name: Audit accepted durable-service v3 saved bytes without runtime or database execution
+        run: python -S scripts/check_pi_durable_service_v3.py
       - name: Independently audit saved thread-ledger traces without producer execution
         run: python -S -B experiments/audit_trace_ledger.py --protocol fixtures/trace-ledger/protocol.json --result-dir results/trace-ledger --implementation fixtures/trace-ledger/implementation.json --source-root .
       - name: Preserve the failed native-ledger integration without process execution

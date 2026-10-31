@@ -1,0 +1,122 @@
+{
+  "reviewed_at": "2026-10-31T14:07:37.063627+00:00",
+  "status": "passed",
+  "method": "Independent saved-byte checks; only read-only copied SQLite/WAL/SHM opened; no Harness/native/model/test execution.",
+  "sqlite_copy": "reports\\runs\\20261031T135842Z\\h2-preflight\\independent-v3-sqlite-copy\\service.sqlite",
+  "integrity": "ok",
+  "conversation_ids": [
+    2,
+    8
+  ],
+  "task_outcomes": {
+    "15": {
+      "status": "completed",
+      "result": "committed"
+    },
+    "16": {
+      "status": "completed",
+      "result": "denied"
+    },
+    "17": {
+      "status": "completed",
+      "result": "committed"
+    },
+    "18": {
+      "status": "aborted"
+    },
+    "19": {
+      "status": "completed",
+      "result": "committed"
+    },
+    "20": {
+      "status": "completed",
+      "result": "committed"
+    }
+  },
+  "effects": {
+    "2:one": {
+      "count": 1,
+      "payload": "effect-one"
+    },
+    "8:two": {
+      "count": 1,
+      "payload": "effect-two"
+    },
+    "2:progress": {
+      "count": 1,
+      "payload": "effect-progress"
+    },
+    "2:final": {
+      "count": 1,
+      "payload": "effect-final"
+    }
+  },
+  "denied_and_cancelled_effects_absent": true,
+  "admissions": {
+    "admit": 6,
+    "overloaded": 1,
+    "duplicate": 3,
+    "unauthorized": 1,
+    "conflict": 1
+  },
+  "committed_sequence": [
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    17,
+    20,
+    21,
+    23,
+    24,
+    27,
+    28,
+    30,
+    31
+  ],
+  "retained_document_sequences": [
+    31
+  ],
+  "capacity": 2,
+  "max_observed_active": 2,
+  "process_ids": [
+    45032,
+    9344,
+    20160
+  ],
+  "forced_terminations": 2,
+  "sequential_reopens": 2,
+  "final_exit": 0,
+  "resume_phases": {
+    "stage1_one": [
+      "finish"
+    ],
+    "stage2_two": [
+      "finish"
+    ]
+  },
+  "freeze_sha256": "dceb2b4039efd7e3b4adabd5304e3a3100785ff47ab53941f740e9f1ad2b04c3",
+  "source_hash_counts": {
+    "source_sha256": 8,
+    "preserved_v2_source_sha256": 7,
+    "preserved_v1_source_sha256": 5
+  },
+  "all_source_hashes_match": true,
+  "original_raw_files_unchanged": 21,
+  "original_raw_manifest_sha256": "f0353e2408de54c83e13941c40b18a3970118e447c9a799f2ed9e811a13437d2",
+  "limitations": [
+    "Two conversations share one durable Session/database on one Windows host.",
+    "Custom tasks and local SQLite-transaction effect rows; no model, GenerationTask, provider, external effects or tenant-auth API.",
+    "Only final service revision31 retained in SQLite; historical20 publications checked from saved trace, not independently retained revisions.",
+    "Observed resource samples do not establish continuous peak or observer overhead.",
+    "No distributed/multiwriter/production/external exactly-once conclusion.",
+    "Earlier v1/v2 failures remain failures; this review covers only the separate frozen v3 attempt."
+  ]
+}

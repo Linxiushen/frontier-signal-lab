@@ -800,9 +800,10 @@
         "openclaw-committed-dashboard-metadata-off-writer-queue-merged",
         "pi-durable-scope-idle-expiry-and-wake-index",
         "openclaw-slow-shutdown-persistence-merged",
-        "pi-durable-service-v2-frozen-final-query-failure"
+        "pi-durable-service-v2-frozen-final-query-failure",
+        "pi-durable-service-v3-native-two-restart-slice"
       ],
-      "status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
+      "status": "native_custom_task_harness_slice_passed_full_agent_service_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
       "additional_experiments": [
         "experiments/sqlite_migration_probe.py",
@@ -990,24 +991,52 @@
         "observation": "Actual WAL/FULL/fixed-row snapshot canary: main-only copy remains structurally valid but stale; source and online backup retain g1/exclude uncommitted g2 in six fresh reader processes. Auxiliary WAL/SHM side effects retained; fresh reader reopen is not Gateway restart. No provider effects, authority/cancellation or general liveness evidence."
       },
       "latest_local_service_result": {
-        "source_id": "pi-durable-service-v2-frozen-final-query-failure",
-        "record": "results/pi-durable-service-v2/report.md",
-        "status": "native_workload_observed_frozen_acceptance_failed",
-        "execution_accepted": false,
+        "source_id": "pi-durable-service-v3-native-two-restart-slice",
+        "record": "results/pi-durable-service-v3/report.md",
+        "status": "fixed_native_single_host_slice_accepted",
+        "execution_accepted": true,
         "native_suites": 1,
         "native_processes": 3,
         "forced_terminations": 2,
         "process_restarts": 2,
-        "observed_after_outcome": {
-          "terminal_tasks": 6,
-          "local_effects_count_one": 4,
-          "admission_calls": 12
-        },
-        "failure": "Our final SQL used an unencoded documents.kind; JSON-indexed native lookup returned None. No upstream recovery-defect claim.",
-        "limits": "Post-outcome copy-only observations do not accept the failed freeze. Two conversations in one Session, trusted-host authority, local SQLite effects only; no provider/model/independent tenant/production upgrade.",
-        "next_gate": "Separately named v3 complete controller prepared with encoded-kind lookup, own exact-hash old-freeze guard and six native-schema regressions. Next round separately freeze unchanged v2 producer/worker full workload and original resources; no v2 retry or new observer prerequisite.",
-        "previous_failed_attempt": "results/pi-durable-service-v1/report.md"
-      }
+        "terminal_tasks": 6,
+        "local_effects_count_one": 4,
+        "admission_calls": 12,
+        "limits": "Two conversations share one Session, with trusted-host authority and local transactional effects. No GenerationTask/provider, tenant authentication, distributed/production or matched performance result; history grows.",
+        "next_gate": "Fixed slice gate CLOSED. Next separately preregister bounded arrival load and a supported effect/cancellation boundary on the same adapter, with matched success, useful throughput, tails, resources and observer cost; no observer-only expansion.",
+        "previous_failed_attempts": [
+          "results/pi-durable-service-v1/report.md",
+          "results/pi-durable-service-v2/report.md"
+        ]
+      },
+      "previous_local_service_results": [
+        {
+          "source_id": "pi-durable-service-v2-frozen-final-query-failure",
+          "record": "results/pi-durable-service-v2/report.md",
+          "status": "native_workload_observed_frozen_acceptance_failed",
+          "execution_accepted": false,
+          "native_suites": 1,
+          "native_processes": 3,
+          "forced_terminations": 2,
+          "process_restarts": 2,
+          "observed_after_outcome": {
+            "terminal_tasks": 6,
+            "local_effects_count_one": 4,
+            "admission_calls": 12
+          },
+          "failure": "Our final SQL used an unencoded documents.kind; JSON-indexed native lookup returned None. No upstream recovery-defect claim.",
+          "limits": "Post-outcome copy-only observations do not accept the failed freeze. Two conversations in one Session, trusted-host authority, local SQLite effects only; no provider/model/independent tenant/production upgrade.",
+          "next_gate": "Separately named v3 complete controller prepared with encoded-kind lookup, own exact-hash old-freeze guard and six native-schema regressions. Next round separately freeze unchanged v2 producer/worker full workload and original resources; no v2 retry or new observer prerequisite.",
+          "previous_failed_attempt": "results/pi-durable-service-v1/report.md"
+        }
+      ],
+      "validation_status_history": [
+        {
+          "recorded_at": "2026-10-31T14:10:44.932278+00:00",
+          "previous_status": "independent_sqlite_adapter_and_context_primitives_executed_full_harness_unverified",
+          "scope": "New native custom-task slice evidence; broader scientific inference and full-agent service remain unverified."
+        }
+      ]
     },
     {
       "id": "H3",
@@ -1135,5 +1164,5 @@
       }
     }
   ],
-  "last_updated_at": "2026-10-31T12:14:54.909366+00:00"
+  "last_updated_at": "2026-10-31T14:10:44.932278+00:00"
 }

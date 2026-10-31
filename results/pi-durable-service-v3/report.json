@@ -1,0 +1,144 @@
+{
+  "status": "frozen_native_single_host_slice_passed",
+  "execution_accepted": true,
+  "started_at": "2026-10-31T14:04:13.479358+00:00",
+  "completed_at": "2026-10-31T14:04:18.281600+00:00",
+  "scientific_suites": 1,
+  "native_processes": 3,
+  "forced_terminations": 2,
+  "process_restarts": 2,
+  "admission_attempts": 12,
+  "admission_counts": {
+    "admit": 6,
+    "overloaded": 1,
+    "duplicate": 3,
+    "unauthorized": 1,
+    "conflict": 1
+  },
+  "tasks_created": 6,
+  "terminal_outcomes": {
+    "committed": 4,
+    "denied": 1,
+    "aborted": 1
+  },
+  "intended_effect_success": {
+    "committed": 4,
+    "intended": 4
+  },
+  "local_effects_count_one": 4,
+  "model_loads": 0,
+  "retries": 0,
+  "remaining_stages_unexecuted": [],
+  "observed_document_publications": 20,
+  "observed_document_sequences": [
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    17,
+    20,
+    21,
+    23,
+    24,
+    27,
+    28,
+    30,
+    31
+  ],
+  "retained_document_sequences": [
+    31
+  ],
+  "maximum_observed_active_admissions": 2,
+  "final_active_admissions": 0,
+  "native_wall_seconds_including_startup_and_injected_gates": 4.802242,
+  "descriptive_local_effects_per_native_wall_second": 0.8329442789430438,
+  "admission_elapsed_ms_nearest_rank": {
+    "n": 12,
+    "min": 0.12110000000006949,
+    "p50": 0.9273000000000593,
+    "p95": 1.593599999999924,
+    "p99": 1.593599999999924,
+    "max": 1.593599999999924
+  },
+  "processes": [
+    {
+      "stage": 0,
+      "started_at": "2026-10-31T14:04:13.479643+00:00",
+      "forced_termination": true,
+      "pid": 45032,
+      "ready": {
+        "stage": 0,
+        "pid": 45032,
+        "effectCount": 1
+      },
+      "returncode": 1,
+      "completed_at": "2026-10-31T14:04:15.073153+00:00",
+      "elapsed_seconds": 1.5939999999973224,
+      "memory_samples": 67,
+      "max_sampled_private_bytes": 85278720,
+      "max_observed_OS_peak_working_set_bytes": 92479488
+    },
+    {
+      "stage": 1,
+      "started_at": "2026-10-31T14:04:15.074183+00:00",
+      "forced_termination": true,
+      "pid": 9344,
+      "ready": {
+        "stage": 1,
+        "pid": 9344,
+        "effectCount": 3
+      },
+      "returncode": 1,
+      "completed_at": "2026-10-31T14:04:16.681054+00:00",
+      "elapsed_seconds": 1.5939999999973224,
+      "memory_samples": 57,
+      "max_sampled_private_bytes": 83705856,
+      "max_observed_OS_peak_working_set_bytes": 91877376
+    },
+    {
+      "stage": 2,
+      "started_at": "2026-10-31T14:04:16.683054+00:00",
+      "forced_termination": false,
+      "pid": 20160,
+      "ready": {
+        "stage": 2,
+        "pid": 20160,
+        "effectCount": 4,
+        "closed": true
+      },
+      "returncode": 0,
+      "completed_at": "2026-10-31T14:04:18.269599+00:00",
+      "elapsed_seconds": 1.5779999999940628,
+      "memory_samples": 52,
+      "max_sampled_private_bytes": 84905984,
+      "max_observed_OS_peak_working_set_bytes": 93331456
+    }
+  ],
+  "raw_manifest_sha256": "f0353e2408de54c83e13941c40b18a3970118e447c9a799f2ed9e811a13437d2",
+  "freeze_sha256": "dceb2b4039efd7e3b4adabd5304e3a3100785ff47ab53941f740e9f1ad2b04c3",
+  "independent_review_sha256": "7e1f9af2d4e1a8cd2bf28d368b6b41a41fc039cbd911b0c86d61120810938cd7",
+  "validation": {
+    "canonical_python_methods": 1017,
+    "passed": 936,
+    "skipped": 81,
+    "pure_Node_passed": 2,
+    "real_API_positive_and_wrongroot_negative": "passed;0storage/Harness/tasks",
+    "independent_review": "Copied SQLite/WAL/SHM, saved trace and exact source/raw bytes; no new Harness/task/native-suite execution."
+  },
+  "scope": "One Windows host, two conversations in a single durable Session; trusted-host authority versions and SQLite-transaction effects only. No external-provider exactly-once guarantee, concurrent writer authority, independent tenants, GenerationTask/submission11635 reproduction, GPU, distributed or production validation. Request-history grows with accepted requests; only live admission is bounded. Historical H2 gaps/H1 failures and unchanged5GiB H1 gate remain.",
+  "measurement_limits": "One gated trajectory;12admission timings,3startup-inclusive stage timings. Nearest-rank p95/p99 equal the maximum here and do not establish service tails/SLOs. Effects/native-wall is descriptive, no matched baseline or throughput improvement. No causal observer-overhead measurement, communication benchmark, continuous private peak or full-process terminal peak guarantee. Heap128MiB is not total process memory; resource caps are polled. Database checkpoints compact older revisions and cannot independently prove complete publication history.",
+  "historical_failures": [
+    "results/pi-durable-service-v1/report.md",
+    "results/pi-durable-service-v2/report.md"
+  ],
+  "H1_required_free_disk_bytes_unchanged": 5368709120,
+  "H1_native_execution_started": false,
+  "next_gate": "This fixed single-host custom-task slice is accepted and closed; no more observer prerequisites. Next separately preregister a bounded multi-session arrival load and supported cancellation/effect boundary on this same native adapter, with current-authority changes and two restarts. Use matched useful-work success/throughput/end-to-end tails/resource/observation-cost measures before any capacity or performance claim. Real GenerationTask/provider effects, independent tenant authority and external exactly-once remain unverified. H1 returns directly to the complete fixed training workload only when its original resource gate is met; H3/H4 remain planned."
+}

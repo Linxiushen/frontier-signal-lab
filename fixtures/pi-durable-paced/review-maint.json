@@ -1,0 +1,52 @@
+{
+  "reviewed_at": "2026-10-31T18:12:22.242366+00:00",
+  "status": "passed_for_separate_freeze",
+  "findings": [],
+  "source_sha256": {
+    "experiments/pi_bounded_retry.mjs": "2449cb3c6f53c6db701dd2229ad67f9655411a10f0d66a7747f8fc3a282fcf18",
+    "tests/pi_bounded_retry.test.mjs": "e396ac67d8fa9bf650f5611bf3513d4a8db22f4772eff84369d8bca8a7314747",
+    "scripts/pi_durable_paced_worker.mjs": "473545a47c474c81f8a6f575df67eebdad5257d737d8b3bad9e08e2de4688a25",
+    "experiments/pi_durable_paced_audit.py": "271e71a064d45fa7851429dd143f29589907baf4f24e3a92c2bb8cc413f889f3",
+    "tests/test_pi_durable_paced_audit.py": "312c791807ab5abc59f823bb91c39a60751b29aef7eda8a40afd9506e0d68387",
+    "scripts/run_pi_durable_paced.py": "3ac97265d7c61753cc951bbd98e201e064119120c3696e1d376a55d82b106a03",
+    "experiments/pi_durable_paced_protocol.json": "f10bca9ab7f041eaec589c623f129c2225020ce672ba409c6aaaf1493f1eb080",
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_durable_load_audit.py": "e1f031631047447a84f2cbb7f1fb84f9babdf9b1ece113930c22e1124597189d",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52"
+  },
+  "source_map_sha256": "e9188dd8565891f617f08ddac479e9ed885bfc5882244b877a5b7a2fb75994ec",
+  "resolved_findings": [
+    {
+      "finding": "Native task authority/cancellation metadata insufficiently bound",
+      "resolution": "validate_identity checks input.session/version/hold; each stage authority snapshot checked; fingerprint/task/key mapping preserved; negative controls cover mismatches."
+    },
+    {
+      "finding": "Exhaustion synthetic result contradicted exact last native response check",
+      "resolution": "Queue retains entry.lastResult and exhaustion finishes with it; positive native-key Node and Python audit fixtures cover the valid branch."
+    },
+    {
+      "finding": "Control identities could omit native admission while static result counts asserted effects",
+      "resolution": "All14 controls require unique per-Session native task IDs; DB tasks exact reconciliation and identity validation apply to all; cancellation/denial effect metrics derived from actual bound controls."
+    },
+    {
+      "finding": "200ms wording could imply completion deadline or multiproducer safety",
+      "resolution": "Protocol explicitly limits retry admission start age; async call may finish later; single-owner serial offer/tick, volatile drained queue, growing history and finite non-openloop scope explicit."
+    }
+  ],
+  "checks": {
+    "exact_final10_source_hashes_match": true,
+    "saved_final_preflight4_commands_success": true,
+    "two_independent_Harness_SQLite_paths": true,
+    "stage_pre_effect_and_post_effect_abort_gates": true,
+    "queue_drained_before_crashes": true,
+    "two_real_kill_and_reopen_barriers_per_arm": true,
+    "current_authority_identity_effects_terminal_DB_bound": true,
+    "retry_pending_attempt_start_age_bounds": true,
+    "resource_and_cleanup_limits": true,
+    "no_positive_throughput_threshold_or_general_performance_claim": true,
+    "no_native_model_scientific_execution_by_reviewer": true
+  },
+  "method": "Read-only static source and saved preflight/hash audit. No code edits, test/native/model/SQLite execution by reviewer. This accepts separately freezing the finite proposed suite, not scientific outcomes.",
+  "preflight_receipt_sha256": "b03e78a61fe5d462e64eb3fe4a1066a7b7ae3c2a6d3c4deae9c49b6d8943e902",
+  "scope": "One host, two actual independent Harness/SQLite Session instances per arm, custom trusted-host tasks/local transactional effects, finite gated paced arrivals, one fixed-order refuse/retry pair. No provider, full agent, tenant auth, concurrent producers/writers, external exactly-once, GPU, distributed or production inference."
+}

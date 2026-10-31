@@ -802,9 +802,10 @@
         "openclaw-slow-shutdown-persistence-merged",
         "pi-durable-service-v2-frozen-final-query-failure",
         "pi-durable-service-v3-native-two-restart-slice",
-        "pi-native-bounded-burst-recovery-load"
+        "pi-native-bounded-burst-recovery-load",
+        "pi-native-paced-two-session-bounded-retry"
       ],
-      "status": "native_custom_task_burst_recovery_passed_full_agent_service_unverified",
+      "status": "native_two_session_paced_custom_tasks_passed_full_agent_service_unverified",
       "experiment": "experiments/recovery_contract_probe.py",
       "additional_experiments": [
         "experiments/sqlite_migration_probe.py",
@@ -992,19 +993,19 @@
         "observation": "Actual WAL/FULL/fixed-row snapshot canary: main-only copy remains structurally valid but stale; source and online backup retain g1/exclude uncommitted g2 in six fresh reader processes. Auxiliary WAL/SHM side effects retained; fresh reader reopen is not Gateway restart. No provider effects, authority/cancellation or general liveness evidence."
       },
       "latest_local_service_result": {
-        "source_id": "pi-native-bounded-burst-recovery-load",
-        "record": "results/pi-durable-load/report.md",
-        "status": "fixed_native_bounded_burst_slice_accepted",
+        "source_id": "pi-native-paced-two-session-bounded-retry",
+        "record": "results/pi-durable-paced/report.md",
+        "status": "fixed_native_two_session_paced_custom_task_slice_accepted",
         "execution_accepted": true,
         "native_suites": 1,
-        "arms": 4,
-        "native_process_starts": 12,
-        "forced_terminations": 8,
-        "reopens": 8,
+        "arms": 2,
+        "native_process_starts": 6,
+        "forced_terminations": 4,
+        "reopens": 4,
         "models": 0,
-        "limits": "One Windows host,four logical conversations in one Session perarm,customtasksandtrustedhostauthority,local same-transaction effects. No provider/model/GenerationTask,tenant authentication,external exactly-once,concurrentwriter,multinode/GPU/production validation. Finite burst with injected gates,not open-loop rate sweep. Only activeadmission bounded;request/effecthistorygrows. One order-reversed sink pair percapacity,smalln,no causal/generalperformanceclaim;callback sink costs exclude common subscription/observer/controller costs. HistoricalH1/H2failures unchanged;H1original5GiBgate remains.",
-        "next_gate": "Fixed burst slice CLOSED. Next use this native caller for separately preregistered time-paced arrivals with an explicit bounded retry/backpressure policy and supported pre/post-effect cancellation boundaries; test distinct durable Sessions and actual agent task/provider boundary before multi-session/full-agent claims. No observer-only prerequisite expansion.",
-        "previous_result": "results/pi-durable-service-v3/report.md"
+        "limits": "One Windows host,2distinct nativeHarness/Session SQLite instances perarm,2conversations each,customtasks/trustedhostauthority andlocal sametransaction effects only. No fullGenerationTask/provider/model/tenantauth/concurrentwriters/GPU/distributed/production or externalexactlyonce. Finitepaced gatedwork notstationaryopenloop/SLO/capacityproof;explicitqueuevolatileanddrainedbeforekills,history/finished/request/effectlogs grow. Onefixedorderpair/unequalacceptedcohorts,descriptive costs/no causalbenefitclaim;bufferedlogsflushedbeforecrash,notarbitrarycrashlogdurability. H1original5GiB/H3/H4/oldfailuresunchanged.",
+        "next_gate": "The finite paced/two-native-Session/bounded-pending custom-task gate is CLOSED. Return directly to the same runtime actual GenerationTask/tool/provider boundary under a separate complete preregistration, including two distinct Sessions, bounded load, current authority, cancellation and two process reopens. Use no-cost local provider/transport fixtures if required and label them as fixtures, not model quality; external effect custody/idempotency and full-agent/model/tenant/concurrent-writer/production claims remain unverified. No observer-only prerequisite expansion.",
+        "previous_result": "results/pi-durable-load/report.md"
       },
       "previous_local_service_results": [
         {
@@ -1044,6 +1045,21 @@
             "results/pi-durable-service-v1/report.md",
             "results/pi-durable-service-v2/report.md"
           ]
+        },
+        {
+          "source_id": "pi-native-bounded-burst-recovery-load",
+          "record": "results/pi-durable-load/report.md",
+          "status": "fixed_native_bounded_burst_slice_accepted",
+          "execution_accepted": true,
+          "native_suites": 1,
+          "arms": 4,
+          "native_process_starts": 12,
+          "forced_terminations": 8,
+          "reopens": 8,
+          "models": 0,
+          "limits": "One Windows host,four logical conversations in one Session perarm,customtasksandtrustedhostauthority,local same-transaction effects. No provider/model/GenerationTask,tenant authentication,external exactly-once,concurrentwriter,multinode/GPU/production validation. Finite burst with injected gates,not open-loop rate sweep. Only activeadmission bounded;request/effecthistorygrows. One order-reversed sink pair percapacity,smalln,no causal/generalperformanceclaim;callback sink costs exclude common subscription/observer/controller costs. HistoricalH1/H2failures unchanged;H1original5GiBgate remains.",
+          "next_gate": "Fixed burst slice CLOSED. Next use this native caller for separately preregistered time-paced arrivals with an explicit bounded retry/backpressure policy and supported pre/post-effect cancellation boundaries; test distinct durable Sessions and actual agent task/provider boundary before multi-session/full-agent claims. No observer-only prerequisite expansion.",
+          "previous_result": "results/pi-durable-service-v3/report.md"
         }
       ],
       "validation_status_history": [
@@ -1056,6 +1072,11 @@
           "recorded_at": "2026-10-31T16:16:09.638621+00:00",
           "previous_status": "native_custom_task_harness_slice_passed_full_agent_service_unverified",
           "scope": "Finite native burst caller validation only;fullagent/multiSession/provider/production unverified."
+        },
+        {
+          "recorded_at": "2026-10-31T18:16:33.611335+00:00",
+          "previous_status": "native_custom_task_burst_recovery_passed_full_agent_service_unverified",
+          "scope": "Finite custom tasks on two distinct native Sessions only; full-agent/provider/model/external effects and general service/production claims remain unverified."
         }
       ]
     },
@@ -1185,5 +1206,5 @@
       }
     }
   ],
-  "last_updated_at": "2026-10-31T16:16:09.638621+00:00"
+  "last_updated_at": "2026-10-31T18:16:33.611335+00:00"
 }

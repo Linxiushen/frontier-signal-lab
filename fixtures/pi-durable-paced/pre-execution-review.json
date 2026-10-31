@@ -1,0 +1,130 @@
+{
+  "status": "passed_for_separate_freeze",
+  "recorded_at": "2026-10-31T18:12:44.669684+00:00",
+  "source_sha256": {
+    "experiments/pi_bounded_retry.mjs": "2449cb3c6f53c6db701dd2229ad67f9655411a10f0d66a7747f8fc3a282fcf18",
+    "tests/pi_bounded_retry.test.mjs": "e396ac67d8fa9bf650f5611bf3513d4a8db22f4772eff84369d8bca8a7314747",
+    "scripts/pi_durable_paced_worker.mjs": "473545a47c474c81f8a6f575df67eebdad5257d737d8b3bad9e08e2de4688a25",
+    "experiments/pi_durable_paced_audit.py": "271e71a064d45fa7851429dd143f29589907baf4f24e3a92c2bb8cc413f889f3",
+    "tests/test_pi_durable_paced_audit.py": "312c791807ab5abc59f823bb91c39a60751b29aef7eda8a40afd9506e0d68387",
+    "scripts/run_pi_durable_paced.py": "3ac97265d7c61753cc951bbd98e201e064119120c3696e1d376a55d82b106a03",
+    "experiments/pi_durable_paced_protocol.json": "f10bca9ab7f041eaec589c623f129c2225020ce672ba409c6aaaf1493f1eb080",
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_durable_load_audit.py": "e1f031631047447a84f2cbb7f1fb84f9babdf9b1ece113930c22e1124597189d",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52"
+  },
+  "reviews": [
+    {
+      "path": "fixtures/pi-durable-paced/independent-review-radar.json",
+      "sha256": "3eb44207e8641dd99ced60e995c6825b655ecc770c88d11bfb93a865811db2ad"
+    },
+    {
+      "path": "fixtures/pi-durable-paced/review-maint.json",
+      "sha256": "986fcd967674607cb8e92ef5b74a78ec5baa649b47db8056b13405f7f1112ae5"
+    }
+  ],
+  "preflight": {
+    "checks": [
+      {
+        "label": "python-focused-final",
+        "argv": [
+          "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_pi_durable_paced_audit.py",
+          "-v"
+        ],
+        "started_at": "2026-10-31T18:10:48.544637+00:00",
+        "completed_at": "2026-10-31T18:10:48.881637+00:00",
+        "exit_code": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "46ec606001ff9f45ea621d2035ee782ae23e45291769456b125abf6a59336e02",
+        "tail": [
+          "test_queue_capacity_and_attempt_timing_rejected (test_pi_durable_paced_audit.PacedAuditTest.test_queue_capacity_and_attempt_timing_rejected) ... ok",
+          "test_refusal_cannot_hide_retry_or_pending (test_pi_durable_paced_audit.PacedAuditTest.test_refusal_cannot_hide_retry_or_pending) ... ok",
+          "test_wrong_effect_identity_and_payload_rejected (test_pi_durable_paced_audit.PacedAuditTest.test_wrong_effect_identity_and_payload_rejected) ... ok",
+          "",
+          "----------------------------------------------------------------------",
+          "Ran 9 tests in 0.005s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "label": "node-controls-final",
+        "argv": [
+          "C:/Program Files/nodejs/node.exe",
+          "--test",
+          "tests/pi_bounded_retry.test.mjs",
+          "tests/pi_durable_service_v2.test.mjs"
+        ],
+        "started_at": "2026-10-31T18:10:48.883637+00:00",
+        "completed_at": "2026-10-31T18:10:49.453264+00:00",
+        "exit_code": 0,
+        "stdout_sha256": "86b25aa9dfa4aa8c71aa8602f70c928e93d22926a13ded7c3491948ce402a754",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tail": [
+          "ℹ tests 8",
+          "ℹ suites 0",
+          "ℹ pass 8",
+          "ℹ fail 0",
+          "ℹ cancelled 0",
+          "ℹ skipped 0",
+          "ℹ todo 0",
+          "ℹ duration_ms 326.0882"
+        ]
+      },
+      {
+        "label": "node-syntax-final",
+        "argv": [
+          "C:/Program Files/nodejs/node.exe",
+          "--check",
+          "scripts/pi_durable_paced_worker.mjs"
+        ],
+        "started_at": "2026-10-31T18:10:49.454265+00:00",
+        "completed_at": "2026-10-31T18:10:49.684427+00:00",
+        "exit_code": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tail": []
+      },
+      {
+        "label": "python-full-final",
+        "argv": [
+          "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "started_at": "2026-10-31T18:10:49.685427+00:00",
+        "completed_at": "2026-10-31T18:11:35.864025+00:00",
+        "exit_code": 0,
+        "stdout_sha256": "3ff43393adfd9c3913886cfff3ef266ef6971792897084ade55f0f348ac1b035",
+        "stderr_sha256": "96b83e3f0acec71139a5a1c7ec6052b498bc2bc7a7da957a38beb3fdcd5ccd57",
+        "tail": [
+          "test_operation_and_native_thread_tamper (test_workload_observer_auditor.WorkloadAuditorTests.test_operation_and_native_thread_tamper) ... ok",
+          "test_optional_executable_file_checks_are_explicit (test_workload_observer_auditor.WorkloadAuditorTests.test_optional_executable_file_checks_are_explicit) ... ok",
+          "test_shifted_cleanup_cannot_escape_enclosing_case_wall (test_workload_observer_auditor.WorkloadAuditorTests.test_shifted_cleanup_cannot_escape_enclosing_case_wall) ... ok",
+          "",
+          "----------------------------------------------------------------------",
+          "Ran 1034 tests in 45.159s",
+          "",
+          "OK (skipped=81)"
+        ]
+      }
+    ]
+  }
+}

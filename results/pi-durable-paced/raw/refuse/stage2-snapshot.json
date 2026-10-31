@@ -1,0 +1,484 @@
+{
+  "stage": 2,
+  "pid": 14564,
+  "mode": "refuse",
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 3,
+          "allowed": true
+        },
+        "8": {
+          "version": 3,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db0-control0": {
+          "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+          "taskId": 15
+        },
+        "8:s0-db0-control1": {
+          "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+          "taskId": 16
+        },
+        "2:s1-db0-control0": {
+          "fingerprint": "e47a51b364ee526d8a6a961b0a49f7b5b54b0492d41f49626b40a6c1d0f00610",
+          "taskId": 17
+        },
+        "8:s1-db0-control1": {
+          "fingerprint": "11e60c547f13752f5ae589db585b28c726d7ad5bd3dec2ace5fafaba6a643a35",
+          "taskId": 18
+        },
+        "2:s1-db0-recovery": {
+          "fingerprint": "f99036f526410dbdca6093151d7e9380d8a0248cdfabefd71c508a84967d20c5",
+          "taskId": 19
+        },
+        "2:s2-db0-control0": {
+          "fingerprint": "8873bbd0c784a150e0ad623c4457d2bfcc176bff4ad3a7f47e738ee0e738d58c",
+          "taskId": 20
+        },
+        "8:s2-db0-control1": {
+          "fingerprint": "1cae50b8ea93ac3784526d63a834a1bd205a68f9585bdf13620ea9a75e8313fe",
+          "taskId": 21
+        }
+      },
+      "active": {},
+      "effects": {
+        "2:s0-db0-control0": {
+          "count": 1,
+          "payload": "payload-s0-db0-control0"
+        },
+        "8:s1-db0-control1": {
+          "count": 1,
+          "payload": "payload-s1-db0-control1"
+        },
+        "2:s1-db0-recovery": {
+          "count": 1,
+          "payload": "payload-s1-db0-recovery"
+        },
+        "2:s2-db0-control0": {
+          "count": 1,
+          "payload": "payload-s2-db0-control0"
+        },
+        "8:s2-db0-control1": {
+          "count": 1,
+          "payload": "payload-s2-db0-control1"
+        }
+      },
+      "denied": [
+        "8:s0-db0-control1"
+      ],
+      "cancelled": [
+        "2:s1-db0-control0",
+        "8:s1-db0-control1"
+      ]
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 3,
+          "allowed": true
+        },
+        "8": {
+          "version": 3,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db1-control0": {
+          "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+          "taskId": 15
+        },
+        "8:s0-db1-control1": {
+          "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+          "taskId": 16
+        },
+        "2:s1-db1-control0": {
+          "fingerprint": "8e1f6f758c66fe7bf22d03060e5bb033f35139ca6c007ed22228dd5f549967bf",
+          "taskId": 17
+        },
+        "8:s1-db1-control1": {
+          "fingerprint": "9f80e14b72914d5487ed925e32b57576ef127df9739382831adf8b13d0cf0967",
+          "taskId": 18
+        },
+        "2:s1-db1-recovery": {
+          "fingerprint": "bcd72340e564eb29515bcbc52f0ac96596bcaf8c9e9622d17bbd3af0d52f1c19",
+          "taskId": 19
+        },
+        "2:s2-db1-control0": {
+          "fingerprint": "9a84703cf3731bc86d4c5cb6ca29b9330f82329b3c3a50b90d737759fd2ec261",
+          "taskId": 20
+        },
+        "8:s2-db1-control1": {
+          "fingerprint": "32954c863a7e06513d3a6e8f12f30d4e445d55b05037a71e4d43ce4e60689e74",
+          "taskId": 21
+        }
+      },
+      "active": {},
+      "effects": {
+        "2:s0-db1-control0": {
+          "count": 1,
+          "payload": "payload-s0-db1-control0"
+        },
+        "8:s1-db1-control1": {
+          "count": 1,
+          "payload": "payload-s1-db1-control1"
+        },
+        "2:s1-db1-recovery": {
+          "count": 1,
+          "payload": "payload-s1-db1-recovery"
+        },
+        "2:s2-db1-control0": {
+          "count": 1,
+          "payload": "payload-s2-db1-control0"
+        },
+        "8:s2-db1-control1": {
+          "count": 1,
+          "payload": "payload-s2-db1-control1"
+        }
+      },
+      "denied": [
+        "8:s0-db1-control1"
+      ],
+      "cancelled": [
+        "2:s1-db1-control0",
+        "8:s1-db1-control1"
+      ]
+    }
+  ],
+  "queue": {
+    "pending": [],
+    "maximumPending": 0,
+    "finished": [
+      {
+        "request": {
+          "id": "s2-load0",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load0",
+          "at_epoch_ms": 1793470378843,
+          "scheduled_ms": 0,
+          "offered_ms": 0.09460000000012769
+        },
+        "offeredMs": 1238.8826,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load0"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load0"
+        },
+        "finishedMs": 1239.174
+      },
+      {
+        "request": {
+          "id": "s2-load1",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load1",
+          "at_epoch_ms": 1793470378862,
+          "scheduled_ms": 10,
+          "offered_ms": 18.783300000000054
+        },
+        "offeredMs": 1257.702,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load1"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load1"
+        },
+        "finishedMs": 1258.4214
+      },
+      {
+        "request": {
+          "id": "s2-load2",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load2",
+          "at_epoch_ms": 1793470378877,
+          "scheduled_ms": 20,
+          "offered_ms": 34.027700000000095
+        },
+        "offeredMs": 1272.7555,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load2"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load2"
+        },
+        "finishedMs": 1272.9116
+      },
+      {
+        "request": {
+          "id": "s2-load3",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load3",
+          "at_epoch_ms": 1793470378877,
+          "scheduled_ms": 30,
+          "offered_ms": 34.221700000000055
+        },
+        "offeredMs": 1272.935,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load3"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load3"
+        },
+        "finishedMs": 1273.0315
+      },
+      {
+        "request": {
+          "id": "s2-load4",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load4",
+          "at_epoch_ms": 1793470378892,
+          "scheduled_ms": 40,
+          "offered_ms": 49.214500000000044
+        },
+        "offeredMs": 1287.9379,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load4"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load4"
+        },
+        "finishedMs": 1288.0926
+      },
+      {
+        "request": {
+          "id": "s2-load5",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load5",
+          "at_epoch_ms": 1793470378908,
+          "scheduled_ms": 50,
+          "offered_ms": 65.33520000000021
+        },
+        "offeredMs": 1304.0649,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load5"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load5"
+        },
+        "finishedMs": 1304.2636
+      },
+      {
+        "request": {
+          "id": "s2-load6",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load6",
+          "at_epoch_ms": 1793470378909,
+          "scheduled_ms": 60,
+          "offered_ms": 65.57300000000009
+        },
+        "offeredMs": 1304.284,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load6"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load6"
+        },
+        "finishedMs": 1304.3711
+      },
+      {
+        "request": {
+          "id": "s2-load7",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load7",
+          "at_epoch_ms": 1793470378924,
+          "scheduled_ms": 70,
+          "offered_ms": 81.03930000000014
+        },
+        "offeredMs": 1319.7657,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load7"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load7"
+        },
+        "finishedMs": 1319.9242
+      },
+      {
+        "request": {
+          "id": "s2-load8",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load8",
+          "at_epoch_ms": 1793470378924,
+          "scheduled_ms": 80,
+          "offered_ms": 81.23410000000013
+        },
+        "offeredMs": 1319.945,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load8"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load8"
+        },
+        "finishedMs": 1320.0408
+      },
+      {
+        "request": {
+          "id": "s2-load9",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load9",
+          "at_epoch_ms": 1793470378940,
+          "scheduled_ms": 90,
+          "offered_ms": 97.04680000000008
+        },
+        "offeredMs": 1335.7755,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load9"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load9"
+        },
+        "finishedMs": 1335.9502
+      },
+      {
+        "request": {
+          "id": "s2-load10",
+          "service": 0,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load10",
+          "at_epoch_ms": 1793470378955,
+          "scheduled_ms": 100,
+          "offered_ms": 112.41320000000019
+        },
+        "offeredMs": 1351.1424,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load10"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load10"
+        },
+        "finishedMs": 1351.3202
+      },
+      {
+        "request": {
+          "id": "s2-load11",
+          "service": 1,
+          "conversation": 0,
+          "stage": 2,
+          "kind": "load",
+          "intent": "commit",
+          "hold": false,
+          "payload": "payload-s2-load11",
+          "at_epoch_ms": 1793470378956,
+          "scheduled_ms": 110,
+          "offered_ms": 112.63210000000004
+        },
+        "offeredMs": 1351.3434,
+        "attempts": 1,
+        "lastResult": {
+          "status": "overloaded",
+          "key": "2:s2-load11"
+        },
+        "disposition": "refused",
+        "result": {
+          "status": "overloaded",
+          "key": "2:s2-load11"
+        },
+        "finishedMs": 1351.4361
+      }
+    ]
+  },
+  "elapsed_ms": 1339.6294
+}

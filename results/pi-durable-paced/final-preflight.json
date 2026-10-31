@@ -1,0 +1,104 @@
+{
+  "checks": [
+    {
+      "label": "python-focused-final",
+      "argv": [
+        "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pi_durable_paced_audit.py",
+        "-v"
+      ],
+      "started_at": "2026-10-31T18:10:48.544637+00:00",
+      "completed_at": "2026-10-31T18:10:48.881637+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "46ec606001ff9f45ea621d2035ee782ae23e45291769456b125abf6a59336e02",
+      "tail": [
+        "test_queue_capacity_and_attempt_timing_rejected (test_pi_durable_paced_audit.PacedAuditTest.test_queue_capacity_and_attempt_timing_rejected) ... ok",
+        "test_refusal_cannot_hide_retry_or_pending (test_pi_durable_paced_audit.PacedAuditTest.test_refusal_cannot_hide_retry_or_pending) ... ok",
+        "test_wrong_effect_identity_and_payload_rejected (test_pi_durable_paced_audit.PacedAuditTest.test_wrong_effect_identity_and_payload_rejected) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 9 tests in 0.005s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "label": "node-controls-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--test",
+        "tests/pi_bounded_retry.test.mjs",
+        "tests/pi_durable_service_v2.test.mjs"
+      ],
+      "started_at": "2026-10-31T18:10:48.883637+00:00",
+      "completed_at": "2026-10-31T18:10:49.453264+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "86b25aa9dfa4aa8c71aa8602f70c928e93d22926a13ded7c3491948ce402a754",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": [
+        "\u2139 tests 8",
+        "\u2139 suites 0",
+        "\u2139 pass 8",
+        "\u2139 fail 0",
+        "\u2139 cancelled 0",
+        "\u2139 skipped 0",
+        "\u2139 todo 0",
+        "\u2139 duration_ms 326.0882"
+      ]
+    },
+    {
+      "label": "node-syntax-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--check",
+        "scripts/pi_durable_paced_worker.mjs"
+      ],
+      "started_at": "2026-10-31T18:10:49.454265+00:00",
+      "completed_at": "2026-10-31T18:10:49.684427+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": []
+    },
+    {
+      "label": "python-full-final",
+      "argv": [
+        "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-10-31T18:10:49.685427+00:00",
+      "completed_at": "2026-10-31T18:11:35.864025+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "3ff43393adfd9c3913886cfff3ef266ef6971792897084ade55f0f348ac1b035",
+      "stderr_sha256": "96b83e3f0acec71139a5a1c7ec6052b498bc2bc7a7da957a38beb3fdcd5ccd57",
+      "tail": [
+        "test_operation_and_native_thread_tamper (test_workload_observer_auditor.WorkloadAuditorTests.test_operation_and_native_thread_tamper) ... ok",
+        "test_optional_executable_file_checks_are_explicit (test_workload_observer_auditor.WorkloadAuditorTests.test_optional_executable_file_checks_are_explicit) ... ok",
+        "test_shifted_cleanup_cannot_escape_enclosing_case_wall (test_workload_observer_auditor.WorkloadAuditorTests.test_shifted_cleanup_cannot_escape_enclosing_case_wall) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1034 tests in 45.159s",
+        "",
+        "OK (skipped=81)"
+      ]
+    }
+  ]
+}

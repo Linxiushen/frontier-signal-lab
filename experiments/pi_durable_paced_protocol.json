@@ -1,0 +1,71 @@
+{
+  "name": "pi-native-paced-two-session-bounded-retry-v1",
+  "predeclared_at": "2026-10-31T18:03:19.937619+00:00",
+  "hypothesis": "H2",
+  "suites_permitted": 1,
+  "retries": 0,
+  "caller": "Unchanged accepted pi_durable_service_v2 adapter, two independent Harness (native Session subclasses) and SQLite databases in the same worker process.",
+  "question": "For matched finite 10 ms spaced arrivals into two independent two-slot Sessions, how do immediate refusal and an explicit bounded retry caller differ in accepted useful work and cost, while authority, identity, pre/post-effect cancellation and two process reopens remain correct?",
+  "workload": {
+    "arms_in_order": [
+      {
+        "name": "refuse",
+        "mode": "refuse"
+      },
+      {
+        "name": "retry",
+        "mode": "retry"
+      }
+    ],
+    "durable_sessions_per_arm": 2,
+    "databases_per_arm": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "process_stages_per_arm": 3,
+    "per_stage_paced_load": 12,
+    "load_interval_ms": 10,
+    "load_service_gate_ms": 40,
+    "control_release_ms": 120,
+    "load_schedule": "Alternate2native Sessions; fixed0..110ms per stage, retain offered lateness; never await task completion before offering. Load targets authorized conversation0. Blocking native admit time may delay actual offering; record, do not call exact open-loop generator.",
+    "controls": "Eachstage starts2accepted gate-held controls perSession to force overload. Stage0:one currentauthoritydenial and one heldposteffect survivor perSession. Stage1:one preeffect abort/one posteffectabort retaining its committed effect, then one new post-effect survivor perSession. Stage2:two ordinary commits perSession.6duplicate/conflict/stale probesperstage total.",
+    "recovery": "Controller kills worker after stage0/1 logs and queue drained, one survivor/Session atfinish; reopens both databases in new process, replays finish once, no effect duplication.",
+    "queue": {
+      "pending_capacity": 4,
+      "max_attempts_including_initial": 8,
+      "retry_interval_ms": 20,
+      "overflow": "refuse promptly as backpressured without retaining request",
+      "persistence": "Caller queue volatile and drained before injected crash; no pending-queue crash durability claim",
+      "retry_admission_start_age_limit_ms": 200,
+      "deadline_scope": "Age is checked before starting a retry admission, not an async completion/cancellation deadline. Native admit may block past this age; histories and finished records grow.",
+      "ownership": "One owner awaits offer/tick serially; no concurrent multi-producer guarantee."
+    }
+  },
+  "acceptance": {
+    "native_processes_per_arm": 3,
+    "forced_kills_and_reopens_per_arm": 2,
+    "per_arm_load_unique": 36,
+    "per_arm_control_unique": 14,
+    "correctness": "All 50 offered identities accounted: each of 36 load identities has one final caller disposition; accepted load and all 14 controls have distinct per-Session native terminal records. Authorized accepted effects have count 1 and exact payload; deny/pre-effect abort have zero, post-effect abort retains count 1. Two databases independently reconcile full task/document endpoints and two conversations each; observed active <= 2 each; four recovered finish tasks per arm; pending <= 4; attempts <= 8; retry admission starts >= 20 ms apart and before 200 ms age, not a completion deadline. Report null latency for no accepted load. No positive throughput or acceptance-ratio threshold."
+  },
+  "metrics": [
+    "Load offered36/admitted/refused/backpressured/exhausted and totalattempts separately;14controlidentities separate;allterminal+committedload tails n/nearest-rank p50/p95/p99 includes observed epoch/restart/gate timing limitations.",
+    "Usefulload effects/armwall includingstarts,restarts,DB/audit;fixedorderpair descriptive only,unequalacceptedsets,timing-dependent counts,not causal/generalperformance proof.",
+    "Fixedscheduled and actualoffered lateness, nativeadmission timing, workerprivate/OSworking-sethighwater,callbackserialization+bufferedflush costs, raw/DBbytes;commonobservationshared."
+  ],
+  "suite_wall_seconds": 120,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "limits": "One Windows host,2distinct nativeHarness/Session SQLite instances perarm,2conversations each,customtasks/trustedhostauthority andlocal sametransaction effects only. No fullGenerationTask/provider/model/tenantauth/concurrentwriters/GPU/distributed/production or externalexactlyonce. Finitepaced gatedwork notstationaryopenloop/SLO/capacityproof;explicitqueuevolatileanddrainedbeforekills,history/finished/request/effectlogs grow. Onefixedorderpair/unequalacceptedcohorts,descriptive costs/no causalbenefitclaim;bufferedlogsflushedbeforecrash,notarbitrarycrashlogdurability. H1original5GiB/H3/H4/oldfailuresunchanged.",
+  "engineering": {
+    "actual_caller": "Time-paced caller around the accepted native Session adapter, with two independent SQLite-backed Harness instances.",
+    "scale_bottleneck": "Finite per-Session active capacity overload and caller pending growth, permission changes and repeated task effects after process reopen.",
+    "native_integration": "BoundedRetryQueue calls the unchanged adapter admit; cancellation and recovery use actual Harness task records and persisted same-database effects.",
+    "pre_registered_acceptance": "Exact correctness and resource limits above; fixed finite offered cohort, descriptive cost comparison.",
+    "validated_tier_if_passed": "Single Windows host, native two-Session custom-task integration; synthetic gates, trusted-host authority, local transactional effects, no models or provider service."
+  }
+}

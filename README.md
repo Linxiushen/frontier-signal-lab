@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Pi durable service v2 / rejected final database audit](results/pi-durable-service-v2/report.md) | Three native stages/two process restarts ran; frozen acceptance failed on our JSON-encoded kind lookup. Six terminal tasks/four local effects independently observed after outcome; failure retained, no retry or acceptance upgrade |
 | [Pi durable service v1 / failed native open](results/pi-durable-service-v1/report.md) | One frozen process exits before admission on our context-export error; zero tasks/effects/restarts. All intended H2 service checks remain unexecuted; exact bytes and independent database-copy audit retained, no retry |
 | [Same-caller import stack observation](results/native-training-import-observation/report.md) | One15s stack points to Transformers import-structure construction;20s startup still fails. 0 model loads/updates, five retained exits/empty Job. Location captured, root cause and cost/quality unproven; no retry |
 | [Native complete training cost v2 / import deadline](results/native-training-cost-v2/report.md) | Corrected CLI launches first native case; fixed20s import deadline stops after Transformers-start. 0 model loads/updates/evaluations, 11 remaining cases unrun; five retained exits/empty Job. No cost/quality result or retry; accepted ledger gate stays closed |

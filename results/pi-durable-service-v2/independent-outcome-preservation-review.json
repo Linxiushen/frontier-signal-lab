@@ -1,0 +1,922 @@
+{
+  "reviewed_at": "2026-10-31T12:11:20.919249+00:00",
+  "status": "frozen_acceptance_failed_postoutcome_preservation_only",
+  "execution_accepted": false,
+  "scientific_suites_consumed": 1,
+  "runtime_reruns": 0,
+  "model_loads": 0,
+  "frozen_sources": {
+    "experiments/pi_durable_service_v2.mjs": {
+      "expected": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+      "actual": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+      "match": true
+    },
+    "experiments/pi_durable_recovery_protocol_v2.json": {
+      "expected": "a731fd48179a6f8af72cbc60101b418ad78af307bcf913e9c58c63ffd31cd1c9",
+      "actual": "a731fd48179a6f8af72cbc60101b418ad78af307bcf913e9c58c63ffd31cd1c9",
+      "match": true
+    },
+    "scripts/pi_durable_recovery_worker_v2.mjs": {
+      "expected": "6bd82e0169b5234793d97f3ffab7d9ff73b1af7d0595cc698290cd2790e2b099",
+      "actual": "6bd82e0169b5234793d97f3ffab7d9ff73b1af7d0595cc698290cd2790e2b099",
+      "match": true
+    },
+    "scripts/run_pi_durable_recovery_v2.py": {
+      "expected": "05cacaec76abb0ed27a9b1ee0eb16504c25f42ad24b73c244ebd19e5a8558af8",
+      "actual": "05cacaec76abb0ed27a9b1ee0eb16504c25f42ad24b73c244ebd19e5a8558af8",
+      "match": true
+    },
+    "tests/pi_durable_service_v2.test.mjs": {
+      "expected": "4ed4bfa594c373e907823929a1f907c7c73984e69dc9436d76f7244c0126b8d4",
+      "actual": "4ed4bfa594c373e907823929a1f907c7c73984e69dc9436d76f7244c0126b8d4",
+      "match": true
+    },
+    "scripts/check_pi_durable_exports_v2.mjs": {
+      "expected": "475540e8c8b9a268cd06eb10c2d3ecd5f8a9ccc0b4e9c5e624fdc2fda0a31a98",
+      "actual": "475540e8c8b9a268cd06eb10c2d3ecd5f8a9ccc0b4e9c5e624fdc2fda0a31a98",
+      "match": true
+    },
+    "tests/test_pi_durable_service_v2_controller.py": {
+      "expected": "9860559f5388b1aa97b12e370ef1d0b6b3be3f7ba76333dbdf4cfd9226d6116b",
+      "actual": "9860559f5388b1aa97b12e370ef1d0b6b3be3f7ba76333dbdf4cfd9226d6116b",
+      "match": true
+    }
+  },
+  "v1_frozen5_unchanged": true,
+  "freeze_sha256": "d413c5438e0fe61b9da75750ef3082ce9ba0f59570ec879be9b846c2988efe7d",
+  "raw_originals_before_sha256": {
+    "execution.json": "0cf571e732957d0923052a039e2d9e9c7bcd903a40075ad777376a8a46e7e967",
+    "identities-final.json": "59b5a69035792c8b745af35287869cd182a5f48b2b2c26eec9c05b5fa273a426",
+    "identities.json": "69518f2fc478bee289fea3c573adfb6b49e0b1d33f0ed530669273a6ce795e90",
+    "service.sqlite": "9fbe22b0494128f764aa60104467252812f6e9bdba56c1c7dbaccca87ed3f009",
+    "service.sqlite-shm": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+    "service.sqlite-wal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage0-ready.json": "23e24592514be95d19f526c029dfd5ba9f0019e9afd78e1df4f1c25673353f4e",
+    "stage0-snapshot.json": "999431de565d6d5eeed016412be044dc652961140edbd1cc5e74cbb41a8ee507",
+    "stage0.jsonl": "b4e509b05c1f9609b6b802aa641351535af6747dce8f484a4ab3381e7e3cacd7",
+    "stage0.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage0.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage1-ready.json": "326e26bd868714f999e32fe16058d66251282a0b91ae995728fa5b8dff31b25e",
+    "stage1-snapshot.json": "641b4f40d05a2e8e8de52e0fc8314a340a21961c55d953513227817ab5084135",
+    "stage1.jsonl": "8497843d51166df9833229930f7069efbdaa3d7d2de8b067a57a338442944e8f",
+    "stage1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage2-ready.json": "8dcabd03598b77ee33f4a99d189b143d9ef096f741aabc6b0ec3cea89e5fd786",
+    "stage2-snapshot.json": "f098cdd41a33d3a5191ad67debaa66f314264d223938ef0db1061481af744acf",
+    "stage2.jsonl": "f316e201f5f3d8205b0b6c1e9225ef75f3c555e9026b6a1895982ba0c144d733",
+    "stage2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_originals_after_sha256": {
+    "execution.json": "0cf571e732957d0923052a039e2d9e9c7bcd903a40075ad777376a8a46e7e967",
+    "identities-final.json": "59b5a69035792c8b745af35287869cd182a5f48b2b2c26eec9c05b5fa273a426",
+    "identities.json": "69518f2fc478bee289fea3c573adfb6b49e0b1d33f0ed530669273a6ce795e90",
+    "service.sqlite": "9fbe22b0494128f764aa60104467252812f6e9bdba56c1c7dbaccca87ed3f009",
+    "service.sqlite-shm": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+    "service.sqlite-wal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage0-ready.json": "23e24592514be95d19f526c029dfd5ba9f0019e9afd78e1df4f1c25673353f4e",
+    "stage0-snapshot.json": "999431de565d6d5eeed016412be044dc652961140edbd1cc5e74cbb41a8ee507",
+    "stage0.jsonl": "b4e509b05c1f9609b6b802aa641351535af6747dce8f484a4ab3381e7e3cacd7",
+    "stage0.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage0.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage1-ready.json": "326e26bd868714f999e32fe16058d66251282a0b91ae995728fa5b8dff31b25e",
+    "stage1-snapshot.json": "641b4f40d05a2e8e8de52e0fc8314a340a21961c55d953513227817ab5084135",
+    "stage1.jsonl": "8497843d51166df9833229930f7069efbdaa3d7d2de8b067a57a338442944e8f",
+    "stage1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage2-ready.json": "8dcabd03598b77ee33f4a99d189b143d9ef096f741aabc6b0ec3cea89e5fd786",
+    "stage2-snapshot.json": "f098cdd41a33d3a5191ad67debaa66f314264d223938ef0db1061481af744acf",
+    "stage2.jsonl": "f316e201f5f3d8205b0b6c1e9225ef75f3c555e9026b6a1895982ba0c144d733",
+    "stage2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_originals_unchanged": true,
+  "copied_database_before_read_sha256": {
+    "service.sqlite": "9fbe22b0494128f764aa60104467252812f6e9bdba56c1c7dbaccca87ed3f009",
+    "service.sqlite-shm": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+    "service.sqlite-wal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "copy_directory": "reports/runs/20261031T120110Z/h2-preflight/independent-v2-sqlite-copy",
+  "copy_integrity": [
+    [
+      "ok"
+    ]
+  ],
+  "copy_schema": [
+    [
+      "conversations",
+      "CREATE TABLE conversations (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\towner_conversation_id INTEGER,\n\t\t\towner_task_id INTEGER,\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT"
+    ],
+    [
+      "document_revisions",
+      "CREATE TABLE document_revisions (\n\t\t\tdocument_id INTEGER NOT NULL,\n\t\t\tseq INTEGER NOT NULL,\n\t\t\tkind TEXT NOT NULL CHECK (kind IN ('base', 'delta')),\n\t\t\tversion INTEGER NOT NULL,\n\t\t\tcontent TEXT NOT NULL CHECK (json_valid(content)),\n\t\t\tPRIMARY KEY (document_id, seq)\n\t\t) STRICT"
+    ],
+    [
+      "documents",
+      "CREATE TABLE documents (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\tkind TEXT NOT NULL,\n\t\t\tfamily INTEGER NOT NULL CHECK (family IN (0, 1)),\n\t\t\tkey_value TEXT NOT NULL,\n\t\t\tscope_kind TEXT NOT NULL CHECK (scope_kind IN ('session', 'conversation', 'task')),\n\t\t\towner_id INTEGER NOT NULL,\n\t\t\tcreated_at INTEGER NOT NULL,\n\t\t\tretired_at INTEGER,\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT"
+    ],
+    [
+      "durable_metadata",
+      "CREATE TABLE durable_metadata (\n\t\t\tsingleton INTEGER PRIMARY KEY CHECK (singleton = 1),\n\t\t\tnext_id TEXT NOT NULL,\n\t\t\tnext_seq INTEGER NOT NULL\n\t\t) STRICT"
+    ],
+    [
+      "durable_schema",
+      "CREATE TABLE durable_schema (\n\t\t\tsingleton INTEGER PRIMARY KEY CHECK (singleton = 1),\n\t\t\tversion INTEGER NOT NULL CHECK (version >= 0)\n\t\t) STRICT"
+    ],
+    [
+      "entries",
+      "CREATE TABLE entries (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\tconversation_id INTEGER NOT NULL,\n\t\t\thead INTEGER,\n\t\t\tcommit_seq INTEGER NOT NULL,\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT"
+    ],
+    [
+      "record_ids",
+      "CREATE TABLE record_ids (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\trecord_type TEXT NOT NULL CHECK (record_type IN ('conversation', 'entry', 'task', 'submission', 'document'))\n\t\t) STRICT"
+    ],
+    [
+      "submissions",
+      "CREATE TABLE submissions (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\tconversation_id INTEGER NOT NULL,\n\t\t\trequest_id TEXT,\n\t\t\tstatus TEXT NOT NULL CHECK (status IN ('queued', 'placed', 'done', 'unanswered')),\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT"
+    ],
+    [
+      "tasks",
+      "CREATE TABLE \"tasks\" (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\tconversation_id INTEGER NOT NULL,\n\t\t\tkind TEXT NOT NULL,\n\t\t\tstatus TEXT NOT NULL CHECK (status IN ('pending', 'running', 'waiting', 'sleeping', 'completing', 'terminal')),\n\t\t\tabort_requested INTEGER NOT NULL CHECK (abort_requested IN (0, 1)),\n\t\t\tbackground INTEGER NOT NULL CHECK (background IN (0, 1)),\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT"
+    ]
+  ],
+  "copy_row_counts": {
+    "conversations": 2,
+    "document_revisions": 11,
+    "documents": 11,
+    "durable_metadata": 1,
+    "durable_schema": 1,
+    "entries": 0,
+    "record_ids": 19,
+    "submissions": 0,
+    "tasks": 6
+  },
+  "native_tasks": [
+    {
+      "id": 15,
+      "conversationId": 2,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "2:one",
+        "session": 2,
+        "payload": "effect-one",
+        "version": 1,
+        "hold": true
+      },
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": "committed"
+        }
+      },
+      "startedAt": 1793448576023,
+      "endedAt": 1793448577696
+    },
+    {
+      "id": 16,
+      "conversationId": 8,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "8:denied",
+        "session": 8,
+        "payload": "must-not-commit",
+        "version": 1,
+        "hold": false
+      },
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": "denied"
+        }
+      },
+      "startedAt": 1793448576023,
+      "endedAt": 1793448576042
+    },
+    {
+      "id": 17,
+      "conversationId": 8,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "8:two",
+        "session": 8,
+        "payload": "effect-two",
+        "version": 3,
+        "hold": true
+      },
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": "committed"
+        }
+      },
+      "startedAt": 1793448577691,
+      "endedAt": 1793448579405
+    },
+    {
+      "id": 18,
+      "conversationId": 2,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "2:cancelled",
+        "session": 2,
+        "payload": "must-not-commit",
+        "version": 1,
+        "hold": false
+      },
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted"
+        }
+      },
+      "startedAt": 1793448577713,
+      "endedAt": 1793448577715
+    },
+    {
+      "id": 19,
+      "conversationId": 2,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "2:progress",
+        "session": 2,
+        "payload": "effect-progress",
+        "version": 1,
+        "hold": false
+      },
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": "committed"
+        }
+      },
+      "startedAt": 1793448577729,
+      "endedAt": 1793448577732
+    },
+    {
+      "id": 20,
+      "conversationId": 2,
+      "kind": "frontier.effect",
+      "version": 1,
+      "input": {
+        "key": "2:final",
+        "session": 2,
+        "payload": "effect-final",
+        "version": 1,
+        "hold": false
+      },
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": "committed"
+        }
+      },
+      "startedAt": 1793448579420,
+      "endedAt": 1793448579423
+    }
+  ],
+  "native_documents": [
+    {
+      "id": 3,
+      "indexed_kind": "\"pi.live\"",
+      "record": {
+        "id": 3,
+        "kind": "pi.live",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 2
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 1
+      }
+    },
+    {
+      "id": 4,
+      "indexed_kind": "\"pi.inbox\"",
+      "record": {
+        "id": 4,
+        "kind": "pi.inbox",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 2
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 1
+      }
+    },
+    {
+      "id": 5,
+      "indexed_kind": "\"pi.usage\"",
+      "record": {
+        "id": 5,
+        "kind": "pi.usage",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 2
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 1
+      }
+    },
+    {
+      "id": 6,
+      "indexed_kind": "\"pi.provider\"",
+      "record": {
+        "id": 6,
+        "kind": "pi.provider",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 2
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 1
+      }
+    },
+    {
+      "id": 7,
+      "indexed_kind": "\"pi.agent\"",
+      "record": {
+        "id": 7,
+        "kind": "pi.agent",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 2
+        },
+        "history": "rewindable",
+        "fork": "asOf",
+        "createdAt": 1
+      }
+    },
+    {
+      "id": 9,
+      "indexed_kind": "\"pi.live\"",
+      "record": {
+        "id": 9,
+        "kind": "pi.live",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 8
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 2
+      }
+    },
+    {
+      "id": 10,
+      "indexed_kind": "\"pi.inbox\"",
+      "record": {
+        "id": 10,
+        "kind": "pi.inbox",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 8
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 2
+      }
+    },
+    {
+      "id": 11,
+      "indexed_kind": "\"pi.usage\"",
+      "record": {
+        "id": 11,
+        "kind": "pi.usage",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 8
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 2
+      }
+    },
+    {
+      "id": 12,
+      "indexed_kind": "\"pi.provider\"",
+      "record": {
+        "id": 12,
+        "kind": "pi.provider",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 8
+        },
+        "history": "latest",
+        "fork": "initial",
+        "createdAt": 2
+      }
+    },
+    {
+      "id": 13,
+      "indexed_kind": "\"pi.agent\"",
+      "record": {
+        "id": 13,
+        "kind": "pi.agent",
+        "scope": {
+          "kind": "conversation",
+          "conversationId": 8
+        },
+        "history": "rewindable",
+        "fork": "asOf",
+        "createdAt": 2
+      }
+    },
+    {
+      "id": 14,
+      "indexed_kind": "\"frontier.service\"",
+      "record": {
+        "id": 14,
+        "kind": "frontier.service",
+        "scope": {
+          "kind": "session"
+        },
+        "createdAt": 3
+      }
+    }
+  ],
+  "retained_application_revisions": [
+    {
+      "document_id": 14,
+      "seq": 31,
+      "kind": "base",
+      "version": 1,
+      "content": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 3,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:one": {
+            "fingerprint": "1df1510e8f2ce5f381f69b16f934790a0cf1fa8b5694f7cd88a4afa1b5682250",
+            "taskId": 15
+          },
+          "8:denied": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 16
+          },
+          "8:two": {
+            "fingerprint": "67350af263c6461bed90af0fd28910ba4e631b881ef546d15d8857f5d60c22a2",
+            "taskId": 17
+          },
+          "2:cancelled": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 18
+          },
+          "2:progress": {
+            "fingerprint": "7fe40390c148ed3680489cc9442e1595d9f589b6996d4671032867429cf4cbb6",
+            "taskId": 19
+          },
+          "2:final": {
+            "fingerprint": "5e6fbe971bce112f25ce165a6990737d4ac6e234932846299e21dc7c18408516",
+            "taskId": 20
+          }
+        },
+        "active": {},
+        "effects": {
+          "2:one": {
+            "count": 1,
+            "payload": "effect-one"
+          },
+          "8:two": {
+            "count": 1,
+            "payload": "effect-two"
+          },
+          "2:progress": {
+            "count": 1,
+            "payload": "effect-progress"
+          },
+          "2:final": {
+            "count": 1,
+            "payload": "effect-final"
+          }
+        },
+        "denied": [
+          "8:denied"
+        ],
+        "cancelled": [
+          "2:cancelled"
+        ]
+      }
+    }
+  ],
+  "observed_commit_sequences": [
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    17,
+    20,
+    21,
+    23,
+    24,
+    27,
+    28,
+    30,
+    31
+  ],
+  "observed_commit_count": 20,
+  "stage_evidence": [
+    {
+      "stage": 0,
+      "pid": 11456,
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 2,
+            "allowed": false
+          }
+        },
+        "requests": {
+          "2:one": {
+            "fingerprint": "1df1510e8f2ce5f381f69b16f934790a0cf1fa8b5694f7cd88a4afa1b5682250",
+            "taskId": 15
+          },
+          "8:denied": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 16
+          }
+        },
+        "active": {
+          "2:one": 15
+        },
+        "effects": {
+          "2:one": {
+            "count": 1,
+            "payload": "effect-one"
+          }
+        },
+        "denied": [
+          "8:denied"
+        ],
+        "cancelled": []
+      },
+      "elapsed_ms": 1394.3722,
+      "memory": {
+        "rss": 91951104,
+        "heapTotal": 34291712,
+        "heapUsed": 17539576,
+        "external": 2526152,
+        "arrayBuffers": 179634
+      },
+      "resourceUsage": {
+        "userCPUTime": 515000,
+        "systemCPUTime": 984000,
+        "maxRSS": 89800,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 0,
+        "majorPageFault": 28005,
+        "swappedOut": 0,
+        "fsRead": 855,
+        "fsWrite": 259,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 0,
+        "involuntaryContextSwitches": 0
+      },
+      "phase_events": 3,
+      "ready": {
+        "stage": 0,
+        "pid": 11456,
+        "effectCount": 1
+      }
+    },
+    {
+      "stage": 1,
+      "pid": 43292,
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 3,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:one": {
+            "fingerprint": "1df1510e8f2ce5f381f69b16f934790a0cf1fa8b5694f7cd88a4afa1b5682250",
+            "taskId": 15
+          },
+          "8:denied": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 16
+          },
+          "8:two": {
+            "fingerprint": "67350af263c6461bed90af0fd28910ba4e631b881ef546d15d8857f5d60c22a2",
+            "taskId": 17
+          },
+          "2:cancelled": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 18
+          },
+          "2:progress": {
+            "fingerprint": "7fe40390c148ed3680489cc9442e1595d9f589b6996d4671032867429cf4cbb6",
+            "taskId": 19
+          }
+        },
+        "active": {
+          "8:two": 17
+        },
+        "effects": {
+          "2:one": {
+            "count": 1,
+            "payload": "effect-one"
+          },
+          "8:two": {
+            "count": 1,
+            "payload": "effect-two"
+          },
+          "2:progress": {
+            "count": 1,
+            "payload": "effect-progress"
+          }
+        },
+        "denied": [
+          "8:denied"
+        ],
+        "cancelled": [
+          "2:cancelled"
+        ]
+      },
+      "elapsed_ms": 1406.8136,
+      "memory": {
+        "rss": 91967488,
+        "heapTotal": 35078144,
+        "heapUsed": 17843608,
+        "external": 2504300,
+        "arrayBuffers": 179602
+      },
+      "resourceUsage": {
+        "userCPUTime": 593000,
+        "systemCPUTime": 968000,
+        "maxRSS": 89816,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 0,
+        "majorPageFault": 27350,
+        "swappedOut": 0,
+        "fsRead": 993,
+        "fsWrite": 263,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 0,
+        "involuntaryContextSwitches": 0
+      },
+      "phase_events": 5,
+      "ready": {
+        "stage": 1,
+        "pid": 43292,
+        "effectCount": 3
+      }
+    },
+    {
+      "stage": 2,
+      "pid": 41688,
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 3,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:one": {
+            "fingerprint": "1df1510e8f2ce5f381f69b16f934790a0cf1fa8b5694f7cd88a4afa1b5682250",
+            "taskId": 15
+          },
+          "8:denied": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 16
+          },
+          "8:two": {
+            "fingerprint": "67350af263c6461bed90af0fd28910ba4e631b881ef546d15d8857f5d60c22a2",
+            "taskId": 17
+          },
+          "2:cancelled": {
+            "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+            "taskId": 18
+          },
+          "2:progress": {
+            "fingerprint": "7fe40390c148ed3680489cc9442e1595d9f589b6996d4671032867429cf4cbb6",
+            "taskId": 19
+          },
+          "2:final": {
+            "fingerprint": "5e6fbe971bce112f25ce165a6990737d4ac6e234932846299e21dc7c18408516",
+            "taskId": 20
+          }
+        },
+        "active": {},
+        "effects": {
+          "2:one": {
+            "count": 1,
+            "payload": "effect-one"
+          },
+          "8:two": {
+            "count": 1,
+            "payload": "effect-two"
+          },
+          "2:progress": {
+            "count": 1,
+            "payload": "effect-progress"
+          },
+          "2:final": {
+            "count": 1,
+            "payload": "effect-final"
+          }
+        },
+        "denied": [
+          "8:denied"
+        ],
+        "cancelled": [
+          "2:cancelled"
+        ]
+      },
+      "elapsed_ms": 1385.657,
+      "memory": {
+        "rss": 91971584,
+        "heapTotal": 34291712,
+        "heapUsed": 17252736,
+        "external": 2473029,
+        "arrayBuffers": 179602
+      },
+      "resourceUsage": {
+        "userCPUTime": 500000,
+        "systemCPUTime": 1031000,
+        "maxRSS": 89820,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 0,
+        "majorPageFault": 27194,
+        "swappedOut": 0,
+        "fsRead": 1115,
+        "fsWrite": 136,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 0,
+        "involuntaryContextSwitches": 0
+      },
+      "phase_events": 3,
+      "ready": {
+        "stage": 2,
+        "pid": 41688,
+        "effectCount": 4,
+        "closed": true
+      }
+    }
+  ],
+  "admission_counts": {
+    "admit": 6,
+    "duplicate": 3,
+    "overloaded": 1,
+    "unauthorized": 1,
+    "conflict": 1
+  },
+  "postoutcome_checks": {
+    "copy_integrity_ok": true,
+    "frozen_acceptance_remains_failed": true,
+    "wrong_literal_returns_none": true,
+    "retained_encoded_kind_value_equals_final": true,
+    "six_terminal_exact_request_ids": true,
+    "four_committed_outcomes": true,
+    "denied_outcome": true,
+    "cancelled_aborted": true,
+    "four_exact_payloads_count_one": true,
+    "zero_active": true,
+    "denied_cancelled_absent_effects": true,
+    "observed_sequences_strict": true,
+    "last_trace_matches_retained_endpoint": true,
+    "observed_active_capacity_two": true,
+    "admission_denominators": true,
+    "no_runtime_reports_or_access_guards": true,
+    "three_distinct_pids": true,
+    "two_kills_final_normal": true
+  },
+  "postoutcome_all_checks_true": true,
+  "native_processes": 3,
+  "forced_terminations": 2,
+  "restarts_executed": 2,
+  "native_task_outcomes": {
+    "one": {
+      "taskId": 15,
+      "key": "2:one",
+      "outcome": {
+        "status": "completed",
+        "result": "committed"
+      }
+    },
+    "two": {
+      "taskId": 17,
+      "key": "8:two",
+      "outcome": {
+        "status": "completed",
+        "result": "committed"
+      }
+    },
+    "progress": {
+      "taskId": 19,
+      "key": "2:progress",
+      "outcome": {
+        "status": "completed",
+        "result": "committed"
+      }
+    },
+    "final": {
+      "taskId": 20,
+      "key": "2:final",
+      "outcome": {
+        "status": "completed",
+        "result": "committed"
+      }
+    },
+    "denied": {
+      "taskId": 16,
+      "key": "8:denied",
+      "outcome": {
+        "status": "completed",
+        "result": "denied"
+      }
+    },
+    "cancelled": {
+      "taskId": 18,
+      "key": "2:cancelled",
+      "outcome": {
+        "status": "aborted"
+      }
+    }
+  },
+  "error": "TypeError(\"'NoneType' object is not subscriptable\")",
+  "failure_attribution": {
+    "controller_line": 134,
+    "literal_query_result": null,
+    "cause": "Our controller queries documents.kind with unencoded frontier.service. Installed SQLite indexes kind as JSON.stringify(address.kind), so actual value includes quotes. fetchone returns None, then document[0] raises saved TypeError. Prior raw task/outcome/payload assertions completed; later acceptance assertions were not reached. This was missed in our static reviews.",
+    "source_evidence": "pi-durable/dist/storage/sqlite/storage.js10 encodeIndexedString=JSON.stringify;42 addressParts kind;644 insertion.",
+    "upstream_bug_claim": false
+  },
+  "limitations": [
+    "Postoutcome copied-DB and trace inspection preserves observations only; does not convert failed frozen suite to pass.",
+    "Later controller acceptance gates were not reached even though separate copied-byte checks now match.",
+    "Two conversations/one Session, trusted-host authority and same-transaction local effects only; no independent tenants/external exactly-once/GenerationTask regression/model/GPU/distributed/production proof.",
+    "Observed active count and sampled resource usage; no independent complete historical commit coverage due current-only base compaction.",
+    "No retries, repair or native workload/source/shared edits by auditor."
+  ]
+}

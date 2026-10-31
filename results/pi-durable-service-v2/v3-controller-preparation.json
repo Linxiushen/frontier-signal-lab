@@ -1,0 +1,67 @@
+{
+  "recorded_at": "2026-10-31T12:13:30.904742+00:00",
+  "status": "postoutcome_preparation_and_sqlite_regression_only",
+  "frozen_v2_status": "FAILED unchanged; no acceptance rescue",
+  "new_native_suites": 0,
+  "new_freezes": 0,
+  "new_protocols": 0,
+  "same_worker_workload_resources": true,
+  "files_sha256": {
+    "scripts\\run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52",
+    "tests\\test_pi_durable_service_v3_controller.py": "800993a55b791c64adf2cd73164310ad26832fc886781f406d924796ca24a0d8"
+  },
+  "old_v2_freeze_rejected_before_protocol_or_native": true,
+  "old_freeze_path": "fixtures\\pi-durable-service-v2\\implementation.json",
+  "six_unittest_regressions": "passed; native-schema memory SQLite fixture, empty/wrongkind/missing/multiple records and oldfreezeguard; no Pi/Harness invocation",
+  "exact_saved_native_database_regression": {
+    "copy": "reports\\runs\\20261031T120110Z\\h2-preflight\\v3-regression-sqlite-copy",
+    "original_query_result": null,
+    "corrected_document_equals_saved_snapshot": true,
+    "retained_endpoint_sequences": [
+      31
+    ],
+    "native_kind_values": [
+      [
+        "\"pi.agent\""
+      ],
+      [
+        "\"pi.inbox\""
+      ],
+      [
+        "\"pi.live\""
+      ],
+      [
+        "\"pi.provider\""
+      ],
+      [
+        "\"pi.usage\""
+      ],
+      [
+        "\"pi.agent\""
+      ],
+      [
+        "\"pi.inbox\""
+      ],
+      [
+        "\"pi.live\""
+      ],
+      [
+        "\"pi.provider\""
+      ],
+      [
+        "\"pi.usage\""
+      ],
+      [
+        "\"frontier.service\""
+      ]
+    ],
+    "schema": {
+      "documents": "CREATE TABLE documents (\n\t\t\tid INTEGER PRIMARY KEY,\n\t\t\tkind TEXT NOT NULL,\n\t\t\tfamily INTEGER NOT NULL CHECK (family IN (0, 1)),\n\t\t\tkey_value TEXT NOT NULL,\n\t\t\tscope_kind TEXT NOT NULL CHECK (scope_kind IN ('session', 'conversation', 'task')),\n\t\t\towner_id INTEGER NOT NULL,\n\t\t\tcreated_at INTEGER NOT NULL,\n\t\t\tretired_at INTEGER,\n\t\t\trecord TEXT NOT NULL CHECK (json_valid(record))\n\t\t) STRICT",
+      "document_revisions": "CREATE TABLE document_revisions (\n\t\t\tdocument_id INTEGER NOT NULL,\n\t\t\tseq INTEGER NOT NULL,\n\t\t\tkind TEXT NOT NULL CHECK (kind IN ('base', 'delta')),\n\t\t\tversion INTEGER NOT NULL,\n\t\t\tcontent TEXT NOT NULL CHECK (json_valid(content)),\n\t\t\tPRIMARY KEY (document_id, seq)\n\t\t) STRICT"
+    }
+  },
+  "original_native_files_unchanged": true,
+  "maint_copy_files_unchanged": true,
+  "all7_frozen_v2_sources_unchanged": true,
+  "next_gate": "Next round independently review this full controller then separately preregister/freeze identical fullv2worker workload/resource limits with ownv3hash; no further native run thisround."
+}

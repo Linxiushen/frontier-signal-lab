@@ -1,0 +1,53 @@
+{
+  "reviewed_at": "2026-10-31T12:08:00.154312+00:00",
+  "status": "static preexecution review passed for exact bytes; no known blocking issue",
+  "source_sha256": {
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_durable_recovery_protocol_v2.json": "a731fd48179a6f8af72cbc60101b418ad78af307bcf913e9c58c63ffd31cd1c9",
+    "scripts/pi_durable_recovery_worker_v2.mjs": "6bd82e0169b5234793d97f3ffab7d9ff73b1af7d0595cc698290cd2790e2b099",
+    "scripts/run_pi_durable_recovery_v2.py": "05cacaec76abb0ed27a9b1ee0eb16504c25f42ad24b73c244ebd19e5a8558af8",
+    "tests/pi_durable_service_v2.test.mjs": "4ed4bfa594c373e907823929a1f907c7c73984e69dc9436d76f7244c0126b8d4",
+    "scripts/check_pi_durable_exports_v2.mjs": "475540e8c8b9a268cd06eb10c2d3ecd5f8a9ccc0b4e9c5e624fdc2fda0a31a98",
+    "tests/test_pi_durable_service_v2_controller.py": "9860559f5388b1aa97b12e370ef1d0b6b3be3f7ba76333dbdf4cfd9226d6116b"
+  },
+  "installed_dependency_sha256": {
+    "chord/dist/index.js": "c00f1fa6a366aea4edda6ed4721f487e2f9e21b611279cd84b42d50e1654678d",
+    "chord/dist/context/index.js": "4341f5bbbf5e19ea772216e3630cbd3d6191851447616280257b3f44a2703aa4",
+    "chord/package.json": "9b53ee7df3745848da9cf734b1fb117a29590536f07e8198538711e73906dcf1",
+    "pi-durable/dist/types.d.ts": "b522ca0377d1196790a2a7d8272195acddaad1c94d3f2cc16207dace12a98c1b",
+    "pi-durable/dist/harness/harness.js": "472fe31f5525045ec4b27437a2049236f4f58cce4920aa9bd49e41445097574d",
+    "pi-durable/dist/harness/registry.js": "9731cc15ae463c29021f460e3503d9adf9a4303e7d82859d7547c99c5f1311fe",
+    "pi-durable/dist/session/transaction.js": "4bebf10a5cf73a455e515cba0bb3b31e9f02258a85dcba482856c426fca88d1e",
+    "pi-durable/dist/storage/sqlite/storage.js": "c0fb42e5df1169c3ccaef1af3cc8344e090f6d02bd899dfd2d9c705895c8a9e5"
+  },
+  "frozen_v1_sources_unchanged": true,
+  "reviewer_executions": {
+    "native_workload": 0,
+    "storage_opens": 0,
+    "harness_opens": 0,
+    "tasks": 0,
+    "models": 0,
+    "tests": 0
+  },
+  "findings": [
+    "Context entrypoint resolution now targets chord/dist/context/index.js, checked against real package exports; strict positive/wrong-root negative export guard precedes storage open. Export preflight only imports modules and inspects symbols; no Harness/storage/task invocation.",
+    "TaskDefinition name/version/initial/phases/abort and runtime.signal/commit, tx.createTask ownership/conversation, inspect derived state.kind vs raw getTask state.status match installed source/declarations.",
+    "Registry contains builtin tasks and extension install accepts custom Work; Harness.open now receives real context.",
+    "Current-only session document full checkpoints compact history. Acceptance accurately verifies observed monotonic seqs + last seq/state equals retained latest DB endpoint; no historical completeness claim.",
+    "Atomic temporary+rename JSON publication avoids ready partial read. Vanished temporary stat race reported during review is fixed in observed_output_bytes helper; ceiling is sampled observation, not filesystem quota.",
+    "Controller exact runtime inventory/source/node hashes, no-existing-output refusal, 90s suite/25s process/128MiB heap/sampled1GiB private/10MiB output and unchanged5GiB H1 gate retained.",
+    "Native workload unchanged from v1 intended six tasks/twelve decisions/two kills and restarts. Provider/report guard failures reject acceptance; final6task exact IDs,4effects and denied/cancelled absence checked.",
+    "No scientific acceptance before sole versioned attempt; preflight/pure tests cover API/admission boundary only.",
+    "Final stricter native6task outcomes checked against identities-final: four completed/committed, denied completed/denied, cancellation aborted, and each intended effect exact key/count1/payload. Matches TaskOutcome/TaskState schema.",
+    "Three stdlib controller regressions statically reviewed: count files/not directories, tolerate vanished temp stat, propagate unexpected PermissionError; reviewer did not execute."
+  ],
+  "scope_limits": [
+    "Two conversations in one Session/database, trusted-host controls, local transactional document effects; no independent tenants or external-provider exactly-once.",
+    "No GenerationTask/submission11635 reproduction, model/GPU/distributed/production or performance comparison evidence.",
+    "Active2 only; request/effect/history maps not indefinitely bounded."
+  ],
+  "preflight_evidence": "commands.json: root executed2pure tests and installed positive/negative export check successfully; not independently rerun",
+  "fix_before_freeze_resolved": "Temporary stat vanished-path race handled by FileNotFoundError skip; no frozen v1 change",
+  "next_gate": "Parent freezes exact source/runtime bytes then executes at most one complete v2 suite this round, no retry; preserve failure if any.",
+  "supersedes": "independent-v2-preexecution-review.json"
+}

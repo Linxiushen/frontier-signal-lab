@@ -25,8 +25,12 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - name: Check optional durable-service admission without loading the Pi runtime
         run: node --test tests/pi_durable_service.test.mjs
+      - name: Check separately versioned durable-service admission without loading Pi
+        run: node --test tests/pi_durable_service_v2.test.mjs
       - name: Preserve the rejected durable-service attempt without runtime or database execution
         run: python -S scripts/check_pi_durable_service_v1_failure.py
+      - name: Preserve rejected durable-service v2 bytes without runtime or database execution
+        run: python -S scripts/check_pi_durable_service_v2_failure.py
       - name: Independently audit saved thread-ledger traces without producer execution
         run: python -S -B experiments/audit_trace_ledger.py --protocol fixtures/trace-ledger/protocol.json --result-dir results/trace-ledger --implementation fixtures/trace-ledger/implementation.json --source-root .
       - name: Preserve the failed native-ledger integration without process execution

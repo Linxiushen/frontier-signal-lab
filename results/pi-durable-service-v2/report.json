@@ -1,0 +1,83 @@
+{
+  "status": "frozen_acceptance_failed_after_native_workload",
+  "execution_accepted": false,
+  "started_at": "2026-10-31T12:09:34.431482+00:00",
+  "completed_at": "2026-10-31T12:09:39.509852+00:00",
+  "scientific_suites": 1,
+  "native_processes": 3,
+  "forced_terminations": 2,
+  "process_restarts": 2,
+  "admission_attempts": 12,
+  "admission_counts": {
+    "admit": 6,
+    "duplicate": 3,
+    "overloaded": 1,
+    "unauthorized": 1,
+    "conflict": 1
+  },
+  "tasks_created": 6,
+  "effects_committed_observed_postoutcome": 4,
+  "terminal_outcomes_observed_postoutcome": {
+    "committed": 4,
+    "denied": 1,
+    "aborted": 1
+  },
+  "model_loads": 0,
+  "retries": 0,
+  "remaining_stages_unexecuted": [],
+  "unreached_frozen_acceptance": "Final document equality/sequences and subsequent trace/capacity/admission/final-state gates were not reached after the SQLite kind query returned None. Independent saved-byte checks are post-outcome preservation only.",
+  "failure": {
+    "controller_line": 134,
+    "literal_query_result": null,
+    "cause": "Our controller queries documents.kind with unencoded frontier.service. Installed SQLite indexes kind as JSON.stringify(address.kind), so actual value includes quotes. fetchone returns None, then document[0] raises saved TypeError. Prior raw task/outcome/payload assertions completed; later acceptance assertions were not reached. This was missed in our static reviews.",
+    "source_evidence": "pi-durable/dist/storage/sqlite/storage.js10 encodeIndexedString=JSON.stringify;42 addressParts kind;644 insertion.",
+    "upstream_bug_claim": false
+  },
+  "processes": [
+    {
+      "stage": 0,
+      "pid": 11456,
+      "elapsed_seconds": 1.6710000000020955,
+      "forced_termination": true,
+      "exit_code": 1,
+      "sampled_max_private_bytes": 83857408,
+      "observed_os_peak_working_set_bytes": 91865088
+    },
+    {
+      "stage": 1,
+      "pid": 43292,
+      "elapsed_seconds": 1.687999999994645,
+      "forced_termination": true,
+      "exit_code": 1,
+      "sampled_max_private_bytes": 85684224,
+      "observed_os_peak_working_set_bytes": 91955200
+    },
+    {
+      "stage": 2,
+      "pid": 41688,
+      "elapsed_seconds": 1.7189999999973224,
+      "forced_termination": false,
+      "exit_code": 0,
+      "sampled_max_private_bytes": 84291584,
+      "observed_os_peak_working_set_bytes": 92041216
+    }
+  ],
+  "observed_committed_document_publications": 20,
+  "last_observed_document_seq": 31,
+  "independent_review_sha256": "efbd65d74eb514fcb210c87407b52b13ce092536480576f5b878416fbe0bf93e",
+  "raw_manifest_sha256": "2127543b96cf878f045b38e5fe87e990bad5beb69b7ccc5e9233491280f3efd7",
+  "freeze_sha256": "d413c5438e0fe61b9da75750ef3082ce9ba0f59570ec879be9b846c2988efe7d",
+  "API_export_preflight": "Real installed context entrypoint positive and wrong-root negative checks passed without storage/Harness/task/model execution.",
+  "validation": {
+    "node_pure_tests": 2,
+    "canonical_python_methods": 1011,
+    "python_passed": 930,
+    "python_skipped": 81,
+    "scope": "Pre-freeze tests; no second native suite."
+  },
+  "limits": "One Windows host, two conversations in a single durable Session; trusted-host authority versions and SQLite-transaction effects only. No external-provider exactly-once guarantee, concurrent writer authority, independent tenants, GenerationTask/submission11635 reproduction, GPU, distributed or production validation. Request-history grows with accepted requests; only live admission is bounded. Historical H2 gaps/H1 failures and unchanged5GiB H1 gate remain.",
+  "measurement_limits": "Sampled private maxima and OS-reported process working-set peaks of startup plus fixed gated workload only; no isolated training memory, continuous private peak, causal observation overhead, performance comparison or tail/throughput extrapolation.",
+  "next_gate": "Prepare a separately named controller with native JSON-encoded kind lookup, refusal of old freezes and saved native SQLite-schema positive/missing/wrong-kind regressions. Then on a later round separately freeze the same complete v2 producer/worker workload and execute at most once. Never repair/retry frozen v2 or extend observer-only prerequisites.",
+  "H1_required_free_disk_bytes_unchanged": 5368709120,
+  "H1_native_execution_started": false
+}

@@ -109,3 +109,16 @@ scripts/run_pi_durable_recovery.py -text whitespace=cr-at-eol
 tests/pi_durable_service.test.mjs -text whitespace=cr-at-eol
 fixtures/pi-durable-service-v1/** -text whitespace=cr-at-eol
 results/pi-durable-service-v1/** -text whitespace=cr-at-eol
+
+# Preserve the separately frozen Pi service v2 sources and original receipts.
+experiments/pi_durable_service_v2.mjs -text whitespace=cr-at-eol
+experiments/pi_durable_recovery_protocol_v2.json -text whitespace=cr-at-eol
+scripts/pi_durable_recovery_worker_v2.mjs -text whitespace=cr-at-eol
+scripts/run_pi_durable_recovery_v2.py -text whitespace=cr-at-eol
+tests/pi_durable_service_v2.test.mjs -text whitespace=cr-at-eol
+scripts/check_pi_durable_exports_v2.mjs -text whitespace=cr-at-eol
+tests/test_pi_durable_service_v2_controller.py -text whitespace=cr-at-eol
+fixtures/pi-durable-service-v2/** -text whitespace=cr-at-eol
+results/pi-durable-service-v2/** -text whitespace=cr-at-eol
+scripts/run_pi_durable_recovery_v3.py -text whitespace=cr-at-eol
+tests/test_pi_durable_service_v3_controller.py -text whitespace=cr-at-eol

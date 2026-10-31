@@ -1,0 +1,121 @@
+{
+  "pid": 43292,
+  "stage": 1,
+  "state": {
+    "capacity": 2,
+    "authority": {
+      "2": {
+        "version": 1,
+        "allowed": true
+      },
+      "8": {
+        "version": 3,
+        "allowed": true
+      }
+    },
+    "requests": {
+      "2:one": {
+        "fingerprint": "1df1510e8f2ce5f381f69b16f934790a0cf1fa8b5694f7cd88a4afa1b5682250",
+        "taskId": 15
+      },
+      "8:denied": {
+        "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+        "taskId": 16
+      },
+      "8:two": {
+        "fingerprint": "67350af263c6461bed90af0fd28910ba4e631b881ef546d15d8857f5d60c22a2",
+        "taskId": 17
+      },
+      "2:cancelled": {
+        "fingerprint": "510b132a95a2fd3e2a37dee2c9a71b17e1b21614d131370dda722d053c1e1b28",
+        "taskId": 18
+      },
+      "2:progress": {
+        "fingerprint": "7fe40390c148ed3680489cc9442e1595d9f589b6996d4671032867429cf4cbb6",
+        "taskId": 19
+      }
+    },
+    "active": {
+      "8:two": 17
+    },
+    "effects": {
+      "2:one": {
+        "count": 1,
+        "payload": "effect-one"
+      },
+      "8:two": {
+        "count": 1,
+        "payload": "effect-two"
+      },
+      "2:progress": {
+        "count": 1,
+        "payload": "effect-progress"
+      }
+    },
+    "denied": [
+      "8:denied"
+    ],
+    "cancelled": [
+      "2:cancelled"
+    ]
+  },
+  "inspection": {
+    "scheduling": "running",
+    "tasks": [
+      {
+        "record": {
+          "id": 17,
+          "conversationId": 8,
+          "kind": "frontier.effect",
+          "version": 1,
+          "input": {
+            "key": "8:two",
+            "session": 8,
+            "payload": "effect-two",
+            "version": 3,
+            "hold": true
+          },
+          "background": false,
+          "abortRequested": false,
+          "state": {
+            "status": "running",
+            "checkpoint": {
+              "phase": "finish"
+            }
+          },
+          "startedAt": 1793448577691
+        },
+        "state": {
+          "kind": "running"
+        }
+      }
+    ],
+    "submissions": []
+  },
+  "elapsed_ms": 1406.8136,
+  "memory": {
+    "rss": 91967488,
+    "heapTotal": 35078144,
+    "heapUsed": 17843608,
+    "external": 2504300,
+    "arrayBuffers": 179602
+  },
+  "resourceUsage": {
+    "userCPUTime": 593000,
+    "systemCPUTime": 968000,
+    "maxRSS": 89816,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 27350,
+    "swappedOut": 0,
+    "fsRead": 993,
+    "fsWrite": 263,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

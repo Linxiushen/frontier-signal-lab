@@ -1,0 +1,413 @@
+{
+  "reviewed_at": "2026-10-31T16:12:58.047143+00:00",
+  "status": "passed",
+  "method": "Independent stdlib saved-byte/trace checks and read-only SQLite/WAL/SHM copies. No imports of producer auditor, no native/model/Harness/task/test rerun.",
+  "freeze_sha256": "9d7a52039ca7f61943758303ba89e87d051e676bdbe32caf34b261465ed8cad0",
+  "raw_manifest_sha256": "c582d00109bd6d59e96c6290813cafd158a91d21372b52e1ee6665f6adae5773",
+  "original_raw_files_unchanged": 93,
+  "original_raw_bytes": 1156630,
+  "source_map_counts": {
+    "current": 7,
+    "preserved_previous": 15
+  },
+  "all_source_hashes_match": true,
+  "arms": [
+    {
+      "name": "cap2-direct",
+      "status": "passed",
+      "database_integrity": "ok",
+      "conversation_ids": [
+        2,
+        9,
+        15,
+        21
+      ],
+      "terminal_tasks": 6,
+      "local_effects_count_one": 4,
+      "denied": 1,
+      "aborted": 1,
+      "admissions": {
+        "admit": 6,
+        "overloaded": 6,
+        "duplicate": 3,
+        "conflict": 3,
+        "unauthorized": 3
+      },
+      "process_ids": [
+        3412,
+        35612,
+        8776
+      ],
+      "forced_kills": 2,
+      "reopens": 2,
+      "observed_publications": 22,
+      "observed_sequence": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        17,
+        18,
+        19,
+        21,
+        24,
+        25,
+        28,
+        29,
+        31,
+        33,
+        34,
+        35,
+        36
+      ],
+      "retained_sequences": [
+        36
+      ],
+      "max_active": 2,
+      "final_active": 0,
+      "sink_receipts": [
+        {
+          "sink": "direct",
+          "sinkCalls": 20,
+          "sinkBytes": 6171,
+          "callback_ms": 19.21270000000004,
+          "final_flush_ms": 0.001199999999926149,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "direct",
+          "sinkCalls": 19,
+          "sinkBytes": 6915,
+          "callback_ms": 20.78620000000069,
+          "final_flush_ms": 0.0015000000000782165,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "direct",
+          "sinkCalls": 21,
+          "sinkBytes": 10178,
+          "callback_ms": 20.287900000000263,
+          "final_flush_ms": 0.0012000000001535227,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        }
+      ],
+      "process_stages_wall_seconds": 5.062999999994645,
+      "arm_elapsed_seconds_including_DB_audit": 5.0789999999979045
+    },
+    {
+      "name": "cap2-buffered",
+      "status": "passed",
+      "database_integrity": "ok",
+      "conversation_ids": [
+        2,
+        9,
+        15,
+        21
+      ],
+      "terminal_tasks": 6,
+      "local_effects_count_one": 4,
+      "denied": 1,
+      "aborted": 1,
+      "admissions": {
+        "admit": 6,
+        "overloaded": 6,
+        "duplicate": 3,
+        "conflict": 3,
+        "unauthorized": 3
+      },
+      "process_ids": [
+        27476,
+        38580,
+        29604
+      ],
+      "forced_kills": 2,
+      "reopens": 2,
+      "observed_publications": 22,
+      "observed_sequence": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        17,
+        18,
+        19,
+        21,
+        24,
+        25,
+        28,
+        29,
+        31,
+        33,
+        34,
+        35,
+        36
+      ],
+      "retained_sequences": [
+        36
+      ],
+      "max_active": 2,
+      "final_active": 0,
+      "sink_receipts": [
+        {
+          "sink": "buffered",
+          "sinkCalls": 20,
+          "sinkBytes": 6194,
+          "callback_ms": 6.519399999999905,
+          "final_flush_ms": 0.8950999999999567,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "buffered",
+          "sinkCalls": 19,
+          "sinkBytes": 6918,
+          "callback_ms": 5.597399999999652,
+          "final_flush_ms": 0.9139000000000124,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "buffered",
+          "sinkCalls": 21,
+          "sinkBytes": 10202,
+          "callback_ms": 5.628600000000461,
+          "final_flush_ms": 1.0050000000001091,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        }
+      ],
+      "process_stages_wall_seconds": 4.985000000000582,
+      "arm_elapsed_seconds_including_DB_audit": 4.985000000000582
+    },
+    {
+      "name": "cap4-buffered",
+      "status": "passed",
+      "database_integrity": "ok",
+      "conversation_ids": [
+        2,
+        9,
+        15,
+        21
+      ],
+      "terminal_tasks": 12,
+      "local_effects_count_one": 10,
+      "denied": 1,
+      "aborted": 1,
+      "admissions": {
+        "admit": 12,
+        "duplicate": 3,
+        "conflict": 3,
+        "unauthorized": 3
+      },
+      "process_ids": [
+        44808,
+        27136,
+        44580
+      ],
+      "forced_kills": 2,
+      "reopens": 2,
+      "observed_publications": 40,
+      "observed_sequence": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        29,
+        31,
+        34,
+        35,
+        36,
+        37,
+        40,
+        41,
+        42,
+        43,
+        45,
+        47,
+        49,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "retained_sequences": [
+        58
+      ],
+      "max_active": 4,
+      "final_active": 0,
+      "sink_receipts": [
+        {
+          "sink": "buffered",
+          "sinkCalls": 28,
+          "sinkBytes": 10903,
+          "callback_ms": 5.696400000000267,
+          "final_flush_ms": 0.9609000000000378,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "buffered",
+          "sinkCalls": 33,
+          "sinkBytes": 17979,
+          "callback_ms": 5.7660999999995965,
+          "final_flush_ms": 0.959400000000187,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "buffered",
+          "sinkCalls": 37,
+          "sinkBytes": 31868,
+          "callback_ms": 5.875599999999622,
+          "final_flush_ms": 1.0037999999999556,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        }
+      ],
+      "process_stages_wall_seconds": 5.3439999999973224,
+      "arm_elapsed_seconds_including_DB_audit": 5.3439999999973224
+    },
+    {
+      "name": "cap4-direct",
+      "status": "passed",
+      "database_integrity": "ok",
+      "conversation_ids": [
+        2,
+        9,
+        15,
+        21
+      ],
+      "terminal_tasks": 12,
+      "local_effects_count_one": 10,
+      "denied": 1,
+      "aborted": 1,
+      "admissions": {
+        "admit": 12,
+        "duplicate": 3,
+        "conflict": 3,
+        "unauthorized": 3
+      },
+      "process_ids": [
+        25480,
+        44376,
+        35572
+      ],
+      "forced_kills": 2,
+      "reopens": 2,
+      "observed_publications": 40,
+      "observed_sequence": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        29,
+        31,
+        34,
+        35,
+        36,
+        37,
+        40,
+        41,
+        42,
+        43,
+        45,
+        47,
+        49,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "retained_sequences": [
+        58
+      ],
+      "max_active": 4,
+      "final_active": 0,
+      "sink_receipts": [
+        {
+          "sink": "direct",
+          "sinkCalls": 28,
+          "sinkBytes": 10900,
+          "callback_ms": 25.764499999999543,
+          "final_flush_ms": 0.0007000000000516593,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "direct",
+          "sinkCalls": 33,
+          "sinkBytes": 17975,
+          "callback_ms": 24.982499999999163,
+          "final_flush_ms": 0.0008000000000265572,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        },
+        {
+          "sink": "direct",
+          "sinkCalls": 37,
+          "sinkBytes": 31860,
+          "callback_ms": 28.487899999999627,
+          "final_flush_ms": 0.0006999999998242856,
+          "scope": "Serialization+callback sink cost; final flush separate. Common native subscription/snapshot/controller costs are not isolated."
+        }
+      ],
+      "process_stages_wall_seconds": 5.5,
+      "arm_elapsed_seconds_including_DB_audit": 5.51600000000326
+    }
+  ],
+  "total_processes": 12,
+  "total_forced_kills": 8,
+  "total_reopens": 8,
+  "all_final_exits_zero": true,
+  "same_capacity_sink_logical_outcomes_match": true,
+  "suite_elapsed_seconds": 21.093999999997322,
+  "limitations": [
+    "Four logical conversations share one Session/database per arm, one Windows host, custom tasks and trusted-host authority.",
+    "Local transactional row idempotence only; no external effects/provider/GenerationTask/model/tenant authentication/distributed or production proof.",
+    "One gated sequential burst trajectory per arm, small samples; no open-loop load sweep, causal sink speedup or general throughput/tail claim.",
+    "Sink callback/flush costs exclude shared subscription/controller; full-arm timing includes endpoint DB and acceptance audit.",
+    "Polled private memory/queried working-set highwater are scoped observations, not continuous total peak or observer overhead.",
+    "Only current database endpoint revisions retained; historical publication history comes from saved trace.",
+    "Earlier failures and unchanged H1 5GiB gate remain."
+  ]
+}

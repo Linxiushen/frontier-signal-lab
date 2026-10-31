@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "name": "focused",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_pi_durable_load_audit",
+        "-v"
+      ],
+      "started_at": "2026-10-31T16:07:14.825040+00:00",
+      "completed_at": "2026-10-31T16:07:15.109040+00:00",
+      "exit_code": 0,
+      "log_sha256": "d7c4955646acb0de233fd4a5c925c5a6b6bbbd59a8b78b7c47d853bddc8dba57"
+    },
+    {
+      "name": "node-syntax",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--check",
+        "scripts/pi_durable_load_worker.mjs"
+      ],
+      "started_at": "2026-10-31T16:07:15.111040+00:00",
+      "completed_at": "2026-10-31T16:07:15.353900+00:00",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "pure-node",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "tests/pi_durable_service_v2.test.mjs"
+      ],
+      "started_at": "2026-10-31T16:07:15.355024+00:00",
+      "completed_at": "2026-10-31T16:07:15.834760+00:00",
+      "exit_code": 0,
+      "log_sha256": "e0586f423cef38f343f67b01a9aac1b1d1286aba733558077f4f7c39c9624579"
+    },
+    {
+      "name": "full-python",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-10-31T16:07:15.836760+00:00",
+      "completed_at": "2026-10-31T16:08:05.407848+00:00",
+      "exit_code": 0,
+      "log_sha256": "927bd82e2c3eb45951465d2dabc070e864f9f3cd5045da69ff21cec28c3da024"
+    }
+  ],
+  "native_Harness_suites": 0,
+  "models": 0,
+  "scope": "Python regressions and pure Node/syntax only; no Harness/storage/workload run."
+}

@@ -1,0 +1,123 @@
+{
+  "pid": 35612,
+  "stage": 1,
+  "capacity": 2,
+  "sink": "direct",
+  "state": {
+    "capacity": 2,
+    "authority": {
+      "2": {
+        "version": 1,
+        "allowed": true
+      },
+      "9": {
+        "version": 3,
+        "allowed": true
+      },
+      "15": {
+        "version": 1,
+        "allowed": true
+      },
+      "21": {
+        "version": 1,
+        "allowed": true
+      }
+    },
+    "requests": {
+      "2:s0-r0": {
+        "fingerprint": "914043974f9281de56aa68a2e753f4441e5743b7a7a3fa9f6aa6f70a2f50f48c",
+        "taskId": 27
+      },
+      "9:s0-r1": {
+        "fingerprint": "25a90710864bffd88ea6c041b423097826c268925755ec5f6ce721d46778107c",
+        "taskId": 28
+      },
+      "2:s1-r0": {
+        "fingerprint": "ef59a6960ee018b74bcf81d5867e88964204cbe322ade566779699a3b15a4fbd",
+        "taskId": 29
+      },
+      "9:s1-r1": {
+        "fingerprint": "ba416d50669824bd96ab7c33f019c9211c3b28b048fea42a7aecb785099cfb6a",
+        "taskId": 30
+      }
+    },
+    "active": {
+      "9:s1-r1": 30
+    },
+    "effects": {
+      "2:s0-r0": {
+        "count": 1,
+        "payload": "effect-s0-r0"
+      },
+      "9:s1-r1": {
+        "count": 1,
+        "payload": "effect-s1-r1"
+      }
+    },
+    "denied": [
+      "9:s0-r1"
+    ],
+    "cancelled": [
+      "2:s1-r0"
+    ]
+  },
+  "inspection": {
+    "scheduling": "running",
+    "tasks": [
+      {
+        "record": {
+          "id": 30,
+          "conversationId": 9,
+          "kind": "frontier.effect",
+          "version": 1,
+          "input": {
+            "key": "9:s1-r1",
+            "session": 9,
+            "payload": "effect-s1-r1",
+            "version": 3,
+            "hold": true
+          },
+          "background": false,
+          "abortRequested": false,
+          "state": {
+            "status": "running",
+            "checkpoint": {
+              "phase": "finish"
+            }
+          },
+          "startedAt": 1793463081849
+        },
+        "state": {
+          "kind": "running"
+        }
+      }
+    ],
+    "submissions": []
+  },
+  "elapsed_ms": 1370.399,
+  "memory": {
+    "rss": 92090368,
+    "heapTotal": 35078144,
+    "heapUsed": 17466824,
+    "external": 2473029,
+    "arrayBuffers": 179602
+  },
+  "resourceUsage": {
+    "userCPUTime": 515000,
+    "systemCPUTime": 1000000,
+    "maxRSS": 89936,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 27602,
+    "swappedOut": 0,
+    "fsRead": 1026,
+    "fsWrite": 201,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

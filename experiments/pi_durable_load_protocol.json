@@ -1,0 +1,81 @@
+{
+  "name": "pi-native-bounded-burst-load-v1",
+  "predeclared_at": "2026-10-31T16:07:14.537065+00:00",
+  "hypothesis": "H2",
+  "suites_permitted": 1,
+  "retries": 0,
+  "caller": "Unchanged experiments/pi_durable_service_v2.mjs on installed official Pi/Chord1.4.0 native Harness/Session/TaskRuntime/SQLite",
+  "question": "Does a fixed offered burst respect capacity/current authority/identity/pre-effect cancellation through two restarts, and what useful-work/resource/sink costs are observed for capacities2/4 and direct/buffered event sinks?",
+  "workload": {
+    "conversations_per_session": 4,
+    "process_stages_per_arm": 3,
+    "unique_arrivals_per_stage": 4,
+    "probes_per_stage": [
+      "same identity duplicate",
+      "same identity changed payload conflict",
+      "stale authority refusal"
+    ],
+    "arrival_policy": "Four sequential admit calls without waiting for completion; every effect gated until all arrivals/probes finish; no retries of overload refusals.",
+    "injected_service_delay_ms": 10,
+    "stage0": "After admission revoke conversation1 toversion2false, release effects; kill at post-effect finish checkpoints.",
+    "stage1": "Recover previous finish tasks, authorize conversation1version3true, new burst; cancel first task before effect release; kill remaining finish tasks.",
+    "stage2": "Recover previous finish tasks, final burst drains normally.",
+    "arms_in_order": [
+      {
+        "name": "cap2-direct",
+        "capacity": 2,
+        "sink": "direct"
+      },
+      {
+        "name": "cap2-buffered",
+        "capacity": 2,
+        "sink": "buffered"
+      },
+      {
+        "name": "cap4-buffered",
+        "capacity": 4,
+        "sink": "buffered"
+      },
+      {
+        "name": "cap4-direct",
+        "capacity": 4,
+        "sink": "direct"
+      }
+    ]
+  },
+  "acceptance": {
+    "per_arm_processes": 3,
+    "per_arm_forced_kills_and_reopens": 2,
+    "per_arm_unique_arrivals": 12,
+    "per_arm_total_admission_calls": 21,
+    "per_arm_terminal_denied": 1,
+    "per_arm_terminal_aborted": 1,
+    "capacity2": {
+      "admitted": 6,
+      "overloaded": 6,
+      "committed_effects": 4
+    },
+    "capacity4": {
+      "admitted": 12,
+      "overloaded": 0,
+      "committed_effects": 10
+    },
+    "correctness": "Every admitted identity terminal; no effect for denied/cancelled/overloaded identities; each expected payload count1. Final active0; observed active<=capacity. Three duplicate/conflict/staleauthority probes each. Recovered tasks resume finish, DB endpoint/tasks equal saved trace/snapshot. Modes at same capacity yield same logical decisions/outcomes/effects ignoring runtimeIDs/times."
+  },
+  "metrics": [
+    "Unique offered12,admitted/overloaded/denied/aborted/committed denominators separately; eligible effect targets10",
+    "Committed effects per arm wall second including startup/gates/restarts, endpointDBread and controller acceptance; record process-stage wall separately; no throughput superiority threshold",
+    "All admitted and committed-only arrival-to-observed-terminal epoch-ms nearest-rankp50/p95/p99; clock resolution/polling and smalln limitations",
+    "Parent monotonic stage/arm/suite wall, worker admission durations, sampled private bytes, queried OS working-set highwater, raw/database/output bytes",
+    "Event callback serialization+sink time and final buffered flush separately; same-capacity fullarm direct/buffered wall ratios descriptive only,common subscription/controllercostnotisolated"
+  ],
+  "suite_wall_seconds": 120,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "limits": "One Windows host,four logical conversations in one Session perarm,customtasksandtrustedhostauthority,local same-transaction effects. No provider/model/GenerationTask,tenant authentication,external exactly-once,concurrentwriter,multinode/GPU/production validation. Finite burst with injected gates,not open-loop rate sweep. Only activeadmission bounded;request/effecthistorygrows. One order-reversed sink pair percapacity,smalln,no causal/generalperformanceclaim;callback sink costs exclude common subscription/observer/controller costs. HistoricalH1/H2failures unchanged;H1original5GiBgate remains."
+}

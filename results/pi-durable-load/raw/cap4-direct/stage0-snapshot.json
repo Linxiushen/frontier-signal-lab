@@ -1,0 +1,181 @@
+{
+  "pid": 25480,
+  "stage": 0,
+  "capacity": 4,
+  "sink": "direct",
+  "state": {
+    "capacity": 4,
+    "authority": {
+      "2": {
+        "version": 1,
+        "allowed": true
+      },
+      "9": {
+        "version": 2,
+        "allowed": false
+      },
+      "15": {
+        "version": 1,
+        "allowed": true
+      },
+      "21": {
+        "version": 1,
+        "allowed": true
+      }
+    },
+    "requests": {
+      "2:s0-r0": {
+        "fingerprint": "914043974f9281de56aa68a2e753f4441e5743b7a7a3fa9f6aa6f70a2f50f48c",
+        "taskId": 27
+      },
+      "9:s0-r1": {
+        "fingerprint": "25a90710864bffd88ea6c041b423097826c268925755ec5f6ce721d46778107c",
+        "taskId": 28
+      },
+      "15:s0-r2": {
+        "fingerprint": "1f844dd0610268007e67f693e20a4f694099814b3f119afe174fe83ac75d10eb",
+        "taskId": 29
+      },
+      "21:s0-r3": {
+        "fingerprint": "ef7b4a62549d5f5d4a758df0fe9baedea1b2f548a023e10bb69c65e07e063c7f",
+        "taskId": 30
+      }
+    },
+    "active": {
+      "2:s0-r0": 27,
+      "15:s0-r2": 29,
+      "21:s0-r3": 30
+    },
+    "effects": {
+      "2:s0-r0": {
+        "count": 1,
+        "payload": "effect-s0-r0"
+      },
+      "15:s0-r2": {
+        "count": 1,
+        "payload": "effect-s0-r2"
+      },
+      "21:s0-r3": {
+        "count": 1,
+        "payload": "effect-s0-r3"
+      }
+    },
+    "denied": [
+      "9:s0-r1"
+    ],
+    "cancelled": []
+  },
+  "inspection": {
+    "scheduling": "running",
+    "tasks": [
+      {
+        "record": {
+          "id": 27,
+          "conversationId": 2,
+          "kind": "frontier.effect",
+          "version": 1,
+          "input": {
+            "key": "2:s0-r0",
+            "session": 2,
+            "payload": "effect-s0-r0",
+            "version": 1,
+            "hold": true
+          },
+          "background": false,
+          "abortRequested": false,
+          "state": {
+            "status": "running",
+            "checkpoint": {
+              "phase": "finish"
+            }
+          },
+          "startedAt": 1793463095662
+        },
+        "state": {
+          "kind": "running"
+        }
+      },
+      {
+        "record": {
+          "id": 29,
+          "conversationId": 15,
+          "kind": "frontier.effect",
+          "version": 1,
+          "input": {
+            "key": "15:s0-r2",
+            "session": 15,
+            "payload": "effect-s0-r2",
+            "version": 1,
+            "hold": true
+          },
+          "background": false,
+          "abortRequested": false,
+          "state": {
+            "status": "running",
+            "checkpoint": {
+              "phase": "finish"
+            }
+          },
+          "startedAt": 1793463095663
+        },
+        "state": {
+          "kind": "running"
+        }
+      },
+      {
+        "record": {
+          "id": 30,
+          "conversationId": 21,
+          "kind": "frontier.effect",
+          "version": 1,
+          "input": {
+            "key": "21:s0-r3",
+            "session": 21,
+            "payload": "effect-s0-r3",
+            "version": 1,
+            "hold": true
+          },
+          "background": false,
+          "abortRequested": false,
+          "state": {
+            "status": "running",
+            "checkpoint": {
+              "phase": "finish"
+            }
+          },
+          "startedAt": 1793463095663
+        },
+        "state": {
+          "kind": "running"
+        }
+      }
+    ],
+    "submissions": []
+  },
+  "elapsed_ms": 1403.8357,
+  "memory": {
+    "rss": 91910144,
+    "heapTotal": 34291712,
+    "heapUsed": 18540416,
+    "external": 2494913,
+    "arrayBuffers": 179666
+  },
+  "resourceUsage": {
+    "userCPUTime": 531000,
+    "systemCPUTime": 984000,
+    "maxRSS": 89760,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 27704,
+    "swappedOut": 0,
+    "fsRead": 855,
+    "fsWrite": 420,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

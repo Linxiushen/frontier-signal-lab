@@ -1,0 +1,62 @@
+{
+  "reviewed_at": "2026-10-31T16:10:21.290202+00:00",
+  "status": "passed_for_separate_freeze",
+  "findings": [],
+  "scientific_native_Harness_task_model_DB_executions_by_reviewer": 0,
+  "checks": [
+    {
+      "argv": [
+        "local-state/activation-venv/Scripts/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_pi_durable_load_audit",
+        "-v"
+      ],
+      "started_at": "2026-10-31T16:10:20.818364+00:00",
+      "completed_at": "2026-10-31T16:10:21.091202+00:00",
+      "exit_code": 0,
+      "log_sha256": "63084bac3194775bbb7401e8e3bedaf303cf39a9267d29d2c20f3f79523f2863"
+    },
+    {
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--check",
+        "scripts/pi_durable_load_worker.mjs"
+      ],
+      "started_at": "2026-10-31T16:10:21.092204+00:00",
+      "completed_at": "2026-10-31T16:10:21.274202+00:00",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "review_scope": "Protocol, actual worker/controller, pure saved-record validator, negative controls, unchanged native adapter and imported SQLite/helper source read. No native/storage/model attempt executed.",
+  "resolved_prefreeze_findings": [
+    "Controller now checks suite wall/output budget while polling, after child exits and final saves, and after endpoint/audit; root and arm files included.",
+    "Native process-stage wall separated from full arm wall including endpoint DB/audit; useful effects/full-arm wall is descriptive.",
+    "All three snapshot/ready/process/event identities, expected intermediate active/effect counts, log byte/event count versus sink receipts, finite callback/flush metrics independently checked.",
+    "Final stage closes native Harness before final event/commit flush and sink receipts, preserving close reports equally in direct/buffered modes."
+  ],
+  "protocol_review": {
+    "workload": "4 arms;cap2/4×direct/buffered;4conversations/oneSession perarm;3bursts×4unique arrivals plus9probes;2real forced terminations/reopens planned perarm;no overload retries.",
+    "denominators": "12uniqueoffered/10effecteligible eacharm;cap2 admit6/overload6/effects4;cap4 admit12/overload0/effects10;one denied/one aborted.",
+    "authority_cancellation": "Current authority revoked before effects; restored version3 before later burst. Cancel guarantee explicitly pre-effect only.",
+    "measurement_limits": "One reversed-order sink pair percapacity;gated sequential bursts rather than openloop sweep;common subscription cost not isolated;epoch timing/poll samples smalln;no causal performance or service-tail superiority.",
+    "scope": "Custom tasks/local transactional effects/trustedhost;noGenerationTask/model/provider/tenantauth/externalexactlyonce/distributed/GPU/production;historygrows;prior failures/H1gate retained."
+  },
+  "notes": [
+    "Refreshing predeclared_at before freeze is permitted only before native execution; freeze must hash final protocol and every controller/worker/auditor/helper source.",
+    "Passed static/pure review is preparation only; one later separately frozen native suite may still fail and must retain original bytes/no retry."
+  ],
+  "source_sha256": {
+    "experiments/pi_durable_load_protocol.json": "c05c6ec94f5592ff94ee6b3f9eaa7b2393cf61b0cbc52e79fe068c44edc43732",
+    "experiments/pi_durable_load_audit.py": "e1f031631047447a84f2cbb7f1fb84f9babdf9b1ece113930c22e1124597189d",
+    "scripts/pi_durable_load_worker.mjs": "a2392cf9eae59e0cbc2ff6ffc9b1622031495dcc9b696263fdec976115f6cebe",
+    "scripts/run_pi_durable_load.py": "115e859473f817b5de61b72ec6c0ee9c6c5aeb53b233ec75ff5043972afa5e41",
+    "tests/test_pi_durable_load_audit.py": "e5c2aa998992232e9fa94852622e1f15327baf1c68d575f85e287e341c03b23b",
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "status": "failure_preserved_and_saved_observations_recorded",
+  "frozen_execution_status": "failed",
+  "execution_accepted": false,
+  "native_executions": 0,
+  "native_retries": 0,
+  "started_at": "2026-10-31T20:21:25.133701+00:00",
+  "sqlite_scope": "Only private audit-copies/radar-generation, read-only URI; original manifest saved before copy/read",
+  "raw_file_count": 50,
+  "raw_bytes": 1630434,
+  "endpoints": [
+    {
+      "service": 0,
+      "stage": 0,
+      "backup_sha256": "b0da6823e2f3691d15583284321b961612ca1a590a8b046d6cdea7645aa6f038",
+      "full_saved_endpoint_matches": true,
+      "tasks": 4,
+      "submissions": 2,
+      "effects": 1
+    },
+    {
+      "service": 0,
+      "stage": 1,
+      "backup_sha256": "9be98d9aeb06c6da2dfffdc0006c04e11369c86dfa69e6a21f4ce5ae7480db04",
+      "full_saved_endpoint_matches": true,
+      "tasks": 10,
+      "submissions": 5,
+      "effects": 3
+    },
+    {
+      "service": 0,
+      "stage": 2,
+      "backup_sha256": "bae5e9604d749efc06ee385a4d93f6e0bdf7106d77295737eae0764a5e9916f0",
+      "full_saved_endpoint_matches": true,
+      "tasks": 14,
+      "submissions": 7,
+      "effects": 5
+    },
+    {
+      "service": 1,
+      "stage": 0,
+      "backup_sha256": "62ce9fd52863eadbfe9adb680b0cd22aef237683c98eed16bae48db916b5ef9b",
+      "full_saved_endpoint_matches": true,
+      "tasks": 4,
+      "submissions": 2,
+      "effects": 1
+    },
+    {
+      "service": 1,
+      "stage": 1,
+      "backup_sha256": "a573e733c6c3d7000eef145b097b9f8ed2af9f240c57b248937334d53fb6e7f4",
+      "full_saved_endpoint_matches": true,
+      "tasks": 10,
+      "submissions": 5,
+      "effects": 3
+    },
+    {
+      "service": 1,
+      "stage": 2,
+      "backup_sha256": "6ab15e71da94b03bb238d81e057c2969014cb70e7b9c2cbbe6987aa6b95908d6",
+      "full_saved_endpoint_matches": true,
+      "tasks": 14,
+      "submissions": 7,
+      "effects": 5
+    }
+  ],
+  "verified_source_counts": {
+    "new": 11,
+    "preserved_prior": 27,
+    "runtime_files": 12765
+  },
+  "freeze_sha256": "6058160dabc202880a870357947accb1dc7b720cf71cb36c5e741cdc3afa9d8a",
+  "processes": [
+    {
+      "pid": 17532,
+      "stage": 0,
+      "returncode": 1,
+      "forced_termination": true,
+      "elapsed_seconds": 1.7809999999881256,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 488,
+      "stage": 1,
+      "returncode": 1,
+      "forced_termination": true,
+      "elapsed_seconds": 1.5789999999979045,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 31288,
+      "stage": 2,
+      "returncode": 0,
+      "forced_termination": false,
+      "elapsed_seconds": 1.687999999994645,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "actual_faux_api_by_service_stage": {
+    "0:0": "faux:1793477935148:l0yspliow5q",
+    "0:1": "faux:1793477936900:tgecjqswfil",
+    "0:2": "faux:1793477938547:vaq0k3yfvy8",
+    "1:0": "faux:1793477935196:kf1mjg22gdk",
+    "1:1": "faux:1793477936915:q3c4mzmyp2t",
+    "1:2": "faux:1793477938560:tyhku415tga"
+  },
+  "native_observation": {
+    "arrivals": 20,
+    "admitted": 14,
+    "overloaded": 6,
+    "task_kinds": {
+      "pi.generation": 14,
+      "pi.tool": 14
+    },
+    "terminal_outcomes": {
+      "completed": 20,
+      "aborted": 8
+    },
+    "effects": 10,
+    "event_counts": {
+      "admission": 56,
+      "provider-request": 14,
+      "tool-enter": 18,
+      "native-duplicate": 12,
+      "tool-effect": 16,
+      "terminal": 14,
+      "committed-state": 62,
+      "ready": 3,
+      "recovery-before-resume": 4
+    },
+    "same_tool_id_recoveries": 4
+  },
+  "post_outcome_single_assertion_adaptation": {
+    "frozen_source_sha256": "6d5747ab90969b831d8f76da47c03d13154d4c5c75924e45f9036ad57cf3b6cb",
+    "old": "assert (message['api'], message['provider'], message['model'], message['stopReason']) == ('faux', 'faux', 'faux-1', 'toolUse')",
+    "new": "assert message['api'].startswith('faux:') and (message['provider'], message['model'], message['stopReason']) == ('faux', 'faux-1', 'toolUse')",
+    "interpretation": "Saved-record observation with only API assertion changed in memory; all other frozen assertions replayed. This is not frozen acceptance."
+  },
+  "post_outcome_replayed_observations": {
+    "admitted": 14,
+    "overloaded": 6,
+    "native_generation_tasks": 14,
+    "native_tool_tasks": 14,
+    "faux_provider_calls": 14,
+    "local_effects": 10,
+    "recoveries": 4,
+    "terminal_latency_ms": {
+      "n": 14,
+      "p50": 50,
+      "p95": 1641,
+      "p99": 1641
+    },
+    "maximum_active_per_session": 2,
+    "final_active": 0
+  },
+  "remaining_frozen_assertions_observed": "passed_with_one_explicit_post_outcome_schema_adaptation",
+  "frozen_failure_line": "experiments/pi_generation_audit.py:58",
+  "failure_cause": "Auditor incorrectly requires message.api=faux. Official fauxProvider defaults to a unique faux:<epoch>:<random> API and rewrites returned AssistantMessage.api via cloneMessage.",
+  "suite_seconds": 5.25,
+  "original_raw_unchanged": true,
+  "completed_at": "2026-10-31T20:21:36.752408+00:00",
+  "raw_manifest_sha256": "a8318efcc1dd42544d244f28f5c6982fcf016b2537c48ab4ce08f01baf46e94e",
+  "frozen_failure_trace_sha256": "e07b47d2489b24210d9d43056a8592113b1415fffc828cebb76266eea01a2a3f"
+}

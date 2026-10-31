@@ -1,0 +1,81 @@
+{
+  "status": "passed_for_separate_freeze",
+  "reviewer": "radar0401",
+  "completed_at": "2026-10-31T20:17:33.261859+00:00",
+  "source_sha256": {
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_generation_audit.py": "6d5747ab90969b831d8f76da47c03d13154d4c5c75924e45f9036ad57cf3b6cb",
+    "experiments/pi_generation_protocol.json": "b82033a23854d86512be073d8a1ea5576e6227766ee255dceb6c66630984faa0",
+    "experiments/pi_generation_service.mjs": "4550778f60d64932ce7d4f683f7e26451d33cea180aecfc2f0cf568aa4fa7c70",
+    "scripts/check_pi_generation.py": "0264e79bd9c07fad7f2313207f7a564ff92ac76d2368d9a18165d6b3ed28e39f",
+    "scripts/pi_generation_worker.mjs": "026ae937a6fefb1393c52114430b87ce14eaabd55e395ddcb27236bec1ffd049",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52",
+    "scripts/run_pi_generation.py": "2e0eec9a1f0cf526632e5b972b79b5660e4a818eeac0d9323dda6afe22395364",
+    "tests/pi_generation_service.test.mjs": "21c050ef001f2efcea97623babddac95dbc8dd16c6068aa23c5cc761ae801940",
+    "tests/test_pi_generation_audit.py": "f8ff5882b890e7b001e221d856a91b99c10eceb72b46ad59860c8378157d8a5e",
+    "tests/test_pi_generation_freeze.py": "cde44975264076f5abc4a30214aa0ab070436c569c3350084be5d905e56f6ca4"
+  },
+  "checks": [
+    {
+      "label": "radar-final-python",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pi_generation*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "354263e4edfb817e064155d2850e7168522d8ff8835623227e53b839a206819e",
+      "stderr_sha256": "b880fb491d017bdaf9075aa41f3270ee02459e02f8eb1cfb96ebfeb91d593d2c"
+    },
+    {
+      "label": "radar-final-node",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--test",
+        "tests/pi_generation_service.test.mjs"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "88c780f0a53e1451a7192abf8834f3dc5bb3740b23e61068e5f89069d2fb592d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "radar-final-syntax",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--check",
+        "scripts/pi_generation_worker.mjs"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "Independent exact native static schema, adapter/worker/controller/checker/protocol and pure evidence controls. Nineteen focused Python tests (synthetic/in-memory SQLite only), three Node pure service tests, worker syntax and Python AST. No installed runtime import, native task execution, provider/model/network or scientific suite.",
+  "resolved_findings": [
+    "Full native submission/request/input/user entry/assistant byTaskId/generation ownership/tool input/callId/ToolResult chain validated; official Faux model identity explicit.",
+    "Held execute arguments/replay:safe and generation waiting/on/tool IDs joined to final same task identities; recovery/provider/terminal/duplicate stages and IDs aligned.",
+    "All20fixed request identities,authority versions,host fingerprint/conversation/payload/submission,staged inventory/full endpoint state/terminal and effect/cancellation identities validated.",
+    "Controller now checks process wall after wait, requires observed memory, refuses existing outputs, preserves failed startup and bounds observed capture work; checker enforces11source closure/protocol/constants/inventory/reviews/saved outcomes."
+  ],
+  "protocol_scope_review": [
+    "Two independent Sessions and two conversations each;3processstages/2kills,14GenerationTasks/14ToolTasks/14officialFauxcalls,6overflows,10exactlocalEffects,4sameToolIDreexecutions.",
+    "Nonatomic host reservation -> native submit -> host submissionID persistence gaps explicitly unsupported. Only gated post-intent/effect crash checkpoints are injected.",
+    "Finite fixture and trusted single host/owner; hostactive slots require explicit reap, history/logs grow. No realmodel/HTTPtransport/tenantauth/concurrentwriter/external exactly-once/GPU/distributed/production validation.",
+    "20s worker and90s suite are observed checks; capture progress/deadline callbacks do not guarantee a hard deadline for blocking OS I/O. Buffered logs flush before kills, not arbitrary-crash durability.",
+    "Descriptive gate/restart-inclusive costs and observed terminal latency; no baseline/speedup or broad capacity/SLO claim. One separate suite allowed, no retry after outcome."
+  ],
+  "limitations": [
+    "Native-schema fixtures are fabricated from pinned installed source; passing pure tests does not prove native initialization or completion.",
+    "Any frozen native failure must remain failed with original bytes, no source patch/retry to rescue it."
+  ],
+  "blocking_findings": []
+}

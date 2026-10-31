@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Pi actual generation/tool attempt](results/pi-generation/report.md) | Frozen FAILED: auditor assumed fixed Faux API identity;3processes/2reopens,50 raw files preserved. Post-outcome observations do not rescue acceptance; zero model loads |
 | [Pi native paced two-Session caller](results/pi-durable-paced/report.md) | One frozen refusal/retry pair: two native Sessions per arm, bounded pending4, six processes/four reopens; 0/36 versus12/36 load effects under deliberately held capacity. Local custom tasks only; no causal or full-Agent/model claim |
 | [Pi native bounded-burst load](results/pi-durable-load/report.md) | One frozen4arm suite passes: capacity2/4, direct/buffered sinks,12process starts/8reopens; exact outcomes and scoped cost endpoints, no full-agent or general performance claim |
 | [Pi durable service v3 / accepted native recovery slice](results/pi-durable-service-v3/report.md) | One frozen native suite passes: three processes/two restarts, bounded admission, current-authority refusal, cancellation and four local effects count1; fixed single-host custom tasks only, no provider or performance upgrade |

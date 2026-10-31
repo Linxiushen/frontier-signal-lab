@@ -1,0 +1,56 @@
+{
+  "recorded_at": "2026-10-31T20:11:24.106031+00:00",
+  "reviewer": "maint0401",
+  "status": "passed",
+  "passed": true,
+  "checks": {
+    "node_syntax_adapter": true,
+    "node_syntax_worker": true,
+    "pure_effect_controls_7": true,
+    "submission_resumes_scheduler": true,
+    "submission_status_context_API": true,
+    "user_JSON_string_preserved_appendInput": true,
+    "official_faux_factory_model_API": true,
+    "agent_extension_objects_supported": true,
+    "context_abortSignal_declared": true,
+    "safe_tool_replay_supported": true,
+    "terminate_tool_control_supported": true,
+    "partial_retry_compaction_settings_supported": true
+  },
+  "findings": [],
+  "source_sha256": {
+    "experiments/pi_generation_service.mjs": "4550778f60d64932ce7d4f683f7e26451d33cea180aecfc2f0cf568aa4fa7c70",
+    "scripts/pi_generation_worker.mjs": "026ae937a6fefb1393c52114430b87ce14eaabd55e395ddcb27236bec1ffd049",
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce"
+  },
+  "pinned_interface_sha256": {
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-durable\\dist\\harness\\harness.js": "472fe31f5525045ec4b27437a2049236f4f58cce4920aa9bd49e41445097574d",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-durable\\dist\\harness\\submissions.js": "d171c6a0b3438471911277091117ad48d73f2af853d5b6b7a0f547c28782c9ac",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-durable\\dist\\harness\\inbox.js": "f4de5603e1dd5f1072b24757a057074a3360a20720327ef58152e067f16d2454",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-durable\\dist\\harness\\types.d.ts": "d370cfc70bbaf6a966f65a2c30cdd7425ccee81f6e15fb9409fac0d6ff881862",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-durable\\dist\\harness\\agent.js": "adb8b8fa686e5699729a0a8491f249f38419eb0e664415dd01fbcf2369c24af7",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-ai\\dist\\providers\\faux.d.ts": "3a5a7f3524b133557f577d27239fa0aa25d8167877a008b29b01a6b24be22b95",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-ai\\dist\\providers\\faux.js": "f305a512f2d90547e87b402f2b335ba0d8a9f1b7c535b8a44bfc6fce8250d26a",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\pi-ai\\dist\\types.d.ts": "9348589a0c88c61e78e8575539cec4bf4e4fba8bf9029d3535ddeae07cb1c696",
+    "local-state\\pi-durable-20261031T100338Z\\node_modules\\@earendil-works\\chord\\dist\\context\\index.d.ts": "f9e704f16d5ca4b1e43931b4c9ada1eb92246aaf0f661244a9206debd74f466b"
+  },
+  "controls": {
+    "commit": "commit",
+    "aborted": "aborted",
+    "conversation_mismatch": "conflict",
+    "payload_mismatch": "conflict",
+    "authority_version_changed": "denied",
+    "authority_revoked": "denied",
+    "effect_already_present": "existing"
+  },
+  "review_scope": "Prefreeze static interface/read review, Node --check, and pure exported decision function only. No Harness.open, SQLite, native task, provider/model/transport execution or scientific trial. Runtime imports occur inside uncalled openGenerationService. Does not authorize or replace frozen native acceptance.",
+  "limitations": [
+    "Host reservation/native submit/submission-id store are not atomic; crash in that gap remains unsupported.",
+    "Only local official Faux provider is proposed; no model quality, real network, GPU, distributed or production claim.",
+    "Controlled synchronous two-session offers are bounded-admission evidence, not paced queue/backpressure/load-scaling evidence.",
+    "Pinned declarations and source analysis cannot prove runtime success; separately frozen native execution required."
+  ],
+  "issue_checked_and_dismissed": {
+    "missing_stage0_resume": "Conversation.submit calls Submissions.submit, whose first operation resumes scheduler; harness/submissions.js lines36–37 and harness.js line146."
+  }
+}

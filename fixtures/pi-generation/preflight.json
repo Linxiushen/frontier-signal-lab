@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "name": "python-focused-final",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_pi_generation_audit",
+        "tests.test_pi_generation_freeze",
+        "-v"
+      ],
+      "started_at": "2026-10-31T20:16:26.330515+00:00",
+      "completed_at": "2026-10-31T20:16:28.732042+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "354263e4edfb817e064155d2850e7168522d8ff8835623227e53b839a206819e",
+      "stderr_sha256": "a5d0c970b71603cb19884217bd39ddcc0647166282cafc04a88f1fc0614c831f",
+      "tail": [
+        "test_protocol_constants_refused (tests.test_pi_generation_freeze.FreezeTests.test_protocol_constants_refused) ... ok",
+        "test_raw_duplicate_or_extra_file_refused (tests.test_pi_generation_freeze.FreezeTests.test_raw_duplicate_or_extra_file_refused) ... ok",
+        "test_stale_review_or_subset_hash_refused (tests.test_pi_generation_freeze.FreezeTests.test_stale_review_or_subset_hash_refused) ... ok",
+        "test_unfinished_or_unknown_status_refused (tests.test_pi_generation_freeze.FreezeTests.test_unfinished_or_unknown_status_refused) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 19 tests in 1.944s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "node-controls-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--test",
+        "tests/pi_generation_service.test.mjs",
+        "tests/pi_durable_service_v2.test.mjs",
+        "tests/pi_bounded_retry.test.mjs"
+      ],
+      "started_at": "2026-10-31T20:16:28.733040+00:00",
+      "completed_at": "2026-10-31T20:16:29.344275+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "c779291a59e495b7c2c3b6d5d4e2323b6724700b36cc1ab5fe164fc9b0dfc1ce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": [
+        "\u2714 pre-effect cancellation and replay use distinct decisions (0.177ms)",
+        "\u2139 tests 11",
+        "\u2139 suites 0",
+        "\u2139 pass 11",
+        "\u2139 fail 0",
+        "\u2139 cancelled 0",
+        "\u2139 skipped 0",
+        "\u2139 todo 0",
+        "\u2139 duration_ms 367.0842"
+      ]
+    },
+    {
+      "name": "node-syntax-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--check",
+        "scripts/pi_generation_worker.mjs"
+      ],
+      "started_at": "2026-10-31T20:16:29.345270+00:00",
+      "completed_at": "2026-10-31T20:16:29.573523+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": []
+    },
+    {
+      "name": "python-full-final",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-10-31T20:16:29.574522+00:00",
+      "completed_at": "2026-10-31T20:17:19.909233+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "61b18e39875d1cdb9d9a010bfd6c98d33ac2b34ab50acdf799fc6ade50086a1a",
+      "stderr_sha256": "f82060c6a87c677a47bbace3857fa5c3e3df76e1a29edc297fae162a328cfc30",
+      "tail": [
+        "test_nonobject_root_produces_structured_failure (test_workload_observer_auditor.WorkloadAuditorTests.test_nonobject_root_produces_structured_failure) ... ok",
+        "test_operation_and_native_thread_tamper (test_workload_observer_auditor.WorkloadAuditorTests.test_operation_and_native_thread_tamper) ... ok",
+        "test_optional_executable_file_checks_are_explicit (test_workload_observer_auditor.WorkloadAuditorTests.test_optional_executable_file_checks_are_explicit) ... ok",
+        "test_shifted_cleanup_cannot_escape_enclosing_case_wall (test_workload_observer_auditor.WorkloadAuditorTests.test_shifted_cleanup_cannot_escape_enclosing_case_wall) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1053 tests in 49.031s",
+        "",
+        "OK (skipped=81)"
+      ]
+    }
+  ]
+}

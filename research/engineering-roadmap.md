@@ -82,3 +82,5 @@ H2 原生切片首次尝试（2026-10-31 10:26Z）：官方 Pi durable1.4.0 的�
 版本边界补充（2026-10-22）：Verifiers2960引入独立于ok/errors的dropped，None省略reward但不自动drop，非有限reward值改为报错并删除UnscoredError；前述NaN约定仅属于旧固定版本。H4须接到实际训练准入，验证drop排除、shared回滚／isolated提交、rescore清除与两次恢复，记录attempted/scored/skipped/dropped/failed/admitted成员及交集，不能假定状态互斥或只看reward均值。十六份完整前后源码及四个新增单测函数已读；没有本地runner／trainer／模型验证，科学状态及H1关闭门槛不变。[源码与待验收调用链](2026-10-22-trace-drop-and-training-admission.md)。
 
 新增H2持久化边界（2026-10-24）：Pi6c2fd73将原生generation／tool progress标为deferred，watch可先于Storage；subscribeCommits只发布实际存储操作。正常事务须读取held文档且有自身写入才触发依赖落盘，纯读／无关写入均不是屏障。默认1000ms还受mutation line与I/O延迟影响，Infinity无定时器；首次store前崩溃可能无aborted条目与usage记录。已读精确源码及相关测试断言，但其MemoryStorage fail／reopen不是两次OS重启。H2仍须在同一真实多会话runtime预注册当前权限、幂等效应、取消、准入背压和真实持久化重启，分别记账可见／存储／效应确认及丢失usage成本；未执行新实验，H1关闭项与既有失败保持。[源码与原生验收门槛](2026-10-24-deferred-progress-durability.md)。
+
+H2实际GenerationTask/tool（2026-10-31 20:18Z）单次冻结验收失败：检查器误把官方动态Faux API身份固定为faux。实际三进程／两次重开与副本数据库观察单列，50份raw完整保留，无重试／模型加载，不追认通过。下一步直接同调用方另版固定提供方身份契约和完整负载／权限／取消／两次重启；host预留／native提交／host-ID持久化之间crash gap暂不支持。不扩展observer，不改变已接受自定义任务、旧失败、H1原5GiB及H3/H4。[完整失败与边界](../results/pi-generation/report.md)。

@@ -1,0 +1,58 @@
+{
+  "name": "pi-native-generation-faux-tool-recovery-v1",
+  "predeclared_at": "2026-10-31T20:10:17+00:00",
+  "hypothesis": "H2",
+  "suites_permitted": 1,
+  "retries": 0,
+  "question": "Does the same pinned runtime's actual native GenerationTask -> official built-in Faux provider -> replay-safe ToolTask boundary preserve finite capacity/current-authority/cancellation and local effect identity through two process reopens?",
+  "engineering": {
+    "actual_caller": "Optional host service around actual Harness conversations/submissions, GenerationTask, Models collection, official Faux provider and ToolTask; two independent SQLite-backed Sessions in one worker.",
+    "scale_bottleneck": "Bound finite active admissions and refuse overload; native replay and cancellation can duplicate or incorrectly authorize durable tool effects if their identities/current authority are lost.",
+    "integration_point": "Host reservation -> Conversation.submit -> native generation/provider/tool -> ToolExecutionApi.commit -> native terminal submission -> explicit host reap.",
+    "rollback": "Optional adapter only; no installed runtime changes. Select prior custom-task adapter if this fails.",
+    "validated_tier_if_passed": "Single Windows host, real native task lifecycle and official no-cost local Faux provider; deterministic fixture content, not model quality, real HTTP transport or production."
+  },
+  "workload": {
+    "native_sessions": 2,
+    "sqlite_databases": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "process_stages": 3,
+    "forced_kills_and_reopens": 2,
+    "stages": [
+      "PerSession: admit2 before-effect-held tasks (recover and current-authority-deny), refuse1overload; perform wrapper duplicate/conflict/stale and independent same-native-requestID replay for both; revoke deny toversion99false; releaseboth beforeeffect gates; deny completes with0effect; recover stays after-effect-held,count1; flush logs/snapshot then kill.",
+      "Reopenboth DBs with same prior authority; observe saved effects before resume; safeToolTask reruns sameID with existing decision,count1; native submissions finish,hostreap; updateauthoritytoversion2. PerSession: admitpre-effectabort andpost-effectabort/refuse1overload,probes; cancelpre beforegate/count0, releasepost thenabort/count1; bothnative scopes settle; admit1newrecover andholdaftereffect,count1; flush andkill.",
+      "Reopenboth DBs, resume2sameToolIDs/existingcount1, thenauthorizeversion3. PerSession admit2ordinarycommits/refuse1overload,probes; releasebothgates,settle/reap,waitidle/close."
+    ],
+    "total_unique_arrivals": 20,
+    "admitted": 14,
+    "overloaded": 6,
+    "intents": {"recover": 4, "deny": 2, "pre-abort": 2, "post-abort": 2, "commit": 4, "overload": 6},
+    "expected_local_effects": 10,
+    "expected_native_generation_tasks": 14,
+    "expected_native_tool_tasks": 14,
+    "expected_faux_provider_calls": 14,
+    "expected_native_duplicate_probes": 12,
+    "expected_replayed_tool_executions": 4,
+    "provider": "Official installed pi-ai fauxProvider, one deterministic toolCall per admitted input, control.terminate=true avoids second generation. Models requests use no credentials or network; globalfetchdenied; sanitizedchildenv. Finite16response factories perSession/process, observedexactcalls14total required; native retries and compaction disabled."
+  },
+  "acceptance": [
+    "20distinct identities fully accounted,14native terminal submissions,6refusals with no native submission/effect.2nativeSessions/2conversations each. Native duplicate submits return same durable submission IDs, no extra provider call.",
+    "EachSession active<=2andfinal0;currentauthoritycheckedinsideactualToolExecutionApi.commit with full durableidentity/payload/version/conversationbinding. Deny/pre-effectabort count0;post-effectabortcount1; all10allowedlocal effects exactlycount1.",
+    "3distinct retainedworkerPIDs,2forcedkillsand2reopens. At eachkill eachSession has1nativeGenerationTask waitingtools and1ToolTask executecheckpoint,existingeffectcount1. Reopen same nativeToolIDs rerun once, no newproviderrequest/effect; finish and reap before newversionauthority.",
+    "Copyall6stageSQLite backups via official SQLite backup (WALincluded), integrityok and fullrecords match JSON endpoints; all28native task records terminal (20completed/8aborted). Exactsource/runtime/rawbytes unchanged and complete savedrecordaudit passes."
+  ],
+  "metrics": [
+    "Finite success/outcome/effect denominators;14terminal latency nearest-rank p50/p95/p99 from host offered to observedterminal epochmilliseconds; includes controlgates/restarts and different cohorts,descriptive not SLO/capacity/causalperformance.",
+    "10effects / suitewall includingprocessstarts/restarts/DBbackup/acceptance;polledworkerprivate and OSworking-sethighwater;callbackserialization and finalflushcost,raw/DBbytes. No comparison/baseline/speedup claim."
+  ],
+  "suite_wall_seconds": 90,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "limits": "OneWindowshost,2SQLitebackedSessions,officialFauxfixture,no realmodel/HTTPtransport/tenantauth/concurrentwriter/externalexactlyonce/GPU/distributed/productionproof. Hostreservation,nativesubmission,andhostIDpersistareseparatecommits:crashes/errorsinthesegapsarenotreconciled/supported;onlyafterdurabletoolintent+effect checkpointsarekilled. Activeboundsneedexplicitreap,singlehostsingleowner;historiesandlogs grow. Bufferedlogsflushedbeforekills,notarbitrarycrashlogdurability. No pendingqueueclaim or causalcapacity/performancecomparison. H1original5GiBgate/alloldfailures/H3/H4unchanged."
+}

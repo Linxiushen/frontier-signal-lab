@@ -1,0 +1,110 @@
+{
+  "checks": [
+    {
+      "name": "python-focused-final",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_pi_generation_v2_audit",
+        "tests.test_pi_generation_v2_freeze",
+        "-v"
+      ],
+      "started_at": "2026-10-31T22:05:54.632243+00:00",
+      "completed_at": "2026-10-31T22:05:57.269701+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "354263e4edfb817e064155d2850e7168522d8ff8835623227e53b839a206819e",
+      "stderr_sha256": "ec70f7c7e6de5e35356ec1aba5082521a50374d35cd79674d3152dba448e3e12",
+      "tail": [
+        "test_missing_source_and_preserved_change_refused (tests.test_pi_generation_v2_freeze.FreezeTests.test_missing_source_and_preserved_change_refused) ... ok",
+        "test_preserved_only_path_is_checked (tests.test_pi_generation_v2_freeze.FreezeTests.test_preserved_only_path_is_checked) ... ok",
+        "test_process_start_failure_preserved_and_not_retried (tests.test_pi_generation_v2_freeze.FreezeTests.test_process_start_failure_preserved_and_not_retried) ... ok",
+        "test_protocol_constants_refused (tests.test_pi_generation_v2_freeze.FreezeTests.test_protocol_constants_refused) ... ok",
+        "test_raw_duplicate_or_extra_file_refused (tests.test_pi_generation_v2_freeze.FreezeTests.test_raw_duplicate_or_extra_file_refused) ... ok",
+        "test_stale_review_or_subset_hash_refused (tests.test_pi_generation_v2_freeze.FreezeTests.test_stale_review_or_subset_hash_refused) ... ok",
+        "test_unfinished_or_unknown_status_refused (tests.test_pi_generation_v2_freeze.FreezeTests.test_unfinished_or_unknown_status_refused) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 21 tests in 2.113s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "node-controls-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--test",
+        "tests/pi_generation_v2_service.test.mjs",
+        "tests/pi_durable_service_v2.test.mjs",
+        "tests/pi_bounded_retry.test.mjs"
+      ],
+      "started_at": "2026-10-31T22:05:57.271212+00:00",
+      "completed_at": "2026-10-31T22:05:57.917537+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8425001ad512e6d631945f2db38c3f83408a1311ae86ba4d04eec49ba9ebbe10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": [
+        "✔ string request payload identity separates changed bytes and rejects ambiguous objects (0.7373ms)",
+        "✔ tool effect validates durable identity and current authority (1.1128ms)",
+        "✔ model arguments cannot redirect an effect or change the payload (0.1964ms)",
+        "✔ pre-effect cancellation and replay use distinct decisions (0.168ms)",
+        "ℹ tests 11",
+        "ℹ suites 0",
+        "ℹ pass 11",
+        "ℹ fail 0",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 388.6001"
+      ]
+    },
+    {
+      "name": "node-syntax-final",
+      "argv": [
+        "C:/Program Files/nodejs/node.exe",
+        "--check",
+        "scripts/pi_generation_v2_worker.mjs"
+      ],
+      "started_at": "2026-10-31T22:05:57.918537+00:00",
+      "completed_at": "2026-10-31T22:05:58.166849+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": []
+    },
+    {
+      "name": "python-full-final",
+      "argv": [
+        "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "scripts/run_portable_tests.py",
+        "-v"
+      ],
+      "started_at": "2026-10-31T22:05:58.168403+00:00",
+      "completed_at": "2026-10-31T22:06:53.480916+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "863509303c30b1fddf5b06a68d63bfd5d7fc46bf6aebaa4a131de82c8083da71",
+      "stderr_sha256": "515d7a8f2bc9c5ab52a25a3a73175659a35b5116171bbd9e0c915b2bc43ee56e",
+      "tail": [
+        "test_failed_partial_run_is_rejected_and_later_controls_still_audited (test_workload_observer_auditor.WorkloadAuditorTests.test_failed_partial_run_is_rejected_and_later_controls_still_audited) ... ok",
+        "test_fixed_protocol_source_and_historical_dependency_tamper (test_workload_observer_auditor.WorkloadAuditorTests.test_fixed_protocol_source_and_historical_dependency_tamper) ... ok",
+        "test_json_size_and_nonfinite_values_rejected (test_workload_observer_auditor.WorkloadAuditorTests.test_json_size_and_nonfinite_values_rejected) ... ok",
+        "test_nonobject_root_produces_structured_failure (test_workload_observer_auditor.WorkloadAuditorTests.test_nonobject_root_produces_structured_failure) ... ok",
+        "test_operation_and_native_thread_tamper (test_workload_observer_auditor.WorkloadAuditorTests.test_operation_and_native_thread_tamper) ... ok",
+        "test_optional_executable_file_checks_are_explicit (test_workload_observer_auditor.WorkloadAuditorTests.test_optional_executable_file_checks_are_explicit) ... ok",
+        "test_shifted_cleanup_cannot_escape_enclosing_case_wall (test_workload_observer_auditor.WorkloadAuditorTests.test_shifted_cleanup_cannot_escape_enclosing_case_wall) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1081 tests in 54.074s",
+        "",
+        "OK (skipped=81)"
+      ]
+    }
+  ]
+}

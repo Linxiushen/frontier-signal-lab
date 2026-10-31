@@ -158,3 +158,14 @@ results/pi-generation/** -text whitespace=cr-at-eol
 # Preserve the hash-bound portable test support.
 scripts/run_portable_tests.py -text whitespace=cr-at-eol
 tests/test_portable_test_runner.py -text whitespace=cr-at-eol
+
+# Preserve the separately versioned provider-identity contract and full native outcome.
+experiments/pi_generation_v2* -text whitespace=cr-at-eol
+scripts/pi_generation_v2_worker.mjs -text whitespace=cr-at-eol
+scripts/run_pi_generation_v2.py -text whitespace=cr-at-eol
+scripts/check_pi_generation_v2.py -text whitespace=cr-at-eol
+tests/pi_generation_v2_service.test.mjs -text whitespace=cr-at-eol
+tests/test_pi_generation_v2_audit.py -text whitespace=cr-at-eol
+tests/test_pi_generation_v2_freeze.py -text whitespace=cr-at-eol
+fixtures/pi-generation-v2/** -text whitespace=cr-at-eol
+results/pi-generation-v2/** -text whitespace=cr-at-eol

@@ -38,6 +38,10 @@ jobs:
         run: python -S scripts/check_pi_durable_service_v3.py
       - name: Audit bounded-burst durable load saved bytes without runtime or database execution
         run: python -S scripts/check_pi_durable_load.py
+      - name: Check separately versioned generation admission without the native runtime
+        run: node --test tests/pi_generation_v2_service.test.mjs
+      - name: Audit versioned generation provider-identity saved bytes
+        run: python -S scripts/check_pi_generation_v2.py
       - name: Check generation admission without loading the native runtime
         run: node --test tests/pi_generation_service.test.mjs
       - name: Preserve failed generation-suite saved bytes without native execution

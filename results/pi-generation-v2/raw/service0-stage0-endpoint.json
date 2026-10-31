@@ -1,0 +1,395 @@
+{
+  "state": {
+    "capacity": 2,
+    "authority": {
+      "2": {
+        "version": 1,
+        "allowed": true
+      },
+      "8": {
+        "version": 99,
+        "allowed": false
+      }
+    },
+    "requests": {
+      "2:s0-db0-control0": {
+        "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+        "conversation": 2,
+        "payload": "payload-s0-db0-control0",
+        "version": 1,
+        "submissionId": 16
+      },
+      "8:s0-db0-control1": {
+        "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+        "conversation": 8,
+        "payload": "payload-s0-db0-control1",
+        "version": 1,
+        "submissionId": 19,
+        "terminal": {
+          "conversationId": 8,
+          "requestId": "s0-db0-control1",
+          "type": "input",
+          "status": "done",
+          "entry": 18,
+          "id": 19,
+          "answer": 25
+        }
+      }
+    },
+    "active": {
+      "2:s0-db0-control0": true
+    },
+    "effects": {
+      "2:s0-db0-control0": {
+        "count": 1,
+        "payload": "payload-s0-db0-control0"
+      }
+    }
+  },
+  "document_sequences": [
+    27
+  ],
+  "tasks": [
+    {
+      "id": 17,
+      "conversationId": 2,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "waiting",
+        "checkpoint": {
+          "phase": "tools",
+          "assistant": 23,
+          "tools": [
+            24
+          ],
+          "pending": []
+        },
+        "on": [
+          24
+        ],
+        "policy": "allSettled"
+      },
+      "startedAt": 1793484822306
+    },
+    {
+      "id": 20,
+      "conversationId": 8,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "entryId": 25
+          }
+        }
+      },
+      "startedAt": 1793484822313,
+      "endedAt": 1793484822352
+    },
+    {
+      "id": 24,
+      "conversationId": 2,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 23,
+        "callId": "call-9ba75a60d084420fe33f144d"
+      },
+      "owner": 17,
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "running",
+        "checkpoint": {
+          "phase": "execute",
+          "arguments": {
+            "key": "2:s0-db0-control0",
+            "payload": "payload-s0-db0-control0",
+            "version": 1
+          },
+          "replay": "safe"
+        }
+      },
+      "startedAt": 1793484822327
+    },
+    {
+      "id": 26,
+      "conversationId": 8,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 25,
+        "callId": "call-599063170dd42c1a4bdc250c"
+      },
+      "owner": 20,
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "kind": "model",
+            "entryId": 27,
+            "control": {
+              "terminate": true
+            }
+          }
+        }
+      },
+      "startedAt": 1793484822328,
+      "endedAt": 1793484822349
+    }
+  ],
+  "entries": [
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"2:s0-db0-control0\",\"payload\":\"payload-s0-db0-control0\",\"version\":1}",
+          "timestamp": 1793484822304
+        }
+      ],
+      "kind": "pi.user",
+      "id": 15,
+      "conversationId": 2
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"8:s0-db0-control1\",\"payload\":\"payload-s0-db0-control1\",\"version\":1}",
+          "timestamp": 1793484822311
+        }
+      ],
+      "kind": "pi.user",
+      "id": 18,
+      "conversationId": 8
+    },
+    {
+      "model": [
+        {
+          "role": "system",
+          "content": "",
+          "toolsAdded": [
+            {
+              "name": "frontier_effect",
+              "description": "Commit one authorized local fixture effect.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "payload",
+                  "version"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+          "timestamp": 1793484822311
+        }
+      ],
+      "kind": "pi.system",
+      "id": 21,
+      "conversationId": 2,
+      "byTaskId": 17
+    },
+    {
+      "model": [
+        {
+          "role": "system",
+          "content": "",
+          "toolsAdded": [
+            {
+              "name": "frontier_effect",
+              "description": "Commit one authorized local fixture effect.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "payload",
+                  "version"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+          "timestamp": 1793484822316
+        }
+      ],
+      "kind": "pi.system",
+      "id": 22,
+      "conversationId": 8,
+      "byTaskId": 20
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-9ba75a60d084420fe33f144d",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "2:s0-db0-control0",
+                "payload": "payload-s0-db0-control0",
+                "version": 1
+              }
+            }
+          ],
+          "api": "faux:1793484822243:0541mzi4zl17",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 87,
+            "output": 23,
+            "cacheRead": 0,
+            "cacheWrite": 87,
+            "totalTokens": 197,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793484822320,
+          "durationMs": 2
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 23,
+      "conversationId": 2,
+      "byTaskId": 17
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-599063170dd42c1a4bdc250c",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "8:s0-db0-control1",
+                "payload": "payload-s0-db0-control1",
+                "version": 1
+              }
+            }
+          ],
+          "api": "faux:1793484822243:0541mzi4zl17",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 87,
+            "output": 23,
+            "cacheRead": 0,
+            "cacheWrite": 87,
+            "totalTokens": 197,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793484822323,
+          "durationMs": 1
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 25,
+      "conversationId": 8,
+      "byTaskId": 20
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-599063170dd42c1a4bdc250c",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "denied"
+            }
+          ],
+          "isError": true,
+          "durationMs": 10,
+          "timestamp": 1793484822349
+        }
+      ],
+      "data": {
+        "diagnostics": []
+      },
+      "kind": "pi.tool-result",
+      "id": 27,
+      "conversationId": 8,
+      "byTaskId": 26
+    }
+  ],
+  "submissions": [
+    {
+      "conversationId": 2,
+      "requestId": "s0-db0-control0",
+      "type": "input",
+      "status": "placed",
+      "entry": 15,
+      "id": 16
+    },
+    {
+      "conversationId": 8,
+      "requestId": "s0-db0-control1",
+      "type": "input",
+      "status": "done",
+      "entry": 18,
+      "id": 19,
+      "answer": 25
+    }
+  ],
+  "conversations": [
+    {
+      "id": 2
+    },
+    {
+      "id": 8
+    }
+  ]
+}

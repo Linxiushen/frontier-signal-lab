@@ -84,3 +84,5 @@ H2 原生切片首次尝试（2026-10-31 10:26Z）：官方 Pi durable1.4.0 的�
 新增H2持久化边界（2026-10-24）：Pi6c2fd73将原生generation／tool progress标为deferred，watch可先于Storage；subscribeCommits只发布实际存储操作。正常事务须读取held文档且有自身写入才触发依赖落盘，纯读／无关写入均不是屏障。默认1000ms还受mutation line与I/O延迟影响，Infinity无定时器；首次store前崩溃可能无aborted条目与usage记录。已读精确源码及相关测试断言，但其MemoryStorage fail／reopen不是两次OS重启。H2仍须在同一真实多会话runtime预注册当前权限、幂等效应、取消、准入背压和真实持久化重启，分别记账可见／存储／效应确认及丢失usage成本；未执行新实验，H1关闭项与既有失败保持。[源码与原生验收门槛](2026-10-24-deferred-progress-durability.md)。
 
 H2实际GenerationTask/tool（2026-10-31 20:18Z）单次冻结验收失败：检查器误把官方动态Faux API身份固定为faux。实际三进程／两次重开与副本数据库观察单列，50份raw完整保留，无重试／模型加载，不追认通过。下一步直接同调用方另版固定提供方身份契约和完整负载／权限／取消／两次重启；host预留／native提交／host-ID持久化之间crash gap暂不支持。不扩展observer，不改变已接受自定义任务、旧失败、H1原5GiB及H3/H4。[完整失败与边界](../results/pi-generation/report.md)。
+
+H2原生generation/tool v2（2026-10-31 22:13Z）另版冻结单次通过：两个SQLite Session、14generation／14tool、10本地效应各count1、两次重开与默认动态／显式固定API的原始请求身份精确绑定。此有限fixture原生生命周期门槛关闭；下一步直接同服务协调host预留／native提交／host-ID持久化三个commit gap，在每个边界故障注入并保持当前权限／取消／两次重启及有界settlement，无孤儿／丢失／重复提交或效应。当前只在持久化tool意图／效应后强杀，不证明任意崩溃／真实HTTP模型／tenant／外部exactly-once／生产。50份raw完整保留；旧v1失败及H1原5GiB、H3/H4不变。[完整结果](../results/pi-generation-v2/report.md)。

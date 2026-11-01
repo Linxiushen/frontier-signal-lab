@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Live rollout adoption source review](research/2026-11-01-live-rollout-adoption.md) | Open Verifiers proposal; retained VM/job identity, explicit duplicated in-flight model call and replay-cache limits. Source/test design only; no local VM run or recovery upgrade |
 | [Pending authority/cancellation preparation](research/2026-11-01-pending-authority-cancellation.md) | Same native service's next complete workload is prepared; 19 Python/7 Node checks pass. No new native run or freeze: observed free disk below unchanged 1 GiB gate; recovery targets remain unverified |
 | [Pi native admission reconciliation](results/pi-generation-admission/report.md) | One frozen two-Session suite:20native submissions,16local effects,count1,8recovered reservations,two reopens across reservation/submit/ID-link gaps. Official local Faux; pending authority/cancel-crash/production unverified |
 | [Pi generation/tool identity and recovery v2](results/pi-generation-v2/report.md) | One frozen native two-Session slice passes:14generation/14tool,10local effects,count1,two reopens,exact dynamic/stable API bindings. Official Faux fixture; admission commit gaps/real HTTP/model/production unverified |

@@ -92,3 +92,5 @@ H2同服务准入协调（2026-11-01 00:18Z）一次另版冻结通过：两个S
 H2下一完整调用方（2026-11-01 02:02Z）已准备 pending 权限撤回与 durable cancel-mark-before-abort 的同服务两次重开负载；19 项 Python、7 项 Node／mock 方法与语法检查通过。18 请求／12 host 准入／8 native 输入／6 effect 是预注册目标，尚非结果；未建实施冻结，未执行 native 套件。初次可用451,641,344字节低于原1GiB门槛，保持原资源上限，满足后直接冻结／执行此调用方，不扩展观察器。[准备代码与边界](2026-11-01-pending-authority-cancellation.md)。
 
 新源码边界：OpenClaw189106将不可变磁盘回执与当前claim／generation／权限分开，在cleanup之后以及accept／publication／release前重检；丢失／替换原资源须保留结果托管，不回退旧镜像。只核验落地的未启用前置实现和测试设计，未复现作者测试或真实磁盘恢复；后续外部效应接入须另验精确资源身份、取消／权限变化和恢复交接，不能从本地Faux或有效回执推导分布式权限／exactly-once。[源码与拟议验收](2026-11-01-repository-disk-authority.md)。
+
+新增开放提案源码边界（2026-11-01 04:02Z）：Verifiers3037尝试接管仍存活的Prime VM／background job，而其在途模型请求强杀测试明确期待该轮上游调用两次。作者另列重放缓存过期分叉、不可接管的harness和无预算重启回退；VM／PID连续性不能证明外部调用恰好一次。后续真实外部runtime集成须分别计入当前权限／取消、资源托管与清理期限、重复调用及回退成本、恢复context与sampled／scored分母。这里只核验未合并源码／测试设计，不执行云资源，不改变H1–H4状态；当前先完成既有同服务pending权限／cancel-mark负载，原资源门槛保持。[源码与边界](2026-11-01-live-rollout-adoption.md)。

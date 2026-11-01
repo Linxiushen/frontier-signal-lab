@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-10-31T18:16:33.611335+00:00",
-  "observation_note": "Prior201 source objects preserved. Added one frozen finite paced two-native-Session custom-task suite: bounded pending/retry, authority, pre/post-effect cancellation and two process reopens. No full-Agent/provider/model/production or causal performance upgrade; H1/H3/H4 unchanged.",
+  "last_updated_at": "2026-11-01T04:12:29.699818+00:00",
+  "observation_note": "Prior 206 source objects preserved. Added an open Verifiers live-box adoption proposal: source/test-design review only, explicit duplicated in-flight upstream call and author replay-cache expiry limits. No local VM/model/runtime execution or scientific upgrade; original H2 pending-authority/cancel-mark gate and H1/H3/H4 unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -7790,11 +7790,74 @@
         ]
       },
       "limits": "Source review does not reproduce author tests, real disk/provider transport, cancellation reassignment, migration installation, live model, distributed runtime or performance. Does not upgrade H2 scientific state or H1/H3/H4."
+    },
+    {
+      "id": "verifiers-live-box-pause-adoption-open-proposal",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/3037",
+      "type": "first_party_open_pr_source_review",
+      "author": "hallerite (GitHub PR author), PrimeIntellect-ai/verifiers contributor; not attributed to Will Brown",
+      "published_at": "2026-11-01T01:34:29Z",
+      "updated_at": "2026-11-01T03:23:16Z",
+      "recorded_at": "2026-11-01T04:12:29.699818+00:00",
+      "proposal_state": "open_unmerged_not_release",
+      "primary_evidence": {
+        "head": "e98859a86e391b7c37d9f2e086e0b533747cab2a",
+        "base": "eaab317a88a641dbee34212c1c6433f5a99320d0",
+        "base_note": "Exact PR API base at observation, not claimed adjacent parent or merge base.",
+        "author_profile": "https://github.com/hallerite",
+        "source_manifest": "reports/runs/20261101T040235Z/radar/verifiers-pause-source-manifest.json",
+        "changed_files": 30,
+        "source_scope": "Eight core paths with exact head/base full versions:15 retrieved versions plus one added-file base absence. One additional complete head integration test.16 retrieved versions total. Relevant adjacent patches also inspected; not exhaustive30-file review.",
+        "immutable_links": [
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/rollout.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/runtimes/backends/prime.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/runtimes/suspend.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/trace.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/harnesses/utils/core.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/interception/base.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/interception/tunnel/prime.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/verifiers/v1/serve/pool.py",
+          "https://github.com/PrimeIntellect-ai/verifiers/blob/e98859a86e391b7c37d9f2e086e0b533747cab2a/tests/integration/test_readopt.py"
+        ],
+        "curated_receipt": "research/receipts/20261101T040235Z-verifiers-live-box-source-review.json"
+      },
+      "implementation_facts": [
+        "Candidate integrates live restore through rollout/runtime/harness/interception/server-pool boundaries, retaining sandbox ID, background job, model/state capabilities and tunnel registration in LiveBox; LiveBox excluded from ordinary serialized trace.",
+        "Adoption binds a running or paused Prime sandbox and attaches to existing background job rather than rerunning task/harness setup. Eligibility requires an owned colocated compatible harness/backend, no deployment services/toolVMs/task tool servers/request-response hooks, and held Prime tunnel.",
+        "A single adopted interception server is reference-counted per tunnel; pool affinity routes same-tunnel restore requests to one live worker. Tunnel takeover uses private prime_tunnel attributes.",
+        "Opt-in VF_SUSPEND_DIR retains eligible boxes on server shutdown/client loss, using a shared60-second shutdown pause budget and JSONL custody manifest; pause failure records paused=false and still keeps resource. Ordinary client cancellation remains a delete path according to author and changed server handling.",
+        "Backend wait-through-pause loops have no local time bound, while tunnel HTML404/5xx retries use15-minute guest-monotonic budget. Resume attempts stale outbound-socket recovery.",
+        "Reviewed test_readopt uses a scripted local HTTP model with actual Prime VM API in test design; it SIGKILLs an env-server process, starts another, checks same sandbox/background PID and gap sampled=False. In-flight model case explicitly expects upstream call count2 for killed turn. No local execution performed."
+      ],
+      "author_claims": [
+        "Author reports Prime scripted-model pause/tool/model, process adoption and two-worker shared-tunnel shutdown/client-loss tests passing with reward1.0. These are author reports, not independently reproduced cloud/model tests.",
+        "Author states pause>10minutes during model call may form another branch after IDEMPOTENCY_CACHE_TTL_SECONDS expiry; takeover verified up to60minutes after process death.",
+        "Root plus Python required for socket-reset path; otherwise dead connections use owners' timeouts. Claude-code/Codex/RLM not adoptable and restart. Failed takeover starts over unbudgeted; cancellation midway preserves the box."
+      ],
+      "our_inference": "Keeping process/VM identity alive and recovering a trace does not imply exactly-once upstream model calls. H2 must separately gate effect identity/current authority/cancel/replay TTL and bounded wait/resource custody; this open candidate exposes concrete duplicate-call and liveness limits. H3/H4 must distinguish recovered context from sampled turns when judging budget/score consistency. No local scientific status upgrade.",
+      "engineering": {
+        "actual_caller": "Verifiers agentic rollout env-server/worker with Prime bash/null harness, backend pause/resume, interception tunnel and restored background job.",
+        "scale_bottleneck": "Orchestrator/server loss can orphan live expensive rollouts or duplicate model calls; shared-tunnel adoption requires ownership affinity and lifecycle cleanup.",
+        "integration_point": "Rollout LiveBox -> PrimeBackend.adopt/attach -> Interception.adopt/tunnel -> serve.pool affinity.",
+        "proposed_future_gates": [
+          "Keep exact external job/resource identity and current permission/cancellation separately bound across adoption.",
+          "Distinguish same-process/PID continuity, replay-cache lifetime and upstream-call deduplication; explicitly count duplicated in-flight requests.",
+          "Bound admission/backpressure, pause/resume waits and retained-resource cleanup; preserve negative long-pause/cancel/fallback outcomes.",
+          "Treat gap turns restored as context separately from sampled/scored turns and budget them consistently."
+        ],
+        "validated_tier": "Exact read-only source/test-design review of an open candidate; author scripted-model/VM claims external. No local cloud/model/native/production validation."
+      },
+      "limits": "Open proposal, not merged/released. No installation/test/model/cloud API resource execution.16 retrieved source versions are not an exhaustive review of30 changed files. No endorsement of private tunnel API, tenant auth, arbitrary crashes, exactly-once, production, performance or real-model quality. H2status/nextgate and H1/H3/H4 unchanged.",
+      "record": "research/2026-11-01-live-rollout-adoption.md"
     }
   ],
   "previous_observation_notes": [
     "All prior sources preserved. Added original native Pi service v2 failed frozen acceptance: two actual restarts and saved-copy observations are retained separately from acceptance. No general H2 scientific status or H1/H3/H4 upgrade.",
     "All prior sources preserved. Added one original native Pi v3 result: the fixed single-host custom-task slice passed its separate frozen acceptance and independent copied-database audit. Earlier v1/v2 failures remain; full agent/provider service, production reliability and performance remain unverified. H1/H3/H4 are unchanged.",
-    "Prior200sourceobjects preserved. Added original one-suite boundedburst recovery/cost observations;fixed local gate accepted only. No model/provider/multiSession/production/causalperformance upgrade;H1/H3/H4 unchanged."
+    "Prior200sourceobjects preserved. Added original one-suite boundedburst recovery/cost observations;fixed local gate accepted only. No model/provider/multiSession/production/causalperformance upgrade;H1/H3/H4 unchanged.",
+    {
+      "last_updated_at": "2026-10-31T18:16:33.611335+00:00",
+      "observation_note": "Prior201 source objects preserved. Added one frozen finite paced two-native-Session custom-task suite: bounded pending/retry, authority, pre/post-effect cancellation and two process reopens. No full-Agent/provider/model/production or causal performance upgrade; H1/H3/H4 unchanged."
+    }
   ]
 }

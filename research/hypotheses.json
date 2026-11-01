@@ -1230,6 +1230,15 @@
         "resource_gate_bytes": 1073741824,
         "free_bytes_at_initial_preflight": 451641344,
         "next_action": "When original resource gate passes, separately review/freeze the complete same-runtime two-reopen pendingauthority/cancelmark workload, then run once. No observer detour."
+      },
+      "live_box_adoption_source_gate": {
+        "source_id": "verifiers-live-box-pause-adoption-open-proposal",
+        "record": "research/2026-11-01-live-rollout-adoption.md",
+        "receipt": "research/receipts/20261101T040235Z-verifiers-live-box-source-review.json",
+        "status": "open_proposal_source_only_no_native_upgrade",
+        "observation": "Candidate preserves live VM/job identity across env-server adoption, but its in-flight model crash test expects two upstream calls; author reports replay-cache expiry and unsupported harness/fallback limits.",
+        "future_gate": "After the existing same-runtime pending-authority/cancel-mark workload, any external-runtime integration must separately bind immutable resource/job identity to current authority/cancellation and count upstream calls, cache-expiry branches, retained-resource lifetimes and all fallback cost. Recovered context is distinct from sampled/scored work. This is not a new implementation, frozen experiment, acceptance or replacement of the current next gate.",
+        "local_execution": false
       }
     },
     {
@@ -1358,5 +1367,5 @@
       }
     }
   ],
-  "last_updated_at": "2026-11-01T02:13:52.581870+00:00"
+  "last_updated_at": "2026-11-01T04:12:29.699818+00:00"
 }

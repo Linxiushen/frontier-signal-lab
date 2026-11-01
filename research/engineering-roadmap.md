@@ -88,3 +88,7 @@ H2实际GenerationTask/tool（2026-10-31 20:18Z）单次冻结验收失败：检
 H2原生generation/tool v2（2026-10-31 22:13Z）另版冻结单次通过：两个SQLite Session、14generation／14tool、10本地效应各count1、两次重开与默认动态／显式固定API的原始请求身份精确绑定。此有限fixture原生生命周期门槛关闭；下一步直接同服务协调host预留／native提交／host-ID持久化三个commit gap，在每个边界故障注入并保持当前权限／取消／两次重启及有界settlement，无孤儿／丢失／重复提交或效应。当前只在持久化tool意图／效应后强杀，不证明任意崩溃／真实HTTP模型／tenant／外部exactly-once／生产。50份raw完整保留；旧v1失败及H1原5GiB、H3/H4不变。[完整结果](../results/pi-generation-v2/report.md)。
 
 H2同服务准入协调（2026-11-01 00:18Z）一次另版冻结通过：两个SQLite Session、26请求／20持久准入／6过载，三个commit gap故障后两次进程重开协调8项预留，20generation／tool／Faux调用、16本地效应各count1、最终active0。六份副本完整记录独立核验；host-only请求在重开后首次生成，API按实际生成阶段精确绑定。只验证官方本地fixture原生生命周期；pending权限撤回／cancel标记崩溃、原生busy／提交错误／身份碰撞及并发owner、真实HTTP模型／外部效应仍未验收，下一步回同服务另行冻结，不扩展observer。旧失败与H1原5GiB、H3/H4保持。[完整报告](../results/pi-generation-admission/report.md)。
+
+H2下一完整调用方（2026-11-01 02:02Z）已准备 pending 权限撤回与 durable cancel-mark-before-abort 的同服务两次重开负载；19 项 Python、7 项 Node／mock 方法与语法检查通过。18 请求／12 host 准入／8 native 输入／6 effect 是预注册目标，尚非结果；未建实施冻结，未执行 native 套件。初次可用451,641,344字节低于原1GiB门槛，保持原资源上限，满足后直接冻结／执行此调用方，不扩展观察器。[准备代码与边界](2026-11-01-pending-authority-cancellation.md)。
+
+新源码边界：OpenClaw189106将不可变磁盘回执与当前claim／generation／权限分开，在cleanup之后以及accept／publication／release前重检；丢失／替换原资源须保留结果托管，不回退旧镜像。只核验落地的未启用前置实现和测试设计，未复现作者测试或真实磁盘恢复；后续外部效应接入须另验精确资源身份、取消／权限变化和恢复交接，不能从本地Faux或有效回执推导分布式权限／exactly-once。[源码与拟议验收](2026-11-01-repository-disk-authority.md)。

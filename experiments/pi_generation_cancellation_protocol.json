@@ -1,0 +1,70 @@
+{
+  "name": "pi-native-pending-authority-and-cancel-mark-recovery",
+  "predeclared_at": "2026-11-01T02:06:55.983013+00:00",
+  "hypothesis": "H2",
+  "suites_permitted": 1,
+  "retries": 0,
+  "question": "Can the same native two-Session service consume durable authority revocation and cancellation across two process losses before native abort, without scheduling host-only cancelled/denied requests or duplicating effects?",
+  "engineering": {
+    "actual_caller": "Same optional two-Session Harness host service and actual GenerationTask -> official local Faux -> ToolTask caller.",
+    "scale_bottleneck": "A cancelled host reservation or changed authority can survive a process loss before native abort, retain capacity or accidentally schedule work on recovery.",
+    "integration_point": "Same public Harness/Conversation/GenerationTask/ToolTask boundary; optional cancellation checkpoint after durable mark and before native abort. Reconcile consumes host intent before resume; bounded reap releases terminal capacity.",
+    "rollback": "New optional cancellation adapter only; all earlier frozen adapters and installed runtime unchanged.",
+    "validated_tier_if_passed": "Single Windows host, real native task lifecycle and official no-cost local Faux provider; deterministic fixture content, not model quality, real HTTP transport or production."
+  },
+  "workload": {
+    "native_sessions": 2,
+    "sqlite_databases": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "process_stages": 3,
+    "forced_kills_and_reopens": 2,
+    "stages": [
+      "EachSession: admit conv0 native pre-effect control; reserve conv1 input but hold before native submit. Probe native/control identity and refuse overload. Revoke conv1 authority to version99/false. Persist conv0 cancel mark and hold before native abort. Both active2, effect0; flush and copy after kill0.",
+      "Reopen bothSessions with no released tool gates. Reconcile durable cancellation by aborting exact existing native request, and deny host-only revoked reservation without provider call. Settle/reap all4, preserve terminalstates/IDs. Authorizeversion2. Admit conv0 post-effect control and conv1 host-only reservation; refuse overload/probe identity. Commit conv0effect1, persist both cancelmarks but hold before nativeabort/host-only retirement. Flush andcopy after kill1.",
+      "Reopen bothSessions; abort original post-effect native requests without replay/new generation, retire host-only cancelled requests, settle/reap all4. Authorizeversion3. Admit2commits perSession/refuseoverload/nativeprobes. Settle all4. Final12hostterminals,8nativesubmissions/Generation/Tool/Fauxcalls,6effects count1,16terminaltasks (8completed8aborted),active0."
+    ],
+    "total_unique_arrivals": 18,
+    "admitted": 12,
+    "overloaded": 6,
+    "intents": {
+      "pre-cancel": 2,
+      "pending-deny": 2,
+      "post-cancel": 2,
+      "pending-cancel": 2,
+      "commit": 4,
+      "overload": 6
+    },
+    "expected_local_effects": 6,
+    "expected_native_generation_tasks": 8,
+    "expected_native_tool_tasks": 8,
+    "expected_faux_provider_calls": 8,
+    "expected_native_duplicate_probes": 8,
+    "expected_replayed_tool_executions": 0,
+    "provider": "Official installed pi-ai fauxProvider, one deterministic toolCall per native input; four host-only pending requests must never invoke it. control.terminate=true avoids second generation. No credentials/network; globalfetchdenied, sanitizedchildenv. Finite16responsefactories perSession/process; exact8total calls required, native retries/compaction disabled.",
+    "provider_api_identity_contract": {
+      "service0": "default-dynamic",
+      "service1": "frontier-faux-cancellation"
+    }
+  },
+  "acceptance": [
+    "Exactly18unique arrivals,12durable admissions,6overload refusals. EachSession2conversations/capacity2;3PIDs/2forcedkills/reopens. Eightoriginal native inputs and8Generation/Tool/Fauxcalls,8directnative duplicate probes; wrapper conflict/stale/duplicate controls retained.",
+    "Atkill0 eachSession pendingdeniedreservation has no native submission/task/effect and authority99false; nativepreeffect request has durablycancelledtrue, originalsubmissionlink,placednative and pendingexecuteTool. Atkill1 eachSession hostonlypendingcancelhasdurablecancelledtrue/no native; post-effectnative has durablecancelmark/link/effectcount1. Exact6cancelmarkhooks and4hostreservehooks stay blocked untilkill.",
+    "Reopen consumes intent before explicitHarnessresume;2pendingdenied and2pendingcancelled never callprovider or createnative rows.4cancellednativechains keep exact originaltaskIDs and produce no toolreplay/effectaftercancel. All12hostrequests terminal andactive0;16tasks terminal8completed8aborted;6local effects eachcount1.",
+    "All6provideridentityrecords and8request/assistant APIbindings join exact generationstage;0service dynamicAPIdistinctperprocess/1stable. Globaltool-enter/tool-effect keys,counts,stages,nativeeffecttaskIDs and exactuser/assistant/tool-result cardinalities are included beforefreeze; priorpost-outcome supplement remains historical.",
+    "SixcopiedSQLite integrity/fullendpoint comparisons and complete source/runtime/rawhash inventories required; no oldfreeze reuse or resuming oldoutcome. Original90s/20s/8s/256MiBprivate/20MiBoutput/1GiBfree resource gatesunchanged."
+  ],
+  "metrics": [
+    "12hostterminal success/accounting denominator,8actualnative inputs,6overloadrefusals,6exactlocal effects. Report nearest-rank12sample p50/p95/p99 acrossoffersthroughwaits/restarts, mixedcohortdescriptive.",
+    "6effects/suitewall includingrestart/copy/audit,fullcontrollerauthenticationwall,polledprivate/OSworking-setpeak/samplegaps,callback/flushcost/rawbytes. NomatchedOFF/baseline; no speedup/SLO claim."
+  ],
+  "suite_wall_seconds": 90,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "limits": "Prepared protocol only until separately frozen and run after unchanged resource gates. Single trusted Windows host,twoSQLiteSessions,officiallocalFaux; no realmodel/HTTP/tenant/concurrentowner/externalexactlyonce/GPU/distributed/production/performanceproof. Reconcile/reap explicit,histories grow,logsflushedbefore controlledkills. Cancelmark andnativeabort remain separatecommits; concurrentauthority/submit and true nativebusy/submiterror/IDcollision cells unverified by this finite suite. SQLitedeadlineobservational,notOSIOinterrupt. H1original5GiB,H3/H4 and historicalfailures unchanged."
+}

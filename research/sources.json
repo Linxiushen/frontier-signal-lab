@@ -7736,6 +7736,60 @@
       },
       "record": "research/2026-11-01-pi-admission-reconciliation.md",
       "limits": "Single Windows host,twoSQLiteSessions,one trusted host owner,officialdeterministiclocalFaux;no realmodel/HTTP/independenttenantauth/concurrentowner/externalexactlyonce/GPU/distributed/production/comparativeperformanceproof. Native identitycollision or unsupported queued/missingentry failsclosed and retains reservation; operator needed. Explicitreconcile/reap required, histories/logs grow; errorbeforefirstreservation needs caller retry. Authority check and native submit are separate commits; concurrentpermissionchanges may allow model scheduling, but effecttransaction rechecks currentauthority. Native pendingauthority-revocation/cancel-mark-crash cells not in this suite; pure branch tests do not upgrade them. Logs flushedbeforecontrolledkills,not arbitrarycrashlogdurability. SQLiteprogressdeadlineobservational,nothardOSIOinterrupt. H1original5GiB and oldfailures,H3/H4 unchanged."
+    },
+    {
+      "id": "openclaw-retained-repository-disk-authority-recovery-inactive-prerequisite",
+      "url": "https://github.com/openclaw/openclaw/commit/7faf32da36cdb6f6021e662f92cbd9c1de783255",
+      "type": "first_party_landed_source_review_inactive_runtime_prerequisite",
+      "author": "RoboClaw / roboclaw-bot; PR credits galiniliev (co-author), OpenClaw project",
+      "repository_public": true,
+      "published_at": "2026-11-01T01:25:57Z",
+      "recorded_at": "2026-11-01T02:11:46.238505+00:00",
+      "primary_evidence": {
+        "pull_request": "https://github.com/openclaw/openclaw/pull/189106",
+        "author_profile": "https://github.com/roboclaw-bot",
+        "merge_commit": "7faf32da36cdb6f6021e662f92cbd9c1de783255",
+        "adjacent_parent": "ba720f835d6c8e30281dd5652e168131e612f422",
+        "pr_candidate_head": "4484b72104c5a0440b265edded765e7863214c56",
+        "source_links": [
+          "https://github.com/openclaw/openclaw/blob/7faf32da36cdb6f6021e662f92cbd9c1de783255/src/state/session-repository-workspaces.authority.ts",
+          "https://github.com/openclaw/openclaw/blob/7faf32da36cdb6f6021e662f92cbd9c1de783255/src/gateway/worker-environments/placement-workspace-result.ts",
+          "https://github.com/openclaw/openclaw/blob/7faf32da36cdb6f6021e662f92cbd9c1de783255/src/gateway/worker-environments/workspace-result-settlement.ts",
+          "https://github.com/openclaw/openclaw/blob/7faf32da36cdb6f6021e662f92cbd9c1de783255/src/gateway/worker-environments/placement-repository-disk-recovery.test.ts"
+        ]
+      },
+      "fact": [
+        "Landed shared-state-v38 prerequisite records exact immutable environment/provider disk receipt and initial pending-result custody; retries preserve original accepted authority, including old mirrored results.",
+        "Resource identity is separate from current live placement/operation authority. Recovery repeatedly checks exact current claim/generation/attachment/repository owner around existing cleanup and acceptance/publication/release.",
+        "Missing or replaced resource, stale/lost placement, failed cleanup or transfer stays held. Disk-authoritative results cannot stage a mirrored checkpoint; stored-file fallback, new-publication fallback and Gateway materialization refuse old mirrors.",
+        "Disk mode remains inactive; explicit disk I/O/export, lifecycle and activation are separate."
+      ],
+      "author_claims": [
+        "PR exact candidate4484b721 reports45 tests in affected recovery suites and exact-head CI41246181517 success. This project did not replay those tests.",
+        "PR reports installed stable-to-v38 upgrade and cold reopen with synthetic legacy data. Its allocation was cancelled after owned stop, not green CI; no real disk-recovery/Move/live-provider/model proof."
+      ],
+      "local_review": {
+        "scope": "10 relevant paths;18 retrieved full versions and two parent absences confirmed as added files. Reviewed relevant implementation/regression changes; not exhaustive review of66 paths.",
+        "manifest": "reports/runs/20261101T020224Z/radar/repository-disk-source-manifest.json",
+        "native_executions": 0,
+        "scientific_experiments": 0,
+        "runtime_claim": "source inspection only; mocked worker environments/transport in reviewed recovery fixtures",
+        "curated_receipt": "research/receipts/20261101T020224Z-repository-disk-source-review.json"
+      },
+      "our_inference": "An H2 recovery gate must join durable accepted effect/result custody with immutable external resource identity and independently current authority. Reopen, same path or valid stored receipt alone is insufficient; recheck after cleanup and before effect/publication/release. This informs future engineering acceptance without upgrading this project's single-host Faux evidence.",
+      "engineering": {
+        "actual_caller": "OpenClaw repository-backed worker placement and pending-workspace-result recovery caller; this project's future multi-session recovery integration.",
+        "scale_bottleneck": "Stale mirrors or replacement resources can silently lose accepted work during process/owner recovery.",
+        "integration_point": "Existing repository owner/pending result owner -> recoverRepositoryDiskResult -> existing stopTunnel, accepted publication and turn settlement.",
+        "validated_level": "Read-only review of landed inactive prerequisite and its test design; no local native/runtime/cloud/production validation.",
+        "proposed_future_gates": [
+          "Persist exact external receipt with immutable accepted result; reject replacement identities.",
+          "Check current generation/claim/permission before and after cleanup and each effect/publication/release; receipt identity alone grants no authority.",
+          "Cancel/revocation during asynchronous cleanup must hold custody without replay or new effects; require native transport evidence.",
+          "Restore must require original resource or explicit fresh export/transfer; missing original cannot fall back to stale mirror."
+        ]
+      },
+      "limits": "Source review does not reproduce author tests, real disk/provider transport, cancellation reassignment, migration installation, live model, distributed runtime or performance. Does not upgrade H2 scientific state or H1/H3/H4."
     }
   ],
   "previous_observation_notes": [

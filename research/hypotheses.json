@@ -806,7 +806,8 @@
         "pi-native-paced-two-session-bounded-retry",
         "pi-native-generation-faux-api-frozen-failure",
         "pi-native-generation-exact-api-two-reopen-slice-v2",
-        "pi-native-generation-durable-admission-reconciliation-two-reopens"
+        "pi-native-generation-durable-admission-reconciliation-two-reopens",
+        "openclaw-retained-repository-disk-authority-recovery-inactive-prerequisite"
       ],
       "status": "native_two_session_generation_admission_reconciled_faux_slice_passed_pending_authority_cancel_crash_gates_open",
       "experiment": "experiments/recovery_contract_probe.py",
@@ -1201,7 +1202,35 @@
           "prior_failed_generation_unchanged": "results/pi-generation/report.md",
           "accepted_custom_task_result_unchanged": "results/pi-durable-paced/report.md"
         }
-      ]
+      ],
+      "repository_disk_source_gate": {
+        "source_ids": [
+          "openclaw-retained-repository-disk-authority-recovery-inactive-prerequisite"
+        ],
+        "status": "landed_inactive_prerequisite_source_only",
+        "record": "research/2026-11-01-repository-disk-authority.md",
+        "receipt": "research/receipts/20261101T020224Z-repository-disk-source-review.json",
+        "observation": "Exact retained physical receipt is separate from current placement/operation authority; recovery rechecks after cleanup and before acceptance/publication/release, refusing stale mirror fallback. Disk mode inactive, author tests not replayed.",
+        "proposed_gates": [
+          "Persist exact external receipt with immutable accepted result; reject replacement identities.",
+          "Check current generation/claim/permission before and after cleanup and each effect/publication/release; receipt identity alone grants no authority.",
+          "Cancel/revocation during asynchronous cleanup must hold custody without replay or new effects; require native transport evidence.",
+          "Restore must require original resource or explicit fresh export/transfer; missing original cannot fall back to stale mirror."
+        ],
+        "scientific_state_changed": false
+      },
+      "latest_preparation": {
+        "record": "research/2026-11-01-pending-authority-cancellation.md",
+        "status": "prepared_not_frozen_or_executed",
+        "protocol": "experiments/pi_generation_cancellation_protocol.json",
+        "python_methods": 19,
+        "node_tests": 7,
+        "scientific_experiments": 0,
+        "native_executions": 0,
+        "resource_gate_bytes": 1073741824,
+        "free_bytes_at_initial_preflight": 451641344,
+        "next_action": "When original resource gate passes, separately review/freeze the complete same-runtime two-reopen pendingauthority/cancelmark workload, then run once. No observer detour."
+      }
     },
     {
       "id": "H3",
@@ -1329,5 +1358,5 @@
       }
     }
   ],
-  "last_updated_at": "2026-10-31T18:16:33.611335+00:00"
+  "last_updated_at": "2026-11-01T02:13:52.581870+00:00"
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-01T06:14:21.457166+00:00",
-  "observation_note": "Prior 207 source objects preserved. Added landed OpenClaw explicit repository-disk snapshot/export source review. Disk mode remains inactive; no local runtime/test/cloud/model execution or scientific upgrade. Existing H2 pending-authority/cancel-mark caller and all scientific statuses/gates unchanged.",
+  "last_updated_at": "2026-11-01T08:21:21.642636+00:00",
+  "observation_note": "Prior 208 source objects preserved. Added landed OpenClaw active-disk Gateway Move/custody source path; disk mode remains unselectable and paused preparation open. No local tests/native/cloud/model execution or scientific upgrade. Existing pending-authority/cancel-mark caller and resource gates unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -7916,6 +7916,51 @@
       },
       "limits": "No cloud/APIresource operation,model,native,test or scientificexecution. Diskmodeunselectable; pausedprep/finaldurableMove/teardown later. No production/distributed/externalexactlyonce/currentmodelquality/performance upgrade. Prior207sources,H2status/nextgate,H1original5GiB,H3/H4 unchanged.",
       "record": "research/2026-11-01-explicit-repository-disk-snapshots.md"
+    },
+    {
+      "id": "openclaw-active-repository-disk-gateway-move-custody-handoff-inactive",
+      "url": "https://github.com/openclaw/openclaw/commit/af7cee29336523d3f8c2f3ae5c6af5f55e570772",
+      "type": "first_party_landed_source_review_inactive_active_disk_move_prerequisite",
+      "author": "RoboClaw / roboclaw-bot; PR credits galiniliev",
+      "published_at": "2026-11-01T06:23:16Z",
+      "recorded_at": "2026-11-01T08:21:21.642636+00:00",
+      "primary_evidence": {
+        "PR": "https://github.com/openclaw/openclaw/pull/189350",
+        "merged_at": "2026-11-01T06:23:17Z",
+        "landed": "af7cee29336523d3f8c2f3ae5c6af5f55e570772",
+        "adjacent_parent": "92d75eec930aa976eb6758e262a99b2ef5eae0da",
+        "PR_candidate_head": "82b400ee1a4a6a2fde04eb00344a2ee29cdda053",
+        "PR_captured_base": "38978c421475789e9daefda87c98dd8c450ef7c0",
+        "curated_receipt": "research/receipts/20261101T080614Z-repository-disk-custody-source-review.json"
+      },
+      "fact": [
+        "The landed explicit sessions.move caller for an already-bound active repository disk now retains fresh export/original resource custody, binds a verified managed Gateway worktree, retires disk custody, and delegates exact-resource cleanup to existing owners before local placement.",
+        "Before binding, recovery captures the original disk again; unbound imported HEAD may resume only if it matches the fresh export. Unknown local commits refuse. After session/worktree binding, materialization returns without capture/reapply and retirement/cleanup recovery resumes from that binding.",
+        "Retirement validates exact draining Gateway intent, original receipt/attachment, generation, result claim, retained export and session/worktree identity. In-memory recovery retains actor/session/writer authority across its own binding instead of invalidating itself; current owner revocation still refuses.",
+        "Disk mode remains unselectable and paused preparation separate. Existing schema/owner paths reused; no new activation or cloud allocation observed."
+      ],
+      "author_claims": [
+        "The PR reports 25 current Move/recovery cases in two files, plus prior 13-scenario Move and other integration/tooling counts; these counts are not added together or independently rerun here.",
+        "Author reports current candidate local type/lint/format/ratchet and scoped review passed; hosted current-head CI pending at captured body; historical f9176 green CI is not current-head validation.",
+        "Author excludes live provider deletion/login enrollment/full model turn/paused wake/installed-stable upgrade and final activation/deployment."
+      ],
+      "local_review": {
+        "scope": "Fifteen selected paths, 29 complete head/adjacent-parent versions and one added-file parent absence; complete 37-path inventory. All 15 candidate bodies match landed bytes. Full materializer, settlement and new 13-scenario test body plus selected changed owner contexts reviewed; not an exhaustive audit of all 37 paths or dependencies.",
+        "hashes": "31 API/source raw/gzip hashes verified; manifests retain exact bodies/versions.",
+        "test_executions": 0,
+        "native_executions": 0,
+        "scientific_experiments": 0
+      },
+      "our_inference": "The reviewed source advances the previously open active-disk explicit Gateway Move/custody implementation gap. This is a landed source path for an unselectable disk mode, not local H2 scientific/native acceptance. Paused activation, actual OS restart/crash, concurrent owners and external effects remain unproven; the prepared same-service pending-authority/cancel-mark caller remains next.",
+      "engineering": {
+        "actual_caller": "Existing authorized sessions.move, pending result, repository store, managed worktree binding and environment cleanup owners.",
+        "bottleneck": "Separate import/binding/custody retirement/provider cleanup/result release transactions risk reapplying stale bytes or losing original disk ownership after interrupted handoff.",
+        "native_integration": "Existing Move reclaim -> fresh snapshot -> exact verified worktree/session bind -> retireDisk -> original environment reclaim -> teardown/reconcile.",
+        "future_gate": "Keep current same-service pending-authority/cancel-mark caller next behind unchanged disk gate; later external-runtime integration must separately qualify exact resource/authority/cancel/cleanup/restart behavior. No new observer prerequisite.",
+        "validated_level": "Read-only landed source/regression-design review; author local fixture execution external, not independently run."
+      },
+      "limits": "No local tests, native runtime, models, cloud or scientific execution. New test restarts are same-process harness/store recreation, not OS restarts. Provider destruction and GitHub identity are synthetic. No current-head CI pass verified; disk selector, paused activation and deployment remain open. No general concurrency, external effects exactly once or production claim. Prior 208 source objects, H2 status/next gate, H1, H3 and H4 unchanged.",
+      "record": "research/2026-11-01-repository-disk-gateway-custody.md"
     }
   ],
   "previous_observation_notes": [
@@ -7929,6 +7974,10 @@
     {
       "last_updated_at": "2026-11-01T04:12:29.699818+00:00",
       "observation_note": "Prior 206 source objects preserved. Added an open Verifiers live-box adoption proposal: source/test-design review only, explicit duplicated in-flight upstream call and author replay-cache expiry limits. No local VM/model/runtime execution or scientific upgrade; original H2 pending-authority/cancel-mark gate and H1/H3/H4 unchanged."
+    },
+    {
+      "last_updated_at": "2026-11-01T06:14:21.457166+00:00",
+      "observation_note": "Prior 207 source objects preserved. Added landed OpenClaw explicit repository-disk snapshot/export source review. Disk mode remains inactive; no local runtime/test/cloud/model execution or scientific upgrade. Existing H2 pending-authority/cancel-mark caller and all scientific statuses/gates unchanged."
     }
   ]
 }

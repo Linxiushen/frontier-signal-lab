@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Disk custody handoff to Gateway](research/2026-11-01-repository-disk-gateway-custody.md) | Landed explicit Move source path binds a verified worktree before disk retirement/cleanup; disk mode remains unselectable. Source/test design only |
 | [Explicit repository-disk snapshots](research/2026-11-01-explicit-repository-disk-snapshots.md) | Landed capture/export prerequisite with immutable retry aliases and source checks; disk mode remains inactive. Source/test design only, no local recovery result |
 | [Live rollout adoption source review](research/2026-11-01-live-rollout-adoption.md) | Open Verifiers proposal; retained VM/job identity, explicit duplicated in-flight model call and replay-cache limits. Source/test design only; no local VM run or recovery upgrade |
 | [Pending authority/cancellation preparation](research/2026-11-01-pending-authority-cancellation.md) | Same native service's next complete workload is prepared; 19 Python/7 Node checks pass. No new native run or freeze: observed free disk below unchanged 1 GiB gate; recovery targets remain unverified |

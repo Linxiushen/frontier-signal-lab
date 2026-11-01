@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-01T04:12:29.699818+00:00",
-  "observation_note": "Prior 206 source objects preserved. Added an open Verifiers live-box adoption proposal: source/test-design review only, explicit duplicated in-flight upstream call and author replay-cache expiry limits. No local VM/model/runtime execution or scientific upgrade; original H2 pending-authority/cancel-mark gate and H1/H3/H4 unchanged.",
+  "last_updated_at": "2026-11-01T06:14:21.457166+00:00",
+  "observation_note": "Prior 207 source objects preserved. Added landed OpenClaw explicit repository-disk snapshot/export source review. Disk mode remains inactive; no local runtime/test/cloud/model execution or scientific upgrade. Existing H2 pending-authority/cancel-mark caller and all scientific statuses/gates unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -7849,6 +7849,73 @@
       },
       "limits": "Open proposal, not merged/released. No installation/test/model/cloud API resource execution.16 retrieved source versions are not an exhaustive review of30 changed files. No endorsement of private tunnel API, tenant auth, arbitrary crashes, exactly-once, production, performance or real-model quality. H2status/nextgate and H1/H3/H4 unchanged.",
       "record": "research/2026-11-01-live-rollout-adoption.md"
+    },
+    {
+      "id": "openclaw-explicit-repository-disk-snapshot-publication-export-inactive",
+      "url": "https://github.com/openclaw/openclaw/commit/38978c421475789e9daefda87c98dd8c450ef7c0",
+      "type": "first_party_landed_source_review_inactive_disk_io_prerequisite",
+      "author": "RoboClaw / roboclaw-bot; PR credits galiniliev (co-author), OpenClaw project",
+      "published_at": "2026-11-01T05:48:36Z",
+      "recorded_at": "2026-11-01T06:14:21.457166+00:00",
+      "primary_evidence": {
+        "PR": "https://github.com/openclaw/openclaw/pull/189263",
+        "PR_merged_at": "2026-11-01T05:48:37Z",
+        "merge": "38978c421475789e9daefda87c98dd8c450ef7c0",
+        "adjacent_parent": "076b9257b799af025ccc8474e336caf53703dfc5",
+        "PR_candidate_head": "6e669f1d0a24b07f65e7c3e42924c239efadf888",
+        "PR_captured_base": "c2a39e4c5a8166d1f5ea6703d1dfaa7d7c45de79",
+        "author_profile": "https://github.com/roboclaw-bot",
+        "source_manifest": "reports/runs/20261101T060704Z/radar/disk-snapshots-source-manifest.json",
+        "immutable_source_links": [
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/repository-workspace-snapshot.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/session-repository-checkpoint-refs.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/session-repository-checkpoints.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/workspace-quiescence.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/repository-workspace-mutation.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/github-repository-publication-workspace.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/session-repository-materialization.ts",
+          "https://github.com/openclaw/openclaw/blob/38978c421475789e9daefda87c98dd8c450ef7c0/src/gateway/worker-environments/repository-workspace-snapshot.test.ts"
+        ],
+        "candidate_landed_comparison": "reports/runs/20261101T060704Z/radar/disk-candidate-landed-comparison.json",
+        "curated_receipt": "research/receipts/20261101T060704Z-repository-disk-snapshot-source-review.json"
+      },
+      "fact": [
+        "The landed implementation advances PR #189106's explicit snapshot/export implementation gap. Disk mode remains unselectable and ordinary mirrored behavior remains; full retained-disk lifecycle is not delivered.",
+        "captureRepositoryDiskCheckpoint checks the original disk receipt, exact active/draining attachment, generation, owner epoch, session, remote path, node and environment destruction state, then uses the existing tunnel, quiescence and workspace reconciliation. Gateway Move requires caller-owned Move quiescence.",
+        "A fresh snapshot requires Git publication staging and digest. Gateway export refuses a partial staged index or unavailable/non-descending history. The Gateway callback invokes verifyCurrent to check active quiescence and source stability before binding.",
+        "Publication selects request-derived immutable refs and companion refs. After a lost receipt-binding reply, retained capture adds aliases for later queued requests using the original ref identity, without recapturing later disk edits or treating the artifact as the current SQLite workspace.",
+        "Capture passes source checks into the existing workspace transport. Reviewed regression design exercises final-input authorization; quiescence acquisition/assertion rechecks authorization, while release retains already acquired cleanup custody after caller revocation. This is not a complete transport or authority-serialization proof.",
+        "Reviewed regression design rejects disk/session/request changes at build, capability and final-input boundaries. A healthy control publishes refs; failed capture preserves original bytes without new refs. The retained retry/alias test edits the disk after initial capture, rejects revoked final input, then permits reuse of the original bytes.",
+        "The publication use callback does not itself invoke verifyCurrent. The reviewed explicit verifyCurrent call is the Gateway materialization callback before binding; no blanket every-publication verification claim is made."
+      ],
+      "author_claims": [
+        "The author reports 78 tests in three files using a local environment service, private node transport, loopback WebSocket, native workspace, HTTP transfer and Git input authority. This project did not execute them.",
+        "The PR body reports earlier runtime proofs, failed CI run 41272536469 and a later brace-only lint repair. This review did not independently establish current-head CI success.",
+        "The author limits the evidence to synthetic local fixtures through production code paths, excluding real cloud retention, live-model disk turns, authenticated remote GitHub publication and paused wake. The installed-v38 prerequisite proof belongs to PR #189106."
+      ],
+      "local_review": {
+        "scope": "Eight relevant paths; thirteen complete landed/adjacent-parent versions and three confirmed added-file parent absences. The complete 34-file commit inventory is retained. Relevant implementation and boundary-regression design reviewed; not an exhaustive 34-path or dependency-closure audit.",
+        "encoding": "Fullsource and APIpayloads stored losslesslygzip; manifests retain rawbytehash/length and gzipbytehash/location.",
+        "native_executions": 0,
+        "scientific_experiments": 0,
+        "test_executions": 0,
+        "candidate_landed": "All eight scoped full candidate-path bodies match the landed versions byte-for-byte; this is not a comparison of all 34 changed paths."
+      },
+      "our_inference": "This advances the implementation gap from refusing stale mirrors to preparing explicit current-disk snapshots with immutable retry aliases. It does not establish full durable recovery or retained-disk activation. Disk selection, paused preparation, final durable Move/teardown, real cloud/model and authenticated remote publication remain open. The existing H2 pending-authority/cancel-mark native caller remains next; no scientific status upgrade.",
+      "engineering": {
+        "actual_caller": "Existing OpenClaw repository publication request/capture and Gatewaymaterialization callers,plus disk editor/workspace settlement path.",
+        "bottleneck": "Lost capture receipts and queued publication requests can recapture newer bytes or omit aliases; stale mirror export can lose original accepted diskwork.",
+        "native_integration": "captureRepositoryDiskCheckpoint -> existing placement/tunnel/quiescence/reconcile/stage/refowner; Gatewaymaterialization consumes freshsnapshot and verifies source beforebind.",
+        "proposed_future_gates": [
+          "Independently run finalinput revocation/diskreplacement controls and preserve acquired cleanupcustody.",
+          "Count immutable selected/alias/companion identities across lostreply and laterqueued requests; no recapture of lateredits.",
+          "Require exact stagedindex/history and source-stability checks before finalbind,then separately prove durableMove/teardown/pausedrestore.",
+          "Retain current native H2pendingauthority/cancelmark protocol and unchangedresourcegate; no observer expansion."
+        ],
+        "validated_level": "Read-only exact source/regressiondesign review of landed inactive prerequisite. Author localtransport tests external,not local execution."
+      },
+      "limits": "No cloud/APIresource operation,model,native,test or scientificexecution. Diskmodeunselectable; pausedprep/finaldurableMove/teardown later. No production/distributed/externalexactlyonce/currentmodelquality/performance upgrade. Prior207sources,H2status/nextgate,H1original5GiB,H3/H4 unchanged.",
+      "record": "research/2026-11-01-explicit-repository-disk-snapshots.md"
     }
   ],
   "previous_observation_notes": [
@@ -7858,6 +7925,10 @@
     {
       "last_updated_at": "2026-10-31T18:16:33.611335+00:00",
       "observation_note": "Prior201 source objects preserved. Added one frozen finite paced two-native-Session custom-task suite: bounded pending/retry, authority, pre/post-effect cancellation and two process reopens. No full-Agent/provider/model/production or causal performance upgrade; H1/H3/H4 unchanged."
+    },
+    {
+      "last_updated_at": "2026-11-01T04:12:29.699818+00:00",
+      "observation_note": "Prior 206 source objects preserved. Added an open Verifiers live-box adoption proposal: source/test-design review only, explicit duplicated in-flight upstream call and author replay-cache expiry limits. No local VM/model/runtime execution or scientific upgrade; original H2 pending-authority/cancel-mark gate and H1/H3/H4 unchanged."
     }
   ]
 }

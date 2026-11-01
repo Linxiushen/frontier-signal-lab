@@ -94,3 +94,5 @@ H2下一完整调用方（2026-11-01 02:02Z）已准备 pending 权限撤回与 
 新源码边界：OpenClaw189106将不可变磁盘回执与当前claim／generation／权限分开，在cleanup之后以及accept／publication／release前重检；丢失／替换原资源须保留结果托管，不回退旧镜像。只核验落地的未启用前置实现和测试设计，未复现作者测试或真实磁盘恢复；后续外部效应接入须另验精确资源身份、取消／权限变化和恢复交接，不能从本地Faux或有效回执推导分布式权限／exactly-once。[源码与拟议验收](2026-11-01-repository-disk-authority.md)。
 
 新增开放提案源码边界（2026-11-01 04:02Z）：Verifiers3037尝试接管仍存活的Prime VM／background job，而其在途模型请求强杀测试明确期待该轮上游调用两次。作者另列重放缓存过期分叉、不可接管的harness和无预算重启回退；VM／PID连续性不能证明外部调用恰好一次。后续真实外部runtime集成须分别计入当前权限／取消、资源托管与清理期限、重复调用及回退成本、恢复context与sampled／scored分母。这里只核验未合并源码／测试设计，不执行云资源，不改变H1–H4状态；当前先完成既有同服务pending权限／cancel-mark负载，原资源门槛保持。[源码与边界](2026-11-01-live-rollout-adoption.md)。
+
+新增已落地源码边界（2026-11-01 06:07Z）：OpenClaw189263将显式当前磁盘快照接入已有capture／publication／Gateway materialization路径，推进189106的I/O实现缺口。回复丢失后的重试保留原始快照并补充不可变alias，Gateway绑定前检查源稳定性，部分暂存index或不可用history须拒绝导出。磁盘模式仍不可选；paused准备、最终durable Move／teardown、真实云端／模型／远端发布仍未验证。这里只核验13个完整版本及测试设计，不运行原生实验、不提升H2状态；当前先完成既有同服务pending权限／cancel-mark负载，原资源门槛保持，不增加observer前置工作。[源码与边界](2026-11-01-explicit-repository-disk-snapshots.md)。

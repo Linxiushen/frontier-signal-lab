@@ -1,0 +1,176 @@
+{
+  "stage": 0,
+  "pid": 41708,
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db0-control0": {
+          "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+          "conversation": 2,
+          "requestId": "s0-db0-control0",
+          "payload": "payload-s0-db0-control0",
+          "version": 1,
+          "submissionId": 16
+        },
+        "8:s0-db0-control1": {
+          "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+          "conversation": 8,
+          "requestId": "s0-db0-control1",
+          "payload": "payload-s0-db0-control1",
+          "version": 1,
+          "submissionId": 22,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-db0-control1",
+            "type": "input",
+            "status": "done",
+            "entry": 21,
+            "id": 22,
+            "answer": 25
+          }
+        },
+        "8:s0-db0-reserve-gap": {
+          "fingerprint": "28ae7b19ecb9079f80f9b711fa4f76704750360433081670808876ddde4332e3",
+          "conversation": 8,
+          "requestId": "s0-db0-reserve-gap",
+          "payload": "payload-s0-db0-reserve-gap",
+          "version": 1
+        }
+      },
+      "active": {
+        "2:s0-db0-control0": true,
+        "8:s0-db0-reserve-gap": true
+      },
+      "effects": {
+        "2:s0-db0-control0": {
+          "count": 1,
+          "payload": "payload-s0-db0-control0"
+        }
+      }
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db1-control0": {
+          "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+          "conversation": 2,
+          "requestId": "s0-db1-control0",
+          "payload": "payload-s0-db1-control0",
+          "version": 1,
+          "submissionId": 16
+        },
+        "8:s0-db1-control1": {
+          "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+          "conversation": 8,
+          "requestId": "s0-db1-control1",
+          "payload": "payload-s0-db1-control1",
+          "version": 1,
+          "submissionId": 22,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-db1-control1",
+            "type": "input",
+            "status": "done",
+            "entry": 21,
+            "id": 22,
+            "answer": 25
+          }
+        },
+        "8:s0-db1-reserve-gap": {
+          "fingerprint": "3608915f6c2c8155c660bd86c9dc3a2f14f140f7bfdfbe268e85d25a33162f87",
+          "conversation": 8,
+          "requestId": "s0-db1-reserve-gap",
+          "payload": "payload-s0-db1-reserve-gap",
+          "version": 1
+        }
+      },
+      "active": {
+        "2:s0-db1-control0": true,
+        "8:s0-db1-reserve-gap": true
+      },
+      "effects": {
+        "2:s0-db1-control0": {
+          "count": 1,
+          "payload": "payload-s0-db1-control0"
+        }
+      }
+    }
+  ],
+  "held": [
+    {
+      "service": 0,
+      "conversation": 2,
+      "requestId": "s0-db0-control0",
+      "payload": "payload-s0-db0-control0",
+      "version": 1,
+      "intent": "recover",
+      "stage": 0,
+      "offered_epoch_ms": 1793492276767,
+      "key": "2:s0-db0-control0",
+      "status": "admit",
+      "heldPhase": "after-link",
+      "submissionId": 16
+    },
+    {
+      "service": 1,
+      "conversation": 2,
+      "requestId": "s0-db1-control0",
+      "payload": "payload-s0-db1-control0",
+      "version": 1,
+      "intent": "recover",
+      "stage": 0,
+      "offered_epoch_ms": 1793492276794,
+      "key": "2:s0-db1-control0",
+      "status": "admit",
+      "heldPhase": "after-link",
+      "submissionId": 16
+    },
+    {
+      "service": 0,
+      "conversation": 8,
+      "requestId": "s0-db0-reserve-gap",
+      "payload": "payload-s0-db0-reserve-gap",
+      "version": 1,
+      "intent": "reserve-gap",
+      "stage": 0,
+      "offered_epoch_ms": 1793492276830,
+      "key": "8:s0-db0-reserve-gap",
+      "status": "admit",
+      "heldPhase": "after-reserve"
+    },
+    {
+      "service": 1,
+      "conversation": 8,
+      "requestId": "s0-db1-reserve-gap",
+      "payload": "payload-s0-db1-reserve-gap",
+      "version": 1,
+      "intent": "reserve-gap",
+      "stage": 0,
+      "offered_epoch_ms": 1793492276837,
+      "key": "8:s0-db1-reserve-gap",
+      "status": "admit",
+      "heldPhase": "after-reserve"
+    }
+  ]
+}

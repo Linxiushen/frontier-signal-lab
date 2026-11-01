@@ -1,0 +1,91 @@
+{
+  "status": "actual_saved_outcome_stronger_predicates_passed_with_two_auditor_hardening_gaps",
+  "reviewed_at": "2026-11-01T00:19:23.894504+00:00",
+  "scope": "Independent source and saved-byte review only; zero native runtime or model execution; two in-memory mutation controls; source/frozen raw bytes untouched.",
+  "source_sha256": {
+    "experiments/pi_generation_admission_audit.py": "e8e714855190fb16b7ab812750c85b21840a2be6c849f6556f554f186cb0dff1",
+    "experiments/pi_generation_admission_protocol.json": "b61cd4531ce110eba2f46933b33b16f3dc0a4355fb35409803914eda0f8c8eec",
+    "experiments/pi_generation_admission_service.mjs": "9671db87d88af61d013d6610f945ff2adff08499c1a53ad8fbc51efb0c9ac8bb",
+    "scripts/check_pi_generation_admission.py": "05ae0da63118509556da1e937a316e25d81c78df7a08107dd384f8dde41841ec",
+    "scripts/pi_generation_admission_worker.mjs": "1b67c17d1b074662a9a98f882809fa11dd3d156e8a4802e480eae7dc31da662b",
+    "scripts/run_pi_generation_admission.py": "bc279314fb2badca64e16574d516659efe02af82f402f3f2dd0f1a181ed3164e",
+    "tests/pi_generation_admission_service.test.mjs": "68b7e94e386121f9730075c1075c87d5ab7da2552bd6d12d7e23c6080537d12e",
+    "tests/test_pi_generation_admission_audit.py": "751fa2a7cbd1df7a891a8fa8131dbde608558138418cef1464e8a4f77002f00a",
+    "tests/test_pi_generation_admission_freeze.py": "4d1a8e2a53cbb0f0bc79984e7d66e04697dc475f67902045dc2efb1519ef7309",
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_generation_v2_audit.py": "bdf72eaccaf1030aa5f2f3aa221883c1e6d985d57fdf5170c939c501277ca9ae",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52"
+  },
+  "native_executions": 0,
+  "scientific_experiments": 0,
+  "actual_saved_evidence_checks": [
+    {
+      "predicate": "exhaustive_tool-enter_keys_and_count",
+      "passed": true,
+      "count": 26
+    },
+    {
+      "predicate": "exhaustive_tool-effect_keys_and_count",
+      "passed": true,
+      "count": 24
+    },
+    {
+      "predicate": "exact_tool_enter_replay_stages_effect_stages_and_task_identity",
+      "passed": true,
+      "requests": 20
+    },
+    {
+      "predicate": "all_eight_faults_exact_stage_service_key_phase",
+      "passed": true,
+      "count": 8
+    },
+    {
+      "predicate": "service0_exact_final_entry_kind_cardinalities",
+      "passed": true,
+      "entry_counts": {
+        "pi.user": 10,
+        "pi.system": 2,
+        "pi.assistant": 10,
+        "pi.tool-result": 10
+      }
+    },
+    {
+      "predicate": "service1_exact_final_entry_kind_cardinalities",
+      "passed": true,
+      "entry_counts": {
+        "pi.user": 10,
+        "pi.system": 2,
+        "pi.assistant": 10,
+        "pi.tool-result": 10
+      }
+    },
+    {
+      "predicate": "all_eight_held_snapshot_requests_canonical_identity",
+      "passed": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "audit_hardening",
+      "path": "experiments/pi_generation_admission_audit.py",
+      "line": 110,
+      "detail": "Effect decisions are checked but the event taskId and replay stage are not bound; original v2 audit had taskId check. Actual raw outcome independently satisfies both.",
+      "control": {
+        "mutation": "Replace each parsed tool-effect taskId with nonexistent0; event bytes and all native endpoints unchanged in memory",
+        "mutated_events": 24,
+        "audit_still_accepts": true
+      }
+    },
+    {
+      "severity": "audit_hardening",
+      "path": "experiments/pi_generation_admission_audit.py",
+      "line": 92,
+      "detail": "Final pi.user count is checked, but assistant/tool-result exact counts and allowed entry kinds are omitted. Actual raw outcome has exact10/10/10 perSession.",
+      "control": {
+        "mutation": "Append one unique orphan pi.assistant entry to parsed service0 final endpoint in memory",
+        "audit_still_accepts": true
+      }
+    }
+  ],
+  "recommendation": "Preserve frozen run/source/outcome. Record these as finite auditor limitations or add a separate non-native supplementary saved-byte validator/regressions; no native rerun needed for actual stronger checks."
+}

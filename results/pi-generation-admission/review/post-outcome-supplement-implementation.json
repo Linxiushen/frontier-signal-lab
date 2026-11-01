@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "review_timing": "post-outcome",
+  "preregistered": false,
+  "recorded_at": "2026-11-01T00:22:17.960Z",
+  "scope": "Separate saved-byte supplement and meaningful negative controls; preserves original frozen sources and acceptance. No native, model, SQLite or network execution.",
+  "native_executions": 0,
+  "scientific_experiments": 0,
+  "source_sha256": {
+    "experiments/pi_admission_identity_supplement.py": "74f745a821ecd2d1eb3898f6c6590c737b1fae7d926dbc6a6ceff59e06b9b6a4",
+    "scripts/check_pi_admission_identity_supplement.py": "ba51519f2ed4fc08e16860972771247bb83eaa0994b7dc194c7122b2af7ee837",
+    "tests/test_pi_admission_identity_supplement.py": "f35b3dd9701c34a6e734a64c6a7d105c607f7f723e0d397a72de7163a348e1cb"
+  },
+  "archive_raw_manifest_sha256": "52493c9111efbbdf2132f9f94dd0bf04ed533ab800e6a6e5a520aaf328519f37",
+  "tests": {
+    "methods": 11,
+    "exit_code": 0,
+    "output": "test_archived_outcome_passes_both_audits_and_is_labeled_post_outcome (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_archived_outcome_passes_both_audits_and_is_labeled_post_outcome) ... ok\r\ntest_extra_entry_kinds_and_duplicate_entry_ids_are_rejected (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_extra_entry_kinds_and_duplicate_entry_ids_are_rejected) ... ok\r\ntest_fault_phase_counts_cannot_hide_wrong_request_or_service (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_fault_phase_counts_cannot_hide_wrong_request_or_service) ... ok\r\ntest_global_unknown_and_duplicate_tool_event_inventory_is_rejected (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_global_unknown_and_duplicate_tool_event_inventory_is_rejected) ... ok\r\ntest_held_inventory_and_gap_native_id_are_exact (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_held_inventory_and_gap_native_id_are_exact) ... ok\r\ntest_held_reservations_cannot_change_identity_or_pending_phase (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_held_reservations_cannot_change_identity_or_pending_phase) ... ok\r\ntest_missing_effect_and_same_count_duplicate_effect_are_rejected (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_missing_effect_and_same_count_duplicate_effect_are_rejected) ... ok\r\ntest_previously_accepted_extra_assistant_and_result_entries_are_rejected (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_previously_accepted_extra_assistant_and_result_entries_are_rejected) ... ok\r\ntest_previously_accepted_nonexistent_effect_task_identity_is_rejected (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_previously_accepted_nonexistent_effect_task_identity_is_rejected) ... ok\r\ntest_recovery_and_delayed_submission_stages_are_exact (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_recovery_and_delayed_submission_stages_are_exact) ... ok\r\ntest_tool_event_call_and_conversation_cannot_be_reassigned (tests.test_pi_admission_identity_supplement.AdmissionIdentitySupplementTests.test_tool_event_call_and_conversation_cannot_be_reassigned) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 11 tests in 0.401s\r\n\r\nOK\r\n"
+  },
+  "wrapper": {
+    "exit_code": 0,
+    "output": "{\"status\": \"passed\", \"review_timing\": \"post-outcome\", \"preregistered\": false, \"scope\": \"Supplementary saved-byte identity checks; original frozen acceptance is unchanged.\", \"native_executions\": 0, \"scientific_experiments\": 0, \"checks\": {\"exhaustive_tool_enter_keys_and_count\": 26, \"exhaustive_tool_effect_keys_and_count\": 24, \"requests_with_exact_tool_and_effect_identity_and_replay_stages\": 20, \"exact_fault_stage_service_key_phase_tuples\": 8, \"service0_exact_final_entry_counts\": {\"pi.user\": 10, \"pi.system\": 2, \"pi.assistant\": 10, \"pi.tool-result\": 10}, \"service1_exact_final_entry_counts\": {\"pi.user\": 10, \"pi.system\": 2, \"pi.assistant\": 10, \"pi.tool-result\": 10}, \"canonical_held_reservations\": 8}, \"original_frozen_audit\": \"passed\"}\r\n"
+  },
+  "review": [
+    "Exact exhaustive global26tool-enter/24tool-effect inventories and request identity sets.",
+    "All20request native taskID/conversation/callID and replaystage joins, including reserve-gap generation on reopen.",
+    "All8 fault stage/service/key/phase tuples and8canonical held snapshots with correct missing/persisted native IDs.",
+    "PerSession unique final entries, exact10user/10assistant/10tool-result and allowed entry kinds.",
+    "Both confirmed old-auditor false positives now rejected:24nonexistent effecttaskIDs and extra orphan assistant. Additional mutations cover unknown/duplicate/missing events, wrong replaystages, foreign fault identities, changed held payload/conversation/request/intent/phase, duplicate held rows, wrong gapnativeID, unknown entrykind and duplicated entryID."
+  ],
+  "frozen_files_edited": []
+}

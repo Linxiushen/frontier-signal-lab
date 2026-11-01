@@ -1,0 +1,73 @@
+{
+  "name": "pi-native-generation-durable-admission-reconciliation",
+  "predeclared_at": "2026-11-01T00:13:59.741621+00:00",
+  "hypothesis": "H2",
+  "suites_permitted": 1,
+  "retries": 0,
+  "question": "Can stable native request lookup reconcile host reservations, native submission and host-ID persistence across injected crashes at all three commit boundaries, with two process reopens, current authority, cancellation, bounded admission and exact local effects?",
+  "engineering": {
+    "actual_caller": "Same optional two-Session Harness host service and actual GenerationTask -> official local Faux -> ToolTask caller.",
+    "scale_bottleneck": "A process loss after host reservation or after native admission can leak capacity, orphan work or duplicate local effects without stable native request reconciliation.",
+    "integration_point": "Public Tx.submissionByRequest and Tx.entry validate original request identity/content; Conversation.submit retries the exact durable request; link persists native ID, reap releases terminal capacity.",
+    "rollback": "Optional new adapter only; prior frozen v2 and installed runtime untouched.",
+    "validated_tier_if_passed": "Single Windows host, real native task lifecycle and official no-cost local Faux provider; deterministic fixture content, not model quality, real HTTP transport or production."
+  },
+  "workload": {
+    "native_sessions": 2,
+    "sqlite_databases": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "process_stages": 3,
+    "forced_kills_and_reopens": 2,
+    "stages": [
+      "PerSession two original controls: recovery held inside after-link admission hook and current-authority deny; reject overload; wrapper duplicate/conflict/stale+native duplicates. After denied control settles restore current authority, reserve another request and block inside after-reserve before native submit. EachSession active2: one native safeTool after-effect checkpoint/count1 plus one host-only reservation. Flush exact snapshots/logs, two copiedDBs, process kill.",
+      "Reopen both DBs; snapshot original gaps then reconcile by exact conversation/requestID/content: link existing recovery and submit missing reserved input once; release and settle/reap. Authorizeversion2. Original pre-effect/post-effect cancellation controls plus overflow/duplicate probes. Admit new recovery held inside after-link and new request blocked inside after-submit before host-ID write; both have native tool checkpoint/effectcount1. Flush/snapshot/copy/kill.",
+      "Reopen both DBs; reconcile existing native submissions without a second provider call, same ToolIDs/effectcount1; settle/reap. Authorizeversion3, original2commits/overflow/duplicate probes. Inject one before-reserve error perSession, prove no host reservation, caller retries same identity once then settles. Final native20Generation/20Tool/20provider calls,16local effects count1,all20terminal/active0."
+    ],
+    "total_unique_arrivals": 26,
+    "admitted": 20,
+    "overloaded": 6,
+    "intents": {
+      "recover": 4,
+      "deny": 2,
+      "pre-abort": 2,
+      "post-abort": 2,
+      "commit": 6,
+      "overload": 6,
+      "reserve-gap": 2,
+      "submit-gap": 2
+    },
+    "expected_local_effects": 16,
+    "expected_native_generation_tasks": 20,
+    "expected_native_tool_tasks": 20,
+    "expected_faux_provider_calls": 20,
+    "expected_native_duplicate_probes": 12,
+    "expected_replayed_tool_executions": 6,
+    "provider": "Official installed pi-ai fauxProvider, one deterministic toolCall per admitted input, control.terminate=true avoids second generation. Models requests use no credentials or network; globalfetchdenied; sanitizedchildenv. Finite16response factories perSession/process, observedexactcalls20total required; native retries and compaction disabled.",
+    "provider_api_identity_contract": {
+      "service0": "default-dynamic",
+      "service1": "frontier-faux-admission"
+    }
+  },
+  "acceptance": [
+    "Exact26unique arrivals,20durably reserved,6overload refused/no native;20native submissions/20Generation/20Tool/20Faux calls. Two before-reserve errors leave no host row and caller retries exact identity; no unacknowledged durable-service guarantee before first reservation.",
+    "Two independent SQLiteSessions/capacity2/conversations2,three retained workerPIDs/two kills/reopens. At kill0 eachSession host-only reservation lacks ID/native row and an after-link admission has native checkpoint/effect1. At kill1 eachSession an after-submit operation has native submission but no host-ID and an after-link has ID; exact pending operation hooks never return before kill.",
+    "Reconcile pending host-only requests using original version/payload after current authority check; native-existing lookup validates exact input identity/content, preserves original submission/task IDs and provider API. Six safeTool replays use same IDs/local count1; no lost/orphaned/duplicate native submissions or local effects. All20terminal/native task records40terminal,32completed/8aborted,finalactive0.",
+    "Retain12directnative duplicate probes and wrapperduplicate/conflict/stale checks. Actual effect transaction checks currentauthority/full durable identity/cancellation;deny/preabort0effects,postabort1effect. Pendingdenied/cancelled branches and changed native input rejection have pure regressions; native crash suite does not revoke pending authority or inject cancel-mark/abort gap.",
+    "Sixexact provideridentities:defaultdynamicthreedistinct,configuredstablefrontier-faux-admission. Every20assistant/request API joins exact actual generation stage; reservation-gap provider occurs on reopen, oldnative requests retain originalstageAPI.",
+    "SixcopiedSQLite backups integrityok/fullendpoint equality;exact frozen source/runtime/rawinventory unchanged;complete frozen savedbyteaudit passes. Resource/time/byte limits unchanged90s/20s/256MiBpolledprivate/20MiBoutput/1GiBdisk."
+  ],
+  "metrics": [
+    "Finite26arrival/20durablereservation/6refusal/16local-effect denominators and20terminal nearest-rankp50/p95/p99. Include original offer through gated waits/restarts, mixedcohorts descriptive. No causal/SLO/generalcapacity claim.",
+    "16effects/suitewall includingstarts/restarts/backups/audit;also fullcontroller runtimeauthentication wall,polledprivate/OSworking-sethighwater/samplegaps,callbackserialization/flush,rawDBbytes. No matchedOFF arm."
+  ],
+  "suite_wall_seconds": 90,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "limits": "Single Windows host,twoSQLiteSessions,one trusted host owner,officialdeterministiclocalFaux;no realmodel/HTTP/independenttenantauth/concurrentowner/externalexactlyonce/GPU/distributed/production/comparativeperformanceproof. Native identitycollision or unsupported queued/missingentry failsclosed and retains reservation; operator needed. Explicitreconcile/reap required, histories/logs grow; errorbeforefirstreservation needs caller retry. Authority check and native submit are separate commits; concurrentpermissionchanges may allow model scheduling, but effecttransaction rechecks currentauthority. Native pendingauthority-revocation/cancel-mark-crash cells not in this suite; pure branch tests do not upgrade them. Logs flushedbeforecontrolledkills,not arbitrarycrashlogdurability. SQLiteprogressdeadlineobservational,nothardOSIOinterrupt. H1original5GiB and oldfailures,H3/H4 unchanged."
+}

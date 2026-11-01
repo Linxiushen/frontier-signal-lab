@@ -44,6 +44,7 @@ scopes, 76 parameter tensors, and independent NumPy parameter/moment controls.
 
 | Evidence | Result |
 | --- | --- |
+| [Pi native admission reconciliation](results/pi-generation-admission/report.md) | One frozen two-Session suite:20native submissions,16local effects,count1,8recovered reservations,two reopens across reservation/submit/ID-link gaps. Official local Faux; pending authority/cancel-crash/production unverified |
 | [Pi generation/tool identity and recovery v2](results/pi-generation-v2/report.md) | One frozen native two-Session slice passes:14generation/14tool,10local effects,count1,two reopens,exact dynamic/stable API bindings. Official Faux fixture; admission commit gaps/real HTTP/model/production unverified |
 | [Pi actual generation/tool attempt](results/pi-generation/report.md) | Frozen FAILED: auditor assumed fixed Faux API identity;3processes/2reopens,50 raw files preserved. Post-outcome observations do not rescue acceptance; zero model loads |
 | [Pi native paced two-Session caller](results/pi-durable-paced/report.md) | One frozen refusal/retry pair: two native Sessions per arm, bounded pending4, six processes/four reopens; 0/36 versus12/36 load effects under deliberately held capacity. Local custom tasks only; no causal or full-Agent/model claim |

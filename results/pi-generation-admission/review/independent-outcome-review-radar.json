@@ -1,0 +1,1429 @@
+{
+  "status": "passed",
+  "started_at": "2026-11-01T00:18:28.186174+00:00",
+  "native_executions": 0,
+  "native_retries": 0,
+  "audit_source_modified": false,
+  "raw_file_count": 50,
+  "raw_bytes": 1921187,
+  "sqlite_scope": "C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\local-state\\audits\\20261101T000522Z-radar-admission",
+  "endpoints": [
+    {
+      "service": 0,
+      "stage": 0,
+      "backup_sha256": "9b958dc4e817b7560806f15c2b9118c2c6d121fd087f6c28f1f7d0ebb5a9e1e4",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 4,
+      "submissions": 2,
+      "effects": 1
+    },
+    {
+      "service": 0,
+      "stage": 1,
+      "backup_sha256": "354b64638b47c6d7ce7bdc1ce2abaaf945088dd05da3c68c3b5705b5af67d4b6",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 14,
+      "submissions": 7,
+      "effects": 5
+    },
+    {
+      "service": 0,
+      "stage": 2,
+      "backup_sha256": "c00b23d917e304f83ed81064dfe79ba9ba25fcc4b0ca6c72c3b9476275c46e7b",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 20,
+      "submissions": 10,
+      "effects": 8
+    },
+    {
+      "service": 1,
+      "stage": 0,
+      "backup_sha256": "06abbd47a386eb190f4620d112ae37971ad43845e173006ef97ff49d508f45ef",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 4,
+      "submissions": 2,
+      "effects": 1
+    },
+    {
+      "service": 1,
+      "stage": 1,
+      "backup_sha256": "ba10a3a874611d5ab0dd6cf28c7792a3447f26c7902d093019f55d662c87e031",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 14,
+      "submissions": 7,
+      "effects": 5
+    },
+    {
+      "service": 1,
+      "stage": 2,
+      "backup_sha256": "06673cc7ab43fbd2766760784be90478f92c7e1ed1f17f695b36ff1d9f7ea2e1",
+      "full_endpoint_matches": true,
+      "integrity_check": "ok",
+      "tasks": 20,
+      "submissions": 10,
+      "effects": 8
+    }
+  ],
+  "execution_accepted": true,
+  "frozen_execution_status": "passed",
+  "verified_source_counts": {
+    "preserved_previous": 45,
+    "runtime_files": 12765,
+    "admission": 12
+  },
+  "freeze_sha256": "2ae123becba3ddbe0336834c6452cbce0008deaedb7343cb418e9e08a09d55dd",
+  "unmodified_frozen_audit": {
+    "arrivals": 26,
+    "admitted": 20,
+    "overloaded": 6,
+    "native_generation_tasks": 20,
+    "native_tool_tasks": 20,
+    "faux_provider_calls": 20,
+    "local_effects": 16,
+    "recovered_reservations": 8,
+    "after_reserve_kills": 2,
+    "after_submit_kills": 2,
+    "after_link_kills": 4,
+    "before_reserve_errors": 2,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 20,
+      "p50": 81,
+      "p95": 1693,
+      "p99": 1716
+    }
+  },
+  "processes": [
+    {
+      "stage": 0,
+      "pid": 41708,
+      "returncode": 1,
+      "forced_termination": true,
+      "elapsed_seconds": 2.375,
+      "samples": 99,
+      "maximum_polled_private_bytes": 104181760,
+      "maximum_observed_os_peak_working_set_bytes": 96010240,
+      "stderr_bytes": 0
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "returncode": 1,
+      "forced_termination": true,
+      "elapsed_seconds": 1.7340000000258442,
+      "samples": 53,
+      "maximum_polled_private_bytes": 105226240,
+      "maximum_observed_os_peak_working_set_bytes": 96309248,
+      "stderr_bytes": 0
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "returncode": 0,
+      "forced_termination": false,
+      "elapsed_seconds": 1.7339999999967404,
+      "samples": 44,
+      "maximum_polled_private_bytes": 105930752,
+      "maximum_observed_os_peak_working_set_bytes": 96620544,
+      "stderr_bytes": 0
+    }
+  ],
+  "identity_bindings": [
+    {
+      "service": 0,
+      "request_stage": 0,
+      "actual_generation_stage": 0,
+      "key": "2:s0-db0-control0",
+      "intent": "recover",
+      "assistant_id": 19,
+      "tool_id": 20,
+      "api": "faux:1793492276698:rigtsvgsb1",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 0,
+      "request_stage": 0,
+      "actual_generation_stage": 0,
+      "key": "8:s0-db0-control1",
+      "intent": "deny",
+      "assistant_id": 25,
+      "tool_id": 26,
+      "api": "faux:1793492276698:rigtsvgsb1",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 0,
+      "actual_generation_stage": 1,
+      "key": "8:s0-db0-reserve-gap",
+      "intent": "reserve-gap",
+      "assistant_id": 32,
+      "tool_id": 33,
+      "api": "faux:1793492278381:p15sp96ahne",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "2:s1-db0-control0",
+      "intent": "pre-abort",
+      "assistant_id": 41,
+      "tool_id": 42,
+      "api": "faux:1793492278381:p15sp96ahne",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "8:s1-db0-control1",
+      "intent": "post-abort",
+      "assistant_id": 43,
+      "tool_id": 44,
+      "api": "faux:1793492278381:p15sp96ahne",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "2:s1-db0-recovery",
+      "intent": "recover",
+      "assistant_id": 50,
+      "tool_id": 51,
+      "api": "faux:1793492278381:p15sp96ahne",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 0,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "8:s1-db0-submit-gap",
+      "intent": "submit-gap",
+      "assistant_id": 55,
+      "tool_id": 56,
+      "api": "faux:1793492278381:p15sp96ahne",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 0,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "2:s2-db0-control0",
+      "intent": "commit",
+      "assistant_id": 65,
+      "tool_id": 66,
+      "api": "faux:1793492280165:15sc2lwnlak",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "8:s2-db0-control1",
+      "intent": "commit",
+      "assistant_id": 67,
+      "tool_id": 68,
+      "api": "faux:1793492280165:15sc2lwnlak",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 0,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "2:s2-db0-before-reserve",
+      "intent": "commit",
+      "assistant_id": 74,
+      "tool_id": 75,
+      "api": "faux:1793492280165:15sc2lwnlak",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 0,
+      "actual_generation_stage": 0,
+      "key": "2:s0-db1-control0",
+      "intent": "recover",
+      "assistant_id": 19,
+      "tool_id": 20,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 1,
+      "request_stage": 0,
+      "actual_generation_stage": 0,
+      "key": "8:s0-db1-control1",
+      "intent": "deny",
+      "assistant_id": 25,
+      "tool_id": 26,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 0,
+      "actual_generation_stage": 1,
+      "key": "8:s0-db1-reserve-gap",
+      "intent": "reserve-gap",
+      "assistant_id": 32,
+      "tool_id": 33,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "2:s1-db1-control0",
+      "intent": "pre-abort",
+      "assistant_id": 41,
+      "tool_id": 42,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "8:s1-db1-control1",
+      "intent": "post-abort",
+      "assistant_id": 43,
+      "tool_id": 44,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "2:s1-db1-recovery",
+      "intent": "recover",
+      "assistant_id": 50,
+      "tool_id": 51,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 1,
+      "request_stage": 1,
+      "actual_generation_stage": 1,
+      "key": "8:s1-db1-submit-gap",
+      "intent": "submit-gap",
+      "assistant_id": 55,
+      "tool_id": 56,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 2
+    },
+    {
+      "service": 1,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "2:s2-db1-control0",
+      "intent": "commit",
+      "assistant_id": 65,
+      "tool_id": 66,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "8:s2-db1-control1",
+      "intent": "commit",
+      "assistant_id": 67,
+      "tool_id": 68,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    },
+    {
+      "service": 1,
+      "request_stage": 2,
+      "actual_generation_stage": 2,
+      "key": "2:s2-db1-before-reserve",
+      "intent": "commit",
+      "assistant_id": 74,
+      "tool_id": 75,
+      "api": "frontier-faux-admission",
+      "tool_execution_count": 1
+    }
+  ],
+  "gap_observations": [
+    {
+      "stage": 0,
+      "pid": 41708,
+      "epoch_ms": 1793492276775,
+      "monotonic_ms": 1297.8122,
+      "type": "admission-gap-held",
+      "service": 0,
+      "phase": "after-link",
+      "key": "2:s0-db0-control0"
+    },
+    {
+      "stage": 0,
+      "pid": 41708,
+      "epoch_ms": 1793492276798,
+      "monotonic_ms": 1321.6522,
+      "type": "admission-gap-held",
+      "service": 1,
+      "phase": "after-link",
+      "key": "2:s0-db1-control0"
+    },
+    {
+      "stage": 0,
+      "pid": 41708,
+      "epoch_ms": 1793492276830,
+      "monotonic_ms": 1353.3412,
+      "type": "admission-gap-held",
+      "service": 0,
+      "phase": "after-reserve",
+      "key": "8:s0-db0-reserve-gap"
+    },
+    {
+      "stage": 0,
+      "pid": 41708,
+      "epoch_ms": 1793492276837,
+      "monotonic_ms": 1360.6683,
+      "type": "admission-gap-held",
+      "service": 1,
+      "phase": "after-reserve",
+      "key": "8:s0-db1-reserve-gap"
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278406,
+      "monotonic_ms": 1262.745,
+      "type": "recovery-before-resume",
+      "service": 0,
+      "key": "2:s0-db0-control0",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 1,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db0-control0": {
+            "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+            "conversation": 2,
+            "requestId": "s0-db0-control0",
+            "payload": "payload-s0-db0-control0",
+            "version": 1,
+            "submissionId": 16
+          },
+          "8:s0-db0-control1": {
+            "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+            "conversation": 8,
+            "requestId": "s0-db0-control1",
+            "payload": "payload-s0-db0-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db0-reserve-gap": {
+            "fingerprint": "28ae7b19ecb9079f80f9b711fa4f76704750360433081670808876ddde4332e3",
+            "conversation": 8,
+            "requestId": "s0-db0-reserve-gap",
+            "payload": "payload-s0-db0-reserve-gap",
+            "version": 1
+          }
+        },
+        "active": {
+          "2:s0-db0-control0": true,
+          "8:s0-db0-reserve-gap": true
+        },
+        "effects": {
+          "2:s0-db0-control0": {
+            "count": 1,
+            "payload": "payload-s0-db0-control0"
+          }
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278406,
+      "monotonic_ms": 1263.0923,
+      "type": "recovery-before-resume",
+      "service": 1,
+      "key": "2:s0-db1-control0",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 1,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db1-control0": {
+            "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+            "conversation": 2,
+            "requestId": "s0-db1-control0",
+            "payload": "payload-s0-db1-control0",
+            "version": 1,
+            "submissionId": 16
+          },
+          "8:s0-db1-control1": {
+            "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+            "conversation": 8,
+            "requestId": "s0-db1-control1",
+            "payload": "payload-s0-db1-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db1-reserve-gap": {
+            "fingerprint": "3608915f6c2c8155c660bd86c9dc3a2f14f140f7bfdfbe268e85d25a33162f87",
+            "conversation": 8,
+            "requestId": "s0-db1-reserve-gap",
+            "payload": "payload-s0-db1-reserve-gap",
+            "version": 1
+          }
+        },
+        "active": {
+          "2:s0-db1-control0": true,
+          "8:s0-db1-reserve-gap": true
+        },
+        "effects": {
+          "2:s0-db1-control0": {
+            "count": 1,
+            "payload": "payload-s0-db1-control0"
+          }
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278406,
+      "monotonic_ms": 1263.1269,
+      "type": "recovery-before-resume",
+      "service": 0,
+      "key": "8:s0-db0-reserve-gap",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 1,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db0-control0": {
+            "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+            "conversation": 2,
+            "requestId": "s0-db0-control0",
+            "payload": "payload-s0-db0-control0",
+            "version": 1,
+            "submissionId": 16
+          },
+          "8:s0-db0-control1": {
+            "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+            "conversation": 8,
+            "requestId": "s0-db0-control1",
+            "payload": "payload-s0-db0-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db0-reserve-gap": {
+            "fingerprint": "28ae7b19ecb9079f80f9b711fa4f76704750360433081670808876ddde4332e3",
+            "conversation": 8,
+            "requestId": "s0-db0-reserve-gap",
+            "payload": "payload-s0-db0-reserve-gap",
+            "version": 1
+          }
+        },
+        "active": {
+          "2:s0-db0-control0": true,
+          "8:s0-db0-reserve-gap": true
+        },
+        "effects": {
+          "2:s0-db0-control0": {
+            "count": 1,
+            "payload": "payload-s0-db0-control0"
+          }
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278406,
+      "monotonic_ms": 1263.1508,
+      "type": "recovery-before-resume",
+      "service": 1,
+      "key": "8:s0-db1-reserve-gap",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 1,
+            "allowed": true
+          },
+          "8": {
+            "version": 1,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db1-control0": {
+            "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+            "conversation": 2,
+            "requestId": "s0-db1-control0",
+            "payload": "payload-s0-db1-control0",
+            "version": 1,
+            "submissionId": 16
+          },
+          "8:s0-db1-control1": {
+            "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+            "conversation": 8,
+            "requestId": "s0-db1-control1",
+            "payload": "payload-s0-db1-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db1-reserve-gap": {
+            "fingerprint": "3608915f6c2c8155c660bd86c9dc3a2f14f140f7bfdfbe268e85d25a33162f87",
+            "conversation": 8,
+            "requestId": "s0-db1-reserve-gap",
+            "payload": "payload-s0-db1-reserve-gap",
+            "version": 1
+          }
+        },
+        "active": {
+          "2:s0-db1-control0": true,
+          "8:s0-db1-reserve-gap": true
+        },
+        "effects": {
+          "2:s0-db1-control0": {
+            "count": 1,
+            "payload": "payload-s0-db1-control0"
+          }
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278511,
+      "monotonic_ms": 1368.5034,
+      "type": "admission-gap-held",
+      "service": 0,
+      "phase": "after-link",
+      "key": "2:s1-db0-recovery"
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278536,
+      "monotonic_ms": 1392.7441,
+      "type": "admission-gap-held",
+      "service": 1,
+      "phase": "after-link",
+      "key": "2:s1-db1-recovery"
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278566,
+      "monotonic_ms": 1423.1282,
+      "type": "admission-gap-held",
+      "service": 0,
+      "phase": "after-submit",
+      "key": "8:s1-db0-submit-gap"
+    },
+    {
+      "stage": 1,
+      "pid": 36912,
+      "epoch_ms": 1793492278598,
+      "monotonic_ms": 1455.1569,
+      "type": "admission-gap-held",
+      "service": 1,
+      "phase": "after-submit",
+      "key": "8:s1-db1-submit-gap"
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280196,
+      "monotonic_ms": 1260.4597,
+      "type": "recovery-before-resume",
+      "service": 0,
+      "key": "2:s1-db0-recovery",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 2,
+            "allowed": true
+          },
+          "8": {
+            "version": 2,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db0-control0": {
+            "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+            "conversation": 2,
+            "requestId": "s0-db0-control0",
+            "payload": "payload-s0-db0-control0",
+            "version": 1,
+            "submissionId": 16,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s0-db0-control0",
+              "type": "input",
+              "status": "done",
+              "entry": 15,
+              "id": 16,
+              "answer": 19
+            }
+          },
+          "8:s0-db0-control1": {
+            "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+            "conversation": 8,
+            "requestId": "s0-db0-control1",
+            "payload": "payload-s0-db0-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db0-reserve-gap": {
+            "fingerprint": "28ae7b19ecb9079f80f9b711fa4f76704750360433081670808876ddde4332e3",
+            "conversation": 8,
+            "requestId": "s0-db0-reserve-gap",
+            "payload": "payload-s0-db0-reserve-gap",
+            "version": 1,
+            "submissionId": 29,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-reserve-gap",
+              "type": "input",
+              "status": "done",
+              "entry": 28,
+              "id": 29,
+              "answer": 32
+            }
+          },
+          "2:s1-db0-control0": {
+            "fingerprint": "e47a51b364ee526d8a6a961b0a49f7b5b54b0492d41f49626b40a6c1d0f00610",
+            "conversation": 2,
+            "requestId": "s1-db0-control0",
+            "payload": "payload-s1-db0-control0",
+            "version": 2,
+            "submissionId": 36,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s1-db0-control0",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 35,
+              "id": 36,
+              "reason": "aborted"
+            }
+          },
+          "8:s1-db0-control1": {
+            "fingerprint": "11e60c547f13752f5ae589db585b28c726d7ad5bd3dec2ace5fafaba6a643a35",
+            "conversation": 8,
+            "requestId": "s1-db0-control1",
+            "payload": "payload-s1-db0-control1",
+            "version": 2,
+            "submissionId": 39,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s1-db0-control1",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 38,
+              "id": 39,
+              "reason": "aborted"
+            }
+          },
+          "2:s1-db0-recovery": {
+            "fingerprint": "f99036f526410dbdca6093151d7e9380d8a0248cdfabefd71c508a84967d20c5",
+            "conversation": 2,
+            "requestId": "s1-db0-recovery",
+            "payload": "payload-s1-db0-recovery",
+            "version": 2,
+            "submissionId": 48
+          },
+          "8:s1-db0-submit-gap": {
+            "fingerprint": "3aae4938099880032b16a80fcd0fdb4877c0e7ef860663b5d75f8b2008b070cd",
+            "conversation": 8,
+            "requestId": "s1-db0-submit-gap",
+            "payload": "payload-s1-db0-submit-gap",
+            "version": 2
+          }
+        },
+        "active": {
+          "2:s1-db0-recovery": true,
+          "8:s1-db0-submit-gap": true
+        },
+        "effects": {
+          "2:s0-db0-control0": {
+            "count": 1,
+            "payload": "payload-s0-db0-control0"
+          },
+          "8:s0-db0-reserve-gap": {
+            "count": 1,
+            "payload": "payload-s0-db0-reserve-gap"
+          },
+          "8:s1-db0-control1": {
+            "count": 1,
+            "payload": "payload-s1-db0-control1"
+          },
+          "2:s1-db0-recovery": {
+            "count": 1,
+            "payload": "payload-s1-db0-recovery"
+          },
+          "8:s1-db0-submit-gap": {
+            "count": 1,
+            "payload": "payload-s1-db0-submit-gap"
+          }
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280197,
+      "monotonic_ms": 1260.8957,
+      "type": "recovery-before-resume",
+      "service": 1,
+      "key": "2:s1-db1-recovery",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 2,
+            "allowed": true
+          },
+          "8": {
+            "version": 2,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db1-control0": {
+            "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+            "conversation": 2,
+            "requestId": "s0-db1-control0",
+            "payload": "payload-s0-db1-control0",
+            "version": 1,
+            "submissionId": 16,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s0-db1-control0",
+              "type": "input",
+              "status": "done",
+              "entry": 15,
+              "id": 16,
+              "answer": 19
+            }
+          },
+          "8:s0-db1-control1": {
+            "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+            "conversation": 8,
+            "requestId": "s0-db1-control1",
+            "payload": "payload-s0-db1-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db1-reserve-gap": {
+            "fingerprint": "3608915f6c2c8155c660bd86c9dc3a2f14f140f7bfdfbe268e85d25a33162f87",
+            "conversation": 8,
+            "requestId": "s0-db1-reserve-gap",
+            "payload": "payload-s0-db1-reserve-gap",
+            "version": 1,
+            "submissionId": 29,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-reserve-gap",
+              "type": "input",
+              "status": "done",
+              "entry": 28,
+              "id": 29,
+              "answer": 32
+            }
+          },
+          "2:s1-db1-control0": {
+            "fingerprint": "8e1f6f758c66fe7bf22d03060e5bb033f35139ca6c007ed22228dd5f549967bf",
+            "conversation": 2,
+            "requestId": "s1-db1-control0",
+            "payload": "payload-s1-db1-control0",
+            "version": 2,
+            "submissionId": 36,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s1-db1-control0",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 35,
+              "id": 36,
+              "reason": "aborted"
+            }
+          },
+          "8:s1-db1-control1": {
+            "fingerprint": "9f80e14b72914d5487ed925e32b57576ef127df9739382831adf8b13d0cf0967",
+            "conversation": 8,
+            "requestId": "s1-db1-control1",
+            "payload": "payload-s1-db1-control1",
+            "version": 2,
+            "submissionId": 39,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s1-db1-control1",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 38,
+              "id": 39,
+              "reason": "aborted"
+            }
+          },
+          "2:s1-db1-recovery": {
+            "fingerprint": "bcd72340e564eb29515bcbc52f0ac96596bcaf8c9e9622d17bbd3af0d52f1c19",
+            "conversation": 2,
+            "requestId": "s1-db1-recovery",
+            "payload": "payload-s1-db1-recovery",
+            "version": 2,
+            "submissionId": 48
+          },
+          "8:s1-db1-submit-gap": {
+            "fingerprint": "fca890602f8083f6cafb24add4b87278c4b4148a8e45eb533aa38205a211629a",
+            "conversation": 8,
+            "requestId": "s1-db1-submit-gap",
+            "payload": "payload-s1-db1-submit-gap",
+            "version": 2
+          }
+        },
+        "active": {
+          "2:s1-db1-recovery": true,
+          "8:s1-db1-submit-gap": true
+        },
+        "effects": {
+          "2:s0-db1-control0": {
+            "count": 1,
+            "payload": "payload-s0-db1-control0"
+          },
+          "8:s0-db1-reserve-gap": {
+            "count": 1,
+            "payload": "payload-s0-db1-reserve-gap"
+          },
+          "8:s1-db1-control1": {
+            "count": 1,
+            "payload": "payload-s1-db1-control1"
+          },
+          "2:s1-db1-recovery": {
+            "count": 1,
+            "payload": "payload-s1-db1-recovery"
+          },
+          "8:s1-db1-submit-gap": {
+            "count": 1,
+            "payload": "payload-s1-db1-submit-gap"
+          }
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280197,
+      "monotonic_ms": 1260.9419,
+      "type": "recovery-before-resume",
+      "service": 0,
+      "key": "8:s1-db0-submit-gap",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 2,
+            "allowed": true
+          },
+          "8": {
+            "version": 2,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db0-control0": {
+            "fingerprint": "7d8d9c2ae2ea4ae642a934e51b35118bd44befebbc3f16fd593d6678b3efc178",
+            "conversation": 2,
+            "requestId": "s0-db0-control0",
+            "payload": "payload-s0-db0-control0",
+            "version": 1,
+            "submissionId": 16,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s0-db0-control0",
+              "type": "input",
+              "status": "done",
+              "entry": 15,
+              "id": 16,
+              "answer": 19
+            }
+          },
+          "8:s0-db0-control1": {
+            "fingerprint": "705dc09f6b83d8307d94789a5fa5a809bc4060364755f28e5bd94f36a1dfa7fa",
+            "conversation": 8,
+            "requestId": "s0-db0-control1",
+            "payload": "payload-s0-db0-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db0-reserve-gap": {
+            "fingerprint": "28ae7b19ecb9079f80f9b711fa4f76704750360433081670808876ddde4332e3",
+            "conversation": 8,
+            "requestId": "s0-db0-reserve-gap",
+            "payload": "payload-s0-db0-reserve-gap",
+            "version": 1,
+            "submissionId": 29,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db0-reserve-gap",
+              "type": "input",
+              "status": "done",
+              "entry": 28,
+              "id": 29,
+              "answer": 32
+            }
+          },
+          "2:s1-db0-control0": {
+            "fingerprint": "e47a51b364ee526d8a6a961b0a49f7b5b54b0492d41f49626b40a6c1d0f00610",
+            "conversation": 2,
+            "requestId": "s1-db0-control0",
+            "payload": "payload-s1-db0-control0",
+            "version": 2,
+            "submissionId": 36,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s1-db0-control0",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 35,
+              "id": 36,
+              "reason": "aborted"
+            }
+          },
+          "8:s1-db0-control1": {
+            "fingerprint": "11e60c547f13752f5ae589db585b28c726d7ad5bd3dec2ace5fafaba6a643a35",
+            "conversation": 8,
+            "requestId": "s1-db0-control1",
+            "payload": "payload-s1-db0-control1",
+            "version": 2,
+            "submissionId": 39,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s1-db0-control1",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 38,
+              "id": 39,
+              "reason": "aborted"
+            }
+          },
+          "2:s1-db0-recovery": {
+            "fingerprint": "f99036f526410dbdca6093151d7e9380d8a0248cdfabefd71c508a84967d20c5",
+            "conversation": 2,
+            "requestId": "s1-db0-recovery",
+            "payload": "payload-s1-db0-recovery",
+            "version": 2,
+            "submissionId": 48
+          },
+          "8:s1-db0-submit-gap": {
+            "fingerprint": "3aae4938099880032b16a80fcd0fdb4877c0e7ef860663b5d75f8b2008b070cd",
+            "conversation": 8,
+            "requestId": "s1-db0-submit-gap",
+            "payload": "payload-s1-db0-submit-gap",
+            "version": 2
+          }
+        },
+        "active": {
+          "2:s1-db0-recovery": true,
+          "8:s1-db0-submit-gap": true
+        },
+        "effects": {
+          "2:s0-db0-control0": {
+            "count": 1,
+            "payload": "payload-s0-db0-control0"
+          },
+          "8:s0-db0-reserve-gap": {
+            "count": 1,
+            "payload": "payload-s0-db0-reserve-gap"
+          },
+          "8:s1-db0-control1": {
+            "count": 1,
+            "payload": "payload-s1-db0-control1"
+          },
+          "2:s1-db0-recovery": {
+            "count": 1,
+            "payload": "payload-s1-db0-recovery"
+          },
+          "8:s1-db0-submit-gap": {
+            "count": 1,
+            "payload": "payload-s1-db0-submit-gap"
+          }
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280197,
+      "monotonic_ms": 1260.9687,
+      "type": "recovery-before-resume",
+      "service": 1,
+      "key": "8:s1-db1-submit-gap",
+      "state": {
+        "capacity": 2,
+        "authority": {
+          "2": {
+            "version": 2,
+            "allowed": true
+          },
+          "8": {
+            "version": 2,
+            "allowed": true
+          }
+        },
+        "requests": {
+          "2:s0-db1-control0": {
+            "fingerprint": "891260f4e5952e694c76e4f024f3845fbe1d66b2fc672a09c61db2758a8f4b4f",
+            "conversation": 2,
+            "requestId": "s0-db1-control0",
+            "payload": "payload-s0-db1-control0",
+            "version": 1,
+            "submissionId": 16,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s0-db1-control0",
+              "type": "input",
+              "status": "done",
+              "entry": 15,
+              "id": 16,
+              "answer": 19
+            }
+          },
+          "8:s0-db1-control1": {
+            "fingerprint": "f76eb2509fae0fc4cc6b82a955f20b77a4d46051c629377a1a82109869ba7d59",
+            "conversation": 8,
+            "requestId": "s0-db1-control1",
+            "payload": "payload-s0-db1-control1",
+            "version": 1,
+            "submissionId": 22,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-control1",
+              "type": "input",
+              "status": "done",
+              "entry": 21,
+              "id": 22,
+              "answer": 25
+            }
+          },
+          "8:s0-db1-reserve-gap": {
+            "fingerprint": "3608915f6c2c8155c660bd86c9dc3a2f14f140f7bfdfbe268e85d25a33162f87",
+            "conversation": 8,
+            "requestId": "s0-db1-reserve-gap",
+            "payload": "payload-s0-db1-reserve-gap",
+            "version": 1,
+            "submissionId": 29,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s0-db1-reserve-gap",
+              "type": "input",
+              "status": "done",
+              "entry": 28,
+              "id": 29,
+              "answer": 32
+            }
+          },
+          "2:s1-db1-control0": {
+            "fingerprint": "8e1f6f758c66fe7bf22d03060e5bb033f35139ca6c007ed22228dd5f549967bf",
+            "conversation": 2,
+            "requestId": "s1-db1-control0",
+            "payload": "payload-s1-db1-control0",
+            "version": 2,
+            "submissionId": 36,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 2,
+              "requestId": "s1-db1-control0",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 35,
+              "id": 36,
+              "reason": "aborted"
+            }
+          },
+          "8:s1-db1-control1": {
+            "fingerprint": "9f80e14b72914d5487ed925e32b57576ef127df9739382831adf8b13d0cf0967",
+            "conversation": 8,
+            "requestId": "s1-db1-control1",
+            "payload": "payload-s1-db1-control1",
+            "version": 2,
+            "submissionId": 39,
+            "cancelled": true,
+            "terminal": {
+              "conversationId": 8,
+              "requestId": "s1-db1-control1",
+              "type": "input",
+              "status": "unanswered",
+              "entry": 38,
+              "id": 39,
+              "reason": "aborted"
+            }
+          },
+          "2:s1-db1-recovery": {
+            "fingerprint": "bcd72340e564eb29515bcbc52f0ac96596bcaf8c9e9622d17bbd3af0d52f1c19",
+            "conversation": 2,
+            "requestId": "s1-db1-recovery",
+            "payload": "payload-s1-db1-recovery",
+            "version": 2,
+            "submissionId": 48
+          },
+          "8:s1-db1-submit-gap": {
+            "fingerprint": "fca890602f8083f6cafb24add4b87278c4b4148a8e45eb533aa38205a211629a",
+            "conversation": 8,
+            "requestId": "s1-db1-submit-gap",
+            "payload": "payload-s1-db1-submit-gap",
+            "version": 2
+          }
+        },
+        "active": {
+          "2:s1-db1-recovery": true,
+          "8:s1-db1-submit-gap": true
+        },
+        "effects": {
+          "2:s0-db1-control0": {
+            "count": 1,
+            "payload": "payload-s0-db1-control0"
+          },
+          "8:s0-db1-reserve-gap": {
+            "count": 1,
+            "payload": "payload-s0-db1-reserve-gap"
+          },
+          "8:s1-db1-control1": {
+            "count": 1,
+            "payload": "payload-s1-db1-control1"
+          },
+          "2:s1-db1-recovery": {
+            "count": 1,
+            "payload": "payload-s1-db1-recovery"
+          },
+          "8:s1-db1-submit-gap": {
+            "count": 1,
+            "payload": "payload-s1-db1-submit-gap"
+          }
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280347,
+      "monotonic_ms": 1411.214,
+      "type": "injected-before-reserve-error",
+      "service": 0,
+      "key": "2:s2-db0-before-reserve"
+    },
+    {
+      "stage": 2,
+      "pid": 37176,
+      "epoch_ms": 1793492280357,
+      "monotonic_ms": 1420.9054,
+      "type": "injected-before-reserve-error",
+      "service": 1,
+      "key": "2:s2-db1-before-reserve"
+    }
+  ],
+  "invocation_receipt_sha256": "123bbfc7dd56e7ec05f3f761953df833a693004f607651c407e0bb5eaf437e0b",
+  "full_controller_seconds": 36.344000000011874,
+  "actual_faux_api_by_service_stage": {
+    "0:0": "faux:1793492276698:rigtsvgsb1",
+    "1:0": "frontier-faux-admission",
+    "0:1": "faux:1793492278381:p15sp96ahne",
+    "1:1": "frontier-faux-admission",
+    "0:2": "faux:1793492280165:15sc2lwnlak",
+    "1:2": "frontier-faux-admission"
+  },
+  "native_counts": {
+    "task_kinds": {
+      "pi.generation": 20,
+      "pi.tool": 20
+    },
+    "terminal_outcomes": {
+      "completed": 32,
+      "aborted": 8
+    },
+    "event_counts": {
+      "provider-identity": 6,
+      "admission-gap-held": 8,
+      "provider-request": 20,
+      "tool-enter": 26,
+      "admission": 54,
+      "native-duplicate": 12,
+      "tool-effect": 24,
+      "terminal": 20,
+      "committed-state": 88,
+      "ready": 3,
+      "recovery-before-resume": 8,
+      "injected-before-reserve-error": 2
+    }
+  },
+  "metrics": {
+    "suite_wall_seconds": 6.047000000020489,
+    "descriptive_effects_per_suite_second": 2.645940135595467,
+    "admitted_per_suite_second": 3.3074251694943335,
+    "terminal_latency_ms": {
+      "n": 20,
+      "p50": 81,
+      "p95": 1693,
+      "p99": 1716
+    },
+    "observation_callback_ms": 2.212099999997008,
+    "observation_flush_ms": 3.1311000000000604,
+    "jsonl_bytes": 249152,
+    "raw_bytes": 1921187,
+    "controller_wall_seconds_including_runtime_authentication": 36.344000000011874,
+    "local_effects_per_full_controller_second": 0.44023772837317776,
+    "sqlite_bytes": 1163264,
+    "cost_scope": "Descriptive single suite includes gates/restarts/captures; no baseline, speedup or production throughput inference.",
+    "resources": [
+      {
+        "stage": 0,
+        "pid": 41708,
+        "samples": 99,
+        "elapsed_seconds": 2.375,
+        "maximum_polled_private_bytes": 104181760,
+        "maximum_polled_working_set_bytes": 95604736,
+        "maximum_observed_os_peak_working_set_bytes": 96010240,
+        "maximum_sample_gap_seconds": 0.03200000000651926,
+        "first_sample_seconds": 0.125,
+        "last_sample_seconds": 2.3280000000086147
+      },
+      {
+        "stage": 1,
+        "pid": 36912,
+        "samples": 53,
+        "elapsed_seconds": 1.7340000000258442,
+        "maximum_polled_private_bytes": 105226240,
+        "maximum_polled_working_set_bytes": 96305152,
+        "maximum_observed_os_peak_working_set_bytes": 96309248,
+        "maximum_sample_gap_seconds": 0.03200000000651926,
+        "first_sample_seconds": 0.07800000000861473,
+        "last_sample_seconds": 1.672000000020489
+      },
+      {
+        "stage": 2,
+        "pid": 37176,
+        "samples": 44,
+        "elapsed_seconds": 1.7339999999967404,
+        "maximum_polled_private_bytes": 105930752,
+        "maximum_polled_working_set_bytes": 96616448,
+        "maximum_observed_os_peak_working_set_bytes": 96620544,
+        "maximum_sample_gap_seconds": 0.062000000005355105,
+        "first_sample_seconds": 0.0779999999795109,
+        "last_sample_seconds": 1.6559999999881256
+      }
+    ],
+    "resource_scope": "Polled private bytes lowerbound on private highwater; OS PeakWorkingSetSize separate endpoint; no GPU/continuousprivatepeak claim.",
+    "observation_cost": "Callbackserialization and bufferedJSONLflush measured; commonpolling/subscriptions/captureincluded; no observerOFFarm.",
+    "outcome_denominators": "26unique arrivals:20durablereservations/6refusals.20native submissions:16done/4unansweredaborted.40tasks:32completed/8aborted.16localeffects count1;deny/preabort0.8recoveredreservations with6sameToolIDreexecutions."
+  },
+  "scope": "SingleWindows host,2SQLiteSessions,actualGenerationTask/officialFaux/ToolTask,2controlledreopens/all3admissioncommitgapholds;nativependingauthority-revocation/cancelmarkcrash remain unexecuted. Notrealmodel/HTTP/tenantauth/concurrentowner/externalexactlyonce/arbitrarycrash/production/comparisonproof.",
+  "original_raw_unchanged": true,
+  "raw_manifest_sha256": "32555353fae107c41ed5dacdeee5fe7e54cf2cd398b4d000f7facd8770b6d7ff",
+  "completed_at": "2026-11-01T00:18:39.785997+00:00"
+}

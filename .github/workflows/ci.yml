@@ -38,6 +38,12 @@ jobs:
         run: python -S scripts/check_pi_durable_service_v3.py
       - name: Audit bounded-burst durable load saved bytes without runtime or database execution
         run: python -S scripts/check_pi_durable_load.py
+      - name: Check native admission reconciliation pure decisions
+        run: node --test tests/pi_generation_admission_service.test.mjs
+      - name: Verify frozen admission reconciliation saved bytes
+        run: python -S scripts/check_pi_generation_admission.py
+      - name: Verify post-outcome admission identity supplement
+        run: python -S scripts/check_pi_admission_identity_supplement.py
       - name: Check separately versioned generation admission without the native runtime
         run: node --test tests/pi_generation_v2_service.test.mjs
       - name: Audit versioned generation provider-identity saved bytes

@@ -1,0 +1,145 @@
+{
+  "recorded_at": "2026-11-01T00:20:18.142287+00:00",
+  "result_label": "native_two_session_generation_admission_reconciled_faux_slice_passed_pending_authority_cancel_crash_gates_open",
+  "execution_status": "passed",
+  "execution_accepted": true,
+  "scientific_suites": 1,
+  "retries": 0,
+  "model_loads": 0,
+  "native_process_starts": 3,
+  "forced_kills": 2,
+  "reopens": 2,
+  "acceptance": {
+    "arrivals": 26,
+    "admitted": 20,
+    "overloaded": 6,
+    "native_generation_tasks": 20,
+    "native_tool_tasks": 20,
+    "faux_provider_calls": 20,
+    "local_effects": 16,
+    "recovered_reservations": 8,
+    "after_reserve_kills": 2,
+    "after_submit_kills": 2,
+    "after_link_kills": 4,
+    "before_reserve_errors": 2,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 20,
+      "p50": 81,
+      "p95": 1693,
+      "p99": 1716
+    }
+  },
+  "metrics": {
+    "suite_wall_seconds": 6.047000000020489,
+    "full_controller_wall_seconds_including_runtime_authentication": 36.344000000011874,
+    "intended_local_effects": 16,
+    "actual_effects": 16,
+    "durable_reservations": 20,
+    "unique_arrivals": 26,
+    "overload_refusals": 6,
+    "before_reserve_errors_retried_by_caller": 2,
+    "terminal_latency_ms": {
+      "n": 20,
+      "p50": 81,
+      "p95": 1693,
+      "p99": 1716
+    },
+    "effects_per_suite_second": 2.645940135595467,
+    "effects_per_full_controller_second": 0.44023772837317776,
+    "resources": [
+      {
+        "stage": 0,
+        "pid": 41708,
+        "samples": 99,
+        "elapsed_seconds": 2.375,
+        "maximum_polled_private_bytes": 104181760,
+        "maximum_polled_working_set_bytes": 95604736,
+        "maximum_observed_OS_peak_working_set_bytes": 96010240,
+        "first_sample_seconds": 0.125,
+        "last_sample_seconds": 2.3280000000086147,
+        "maximum_sample_gap_seconds": 0.03200000000651926
+      },
+      {
+        "stage": 1,
+        "pid": 36912,
+        "samples": 53,
+        "elapsed_seconds": 1.7340000000258442,
+        "maximum_polled_private_bytes": 105226240,
+        "maximum_polled_working_set_bytes": 96305152,
+        "maximum_observed_OS_peak_working_set_bytes": 96309248,
+        "first_sample_seconds": 0.07800000000861473,
+        "last_sample_seconds": 1.672000000020489,
+        "maximum_sample_gap_seconds": 0.03200000000651926
+      },
+      {
+        "stage": 2,
+        "pid": 37176,
+        "samples": 44,
+        "elapsed_seconds": 1.7339999999967404,
+        "maximum_polled_private_bytes": 105930752,
+        "maximum_polled_working_set_bytes": 96616448,
+        "maximum_observed_OS_peak_working_set_bytes": 96620544,
+        "first_sample_seconds": 0.0779999999795109,
+        "last_sample_seconds": 1.6559999999881256,
+        "maximum_sample_gap_seconds": 0.062000000005355105
+      }
+    ],
+    "callback_ms": 2.212099999997008,
+    "flush_ms": 3.1311000000000604,
+    "JSONL_bytes": 249152,
+    "SQLite_bytes": 1163264,
+    "cost_scope": "Mixed controlled-cohort observed times include gates/restarts; no matchedbaseline/OFFarm/SLO/generalcapacity/causalspeedup. Polledprivate lowerbound and OSworking-sethighwater distinct from GPU/processpeakbound;samplegaps retained. Native progress/DBcopy/observations included; no isolation of marginalobservercost. No real providerHTTP/communicationbenchmark or modelqualityscore."
+  },
+  "raw_files": 50,
+  "raw_bytes": 1921187,
+  "freeze_sha256": "2ae123becba3ddbe0336834c6452cbce0008deaedb7343cb418e9e08a09d55dd",
+  "raw_manifest_sha256": "52493c9111efbbdf2132f9f94dd0bf04ed533ab800e6a6e5a520aaf328519f37",
+  "engineering": {
+    "actual_caller": "Same optional two-Session Harness host service and actual GenerationTask -> official local Faux -> ToolTask caller.",
+    "scale_bottleneck": "A process loss after host reservation or after native admission can leak capacity, orphan work or duplicate local effects without stable native request reconciliation.",
+    "integration_point": "Public Tx.submissionByRequest and Tx.entry validate original request identity/content; Conversation.submit retries the exact durable request; link persists native ID, reap releases terminal capacity.",
+    "rollback": "Optional new adapter only; prior frozen v2 and installed runtime untouched.",
+    "validated_tier_if_passed": "Single Windows host, real native task lifecycle and official no-cost local Faux provider; deterministic fixture content, not model quality, real HTTP transport or production."
+  },
+  "next_gate": "Keep this finite native admission-gap fixture closed. Next, in the same optional service, separately freeze pending-reservation current-authority revocation and durable cancel-mark-before-native-abort crash cases across two reopens, plus real native busy/submit-error and request-ID/content-collision fail-closed controls, requiring bounded terminal capacity release without unauthorized or duplicate local effects. Preserve exact provider bindings, overload and pre/post-effect cancellation; avoid observer-only prerequisites. Concurrent owners, real model/HTTP, independent tenant authorization and external effects remain unverified.",
+  "limits": "Single Windows host,twoSQLiteSessions,one trusted host owner,officialdeterministiclocalFaux;no realmodel/HTTP/independenttenantauth/concurrentowner/externalexactlyonce/GPU/distributed/production/comparativeperformanceproof. Native identitycollision or unsupported queued/missingentry failsclosed and retains reservation; operator needed. Explicitreconcile/reap required, histories/logs grow; errorbeforefirstreservation needs caller retry. Authority check and native submit are separate commits; concurrentpermissionchanges may allow model scheduling, but effecttransaction rechecks currentauthority. Native pendingauthority-revocation/cancel-mark-crash cells not in this suite; pure branch tests do not upgrade them. Logs flushedbeforecontrolledkills,not arbitrarycrashlogdurability. SQLiteprogressdeadlineobservational,nothardOSIOinterrupt. H1original5GiB and oldfailures,H3/H4 unchanged.",
+  "H1_H3_H4_unchanged": true,
+  "previous_failures_unchanged": [
+    "results/pi-generation/report.md",
+    "results/pi-durable-service-v1/report.md",
+    "results/pi-durable-service-v2/report.md"
+  ],
+  "previous_accepted_slice_unchanged": "results/pi-generation-v2/report.md",
+  "preflight": {
+    "python_methods": 1096,
+    "python_passed": 1015,
+    "python_skipped": 81,
+    "focused_python": 15,
+    "pure_node": 13
+  },
+  "post_outcome_auditor_limitations": {
+    "original_acceptance_unchanged": true,
+    "false_positive_mutations": [
+      "tool-effect taskId replacement",
+      "extra orphan assistant entry"
+    ],
+    "actual_saved_data_passes_stronger_review": true,
+    "review": "review/upstream-extra-review.json",
+    "supplement_preregistered": false
+  },
+  "independent_review": "review/independent-outcome-review-radar.json",
+  "independent_review_sha256": "27507c86336c1ba9ed2ce5dd05844628a0e807e3dcf062837fecc2efb9b7ed95",
+  "post_outcome_identity_supplement": {
+    "receipt": "review/post-outcome-identity-supplement.json",
+    "status": "passed",
+    "preregistered": false,
+    "test_methods": 11,
+    "source_sha256": {
+      "experiments/pi_admission_identity_supplement.py": "74f745a821ecd2d1eb3898f6c6590c737b1fae7d926dbc6a6ceff59e06b9b6a4",
+      "scripts/check_pi_admission_identity_supplement.py": "ba51519f2ed4fc08e16860972771247bb83eaa0994b7dc194c7122b2af7ee837",
+      "tests/test_pi_admission_identity_supplement.py": "f35b3dd9701c34a6e734a64c6a7d105c607f7f723e0d397a72de7163a348e1cb"
+    }
+  }
+}

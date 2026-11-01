@@ -86,3 +86,5 @@ H2 原生切片首次尝试（2026-10-31 10:26Z）：官方 Pi durable1.4.0 的�
 H2实际GenerationTask/tool（2026-10-31 20:18Z）单次冻结验收失败：检查器误把官方动态Faux API身份固定为faux。实际三进程／两次重开与副本数据库观察单列，50份raw完整保留，无重试／模型加载，不追认通过。下一步直接同调用方另版固定提供方身份契约和完整负载／权限／取消／两次重启；host预留／native提交／host-ID持久化之间crash gap暂不支持。不扩展observer，不改变已接受自定义任务、旧失败、H1原5GiB及H3/H4。[完整失败与边界](../results/pi-generation/report.md)。
 
 H2原生generation/tool v2（2026-10-31 22:13Z）另版冻结单次通过：两个SQLite Session、14generation／14tool、10本地效应各count1、两次重开与默认动态／显式固定API的原始请求身份精确绑定。此有限fixture原生生命周期门槛关闭；下一步直接同服务协调host预留／native提交／host-ID持久化三个commit gap，在每个边界故障注入并保持当前权限／取消／两次重启及有界settlement，无孤儿／丢失／重复提交或效应。当前只在持久化tool意图／效应后强杀，不证明任意崩溃／真实HTTP模型／tenant／外部exactly-once／生产。50份raw完整保留；旧v1失败及H1原5GiB、H3/H4不变。[完整结果](../results/pi-generation-v2/report.md)。
+
+H2同服务准入协调（2026-11-01 00:18Z）一次另版冻结通过：两个SQLite Session、26请求／20持久准入／6过载，三个commit gap故障后两次进程重开协调8项预留，20generation／tool／Faux调用、16本地效应各count1、最终active0。六份副本完整记录独立核验；host-only请求在重开后首次生成，API按实际生成阶段精确绑定。只验证官方本地fixture原生生命周期；pending权限撤回／cancel标记崩溃、原生busy／提交错误／身份碰撞及并发owner、真实HTTP模型／外部效应仍未验收，下一步回同服务另行冻结，不扩展observer。旧失败与H1原5GiB、H3/H4保持。[完整报告](../results/pi-generation-admission/report.md)。

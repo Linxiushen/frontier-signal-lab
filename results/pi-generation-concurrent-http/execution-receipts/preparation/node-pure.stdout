@@ -1,0 +1,45 @@
+✔ three overlapping public calls preserve one original identity for exact retry (2.9845ms)
+✔ a duplicate native binding that forks the submission is refused (1.1197ms)
+✔ a service that performs two admissions for the same request is refused (0.6798ms)
+✔ foreign request identity cannot masquerade as an exact retry (0.4284ms)
+✖ missing real reservation arrival expires and permits a separately named caller round (15.545ms)
+✔ another active caller round and malformed duplicate conversations are refused (4.1481ms)
+✔ only declared before-reserve calls participate in the admission barrier (0.5505ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.1225
+
+✖ failing tests:
+
+test at tests\pi_concurrent_admission.test.mjs:51:1
+✖ missing real reservation arrival expires and permits a separately named caller round (15.545ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /barrier deadline/. Input:
+  
+  'AssertionError [ERR_ASSERTION]: Every caller must reach the real reservation entry\n' +
+    '\n' +
+    '2 !== 3\n'
+  
+      at async TestContext.<anonymous> (file:///C:/Users/somle/Documents/ChatGPT/AI%20%E6%B7%B1%E5%BA%A6%E9%A1%B9%E7%9B%AE%E6%8E%A2%E7%B4%A2/tests/pi_concurrent_admission.test.mjs:59:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: AssertionError [ERR_ASSERTION]: Every caller must reach the real reservation entry
+    
+    2 !== 3
+    
+        at Object.run (file:///C:/Users/somle/Documents/ChatGPT/AI%20%E6%B7%B1%E5%BA%A6%E9%A1%B9%E7%9B%AE%E6%8E%A2%E7%B4%A2/experiments/pi_concurrent_admission.mjs:42:16)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///C:/Users/somle/Documents/ChatGPT/AI%20%E6%B7%B1%E5%BA%A6%E9%A1%B9%E7%9B%AE%E6%8E%A2%E7%B4%A2/tests/pi_concurrent_admission.test.mjs:59:3)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: /barrier deadline/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

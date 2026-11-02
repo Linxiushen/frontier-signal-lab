@@ -1,0 +1,1618 @@
+{
+  "started_at": "2026-11-02T17:24:59.692801+00:00",
+  "completed_at": "2026-11-02T17:25:10.729242+00:00",
+  "reviewer": "/root/radar_resume",
+  "status": "failed_frozen_schema_integration_independent_diagnosis",
+  "scientific_outcome": "failed",
+  "original_execution_accepted": false,
+  "acceptance_rescue": false,
+  "patched_audit_or_replay_executed": false,
+  "scope": "Static source and saved JSON/JSONL parsing plus byte hashes only. No project module imports, project auditor execution, native/HTTP/model execution, tests, source edits or retry.",
+  "observed_failure": {
+    "execution_status": "failed",
+    "error": "KeyError('service')",
+    "traceback_receipt": "reports/runs/20261102T170820Z/h2-concurrent/original-audit-failure.stdout",
+    "traceback_sha256": "5f5a1332c7766d09cd5383e485b43eb8fc4b595a8ad9d331f404db287f290a4c",
+    "primary": "Auditor line18 requires service on every round event. Worker concurrent-content-conflict uses the top-level emit and omits service; top-level emit adds stage/pid/timestamps only. The first missing record is stage0.jsonl line22. All six such conflict records lack service.",
+    "first_missing_round_event": {
+      "stage": 0,
+      "pid": 32332,
+      "epoch_ms": 1793640077754,
+      "monotonic_ms": 1355.4061,
+      "type": "concurrent-content-conflict",
+      "round": "stage0-service0",
+      "key": "2:s0-db0-remote-deny-0",
+      "changed_payload": "changed-payload-s0-db0-remote-deny-0",
+      "result": {
+        "status": "conflict",
+        "key": "2:s0-db0-remote-deny-0"
+      },
+      "_line": 22
+    },
+    "latent": "Auditor line43 admission list indexes e[service] before checking event type. Even with the first round-schema error repaired in a future separate freeze, the first stage0 remote-authority event lacks service and would raise. Safe type-first filtering or explicit heterogeneous schema handling is needed in a future revision.",
+    "first_missing_heterogeneous_event": {
+      "stage": 0,
+      "pid": 32332,
+      "epoch_ms": 1793640077700,
+      "monotonic_ms": 1301.235,
+      "type": "remote-authority",
+      "scope": "service0",
+      "conversation": 2,
+      "version": 1,
+      "allowed": true,
+      "_line": 5
+    },
+    "source_locations": {
+      "auditor": [
+        {
+          "line": 18,
+          "text": "        assert all(e['stage'] == stage and e['service'] == service for e in own)"
+        },
+        {
+          "line": 43,
+          "text": "        admissions = [e for e in events if e['stage'] == stage and e['service'] == service and e['type'] == 'admission']"
+        }
+      ],
+      "worker": [
+        {
+          "line": 34,
+          "text": "  const emit = e => {"
+        },
+        {
+          "line": 37,
+          "text": "    events.push(JSON.stringify({ stage, pid: process.pid, epoch_ms: Date.now(), monotonic_ms: at, ...e }) + '\\n');"
+        },
+        {
+          "line": 144,
+          "text": "    emit({ type: 'concurrent-content-conflict', round: `stage${stage}-service${s}`, key: first.key,"
+        }
+      ]
+    }
+  },
+  "review_gap": "My preexecution passed_for_separate_freeze review missed the real conflict-event schema and unsafe heterogeneous filter. The frozen pure Python suite verifies rejection of old serial evidence, but has no positive real-emitter schema fixture; Node helper tests do not exercise the Python saved-byte auditor. Prior review receipt remains preserved as superseded for outcome validation.",
+  "execution_counters": {
+    "scientific_suites": 1,
+    "retries": 0,
+    "model_loads": 0,
+    "elapsed_seconds": 7.171999999998661,
+    "authentication_elapsed_seconds": 29.9690000000046,
+    "full_controller_elapsed_seconds": 37.14100000000326
+  },
+  "finite_saved_observations_only": {
+    "not_acceptance": true,
+    "event_count": 315,
+    "per_stage": [
+      {
+        "stage": 0,
+        "event_count": 73,
+        "types": {
+          "http-result": 8,
+          "provider-identity": 2,
+          "remote-authority": 6,
+          "concurrent-admission-open": 2,
+          "concurrent-reserve-arrival": 6,
+          "concurrent-reserve-release": 2,
+          "admission": 10,
+          "concurrent-admission-close": 2,
+          "concurrent-content-conflict": 2,
+          "provider-request": 4,
+          "tool-enter": 4,
+          "transport-held": 4,
+          "cancel-mark-held": 2,
+          "committed-state": 18,
+          "ready": 1
+        },
+        "missing_service_types": {
+          "remote-authority": 6,
+          "concurrent-content-conflict": 2,
+          "ready": 1
+        }
+      },
+      {
+        "stage": 1,
+        "event_count": 123,
+        "types": {
+          "http-result": 26,
+          "provider-identity": 2,
+          "recovery-before-resume": 4,
+          "effect-refused": 4,
+          "recovery-native-preabort": 4,
+          "terminal": 6,
+          "remote-authority": 4,
+          "concurrent-admission-open": 2,
+          "concurrent-reserve-arrival": 6,
+          "concurrent-reserve-release": 2,
+          "admission": 8,
+          "concurrent-admission-close": 2,
+          "concurrent-content-conflict": 2,
+          "provider-request": 4,
+          "tool-enter": 4,
+          "transport-held": 4,
+          "transport-released": 4,
+          "effect-acknowledged": 2,
+          "tool-effect": 2,
+          "cancel-mark-held": 2,
+          "committed-state": 28,
+          "ready": 1
+        },
+        "missing_service_types": {
+          "remote-authority": 4,
+          "concurrent-content-conflict": 2,
+          "ready": 1
+        }
+      },
+      {
+        "stage": 2,
+        "event_count": 119,
+        "types": {
+          "http-result": 20,
+          "provider-identity": 2,
+          "recovery-before-resume": 2,
+          "effect-acknowledged": 6,
+          "recovery-native-preabort": 2,
+          "terminal": 6,
+          "remote-authority": 4,
+          "concurrent-admission-open": 2,
+          "concurrent-reserve-arrival": 6,
+          "concurrent-reserve-release": 2,
+          "admission": 10,
+          "concurrent-admission-close": 2,
+          "concurrent-content-conflict": 2,
+          "provider-request": 4,
+          "tool-enter": 4,
+          "transport-held": 4,
+          "transport-released": 4,
+          "tool-effect": 4,
+          "duplicate-effect-control": 2,
+          "changed-effect-control": 2,
+          "committed-state": 28,
+          "ready": 1
+        },
+        "missing_service_types": {
+          "remote-authority": 4,
+          "concurrent-content-conflict": 2,
+          "ready": 1
+        }
+      }
+    ],
+    "rounds": [
+      {
+        "round": "stage0-service0",
+        "stage": 0,
+        "service_from_round": 0,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 22
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s0-db0-remote-deny-0",
+          "8:s0-db0-pre-cancel-1",
+          "2:s0-db0-remote-deny-0"
+        ],
+        "closed_keys": [
+          "2:s0-db0-remote-deny-0",
+          "8:s0-db0-pre-cancel-1",
+          "2:s0-db0-remote-deny-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s0-db0-remote-deny-0",
+            "submissionId": 16
+          },
+          {
+            "status": "admit",
+            "key": "8:s0-db0-pre-cancel-1",
+            "submissionId": 19
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s0-db0-remote-deny-0",
+            "submissionId": 16
+          }
+        ],
+        "round_elapsed_ms_observed_only": 12.091200000000072,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 0,
+          "type": "concurrent-content-conflict",
+          "round": "stage0-service0",
+          "key": "2:s0-db0-remote-deny-0",
+          "changed_payload": "changed-payload-s0-db0-remote-deny-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s0-db0-remote-deny-0"
+          },
+          "_line": 22
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1,
+          "overloaded": 1
+        }
+      },
+      {
+        "round": "stage0-service1",
+        "stage": 0,
+        "service_from_round": 1,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 43
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s0-db1-remote-deny-0",
+          "8:s0-db1-pre-cancel-1",
+          "2:s0-db1-remote-deny-0"
+        ],
+        "closed_keys": [
+          "2:s0-db1-remote-deny-0",
+          "8:s0-db1-pre-cancel-1",
+          "2:s0-db1-remote-deny-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s0-db1-remote-deny-0",
+            "submissionId": 16
+          },
+          {
+            "status": "admit",
+            "key": "8:s0-db1-pre-cancel-1",
+            "submissionId": 19
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s0-db1-remote-deny-0",
+            "submissionId": 16
+          }
+        ],
+        "round_elapsed_ms_observed_only": 7.712199999999939,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 0,
+          "type": "concurrent-content-conflict",
+          "round": "stage0-service1",
+          "key": "2:s0-db1-remote-deny-0",
+          "changed_payload": "changed-payload-s0-db1-remote-deny-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s0-db1-remote-deny-0"
+          },
+          "_line": 43
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1,
+          "overloaded": 1
+        }
+      },
+      {
+        "round": "stage1-service0",
+        "stage": 1,
+        "service_from_round": 0,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 45
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s1-db0-post-cancel-0",
+          "8:s1-db0-commit-1",
+          "2:s1-db0-post-cancel-0"
+        ],
+        "closed_keys": [
+          "2:s1-db0-post-cancel-0",
+          "8:s1-db0-commit-1",
+          "2:s1-db0-post-cancel-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s1-db0-post-cancel-0",
+            "submissionId": 30
+          },
+          {
+            "status": "admit",
+            "key": "8:s1-db0-commit-1",
+            "submissionId": 33
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s1-db0-post-cancel-0",
+            "submissionId": 30
+          }
+        ],
+        "round_elapsed_ms_observed_only": 9.35329999999999,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 1,
+          "type": "concurrent-content-conflict",
+          "round": "stage1-service0",
+          "key": "2:s1-db0-post-cancel-0",
+          "changed_payload": "changed-payload-s1-db0-post-cancel-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s1-db0-post-cancel-0"
+          },
+          "_line": 45
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1
+        }
+      },
+      {
+        "round": "stage1-service1",
+        "stage": 1,
+        "service_from_round": 1,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 75
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s1-db1-post-cancel-0",
+          "8:s1-db1-commit-1",
+          "2:s1-db1-post-cancel-0"
+        ],
+        "closed_keys": [
+          "2:s1-db1-post-cancel-0",
+          "8:s1-db1-commit-1",
+          "2:s1-db1-post-cancel-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s1-db1-post-cancel-0",
+            "submissionId": 30
+          },
+          {
+            "status": "admit",
+            "key": "8:s1-db1-commit-1",
+            "submissionId": 33
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s1-db1-post-cancel-0",
+            "submissionId": 30
+          }
+        ],
+        "round_elapsed_ms_observed_only": 5.717799999999897,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 1,
+          "type": "concurrent-content-conflict",
+          "round": "stage1-service1",
+          "key": "2:s1-db1-post-cancel-0",
+          "changed_payload": "changed-payload-s1-db1-post-cancel-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s1-db1-post-cancel-0"
+          },
+          "_line": 75
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1
+        }
+      },
+      {
+        "round": "stage2-service0",
+        "stage": 2,
+        "service_from_round": 0,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 32
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s2-db0-commit-0",
+          "8:s2-db0-commit-1",
+          "2:s2-db0-commit-0"
+        ],
+        "closed_keys": [
+          "2:s2-db0-commit-0",
+          "8:s2-db0-commit-1",
+          "2:s2-db0-commit-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s2-db0-commit-0",
+            "submissionId": 42
+          },
+          {
+            "status": "admit",
+            "key": "8:s2-db0-commit-1",
+            "submissionId": 45
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s2-db0-commit-0",
+            "submissionId": 42
+          }
+        ],
+        "round_elapsed_ms_observed_only": 8.044300000000021,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 2,
+          "type": "concurrent-content-conflict",
+          "round": "stage2-service0",
+          "key": "2:s2-db0-commit-0",
+          "changed_payload": "changed-payload-s2-db0-commit-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s2-db0-commit-0"
+          },
+          "_line": 32
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1,
+          "overloaded": 1
+        }
+      },
+      {
+        "round": "stage2-service1",
+        "stage": 2,
+        "service_from_round": 1,
+        "event_types": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close",
+          "concurrent-content-conflict"
+        ],
+        "service_field_present": [
+          "concurrent-admission-open",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-arrival",
+          "concurrent-reserve-release",
+          "concurrent-admission-close"
+        ],
+        "service_field_missing": [
+          {
+            "type": "concurrent-content-conflict",
+            "line": 46
+          }
+        ],
+        "arrivals": [
+          1,
+          2,
+          3
+        ],
+        "opened_keys": [
+          "2:s2-db1-commit-0",
+          "8:s2-db1-commit-1",
+          "2:s2-db1-commit-0"
+        ],
+        "closed_keys": [
+          "2:s2-db1-commit-0",
+          "8:s2-db1-commit-1",
+          "2:s2-db1-commit-0"
+        ],
+        "results": [
+          {
+            "status": "admit",
+            "key": "2:s2-db1-commit-0",
+            "submissionId": 42
+          },
+          {
+            "status": "admit",
+            "key": "8:s2-db1-commit-1",
+            "submissionId": 45
+          },
+          {
+            "status": "duplicate",
+            "key": "2:s2-db1-commit-0",
+            "submissionId": 42
+          }
+        ],
+        "round_elapsed_ms_observed_only": 21.00059999999985,
+        "retry_same_submissionId": true,
+        "conflict": {
+          "stage": 2,
+          "type": "concurrent-content-conflict",
+          "round": "stage2-service1",
+          "key": "2:s2-db1-commit-0",
+          "changed_payload": "changed-payload-s2-db1-commit-0",
+          "result": {
+            "status": "conflict",
+            "key": "2:s2-db1-commit-0"
+          },
+          "_line": 46
+        },
+        "actual_admission_counts": {
+          "admit": 2,
+          "duplicate": 1,
+          "conflict": 1,
+          "overloaded": 1
+        }
+      }
+    ],
+    "actual_admission_statuses": {
+      "admit": 12,
+      "duplicate": 6,
+      "conflict": 6,
+      "overloaded": 4
+    },
+    "six_round_conflicts_missing_service": 6,
+    "identity_request_count": 16,
+    "identity_native_count": 12,
+    "identity_recovery_entries": 6,
+    "native_processes": [
+      {
+        "stage": 0,
+        "started_at": "2026-11-02T17:21:16.253986+00:00",
+        "forced_termination": true,
+        "pid": 32332,
+        "ready": {
+          "stage": 0,
+          "pid": 32332,
+          "pending": 4,
+          "closed": false,
+          "elapsed_ms": 1414.1052
+        },
+        "returncode": 1,
+        "completed_at": "2026-11-02T17:21:17.920630+00:00",
+        "elapsed_seconds": 1.6719999999986612
+      },
+      {
+        "stage": 1,
+        "started_at": "2026-11-02T17:21:18.459900+00:00",
+        "forced_termination": true,
+        "pid": 31992,
+        "ready": {
+          "stage": 1,
+          "pid": 31992,
+          "pending": 2,
+          "closed": false,
+          "elapsed_ms": 1662.6327
+        },
+        "returncode": 1,
+        "completed_at": "2026-11-02T17:21:20.399897+00:00",
+        "elapsed_seconds": 1.9369999999980791
+      },
+      {
+        "stage": 2,
+        "started_at": "2026-11-02T17:21:20.936897+00:00",
+        "forced_termination": false,
+        "pid": 28520,
+        "ready": {
+          "stage": 2,
+          "pid": 28520,
+          "pending": 0,
+          "closed": true,
+          "elapsed_ms": 1632.6893
+        },
+        "returncode": 0,
+        "completed_at": "2026-11-02T17:21:22.849590+00:00",
+        "elapsed_seconds": 1.9060000000026776
+      }
+    ],
+    "effect_server_processes": [
+      {
+        "stage": 0,
+        "started_at": "2026-11-02T17:21:15.962246+00:00",
+        "pid": 33592,
+        "returncode": 0,
+        "completed_at": "2026-11-02T17:21:18.085600+00:00",
+        "elapsed_seconds": 2.125
+      },
+      {
+        "stage": 1,
+        "started_at": "2026-11-02T17:21:18.161599+00:00",
+        "pid": 31620,
+        "returncode": 0,
+        "completed_at": "2026-11-02T17:21:20.473897+00:00",
+        "elapsed_seconds": 2.312000000005355
+      },
+      {
+        "stage": 2,
+        "started_at": "2026-11-02T17:21:20.577897+00:00",
+        "pid": 13824,
+        "returncode": 0,
+        "completed_at": "2026-11-02T17:21:22.965677+00:00",
+        "elapsed_seconds": 2.389999999999418
+      }
+    ],
+    "stage_pending": [
+      4,
+      2,
+      0
+    ],
+    "stage_effect_counts": [
+      0,
+      4,
+      8
+    ],
+    "limits": "One trusted owner, two native Sessions, before-reserve overlap; conflicts after each round closes. These saved counters do not validate the failed acceptance protocol, arbitrary concurrent owners/interleavings, general exactly-once, model/GPU/production behavior or a performance improvement."
+  },
+  "preservation": {
+    "freeze_path": "fixtures/pi-generation-concurrent-http/implementation.json",
+    "freeze_sha256": "de0c015bad8fcaa2f97ebe854c114e33bd83d3ec077176723399c9cfe4ea4bfb",
+    "freeze_unchanged_after": true,
+    "freeze_matches_execution": true,
+    "source_groups": {
+      "source_sha256": {
+        "count": 8,
+        "all_exact": true,
+        "actual_sha256": {
+          "experiments/pi_concurrent_admission.mjs": "a6325c6047e559bca664b6b497a1fe9759310e6123dbdf71219220c47dbdf6fb",
+          "experiments/pi_generation_concurrent_http_audit.py": "5e090671bffce4093156aa423d5bf3a836edefdf7416f6d5c561e1dcee402847",
+          "experiments/pi_generation_concurrent_http_protocol.json": "afc2513d2a7c7e59f840df6796877b5f05d90cf8022c30da8e832e742d53b978",
+          "scripts/check_pi_generation_concurrent_http.py": "951ee0ecf83535b0b11d8d092a9b3c28852c0374cd75f1bc9a223c79c7e663b8",
+          "scripts/pi_generation_concurrent_http_worker.mjs": "f3c2151145699979dd568641d0ba19fd9a0033212f51c42cff78728a8e864b5f",
+          "scripts/run_pi_generation_concurrent_http.py": "e13b72741a9bd698908b31636043e0cfd3db16a78f84dc84a5190c214ca6d827",
+          "tests/pi_concurrent_admission.test.mjs": "73b539b55bf1be5b3c32ebd4f56dda84bbd33c2e1dd1f2c70457feee5242c411",
+          "tests/test_pi_generation_concurrent_http.py": "d252d17a7b9b568373814ff86fd6c55306d655a2bab8dc551514128275a0cb63"
+        }
+      },
+      "preserved_previous_source_sha256": {
+        "count": 85,
+        "all_exact": true,
+        "actual_sha256": {
+          "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+          "experiments/pi_durable_recovery_protocol_v3.json": "e1e9c97ec54a8e60e6d91f776429f933a18b771bb4a6b8f30039247bd30804d8",
+          "scripts/pi_durable_recovery_worker_v2.mjs": "6bd82e0169b5234793d97f3ffab7d9ff73b1af7d0595cc698290cd2790e2b099",
+          "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52",
+          "tests/pi_durable_service_v2.test.mjs": "4ed4bfa594c373e907823929a1f907c7c73984e69dc9436d76f7244c0126b8d4",
+          "scripts/check_pi_durable_exports_v2.mjs": "475540e8c8b9a268cd06eb10c2d3ecd5f8a9ccc0b4e9c5e624fdc2fda0a31a98",
+          "tests/test_pi_durable_service_v2_controller.py": "9860559f5388b1aa97b12e370ef1d0b6b3be3f7ba76333dbdf4cfd9226d6116b",
+          "tests/test_pi_durable_service_v3_controller.py": "800993a55b791c64adf2cd73164310ad26832fc886781f406d924796ca24a0d8",
+          "experiments/pi_durable_recovery_protocol_v2.json": "a731fd48179a6f8af72cbc60101b418ad78af307bcf913e9c58c63ffd31cd1c9",
+          "scripts/run_pi_durable_recovery_v2.py": "05cacaec76abb0ed27a9b1ee0eb16504c25f42ad24b73c244ebd19e5a8558af8",
+          "experiments/pi_durable_recovery_protocol.json": "17a249aa5f35511d6ad1e48f607e4da5aa5d2336f125817221980a61602173a9",
+          "experiments/pi_durable_service.mjs": "35bff8e8b3835d0d1f0762a48c255bd687987bfc46ed5344ae054f408e181e89",
+          "scripts/pi_durable_recovery_worker.mjs": "0dc9b40b62789ced28e88bc8b9680cfdd47295af38bfff3476ec0c64827b98ed",
+          "scripts/run_pi_durable_recovery.py": "9426afcc9234784c1efae2facaadaaf6a1abec3c91c1e966dd0a6fe1892e69d7",
+          "tests/pi_durable_service.test.mjs": "03d81c371b22ea46448cc3648d9b9f8c7bba0a6a3e8a2c0656be61a53eecd098",
+          "experiments/pi_durable_load_protocol.json": "c05c6ec94f5592ff94ee6b3f9eaa7b2393cf61b0cbc52e79fe068c44edc43732",
+          "experiments/pi_durable_load_audit.py": "e1f031631047447a84f2cbb7f1fb84f9babdf9b1ece113930c22e1124597189d",
+          "scripts/pi_durable_load_worker.mjs": "a2392cf9eae59e0cbc2ff6ffc9b1622031495dcc9b696263fdec976115f6cebe",
+          "scripts/run_pi_durable_load.py": "115e859473f817b5de61b72ec6c0ee9c6c5aeb53b233ec75ff5043972afa5e41",
+          "tests/test_pi_durable_load_audit.py": "e5c2aa998992232e9fa94852622e1f15327baf1c68d575f85e287e341c03b23b",
+          "experiments/pi_bounded_retry.mjs": "2449cb3c6f53c6db701dd2229ad67f9655411a10f0d66a7747f8fc3a282fcf18",
+          "tests/pi_bounded_retry.test.mjs": "e396ac67d8fa9bf650f5611bf3513d4a8db22f4772eff84369d8bca8a7314747",
+          "scripts/pi_durable_paced_worker.mjs": "473545a47c474c81f8a6f575df67eebdad5257d737d8b3bad9e08e2de4688a25",
+          "experiments/pi_durable_paced_audit.py": "271e71a064d45fa7851429dd143f29589907baf4f24e3a92c2bb8cc413f889f3",
+          "tests/test_pi_durable_paced_audit.py": "312c791807ab5abc59f823bb91c39a60751b29aef7eda8a40afd9506e0d68387",
+          "scripts/run_pi_durable_paced.py": "3ac97265d7c61753cc951bbd98e201e064119120c3696e1d376a55d82b106a03",
+          "experiments/pi_durable_paced_protocol.json": "f10bca9ab7f041eaec589c623f129c2225020ce672ba409c6aaaf1493f1eb080",
+          "experiments/pi_generation_audit.py": "6d5747ab90969b831d8f76da47c03d13154d4c5c75924e45f9036ad57cf3b6cb",
+          "experiments/pi_generation_protocol.json": "b82033a23854d86512be073d8a1ea5576e6227766ee255dceb6c66630984faa0",
+          "experiments/pi_generation_service.mjs": "4550778f60d64932ce7d4f683f7e26451d33cea180aecfc2f0cf568aa4fa7c70",
+          "scripts/check_pi_generation.py": "0264e79bd9c07fad7f2313207f7a564ff92ac76d2368d9a18165d6b3ed28e39f",
+          "scripts/pi_generation_worker.mjs": "026ae937a6fefb1393c52114430b87ce14eaabd55e395ddcb27236bec1ffd049",
+          "scripts/run_pi_generation.py": "2e0eec9a1f0cf526632e5b972b79b5660e4a818eeac0d9323dda6afe22395364",
+          "tests/pi_generation_service.test.mjs": "21c050ef001f2efcea97623babddac95dbc8dd16c6068aa23c5cc761ae801940",
+          "tests/test_pi_generation_audit.py": "f8ff5882b890e7b001e221d856a91b99c10eceb72b46ad59860c8378157d8a5e",
+          "tests/test_pi_generation_freeze.py": "cde44975264076f5abc4a30214aa0ab070436c569c3350084be5d905e56f6ca4",
+          "experiments/pi_generation_v2_audit.py": "bdf72eaccaf1030aa5f2f3aa221883c1e6d985d57fdf5170c939c501277ca9ae",
+          "experiments/pi_generation_v2_protocol.json": "d82de61d27732d53a86a3785a09dc854a8e0824eec32dd011812c949d669f48d",
+          "experiments/pi_generation_v2_service.mjs": "2b3e151dc5022dac7ec182f84e8a5ca410f106f8b56776881b140146b6e107d8",
+          "scripts/check_pi_generation_v2.py": "2dcd5e0c51ff5ab99d8fab2fde3625f955eb67269fb06b3fe035480b6cbd6bc4",
+          "scripts/pi_generation_v2_worker.mjs": "41e25c1d7337d676405347edacfac2c48d79f89a5834baee3bcfeef569ad18d1",
+          "scripts/run_pi_generation_v2.py": "84e1062849d3c2d1c11671351af76e05075d7a6fb38d35258031a5a5a255158f",
+          "tests/pi_generation_v2_service.test.mjs": "97456daa10283218b5f6e5903bb8efe2ff661bd9391ded0b33e55c966d94ea3d",
+          "tests/test_pi_generation_v2_audit.py": "9355c7205879c69dc6461b7f9f53fb00a62e8d30585e576e396b33296ab1b50d",
+          "tests/test_pi_generation_v2_freeze.py": "f2c417f371d1ade09562429d039d344ade8cd66dbb49239b7ca68a3f96ed92f5",
+          "experiments/pi_generation_admission_audit.py": "e8e714855190fb16b7ab812750c85b21840a2be6c849f6556f554f186cb0dff1",
+          "experiments/pi_generation_admission_protocol.json": "b61cd4531ce110eba2f46933b33b16f3dc0a4355fb35409803914eda0f8c8eec",
+          "experiments/pi_generation_admission_service.mjs": "9671db87d88af61d013d6610f945ff2adff08499c1a53ad8fbc51efb0c9ac8bb",
+          "scripts/check_pi_generation_admission.py": "05ae0da63118509556da1e937a316e25d81c78df7a08107dd384f8dde41841ec",
+          "scripts/pi_generation_admission_worker.mjs": "1b67c17d1b074662a9a98f882809fa11dd3d156e8a4802e480eae7dc31da662b",
+          "scripts/run_pi_generation_admission.py": "bc279314fb2badca64e16574d516659efe02af82f402f3f2dd0f1a181ed3164e",
+          "tests/pi_generation_admission_service.test.mjs": "68b7e94e386121f9730075c1075c87d5ab7da2552bd6d12d7e23c6080537d12e",
+          "tests/test_pi_generation_admission_audit.py": "751fa2a7cbd1df7a891a8fa8131dbde608558138418cef1464e8a4f77002f00a",
+          "tests/test_pi_generation_admission_freeze.py": "4d1a8e2a53cbb0f0bc79984e7d66e04697dc475f67902045dc2efb1519ef7309",
+          "experiments/pi_generation_cancellation_audit.py": "b5c2e048c3b2cc2bcb93129e3a570fb3df54436a0ad08fbce81b23cc5e63b474",
+          "experiments/pi_generation_cancellation_protocol.json": "1191a8a119acd5df34892e4e8f6b9f80a562188289d8ec812240dc3519cfa573",
+          "experiments/pi_generation_cancellation_service.mjs": "ab49996184db08cd28708f04e0308e78c089c7e182443443d7073451da156c7b",
+          "scripts/check_pi_generation_cancellation.py": "44ff10c110e1d2f63410a047f0540eefcd5e378ec64f3b9ed86fe573fb61852c",
+          "scripts/pi_generation_cancellation_worker.mjs": "baa9b68a2df096143ab6b1e53d55e2f99bf98e80ab08ec2d83daf3927cc10380",
+          "scripts/run_pi_generation_cancellation.py": "f34fb974076495f5ac21e7e4c9aa82798916916fc3225151da0e79dc68f6f8a1",
+          "tests/pi_generation_cancellation_service.test.mjs": "4e6a493a21a7bd0f1b8629186467f9074038266434009017e5d49c0b23d898b0",
+          "tests/test_pi_generation_cancellation_audit.py": "a8d98dd4cad2de8741624de8d1551a8dd8a147611e6baa4b5f3297cb74ea659e",
+          "tests/test_pi_generation_cancellation_freeze.py": "4aa416e474ce06095a5ae00bcdc0f3d4aef9ef925114c48848c3d933c725cc6f",
+          "experiments/pi_generation_conflict_audit.py": "9ceb0677e0b07eb334a900a5c82180eef4ebc88e136c78be0e4045f00a22af78",
+          "experiments/pi_generation_conflict_protocol.json": "17f19fbb49e9664c8816d5dc7fa6256033adaa7c10dc351cb174e39e5ce2fd79",
+          "experiments/pi_generation_conflict_service.mjs": "3242bac1bbaf3a8293c852ad3e4f2b641f704760d9fcd933cb7e7ac9f49e9469",
+          "scripts/check_pi_generation_conflict.py": "c37bcc8d1a8cc8257174badd702aa66be28177995a645cc9048e348cd2e61ef4",
+          "scripts/pi_generation_conflict_worker.mjs": "681f3a12b5df34e0bc42a6a3d572dbcffe96e07100e3910412deab221b168348",
+          "scripts/run_pi_generation_conflict.py": "7fa4599830edf2b337a8eb432d068aae17e33cf96c6a44a6a3ab4193c178c0a3",
+          "tests/pi_generation_conflict_service.test.mjs": "cd279411f243d4146483faa17ece67c42acb24afd0cdd4b3dfe94b0cabb32a3e",
+          "tests/test_pi_generation_conflict.py": "e00a72076c0952a7f34dbfe6e9dad128725f5c9ccf2a21faf42108c6bfe66e4f",
+          "experiments/pi_effect_http_client.mjs": "da55b5a3fda29a4b38f1b48a78372cb92c174c54fdf0c52d09fbea493b42938a",
+          "experiments/pi_effect_http_server.py": "4ba2b55c7800eea39a3bb4ebbc731f74b61aa886fcf8e4de3d5df1f2e8cc19af",
+          "experiments/pi_generation_http_audit.py": "3fed4ebd87fe42bb7f062d274f2a8ec0638d623cef19add9115fb57885d201f9",
+          "experiments/pi_generation_http_protocol.json": "00d62283708be20839ed44df7df0a63988fbe8bd9488e6cbc28b37aa653e084c",
+          "experiments/pi_generation_http_service.mjs": "b82b0585d3638b80a1e5455659a3af44f2ee63eecb611f3a22a2f12fa2528af8",
+          "scripts/check_pi_generation_http.py": "c5805c677c7b078b502db4bd3cec6096837f3477aed6c8b7ef426baf9dec46d4",
+          "scripts/pi_generation_http_worker.mjs": "b2fe8f1632dc961dfbb0981a1633cf8885346ccf663002c2f0da200d2b712243",
+          "scripts/run_pi_generation_http.py": "44cb411661c59724b1a950a903780befbcd5220df906840424ec9062b65a0180",
+          "tests/pi_effect_http.test.mjs": "37e2676731df2dfe4ab82f07d08651b69d74cf7abdb4df2a7e02245d38f446d3",
+          "tests/pi_generation_http_recovery.test.mjs": "8aea2d29b1c5ad503768d621bb0dc50d3b253215e51063ade41b8741ecdb5de2",
+          "tests/pi_generation_http_worker.test.mjs": "ef7b24f7821812299ab0e8f1bcff4ed612cced4d62fe8b6735cf745d6d7abd99",
+          "tests/test_pi_effect_http_server.py": "5adbdae0b9c8bac8c528b4c15e6d21a99cdf483d48a3b4d7e6f9992fe00f2c73",
+          "tests/test_pi_generation_http.py": "17c17ae18c3bf707efb6d5fba28a10149bc7ea23593189a4812073b7cb0cc5a9",
+          "tests/test_pi_generation_http_evidence.py": "99c7cf074186da730efe4059443da93ce69cbd6ec44ce3a7895715d2df3e2f46"
+        }
+      }
+    },
+    "all_frozen_sources_still_exact_after": true,
+    "runtime_manifest_sha256": "98b4a1555d774b6a91be3c04eedde571704cf06955f6f25ebcb74206b0d8555e",
+    "runtime_manifest_matches_freeze": true,
+    "installed_runtime_file_count": 12765,
+    "installed_runtime_inventory_sha256": "254ec353f564e82b03a58f12bb0ccdbb3f0cde587ca23a1f5d3bbbb3a276268b",
+    "installed_runtime_mismatches": [],
+    "installed_runtime_extras": [
+      "earendil-works-pi-durable-1.4.0.tgz",
+      "package/CHANGELOG.md",
+      "package/README.md",
+      "package/dist/codemode/codemode.d.ts",
+      "package/dist/codemode/codemode.d.ts.map",
+      "package/dist/codemode/codemode.js",
+      "package/dist/codemode/codemode.js.map",
+      "package/dist/codemode/describe.d.ts",
+      "package/dist/codemode/describe.d.ts.map",
+      "package/dist/codemode/describe.js",
+      "package/dist/codemode/describe.js.map",
+      "package/dist/codemode/index.d.ts",
+      "package/dist/codemode/index.d.ts.map",
+      "package/dist/codemode/index.js",
+      "package/dist/codemode/index.js.map",
+      "package/dist/codemode/models.d.ts",
+      "package/dist/codemode/models.d.ts.map",
+      "package/dist/codemode/models.js",
+      "package/dist/codemode/models.js.map",
+      "package/dist/codemode/output.d.ts",
+      "package/dist/codemode/output.d.ts.map",
+      "package/dist/codemode/output.js",
+      "package/dist/codemode/output.js.map",
+      "package/dist/documents.d.ts",
+      "package/dist/documents.d.ts.map",
+      "package/dist/documents.js",
+      "package/dist/documents.js.map",
+      "package/dist/entries.d.ts",
+      "package/dist/entries.d.ts.map",
+      "package/dist/entries.js",
+      "package/dist/entries.js.map",
+      "package/dist/env/decode.d.ts",
+      "package/dist/env/decode.d.ts.map",
+      "package/dist/env/decode.js",
+      "package/dist/env/decode.js.map",
+      "package/dist/env/index.d.ts",
+      "package/dist/env/index.d.ts.map",
+      "package/dist/env/index.js",
+      "package/dist/env/index.js.map",
+      "package/dist/env/line-scan.d.ts",
+      "package/dist/env/line-scan.d.ts.map",
+      "package/dist/env/line-scan.js",
+      "package/dist/env/line-scan.js.map",
+      "package/dist/env/node-watch.d.ts",
+      "package/dist/env/node-watch.d.ts.map",
+      "package/dist/env/node-watch.js",
+      "package/dist/env/node-watch.js.map",
+      "package/dist/env/node.d.ts",
+      "package/dist/env/node.d.ts.map",
+      "package/dist/env/node.js",
+      "package/dist/env/node.js.map",
+      "package/dist/errors.d.ts",
+      "package/dist/errors.d.ts.map",
+      "package/dist/errors.js",
+      "package/dist/errors.js.map",
+      "package/dist/harness/agent.d.ts",
+      "package/dist/harness/agent.d.ts.map",
+      "package/dist/harness/agent.js",
+      "package/dist/harness/agent.js.map",
+      "package/dist/harness/compaction.d.ts",
+      "package/dist/harness/compaction.d.ts.map",
+      "package/dist/harness/compaction.js",
+      "package/dist/harness/compaction.js.map",
+      "package/dist/harness/context.d.ts",
+      "package/dist/harness/context.d.ts.map",
+      "package/dist/harness/context.js",
+      "package/dist/harness/context.js.map",
+      "package/dist/harness/define.d.ts",
+      "package/dist/harness/define.d.ts.map",
+      "package/dist/harness/define.js",
+      "package/dist/harness/define.js.map",
+      "package/dist/harness/events.d.ts",
+      "package/dist/harness/events.d.ts.map",
+      "package/dist/harness/events.js",
+      "package/dist/harness/events.js.map",
+      "package/dist/harness/generation.d.ts",
+      "package/dist/harness/generation.d.ts.map",
+      "package/dist/harness/generation.js",
+      "package/dist/harness/generation.js.map",
+      "package/dist/harness/harness.d.ts",
+      "package/dist/harness/harness.d.ts.map",
+      "package/dist/harness/harness.js",
+      "package/dist/harness/harness.js.map",
+      "package/dist/harness/inbox.d.ts",
+      "package/dist/harness/inbox.d.ts.map",
+      "package/dist/harness/inbox.js",
+      "package/dist/harness/inbox.js.map",
+      "package/dist/harness/json.d.ts",
+      "package/dist/harness/json.d.ts.map",
+      "package/dist/harness/json.js",
+      "package/dist/harness/json.js.map",
+      "package/dist/harness/live.d.ts",
+      "package/dist/harness/live.d.ts.map",
+      "package/dist/harness/live.js",
+      "package/dist/harness/live.js.map",
+      "package/dist/harness/prompt.d.ts",
+      "package/dist/harness/prompt.d.ts.map",
+      "package/dist/harness/prompt.js",
+      "package/dist/harness/prompt.js.map",
+      "package/dist/harness/provider.d.ts",
+      "package/dist/harness/provider.d.ts.map",
+      "package/dist/harness/provider.js",
+      "package/dist/harness/provider.js.map",
+      "package/dist/harness/registry.d.ts",
+      "package/dist/harness/registry.d.ts.map",
+      "package/dist/harness/registry.js",
+      "package/dist/harness/registry.js.map",
+      "package/dist/harness/scheduler.d.ts",
+      "package/dist/harness/scheduler.d.ts.map",
+      "package/dist/harness/scheduler.js",
+      "package/dist/harness/scheduler.js.map",
+      "package/dist/harness/submissions.d.ts",
+      "package/dist/harness/submissions.d.ts.map",
+      "package/dist/harness/submissions.js",
+      "package/dist/harness/submissions.js.map",
+      "package/dist/harness/task-graph.d.ts",
+      "package/dist/harness/task-graph.d.ts.map",
+      "package/dist/harness/task-graph.js",
+      "package/dist/harness/task-graph.js.map",
+      "package/dist/harness/telemetry.d.ts",
+      "package/dist/harness/telemetry.d.ts.map",
+      "package/dist/harness/telemetry.js",
+      "package/dist/harness/telemetry.js.map",
+      "package/dist/harness/tool.d.ts",
+      "package/dist/harness/tool.d.ts.map",
+      "package/dist/harness/tool.js",
+      "package/dist/harness/tool.js.map",
+      "package/dist/harness/types.d.ts",
+      "package/dist/harness/types.d.ts.map",
+      "package/dist/harness/types.js",
+      "package/dist/harness/types.js.map",
+      "package/dist/harness/usage.d.ts",
+      "package/dist/harness/usage.d.ts.map",
+      "package/dist/harness/usage.js",
+      "package/dist/harness/usage.js.map",
+      "package/dist/harness/util.d.ts",
+      "package/dist/harness/util.d.ts.map",
+      "package/dist/harness/util.js",
+      "package/dist/harness/util.js.map",
+      "package/dist/harness/view.d.ts",
+      "package/dist/harness/view.d.ts.map",
+      "package/dist/harness/view.js",
+      "package/dist/harness/view.js.map",
+      "package/dist/ids.d.ts",
+      "package/dist/ids.d.ts.map",
+      "package/dist/ids.js",
+      "package/dist/ids.js.map",
+      "package/dist/images/cloudflare.d.ts",
+      "package/dist/images/cloudflare.d.ts.map",
+      "package/dist/images/cloudflare.js",
+      "package/dist/images/cloudflare.js.map",
+      "package/dist/images/exif.d.ts",
+      "package/dist/images/exif.d.ts.map",
+      "package/dist/images/exif.js",
+      "package/dist/images/exif.js.map",
+      "package/dist/images/index.d.ts",
+      "package/dist/images/index.d.ts.map",
+      "package/dist/images/index.js",
+      "package/dist/images/index.js.map",
+      "package/dist/images/node-worker.d.ts",
+      "package/dist/images/node-worker.d.ts.map",
+      "package/dist/images/node-worker.js",
+      "package/dist/images/node-worker.js.map",
+      "package/dist/images/node.d.ts",
+      "package/dist/images/node.d.ts.map",
+      "package/dist/images/node.js",
+      "package/dist/images/node.js.map",
+      "package/dist/index.d.ts",
+      "package/dist/index.d.ts.map",
+      "package/dist/index.js",
+      "package/dist/index.js.map",
+      "package/dist/search.d.ts",
+      "package/dist/search.d.ts.map",
+      "package/dist/search.js",
+      "package/dist/search.js.map",
+      "package/dist/session/forks.d.ts",
+      "package/dist/session/forks.d.ts.map",
+      "package/dist/session/forks.js",
+      "package/dist/session/forks.js.map",
+      "package/dist/session/observation.d.ts",
+      "package/dist/session/observation.d.ts.map",
+      "package/dist/session/observation.js",
+      "package/dist/session/observation.js.map",
+      "package/dist/session/session.d.ts",
+      "package/dist/session/session.d.ts.map",
+      "package/dist/session/session.js",
+      "package/dist/session/session.js.map",
+      "package/dist/session/transaction.d.ts",
+      "package/dist/session/transaction.d.ts.map",
+      "package/dist/session/transaction.js",
+      "package/dist/session/transaction.js.map",
+      "package/dist/storage/indexeddb.d.ts",
+      "package/dist/storage/indexeddb.d.ts.map",
+      "package/dist/storage/indexeddb.js",
+      "package/dist/storage/indexeddb.js.map",
+      "package/dist/storage/jsonl/index.d.ts",
+      "package/dist/storage/jsonl/index.d.ts.map",
+      "package/dist/storage/jsonl/index.js",
+      "package/dist/storage/jsonl/index.js.map",
+      "package/dist/storage/jsonl/node.d.ts",
+      "package/dist/storage/jsonl/node.d.ts.map",
+      "package/dist/storage/jsonl/node.js",
+      "package/dist/storage/jsonl/node.js.map",
+      "package/dist/storage/jsonl/storage.d.ts",
+      "package/dist/storage/jsonl/storage.d.ts.map",
+      "package/dist/storage/jsonl/storage.js",
+      "package/dist/storage/jsonl/storage.js.map",
+      "package/dist/storage/memory.d.ts",
+      "package/dist/storage/memory.d.ts.map",
+      "package/dist/storage/memory.js",
+      "package/dist/storage/memory.js.map",
+      "package/dist/storage/scan.d.ts",
+      "package/dist/storage/scan.d.ts.map",
+      "package/dist/storage/scan.js",
+      "package/dist/storage/scan.js.map",
+      "package/dist/storage/sqlite/cloudflare.d.ts",
+      "package/dist/storage/sqlite/cloudflare.d.ts.map",
+      "package/dist/storage/sqlite/cloudflare.js",
+      "package/dist/storage/sqlite/cloudflare.js.map",
+      "package/dist/storage/sqlite/database.d.ts",
+      "package/dist/storage/sqlite/database.d.ts.map",
+      "package/dist/storage/sqlite/database.js",
+      "package/dist/storage/sqlite/database.js.map",
+      "package/dist/storage/sqlite/index.d.ts",
+      "package/dist/storage/sqlite/index.d.ts.map",
+      "package/dist/storage/sqlite/index.js",
+      "package/dist/storage/sqlite/index.js.map",
+      "package/dist/storage/sqlite/migrations.d.ts",
+      "package/dist/storage/sqlite/migrations.d.ts.map",
+      "package/dist/storage/sqlite/migrations.js",
+      "package/dist/storage/sqlite/migrations.js.map",
+      "package/dist/storage/sqlite/node.d.ts",
+      "package/dist/storage/sqlite/node.d.ts.map",
+      "package/dist/storage/sqlite/node.js",
+      "package/dist/storage/sqlite/node.js.map",
+      "package/dist/storage/sqlite/schema.d.ts",
+      "package/dist/storage/sqlite/schema.d.ts.map",
+      "package/dist/storage/sqlite/schema.js",
+      "package/dist/storage/sqlite/schema.js.map",
+      "package/dist/storage/sqlite/storage.d.ts",
+      "package/dist/storage/sqlite/storage.d.ts.map",
+      "package/dist/storage/sqlite/storage.js",
+      "package/dist/storage/sqlite/storage.js.map",
+      "package/dist/tasks.d.ts",
+      "package/dist/tasks.d.ts.map",
+      "package/dist/tasks.js",
+      "package/dist/tasks.js.map",
+      "package/dist/testing/assertions.d.ts",
+      "package/dist/testing/assertions.d.ts.map",
+      "package/dist/testing/assertions.js",
+      "package/dist/testing/assertions.js.map",
+      "package/dist/testing/env-conformance.d.ts",
+      "package/dist/testing/env-conformance.d.ts.map",
+      "package/dist/testing/env-conformance.js",
+      "package/dist/testing/env-conformance.js.map",
+      "package/dist/testing/index.d.ts",
+      "package/dist/testing/index.d.ts.map",
+      "package/dist/testing/index.js",
+      "package/dist/testing/index.js.map",
+      "package/dist/testing/runner.d.ts",
+      "package/dist/testing/runner.d.ts.map",
+      "package/dist/testing/runner.js",
+      "package/dist/testing/runner.js.map",
+      "package/dist/testing/storage-benchmark.d.ts",
+      "package/dist/testing/storage-benchmark.d.ts.map",
+      "package/dist/testing/storage-benchmark.js",
+      "package/dist/testing/storage-benchmark.js.map",
+      "package/dist/testing/storage-conformance.d.ts",
+      "package/dist/testing/storage-conformance.d.ts.map",
+      "package/dist/testing/storage-conformance.js",
+      "package/dist/testing/storage-conformance.js.map",
+      "package/dist/testing/types.d.ts",
+      "package/dist/testing/types.d.ts.map",
+      "package/dist/testing/types.js",
+      "package/dist/testing/types.js.map",
+      "package/dist/timers.d.ts",
+      "package/dist/timers.d.ts.map",
+      "package/dist/timers.js",
+      "package/dist/timers.js.map",
+      "package/dist/tool-search/index.d.ts",
+      "package/dist/tool-search/index.d.ts.map",
+      "package/dist/tool-search/index.js",
+      "package/dist/tool-search/index.js.map",
+      "package/dist/tool-search/tool-search.d.ts",
+      "package/dist/tool-search/tool-search.d.ts.map",
+      "package/dist/tool-search/tool-search.js",
+      "package/dist/tool-search/tool-search.js.map",
+      "package/dist/tools/bash.d.ts",
+      "package/dist/tools/bash.d.ts.map",
+      "package/dist/tools/bash.js",
+      "package/dist/tools/bash.js.map",
+      "package/dist/tools/edit-diff.d.ts",
+      "package/dist/tools/edit-diff.d.ts.map",
+      "package/dist/tools/edit-diff.js",
+      "package/dist/tools/edit-diff.js.map",
+      "package/dist/tools/edit.d.ts",
+      "package/dist/tools/edit.d.ts.map",
+      "package/dist/tools/edit.js",
+      "package/dist/tools/edit.js.map",
+      "package/dist/tools/env.d.ts",
+      "package/dist/tools/env.d.ts.map",
+      "package/dist/tools/env.js",
+      "package/dist/tools/env.js.map",
+      "package/dist/tools/file-mutation-queue.d.ts",
+      "package/dist/tools/file-mutation-queue.d.ts.map",
+      "package/dist/tools/file-mutation-queue.js",
+      "package/dist/tools/file-mutation-queue.js.map",
+      "package/dist/tools/image-processor.d.ts",
+      "package/dist/tools/image-processor.d.ts.map",
+      "package/dist/tools/image-processor.js",
+      "package/dist/tools/image-processor.js.map",
+      "package/dist/tools/image.d.ts",
+      "package/dist/tools/image.d.ts.map",
+      "package/dist/tools/image.js",
+      "package/dist/tools/image.js.map",
+      "package/dist/tools/index.d.ts",
+      "package/dist/tools/index.d.ts.map",
+      "package/dist/tools/index.js",
+      "package/dist/tools/index.js.map",
+      "package/dist/tools/path-utils.d.ts",
+      "package/dist/tools/path-utils.d.ts.map",
+      "package/dist/tools/path-utils.js",
+      "package/dist/tools/path-utils.js.map",
+      "package/dist/tools/read.d.ts",
+      "package/dist/tools/read.d.ts.map",
+      "package/dist/tools/read.js",
+      "package/dist/tools/read.js.map",
+      "package/dist/tools/write.d.ts",
+      "package/dist/tools/write.d.ts.map",
+      "package/dist/tools/write.js",
+      "package/dist/tools/write.js.map",
+      "package/dist/truncate.d.ts",
+      "package/dist/truncate.d.ts.map",
+      "package/dist/truncate.js",
+      "package/dist/truncate.js.map",
+      "package/dist/types.d.ts",
+      "package/dist/types.d.ts.map",
+      "package/dist/types.js",
+      "package/dist/types.js.map",
+      "package/package.json"
+    ],
+    "installed_runtime_missing": [],
+    "node_binary_exact": true,
+    "python_binary_exact": true,
+    "python_runtime_module_mismatches": [],
+    "raw_files": 95,
+    "raw_inventory_before_sha256": "0247d5f8169632325b08bcbc6da943e2da2ca2c6a805fe34a5a8f1acc1c6a8f3",
+    "raw_inventory_after_sha256": "0247d5f8169632325b08bcbc6da943e2da2ca2c6a805fe34a5a8f1acc1c6a8f3",
+    "raw_unchanged": true,
+    "raw_artifacts": {
+      "effect-server0-final.json": {
+        "bytes": 315,
+        "sha256": "18a1c4f532c23cc26785cd190c4fc953cc94b0da67c3d212df10a7c154075e2d"
+      },
+      "effect-server0-initial-snapshot.json": {
+        "bytes": 56,
+        "sha256": "4c1b20c8aee01b1076c284822f2a73add61b41cbd64457ff07099e70368ee278"
+      },
+      "effect-server0-ready-snapshot.json": {
+        "bytes": 286,
+        "sha256": "5a1d350508928381106ac81a323fdebe677f229510d72fe66a38b0851393d46a"
+      },
+      "effect-server0-ready.json": {
+        "bytes": 111,
+        "sha256": "30710bba280058a130f37dea7b38f0cc1b1acb12de877e9baaa2f36adc6be553"
+      },
+      "effect-server0.jsonl": {
+        "bytes": 308,
+        "sha256": "3b8d6850106e6fb1a4b5f92bbf30a92a381d2c07576d9c56c32ea0a9627795a1"
+      },
+      "effect-server0.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effect-server0.stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effect-server1-final.json": {
+        "bytes": 2604,
+        "sha256": "929223a705fc5ad93630c5b4e34eb0c7c85531a723891d84268dc351de581c14"
+      },
+      "effect-server1-initial-snapshot.json": {
+        "bytes": 286,
+        "sha256": "5a1d350508928381106ac81a323fdebe677f229510d72fe66a38b0851393d46a"
+      },
+      "effect-server1-ready-snapshot.json": {
+        "bytes": 2453,
+        "sha256": "15b73ce39c2089817f75ad77d26e824497fb6736d24a97e5e54879b65eb5ae59"
+      },
+      "effect-server1-ready.json": {
+        "bytes": 111,
+        "sha256": "56e0f0d251dc026ffd184d32a674cff095003c9895453d28db7068332196316f"
+      },
+      "effect-server1.jsonl": {
+        "bytes": 3372,
+        "sha256": "4cf332d6048585b5be4d46eb89a9395d1400e9d678d340104b82efa957174ec1"
+      },
+      "effect-server1.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effect-server1.stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effect-server2-final.json": {
+        "bytes": 4860,
+        "sha256": "7cb9f35ea01dbf08ef68cc390dd7281799204382b2aea3fa980a44d7d7efa50c"
+      },
+      "effect-server2-initial-snapshot.json": {
+        "bytes": 2453,
+        "sha256": "15b73ce39c2089817f75ad77d26e824497fb6736d24a97e5e54879b65eb5ae59"
+      },
+      "effect-server2-ready-snapshot.json": {
+        "bytes": 4589,
+        "sha256": "bf1f06210c49f483d7c663ddaf61b1454dc1c026f3c2d649618215e9a3926585"
+      },
+      "effect-server2-ready.json": {
+        "bytes": 111,
+        "sha256": "7618095a11d582c540d1725e6649742cd034beb83b70fde0e8f502f7abf87744"
+      },
+      "effect-server2.jsonl": {
+        "bytes": 2768,
+        "sha256": "1691e3970f350f9a56e6546b8a841963bd06d92c881298a48e591041061ba4e8"
+      },
+      "effect-server2.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effect-server2.stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effects-stage0-copy-comparison.json": {
+        "bytes": 215,
+        "sha256": "1fa5beba0f05ea1a45559eb87814e175524e5dc6f2aee249f77a39f69a085519"
+      },
+      "effects-stage0-endpoint.json": {
+        "bytes": 317,
+        "sha256": "c212e8016d617781119207f820fcb101be1bd0ffcec2275aa82884722d6355b5"
+      },
+      "effects-stage0.sqlite": {
+        "bytes": 24576,
+        "sha256": "e1b26d7e8efdc6d05c6f8b8d1658e72d9f1f1a8b5526d577c760ccfb7561e69a"
+      },
+      "effects-stage0.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "effects-stage0.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effects-stage1-copy-comparison.json": {
+        "bytes": 215,
+        "sha256": "9ff90d6299f133c89f661d0d818317c56f8085ccbac113d552c686827190840d"
+      },
+      "effects-stage1-endpoint.json": {
+        "bytes": 2606,
+        "sha256": "3d99716442801384c45e8bcab53da2dd96fa1e4fd1d9acd589a23219b313dc78"
+      },
+      "effects-stage1.sqlite": {
+        "bytes": 24576,
+        "sha256": "b0a1fa8bf386f3f86b7eb1cc874f302becc99d4b6596af37ecb761c72c5efe4f"
+      },
+      "effects-stage1.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "effects-stage1.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effects-stage2-copy-comparison.json": {
+        "bytes": 215,
+        "sha256": "cca8b69fcb128e4e0f705bbea8b6cbc85162912b2b2f091396051d3fda1ec08d"
+      },
+      "effects-stage2-endpoint.json": {
+        "bytes": 4862,
+        "sha256": "1cae59cc7c9ec95e24919eed10242f9f320e8413f237350c46ec2042ca6aab50"
+      },
+      "effects-stage2.sqlite": {
+        "bytes": 24576,
+        "sha256": "eb4de61c9edebc3278a6789069235133656eb868526d6a55634898e23a0a0c7c"
+      },
+      "effects-stage2.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "effects-stage2.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "effects.sqlite": {
+        "bytes": 24576,
+        "sha256": "136ddcc18f680c459905dd9657d19fdcd551f23c680b968ae0bec8d6bdfd38ca"
+      },
+      "effects.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "effects.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "execution.json": {
+        "bytes": 51909,
+        "sha256": "dc4ddae26846a02cd6fca8ebce8a38faa992d8af1add3be817eb0bfc725a7225"
+      },
+      "identities.json": {
+        "bytes": 15446,
+        "sha256": "7938b2c01c20d28288deaa809dfca36632b1cb1882732e86e64dc02d73fb377b"
+      },
+      "service0-stage0-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "f3e31b76e054fce9d09072dd7853e7d4ec626afd0be11d3417554c6588fd0d9c"
+      },
+      "service0-stage0-endpoint.json": {
+        "bytes": 9693,
+        "sha256": "09765a03eb060b461695237890fa1ba24c9131368e69ccd6e6c1e9a19f04baa1"
+      },
+      "service0-stage0.sqlite": {
+        "bytes": 122880,
+        "sha256": "d004d19f0de5f78630d1e4ffdf5b25204d9a72ffc20506a4bf9e947e66b58353"
+      },
+      "service0-stage0.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service0-stage0.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service0-stage1-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "f004d0c9cee35480213a4772856095deee07b3ce67104304ef34b74cadb142fd"
+      },
+      "service0-stage1-endpoint.json": {
+        "bytes": 19969,
+        "sha256": "1f2f0c30141fb9a4d4275f15b91c2090cc94a1622a41224851c31a3c25cfaa63"
+      },
+      "service0-stage1.sqlite": {
+        "bytes": 135168,
+        "sha256": "f4669f0080254a58a2c320aacabe05aaffa9b2701244c248c2bb752961486222"
+      },
+      "service0-stage1.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service0-stage1.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service0-stage2-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "eeced3595e910fa60e21b2de0b891eac0c6505e612d4198cd6e51b8326704364"
+      },
+      "service0-stage2-endpoint.json": {
+        "bytes": 31593,
+        "sha256": "792208794d024e54538f9ce82a6ed7e86f367ad3c0f355aa767f1967846540ca"
+      },
+      "service0-stage2.sqlite": {
+        "bytes": 135168,
+        "sha256": "d2820bc7abdd888a876bf16d40e2da17067bcce4fcfc23aae601599dcc23dd67"
+      },
+      "service0-stage2.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service0-stage2.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service0.sqlite": {
+        "bytes": 135168,
+        "sha256": "c30b91f73411fe259b00831c2c93cf33c13da64dfda7a2219348f646521b66ae"
+      },
+      "service0.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service0.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service1-stage0-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "c58e006001cd06a89d64e21c96b3cd33a1c6633549ef4be15c4d66ab861ba690"
+      },
+      "service1-stage0-endpoint.json": {
+        "bytes": 9669,
+        "sha256": "f044ba83692e4768f1dee327f69f9b20664cc449b6de7599e15477d278a8ef46"
+      },
+      "service1-stage0.sqlite": {
+        "bytes": 122880,
+        "sha256": "a18c461b018ed133b5fbe688238d4ed8a0178e0b81687c57e3b6f7ea11219649"
+      },
+      "service1-stage0.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service1-stage0.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service1-stage1-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "bc0871571522d35e80a2412df4cdd39b29831c076e68e7fb767baddad9b57aea"
+      },
+      "service1-stage1-endpoint.json": {
+        "bytes": 19921,
+        "sha256": "8720494ba1598284cf1792215d9219bfe62d01af2230def281a379e44578b331"
+      },
+      "service1-stage1.sqlite": {
+        "bytes": 135168,
+        "sha256": "0a1e493ef95f2569d89b932d2637eff75bd81083767d225d2e39fbb167f51a46"
+      },
+      "service1-stage1.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service1-stage1.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service1-stage2-copy-comparison.json": {
+        "bytes": 247,
+        "sha256": "2d92c4a9f4e25016a504d1bb7c529e28fdc467e4305df249387c16961d22aef5"
+      },
+      "service1-stage2-endpoint.json": {
+        "bytes": 31524,
+        "sha256": "c028ae3db6a740df2f81036861b448b4e171f080ae6d6cfbe5192cb7add8a688"
+      },
+      "service1-stage2.sqlite": {
+        "bytes": 135168,
+        "sha256": "e40b3283977c6d6f1425eaad729a7931a0583e3d4975417b75c0da4b8c50376d"
+      },
+      "service1-stage2.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service1-stage2.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "service1.sqlite": {
+        "bytes": 135168,
+        "sha256": "d98dbcae65bf0b8772bb2f3d326bc109eabc15f3e4013868c93434334bb02dc9"
+      },
+      "service1.sqlite-shm": {
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      "service1.sqlite-wal": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage0-ready.json": {
+        "bytes": 94,
+        "sha256": "84b64da8e5805a0ab6ce4280caba88a720794a8da77703dd0f037e8572e6de3e"
+      },
+      "stage0-sink.json": {
+        "bytes": 107,
+        "sha256": "d6d0deacbc378cd6236e833e8df72677a55b3bed8d4172201d56bc30137e8776"
+      },
+      "stage0-snapshot.json": {
+        "bytes": 5543,
+        "sha256": "cb888abb0dae2535d98a1f259abdf6e0ceda4e3135296982431ad8c1e8c62e46"
+      },
+      "stage0.jsonl": {
+        "bytes": 26935,
+        "sha256": "39cc520455baa977aab72e240348bf3cc5e6de99303323c8011f38bf98b5e8dc"
+      },
+      "stage0.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage0.stdout.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage1-ready.json": {
+        "bytes": 94,
+        "sha256": "94bf7c18881b08c42eba6621a5836aaaa2d102b39ff0357354e09af10cce6df5"
+      },
+      "stage1-sink.json": {
+        "bytes": 108,
+        "sha256": "c10e8b0426c56b44ebb7ff13eb1d781fd8c3c28ad4efb741d5007116c10fc321"
+      },
+      "stage1-snapshot.json": {
+        "bytes": 13240,
+        "sha256": "41c917759a2c8ab24ce3329a58090797a8fdfef11910f3796b15b758d52b0ea3"
+      },
+      "stage1.jsonl": {
+        "bytes": 86309,
+        "sha256": "76f985f2165958c9927789aa44a1432dd22d9f38293492fe9a5c0f33f12b8c6e"
+      },
+      "stage1.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage1.stdout.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage2-ready.json": {
+        "bytes": 93,
+        "sha256": "6bb78015675bda2ee0b41d590ccb2081950257840672bc644e1c8b7ec374d6e3"
+      },
+      "stage2-sink.json": {
+        "bytes": 109,
+        "sha256": "e0b738a09847dbb33b91653ac9b85949b9bea6ea651ac00a9b04ec3b3a56c1f2"
+      },
+      "stage2-snapshot.json": {
+        "bytes": 23836,
+        "sha256": "68ee325e13136de67455e63db6a441c61348a9b528d954cd5825d753c5708291"
+      },
+      "stage2.jsonl": {
+        "bytes": 156550,
+        "sha256": "e0934e4a30661a6d38f2f28a953a6af05286a9a02a3bf69020b10bae43309b07"
+      },
+      "stage2.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stage2.stdout.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "installed_runtime_extras_scope": "Manifest scope is installed node_modules plus package.json/package-lock.json. Additional runtime-root paths listed here are package extraction/archive inputs outside that installed-file inventory; their absence from the manifest is not a hash mismatch. No statement that entire runtime-root contents were frozen.",
+    "installed_runtime_extras_count": 340
+  },
+  "executions_by_reviewer": {
+    "native_suites": 0,
+    "scientific_suites": 0,
+    "model_loads": 0,
+    "project_tests": 0,
+    "project_auditor_calls": 0
+  },
+  "tracked_or_shared_edits_by_reviewer": 0,
+  "future_work_only": "Preserve this failed freeze and all raw evidence; any emitter/auditor integration repair needs a separate revision with positive and mutated-schema pure controls and separate preregistration before another permitted scientific round."
+}

@@ -1,0 +1,1199 @@
+{
+  "state": {
+    "capacity": 2,
+    "authority": {
+      "2": {
+        "version": 3,
+        "allowed": true
+      },
+      "8": {
+        "version": 3,
+        "allowed": true
+      }
+    },
+    "requests": {
+      "2:s0-db1-remote-deny-0": {
+        "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90",
+        "conversation": 2,
+        "requestId": "s0-db1-remote-deny-0",
+        "payload": "payload-s0-db1-remote-deny-0",
+        "version": 1,
+        "submissionId": 16,
+        "effectDenied": true,
+        "terminal": {
+          "conversationId": 2,
+          "requestId": "s0-db1-remote-deny-0",
+          "type": "input",
+          "status": "unanswered",
+          "entry": 15,
+          "id": 16,
+          "reason": "aborted"
+        }
+      },
+      "8:s0-db1-pre-cancel-1": {
+        "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab",
+        "conversation": 8,
+        "requestId": "s0-db1-pre-cancel-1",
+        "payload": "payload-s0-db1-pre-cancel-1",
+        "version": 1,
+        "submissionId": 19,
+        "cancelled": true,
+        "terminal": {
+          "conversationId": 8,
+          "requestId": "s0-db1-pre-cancel-1",
+          "type": "input",
+          "status": "unanswered",
+          "entry": 18,
+          "id": 19,
+          "reason": "aborted"
+        }
+      },
+      "2:s1-db1-post-cancel-0": {
+        "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f",
+        "conversation": 2,
+        "requestId": "s1-db1-post-cancel-0",
+        "payload": "payload-s1-db1-post-cancel-0",
+        "version": 2,
+        "submissionId": 30,
+        "cancelled": true,
+        "terminal": {
+          "conversationId": 2,
+          "requestId": "s1-db1-post-cancel-0",
+          "type": "input",
+          "status": "unanswered",
+          "entry": 29,
+          "id": 30,
+          "reason": "aborted"
+        }
+      },
+      "8:s1-db1-commit-1": {
+        "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+        "conversation": 8,
+        "requestId": "s1-db1-commit-1",
+        "payload": "payload-s1-db1-commit-1",
+        "version": 2,
+        "submissionId": 33,
+        "terminal": {
+          "conversationId": 8,
+          "requestId": "s1-db1-commit-1",
+          "type": "input",
+          "status": "done",
+          "entry": 32,
+          "id": 33,
+          "answer": 37
+        }
+      },
+      "2:s2-db1-commit-0": {
+        "fingerprint": "cf3041552fd3fe4c4bb79b8db1fd2c9cee40f6ab1c24701ee9e0fbce1826f940",
+        "conversation": 2,
+        "requestId": "s2-db1-commit-0",
+        "payload": "payload-s2-db1-commit-0",
+        "version": 3,
+        "submissionId": 42,
+        "terminal": {
+          "conversationId": 2,
+          "requestId": "s2-db1-commit-0",
+          "type": "input",
+          "status": "done",
+          "entry": 41,
+          "id": 42,
+          "answer": 47
+        }
+      },
+      "8:s2-db1-commit-1": {
+        "fingerprint": "2d69bb419b72156c43ce1301cd4c4d26fd93e33003197c7c9e5fea59546fc4a2",
+        "conversation": 8,
+        "requestId": "s2-db1-commit-1",
+        "payload": "payload-s2-db1-commit-1",
+        "version": 3,
+        "submissionId": 45,
+        "terminal": {
+          "conversationId": 8,
+          "requestId": "s2-db1-commit-1",
+          "type": "input",
+          "status": "done",
+          "entry": 44,
+          "id": 45,
+          "answer": 49
+        }
+      }
+    },
+    "active": {},
+    "effects": {
+      "8:s1-db1-commit-1": {
+        "count": 1,
+        "payload": "payload-s1-db1-commit-1",
+        "receipt": {
+          "key": "8:s1-db1-commit-1",
+          "payload": "payload-s1-db1-commit-1",
+          "version": 2,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+          "count": 1
+        }
+      },
+      "2:s1-db1-post-cancel-0": {
+        "count": 1,
+        "payload": "payload-s1-db1-post-cancel-0",
+        "receipt": {
+          "conversation": 2,
+          "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f",
+          "key": "2:s1-db1-post-cancel-0",
+          "payload": "payload-s1-db1-post-cancel-0",
+          "scope": "service1",
+          "version": 2,
+          "count": 1
+        }
+      },
+      "2:s2-db1-commit-0": {
+        "count": 1,
+        "payload": "payload-s2-db1-commit-0",
+        "receipt": {
+          "key": "2:s2-db1-commit-0",
+          "payload": "payload-s2-db1-commit-0",
+          "version": 3,
+          "conversation": 2,
+          "scope": "service1",
+          "fingerprint": "cf3041552fd3fe4c4bb79b8db1fd2c9cee40f6ab1c24701ee9e0fbce1826f940",
+          "count": 1
+        }
+      },
+      "8:s2-db1-commit-1": {
+        "count": 1,
+        "payload": "payload-s2-db1-commit-1",
+        "receipt": {
+          "key": "8:s2-db1-commit-1",
+          "payload": "payload-s2-db1-commit-1",
+          "version": 3,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "2d69bb419b72156c43ce1301cd4c4d26fd93e33003197c7c9e5fea59546fc4a2",
+          "count": 1
+        }
+      }
+    },
+    "effectIntents": {
+      "2:s0-db1-remote-deny-0": {
+        "identity": {
+          "key": "2:s0-db1-remote-deny-0",
+          "payload": "payload-s0-db1-remote-deny-0",
+          "version": 1,
+          "conversation": 2,
+          "scope": "service1",
+          "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90"
+        },
+        "status": "denied"
+      },
+      "8:s0-db1-pre-cancel-1": {
+        "identity": {
+          "key": "8:s0-db1-pre-cancel-1",
+          "payload": "payload-s0-db1-pre-cancel-1",
+          "version": 1,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab"
+        },
+        "status": "aborted"
+      },
+      "2:s1-db1-post-cancel-0": {
+        "identity": {
+          "key": "2:s1-db1-post-cancel-0",
+          "payload": "payload-s1-db1-post-cancel-0",
+          "version": 2,
+          "conversation": 2,
+          "scope": "service1",
+          "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f"
+        },
+        "status": "committed",
+        "receipt": {
+          "conversation": 2,
+          "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f",
+          "key": "2:s1-db1-post-cancel-0",
+          "payload": "payload-s1-db1-post-cancel-0",
+          "scope": "service1",
+          "version": 2,
+          "count": 1
+        }
+      },
+      "8:s1-db1-commit-1": {
+        "identity": {
+          "key": "8:s1-db1-commit-1",
+          "payload": "payload-s1-db1-commit-1",
+          "version": 2,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9"
+        },
+        "status": "committed",
+        "receipt": {
+          "key": "8:s1-db1-commit-1",
+          "payload": "payload-s1-db1-commit-1",
+          "version": 2,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+          "count": 1
+        }
+      },
+      "2:s2-db1-commit-0": {
+        "identity": {
+          "key": "2:s2-db1-commit-0",
+          "payload": "payload-s2-db1-commit-0",
+          "version": 3,
+          "conversation": 2,
+          "scope": "service1",
+          "fingerprint": "cf3041552fd3fe4c4bb79b8db1fd2c9cee40f6ab1c24701ee9e0fbce1826f940"
+        },
+        "status": "committed",
+        "receipt": {
+          "key": "2:s2-db1-commit-0",
+          "payload": "payload-s2-db1-commit-0",
+          "version": 3,
+          "conversation": 2,
+          "scope": "service1",
+          "fingerprint": "cf3041552fd3fe4c4bb79b8db1fd2c9cee40f6ab1c24701ee9e0fbce1826f940",
+          "count": 1
+        }
+      },
+      "8:s2-db1-commit-1": {
+        "identity": {
+          "key": "8:s2-db1-commit-1",
+          "payload": "payload-s2-db1-commit-1",
+          "version": 3,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "2d69bb419b72156c43ce1301cd4c4d26fd93e33003197c7c9e5fea59546fc4a2"
+        },
+        "status": "committed",
+        "receipt": {
+          "key": "8:s2-db1-commit-1",
+          "payload": "payload-s2-db1-commit-1",
+          "version": 3,
+          "conversation": 8,
+          "scope": "service1",
+          "fingerprint": "2d69bb419b72156c43ce1301cd4c4d26fd93e33003197c7c9e5fea59546fc4a2",
+          "count": 1
+        }
+      }
+    }
+  },
+  "document_sequences": [
+    105
+  ],
+  "tasks": [
+    {
+      "id": 17,
+      "conversationId": 2,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted"
+        }
+      },
+      "startedAt": 1793640077808,
+      "endedAt": 1793640080040
+    },
+    {
+      "id": 20,
+      "conversationId": 8,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted"
+        }
+      },
+      "startedAt": 1793640077810,
+      "endedAt": 1793640080041
+    },
+    {
+      "id": 24,
+      "conversationId": 2,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 23,
+        "callId": "call-3480372756fa0adb71209384"
+      },
+      "owner": 17,
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted",
+          "result": {
+            "kind": "model",
+            "entryId": 27
+          }
+        }
+      },
+      "startedAt": 1793640077817,
+      "endedAt": 1793640080036
+    },
+    {
+      "id": 26,
+      "conversationId": 8,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 25,
+        "callId": "call-7b5722c629e91da3b696fb19"
+      },
+      "owner": 20,
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted",
+          "result": {
+            "kind": "model",
+            "entryId": 28
+          }
+        }
+      },
+      "startedAt": 1793640077817,
+      "endedAt": 1793640080038
+    },
+    {
+      "id": 31,
+      "conversationId": 2,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted"
+        }
+      },
+      "startedAt": 1793640080215,
+      "endedAt": 1793640082421
+    },
+    {
+      "id": 34,
+      "conversationId": 8,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "entryId": 37
+          }
+        }
+      },
+      "startedAt": 1793640080217,
+      "endedAt": 1793640080293
+    },
+    {
+      "id": 36,
+      "conversationId": 2,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 35,
+        "callId": "call-403107be00866976c0a21261"
+      },
+      "owner": 31,
+      "background": false,
+      "abortRequested": true,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "aborted",
+          "result": {
+            "kind": "model",
+            "entryId": 40
+          }
+        }
+      },
+      "startedAt": 1793640080225,
+      "endedAt": 1793640082420
+    },
+    {
+      "id": 38,
+      "conversationId": 8,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 37,
+        "callId": "call-c850975238760700d9bdbf5a"
+      },
+      "owner": 34,
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "kind": "model",
+            "entryId": 39,
+            "control": {
+              "terminate": true
+            }
+          }
+        }
+      },
+      "startedAt": 1793640080225,
+      "endedAt": 1793640080291
+    },
+    {
+      "id": 43,
+      "conversationId": 2,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "entryId": 47
+          }
+        }
+      },
+      "startedAt": 1793640082500,
+      "endedAt": 1793640082617
+    },
+    {
+      "id": 46,
+      "conversationId": 8,
+      "kind": "pi.generation",
+      "version": 1,
+      "input": {},
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "entryId": 49
+          }
+        }
+      },
+      "startedAt": 1793640082506,
+      "endedAt": 1793640082628
+    },
+    {
+      "id": 48,
+      "conversationId": 2,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 47,
+        "callId": "call-28668cf21ba31c6a16d3b0d3"
+      },
+      "owner": 43,
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "kind": "model",
+            "entryId": 51,
+            "control": {
+              "terminate": true
+            }
+          }
+        }
+      },
+      "startedAt": 1793640082524,
+      "endedAt": 1793640082616
+    },
+    {
+      "id": 50,
+      "conversationId": 8,
+      "kind": "pi.tool",
+      "version": 2,
+      "input": {
+        "kind": "model",
+        "assistant": 49,
+        "callId": "call-17de2d29968b4287a902ee79"
+      },
+      "owner": 46,
+      "background": false,
+      "abortRequested": false,
+      "state": {
+        "status": "terminal",
+        "outcome": {
+          "status": "completed",
+          "result": {
+            "kind": "model",
+            "entryId": 52,
+            "control": {
+              "terminate": true
+            }
+          }
+        }
+      },
+      "startedAt": 1793640082524,
+      "endedAt": 1793640082627
+    }
+  ],
+  "entries": [
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"2:s0-db1-remote-deny-0\",\"payload\":\"payload-s0-db1-remote-deny-0\",\"version\":1}",
+          "timestamp": 1793640077806
+        }
+      ],
+      "kind": "pi.user",
+      "id": 15,
+      "conversationId": 2
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"8:s0-db1-pre-cancel-1\",\"payload\":\"payload-s0-db1-pre-cancel-1\",\"version\":1}",
+          "timestamp": 1793640077808
+        }
+      ],
+      "kind": "pi.user",
+      "id": 18,
+      "conversationId": 8
+    },
+    {
+      "model": [
+        {
+          "role": "system",
+          "content": "",
+          "toolsAdded": [
+            {
+              "name": "frontier_effect",
+              "description": "Commit one authorized local fixture effect.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "payload",
+                  "version"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+          "timestamp": 1793640077811
+        }
+      ],
+      "kind": "pi.system",
+      "id": 21,
+      "conversationId": 2,
+      "byTaskId": 17
+    },
+    {
+      "model": [
+        {
+          "role": "system",
+          "content": "",
+          "toolsAdded": [
+            {
+              "name": "frontier_effect",
+              "description": "Commit one authorized local fixture effect.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "payload",
+                  "version"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+          "timestamp": 1793640077812
+        }
+      ],
+      "kind": "pi.system",
+      "id": 22,
+      "conversationId": 8,
+      "byTaskId": 20
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-3480372756fa0adb71209384",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "2:s0-db1-remote-deny-0",
+                "payload": "payload-s0-db1-remote-deny-0",
+                "version": 1
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 90,
+            "output": 26,
+            "cacheRead": 0,
+            "cacheWrite": 90,
+            "totalTokens": 206,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640077814,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 23,
+      "conversationId": 2,
+      "byTaskId": 17
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-7b5722c629e91da3b696fb19",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "8:s0-db1-pre-cancel-1",
+                "payload": "payload-s0-db1-pre-cancel-1",
+                "version": 1
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 89,
+            "output": 25,
+            "cacheRead": 0,
+            "cacheWrite": 89,
+            "totalTokens": 203,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640077815,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 25,
+      "conversationId": 8,
+      "byTaskId": 20
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-3480372756fa0adb71209384",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "<harness>\n[error] Tool frontier_effect was aborted\n</harness>"
+            }
+          ],
+          "isError": true,
+          "timestamp": 1793640080036
+        }
+      ],
+      "data": {
+        "diagnostics": [
+          {
+            "severity": "error",
+            "code": "aborted",
+            "message": "Tool frontier_effect was aborted"
+          }
+        ]
+      },
+      "kind": "pi.tool-result",
+      "id": 27,
+      "conversationId": 2,
+      "byTaskId": 24
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-7b5722c629e91da3b696fb19",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "<harness>\n[error] Tool frontier_effect was aborted\n</harness>"
+            }
+          ],
+          "isError": true,
+          "timestamp": 1793640080038
+        }
+      ],
+      "data": {
+        "diagnostics": [
+          {
+            "severity": "error",
+            "code": "aborted",
+            "message": "Tool frontier_effect was aborted"
+          }
+        ]
+      },
+      "kind": "pi.tool-result",
+      "id": 28,
+      "conversationId": 8,
+      "byTaskId": 26
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"2:s1-db1-post-cancel-0\",\"payload\":\"payload-s1-db1-post-cancel-0\",\"version\":2}",
+          "timestamp": 1793640080214
+        }
+      ],
+      "kind": "pi.user",
+      "id": 29,
+      "conversationId": 2
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"8:s1-db1-commit-1\",\"payload\":\"payload-s1-db1-commit-1\",\"version\":2}",
+          "timestamp": 1793640080216
+        }
+      ],
+      "kind": "pi.user",
+      "id": 32,
+      "conversationId": 8
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-403107be00866976c0a21261",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "2:s1-db1-post-cancel-0",
+                "payload": "payload-s1-db1-post-cancel-0",
+                "version": 2
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 163,
+            "output": 26,
+            "cacheRead": 0,
+            "cacheWrite": 163,
+            "totalTokens": 352,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640080222,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 35,
+      "conversationId": 2,
+      "byTaskId": 31
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-c850975238760700d9bdbf5a",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "8:s1-db1-commit-1",
+                "payload": "payload-s1-db1-commit-1",
+                "version": 2
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 160,
+            "output": 23,
+            "cacheRead": 0,
+            "cacheWrite": 160,
+            "totalTokens": 343,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640080222,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 37,
+      "conversationId": 8,
+      "byTaskId": 34
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-c850975238760700d9bdbf5a",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "commit"
+            }
+          ],
+          "isError": false,
+          "durationMs": 63,
+          "timestamp": 1793640080291
+        }
+      ],
+      "data": {
+        "diagnostics": []
+      },
+      "kind": "pi.tool-result",
+      "id": 39,
+      "conversationId": 8,
+      "byTaskId": 38
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-403107be00866976c0a21261",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "<harness>\n[error] Tool frontier_effect was aborted\n</harness>"
+            }
+          ],
+          "isError": true,
+          "timestamp": 1793640082419
+        }
+      ],
+      "data": {
+        "diagnostics": [
+          {
+            "severity": "error",
+            "code": "aborted",
+            "message": "Tool frontier_effect was aborted"
+          }
+        ]
+      },
+      "kind": "pi.tool-result",
+      "id": 40,
+      "conversationId": 2,
+      "byTaskId": 36
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"2:s2-db1-commit-0\",\"payload\":\"payload-s2-db1-commit-0\",\"version\":3}",
+          "timestamp": 1793640082495
+        }
+      ],
+      "kind": "pi.user",
+      "id": 41,
+      "conversationId": 2
+    },
+    {
+      "model": [
+        {
+          "role": "user",
+          "content": "{\"key\":\"8:s2-db1-commit-1\",\"payload\":\"payload-s2-db1-commit-1\",\"version\":3}",
+          "timestamp": 1793640082501
+        }
+      ],
+      "kind": "pi.user",
+      "id": 44,
+      "conversationId": 8
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-28668cf21ba31c6a16d3b0d3",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "2:s2-db1-commit-0",
+                "payload": "payload-s2-db1-commit-0",
+                "version": 3
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 235,
+            "output": 23,
+            "cacheRead": 0,
+            "cacheWrite": 235,
+            "totalTokens": 493,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640082521,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 47,
+      "conversationId": 2,
+      "byTaskId": 43
+    },
+    {
+      "model": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "toolCall",
+              "id": "call-17de2d29968b4287a902ee79",
+              "name": "frontier_effect",
+              "arguments": {
+                "key": "8:s2-db1-commit-1",
+                "payload": "payload-s2-db1-commit-1",
+                "version": 3
+              }
+            }
+          ],
+          "api": "frontier-faux-http",
+          "provider": "faux",
+          "model": "faux-1",
+          "usage": {
+            "input": 215,
+            "output": 23,
+            "cacheRead": 0,
+            "cacheWrite": 215,
+            "totalTokens": 453,
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "total": 0
+            }
+          },
+          "stopReason": "toolUse",
+          "timestamp": 1793640082522,
+          "durationMs": 0
+        }
+      ],
+      "kind": "pi.assistant",
+      "id": 49,
+      "conversationId": 8,
+      "byTaskId": 46
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-28668cf21ba31c6a16d3b0d3",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "commit"
+            }
+          ],
+          "isError": false,
+          "durationMs": 90,
+          "timestamp": 1793640082616
+        }
+      ],
+      "data": {
+        "diagnostics": []
+      },
+      "kind": "pi.tool-result",
+      "id": 51,
+      "conversationId": 2,
+      "byTaskId": 48
+    },
+    {
+      "model": [
+        {
+          "role": "toolResult",
+          "toolCallId": "call-17de2d29968b4287a902ee79",
+          "toolName": "frontier_effect",
+          "content": [
+            {
+              "type": "text",
+              "text": "commit"
+            }
+          ],
+          "isError": false,
+          "durationMs": 100,
+          "timestamp": 1793640082627
+        }
+      ],
+      "data": {
+        "diagnostics": []
+      },
+      "kind": "pi.tool-result",
+      "id": 52,
+      "conversationId": 8,
+      "byTaskId": 50
+    }
+  ],
+  "submissions": [
+    {
+      "conversationId": 2,
+      "requestId": "s0-db1-remote-deny-0",
+      "type": "input",
+      "status": "unanswered",
+      "entry": 15,
+      "id": 16,
+      "reason": "aborted"
+    },
+    {
+      "conversationId": 8,
+      "requestId": "s0-db1-pre-cancel-1",
+      "type": "input",
+      "status": "unanswered",
+      "entry": 18,
+      "id": 19,
+      "reason": "aborted"
+    },
+    {
+      "conversationId": 2,
+      "requestId": "s1-db1-post-cancel-0",
+      "type": "input",
+      "status": "unanswered",
+      "entry": 29,
+      "id": 30,
+      "reason": "aborted"
+    },
+    {
+      "conversationId": 8,
+      "requestId": "s1-db1-commit-1",
+      "type": "input",
+      "status": "done",
+      "entry": 32,
+      "id": 33,
+      "answer": 37
+    },
+    {
+      "conversationId": 2,
+      "requestId": "s2-db1-commit-0",
+      "type": "input",
+      "status": "done",
+      "entry": 41,
+      "id": 42,
+      "answer": 47
+    },
+    {
+      "conversationId": 8,
+      "requestId": "s2-db1-commit-1",
+      "type": "input",
+      "status": "done",
+      "entry": 44,
+      "id": 45,
+      "answer": 49
+    }
+  ],
+  "conversations": [
+    {
+      "id": 2
+    },
+    {
+      "id": 8
+    }
+  ]
+}

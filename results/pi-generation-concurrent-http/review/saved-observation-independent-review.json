@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-11-02T17:27:03.788512+00:00",
+  "reviewer": "/root/radar_resume",
+  "status": "no_findings_in_saved_observation_static_scope",
+  "execution_accepted": false,
+  "frozen_scientific_outcome": "failed",
+  "source_sha256": {
+    "experiments/pi_generation_concurrent_http_saved_observation.py": "2e3eb6629d8c8f2a2ef5362bf9f3009be6d5241eca4efe027289c8c4a0bde216",
+    "tests/test_pi_generation_concurrent_http_saved_observation.py": "815c5256c511b518fefb07c3a4ec53fba1cdfd1856c57ad396bdea798b00fc9d"
+  },
+  "review_scope": "Both supplement/test sources fully read; original frozen auditor, original worker/helper and complete base HTTP audit re-read. Static source and saved receipt review only; no observer/auditor/test/native execution by reviewer.",
+  "findings": [],
+  "checks": [
+    "First six exactly ordered round records require direct matching stage and service. The seventh conflict permits omitted service only; any supplied service must match. All seven require matching stage.",
+    "Unscoped conflict binds original first key, exact round name, changed payload from the pinned request and exact conflict result; the original request key also binds its stage/service.",
+    "Admission filter checks event type before stage/service; actual admissions must still have direct scope and exact key/status/submissionId multiplicities.",
+    "New source preserves six rounds, three arrivals per round, repeated key multiplicity, one admit/one duplicate, original same submissionId, and joined actual admissions. Existing base audit remains in the saved observation call chain.",
+    "Six tests: original frozen failure retained, positive real heterogeneous trace, missing admission scope, foreign retry submissionId, early release and foreign conflict scope. Tests read archive/copies only; no live launcher.",
+    "Supplement name/module absent from all current scripts and fixture Python/JS/JSON text; no execution freeze or launcher references it.",
+    "Root saved-observation.json reports source hash matching current supplement, execution_accepted=false, zero native/model calls and raw_unchanged=true. Its replay was not independently executed here."
+  ],
+  "script_fixture_reference_matches": [],
+  "all8new_and85preserved_frozen_source_hashes_still_exact": true,
+  "observed_receipt_sha256": "5dcf0ba13b89d12e3d2733fb0b05fe1f05cfe201e3b534c5ec9252a0196a0b0c",
+  "reviewer_test_executions": 0,
+  "reviewer_project_auditor_or_observer_calls": 0,
+  "reviewer_native_or_model_executions": 0,
+  "limits": [
+    "Published archive did not exist when read; six archive-dependent tests were not run by reviewer and must not be reported passed from this receipt.",
+    "This is post-outcome finite saved observation, not retroactive frozen acceptance or evidence of model/production/performance improvement.",
+    "This source review does not certify all possible archive corruptions or arbitrary concurrent interleavings."
+  ],
+  "original_independent_diagnosis_sha256": "089c6da97401cd99d6b32c7a213f07a511ae3723e2fa0b05cc126a7f6748b4e2"
+}

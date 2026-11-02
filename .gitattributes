@@ -246,3 +246,14 @@ research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/** -text
 research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/exact-before-after.diff -whitespace
 results/pi-generation-http/execution-receipts/freeze-and-launch-h2.py -whitespace
 results/pi-generation-http/execution-receipts/freeze-helper-initial.py.txt -whitespace
+
+# Preserve the failed concurrent caller freeze and separate saved observations.
+experiments/pi_concurrent_admission.mjs -text whitespace=cr-at-eol,-blank-at-eof
+experiments/pi_generation_concurrent_http* -text whitespace=cr-at-eol,-blank-at-eof
+scripts/*pi_generation_concurrent_http* -text whitespace=cr-at-eol,-blank-at-eof
+tests/*pi_concurrent_admission* -text whitespace=cr-at-eol,-blank-at-eof
+tests/*pi_generation_concurrent_http* -text whitespace=cr-at-eol,-blank-at-eof
+fixtures/pi-generation-concurrent-http/** -text whitespace=cr-at-eol,-blank-at-eof
+results/pi-generation-concurrent-http/** -text whitespace=cr-at-eol,-blank-at-eof
+# Preserve TAP assertion diagnostic indentation from the initial failed pure test.
+results/pi-generation-concurrent-http/execution-receipts/preparation/node-pure.stdout -whitespace

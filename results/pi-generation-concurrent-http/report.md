@@ -1,0 +1,21 @@
+# Concurrent native admission with a separate local HTTP effect
+
+Failed frozen concurrent native admission/HTTP effect attempt; no acceptance or retry.
+
+Original failure: `KeyError('service')`. One frozen suite, zero retries/model loads; original execution acceptance is false. Native processes: 3; independent server processes: 3. Raw evidence: 95 files / 2085625 bytes.
+
+The first original-auditor failure is its per-round service assertion: six round-bearing content-conflict events omit service. A later mixed-event admission filter also indexes service before testing event type. The saved traceback and corrected explanatory analysis are retained; the initial diagnostic receipt is unchanged.
+
+Suite 7.172s; full controller 37.141s; complete CLI 37.515s. Authentication and preparation are distinct costs.
+
+A separately named post-outcome saved-byte observation reports 16 arrivals / 12 host reservations / four overload refusals, 12 native generation/tool chains, eight remote effects, 14 GETs/14 POSTs, 12 host/24 native task terminals, six recovered reservations and final active0. It also joins 28 admission results across six rounds, including six exact retries and six changed-content refusals. This does not replace the failed frozen acceptance or constitute another native execution.
+
+Original frozen acceptance failed. These are descriptive saved observations, without throughput, success-rate or acceptance promotion. HTTP result events appear only after a client operation settles; two killed held-reply clients may lack a result event. Request fields measure encoded payload length for settled operations, not wire bytes. Response bodies include observed chunks; SQL attempts/effects and wire traffic are distinct. Headers/socket traffic are unmeasured. Callback/flush totals have no observer-OFF arm. Poll/start/end gaps are reported; extrema inside gaps and controller memory are unmeasured. OS peak working set differs from sampled private bytes. No baseline, causal speedup, SLO or model-quality claim.
+
+One trusted Windows host, six finite three-caller admission rounds under one trusted owner, two native SQLite Sessions and one separately persisted local SQLite effect database. Official local Faux is not a real model; HTTP reaches only a free loopback tool endpoint. Fixture header/control endpoints are not tenant authentication. Exact finite identities and transactional unique-key rows do not establish general external exactly-once, atomic host/remote policy, concurrent-owner or arbitrary transport/cancellation races, arbitrary network or crash-log durability, server failure injection, real API/GPU/distributed/production or SLO/causal performance. Histories grow, reconciliation/reaping is explicit, intermediate callback revisions need not remain in SQLite history. Old H1/H2 failures/results and H3/H4 remain unchanged. The barrier controls before-reserve concurrency only. Remote authority changes and cancellation remain at the fixed held transport/reply boundaries from the prior caller, not arbitrary interleavings or a linearizability proof. No queue or runtime modification is introduced.
+
+Preserve this failed original freeze and its raw evidence. Do not repeat the unchanged native suite solely to obtain green acceptance. Return to an actual runner or an independently justified current-authority/cancellation interleaving, with a separate preregistration and corrected auditor. No further standalone observer prerequisite.
+
+Source/freeze, raw inventory and metrics are in [implementation](../../fixtures/pi-generation-concurrent-http/implementation.json), [raw manifest](raw-manifest.json) and [report JSON](report.json). Preparation, original failure diagnosis, separate saved observation and outer CLI receipts are under execution-receipts.
+
+Post-outcome archive regressions: 6/6 pass. The first full-suite invocation used `-S`, hiding installed NumPy, and retains 11 import errors across 1,098 discovered methods (41 skips). With the normal installed dependency path, the complete suite reports 1,175 methods: 1,094 pass and 81 optional Torch skips. No code or dependency change separates these invocations; original frozen native acceptance remains failed. Exact outputs and source-before/after windows are under execution-receipts/validation.

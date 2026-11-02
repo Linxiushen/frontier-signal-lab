@@ -1,0 +1,60 @@
+{
+  "recorded_at": "2026-11-02T17:23:38.851001+00:00",
+  "status": "failed_original_auditor_schema_analysis_only",
+  "original_execution_accepted": false,
+  "supersedes_scope_explanation_only": "The preserved original-audit-failure.receipt.json scope and first parent message identify a later latent admission-filter hazard. The exact saved traceback proves the first trigger is line18 per-round e[service] assertion. No raw evidence or original receipt is rewritten.",
+  "first_trigger": {
+    "path": "experiments/pi_generation_concurrent_http_audit.py",
+    "line": 18,
+    "actual_event_type": "concurrent-content-conflict",
+    "events": 6,
+    "cause": "Worker emits this round-bearing event without service; auditor assumes all round-bearing events have service.",
+    "identities": [
+      {
+        "stage": 0,
+        "round": "stage0-service0",
+        "key": "2:s0-db0-remote-deny-0"
+      },
+      {
+        "stage": 0,
+        "round": "stage0-service1",
+        "key": "2:s0-db1-remote-deny-0"
+      },
+      {
+        "stage": 1,
+        "round": "stage1-service0",
+        "key": "2:s1-db0-post-cancel-0"
+      },
+      {
+        "stage": 1,
+        "round": "stage1-service1",
+        "key": "2:s1-db1-post-cancel-0"
+      },
+      {
+        "stage": 2,
+        "round": "stage2-service0",
+        "key": "2:s2-db0-commit-0"
+      },
+      {
+        "stage": 2,
+        "round": "stage2-service1",
+        "key": "2:s2-db1-commit-0"
+      }
+    ]
+  },
+  "latent_subsequent_hazard": {
+    "path": "experiments/pi_generation_concurrent_http_audit.py",
+    "expression": "e['stage'] == stage and e['service'] == service and e['type'] == 'admission'",
+    "cause": "Other same-stage events such as remote-authority and ready omit service; service is indexed before filtering to admission.",
+    "observed_nonround_no_service_types": {
+      "remote-authority": 14,
+      "ready": 3
+    }
+  },
+  "original_traceback_sha256": "5f5a1332c7766d09cd5383e485b43eb8fc4b595a8ad9d331f404db287f290a4c",
+  "original_diagnostic_receipt_sha256": "49ff74faf268a521519673bfc62f8854be48c17fe40d79a7c44335ff8f6ca38c",
+  "native_reexecution": 0,
+  "frozen_source_modifications": 0,
+  "acceptance_rescue": false,
+  "limits": "This static/saved-byte diagnosis does not rerun native work, change frozen acceptance or establish that a future revised full auditor would pass. Fixes require a separately named version and later preregistered native suite if independently justified."
+}

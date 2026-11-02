@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-11-02T17:19:02.124975+00:00",
+  "reviewer": "/root/radar_resume",
+  "status": "passed_for_separate_freeze",
+  "source_sha256": {
+    "experiments/pi_concurrent_admission.mjs": "a6325c6047e559bca664b6b497a1fe9759310e6123dbdf71219220c47dbdf6fb",
+    "experiments/pi_generation_concurrent_http_audit.py": "5e090671bffce4093156aa423d5bf3a836edefdf7416f6d5c561e1dcee402847",
+    "experiments/pi_generation_concurrent_http_protocol.json": "afc2513d2a7c7e59f840df6796877b5f05d90cf8022c30da8e832e742d53b978",
+    "scripts/check_pi_generation_concurrent_http.py": "951ee0ecf83535b0b11d8d092a9b3c28852c0374cd75f1bc9a223c79c7e663b8",
+    "scripts/pi_generation_concurrent_http_worker.mjs": "f3c2151145699979dd568641d0ba19fd9a0033212f51c42cff78728a8e864b5f",
+    "scripts/run_pi_generation_concurrent_http.py": "e13b72741a9bd698908b31636043e0cfd3db16a78f84dc84a5190c214ca6d827",
+    "tests/pi_concurrent_admission.test.mjs": "73b539b55bf1be5b3c32ebd4f56dda84bbd33c2e1dd1f2c70457feee5242c411",
+    "tests/test_pi_generation_concurrent_http.py": "d252d17a7b9b568373814ff86fd6c55306d655a2bab8dc551514128275a0cb63"
+  },
+  "findings": [],
+  "review_scope": "Read-only independent preexecution source review of all8new mandatory source files, complete worker/controller/auditor/protocol/helper/tests. Relevant immutable prior service and full base HTTP audit read; full preserved source hashes checked. No helper/test/native/model/HTTP/science execution. This is eligibility for a separate freeze, not execution success.",
+  "previous_freeze": {
+    "path": "fixtures/pi-generation-http/implementation.json",
+    "sha256": "35a50d32d6f16dc0a88160f958328f9205e22a28b7586e5713cee0d0e9d949e1",
+    "preserved_source_files": 85,
+    "all_hashes_exact": true,
+    "prior14HTTPsources_exact": true,
+    "runtime_manifest_path": "fixtures/pi-durable-service-v1/runtime-manifest.json",
+    "runtime_manifest_sha256": "98b4a1555d774b6a91be3c04eedde571704cf06955f6f25ebcb74206b0d8555e",
+    "runtime_manifest_file_hash_exact": true,
+    "runtime_installed_file_authentication": "Not rerun in this static review; mandatory frozen controller authentication still required before execution."
+  },
+  "checks": [
+    "The concrete caller passes round.gate into unchanged real openGenerationService admissionGate. Its before-reserve hook precedes the first actual harness.commit reservation. Promise.allSettled offers first,second,first calls; each must arrive and await one3-arrival barrier before release, so overlap is real public-method overlap before reservations, not a serial-wrapper assertion.",
+    "Six rounds are fixed to stage0/1/2 x service0/1; within each two distinct conversations/keys plus one exact retry. Code requires one admit/one duplicate for the repeated key and identical positive safe-integer submissionId. Full base audit still requires exactly12original native chains and8remote effects.",
+    "Saved auditor requires exact open/arrival1/2/3/release/close/conflict event order per round, key multiplicity and stage/service binding. Wrapper results are joined to actual service admission events and original identities.json submissionIds, with28total actualadmissions. Prior serial evidence lacks these mandatory round events and cannot satisfy this path.",
+    "Changed-payload conflicts occur after each concurrent round has closed; they prove six same-ID changed-content refusals, not concurrent conflicting-payload linearizability. No claim of racing remote authority/cancel is made.",
+    "Only12unique successful admissions are registered into immutable native identities. Additional6exactretry and6contentconflict calls do not inflate unique requests; four overloadcalls retain16unique arrivals and28publiccalls. Capacity2 checked by preserved percommit trace and endpoint acceptance.",
+    "Recovery remains the prior realGenerationTask/ToolTask/Faux/loopbackHTTPchain, same scoped remoteidentity, lookup-before-reapply, held beforetransport and aftercommitreply, paused exactpairabort checks, two realnative kills/reopens and graceful separate serverreopens. No additional intervention or concurrentSQLiteowner guarantee is introduced.",
+    "New controller imports concurrent audit/check and launches the concurrent worker; complete old native/controller time/memory/output/disk/HTTP caps retained. New protocol names exactlyone suite,zero scientificretries and explicit failurepreservation.",
+    "Both new tests are source-read only here; original retained Node cause-masking preparation failure and subsequent Node7/Python4/syntax-success receipts have exact saved-output hashes. No claimed independent reexecution.",
+    "No newfreeze or reviewed output directory existed at staticreview time. Every currentnew source hash must match a later separately reviewedfreeze and controllerauth; edits invalidate this receipt."
+  ],
+  "preparation_receipts": {
+    "reports/runs/20261102T170820Z/h2-concurrent/node-pure.receipt.json": "094591d3abb880d882fa205099752554ce7492c45c7e771e6802f55de02f3c72",
+    "reports/runs/20261102T170820Z/h2-concurrent/node-pure-fixed.receipt.json": "991ce672a3390c2ccbf906d2019e7f84f7b70f32a8376998ea13e1ed0234eab9",
+    "reports/runs/20261102T170820Z/h2-concurrent/python-pure.receipt.json": "da023680ebfc9d7ff58863d85fae825486ce1078d6d7a71112fff6ca7c6ae689",
+    "reports/runs/20261102T170820Z/h2-concurrent/worker-syntax.receipt.json": "e8c53290dc805e8f54e8151da9b29ba1d5972df3fa119df5de175f6b0e9f59de"
+  },
+  "resource_constants_equal_previous": true,
+  "prior_workload_fields_equal_previous": true,
+  "finite_scope": "One trusted owner, six3-caller before-reserve overlaps in one process perstage and two nativeSessions. Remote authority/cancellation remain fixed heldtransport/reply boundaries. Not concurrent owners, arbitrary interleavings, atomic host/remote authority, general exactly-once, realmodel/GPU/distributed/production, SLO or causalperformance proof.",
+  "old_outcomes_preserved": "No old source/freeze/result changed by reviewer; H1negative/invalidRSS/original5GiB, priorH2finiteHTTP and H3/H4gates remain separate.",
+  "new_scientific_suites": 0,
+  "native_suites": 0,
+  "model_loads": 0,
+  "test_executions_by_reviewer": 0,
+  "shared_or_tracked_edits_by_reviewer": 0
+}

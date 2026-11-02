@@ -30,6 +30,8 @@ jobs:
         run: node --test tests/pi_durable_service_v2.test.mjs
       - name: Check bounded retry policy without a native runtime or database
         run: node --test tests/pi_bounded_retry.test.mjs
+      - name: Check finite concurrent admission caller without a native runtime
+        run: node --test tests/pi_concurrent_admission.test.mjs
       - name: Preserve the rejected durable-service attempt without runtime or database execution
         run: python -S scripts/check_pi_durable_service_v1_failure.py
       - name: Preserve rejected durable-service v2 bytes without runtime or database execution

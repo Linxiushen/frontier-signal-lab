@@ -197,3 +197,12 @@ tests/test_pi_generation_cancellation_audit.py -text whitespace=cr-at-eol
 tests/test_pi_generation_cancellation_freeze.py -text whitespace=cr-at-eol
 fixtures/pi-generation-cancellation/** -text whitespace=cr-at-eol
 results/pi-generation-cancellation/** -text whitespace=cr-at-eol
+
+# Executed negative H1 result and separately versioned caller preserve exact bytes.
+fixtures/native-training-cost-scandir-v3/** -text whitespace=cr-at-eol
+results/native-training-cost-scandir-v3/** -text whitespace=cr-at-eol
+experiments/native_training_cost_scopes_v4.py -text whitespace=cr-at-eol
+scripts/run_native_training_cost_scopes_v4.py -text whitespace=cr-at-eol
+tests/test_native_training_cost_scopes_v4.py -text whitespace=cr-at-eol
+# Unified-diff context blank lines are literal evidence bytes.
+results/native-training-cost-scandir-v3/review/h1-scopes-v4-caller.diff -whitespace

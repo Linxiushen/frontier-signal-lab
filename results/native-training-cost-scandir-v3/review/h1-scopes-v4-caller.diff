@@ -1,0 +1,23 @@
+--- experiments/native_training_cost.py
++++ experiments/native_training_cost_scopes_v4.py
+@@ -80,7 +80,8 @@
+ 
+ def training_loop(model,optimizer,tokens,schedule,job):
+     torch=cost.require_torch();require_job(job)
+-    modules=cost.preservation_modules(model) if job['method']!='dense' else []
++    groups=cost.preservation_modules(model) if job['method']!='dense' else ()
++    modules=[pair for group in groups for pair in group]
+     codec=cost.CostCodec(list(model.parameters())) if modules else None
+     limit=CONFIG['token_steps'] if job['arm']=='token' else CONFIG['max_time_steps']
+     losses=[];rows=[];start=time.perf_counter();cpu=time.process_time()
+@@ -474,7 +475,9 @@
+ 
+ 
+ SOURCES=tuple(dict.fromkeys((*ledger_caller.SOURCES,'experiments/native_training_cost.py',
+-    'tests/test_native_training_cost.py','scripts/audit_native_training_cost.py')))
++    'tests/test_native_training_cost.py','scripts/audit_native_training_cost.py',
++    'experiments/native_training_cost_scopes_v4.py','tests/test_native_training_cost_scopes_v4.py',
++    'scripts/run_native_training_cost_scopes_v4.py')))
+ 
+ 
+ def run(protocol_path,freeze_path,output,plan):

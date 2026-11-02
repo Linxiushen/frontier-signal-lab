@@ -1,0 +1,229 @@
+{
+  "id": "native-matched-training-cost-v1",
+  "predeclared_at": "2026-11-02T09:02:00.531410+00:00",
+  "jobs": [
+    {
+      "id": "token-503-0",
+      "arm": "token",
+      "seed": 503,
+      "method": "dense"
+    },
+    {
+      "id": "token-503-1",
+      "arm": "token",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "token-701-2",
+      "arm": "token",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "token-701-3",
+      "arm": "token",
+      "seed": 701,
+      "method": "dense"
+    },
+    {
+      "id": "token-907-4",
+      "arm": "token",
+      "seed": 907,
+      "method": "dense"
+    },
+    {
+      "id": "token-907-5",
+      "arm": "token",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-503-6",
+      "arm": "time",
+      "seed": 503,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-503-7",
+      "arm": "time",
+      "seed": 503,
+      "method": "dense"
+    },
+    {
+      "id": "time-701-8",
+      "arm": "time",
+      "seed": 701,
+      "method": "dense"
+    },
+    {
+      "id": "time-701-9",
+      "arm": "time",
+      "seed": 701,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-907-10",
+      "arm": "time",
+      "seed": 907,
+      "method": "model_except_norm_attention_saved_int8"
+    },
+    {
+      "id": "time-907-11",
+      "arm": "time",
+      "seed": 907,
+      "method": "dense"
+    }
+  ],
+  "config": {
+    "model_id": "EleutherAI/pythia-14m",
+    "model_revision": "cf967c0a9a04383db6f7b1108d86b2962634b4ac",
+    "seeds": [
+      503,
+      701,
+      907
+    ],
+    "methods": [
+      "dense",
+      "model_except_norm_attention_saved_int8"
+    ],
+    "train_blocks": 128,
+    "holdout_blocks": 64,
+    "batch_size": 2,
+    "sequence_input_tokens": 64,
+    "token_steps": 64,
+    "time_budget_seconds": 60.0,
+    "max_time_overshoot_seconds": 1.0,
+    "max_time_steps": 4096,
+    "profile_steps": 2,
+    "threads": 1,
+    "dtype": "float32",
+    "attention": "eager",
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "foreach": false,
+      "fused": false
+    },
+    "max_token_loop_seconds": 120.0,
+    "max_time_loop_seconds": 65.0,
+    "token_worker_timeout_seconds": 180,
+    "time_worker_timeout_seconds": 120,
+    "profile_worker_timeout_seconds": 120,
+    "evaluation_timeout_seconds": 300,
+    "total_timeout_seconds": 1200,
+    "max_resident_bytes": 2147483648,
+    "max_private_bytes": 3221225472,
+    "min_free_memory_bytes": 8589934592,
+    "min_free_disk_bytes": 5368709120,
+    "max_output_bytes": 1610612736,
+    "sampler_interval_seconds": 0.02,
+    "min_compressed_elements": 256,
+    "expected_layernorm_modules": 13,
+    "expected_attention_modules": 6,
+    "schedule": "stdlib Random(seed).shuffle complete128-block epochs; batch2; full4096-step schedule fixed before all loops"
+  },
+  "ledger_limits": {
+    "max_rows": 4096,
+    "max_row_bytes": 8192,
+    "max_total_bytes": 4194304
+  },
+  "actual_caller": "Same accepted training_ledger_v2 identity/provider/role/control/cleanup caller with separate native_training_cost_scopes_v4: flatten existing13norm/6attention groups into ordered19named pairs before actual preserve_scopes. New path-normalizing pinned launcher; no global monkeypatch.",
+  "actual_workload": "Pinned Pythia14m CPU float32/eager/one thread, original Alice128blocks, original seeds503/701/907, fresh identical AdamW and original LR1e-4. Dense and existing saved-activation INT8 except norm/attention; this is not learned residual-bank architecture.",
+  "bottleneck": "Complete compression training cost/quality is unestablished; prior six joint failures and invalid parent RSS remain. Need retained actual-interpreter memory and complete workloads rather than observer-only diagnostics.",
+  "budgets": {
+    "suite_seconds": 1200,
+    "case_seconds": 180,
+    "import_seconds": 20,
+    "load_seconds": 25,
+    "barrier_seconds": 5,
+    "cleanup_seconds": 4,
+    "fixed_token_steps": 64,
+    "time_loop_seconds": 60,
+    "atomic_time_overshoot_seconds": 1,
+    "maximum_time_steps": 4096,
+    "actual_private_sampled_stop_bytes": 1073741824,
+    "evaluator_seconds": 300,
+    "model_loads_ceiling": 13,
+    "optimizer_updates_ceiling": 24960,
+    "active_poll_and_sample_cap": 4000,
+    "target_sample_seconds": 0.02,
+    "max_sample_gap_seconds": 0.5,
+    "min_in_loop_samples": 20,
+    "max_output_bytes": 1610612736,
+    "minimum_free_memory_bytes": 8589934592,
+    "minimum_free_disk_bytes": 5368709120
+  },
+  "loop_measurement": "Includes actual batch indexing, pack/unpack/forward/backward/AdamW/scalar extraction, hook lifetime and phase traces; initialization/modules/codec, imports/load/hash/holds/native queries/checkpoints/cleanup captured separately in complete-case wall. Eager first-step and remaining-step times, p50/p95/p99 exact nearest-rank observed step latencies; no compilation or communication work.",
+  "memory_endpoint": "GetProcessMemoryInfo peak_resident_bytes via retained actual-interpreter handle at held postloop boundary before postvalidation/checkpoint. OS lifetime working-set high-water includes import/load/training and prior holds; not isolated activations, private peak, hard quota, sum of bank bytes or device memory. Current private/resident maxima remain sampled lower bounds.",
+  "observer_cost": "Same20ms-target memory+CPU ledger queries for both methods. Query wall and parent nativeCPU report observed costs; no OFF arm, so no causal total observation-cost estimate or unobserved performance claim. Global Toolhelp only at fixed held censuses; no active-window Toolhelp.",
+  "evaluation": "After every12 endpoint checkpoint SHA and parameter hash sealed, one fresh evaluator loads baseline once then all12checkpoints;64old LookingGlass blocks once per endpoint. Original public previously evaluated fixture, procedural seal only, no fresh/general quality or pretraining cleanliness claim. Training audit hook refuses holdout.json. No best seed/endpoint selection, retries or LR/threshold rescue.",
+  "joint_screens": {
+    "all": "bankNLL<=matched dense and bankNLL<initial",
+    "token": "also bank complete-case wall<dense and actual-process lifetime working-set peak<dense",
+    "time": "also bank completes more training targets in valid original[60,61]atomic loop window",
+    "scope": "strict descriptive directional engineering screen; complete-case includes model load/checkpoint/controller and is reported for both budgets; time budget applies training loop, not total service SLA. All historical failures retained regardless of outcome."
+  },
+  "failure": "Stop suite at first failed case or resource limit; preserve partial evidence, clean whole Job, no automatic second launch or evaluation after incomplete training. One scientific suite only.",
+  "rollback": "Use immutable existing ledger entrypoint; new module changes no frozen predecessor source. Remove caller selection to revert.",
+  "validation_scope": "local single-machine CPU native/actual model only. No GPU/distributed/production claims or paid resources. No input-device/UI automation.",
+  "execution_revision": 4,
+  "previous_attempt": "results/native-training-cost-scandir-v3/failure.json",
+  "entrypoint": "scripts/run_native_training_cost_scopes_v4.py",
+  "invocation_boundary": "Real parser -> unchanged frozen runner output comparison exercised before launch; guarded run_case sentinel stops before any native Job in controls. Provider/executable/model/resource checks simulated in that portable control, not native validation.",
+  "unchanged_workload": "Original12jobs, seeds503/701/907, LR1e-4, data,64step/60secondarms, quality thresholds,20simport/180scase/1200ssuite and5GiBdisk/8GiBmemory gates and memory endpoints exactly retained. Only separately versioned caller/entrypoint/sourcepins, authenticatedcurrentbaseinventory/provenance and single-use freeze/output differ from v3. No observer expansion, deadline widening or v3 retry.",
+  "dependency_change": {
+    "runtime": "isolated prepared Transformers4.57.3 runtime",
+    "source": "research/2026-10-31-transformers-startup-backport.md",
+    "only_changed_runtime_file": "Lib/site-packages/transformers/utils/import_utils.py",
+    "patched_sha256": "a2334855248d272d4dd60df846d2ba8bc9643c1744f3a8ac63cc6a056a63bff8",
+    "full_manifest_sha256": "18bb7780455d02c3b9d61ecdbe080160ebe7da84161e3197bc70529fdef3ceb2",
+    "initialization_change": "Reviewed scandir enumeration backport preserving4.57.3 filtering; whole runtime copied with prior bytecode/timestamps retained.",
+    "scope": "The only_changed_runtime_file field applies inside the prepared venv copy relative to its original source inventory. It does not assert unchanged external base Python/DLL/stdlib."
+  },
+  "preflight": "No preflight ML import/model/native execution. Fresh full26720file prepared runtime; current1030file base with original1028unchanged plus two disclosed encodings caches. Same binaries/DLLs/configuredbundle as v3, not equivalent to oldOct22environment. Both arms share composite environment; no scandir-only attribution.",
+  "current_base_environment": {
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable_sha256": "f8b45d63047da9d9adf09892e4cc4317b859e86a93a478cc9616bc69d3b176e5",
+    "python_runtime_files": {
+      "python3.dll": "418cbd58ec56b6ac75b3000b30428ca33339425685b980fe444f0bfdcae7d94e",
+      "python312.dll": "0ca3acbf9ce7165a4e3779fa9ddececa652af781b22c2bd2ba377d0d6b4c9c01"
+    },
+    "standard_library_manifest_sha256": "f4f3c92d645da990dab84518f510560be8f8d40a74fc81fe5f173d89264eb1c3",
+    "authentication": "Fresh Valid OpenAI OpCo Authenticode on configured base executable and both DLLs; same binary hashes as v3. Full1030file base inventory freshly authenticated; original1028unchanged, two added encoding cache files explicitly retained.",
+    "difference_from_prior": "External base Python executable and two DLL bytes differ from oldOct22freeze. No old stdlib equivalence or cause of byte changes is asserted. This is an additional explicit environment change.",
+    "inference_limit": "Same current composite environment for both arms. No attribution of startup improvement to scandir alone, oldbinary equivalence or cross-environment causal performance claim.",
+    "file_count": 1030,
+    "total_bytes": 46059001,
+    "delta_since_v3": [
+      {
+        "path": "Lib/encodings/__pycache__/ascii.cpython-312.pyc",
+        "bytes": 2578,
+        "sha256": "0dc52b0f2abe176df7b16a767b84dc0e55a496559103ff867011280c32a118a2"
+      },
+      {
+        "path": "Lib/encodings/__pycache__/utf_16_le.cpython-312.pyc",
+        "bytes": 2230,
+        "sha256": "a75741c7fb42aab24a75ceb6d3c9fb30f97d81f06732fbad29cd4b2ab45c68b3"
+      }
+    ],
+    "difference_from_v3": "Two added .pyc cache files listed with exact bytes/hashes; no original base-file changes. Their creation cause is unverified. Prepared runtime26720files unchanged."
+  },
+  "integration_change": {
+    "source": "experiments/native_training_cost_scopes_v4.py",
+    "prior_caller_sha256": "0e31d74d07d6fde80b12f7e7a6752bc0221263375b5a4bc9a32a2710c80488b6",
+    "new_caller_sha256": "c4b053286637808d320bfbb4705e4867ea1d13963082a5a610e863cd466a5f5a",
+    "behavior": "Only preservation-group flattening plus source pins differs from priorcaller. Dense path unchanged. Source-supported prior failure explanation, not captured traceback.",
+    "preparation": "15fresh pure/mocked controls pass incl realcontext oldfailure/new19wrappers restoration, parser normalization and scanner controls. Exact parent canonical1129methods1048pass81skip preserved; no source changes since."
+  },
+  "preexecution_correction": {
+    "unexecuted_candidate_protocol_sha256": "ace5fb9b7b06fb71201cab8bbf706a9cacc4566fb36241bd043dec0519740156",
+    "unexecuted_candidate_freeze_sha256": "dff81fd9d5450d027239096827366323a6fe95005cb2c8a6da1d59b1e3aa388e",
+    "reason": "The unexecuted candidate inherited the old launcher path in its descriptive entrypoint field. Correct the path to the separately pinned v4 launcher before any invocation. No source, workload, limit, threshold, environment or output change. Prior candidate bytes retained; zero native suites executed."
+  }
+}

@@ -1,0 +1,49 @@
+--- experiments\native_training_cost_scopes_v4.py
++++ experiments/native_training_cost_evaluator_v5.py
+@@ -419,6 +419,24 @@
+         'scope':'one evaluation per endpoint after all training; original publicly visible previously evaluated book blocks, procedural seal only. Not fresh generalization data.'})
+ 
+ 
++def verify_evaluator_cleanup(report,launcher,actual):
++    """Require exit0 for exactly the evaluator's two retained process objects."""
++    identities=[(ref.pid,ref.creation_filetime) for ref in (launcher,actual)]
++    if (any(type(value)is not int or value<=0 for identity in identities for value in identity)
++        or launcher.pid==actual.pid or len(set(identities))!=2):
++        raise obs.ObserverError('Evaluator cleanup lacks two distinct retained identities')
++    cleanup=report['cleanup'];exits=cleanup.get('exit_codes',[])
++    if (cleanup.get('all_retained_handles_exited')is not True
++        or type(cleanup.get('job_active_count'))is not int or cleanup['job_active_count']!=0
++        or type(exits)is not list or len(exits)!=2
++        or any(type(row)is not dict or set(row)!={'pid','creation_filetime','exit_code'}
++            or any(type(row[key])is not int for key in ('pid','creation_filetime','exit_code'))
++            or row['exit_code']!=0 for row in exits)
++        or {(row['pid'],row['creation_filetime']) for row in exits}!=set(identities)):
++        raise obs.ObserverError('Evaluator cleanup does not cover exactly two retained exit0 identities')
++    report['cleanup_exact_retained_identity_set']=True
++
++
+ def run_evaluator(paths,provider,model,fixture,freeze,output,suite_end):
+     job=obs.WindowsJob();nonce=secrets.token_hex(32);end=min(time.perf_counter()+300,suite_end)
+     r={'nonce':nonce,'started_at':base.utc_now()}
+@@ -436,7 +454,7 @@
+             if time.perf_counter()>=end or not actual.alive():raise TimeoutError('Evaluator failed or timed out; no retry')
+             if actual.reading()['memory']['private_bytes']>1073741824:raise ValueError('Evaluator sampled private cap exceeded')
+             time.sleep(.02)
+-        r['cleanup']=work.cleanup(job,end,suite_end);prior.verify_cleanup(r,'healthy')
++        r['cleanup']=work.cleanup(job,end,suite_end);verify_evaluator_cleanup(r,launcher,actual)
+         result=obs.read_small(output/'evaluation.json')
+         if result['pid']!=actual.pid or not prior.validate_provider(result['provider_guard'],'load',1):raise ValueError('Evaluator identity/provider differs')
+         progress.read_prefix(output,nonce,ready,r['identity']['self_receipt']['perf_counter'] if 'perf_counter'in ready else 0,time.perf_counter(),complete=True)
+@@ -477,7 +495,11 @@
+ SOURCES=tuple(dict.fromkeys((*ledger_caller.SOURCES,'experiments/native_training_cost.py',
+     'tests/test_native_training_cost.py','scripts/audit_native_training_cost.py',
+     'experiments/native_training_cost_scopes_v4.py','tests/test_native_training_cost_scopes_v4.py',
+-    'scripts/run_native_training_cost_scopes_v4.py')))
++    'scripts/run_native_training_cost_scopes_v4.py',
++    'scripts/run_native_training_cost.py','tests/test_native_training_cost_launcher.py',
++    'tests/test_native_training_cost_entrypoint_boundary.py',
++    'experiments/native_training_cost_evaluator_v5.py','tests/test_native_training_cost_evaluator_v5.py',
++    'scripts/run_native_training_cost_evaluator_v5.py')))
+ 
+ 
+ def run(protocol_path,freeze_path,output,plan):

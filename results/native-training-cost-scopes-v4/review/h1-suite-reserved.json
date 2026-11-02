@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-02T09:06:15.472554+00:00",
+  "scientific_slots_reserved": 1,
+  "original_CLI_invocations": 1,
+  "retries": 0,
+  "command": [
+    "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-S",
+    "scripts/run_native_training_cost_scopes_v4.py",
+    "--protocol",
+    "fixtures\\native-training-cost-scopes-v4-reviewed\\protocol.json",
+    "--freeze",
+    "fixtures\\native-training-cost-scopes-v4-reviewed\\implementation.json",
+    "--output",
+    "reports/runs/20261102T065705Z/native-training-cost-scopes-v4",
+    "--plan",
+    "reports\\runs\\20261102T065705Z\\h1-execution-plan.json"
+  ],
+  "freeze_sha256": "c5a8d0eaa37275618c321c9f16407afa9ab2d6ae38765a92130b58844e42325d",
+  "independent_review_sha256": "32520c4d44fbe4859c2af93fba93a80905ffe92a90ee79d47b10ae3e3dc2f4e0",
+  "independent_review_path": "reports\\runs\\20261102T065705Z\\maintenance\\resume-20261102T090052Z\\h1-independent-prefreeze-accepted.json",
+  "execution_wrapper_sha256": "fde2dbd3d0ce0e609468939e797e775cda4308935c7b53ff7743adb071208450",
+  "outer_timing_scope": "Monotonic CLI subprocess lifetime including its in-process asset/executable/resource preflight and all native stages. Excludes this wrapper saved-byte verification, preparation, independent review and post-outcome audit.",
+  "environment_overrides": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "limits": "One current composite environment; no unchanged-suite retries, scanner-only attribution, GPU/production or fresh generalization claim."
+}

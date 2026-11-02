@@ -1,0 +1,159 @@
+{
+  "recorded_at": "2026-11-02T09:22:46.060926+00:00",
+  "kind": "post_outcome_saved_data_supplement",
+  "original_frozen_acceptance": false,
+  "original_error": "KeyError: 'censuses'",
+  "original_report_comparisons_absent": true,
+  "evidence": {
+    "reports/runs/20261102T065705Z/native-training-cost-scopes-v4/report.json": {
+      "bytes": 36943302,
+      "sha256": "c971a4f912ac9e27eb16eeee059d6979c9aadf162508b7bd4a4704717108f5f5"
+    },
+    "reports/runs/20261102T065705Z/native-training-cost-scopes-v4/evaluation.json": {
+      "bytes": 34335,
+      "sha256": "c53ff1095aa258232be57a8c672cb63d42ace039c1a9068caaa496f0cbe50e6f"
+    },
+    "reports/runs/20261102T065705Z/native-training-cost-scopes-v4/evaluation-release.json": {
+      "bytes": 5634,
+      "sha256": "a667d96561ebc164680cdb56d54a7bc478d0fceb91586cb2a6f2998590cfb5bd"
+    },
+    "fixtures/native-training-cost-scopes-v4-reviewed/protocol.json": {
+      "bytes": 12500,
+      "sha256": "0b598c459ecaa294ee17532d3544d670dc35c218a3f97045838e638530988641"
+    },
+    "fixtures/native-training-cost-scopes-v4-reviewed/implementation.json": {
+      "bytes": 11486,
+      "sha256": "c5a8d0eaa37275618c321c9f16407afa9ab2d6ae38765a92130b58844e42325d"
+    }
+  },
+  "initial_nll": 4.457542557269335,
+  "initial_and_endpoint_score_scope": "Original reused LookingGlass64blocks/4096targets. Procedural seal only; no new holdout or model execution in this calculation.",
+  "paired_results": {
+    "comparisons": [
+      {
+        "arm": "token",
+        "seed": 503,
+        "dense_nll": 4.574105817824602,
+        "bank_nll": 4.546694003045559,
+        "dense_steps": 64,
+        "bank_steps": 64,
+        "bank_to_dense_loop_wall_ratio": 0.9405951883556156,
+        "bank_to_dense_complete_case_wall_ratio": 0.96185715283487,
+        "bank_minus_dense_actual_process_peak_resident_bytes": 405504,
+        "dense_end_to_end_targets_per_second": 304.14791069320205,
+        "bank_end_to_end_targets_per_second": 316.20902313487045,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": true,
+          "bank_nll_below_initial": false,
+          "bank_observed_complete_case_faster": true,
+          "bank_process_lifetime_working_set_peak_lower": false
+        },
+        "joint_screen_passed": false
+      },
+      {
+        "arm": "token",
+        "seed": 701,
+        "dense_nll": 4.602038878947496,
+        "bank_nll": 4.600431066006422,
+        "dense_steps": 64,
+        "bank_steps": 64,
+        "bank_to_dense_loop_wall_ratio": 1.0313305578564942,
+        "bank_to_dense_complete_case_wall_ratio": 1.0023991911981556,
+        "bank_minus_dense_actual_process_peak_resident_bytes": 1110016,
+        "dense_end_to_end_targets_per_second": 343.8009892865275,
+        "bank_end_to_end_targets_per_second": 342.97811920177867,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": true,
+          "bank_nll_below_initial": false,
+          "bank_observed_complete_case_faster": false,
+          "bank_process_lifetime_working_set_peak_lower": false
+        },
+        "joint_screen_passed": false
+      },
+      {
+        "arm": "token",
+        "seed": 907,
+        "dense_nll": 4.587996806949377,
+        "bank_nll": 4.600448988378048,
+        "dense_steps": 64,
+        "bank_steps": 64,
+        "bank_to_dense_loop_wall_ratio": 1.121725640827793,
+        "bank_to_dense_complete_case_wall_ratio": 1.1270187176592266,
+        "bank_minus_dense_actual_process_peak_resident_bytes": -376832,
+        "dense_end_to_end_targets_per_second": 325.7303721277619,
+        "bank_end_to_end_targets_per_second": 289.01948745296,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": false,
+          "bank_nll_below_initial": false,
+          "bank_observed_complete_case_faster": false,
+          "bank_process_lifetime_working_set_peak_lower": true
+        },
+        "joint_screen_passed": false
+      },
+      {
+        "arm": "time",
+        "seed": 503,
+        "dense_nll": 5.669876530766487,
+        "bank_nll": 5.696608908474445,
+        "dense_steps": 294,
+        "bank_steps": 290,
+        "bank_to_dense_loop_wall_ratio": 0.9998861267593709,
+        "bank_to_dense_complete_case_wall_ratio": 0.9773113977192973,
+        "bank_minus_dense_actual_process_peak_resident_bytes": -397312,
+        "dense_end_to_end_targets_per_second": 509.55216547201655,
+        "bank_end_to_end_targets_per_second": 514.2879578827441,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": false,
+          "bank_nll_below_initial": false,
+          "bank_more_targets": false
+        },
+        "joint_screen_passed": false
+      },
+      {
+        "arm": "time",
+        "seed": 701,
+        "dense_nll": 5.477288067340851,
+        "bank_nll": 5.688705258071423,
+        "dense_steps": 254,
+        "bank_steps": 293,
+        "bank_to_dense_loop_wall_ratio": 1.0002335953569714,
+        "bank_to_dense_complete_case_wall_ratio": 0.9708729186483992,
+        "bank_minus_dense_actual_process_peak_resident_bytes": -159744,
+        "dense_end_to_end_targets_per_second": 443.30323374096855,
+        "bank_end_to_end_targets_per_second": 526.711033410686,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": false,
+          "bank_nll_below_initial": false,
+          "bank_more_targets": true
+        },
+        "joint_screen_passed": false
+      },
+      {
+        "arm": "time",
+        "seed": 907,
+        "dense_nll": 5.653969489037991,
+        "bank_nll": 5.597567297518253,
+        "dense_steps": 314,
+        "bank_steps": 301,
+        "bank_to_dense_loop_wall_ratio": 0.9978162436808286,
+        "bank_to_dense_complete_case_wall_ratio": 0.9851958661438422,
+        "bank_minus_dense_actual_process_peak_resident_bytes": 98304,
+        "dense_end_to_end_targets_per_second": 555.7662594738059,
+        "bank_end_to_end_targets_per_second": 540.7623465112163,
+        "conditions": {
+          "bank_nll_no_worse_than_dense": true,
+          "bank_nll_below_initial": false,
+          "bank_more_targets": false
+        },
+        "joint_screen_passed": false
+      }
+    ],
+    "all_six_joint_screens_passed": false,
+    "scope": "observed local CPU workloads/fixed order, three seeds, reused procedural heldout; no causal observer-cost, significance, GPU/multinode/production or general quality claim"
+  },
+  "joint_screens_passed_count": 0,
+  "joint_screens_failed_count": 6,
+  "all12endpoint_nll_above_initial": true,
+  "model_native_scientific_executions_in_supplement": 0,
+  "cannot_rescue_original_acceptance": true
+}

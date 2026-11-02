@@ -1,0 +1,199 @@
+{
+  "recorded_at": "2026-11-02T09:23:03.384496+00:00",
+  "id": "separate-evaluator-v5-preparation",
+  "sources": {
+    "experiments/native_training_cost_evaluator_v5.py": {
+      "bytes": 42050,
+      "sha256": "d43548bd3773331612b403e75804be751ff8d223375debc489867d21d75f7d38"
+    },
+    "scripts/run_native_training_cost_evaluator_v5.py": {
+      "bytes": 1180,
+      "sha256": "a314409a271a01569f9b5a32a3585564157fb290b28ae9f4cd47bcbfa6547200"
+    },
+    "tests/test_native_training_cost_evaluator_v5.py": {
+      "bytes": 11285,
+      "sha256": "94fab455d543936c7230c5583f1155ef518062756100615e159959b60b2fd6d8"
+    }
+  },
+  "ast_review": {
+    "only_caller_changes": [
+      "new evaluator-specific exact-two-retained-identity validator",
+      "run_evaluator cleanup call points to it",
+      "SOURCES extends original52 + original3additional + new3paths"
+    ],
+    "normalized_caller_equal": true,
+    "launcher_only_binding_and_docstring_changed": true,
+    "all55prior_frozen_source_hashes_unchanged": true
+  },
+  "differential_controls": [
+    {
+      "caller": "v4",
+      "started_at": "2026-11-02T09:23:01.407189+00:00",
+      "completed_at": "2026-11-02T09:23:01.891750+00:00",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "wall_seconds": 0.4844889999985753,
+      "stdout_sha256": "c4b1e97aab516772a4f97f0f64699f945c438c229809b1562652c01fffcd4321",
+      "stderr_sha256": "bd35fc0a6c7cfd8856cd98a595f5e04bdddc7da51e979816454d7c28bee4ad68",
+      "observation": {
+        "caller": "v4",
+        "report": {
+          "nonce": "0055b236be5aa21f05c5fe8c3aa5e7cd0c4e0cfef5f490d97c455085c2d6e4d9",
+          "started_at": "2026-11-02T09:23:01.864748+00:00",
+          "identity": {
+            "self_receipt": {
+              "pid": 202,
+              "creation_filetime": 2002,
+              "perf_counter": 1.0
+            },
+            "verified_ancestry": [
+              {
+                "pid": 202,
+                "creation_filetime": 2002,
+                "perf_counter": 1.0
+              }
+            ],
+            "os_image": {
+              "verified": true
+            }
+          },
+          "cleanup": {
+            "all_retained_handles_exited": true,
+            "job_active_count": 0,
+            "exit_codes": [
+              {
+                "pid": 101,
+                "creation_filetime": 1001,
+                "exit_code": 0
+              },
+              {
+                "pid": 202,
+                "creation_filetime": 2002,
+                "exit_code": 0
+              }
+            ]
+          },
+          "passed": false,
+          "error": "KeyError: 'censuses'",
+          "failure_cleanup": {
+            "all_retained_handles_exited": true,
+            "job_active_count": 0,
+            "exit_codes": [
+              {
+                "pid": 101,
+                "creation_filetime": 1001,
+                "exit_code": 0
+              },
+              {
+                "pid": 202,
+                "creation_filetime": 2002,
+                "exit_code": 0
+              }
+            ]
+          },
+          "completed_at": "2026-11-02T09:23:01.865748+00:00"
+        },
+        "saved_result_reads": 0,
+        "provider_checks": 0,
+        "import_prefix_checks": 0,
+        "job_termination_calls": 1,
+        "model_loads": 0,
+        "native_processes": 0
+      }
+    },
+    {
+      "caller": "v5",
+      "started_at": "2026-11-02T09:23:01.891750+00:00",
+      "completed_at": "2026-11-02T09:23:02.364549+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "wall_seconds": 0.4723913999987417,
+      "stdout_sha256": "14e12d187fc3c02c86e713d3386a6e8193ecd7cc83627fe9f5fe8dbe789efcf4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observation": {
+        "caller": "v5",
+        "report": {
+          "nonce": "eb6e18da6596deb720f5d0194bcc27763a89966cd41e62510c826cc4f9df1d19",
+          "started_at": "2026-11-02T09:23:02.339550+00:00",
+          "identity": {
+            "self_receipt": {
+              "pid": 202,
+              "creation_filetime": 2002,
+              "perf_counter": 1.0
+            },
+            "verified_ancestry": [
+              {
+                "pid": 202,
+                "creation_filetime": 2002,
+                "perf_counter": 1.0
+              }
+            ],
+            "os_image": {
+              "verified": true
+            }
+          },
+          "cleanup": {
+            "all_retained_handles_exited": true,
+            "job_active_count": 0,
+            "exit_codes": [
+              {
+                "pid": 101,
+                "creation_filetime": 1001,
+                "exit_code": 0
+              },
+              {
+                "pid": 202,
+                "creation_filetime": 2002,
+                "exit_code": 0
+              }
+            ]
+          },
+          "cleanup_exact_retained_identity_set": true,
+          "passed": true,
+          "completed_at": "2026-11-02T09:23:02.341549+00:00"
+        },
+        "saved_result_reads": 1,
+        "provider_checks": 1,
+        "import_prefix_checks": 1,
+        "job_termination_calls": 0,
+        "model_loads": 0,
+        "native_processes": 0
+      }
+    }
+  ],
+  "focused_tests": {
+    "command": [
+      "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "-S",
+      "-m",
+      "unittest",
+      "tests.test_native_training_cost_evaluator_v5",
+      "tests.test_native_training_cost_scopes_v4",
+      "tests.test_native_training_cost",
+      "tests.test_native_training_cost_launcher",
+      "tests.test_native_training_cost_entrypoint_boundary",
+      "-v"
+    ],
+    "started_at": "2026-11-02T09:23:02.364549+00:00",
+    "completed_at": "2026-11-02T09:23:03.385495+00:00",
+    "wall_seconds": 1.021368599998823,
+    "exit_code": 0,
+    "methods": 22,
+    "malformed_cleanup_subtests": 14,
+    "retained_identity_subtests": 3,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "2aeac6131c699ea4fad5fce4fc385a3e24540f35b8f0ec43e5d1650db734b693",
+    "scope": "Actual imported run_evaluator/parser/validators with process I/O and provider/import receipts replaced by fixtures; no source extraction, real WindowsJob, native process, Torch or model."
+  },
+  "initial_test_setup_failure": "First test command had15 assertion TypeErrors because the new tests assumed public_error was a dict; actual public_error is a string. Only test assertions corrected before successful22-method retained run. No producer behavior changed to accommodate tests.",
+  "scientific_suites": 0,
+  "model_loads": 0,
+  "native_processes": 0,
+  "new_freeze": false,
+  "v4_outcome_reinterpreted": false,
+  "rollback": "New caller/launcher require a separately pinned future freeze. Existing v4 paths and all55frozen bytes remain unchanged; omit the three new paths to withdraw preparation. Do not retry the rejected v4 suite.",
+  "next_gate": "Root independent review and public curation; future heartbeat may separately preregister original12jobs through v5 without relaxing workload/resources/quality gates."
+}

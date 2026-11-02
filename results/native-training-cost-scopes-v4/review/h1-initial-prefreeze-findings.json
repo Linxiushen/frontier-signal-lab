@@ -1,0 +1,25 @@
+{
+  "reviewed_at": "2026-11-02T09:01:51.948446+00:00",
+  "status": "blocked_before_execution",
+  "protocol_sha256": "ace5fb9b7b06fb71201cab8bbf706a9cacc4566fb36241bd043dec0519740156",
+  "freeze_sha256": "dff81fd9d5450d027239096827366323a6fe95005cb2c8a6da1d59b1e3aa388e",
+  "findings": [
+    {
+      "id": "F1",
+      "issue": "Protocol declares predecessor entrypoint but new freeze pins v4 entrypoint bytes.",
+      "declared": "scripts/run_native_training_cost.py",
+      "expected_explicit_entrypoint": "scripts/run_native_training_cost_scopes_v4.py",
+      "declared_sha256": "1add53589affb5d9e0982409cc443b760bba74fa5cb8a23c0e8538e110047e56",
+      "freeze_entrypoint_sha256": "e1812e8d4e1b44fe7d24073f41353d891211dfda679a09c3e3c22c218e021722",
+      "actual_v4_sha256": "e1812e8d4e1b44fe7d24073f41353d891211dfda679a09c3e3c22c218e021722",
+      "resolution": "Preserve rejected candidate bytes; create separate corrected preexecution protocol/freeze/plan links and independently review before any invocation."
+    },
+    {
+      "id": "F2",
+      "issue": "07:01 resource preflight is over two hours old after interruption.",
+      "resolution": "Fresh read-only current resource and runtime inventory verification immediately before execution; retain original evidence."
+    }
+  ],
+  "native_or_model_or_scientific_runs": 0,
+  "shared_or_tracked_writes": false
+}

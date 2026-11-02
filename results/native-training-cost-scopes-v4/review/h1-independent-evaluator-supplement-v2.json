@@ -1,0 +1,201 @@
+{
+  "recorded_at": "2026-11-02T09:22:02.264467+00:00",
+  "status": "passed_saved_evaluator_supplement",
+  "checks_total": 12,
+  "checks_passed": 12,
+  "findings": [],
+  "checks": [
+    {
+      "name": "prior164checks_passed_with_original_frozen_rejection",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "saved_evaluator_ready_exact_self_receipt",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "ready_nonce_role_pid_creation_exact_authenticated_actual",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "full_original_prefix_rules_accept7saved_records",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "import_prefix_guard_schema_counts0to1_then_completed_guard",
+      "passed": true,
+      "evidence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "final_saved_evaluation_provider_guard_valid",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "exact2authenticated_evaluator_retained_handles_exit0",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "both_cleanup_receipts_keep_same2identities_and_empty_job",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "all12observed_endpoint_NLL_above_initial",
+      "passed": true,
+      "evidence": {
+        "initial_nll": 4.457542557269335,
+        "endpoint_nll": [
+          {
+            "job": {
+              "id": "token-503-0",
+              "arm": "token",
+              "seed": 503,
+              "method": "dense"
+            },
+            "mean_nll": 4.574105817824602
+          },
+          {
+            "job": {
+              "id": "token-503-1",
+              "arm": "token",
+              "seed": 503,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 4.546694003045559
+          },
+          {
+            "job": {
+              "id": "token-701-2",
+              "arm": "token",
+              "seed": 701,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 4.600431066006422
+          },
+          {
+            "job": {
+              "id": "token-701-3",
+              "arm": "token",
+              "seed": 701,
+              "method": "dense"
+            },
+            "mean_nll": 4.602038878947496
+          },
+          {
+            "job": {
+              "id": "token-907-4",
+              "arm": "token",
+              "seed": 907,
+              "method": "dense"
+            },
+            "mean_nll": 4.587996806949377
+          },
+          {
+            "job": {
+              "id": "token-907-5",
+              "arm": "token",
+              "seed": 907,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 4.600448988378048
+          },
+          {
+            "job": {
+              "id": "time-503-6",
+              "arm": "time",
+              "seed": 503,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 5.696608908474445
+          },
+          {
+            "job": {
+              "id": "time-503-7",
+              "arm": "time",
+              "seed": 503,
+              "method": "dense"
+            },
+            "mean_nll": 5.669876530766487
+          },
+          {
+            "job": {
+              "id": "time-701-8",
+              "arm": "time",
+              "seed": 701,
+              "method": "dense"
+            },
+            "mean_nll": 5.477288067340851
+          },
+          {
+            "job": {
+              "id": "time-701-9",
+              "arm": "time",
+              "seed": 701,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 5.688705258071423
+          },
+          {
+            "job": {
+              "id": "time-907-10",
+              "arm": "time",
+              "seed": 907,
+              "method": "model_except_norm_attention_saved_int8"
+            },
+            "mean_nll": 5.597567297518253
+          },
+          {
+            "job": {
+              "id": "time-907-11",
+              "arm": "time",
+              "seed": 907,
+              "method": "dense"
+            },
+            "mean_nll": 5.653969489037991
+          }
+        ]
+      }
+    },
+    {
+      "name": "all_reviewed_evaluator_original_copy_bytes_still_match_full_manifest",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "original_rejection_no_retroactive_comparisons",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "reviewer_no_ML_imports",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "previous_review_diagnostic": "h1-independent-evaluator-supplement.json",
+  "previous_diagnostic_reason": "Reviewer incorrectly applied completion-only guard requiring1probe to first5in-flight import markers with0probes; real ready/read_prefix/final provider checks all passed. Original diagnostic retained, no experimental changes or reexecution.",
+  "main_review": "reports/runs/20261102T065705Z/maintenance/resume-20261102T090052Z/h1-independent-outcome-review.json",
+  "main_review_sha256": "6b4d4c689a5f8cf83a89914d05356df47f48bae93e73be9f31d1e8373513c7fa",
+  "execution_accepted": false,
+  "post_outcome_supplement_only": true,
+  "frozen_controller_did_not_reach_these_validations": true,
+  "scientific_suites_in_reviewer": 0,
+  "model_loads_in_reviewer": 0,
+  "native_jobs_in_reviewer": 0,
+  "holdout_data_reads": 0,
+  "scope": "Actual original saved-data prefix validator and provider validation only, using seven exact evaluator import receipts and authenticated two-handle identity/cleanup. Does not add censuses, mutate records, run a model, rescue frozen acceptance, or label supplementary calculations as preregistered success."
+}

@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-11-02T09:13:15.292744+00:00",
+  "scope": "Static source review and isolated extracted path-function controls only. No script main(), curation, active scientific output, model, ML import, native process or scientific suite executed.",
+  "sources": {
+    "reports/runs/20261102T065705Z/curate-v4-evidence.py": "ec9115918d5cc5baa16fd5e039e3dcedd7124d5881c3ca4a123648ef0e599174",
+    "reports/runs/20261102T065705Z/replay_saved.py": "84d30eba641fa30c9113e6abb25d894a266f41c340ea7fde2fa2253627409877",
+    "scripts/audit_native_training_cost.py": "a1d6a37fffa20ed0b6b27c6842309eadb7dfd4a00e0778a0020a491a2ee4e7b7",
+    "experiments/native_training_cost.py": "0e31d74d07d6fde80b12f7e7a6752bc0221263375b5a4bc9a32a2710c80488b6",
+    "experiments/observer_duty_v2.py": "633fe591ebe5438a70faa672ae6365e480e2cc0e10eecedf6695a5128cea8d74"
+  },
+  "initial_windows_path_gap": "Corrected by author before these controls: reject drive colon/backslash, absolute/dotdot/noncanonical paths, and resolved containment escape; validate omitted rows before continue.",
+  "path_controls": {
+    "negative": 22,
+    "positive": 3,
+    "passed": true
+  },
+  "static_findings": {
+    "byte_curation": "Each selected metadata source is retained exactly, direct or gzip mtime0 with explicit roundtrip, exclusive target creation and complete checkpoint hash/size omissions. Source raw .pt bytes remain local. Review copies and inventory gzip are exact. Final membership recrawl recommended.",
+    "replay": "Imports frozen saved-byte auditor and validates frozen sources/protocol/report links. Auditor path calls validate_case/verify_controls/verify_cleanup/paired_results on saved data; no native process, live OS reading or Torch call is reached by audit(). Checkpoint rehash is explicitly disabled and independent model-quality evaluation explicitly false.",
+    "replay_recommendations": [
+      "Recompute manifest metadata/checkpoint counts and byte totals, not trust declared printed count.",
+      "Cross-check omitted checkpoint path/hash with saved endpoint release/case receipts.",
+      "Compare validator-recomputed measurement with saved case measurement; frozen auditor currently discards the mutated copy."
+    ],
+    "frozen_sources": "No request to modify frozen auditor or caller; these recommendations apply only to publication wrapper and curation helper."
+  },
+  "scientific_suites": 0,
+  "native_jobs": 0,
+  "model_loads": 0,
+  "active_outputs_read": false,
+  "tracked_root_mutations": 0,
+  "passed_preparation_with_recommendations": true
+}

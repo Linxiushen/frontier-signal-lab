@@ -206,3 +206,15 @@ scripts/run_native_training_cost_scopes_v4.py -text whitespace=cr-at-eol
 tests/test_native_training_cost_scopes_v4.py -text whitespace=cr-at-eol
 # Unified-diff context blank lines are literal evidence bytes.
 results/native-training-cost-scandir-v3/review/h1-scopes-v4-caller.diff -whitespace
+
+# Preserve both unexecuted candidate and reviewed v4 freeze and saved receipts.
+fixtures/native-training-cost-scopes-v4/** -text whitespace=cr-at-eol
+fixtures/native-training-cost-scopes-v4-reviewed/** -text whitespace=cr-at-eol
+results/native-training-cost-scopes-v4/** -text whitespace=cr-at-eol
+research/2026-11-02-session-create-replay.md -text whitespace=cr-at-eol
+research/receipts/20261102T065705Z-session-create-replay-source-review.json -text whitespace=cr-at-eol
+experiments/native_training_cost_evaluator_v5.py -text whitespace=cr-at-eol
+scripts/run_native_training_cost_evaluator_v5.py -text whitespace=cr-at-eol
+tests/test_native_training_cost_evaluator_v5.py -text whitespace=cr-at-eol
+# Unified-diff context spaces are retained evidence bytes.
+results/native-training-cost-scopes-v4/review/evaluator-v5-preparation/*.diff -whitespace

@@ -1,0 +1,212 @@
+{
+  "stage": 0,
+  "pid": 6800,
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db0-remote-deny-0": {
+          "fingerprint": "ffa1c6c993cb55d1ad3de5bbc498f844352b4467952cc4b17b9f6c8cf4122408",
+          "conversation": 2,
+          "requestId": "s0-db0-remote-deny-0",
+          "payload": "payload-s0-db0-remote-deny-0",
+          "version": 1,
+          "submissionId": 16
+        },
+        "8:s0-db0-pre-cancel-1": {
+          "fingerprint": "5d94640fc233764c31c2a8476ffaa9c6bb07e7cf635f6db044908cfae8023cea",
+          "conversation": 8,
+          "requestId": "s0-db0-pre-cancel-1",
+          "payload": "payload-s0-db0-pre-cancel-1",
+          "version": 1,
+          "submissionId": 20,
+          "cancelled": true
+        }
+      },
+      "active": {
+        "2:s0-db0-remote-deny-0": true,
+        "8:s0-db0-pre-cancel-1": true
+      },
+      "effects": {},
+      "effectIntents": {
+        "2:s0-db0-remote-deny-0": {
+          "identity": {
+            "key": "2:s0-db0-remote-deny-0",
+            "payload": "payload-s0-db0-remote-deny-0",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service0",
+            "fingerprint": "ffa1c6c993cb55d1ad3de5bbc498f844352b4467952cc4b17b9f6c8cf4122408"
+          },
+          "status": "pending"
+        },
+        "8:s0-db0-pre-cancel-1": {
+          "identity": {
+            "key": "8:s0-db0-pre-cancel-1",
+            "payload": "payload-s0-db0-pre-cancel-1",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "5d94640fc233764c31c2a8476ffaa9c6bb07e7cf635f6db044908cfae8023cea"
+          },
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db1-remote-deny-0": {
+          "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90",
+          "conversation": 2,
+          "requestId": "s0-db1-remote-deny-0",
+          "payload": "payload-s0-db1-remote-deny-0",
+          "version": 1,
+          "submissionId": 16
+        },
+        "8:s0-db1-pre-cancel-1": {
+          "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab",
+          "conversation": 8,
+          "requestId": "s0-db1-pre-cancel-1",
+          "payload": "payload-s0-db1-pre-cancel-1",
+          "version": 1,
+          "submissionId": 20,
+          "cancelled": true
+        }
+      },
+      "active": {
+        "2:s0-db1-remote-deny-0": true,
+        "8:s0-db1-pre-cancel-1": true
+      },
+      "effects": {},
+      "effectIntents": {
+        "2:s0-db1-remote-deny-0": {
+          "identity": {
+            "key": "2:s0-db1-remote-deny-0",
+            "payload": "payload-s0-db1-remote-deny-0",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90"
+          },
+          "status": "pending"
+        },
+        "8:s0-db1-pre-cancel-1": {
+          "identity": {
+            "key": "8:s0-db1-pre-cancel-1",
+            "payload": "payload-s0-db1-pre-cancel-1",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab"
+          },
+          "status": "pending"
+        }
+      }
+    }
+  ],
+  "pending": [
+    {
+      "service": 0,
+      "conversation": 2,
+      "requestId": "s0-db0-remote-deny-0",
+      "intent": "remote-deny",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db0-remote-deny-0",
+      "payload": "payload-s0-db0-remote-deny-0",
+      "offered_epoch_ms": 1793626745413,
+      "status": "admit",
+      "submissionId": 16
+    },
+    {
+      "service": 0,
+      "conversation": 8,
+      "requestId": "s0-db0-pre-cancel-1",
+      "intent": "pre-cancel",
+      "stage": 0,
+      "version": 1,
+      "key": "8:s0-db0-pre-cancel-1",
+      "payload": "payload-s0-db0-pre-cancel-1",
+      "offered_epoch_ms": 1793626745420,
+      "status": "admit",
+      "submissionId": 20
+    },
+    {
+      "service": 1,
+      "conversation": 2,
+      "requestId": "s0-db1-remote-deny-0",
+      "intent": "remote-deny",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db1-remote-deny-0",
+      "payload": "payload-s0-db1-remote-deny-0",
+      "offered_epoch_ms": 1793626745477,
+      "status": "admit",
+      "submissionId": 16
+    },
+    {
+      "service": 1,
+      "conversation": 8,
+      "requestId": "s0-db1-pre-cancel-1",
+      "intent": "pre-cancel",
+      "stage": 0,
+      "version": 1,
+      "key": "8:s0-db1-pre-cancel-1",
+      "payload": "payload-s0-db1-pre-cancel-1",
+      "offered_epoch_ms": 1793626745480,
+      "status": "admit",
+      "submissionId": 20
+    }
+  ],
+  "server": {
+    "authority": [
+      [
+        "service0",
+        2,
+        1,
+        0
+      ],
+      [
+        "service0",
+        8,
+        1,
+        1
+      ],
+      [
+        "service1",
+        2,
+        1,
+        0
+      ],
+      [
+        "service1",
+        8,
+        1,
+        1
+      ]
+    ],
+    "effects": [],
+    "attempts": []
+  }
+}

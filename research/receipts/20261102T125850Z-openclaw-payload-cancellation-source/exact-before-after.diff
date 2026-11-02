@@ -1,0 +1,134 @@
+--- 43bb559f841430368a4ae2bc1a213fc285d29ccc/config/test-lines-allocations/chat-completions-payload-cancellation.txt
++++ 775dbe6eebe70ca93db665c8431e7eac09124ae7/config/test-lines-allocations/chat-completions-payload-cancellation.txt
+@@ -0,0 +1,2 @@
++# Direct/managed Chat Completions payload-hook cancellation and retained-work proof.
++71
+
+--- 43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/README.md
++++ 775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/README.md
+@@ -35,9 +35,10 @@
+ invoke the callback before the first event. Retry and failover policy remains
+ with the application.
+ 
+-Anthropic Messages calls stop waiting for payload and response hooks when the
+-request signal aborts. A hook can continue running after cancellation; embedding
+-hosts can retain that work through `observePendingProviderWork` until it settles.
++Anthropic Messages and OpenAI-compatible Chat Completions calls stop waiting for
++payload and response hooks when the request signal aborts. A hook can continue
++running after cancellation; embedding hosts can retain that work through
++`observePendingProviderWork` until it settles.
+ 
+ Hosts that attach request state to async contexts should supply
+ `runInDetachedAsyncContext` from a context-free root initialized before requests
+
+--- 43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts
++++ 775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts
+@@ -1,5 +1,10 @@
+-import { afterEach, beforeEach, expect, it, type MockInstance, vi } from "vitest";
+-import { createDeferred, withinTest, nextEventLoopTurn } from "../../../../test/helpers/promise.js";
++import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from "vitest";
++import {
++  awaitGateBeforeSettlement,
++  createDeferred,
++  withinTest,
++  nextEventLoopTurn,
++} from "../../../../test/helpers/promise.js";
+ import { configureAiTransportHost, getAiTransportHost } from "../host.js";
+ import { streamOpenAICompletions } from "../providers/openai-completions.js";
+ import type { AssistantMessageEventStreamLike, Context, StreamOptions } from "../types.js";
+@@ -190,6 +195,72 @@
+   lifecycle.assertListenersRemoved();
+ });
+ 
++describe.each([
++  { route: "direct", late: "resolve" },
++  { route: "managed", late: "reject" },
++] as const)("$route payload hook's late $late", ({ route, late }) => {
++  it("returns cancellation before the hook settles without releasing its work", async ({
++    signal,
++  }) => {
++    const controller = new AbortController();
++    const entered = createDeferred();
++    const hook = createDeferred();
++    const observed: Promise<unknown>[] = [];
++    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(
++      new Response('data: {"choices":[{"delta":{},"finish_reason":"stop"}]}\n\ndata: [DONE]\n\n', {
++        headers: { "content-type": "text/event-stream" },
++      }),
++    );
++    configureAiTransportHost({
++      ...getAiTransportHost(),
++      buildModelFetch: () => fetch,
++      observePendingProviderWork: (pending) => observed.push(pending),
++    });
++    const options = {
++      signal: controller.signal,
++      onPayload: () => {
++        entered.resolve();
++        return hook.promise;
++      },
++    };
++    const stream =
++      route === "direct"
++        ? streamOpenAICompletions(model, context, { apiKey: "fixture-token", ...options })
++        : createStream(options);
++    try {
++      await withinTest(
++        awaitGateBeforeSettlement(
++          entered.promise,
++          stream.result(),
++          "Stream ended before payload hook",
++        ),
++        signal,
++      );
++      controller.abort(Object.assign(new Error("payload canceled"), { code: "CALLER_ABORTED" }));
++      const result = await withinTest(stream.result(), signal);
++      expect(result).toMatchObject({ stopReason: "aborted", errorCode: "CALLER_ABORTED" });
++      let drained = false;
++      const draining = Promise.allSettled(observed).then(() => {
++        drained = true;
++      });
++      await nextEventLoopTurn();
++      expect(drained).toBe(false);
++      expect(fetch).not.toHaveBeenCalled();
++      if (late === "resolve") {
++        hook.resolve();
++      } else {
++        hook.reject(new Error("late payload failure"));
++      }
++      await draining;
++      expect(await stream.result()).toBe(result);
++      expect(fetch).not.toHaveBeenCalled();
++    } finally {
++      hook.resolve();
++      await Promise.allSettled([...observed, stream.result()]);
++    }
++  });
++});
++
+ it("keeps caller cancellation terminal after a late hook rejection", async ({ signal }) => {
+   const lifecycle = installResponse();
+   const controller = new AbortController();
+
+--- 43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/transports/openai-completions-transport.ts
++++ 775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/transports/openai-completions-transport.ts
+@@ -73,6 +73,7 @@
+ } from "./provider-transport-turn-state.js";
+ import { resolveOpencodeSessionHeaders } from "./session-affinity.js";
+ import {
++  awaitProviderLifecycleCallback,
+   createWritableTransportEventStream,
+   failTransportStream,
+   finalizeTransportStream,
+@@ -414,7 +415,10 @@
+       const builtParams = buildOpenAICompletionsRequest(model, requestContext, options, policy);
+       let params = builtParams;
+       const encodeBody = prepareModelRequestBody(options);
+-      const nextParams = await options?.onPayload?.(params, model);
++      const nextParams = await awaitProviderLifecycleCallback(
++        options?.onPayload ? () => options.onPayload?.(params, model) : undefined,
++        options?.signal,
++      );
+       if (nextParams !== undefined) {
+         params = nextParams as typeof params;
+       }

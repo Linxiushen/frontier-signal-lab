@@ -1,0 +1,596 @@
+{
+  "recorded_at": "2026-11-02T13:07:23.839117+00:00",
+  "repository": "openclaw/openclaw",
+  "repository_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "repository_visibility": "public",
+  "PR": 191090,
+  "author": "vincentkoc",
+  "merger": "vincentkoc",
+  "merged_at": "2026-11-02T12:48:28Z",
+  "landed": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+  "parent": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+  "head": "0fd936dacaaf57dce490cc071f2321ad5496f9a5",
+  "base_at_read": "104685449202237e6960f596f315ef4a87d8164f",
+  "files": [
+    {
+      "filename": "config/test-lines-allocations/chat-completions-payload-cancellation.txt",
+      "status": "added",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "sha": "45c2f82e5f3a0ceb86b8bd5f7b391b334fd32d5c",
+      "patch": "@@ -0,0 +1,2 @@\n+# Direct/managed Chat Completions payload-hook cancellation and retained-work proof.\n+71"
+    },
+    {
+      "filename": "packages/ai/README.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "sha": "3cdac1b8d11cc0fc32b6dc742fbeb15ce4b0c02d",
+      "patch": "@@ -35,9 +35,10 @@ OpenAI HTTP adapters report rejected response status and headers through\n invoke the callback before the first event. Retry and failover policy remains\n with the application.\n \n-Anthropic Messages calls stop waiting for payload and response hooks when the\n-request signal aborts. A hook can continue running after cancellation; embedding\n-hosts can retain that work through `observePendingProviderWork` until it settles.\n+Anthropic Messages and OpenAI-compatible Chat Completions calls stop waiting for\n+payload and response hooks when the request signal aborts. A hook can continue\n+running after cancellation; embedding hosts can retain that work through\n+`observePendingProviderWork` until it settles.\n \n Hosts that attach request state to async contexts should supply\n `runInDetachedAsyncContext` from a context-free root initialized before requests"
+    },
+    {
+      "filename": "packages/ai/src/transports/openai-completions-transport.response-hook.test.ts",
+      "status": "modified",
+      "additions": 73,
+      "deletions": 2,
+      "changes": 75,
+      "sha": "c097a62d89539c94bba5e6873e285d5593768270",
+      "patch": "@@ -1,5 +1,10 @@\n-import { afterEach, beforeEach, expect, it, type MockInstance, vi } from \"vitest\";\n-import { createDeferred, withinTest, nextEventLoopTurn } from \"../../../../test/helpers/promise.js\";\n+import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from \"vitest\";\n+import {\n+  awaitGateBeforeSettlement,\n+  createDeferred,\n+  withinTest,\n+  nextEventLoopTurn,\n+} from \"../../../../test/helpers/promise.js\";\n import { configureAiTransportHost, getAiTransportHost } from \"../host.js\";\n import { streamOpenAICompletions } from \"../providers/openai-completions.js\";\n import type { AssistantMessageEventStreamLike, Context, StreamOptions } from \"../types.js\";\n@@ -190,6 +195,72 @@ it(\"applies the first-event timeout while the hook is pending\", async ({ signal\n   lifecycle.assertListenersRemoved();\n });\n \n+describe.each([\n+  { route: \"direct\", late: \"resolve\" },\n+  { route: \"managed\", late: \"reject\" },\n+] as const)(\"$route payload hook's late $late\", ({ route, late }) => {\n+  it(\"returns cancellation before the hook settles without releasing its work\", async ({\n+    signal,\n+  }) => {\n+    const controller = new AbortController();\n+    const entered = createDeferred();\n+    const hook = createDeferred();\n+    const observed: Promise<unknown>[] = [];\n+    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(\n+      new Response('data: {\"choices\":[{\"delta\":{},\"finish_reason\":\"stop\"}]}\\n\\ndata: [DONE]\\n\\n', {\n+        headers: { \"content-type\": \"text/event-stream\" },\n+      }),\n+    );\n+    configureAiTransportHost({\n+      ...getAiTransportHost(),\n+      buildModelFetch: () => fetch,\n+      observePendingProviderWork: (pending) => observed.push(pending),\n+    });\n+    const options = {\n+      signal: controller.signal,\n+      onPayload: () => {\n+        entered.resolve();\n+        return hook.promise;\n+      },\n+    };\n+    const stream =\n+      route === \"direct\"\n+        ? streamOpenAICompletions(model, context, { apiKey: \"fixture-token\", ...options })\n+        : createStream(options);\n+    try {\n+      await withinTest(\n+        awaitGateBeforeSettlement(\n+          entered.promise,\n+          stream.result(),\n+          \"Stream ended before payload hook\",\n+        ),\n+        signal,\n+      );\n+      controller.abort(Object.assign(new Error(\"payload canceled\"), { code: \"CALLER_ABORTED\" }));\n+      const result = await withinTest(stream.result(), signal);\n+      expect(result).toMatchObject({ stopReason: \"aborted\", errorCode: \"CALLER_ABORTED\" });\n+      let drained = false;\n+      const draining = Promise.allSettled(observed).then(() => {\n+        drained = true;\n+      });\n+      await nextEventLoopTurn();\n+      expect(drained).toBe(false);\n+      expect(fetch).not.toHaveBeenCalled();\n+      if (late === \"resolve\") {\n+        hook.resolve();\n+      } else {\n+        hook.reject(new Error(\"late payload failure\"));\n+      }\n+      await draining;\n+      expect(await stream.result()).toBe(result);\n+      expect(fetch).not.toHaveBeenCalled();\n+    } finally {\n+      hook.resolve();\n+      await Promise.allSettled([...observed, stream.result()]);\n+    }\n+  });\n+});\n+\n it(\"keeps caller cancellation terminal after a late hook rejection\", async ({ signal }) => {\n   const lifecycle = installResponse();\n   const controller = new AbortController();"
+    },
+    {
+      "filename": "packages/ai/src/transports/openai-completions-transport.ts",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "sha": "e66b58c59cab6ad99b54c97e410044eefc0b5411",
+      "patch": "@@ -73,6 +73,7 @@ import {\n } from \"./provider-transport-turn-state.js\";\n import { resolveOpencodeSessionHeaders } from \"./session-affinity.js\";\n import {\n+  awaitProviderLifecycleCallback,\n   createWritableTransportEventStream,\n   failTransportStream,\n   finalizeTransportStream,\n@@ -414,7 +415,10 @@ export function streamOpenAICompletionsRequest(\n       const builtParams = buildOpenAICompletionsRequest(model, requestContext, options, policy);\n       let params = builtParams;\n       const encodeBody = prepareModelRequestBody(options);\n-      const nextParams = await options?.onPayload?.(params, model);\n+      const nextParams = await awaitProviderLifecycleCallback(\n+        options?.onPayload ? () => options.onPayload?.(params, model) : undefined,\n+        options?.signal,\n+      );\n       if (nextParams !== undefined) {\n         params = nextParams as typeof params;\n       }"
+    }
+  ],
+  "requests": [
+    {
+      "name": "pr",
+      "endpoint": "repos/openclaw/openclaw/pulls/191090",
+      "method": "GET",
+      "started_at": "2026-11-02T13:07:21.006594+00:00",
+      "completed_at": "2026-11-02T13:07:22.830313+00:00",
+      "exit_code": 0,
+      "raw_bytes": 21944,
+      "raw_sha256": "867b55616ce1a4e00f2e8c646aafce4b67db15608d02531b9c451ec77cbfdaa5",
+      "stored_sha256": "c05e99b1490d1309a883708fb206c12f6330454ddc9c2f5e663619eaba366deb",
+      "path": "pr.json.gz",
+      "stderr": ""
+    },
+    {
+      "name": "landed-commit",
+      "endpoint": "repos/openclaw/openclaw/commits/775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "method": "GET",
+      "started_at": "2026-11-02T13:07:21.007596+00:00",
+      "completed_at": "2026-11-02T13:07:22.504070+00:00",
+      "exit_code": 0,
+      "raw_bytes": 12611,
+      "raw_sha256": "8ac95ddeee4f091245d982c1eb51ac54907a53b037f414f9343967e7536ffe63",
+      "stored_sha256": "961d5972c7ab07d11a0bc948960b992404890458e7a2cd3c8ccca218469d8d03",
+      "path": "landed-commit.json.gz",
+      "stderr": ""
+    },
+    {
+      "name": "pr-files",
+      "endpoint": "repos/openclaw/openclaw/pulls/191090/files?per_page=100",
+      "method": "GET",
+      "started_at": "2026-11-02T13:07:21.007596+00:00",
+      "completed_at": "2026-11-02T13:07:22.648196+00:00",
+      "exit_code": 0,
+      "raw_bytes": 8150,
+      "raw_sha256": "c4b992635624582364d46aafd8f3b7bc51f9a4ba8210126aef8ba43c680adfe4",
+      "stored_sha256": "90f21a449f22e7467e5277a3cb9e13867c36413cdf8010b3e2bd237e5547beb6",
+      "path": "pr-files.json.gz",
+      "stderr": ""
+    },
+    {
+      "name": "pr-comments",
+      "endpoint": "repos/openclaw/openclaw/issues/191090/comments?per_page=100",
+      "method": "GET",
+      "started_at": "2026-11-02T13:07:21.007596+00:00",
+      "completed_at": "2026-11-02T13:07:22.541491+00:00",
+      "exit_code": 0,
+      "raw_bytes": 21511,
+      "raw_sha256": "a68e45e634d46e94c0ecb13746cd82c0a724cf7568dd163dc018fa8c268f593a",
+      "stored_sha256": "eb922c4066293b99a8c6e4132421238b46f07a494f1e5ba8efbbf42b31de9de3",
+      "path": "pr-comments.json.gz",
+      "stderr": ""
+    },
+    {
+      "name": "repository",
+      "endpoint": "repos/openclaw/openclaw",
+      "method": "GET",
+      "started_at": "2026-11-02T13:07:22.505071+00:00",
+      "completed_at": "2026-11-02T13:07:23.838118+00:00",
+      "exit_code": 0,
+      "raw_bytes": 6364,
+      "raw_sha256": "dc9f2d056f587b832352156617ed74ab1ba3292460ae27124733dc6bc7ec3f76",
+      "stored_sha256": "05b4b1d463740f5333b5da3d8891addb690e67ead0a172f15d083c74ac6b1412",
+      "path": "repository.json.gz",
+      "stderr": ""
+    }
+  ],
+  "versions": [
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "config/test-lines-allocations/chat-completions-payload-cancellation.txt",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/config/test-lines-allocations/chat-completions-payload-cancellation.txt",
+      "started_at": "2026-11-02T13:09:28.668084+00:00",
+      "method": "GET",
+      "read_scope": "captured_only_until_independent_text_read",
+      "status": 404,
+      "reason": "HTTP Error 404: Not Found",
+      "expected_absence": true,
+      "completed_at": "2026-11-02T13:09:29.660395+00:00"
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "config/test-lines-allocations/chat-completions-payload-cancellation.txt",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/config/test-lines-allocations/chat-completions-payload-cancellation.txt",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 88,
+      "raw_sha256": "f8409cf62820fedd81de6b46654ce7ed4f0ca3f7fc31ccfe224c00cea093235f",
+      "stored_sha256": "0ac2d6dcfcbfa90f1d07ae4077f776f08a8b9c9669fa3c2a9255dcda5a013d25",
+      "path": "landed--config__test-lines-allocations__chat-completions-payload-cancellation.txt.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/README.md",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/README.md",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 3393,
+      "raw_sha256": "69784f7e3accdc584fe37eb4e7dbb65207cda5f7f5d666632a2ffb268bec78d1",
+      "stored_sha256": "31faecd493aa2ade89b86272037dc27cc95824f960abc2457f613398a27a4971",
+      "path": "parent--packages__ai__README.md.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/README.md",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/README.md",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 3432,
+      "raw_sha256": "f65a59e61c133f8af23c96c75cca3e77f386020e6ff5befb5d6252a35dbb4fad",
+      "stored_sha256": "2dac70dc2160829f5a825b82176b88f2fa53187251577f178d24519d4dc6bcfb",
+      "path": "landed--packages__ai__README.md.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/src/transports/openai-completions-transport.response-hook.test.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 8258,
+      "raw_sha256": "aef3a65df586e3082946b9bedbe08713babe8298c2e45ed995b94ca02ef608cc",
+      "stored_sha256": "5c26ce8d76045e7ca6bc9b0067273fd82c9df2c27883ed008d87e9471e4a82c7",
+      "path": "parent--packages__ai__src__transports__openai-completions-transport.response-hook.test.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/src/transports/openai-completions-transport.response-hook.test.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 10555,
+      "raw_sha256": "39d1943e3f71f38175564749b3c9e826ecfe7984b935959ebf5f1d2bf23b331b",
+      "stored_sha256": "451f9621b58a9128bbb0f3efba227916929cf3abbec2f76bda6722b9d65de828",
+      "path": "landed--packages__ai__src__transports__openai-completions-transport.response-hook.test.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/src/transports/openai-completions-transport.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/transports/openai-completions-transport.ts",
+      "method": "GET",
+      "read_scope": "exact_complete_diff_against_fully_read_landed_production",
+      "status": 200,
+      "raw_bytes": 25137,
+      "raw_sha256": "4417b84d2f4328a1159e337ac050597d71880a44dfd729e1f836721fbc6ea459",
+      "stored_sha256": "25dc982438e77122dfc646982e9af306726064e169f28a08de07f89dfbefcef5",
+      "path": "parent--packages__ai__src__transports__openai-completions-transport.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/src/transports/openai-completions-transport.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/transports/openai-completions-transport.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 25283,
+      "raw_sha256": "a2553534c488edb3349432d11fb71f9d07b7cedf5fddfa70500a024280e45518",
+      "stored_sha256": "37566b25f1a163b1d721bcc8014153948cbb0c9a434b2ee5dd98d9fcfa5ab216",
+      "path": "landed--packages__ai__src__transports__openai-completions-transport.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/src/transports/transport-stream-shared.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/transports/transport-stream-shared.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 24442,
+      "raw_sha256": "d987e6ccdfb3aa106e0c81f1fa67eb52ec22fab45eb783d6904b0adfabdf2cf7",
+      "stored_sha256": "4c883e72c77e1d7adf361b85a9966002c8b84ebf02e81c4b7b620c7b6a93a972",
+      "path": "parent--packages__ai__src__transports__transport-stream-shared.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/src/transports/transport-stream-shared.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/transports/transport-stream-shared.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 24442,
+      "raw_sha256": "d987e6ccdfb3aa106e0c81f1fa67eb52ec22fab45eb783d6904b0adfabdf2cf7",
+      "stored_sha256": "4c883e72c77e1d7adf361b85a9966002c8b84ebf02e81c4b7b620c7b6a93a972",
+      "path": "landed--packages__ai__src__transports__transport-stream-shared.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/src/providers/openai-completions.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/providers/openai-completions.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 1842,
+      "raw_sha256": "6139005cf0564180b07a5450304883c1e7066bda4e9f5991ac86511e241e3e20",
+      "stored_sha256": "a5b36b7cf29c9d6b2caf2ae3a46da8c8f27f9eed375344e0952405454cca32a6",
+      "path": "parent--packages__ai__src__providers__openai-completions.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/src/providers/openai-completions.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/providers/openai-completions.ts",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "raw_bytes": 1842,
+      "raw_sha256": "6139005cf0564180b07a5450304883c1e7066bda4e9f5991ac86511e241e3e20",
+      "stored_sha256": "a5b36b7cf29c9d6b2caf2ae3a46da8c8f27f9eed375344e0952405454cca32a6",
+      "path": "landed--packages__ai__src__providers__openai-completions.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/ai/src/host.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/ai/src/host.ts",
+      "method": "GET",
+      "read_scope": "interface/defaults/configuration_only",
+      "status": 200,
+      "raw_bytes": 16210,
+      "raw_sha256": "b72db9f92331cc55c89e467f1e6e39cd2fdabe82f2e49cbbe07028305d3231c9",
+      "stored_sha256": "3fcea644bb26efd770a72d2cc4e370319e28a5bb953484ad8b2f54bb52a8bd86",
+      "path": "parent--packages__ai__src__host.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/ai/src/host.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/ai/src/host.ts",
+      "method": "GET",
+      "read_scope": "interface/defaults/configuration_only",
+      "status": 200,
+      "raw_bytes": 16210,
+      "raw_sha256": "b72db9f92331cc55c89e467f1e6e39cd2fdabe82f2e49cbbe07028305d3231c9",
+      "stored_sha256": "3fcea644bb26efd770a72d2cc4e370319e28a5bb953484ad8b2f54bb52a8bd86",
+      "path": "landed--packages__ai__src__host.ts.gz",
+      "capture_receipt_recovered": true,
+      "request_timestamps": "Unavailable: previous capture saved bytes, then asserted on a wrong helper dependency path before writing its manifest. This row is reconstructed from saved bytes and is not a fresh GET."
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "test/helpers/promise.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/test/helpers/promise.ts",
+      "started_at": "2026-11-02T13:09:28.673057+00:00",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/test/helpers/promise.ts",
+      "raw_bytes": 3442,
+      "raw_sha256": "7737831591422d97cb706c75dd36d8e772a2a64549237a79c8d25772bf027d7a",
+      "stored_sha256": "9c81c7988dad99ab8e7fd7fe6abbccc50027c7130b7887e56b85cd81bd160619",
+      "path": "parent--test__helpers__promise.ts.gz",
+      "completed_at": "2026-11-02T13:09:29.807175+00:00"
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "test/helpers/promise.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/test/helpers/promise.ts",
+      "started_at": "2026-11-02T13:09:28.674056+00:00",
+      "method": "GET",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/test/helpers/promise.ts",
+      "raw_bytes": 3442,
+      "raw_sha256": "7737831591422d97cb706c75dd36d8e772a2a64549237a79c8d25772bf027d7a",
+      "stored_sha256": "9c81c7988dad99ab8e7fd7fe6abbccc50027c7130b7887e56b85cd81bd160619",
+      "path": "landed--test__helpers__promise.ts.gz",
+      "completed_at": "2026-11-02T13:09:29.818962+00:00"
+    },
+    {
+      "role": "parent",
+      "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "source_path": "packages/retry/src/index.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/retry/src/index.ts",
+      "method": "GET",
+      "started_at": "2026-11-02T13:13:26.682558+00:00",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/retry/src/index.ts",
+      "path": "parent--packages__retry__src__index.ts.gz",
+      "raw_bytes": 14539,
+      "raw_sha256": "ab8f0a5e63aabf4d8e6f488edb516295461efed8aa6eca331860e676c9a729bf",
+      "stored_sha256": "66988ba7ef3edd231ba24ca5492d476de62db6da798a86857d2b1def2f3da72d",
+      "completed_at": "2026-11-02T13:13:27.605472+00:00"
+    },
+    {
+      "role": "landed",
+      "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "source_path": "packages/retry/src/index.ts",
+      "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/retry/src/index.ts",
+      "method": "GET",
+      "started_at": "2026-11-02T13:13:26.683560+00:00",
+      "read_scope": "full_text_read",
+      "status": 200,
+      "final_url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/retry/src/index.ts",
+      "path": "landed--packages__retry__src__index.ts.gz",
+      "raw_bytes": 14539,
+      "raw_sha256": "ab8f0a5e63aabf4d8e6f488edb516295461efed8aa6eca331860e676c9a729bf",
+      "stored_sha256": "66988ba7ef3edd231ba24ca5492d476de62db6da798a86857d2b1def2f3da72d",
+      "completed_at": "2026-11-02T13:13:27.791626+00:00"
+    }
+  ],
+  "discussion_scope": "First up to 100 issue-style PR comments; no claim of exhaustive review threads or CI audit.",
+  "version_capture_completed_at": "2026-11-02T13:09:29.819943+00:00",
+  "capture_diagnostic": {
+    "first_capture_exit_code": 1,
+    "failure": "Dependency helper was requested under packages/test/helpers/promise.ts instead of root test/helpers/promise.ts. Final assertion stopped before manifest update; exact original failed-response status/timestamps were not retained.",
+    "recovery": "Preserved all existing compressed source bytes; recovered their metadata without repeating successful GETs. Correct helper fetched at its actual root path. The original added allocation parent 404 is an expected absence.",
+    "failed_dependency_requests": [
+      {
+        "role": "parent",
+        "ref": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+        "url": "https://raw.githubusercontent.com/openclaw/openclaw/43bb559f841430368a4ae2bc1a213fc285d29ccc/packages/test/helpers/promise.ts",
+        "status": "not_retained"
+      },
+      {
+        "role": "landed",
+        "ref": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+        "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/packages/test/helpers/promise.ts",
+        "status": "not_retained"
+      }
+    ],
+    "successful_original_request_timestamps": "Not retained due to original assert; unavailable rather than invented."
+  },
+  "incremental_capture_completed_at": "2026-11-02T13:13:27.791626+00:00",
+  "local_original_manifest_sha256": "3bdf260c04897f700e5c458cd5ecbcfd0ec480984b8fc5b3bdb94c3ac54475d0",
+  "license_receipt": {
+    "url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/LICENSE",
+    "method": "GET",
+    "started_at": "2026-11-02T13:22:16.776510+00:00",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/openclaw/openclaw/775dbe6eebe70ca93db665c8431e7eac09124ae7/LICENSE",
+    "completed_at": "2026-11-02T13:22:17.748843+00:00",
+    "raw_bytes": 1076,
+    "raw_sha256": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4"
+  },
+  "retained_artifacts": [
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--config__test-lines-allocations__chat-completions-payload-cancellation.txt.gz",
+      "bytes": 99,
+      "sha256": "0ac2d6dcfcbfa90f1d07ae4077f776f08a8b9c9669fa3c2a9255dcda5a013d25",
+      "raw_bytes": 88,
+      "raw_sha256": "f8409cf62820fedd81de6b46654ce7ed4f0ca3f7fc31ccfe224c00cea093235f"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__README.md.gz",
+      "bytes": 1676,
+      "sha256": "2dac70dc2160829f5a825b82176b88f2fa53187251577f178d24519d4dc6bcfb",
+      "raw_bytes": 3432,
+      "raw_sha256": "f65a59e61c133f8af23c96c75cca3e77f386020e6ff5befb5d6252a35dbb4fad"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__src__host.ts.gz",
+      "bytes": 4945,
+      "sha256": "3fcea644bb26efd770a72d2cc4e370319e28a5bb953484ad8b2f54bb52a8bd86",
+      "raw_bytes": 16210,
+      "raw_sha256": "b72db9f92331cc55c89e467f1e6e39cd2fdabe82f2e49cbbe07028305d3231c9"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__src__providers__openai-completions.ts.gz",
+      "bytes": 604,
+      "sha256": "a5b36b7cf29c9d6b2caf2ae3a46da8c8f27f9eed375344e0952405454cca32a6",
+      "raw_bytes": 1842,
+      "raw_sha256": "6139005cf0564180b07a5450304883c1e7066bda4e9f5991ac86511e241e3e20"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__src__transports__openai-completions-transport.response-hook.test.ts.gz",
+      "bytes": 3107,
+      "sha256": "451f9621b58a9128bbb0f3efba227916929cf3abbec2f76bda6722b9d65de828",
+      "raw_bytes": 10555,
+      "raw_sha256": "39d1943e3f71f38175564749b3c9e826ecfe7984b935959ebf5f1d2bf23b331b"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__src__transports__openai-completions-transport.ts.gz",
+      "bytes": 6558,
+      "sha256": "37566b25f1a163b1d721bcc8014153948cbb0c9a434b2ee5dd98d9fcfa5ab216",
+      "raw_bytes": 25283,
+      "raw_sha256": "a2553534c488edb3349432d11fb71f9d07b7cedf5fddfa70500a024280e45518"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__ai__src__transports__transport-stream-shared.ts.gz",
+      "bytes": 7295,
+      "sha256": "4c883e72c77e1d7adf361b85a9966002c8b84ebf02e81c4b7b620c7b6a93a972",
+      "raw_bytes": 24442,
+      "raw_sha256": "d987e6ccdfb3aa106e0c81f1fa67eb52ec22fab45eb783d6904b0adfabdf2cf7"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--packages__retry__src__index.ts.gz",
+      "bytes": 4144,
+      "sha256": "66988ba7ef3edd231ba24ca5492d476de62db6da798a86857d2b1def2f3da72d",
+      "raw_bytes": 14539,
+      "raw_sha256": "ab8f0a5e63aabf4d8e6f488edb516295461efed8aa6eca331860e676c9a729bf"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed--test__helpers__promise.ts.gz",
+      "bytes": 1306,
+      "sha256": "9c81c7988dad99ab8e7fd7fe6abbccc50027c7130b7887e56b85cd81bd160619",
+      "raw_bytes": 3442,
+      "raw_sha256": "7737831591422d97cb706c75dd36d8e772a2a64549237a79c8d25772bf027d7a"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed-commit.json.gz",
+      "bytes": 4068,
+      "sha256": "961d5972c7ab07d11a0bc948960b992404890458e7a2cd3c8ccca218469d8d03",
+      "raw_bytes": 12611,
+      "raw_sha256": "8ac95ddeee4f091245d982c1eb51ac54907a53b037f414f9343967e7536ffe63"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/landed-LICENSE.gz",
+      "bytes": 652,
+      "sha256": "d89c8f5b4292d819991a1c3097f1260c17707d9256ef373a19436858a458cff3",
+      "raw_bytes": 1076,
+      "raw_sha256": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__README.md.gz",
+      "bytes": 1663,
+      "sha256": "31faecd493aa2ade89b86272037dc27cc95824f960abc2457f613398a27a4971",
+      "raw_bytes": 3393,
+      "raw_sha256": "69784f7e3accdc584fe37eb4e7dbb65207cda5f7f5d666632a2ffb268bec78d1"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__src__host.ts.gz",
+      "bytes": 4945,
+      "sha256": "3fcea644bb26efd770a72d2cc4e370319e28a5bb953484ad8b2f54bb52a8bd86",
+      "raw_bytes": 16210,
+      "raw_sha256": "b72db9f92331cc55c89e467f1e6e39cd2fdabe82f2e49cbbe07028305d3231c9"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__src__providers__openai-completions.ts.gz",
+      "bytes": 604,
+      "sha256": "a5b36b7cf29c9d6b2caf2ae3a46da8c8f27f9eed375344e0952405454cca32a6",
+      "raw_bytes": 1842,
+      "raw_sha256": "6139005cf0564180b07a5450304883c1e7066bda4e9f5991ac86511e241e3e20"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__src__transports__openai-completions-transport.response-hook.test.ts.gz",
+      "bytes": 2517,
+      "sha256": "5c26ce8d76045e7ca6bc9b0067273fd82c9df2c27883ed008d87e9471e4a82c7",
+      "raw_bytes": 8258,
+      "raw_sha256": "aef3a65df586e3082946b9bedbe08713babe8298c2e45ed995b94ca02ef608cc"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__src__transports__openai-completions-transport.ts.gz",
+      "bytes": 6516,
+      "sha256": "25dc982438e77122dfc646982e9af306726064e169f28a08de07f89dfbefcef5",
+      "raw_bytes": 25137,
+      "raw_sha256": "4417b84d2f4328a1159e337ac050597d71880a44dfd729e1f836721fbc6ea459"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__ai__src__transports__transport-stream-shared.ts.gz",
+      "bytes": 7295,
+      "sha256": "4c883e72c77e1d7adf361b85a9966002c8b84ebf02e81c4b7b620c7b6a93a972",
+      "raw_bytes": 24442,
+      "raw_sha256": "d987e6ccdfb3aa106e0c81f1fa67eb52ec22fab45eb783d6904b0adfabdf2cf7"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--packages__retry__src__index.ts.gz",
+      "bytes": 4144,
+      "sha256": "66988ba7ef3edd231ba24ca5492d476de62db6da798a86857d2b1def2f3da72d",
+      "raw_bytes": 14539,
+      "raw_sha256": "ab8f0a5e63aabf4d8e6f488edb516295461efed8aa6eca331860e676c9a729bf"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/parent--test__helpers__promise.ts.gz",
+      "bytes": 1306,
+      "sha256": "9c81c7988dad99ab8e7fd7fe6abbccc50027c7130b7887e56b85cd81bd160619",
+      "raw_bytes": 3442,
+      "raw_sha256": "7737831591422d97cb706c75dd36d8e772a2a64549237a79c8d25772bf027d7a"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/pr-comments.json.gz",
+      "bytes": 5517,
+      "sha256": "eb922c4066293b99a8c6e4132421238b46f07a494f1e5ba8efbbf42b31de9de3",
+      "raw_bytes": 21511,
+      "raw_sha256": "a68e45e634d46e94c0ecb13746cd82c0a724cf7568dd163dc018fa8c268f593a"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/pr-files.json.gz",
+      "bytes": 2535,
+      "sha256": "90f21a449f22e7467e5277a3cb9e13867c36413cdf8010b3e2bd237e5547beb6",
+      "raw_bytes": 8150,
+      "raw_sha256": "c4b992635624582364d46aafd8f3b7bc51f9a4ba8210126aef8ba43c680adfe4"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/pr.json.gz",
+      "bytes": 3521,
+      "sha256": "c05e99b1490d1309a883708fb206c12f6330454ddc9c2f5e663619eaba366deb",
+      "raw_bytes": 21944,
+      "raw_sha256": "867b55616ce1a4e00f2e8c646aafce4b67db15608d02531b9c451ec77cbfdaa5"
+    },
+    {
+      "path": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/repository.json.gz",
+      "bytes": 1404,
+      "sha256": "05b4b1d463740f5333b5da3d8891addb690e67ead0a172f15d083c74ac6b1412",
+      "raw_bytes": 6364,
+      "raw_sha256": "dc9f2d056f587b832352156617ed74ab1ba3292460ae27124733dc6bc7ec3f76"
+    }
+  ]
+}

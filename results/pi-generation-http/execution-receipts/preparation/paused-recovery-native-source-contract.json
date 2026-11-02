@@ -1,0 +1,134 @@
+{
+  "status": "source_contract_resolved_for_preparation_only",
+  "observed_at": "2026-11-02T13:28:19.686051+00:00",
+  "runtime_source_sha256": {
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/harness/harness.js": "472fe31f5525045ec4b27437a2049236f4f58cce4920aa9bd49e41445097574d",
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/harness/scheduler.js": "bd2c0675f5e2a4351f8c9065c7bc7b4aee219d8668269f50ff1fd844786a0824",
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/harness/tool.js": "9d8615a13cee84fa49b33b8eb3ee613ee302d006817efe3ea8eb013dab1d756b",
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/harness/types.d.ts": "d370cfc70bbaf6a966f65a2c30cdd7425ccee81f6e15fb9409fac0d6ff881862",
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/session/transaction.d.ts": "f2765ff985255783b2ea6933783aa32a7c8812469a7f3cc5406093ede0de0f5a",
+    "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/pi-durable/dist/types.d.ts": "b522ca0377d1196790a2a7d8272195acddaad1c94d3f2cc16207dace12a98c1b"
+  },
+  "read_scope": "Relevant bounded source ranges and API declarations only; scheduler/tool full files were not exhaustively read. Hashes authenticate full files. No native runtime invocation.",
+  "source_ranges": {
+    "harness/harness.js": [
+      [
+        25,
+        80
+      ],
+      [
+        175,
+        224
+      ],
+      [
+        376,
+        399
+      ]
+    ],
+    "harness/scheduler.js": [
+      [
+        171,
+        226
+      ],
+      [
+        341,
+        386
+      ],
+      [
+        412,
+        440
+      ],
+      [
+        606,
+        672
+      ],
+      [
+        1303,
+        1450
+      ],
+      [
+        1521,
+        1565
+      ]
+    ],
+    "harness/tool.js": [
+      [
+        36,
+        40
+      ],
+      [
+        83,
+        117
+      ],
+      [
+        296,
+        317
+      ]
+    ],
+    "harness/types.d.ts": [
+      [
+        615,
+        658
+      ],
+      [
+        721,
+        774
+      ]
+    ],
+    "types.d.ts": [
+      [
+        429,
+        502
+      ]
+    ],
+    "session/transaction.d.ts": [
+      [
+        42,
+        100
+      ]
+    ]
+  },
+  "contracts": [
+    {
+      "claim": "Conversation.abort enables scheduling globally before the conversation-scoped mark commit.",
+      "source": "harness/harness.js:71-74; scheduler.js:222-226,416-438"
+    },
+    {
+      "claim": "One scheduler reservation pass can reserve all eligible tasks across conversations; replay-safe tool execute checkpoints may call execute again.",
+      "source": "scheduler.js:1334-1420; tool.js:105-117,312"
+    },
+    {
+      "claim": "Harness.open awaits running-to-pending normalization with the exact saved checkpoint before returning; scheduler initially disabled.",
+      "source": "harness.js:376-399; scheduler.js:144,171-216"
+    },
+    {
+      "claim": "Public Harness.inspect is read-only, reports scheduling and live TaskInspection.record plus unsettled submissions.",
+      "source": "harness.js:197-204; scheduler.js:1521-1565; harness/types.d.ts:615-658,745-748"
+    },
+    {
+      "claim": "Public abortTask delegates to scheduler.abort, which commits abort intent without enabling scheduling; marking exact recovered roots and tools while paused prevents this specific serial-abort reentry gap.",
+      "source": "harness.js:208-209; scheduler.js:349-384"
+    }
+  ],
+  "prior_saved_identity_evidence": {
+    "path": "results/pi-generation-conflict/raw/identities.json",
+    "sha256": "9ef28916964d64c9566ae1dc0e128d2f094363cf1972fd54426c792a244d7304",
+    "conversations": [
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "submission_id_type": "int"
+  },
+  "limitations": [
+    "Source contract and pure public-API test doubles only; actual native HTTP workload is not executed or frozen.",
+    "Paused assertions are boundary observations under one process owner, not a fence against a concurrent resumer.",
+    "Exact original chain identities and current inspect shape must be validated before marking; arbitrary same-conversation work must never be marked.",
+    "Numeric native conversation IDs repeat across independent Sessions; remote effect identity/authority must include a stable scope per Session. Root owns that prefreeze transport change."
+  ]
+}

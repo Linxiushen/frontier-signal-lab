@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-02T11:26:54.795287+00:00",
-  "observation_note": "One failed native H1suite and separate saved-negative comparisons; one open proposal source/test-design review. Preserve all prior sources, no H2-H4 or general benefit upgrade.",
+  "last_updated_at": "2026-11-02T13:48:46.177997+00:00",
+  "observation_note": "All216prior source objects preserved; one finite native two-Session scoped loopback HTTP effect/recovery suite accepted. Official local Faux is not a real model; no concurrent-owner/production/GPU or causal performance upgrade. H1negative and H3/H4 remain unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -8466,6 +8466,121 @@
       "native_suites": 1,
       "model_loads": 0,
       "retries": 0
+    },
+    {
+      "id": "openclaw-chat-payload-hook-cancellation-landed-191090",
+      "url": "https://github.com/openclaw/openclaw/commit/775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "PR_url": "https://github.com/openclaw/openclaw/pull/191090",
+      "type": "merged_primary_source_and_test_design_review_not_local_runtime_result",
+      "author": "vincentkoc",
+      "merger": "vincentkoc",
+      "published_at": "2026-11-02T12:48:28Z",
+      "recorded_at": "2026-11-02T13:14:53.435112+00:00",
+      "parent": "43bb559f841430368a4ae2bc1a213fc285d29ccc",
+      "landed": "775dbe6eebe70ca93db665c8431e7eac09124ae7",
+      "head": "0fd936dacaaf57dce490cc071f2321ad5496f9a5",
+      "primary_evidence": {
+        "manifest": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-source/manifest.json",
+        "bounded_public_manifest": "research/receipts/20261102T125850Z-openclaw-payload-cancellation-review.json",
+        "narrative": "research/2026-11-02-payload-hook-cancellation.md",
+        "changed_paths": 4,
+        "full_source_versions_captured": 17,
+        "full_source_versions_read": 14,
+        "scoped_only_versions": 3,
+        "local_review_originals": {
+          "manifest": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T125850Z/radar/openclaw-payload-hook-cancel-191090/manifest.json",
+          "bounded_public_manifest": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T125850Z/radar/openclaw-payload-hook-cancellation-review-manifest.json",
+          "narrative": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T125850Z/radar/openclaw-payload-hook-cancellation-source-review.zh.md",
+          "changed_paths": 4,
+          "full_source_versions_captured": 17,
+          "full_source_versions_read": 14,
+          "scoped_only_versions": 3
+        }
+      },
+      "fact": [
+        "Chat Completions payload callbacks now use the existing abort-aware lifecycle helper before HTTP create, retaining the non-undefined payload replacement contract.",
+        "The existing helper exposes pending callback work to an optional host port, races caller abort, and checks abort before and after; abort does not terminate that work.",
+        "The unchanged retry race observes the source promise and removes its abort listener in finally. The default inert host does not install observePendingProviderWork.",
+        "Two added parameterized cases cover direct+late resolve and managed+late reject with an injected mock fetch. They require terminal cancellation before drain and no late HTTP dispatch."
+      ],
+      "author_claims": [
+        "PR reports base 2-second failures, passing head cases and nearby/type/lint/format checks; neither local execution nor independent CI verification was performed here."
+      ],
+      "our_inference": "Keep caller cancellation, background callback/transport drain, and independent durable effect reconciliation as separate bounded endpoints in the already planned native ToolTask/local HTTP caller.",
+      "source_gate": {
+        "status": "landed_source_design_only",
+        "actual_caller": "Direct or managed Chat Completions adapter entering streamOpenAICompletionsRequest with onPayload and AbortSignal",
+        "scale_bottleneck": "Cancelled requests can leave pending hook work; observation/retention and cancellation latency require independent bounds at load.",
+        "native_integration_point": "Existing awaitProviderLifecycleCallback at the payload callback before HTTP create; next project integration remains native ToolTask to free loopback HTTP durable effect.",
+        "future_acceptance": "Separate caller terminal and work drain deadlines; zero dispatch/terminal replacement from late hook success/error, current authority and idempotent durable effect recovery across two process restarts, fixed admission/resource limits and explicit quality/success/useful-throughput/tail/resource/observation endpoints.",
+        "validated_tier": "Immutable source/test-design review only; no upstream local tests, native HTTP, live provider, restart or production validation.",
+        "rollback": "No runtime adoption or new diagnostic prerequisite; preserve current frozen integration boundaries."
+      },
+      "local_review": {
+        "scientific_experiments": 0,
+        "native_suites": 0,
+        "model_loads": 0,
+        "upstream_tests_executed": 0,
+        "full_source_versions_read": 14,
+        "scoped_only_versions": 3,
+        "all_changed_path_diffs_read": true,
+        "full_dependency_closure_read": false
+      },
+      "limits": [
+        "Not four route/outcome combinations; not a real HTTP server or live provider test.",
+        "Host observation is optional and process-local; no persistence, drain time, exactly-once, restart, workload-scale, or production claim.",
+        "Author validation claims are distinct from this source review. No scientific status promotion.",
+        "First capture helper-path assert failure and missing original timestamps/status retained explicitly; successful source bytes preserved."
+      ],
+      "curation_note": "Adds one landed source/test-design item only; no scientific status promotion or runtime adoption. All215 prior source objects preserved exactly."
+    },
+    {
+      "id": "pi-native-scoped-http-effect-two-reopen-slice",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/pi-generation-http/report.md",
+      "type": "own_preregistered_native_single_host_faux_and_real_loopback_HTTP_result",
+      "author": "Linxiushen",
+      "recorded_at": "2026-11-02T13:48:46.170996+00:00",
+      "record": "results/pi-generation-http/report.md",
+      "protocol": "experiments/pi_generation_http_protocol.json",
+      "implementation_freeze": "fixtures/pi-generation-http/implementation.json",
+      "fact": [
+        "One separately frozen suite, zero retries/model loads, two actual native SQLite Sessions, three native PIDs/two forced kills/reopens and three separate Python server PIDs/two graceful reopens.",
+        "16 arrivals/12 durable host reservations/four overload; 12 GenerationTask/ToolTask/official local Faux chains, eight independently persisted loopback HTTP effects count1,14GETs/14POSTs.",
+        "Six recovered reservations,12 host/24 native terminal tasks, finalactive0; six normal completions/two pre-effect cancels/two remote authority refusals/two post-effect cancels.",
+        "Lookup-first recovery binds exact scoped receipts; paused public abortTask batch marks original native generation/tool pairs before any conversation abort can resume the Session.",
+        "Native numeric conversation IDs repeat across Sessions; remote authority includes stable service scope plus exact typed native ID. Pure controls independently reject cross-scope acknowledgement and authority aliasing.",
+        "Frozen acceptance and independent saved-byte review pass; all95raw files/2072017bytes, nine stopped SQLite copies, original identity/task/event/control joins retained.",
+        "Suite7.172s, source/runtime authentication28.656s, controller35.828s and completeCLI36.234s are separate measured scopes."
+      ],
+      "our_inference": "Separately persisted effects need a scoped original identity and recovery before releasing host capacity; caller cancellation, remote commit and acknowledgement are distinct endpoints. This finite trusted-host result does not establish concurrent policy/owner correctness.",
+      "acceptance": {
+        "arrivals": 16,
+        "host_reservations": 12,
+        "overloaded": 4,
+        "native_generation_tasks": 12,
+        "native_tool_tasks": 12,
+        "faux_provider_calls": 12,
+        "remote_effects": 8,
+        "effect_GETs": 14,
+        "effect_POSTs": 14,
+        "host_terminals": 12,
+        "native_terminal_tasks": 24,
+        "recovered_reservations": 6,
+        "final_active": 0,
+        "terminal_latency_ms": {
+          "n": 12,
+          "p50": 130,
+          "p95": 2287,
+          "p99": 2287
+        }
+      },
+      "metrics_record": "results/pi-generation-http/report.json",
+      "limits": "One trusted Windows host, serial controlled arrival, two native SQLite Sessions and one separately persisted local SQLite effect database. Official local Faux is not a real model; HTTP reaches only a free loopback tool endpoint. Fixture header/control endpoints are not tenant authentication. Exact finite identities and transactional unique-key rows do not establish general external exactly-once, atomic host/remote policy, concurrent-owner/cancellation races, arbitrary network or crash-log durability, server failure injection, real API/GPU/distributed/production or SLO/causal performance. Histories grow, reconciliation/reaping is explicit, intermediate callback revisions need not remain in SQLite history. Old H1/H2 failures/results and H3/H4 remain unchanged.",
+      "next_gate": "CLOSED: finite single-owner independently persisted local HTTP caller accepted. Next work requires separately justified real runner or concurrent current-authority/cancellation integration with preregistered limits.",
+      "scientific_suites": 1,
+      "native_suites": 1,
+      "model_loads": 0,
+      "retries": 0
     }
   ],
   "previous_observation_notes": [
@@ -8494,9 +8609,21 @@
       "observation_note": "Prior209sourceobjects preserved. Added one separately frozen single-host native H2 pending-authority/cancel-mark suite:twoSQLiteSessions,3PIDs/2kills/reopens,12hostterminals/8nativeFauxchains/6localeffects count1,finalactive0. Finite fixture gate closed; genuine nativebusy/submiterror/request-IDcollision remain next in samecaller. No realmodel/HTTP/tenant/concurrentowner/externalexactlyonce/production or comparativeperformanceproof. Fullcontrollerauthenticationwall not captured. H1/H3/H4,oldfailures and originalresourcegates unchanged.",
       "reason": "Preserve prior H2-current note before H1 source addition current-pointer correction"
     },
-    "Prior210sourceobjects preserved exactly;211total. One separately frozen H1 native complete-cost suite failed on its second case after dense64updates/two model loads;10cases/all evaluations unrun, no paired cost/quality. Separate versioned preservation-group caller preparation passes pure controls only, no v4freeze/native retry. Current composite environment explicitly includes scandir and changed authenticated base Python; no scandir-only attribution. H1 scientific status/old failures and H2/H3/H4 unchanged."
+    "Prior210sourceobjects preserved exactly;211total. One separately frozen H1 native complete-cost suite failed on its second case after dense64updates/two model loads;10cases/all evaluations unrun, no paired cost/quality. Separate versioned preservation-group caller preparation passes pure controls only, no v4freeze/native retry. Current composite environment explicitly includes scandir and changed authenticated base Python; no scandir-only attribution. H1 scientific status/old failures and H2/H3/H4 unchanged.",
+    {
+      "recorded_at": "2026-11-02T13:22:17.804340+00:00",
+      "observation_note": "One failed native H1suite and separate saved-negative comparisons; one open proposal source/test-design review. Preserve all prior sources, no H2-H4 or general benefit upgrade.",
+      "reason": "Preserve prior note before bounded OpenClaw payload-cancellation source addition"
+    },
+    {
+      "recorded_at": "2026-11-02T13:48:46.177997+00:00",
+      "observation_note": "Preserve215prior source objects exactly; one landed OpenClaw191090 source/test-design supplement distinguishes caller cancellation from retained hook work. No local upstream/native/model/scientific execution in this source review; existing H1negative/H2-H4 statuses and resource gates unchanged.",
+      "reason": "Preserve source-only supplement before adding the distinct accepted native HTTP result"
+    }
   ],
   "last_updated_at_history": [
-    "2026-11-02T09:30:14.531327+00:00"
+    "2026-11-02T09:30:14.531327+00:00",
+    "2026-11-02T11:26:54.795287+00:00",
+    "2026-11-02T13:22:17.804340+00:00"
   ]
 }

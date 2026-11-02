@@ -1,0 +1,486 @@
+{
+  "stage": 1,
+  "pid": 8372,
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 2,
+          "allowed": true
+        },
+        "8": {
+          "version": 2,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db0-remote-deny-0": {
+          "fingerprint": "ffa1c6c993cb55d1ad3de5bbc498f844352b4467952cc4b17b9f6c8cf4122408",
+          "conversation": 2,
+          "requestId": "s0-db0-remote-deny-0",
+          "payload": "payload-s0-db0-remote-deny-0",
+          "version": 1,
+          "submissionId": 16,
+          "effectDenied": true,
+          "terminal": {
+            "conversationId": 2,
+            "requestId": "s0-db0-remote-deny-0",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 15,
+            "id": 16,
+            "reason": "aborted"
+          }
+        },
+        "8:s0-db0-pre-cancel-1": {
+          "fingerprint": "5d94640fc233764c31c2a8476ffaa9c6bb07e7cf635f6db044908cfae8023cea",
+          "conversation": 8,
+          "requestId": "s0-db0-pre-cancel-1",
+          "payload": "payload-s0-db0-pre-cancel-1",
+          "version": 1,
+          "submissionId": 20,
+          "cancelled": true,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-db0-pre-cancel-1",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 19,
+            "id": 20,
+            "reason": "aborted"
+          }
+        },
+        "2:s1-db0-post-cancel-0": {
+          "fingerprint": "e28dab0e66600a4a98fea675848d92823412cf657a51cbfa5b8df76c79b39c48",
+          "conversation": 2,
+          "requestId": "s1-db0-post-cancel-0",
+          "payload": "payload-s1-db0-post-cancel-0",
+          "version": 2,
+          "submissionId": 30,
+          "cancelled": true
+        },
+        "8:s1-db0-commit-1": {
+          "fingerprint": "a97ad20615c87a48974ae068dd64861f22c444a2904c9b65d7f5e84757ec8259",
+          "conversation": 8,
+          "requestId": "s1-db0-commit-1",
+          "payload": "payload-s1-db0-commit-1",
+          "version": 2,
+          "submissionId": 33,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s1-db0-commit-1",
+            "type": "input",
+            "status": "done",
+            "entry": 32,
+            "id": 33,
+            "answer": 37
+          }
+        }
+      },
+      "active": {
+        "2:s1-db0-post-cancel-0": true
+      },
+      "effects": {
+        "8:s1-db0-commit-1": {
+          "count": 1,
+          "payload": "payload-s1-db0-commit-1",
+          "receipt": {
+            "key": "8:s1-db0-commit-1",
+            "payload": "payload-s1-db0-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "a97ad20615c87a48974ae068dd64861f22c444a2904c9b65d7f5e84757ec8259",
+            "count": 1
+          }
+        }
+      },
+      "effectIntents": {
+        "2:s0-db0-remote-deny-0": {
+          "identity": {
+            "key": "2:s0-db0-remote-deny-0",
+            "payload": "payload-s0-db0-remote-deny-0",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service0",
+            "fingerprint": "ffa1c6c993cb55d1ad3de5bbc498f844352b4467952cc4b17b9f6c8cf4122408"
+          },
+          "status": "denied"
+        },
+        "8:s0-db0-pre-cancel-1": {
+          "identity": {
+            "key": "8:s0-db0-pre-cancel-1",
+            "payload": "payload-s0-db0-pre-cancel-1",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "5d94640fc233764c31c2a8476ffaa9c6bb07e7cf635f6db044908cfae8023cea"
+          },
+          "status": "aborted"
+        },
+        "2:s1-db0-post-cancel-0": {
+          "identity": {
+            "key": "2:s1-db0-post-cancel-0",
+            "payload": "payload-s1-db0-post-cancel-0",
+            "version": 2,
+            "conversation": 2,
+            "scope": "service0",
+            "fingerprint": "e28dab0e66600a4a98fea675848d92823412cf657a51cbfa5b8df76c79b39c48"
+          },
+          "status": "pending"
+        },
+        "8:s1-db0-commit-1": {
+          "identity": {
+            "key": "8:s1-db0-commit-1",
+            "payload": "payload-s1-db0-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "a97ad20615c87a48974ae068dd64861f22c444a2904c9b65d7f5e84757ec8259"
+          },
+          "status": "committed",
+          "receipt": {
+            "key": "8:s1-db0-commit-1",
+            "payload": "payload-s1-db0-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "a97ad20615c87a48974ae068dd64861f22c444a2904c9b65d7f5e84757ec8259",
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 2,
+          "allowed": true
+        },
+        "8": {
+          "version": 2,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db1-remote-deny-0": {
+          "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90",
+          "conversation": 2,
+          "requestId": "s0-db1-remote-deny-0",
+          "payload": "payload-s0-db1-remote-deny-0",
+          "version": 1,
+          "submissionId": 16,
+          "effectDenied": true,
+          "terminal": {
+            "conversationId": 2,
+            "requestId": "s0-db1-remote-deny-0",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 15,
+            "id": 16,
+            "reason": "aborted"
+          }
+        },
+        "8:s0-db1-pre-cancel-1": {
+          "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab",
+          "conversation": 8,
+          "requestId": "s0-db1-pre-cancel-1",
+          "payload": "payload-s0-db1-pre-cancel-1",
+          "version": 1,
+          "submissionId": 20,
+          "cancelled": true,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-db1-pre-cancel-1",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 19,
+            "id": 20,
+            "reason": "aborted"
+          }
+        },
+        "2:s1-db1-post-cancel-0": {
+          "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f",
+          "conversation": 2,
+          "requestId": "s1-db1-post-cancel-0",
+          "payload": "payload-s1-db1-post-cancel-0",
+          "version": 2,
+          "submissionId": 30,
+          "cancelled": true
+        },
+        "8:s1-db1-commit-1": {
+          "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+          "conversation": 8,
+          "requestId": "s1-db1-commit-1",
+          "payload": "payload-s1-db1-commit-1",
+          "version": 2,
+          "submissionId": 33,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s1-db1-commit-1",
+            "type": "input",
+            "status": "done",
+            "entry": 32,
+            "id": 33,
+            "answer": 37
+          }
+        }
+      },
+      "active": {
+        "2:s1-db1-post-cancel-0": true
+      },
+      "effects": {
+        "8:s1-db1-commit-1": {
+          "count": 1,
+          "payload": "payload-s1-db1-commit-1",
+          "receipt": {
+            "key": "8:s1-db1-commit-1",
+            "payload": "payload-s1-db1-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+            "count": 1
+          }
+        }
+      },
+      "effectIntents": {
+        "2:s0-db1-remote-deny-0": {
+          "identity": {
+            "key": "2:s0-db1-remote-deny-0",
+            "payload": "payload-s0-db1-remote-deny-0",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "7b61afd2e5233f95f98359293b7f1d6a486492dabf5b111d0d6e487efeaf6e90"
+          },
+          "status": "denied"
+        },
+        "8:s0-db1-pre-cancel-1": {
+          "identity": {
+            "key": "8:s0-db1-pre-cancel-1",
+            "payload": "payload-s0-db1-pre-cancel-1",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "14c4d064925a08f4875bb4f1438e8ef2559447721c8c8156b985b464b14e9cab"
+          },
+          "status": "aborted"
+        },
+        "2:s1-db1-post-cancel-0": {
+          "identity": {
+            "key": "2:s1-db1-post-cancel-0",
+            "payload": "payload-s1-db1-post-cancel-0",
+            "version": 2,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f"
+          },
+          "status": "pending"
+        },
+        "8:s1-db1-commit-1": {
+          "identity": {
+            "key": "8:s1-db1-commit-1",
+            "payload": "payload-s1-db1-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9"
+          },
+          "status": "committed",
+          "receipt": {
+            "key": "8:s1-db1-commit-1",
+            "payload": "payload-s1-db1-commit-1",
+            "version": 2,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+            "count": 1
+          }
+        }
+      }
+    }
+  ],
+  "pending": [
+    {
+      "service": 0,
+      "conversation": 2,
+      "requestId": "s1-db0-post-cancel-0",
+      "intent": "post-cancel",
+      "stage": 1,
+      "version": 2,
+      "key": "2:s1-db0-post-cancel-0",
+      "payload": "payload-s1-db0-post-cancel-0",
+      "offered_epoch_ms": 1793626747700,
+      "status": "admit",
+      "submissionId": 30
+    },
+    {
+      "service": 1,
+      "conversation": 2,
+      "requestId": "s1-db1-post-cancel-0",
+      "intent": "post-cancel",
+      "stage": 1,
+      "version": 2,
+      "key": "2:s1-db1-post-cancel-0",
+      "payload": "payload-s1-db1-post-cancel-0",
+      "offered_epoch_ms": 1793626747805,
+      "status": "admit",
+      "submissionId": 30
+    }
+  ],
+  "server": {
+    "authority": [
+      [
+        "service0",
+        2,
+        2,
+        1
+      ],
+      [
+        "service0",
+        8,
+        2,
+        1
+      ],
+      [
+        "service1",
+        2,
+        2,
+        1
+      ],
+      [
+        "service1",
+        8,
+        2,
+        1
+      ]
+    ],
+    "effects": [
+      {
+        "conversation": 2,
+        "fingerprint": "e28dab0e66600a4a98fea675848d92823412cf657a51cbfa5b8df76c79b39c48",
+        "key": "2:s1-db0-post-cancel-0",
+        "payload": "payload-s1-db0-post-cancel-0",
+        "scope": "service0",
+        "version": 2,
+        "count": 1
+      },
+      {
+        "conversation": 2,
+        "fingerprint": "20c36db9e512b244525dd4fafa11792a309254606319185d5be80d3d91da330f",
+        "key": "2:s1-db1-post-cancel-0",
+        "payload": "payload-s1-db1-post-cancel-0",
+        "scope": "service1",
+        "version": 2,
+        "count": 1
+      },
+      {
+        "conversation": 8,
+        "fingerprint": "a97ad20615c87a48974ae068dd64861f22c444a2904c9b65d7f5e84757ec8259",
+        "key": "8:s1-db0-commit-1",
+        "payload": "payload-s1-db0-commit-1",
+        "scope": "service0",
+        "version": 2,
+        "count": 1
+      },
+      {
+        "conversation": 8,
+        "fingerprint": "4aee1bf4428e66872f1337423b22fae760f1183b82b1e797edf594010ed426f9",
+        "key": "8:s1-db1-commit-1",
+        "payload": "payload-s1-db1-commit-1",
+        "scope": "service1",
+        "version": 2,
+        "count": 1
+      }
+    ],
+    "attempts": [
+      [
+        1,
+        "GET",
+        "2:s0-db0-remote-deny-0",
+        404
+      ],
+      [
+        2,
+        "POST",
+        "2:s0-db0-remote-deny-0",
+        403
+      ],
+      [
+        3,
+        "GET",
+        "8:s0-db0-pre-cancel-1",
+        404
+      ],
+      [
+        4,
+        "GET",
+        "2:s0-db1-remote-deny-0",
+        404
+      ],
+      [
+        5,
+        "POST",
+        "2:s0-db1-remote-deny-0",
+        403
+      ],
+      [
+        6,
+        "GET",
+        "8:s0-db1-pre-cancel-1",
+        404
+      ],
+      [
+        7,
+        "GET",
+        "2:s1-db0-post-cancel-0",
+        404
+      ],
+      [
+        8,
+        "GET",
+        "8:s1-db0-commit-1",
+        404
+      ],
+      [
+        9,
+        "POST",
+        "2:s1-db0-post-cancel-0",
+        201
+      ],
+      [
+        10,
+        "POST",
+        "8:s1-db0-commit-1",
+        201
+      ],
+      [
+        11,
+        "GET",
+        "2:s1-db1-post-cancel-0",
+        404
+      ],
+      [
+        12,
+        "GET",
+        "8:s1-db1-commit-1",
+        404
+      ],
+      [
+        13,
+        "POST",
+        "2:s1-db1-post-cancel-0",
+        201
+      ],
+      [
+        14,
+        "POST",
+        "8:s1-db1-commit-1",
+        201
+      ]
+    ]
+  }
+}

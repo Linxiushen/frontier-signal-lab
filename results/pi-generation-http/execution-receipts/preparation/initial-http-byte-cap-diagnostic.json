@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-11-02T13:07:09.709931+00:00",
+  "scope": "Pre-freeze Node unit tests; no native/model/scientific execution",
+  "observed_tests": 6,
+  "passed": 5,
+  "failed": 1,
+  "test": "real loopback HTTP accepts exact reply; malformed/large/slow replies are bounded",
+  "observed_failure": "Expected /byte ceiling/ but received SyntaxError: Unexpected end of JSON input",
+  "cause": "response end could win after req.destroy before asynchronous request error; finish byte rejection synchronously before destroy",
+  "native_retry": false
+}

@@ -1,0 +1,113 @@
+{
+  "reviewed_at": "2026-11-02T13:12:56.374845+00:00",
+  "reviewer": "/root/maintenance_resume",
+  "status": "passed_bounded_worker_core_preparation_review",
+  "findings": [],
+  "source_sha256": {
+    "scripts/pi_generation_http_worker.mjs": "58fd88ecf82051006d6e86b547af7d22f1773056db94b282869e9eb00288ef52",
+    "tests/pi_generation_http_worker.test.mjs": "ef7b24f7821812299ab0e8f1bcff4ed612cced4d62fe8b6735cf745d6d7abd99",
+    "experiments/pi_effect_http_client.mjs": "0b09579f69136d1a34035e1c55521b7956e50706dcf88481170d68ffd0a70a42",
+    "experiments/pi_effect_http_server.py": "97d27ca6561d9ab84929b8cd452906dcbb3f7cd6f771f597de6d6d3c699d7a68",
+    "experiments/pi_generation_http_service.mjs": "42743b0b4a119e12afca28f77216d60c8176e81f3756bd0b2e812e601917fae7",
+    "tests/pi_effect_http.test.mjs": "6bed6c85d2a03eb187e3209d9d81211818c6b793f44e00a1ba217b3213a0ed51",
+    "tests/test_pi_effect_http_server.py": "fad9db14a44e48400428b02f45fcdbedfac1c9015e9bc187c1605a75066404f6"
+  },
+  "owned_edits": [
+    "scripts/pi_generation_http_worker.mjs",
+    "tests/pi_generation_http_worker.test.mjs"
+  ],
+  "core_files_read_not_edited": [
+    "experiments/pi_effect_http_client.mjs",
+    "experiments/pi_effect_http_server.py",
+    "experiments/pi_generation_http_service.mjs"
+  ],
+  "preparation_receipts": {
+    "worker_syntax": {
+      "path": "reports/runs/20261102T125850Z/h2-preparation/http-worker-syntax.receipt.json",
+      "sha256": "bbfdf746bc1b5a99140e92f7f9bd963279dc92d67d60f737051c750088e2252b",
+      "exit_code": 0,
+      "by_this_reviewer": true,
+      "scope": "Syntax/pure gate controls"
+    },
+    "worker_pure_gate": {
+      "path": "reports/runs/20261102T125850Z/h2-preparation/http-worker-pure-gates.receipt.json",
+      "sha256": "55b1bc7fdf168d52f0aa6f3f834cea097920a121b116c6766924dac6937f6a09",
+      "exit_code": 0,
+      "by_this_reviewer": true,
+      "scope": "Syntax/pure gate controls"
+    },
+    "root_core_Node": {
+      "path": "reports/runs/20261102T125850Z/h2-preparation/node-core.receipt.json",
+      "sha256": "487dd6b557bd848bfd30abff3e37dbbcf5f1daa35a2ea8c6ee4d2b970fb12db0",
+      "exit_code": 0,
+      "by_this_reviewer": false,
+      "scope": "Saved root preparation receipt; seven pure/fake-dispatcher+loopbackNode controls or four direct local SQLiteStore tests, not native/model science"
+    },
+    "root_store_Python": {
+      "path": "reports/runs/20261102T125850Z/h2-preparation/python-store.receipt.json",
+      "sha256": "29eb1394da770713c0f15d6044e58a6d9be9abd78b89c7ae492a56b053fae9e5",
+      "exit_code": 0,
+      "by_this_reviewer": false,
+      "scope": "Saved root preparation receipt; seven pure/fake-dispatcher+loopbackNode controls or four direct local SQLiteStore tests, not native/model science"
+    }
+  },
+  "worker_actual_execution": false,
+  "native_suites": 0,
+  "model_loads": 0,
+  "freeze_or_publication": false,
+  "workload_design_review": {
+    "sessions": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "worker_stages": 3,
+    "planned_forced_kills_and_reopens": 2,
+    "arrivals_by_stage": [
+      6,
+      4,
+      6
+    ],
+    "planned_host_and_native_chains": 12,
+    "planned_overload_refusals": 4,
+    "planned_localHTTP_effects": 8,
+    "planned_native_tasks": 24,
+    "planned_native_completed": 12,
+    "planned_native_aborted": 12,
+    "planned_effect_GETs": 14,
+    "planned_effect_POSTs": 14,
+    "planned_POST_status_counts": {
+      "403": 2,
+      "201": 8,
+      "200": 2,
+      "409": 2
+    },
+    "planned_recovered_requests": 6,
+    "status": "These are preregistered design counts, not runtime results."
+  },
+  "worker_artifacts": {
+    "ids": "identities.json",
+    "stage": "stageN-snapshot.json contains stage,pid,states,pending,server",
+    "effect_initial": "effect-serverN-initial-snapshot.json exactGET/snapshot before recovery; compares previous stopped-server final whenN>0",
+    "effect_ready": "effect-serverN-ready-snapshot.json exactGET/snapshot after stage workload",
+    "ready": "stageN-ready.json atomically renamed last, after logs/sink/state snapshots; controller may kill stages0/1 only then",
+    "trace": "stageN.jsonl andstageN-sink.json callback/flushdescriptivecost"
+  },
+  "reviewed_behaviors": [
+    "Imports do not open optional native runtime; directCLI args runtimeDir,out,stage,baseURL. Globalfetch denies network; explicitnode:http client only accepts127.0.0.1 with finite timeout/body ceilings.",
+    "Onlybefore-transport holds. before-effect andafter-effect autoopen andabortsignals checked. Independentservice/keyrelease andcancellation purecontrols pass.",
+    "Stage0 persistsfourhostintent/nativechains atbefore-transport beforetwo overloadrefusals; withdrawsremoteonlyauthorityforc0 whilehoststaysallowed anddurablycancelshostc1beforeabort.",
+    "Eachreopen comparesfreshserverSQLsnapshot againstpreviousgracefulfinal; adapterreconcilespendingexternalintentsbefore native resume andbefore advancingauthorityversion.",
+    "Stage1 holdsPOST201replies afterseparateSQLitecommit,waitsremoteeffectsandnormalnativecompletion,assertspostintentstillpending/nolocalack,thendurablecancelmarkbeforeabort.",
+    "Stage2 recoversoriginalpostcancelkeysbyGETreceiptwithoutnewPOST,thenfinishesfournewcontrols; exactduplicatePOSTandchangedpayloadwithmatchingnewfingerprintPOST409 leaveeffectsunchanged.",
+    "Finalworkerrefreshesalloriginalsubmissionterminalidentities; closesnativeHarnessesonlystage2; allreadyfileswrittenafterlogflush.",
+    "Coreack validatesreceiptidentity/count andcurrenthostidentity; pendingeffectfirstlookuppermitshistoricalackaftercancel,missingcancelledintentneverapplies,remotedenialmarksrequestforexactnativeabort.",
+    "SeparateeffectSQLtransactioncheckscurrentauthorityfornewkeysandcommitscount1withattempts; duplicateexistingidentityreturnsreceiptandchangedidentity409beforeanyinsert."
+  ],
+  "limitations": [
+    "No native worker stage, native runtime or whole serverprocess/controller suite executed by thisreviewer. Rootprotocol/controller/auditor are outside thisreview and must be separately reviewed beforefreeze.",
+    "Expectedcountsareplans. Puregate,stubdispatcher,loopbackreplycontrolsanddirectSQLiteStore tests do not establishnative/Faux chain/restarts/independentserverpersistence outcomes.",
+    "Trusted singleowner localfixtureheader isnottenantauth. Host permissionchecks andexternalnetworkcommitarenotatomic; concurrentowners,network/SQLfaults,races,realmodels/GPU/production/externalexactlyonce remainunverified.",
+    "Serverholdsreply atmost8s; clienttransportdeadline2s; wholeworkerconditions8s. Frozencontroller mustreachready/killwithinthoseunchangedbounds and retain anyfailure.",
+    "Callbacks retainlatestservicecheckpointperstage; intermediatecallbackhistory cannotallbe joinedtoretainedhistoricalSQLrevisions.",
+    "Corefilesremainmutableuntilrootfreeze. Reviewappliesonlylistedhashes; changedcoreorworkerrequiresdifferentialreview/relevantpurecontrols."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-11-02T13:30:46.368625+00:00",
+  "native_suites": 0,
+  "freeze_exists": false,
+  "diagnostics": [
+    {
+      "issue": "Conversation.abort resumes all Session scheduling; another recovered safe ToolTask could replay",
+      "resolution": "Validate entire original batch through public inspect/transaction reads, persist all exact generation+tool abortTask marks while paused before any conversation-wide abort; native open normalization source read separately."
+    },
+    {
+      "issue": "Pure fixture assumed string native IDs; actual native IDs are positive numbers and repeat across separate SQLite Sessions",
+      "resolution": "Keep native integer identities, add stable remote service0/service1 scope, composite remote authority key, explicit scope-bound receipts; positive numeric submission assertion and crossSession authority/receipt pure controls."
+    },
+    {
+      "issue": "Ready file visible before complete JSON, unordered after-commit server observation and SQLite connection lifetime",
+      "resolution": "Atomic ready rename, lock around effect transaction+event emission, explicit connection closing."
+    },
+    {
+      "issue": "Initial Node byte ceiling asynchronous error lost its race to JSON parse",
+      "resolution": "Finish bound rejection synchronously before destroy; initial failed receipt retained."
+    }
+  ],
+  "rule": "All changes occurred before freeze/scientific reservation; no outcome-triggered adjustment or native retry."
+}

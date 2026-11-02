@@ -1,0 +1,301 @@
+{
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-revoke": {
+          "fingerprint": "514241c8019e61b6a99ba9adb6f3732bff9118f4df8fa3bfbfba2169ac5040c6",
+          "conversation": 2,
+          "requestId": "s0-revoke",
+          "payload": "service0/s0-revoke",
+          "version": 1,
+          "submissionId": 16,
+          "effectDenied": true,
+          "terminal": {
+            "conversationId": 2,
+            "requestId": "s0-revoke",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 15,
+            "id": 16,
+            "reason": "aborted"
+          }
+        },
+        "8:s0-cancel": {
+          "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080",
+          "conversation": 8,
+          "requestId": "s0-cancel",
+          "payload": "service0/s0-cancel",
+          "version": 1,
+          "submissionId": 20,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-cancel",
+            "type": "input",
+            "status": "done",
+            "entry": 19,
+            "id": 20,
+            "answer": 25
+          }
+        }
+      },
+      "active": {},
+      "effects": {
+        "8:s0-cancel": {
+          "count": 1,
+          "payload": "service0/s0-cancel",
+          "receipt": {
+            "key": "8:s0-cancel",
+            "payload": "service0/s0-cancel",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080",
+            "count": 1
+          }
+        }
+      },
+      "effectIntents": {
+        "2:s0-revoke": {
+          "identity": {
+            "key": "2:s0-revoke",
+            "payload": "service0/s0-revoke",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service0",
+            "fingerprint": "514241c8019e61b6a99ba9adb6f3732bff9118f4df8fa3bfbfba2169ac5040c6"
+          },
+          "status": "denied"
+        },
+        "8:s0-cancel": {
+          "identity": {
+            "key": "8:s0-cancel",
+            "payload": "service0/s0-cancel",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080"
+          },
+          "status": "committed",
+          "receipt": {
+            "key": "8:s0-cancel",
+            "payload": "service0/s0-cancel",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service0",
+            "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080",
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-revoke": {
+          "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800",
+          "conversation": 2,
+          "requestId": "s0-revoke",
+          "payload": "service1/s0-revoke",
+          "version": 1,
+          "submissionId": 16,
+          "terminal": {
+            "conversationId": 2,
+            "requestId": "s0-revoke",
+            "type": "input",
+            "status": "done",
+            "entry": 15,
+            "id": 16,
+            "answer": 23
+          }
+        },
+        "8:s0-cancel": {
+          "fingerprint": "f990a8ab6a355bb8dca3ab61ea01424d2ff688696c6024d8d232d9fa832458dd",
+          "conversation": 8,
+          "requestId": "s0-cancel",
+          "payload": "service1/s0-cancel",
+          "version": 1,
+          "submissionId": 20,
+          "cancelled": true,
+          "terminal": {
+            "conversationId": 8,
+            "requestId": "s0-cancel",
+            "type": "input",
+            "status": "unanswered",
+            "entry": 19,
+            "id": 20,
+            "reason": "aborted"
+          }
+        }
+      },
+      "active": {},
+      "effects": {
+        "2:s0-revoke": {
+          "count": 1,
+          "payload": "service1/s0-revoke",
+          "receipt": {
+            "key": "2:s0-revoke",
+            "payload": "service1/s0-revoke",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800",
+            "count": 1
+          }
+        }
+      },
+      "effectIntents": {
+        "2:s0-revoke": {
+          "identity": {
+            "key": "2:s0-revoke",
+            "payload": "service1/s0-revoke",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800"
+          },
+          "status": "committed",
+          "receipt": {
+            "key": "2:s0-revoke",
+            "payload": "service1/s0-revoke",
+            "version": 1,
+            "conversation": 2,
+            "scope": "service1",
+            "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800",
+            "count": 1
+          }
+        },
+        "8:s0-cancel": {
+          "identity": {
+            "key": "8:s0-cancel",
+            "payload": "service1/s0-cancel",
+            "version": 1,
+            "conversation": 8,
+            "scope": "service1",
+            "fingerprint": "f990a8ab6a355bb8dca3ab61ea01424d2ff688696c6024d8d232d9fa832458dd"
+          },
+          "status": "aborted"
+        }
+      }
+    }
+  ],
+  "server": {
+    "authority": [
+      [
+        "service0",
+        2,
+        1,
+        0
+      ],
+      [
+        "service0",
+        8,
+        1,
+        1
+      ],
+      [
+        "service1",
+        2,
+        1,
+        1
+      ],
+      [
+        "service1",
+        8,
+        1,
+        1
+      ]
+    ],
+    "effects": [
+      {
+        "conversation": 8,
+        "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080",
+        "key": "8:s0-cancel",
+        "payload": "service0/s0-cancel",
+        "scope": "service0",
+        "version": 1,
+        "count": 1
+      },
+      {
+        "conversation": 2,
+        "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800",
+        "key": "2:s0-revoke",
+        "payload": "service1/s0-revoke",
+        "scope": "service1",
+        "version": 1,
+        "count": 1
+      }
+    ],
+    "attempts": [
+      [
+        1,
+        "GET",
+        "service0",
+        "2:s0-revoke",
+        404
+      ],
+      [
+        2,
+        "POST",
+        "service0",
+        "2:s0-revoke",
+        403
+      ],
+      [
+        3,
+        "GET",
+        "service0",
+        "8:s0-cancel",
+        404
+      ],
+      [
+        4,
+        "POST",
+        "service0",
+        "8:s0-cancel",
+        201
+      ],
+      [
+        5,
+        "GET",
+        "service1",
+        "2:s0-revoke",
+        404
+      ],
+      [
+        6,
+        "POST",
+        "service1",
+        "2:s0-revoke",
+        201
+      ],
+      [
+        7,
+        "GET",
+        "service1",
+        "8:s0-cancel",
+        404
+      ]
+    ]
+  }
+}

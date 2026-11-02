@@ -1,0 +1,87 @@
+{
+  "reviewed_at": "2026-11-02T23:25:44.041541+00:00",
+  "reviewer": "maintenance_resume",
+  "status": "passed_for_separate_freeze",
+  "source_sha256": {
+    "experiments/pi_scoped_effect_http_client.mjs": "b709fdbe238a0c463fd6e71d6637e47b0ad57d8a5c6e693c1af09f908d70357c",
+    "experiments/pi_scoped_effect_http_server.py": "8be6fdf9caeb2522d04792a294fcdca5f4ad5e481c6ff26a159f30b29688044f",
+    "experiments/pi_scoped_generation_audit.py": "0697d1a214e28006cd9aee2f3b724094800ce16481fe536f171480f1407da54a",
+    "experiments/pi_scoped_generation_protocol.json": "3fe15ddcd35d43c5910a124633bc55c556fb6d8b425a2efd900090ec25d97705",
+    "scripts/check_pi_scoped_generation.py": "19028f8e13f30d9f8600e531d50e293ec1d05f094d9ef2768db110bc3e74b138",
+    "scripts/pi_scoped_generation_worker.mjs": "b5df60c825a8ab7778eacc8d9edbbd9636210956dc4675b09040fb8d7a87afc7",
+    "scripts/run_pi_scoped_generation.py": "7c396427b1496d0032fc93c73c39e737982ce18f4c62aa3a22d32246eb8bcb75",
+    "tests/test_pi_scoped_generation_audit.py": "6b118e181d6c21320c6a227774d5c6142aab2c7486184076045adc4e8093a09a"
+  },
+  "previous_freeze": {
+    "path": "fixtures/pi-generation-concurrent-http/implementation.json",
+    "sha256": "de0c015bad8fcaa2f97ebe854c114e33bd83d3ec077176723399c9cfe4ea4bfb",
+    "portable_source_review_protocol_ancestry": "verified; no runtime authentication or acceptance replay"
+  },
+  "scope": "Independent static review of worker, protocol, auditor and audit tests; full closure read. Reviewer authored controller/checker, explicitly not claimed as an independent reviewer of own code. Radar independently reviewed those files. No scientific acceptance is asserted by this receipt.",
+  "authored_files": [
+    "scripts/run_pi_scoped_generation.py",
+    "scripts/check_pi_scoped_generation.py"
+  ],
+  "independent_reviewed_files": [
+    "experiments/pi_scoped_generation_protocol.json",
+    "scripts/pi_scoped_generation_worker.mjs",
+    "experiments/pi_scoped_generation_audit.py",
+    "tests/test_pi_scoped_generation_audit.py"
+  ],
+  "reviewed_integrations": [
+    "Published openScopedGenerationService preserves original native Harness/GenerationTask/ToolTask ownership while binding independent effect scope. Two Sessions intentionally repeat numeric conversation IDs and request keys with differing payloads.",
+    "Reconcile five original reservations before resume. Exactly two positive original ToolTasks may re-enter after adding their qualified keys to the new released gate; negatives are native-preabort-marked while paused. No new generation on recovery.",
+    "Asymmetric remote and host authority/cancellation controls are distinct. Lost committed reply recovers by GET while cancelled and remote permission false; no new POST for that recovery. Scope/key/body/receipt identities and both cross-scope positive controls remain joined.",
+    "Independent audit rereads immutable stopped native and effect SQLite copies and checks full endpoints against source/copy hash comparisons; binds exact original submission/input/assistant/tool IDs and all24 terminal native tasks. Server log ordering shares the effect store lock with persisted attempts.",
+    "Heterogeneous event types are filtered before typed fields. Exact12 unique chains14 tool-enter events,27 persistent effect attempts,6 overloads and final active0 are independently checked.",
+    "Protocol has finite predeclared workload/resource bounds. Single trusted owner, local loopback/Faux, sampled process maxima; no real model quality, GPU, general external exactly-once, multi-owner or production inference. Old failures and invalid endpoints remain preserved."
+  ],
+  "findings": [],
+  "resolved_prefreeze_findings": [
+    {
+      "issue": "-I file.py omits adjacent import path; initial --help import probe exited1 before argparse.",
+      "resolution": "Controller uses isolated -c runpy bootstrap with explicit authenticated experiments directory and exact server script. Scoped published server bytes unchanged. Identical new bootstrap --help exits0 before serve.",
+      "initial_receipt": {
+        "path": "reports/runs/20261102T230504Z/scoped-native/isolated-server-help-discovered-failure.json",
+        "sha256": "3751eeb4872405d9e22b4168438afeeb3faadc64ecfbc34d037fcfcfaad31112"
+      },
+      "fixed_receipt": {
+        "path": "reports/runs/20261102T230504Z/scoped-native/isolated-server-help-fixed.json",
+        "sha256": "7091834de413a50494a7ea529d47fdd020cf7ab9c11533b5a499c48ca2d521f1"
+      }
+    }
+  ],
+  "verification": [
+    {
+      "kind": "AST and JSON parse",
+      "outcome": "passed for final sources; no execution"
+    },
+    {
+      "kind": "Portable retained parent source/review/protocol closure",
+      "outcome": "passed; no native/server/model or old acceptance audit"
+    },
+    {
+      "kind": "Exact isolated bootstrap --help",
+      "returncode": 0,
+      "scientific_output_absent": true
+    },
+    {
+      "kind": "Radar portable synthetic auditor controls",
+      "tests": 7,
+      "returncode": 0,
+      "receipt_path": "reports/runs/20261102T230504Z/scoped-native/auditor-portable-test-2.json",
+      "receipt_sha256": "738751abca7dc2c075867633f5f8a3839621d7876319b50f97d6f018dfedc96e",
+      "scope": "Synthetic SQL/schema/malformed-evidence controls only; not native acceptance"
+    }
+  ],
+  "executions": {
+    "scientific_suites": 0,
+    "native_runtime": 0,
+    "http_servers": 0,
+    "model_loads": 0,
+    "freeze_created": false,
+    "shared_ledgers_written": false,
+    "staged_committed_pushed_published": false
+  },
+  "blockers": []
+}

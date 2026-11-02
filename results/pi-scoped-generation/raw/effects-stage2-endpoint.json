@@ -1,0 +1,302 @@
+{
+  "authority": [
+    [
+      "service0",
+      2,
+      3,
+      1
+    ],
+    [
+      "service0",
+      8,
+      3,
+      1
+    ],
+    [
+      "service1",
+      2,
+      3,
+      1
+    ],
+    [
+      "service1",
+      8,
+      3,
+      1
+    ]
+  ],
+  "effects": [
+    {
+      "conversation": 2,
+      "fingerprint": "5973dd1bbd7ba464c7e396d827529f10cd0c1d40b894b4df5ef1df8cf8b671d6",
+      "key": "2:s1-post",
+      "payload": "service0/s1-post",
+      "scope": "service0",
+      "version": 2,
+      "count": 1
+    },
+    {
+      "conversation": 2,
+      "fingerprint": "54fb41e1d00586eac3c1ca2f57a60ead91bf4ee5af8e030c7f896f05eedc47ee",
+      "key": "2:s2-final",
+      "payload": "service0/s2-final",
+      "scope": "service0",
+      "version": 3,
+      "count": 1
+    },
+    {
+      "conversation": 8,
+      "fingerprint": "10fe017329c5601fbb9c257c231e2ec2ef7bf2cae700a93b331f26c717414080",
+      "key": "8:s0-cancel",
+      "payload": "service0/s0-cancel",
+      "scope": "service0",
+      "version": 1,
+      "count": 1
+    },
+    {
+      "conversation": 8,
+      "fingerprint": "54fb41e1d00586eac3c1ca2f57a60ead91bf4ee5af8e030c7f896f05eedc47ee",
+      "key": "8:s2-final",
+      "payload": "service0/s2-final",
+      "scope": "service0",
+      "version": 3,
+      "count": 1
+    },
+    {
+      "conversation": 2,
+      "fingerprint": "facb59ebce8bdc7d194b5e4647896ef1d4cd86fd2ebbec9ea70c0f716c4a0800",
+      "key": "2:s0-revoke",
+      "payload": "service1/s0-revoke",
+      "scope": "service1",
+      "version": 1,
+      "count": 1
+    },
+    {
+      "conversation": 2,
+      "fingerprint": "a51d60ee90629c10d72ae8927a7c388b0fa7e3279d638889de01153130eacbe5",
+      "key": "2:s1-post",
+      "payload": "service1/s1-post",
+      "scope": "service1",
+      "version": 2,
+      "count": 1
+    },
+    {
+      "conversation": 2,
+      "fingerprint": "dc913a9a0e780e3eb156c98f79e738886f94375e7cee11f28533f0c9388c3927",
+      "key": "2:s2-final",
+      "payload": "service1/s2-final",
+      "scope": "service1",
+      "version": 3,
+      "count": 1
+    },
+    {
+      "conversation": 8,
+      "fingerprint": "f9efe318fb568797e3f8bf1949cb64a4673bb8f1db08c0aad4bf0699f5da89d9",
+      "key": "8:s1-live",
+      "payload": "service1/s1-live",
+      "scope": "service1",
+      "version": 2,
+      "count": 1
+    },
+    {
+      "conversation": 8,
+      "fingerprint": "dc913a9a0e780e3eb156c98f79e738886f94375e7cee11f28533f0c9388c3927",
+      "key": "8:s2-final",
+      "payload": "service1/s2-final",
+      "scope": "service1",
+      "version": 3,
+      "count": 1
+    }
+  ],
+  "attempts": [
+    [
+      1,
+      "GET",
+      "service0",
+      "2:s0-revoke",
+      404
+    ],
+    [
+      2,
+      "POST",
+      "service0",
+      "2:s0-revoke",
+      403
+    ],
+    [
+      3,
+      "GET",
+      "service0",
+      "8:s0-cancel",
+      404
+    ],
+    [
+      4,
+      "POST",
+      "service0",
+      "8:s0-cancel",
+      201
+    ],
+    [
+      5,
+      "GET",
+      "service1",
+      "2:s0-revoke",
+      404
+    ],
+    [
+      6,
+      "POST",
+      "service1",
+      "2:s0-revoke",
+      201
+    ],
+    [
+      7,
+      "GET",
+      "service1",
+      "8:s0-cancel",
+      404
+    ],
+    [
+      8,
+      "GET",
+      "service0",
+      "8:s1-live",
+      404
+    ],
+    [
+      9,
+      "GET",
+      "service1",
+      "2:s1-post",
+      404
+    ],
+    [
+      10,
+      "GET",
+      "service1",
+      "8:s1-live",
+      404
+    ],
+    [
+      11,
+      "GET",
+      "service0",
+      "2:s1-post",
+      404
+    ],
+    [
+      12,
+      "POST",
+      "service1",
+      "2:s1-post",
+      201
+    ],
+    [
+      13,
+      "POST",
+      "service1",
+      "8:s1-live",
+      201
+    ],
+    [
+      14,
+      "POST",
+      "service0",
+      "2:s1-post",
+      201
+    ],
+    [
+      15,
+      "GET",
+      "service0",
+      "2:s1-post",
+      200
+    ],
+    [
+      16,
+      "GET",
+      "service0",
+      "8:s2-final",
+      404
+    ],
+    [
+      17,
+      "GET",
+      "service1",
+      "2:s2-final",
+      404
+    ],
+    [
+      18,
+      "GET",
+      "service1",
+      "8:s2-final",
+      404
+    ],
+    [
+      19,
+      "GET",
+      "service0",
+      "2:s2-final",
+      404
+    ],
+    [
+      20,
+      "POST",
+      "service0",
+      "8:s2-final",
+      201
+    ],
+    [
+      21,
+      "POST",
+      "service1",
+      "2:s2-final",
+      201
+    ],
+    [
+      22,
+      "POST",
+      "service1",
+      "8:s2-final",
+      201
+    ],
+    [
+      23,
+      "POST",
+      "service0",
+      "2:s2-final",
+      201
+    ],
+    [
+      24,
+      "POST",
+      "service0",
+      "2:s1-post",
+      200
+    ],
+    [
+      25,
+      "POST",
+      "service0",
+      "2:s1-post",
+      409
+    ],
+    [
+      26,
+      "POST",
+      "service1",
+      "2:s1-post",
+      200
+    ],
+    [
+      27,
+      "POST",
+      "service1",
+      "2:s1-post",
+      409
+    ]
+  ]
+}

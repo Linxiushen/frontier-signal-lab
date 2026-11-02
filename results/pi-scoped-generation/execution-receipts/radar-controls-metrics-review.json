@@ -1,0 +1,256 @@
+{
+  "status": "passed_saved_controls_metrics_review",
+  "reviewed_at": "2026-11-02T23:29:06.411447+00:00",
+  "reviewer": "radar_resume",
+  "original_review_sha256": "0b7bfde860fc55de2894fdbbf7cf26a2d4d6895c6c81ea639590d42fa97b402b",
+  "freeze_sha256": "cf0c485bd5d7e915324028fd1d52aff716961408d3a0452ea8208058b34811ac",
+  "launch_receipt_sha256": "696108dc025f16a53642e64cd6de6f2e7082860c7db84719a16e1949379a0c14",
+  "source_sha256": {
+    "experiments/pi_scoped_effect_http_client.mjs": "b709fdbe238a0c463fd6e71d6637e47b0ad57d8a5c6e693c1af09f908d70357c",
+    "experiments/pi_scoped_effect_http_server.py": "8be6fdf9caeb2522d04792a294fcdca5f4ad5e481c6ff26a159f30b29688044f",
+    "experiments/pi_scoped_generation_audit.py": "0697d1a214e28006cd9aee2f3b724094800ce16481fe536f171480f1407da54a",
+    "experiments/pi_scoped_generation_protocol.json": "3fe15ddcd35d43c5910a124633bc55c556fb6d8b425a2efd900090ec25d97705",
+    "scripts/check_pi_scoped_generation.py": "19028f8e13f30d9f8600e531d50e293ec1d05f094d9ef2768db110bc3e74b138",
+    "scripts/pi_scoped_generation_worker.mjs": "b5df60c825a8ab7778eacc8d9edbbd9636210956dc4675b09040fb8d7a87afc7",
+    "scripts/run_pi_scoped_generation.py": "7c396427b1496d0032fc93c73c39e737982ce18f4c62aa3a22d32246eb8bcb75",
+    "tests/test_pi_scoped_generation_audit.py": "6b118e181d6c21320c6a227774d5c6142aab2c7486184076045adc4e8093a09a"
+  },
+  "negative_controls": [
+    {
+      "name": "remote current authority refused before effect",
+      "service": 0,
+      "key": "2:s0-revoke",
+      "effect_present": false,
+      "cancelled": false,
+      "native_submission_status": "unanswered",
+      "effect_intent_status": "denied",
+      "ordered_SQL_HTTP_attempts": [
+        [
+          1,
+          "GET",
+          "service0",
+          "2:s0-revoke",
+          404
+        ],
+        [
+          2,
+          "POST",
+          "service0",
+          "2:s0-revoke",
+          403
+        ]
+      ]
+    },
+    {
+      "name": "cancel marked before effect",
+      "service": 1,
+      "key": "8:s0-cancel",
+      "effect_present": false,
+      "cancelled": true,
+      "native_submission_status": "unanswered",
+      "effect_intent_status": "aborted",
+      "ordered_SQL_HTTP_attempts": [
+        [
+          7,
+          "GET",
+          "service1",
+          "8:s0-cancel",
+          404
+        ]
+      ]
+    },
+    {
+      "name": "host current authority refused before effect",
+      "service": 0,
+      "key": "8:s1-live",
+      "effect_present": false,
+      "cancelled": false,
+      "native_submission_status": "done",
+      "effect_intent_status": "denied",
+      "ordered_SQL_HTTP_attempts": [
+        [
+          8,
+          "GET",
+          "service0",
+          "8:s1-live",
+          404
+        ]
+      ]
+    },
+    {
+      "name": "cancel/revoke after remote commit; historical GET recovery",
+      "service": 0,
+      "key": "2:s1-post",
+      "effect_present": true,
+      "cancelled": true,
+      "native_submission_status": "unanswered",
+      "effect_intent_status": "committed",
+      "ordered_SQL_HTTP_attempts": [
+        [
+          11,
+          "GET",
+          "service0",
+          "2:s1-post",
+          404
+        ],
+        [
+          14,
+          "POST",
+          "service0",
+          "2:s1-post",
+          201
+        ],
+        [
+          15,
+          "GET",
+          "service0",
+          "2:s1-post",
+          200
+        ],
+        [
+          24,
+          "POST",
+          "service0",
+          "2:s1-post",
+          200
+        ],
+        [
+          25,
+          "POST",
+          "service0",
+          "2:s1-post",
+          409
+        ]
+      ]
+    }
+  ],
+  "postcancel_receipt_recovered_while_remote_authority_false_before_v3": true,
+  "current_authority_denials": 2,
+  "pre_effect_cancellation": 1,
+  "post_commit_historical_reconciliation": 1,
+  "expected_effects": 9,
+  "observed_effects": 9,
+  "native_tool_entries": 14,
+  "native_unique_tool_tasks": 12,
+  "SQL_HTTP_attempts": 27,
+  "HTTP_settled_results": 52,
+  "HTTP_settled_effect_results": 26,
+  "HTTP_error_results": 0,
+  "HTTP_body_byte_scope": "Encoded request payloads and observed response chunks for emitted settled operations only; killed held-reply client may have no result event. SQL attempt count differs. Headers/socket/wire bytes unmeasured.",
+  "HTTP_encoded_request_body_bytes_settled": 3273,
+  "HTTP_observed_response_body_bytes_settled": 14697,
+  "suite_elapsed_seconds": 7.563000000009197,
+  "authentication_elapsed_seconds": 31.061999999990803,
+  "full_controller_elapsed_seconds": 38.625,
+  "full_CLI_elapsed_seconds": 39.0619999999908,
+  "descriptive_fixture_effects_per_suite_second": 1.1900039666784419,
+  "descriptive_fixture_effects_per_full_controller_second": 0.23300970873786409,
+  "descriptive_fixture_effects_per_full_CLI_second": 0.23040294915780346,
+  "terminal_latency_ms": {
+    "n": 12,
+    "p50": 151,
+    "p95": 2434,
+    "max": 2434
+  },
+  "resource_observations": {
+    "processes": [
+      {
+        "stage": 0,
+        "pid": 2932,
+        "returncode": 1,
+        "elapsed_seconds": 1.8430000000080327,
+        "samples": 59,
+        "maximum_sampled_private_bytes": 109461504,
+        "maximum_sampled_working_set_bytes": 93310976,
+        "maximum_observed_OS_peak_working_set_bytes": 93413376,
+        "first_sample_seconds": 0.04700000000593718,
+        "last_sample_seconds": 1.7810000000026776,
+        "maximum_interior_sample_gap_seconds": 0.04700000000593718,
+        "unobserved_end_interval_seconds": 0.062000000005355105
+      },
+      {
+        "stage": 1,
+        "pid": 24264,
+        "returncode": 1,
+        "elapsed_seconds": 2.014999999999418,
+        "samples": 32,
+        "maximum_sampled_private_bytes": 92192768,
+        "maximum_sampled_working_set_bytes": 94240768,
+        "maximum_observed_OS_peak_working_set_bytes": 94420992,
+        "first_sample_seconds": 0.06199999999080319,
+        "last_sample_seconds": 1.9060000000026776,
+        "maximum_interior_sample_gap_seconds": 0.07800000000861473,
+        "unobserved_end_interval_seconds": 0.10899999999674037
+      },
+      {
+        "stage": 2,
+        "pid": 19544,
+        "returncode": 0,
+        "elapsed_seconds": 1.937000000005355,
+        "samples": 22,
+        "maximum_sampled_private_bytes": 108785664,
+        "maximum_sampled_working_set_bytes": 93966336,
+        "maximum_observed_OS_peak_working_set_bytes": 94179328,
+        "first_sample_seconds": 0.062000000005355105,
+        "last_sample_seconds": 1.812000000005355,
+        "maximum_interior_sample_gap_seconds": 0.11000000000058208,
+        "unobserved_end_interval_seconds": 0.125
+      }
+    ],
+    "servers": [
+      {
+        "stage": 0,
+        "pid": 9444,
+        "returncode": 0,
+        "elapsed_seconds": 2.375,
+        "samples": 75,
+        "maximum_sampled_private_bytes": 15179776,
+        "maximum_sampled_working_set_bytes": 25595904,
+        "maximum_observed_OS_peak_working_set_bytes": 25632768,
+        "first_sample_seconds": 0.01600000000325963,
+        "last_sample_seconds": 2.1570000000065193,
+        "maximum_interior_sample_gap_seconds": 0.062000000005355105,
+        "unobserved_end_interval_seconds": 0.21799999999348074
+      },
+      {
+        "stage": 1,
+        "pid": 2572,
+        "returncode": 0,
+        "elapsed_seconds": 2.4219999999913853,
+        "samples": 41,
+        "maximum_sampled_private_bytes": 15421440,
+        "maximum_sampled_working_set_bytes": 25747456,
+        "maximum_observed_OS_peak_working_set_bytes": 25808896,
+        "first_sample_seconds": 0.015999999988707714,
+        "last_sample_seconds": 2.2969999999913853,
+        "maximum_interior_sample_gap_seconds": 0.09399999999732245,
+        "unobserved_end_interval_seconds": 0.125
+      },
+      {
+        "stage": 2,
+        "pid": 20072,
+        "returncode": 0,
+        "elapsed_seconds": 2.422000000005937,
+        "samples": 30,
+        "maximum_sampled_private_bytes": 15278080,
+        "maximum_sampled_working_set_bytes": 25718784,
+        "maximum_observed_OS_peak_working_set_bytes": 25767936,
+        "first_sample_seconds": 0.03200000000651926,
+        "last_sample_seconds": 2.2660000000032596,
+        "maximum_interior_sample_gap_seconds": 0.125,
+        "unobserved_end_interval_seconds": 0.15600000000267755
+      }
+    ]
+  },
+  "observation_callback_ms": 2.354799999998832,
+  "observation_flush_ms": 2.5799999999999272,
+  "old_failed_result_preserved": {
+    "report_sha256": "85258907933a0d5326ae8c6324c5ddf3bc8c55be6a96f73b9ec5d1494946a1ce",
+    "report_matches_HEAD_bytes": true,
+    "raw_manifest_sha256": "52ade9b29433007859807a0e3d8e88238ef27ce14263ddf6f126c72a7571f657",
+    "verified_raw_files": 95,
+    "execution_status": "failed",
+    "acceptance_rescue": false
+  },
+  "limits": "Single trusted Windows owner, two isolated native Sessions, actual loopback HTTP and official deterministic Faux; no real model quality, GPU, distributed, tenant authentication, concurrent native owners or production evidence. Nine effects is a preregistered fixture outcome, not model success rate. Latencies include imposed holds/restarts. Resource maxima are observed samples/OS counters with reported gaps, not continuous peaks. Callback/flush totals have no observer-OFF comparison. No baseline or causal speedup. Old failed suite remains failed. No native/server/model/scientific rerun."
+}

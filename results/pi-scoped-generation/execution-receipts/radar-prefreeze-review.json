@@ -1,0 +1,75 @@
+{
+  "status": "passed_for_separate_freeze",
+  "reviewer": "radar_resume",
+  "reviewed_at": "2026-11-02T23:25:13.744474+00:00",
+  "source_sha256": {
+    "experiments/pi_scoped_effect_http_client.mjs": "b709fdbe238a0c463fd6e71d6637e47b0ad57d8a5c6e693c1af09f908d70357c",
+    "experiments/pi_scoped_effect_http_server.py": "8be6fdf9caeb2522d04792a294fcdca5f4ad5e481c6ff26a159f30b29688044f",
+    "experiments/pi_scoped_generation_audit.py": "0697d1a214e28006cd9aee2f3b724094800ce16481fe536f171480f1407da54a",
+    "experiments/pi_scoped_generation_protocol.json": "3fe15ddcd35d43c5910a124633bc55c556fb6d8b425a2efd900090ec25d97705",
+    "scripts/pi_scoped_generation_worker.mjs": "b5df60c825a8ab7778eacc8d9edbbd9636210956dc4675b09040fb8d7a87afc7",
+    "scripts/run_pi_scoped_generation.py": "7c396427b1496d0032fc93c73c39e737982ce18f4c62aa3a22d32246eb8bcb75",
+    "scripts/check_pi_scoped_generation.py": "19028f8e13f30d9f8600e531d50e293ec1d05f094d9ef2768db110bc3e74b138",
+    "tests/test_pi_scoped_generation_audit.py": "6b118e181d6c21320c6a227774d5c6142aab2c7486184076045adc4e8093a09a"
+  },
+  "authored_sources": [
+    "experiments/pi_scoped_generation_audit.py",
+    "tests/test_pi_scoped_generation_audit.py"
+  ],
+  "independent_review_focus": [
+    "scripts/run_pi_scoped_generation.py",
+    "scripts/check_pi_scoped_generation.py",
+    "scripts/pi_scoped_generation_worker.mjs",
+    "experiments/pi_scoped_generation_protocol.json"
+  ],
+  "reviewed_closure_sources": [
+    "experiments/pi_scoped_effect_http_client.mjs",
+    "experiments/pi_scoped_effect_http_server.py",
+    "experiments/pi_scoped_generation_audit.py",
+    "experiments/pi_scoped_generation_protocol.json",
+    "scripts/pi_scoped_generation_worker.mjs",
+    "scripts/run_pi_scoped_generation.py",
+    "scripts/check_pi_scoped_generation.py",
+    "tests/test_pi_scoped_generation_audit.py"
+  ],
+  "findings": [],
+  "resolved_pre_freeze_finding": {
+    "problem": "Python -I file.py omits sibling module lookup and raised ModuleNotFoundError before CLI parsing",
+    "evidence": "isolated-server-help-discovered-failure.json",
+    "resolution": "Controller keeps -I and inserts exact authenticated experiments directory in an explicit runpy bootstrap; exact bootstrap --help exits0 before serve",
+    "resolution_evidence": "isolated-server-help-fixed.json",
+    "published_server_bytes_unchanged": true
+  },
+  "checks": [
+    "Final 8-source closure read and SHA-bound; Python source AST parsed.",
+    "Portable synthetic saved-evidence suite7/7 passed after final audit assertion; exact equal-key cross-scope SQL, identity/count/fingerprint, schema/PK, immutable copied-byte corruption, scoped attempt outcomes and keyless heterogeneous event controls.",
+    "Exact18 arrivals/12 admits/6 overloads plus4 host retries4 conflicts; 12 native task pairs,14 execute entries with2 same-task checkpoint replays,5 reconciliations,9 effects,GET13/POST14 and asymmetric outcomes align between protocol, worker and independent auditor.",
+    "Controller requires separate reviewed freeze, absent outcome, pinned old native/runtime manifest and Python module hashes before execution; creates hidden bounded CLI children, kills only2 survivor stages, gracefully joins effect server before full SQL backups, keeps zero retry and failed state.",
+    "Checker independently verifies saved raw inventory/hashes before and after immutable audit; source/review ancestry remains hash-bound without calling old failed acceptance or requiring native binary in portable CI.",
+    "Native chain helper has been statically read: submission/user/assistant/callId/generation/tool/result joins are exact; recovery marks bind original paused chains before resume. Installed inspect source scans queued/placed submissions and live task map, so prior terminal chains do not invalidate same-conversation recovery."
+  ],
+  "limits": [
+    "This review does not claim native runtime integration, HTTP server operation, real model quality, GPU, concurrency-owner, tenant authentication or production validation.",
+    "Only two focused portable test invocations and one failed CLI import/help probe were executed by this reviewer; corrected help probe was executed by the maintenance reviewer and its saved receipt read. No native/server/model/scientific execution by this reviewer.",
+    "Observed memory sampling and stated protocol limits require the separately frozen actual execution; no continuous-peak claim."
+  ],
+  "evidence_receipts": [
+    {
+      "path": "reports/runs/20261102T230504Z/scoped-native/auditor-portable-test-1.json",
+      "sha256": "46e4047ab47958afdec879e63de881fb4da94849354b844a9ec13742125bc0e2"
+    },
+    {
+      "path": "reports/runs/20261102T230504Z/scoped-native/auditor-portable-test-2.json",
+      "sha256": "738751abca7dc2c075867633f5f8a3839621d7876319b50f97d6f018dfedc96e"
+    },
+    {
+      "path": "reports/runs/20261102T230504Z/scoped-native/isolated-server-help-discovered-failure.json",
+      "sha256": "3751eeb4872405d9e22b4168438afeeb3faadc64ecfbc34d037fcfcfaad31112"
+    },
+    {
+      "path": "reports/runs/20261102T230504Z/scoped-native/isolated-server-help-fixed.json",
+      "sha256": "7091834de413a50494a7ea529d47fdd020cf7ab9c11533b5a499c48ca2d521f1"
+    }
+  ],
+  "scientific_output_absent_at_review": true
+}

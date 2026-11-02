@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-02T17:34:30.603680+00:00",
-  "observation_note": "All218prior source objects preserved. One unique H2concurrent native suite failed frozen heterogeneous-event schema acceptance. Separate saved-only observations do not rescue acceptance; no native rerun, scientific generalization or H1/H3/H4 change.",
+  "last_updated_at": "2026-11-02T19:28:00.776197+00:00",
+  "observation_note": "All219prior source objects preserved exactly. One landed OpenClaw191261 source/test-design supplement adds six named payload-hook cancellation call sites. No local upstream/native/model/scientific execution or runtime adoption. H1-H4, failed concurrent H2 freeze, accepted earlier evidence and existing resource/next gates unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -8725,6 +8725,81 @@
       "native_suites": 1,
       "model_loads": 0,
       "retries": 0
+    },
+    {
+      "id": "openclaw-provider-payload-cancellation-six-sites-landed-191261",
+      "url": "https://github.com/openclaw/openclaw/commit/1c03d49956edc1f6f1b62726023bbc70e7bed355",
+      "PR_url": "https://github.com/openclaw/openclaw/pull/191261",
+      "type": "merged_primary_source_and_test_design_review_not_local_runtime_result",
+      "author": "SunnyShu0925",
+      "merger": "obviyus",
+      "proposal_created_at": "2026-11-02T16:18:34Z",
+      "published_at": "2026-11-02T18:33:25Z",
+      "recorded_at": "2026-11-02T19:24:48.212650+00:00",
+      "parent": "f9478d593c96c955db06923f4aa6367fb2825b61",
+      "landed": "1c03d49956edc1f6f1b62726023bbc70e7bed355",
+      "head": "f205f1782ab4d18c1a739d02326f3f306ff5fafb",
+      "primary_evidence": {
+        "manifest": "research/receipts/20261102T190905Z-openclaw-provider-payload-cancellation/manifest.json",
+        "review_receipt": "research/receipts/20261102T190905Z-openclaw-provider-payload-cancellation-review.json",
+        "narrative": "research/2026-11-02-provider-payload-cancellation-coverage.md",
+        "changed_paths": 12,
+        "whole_changed_path_versions_captured": 22,
+        "full_changed_path_versions_read": 6,
+        "scoped_only_changed_path_versions": 16,
+        "additional_whole_versions": 6,
+        "additional_full_versions_read": 3,
+        "additional_scoped_versions": 3,
+        "all_changed_path_diffs_read": true,
+        "full_dependency_closure_read": false,
+        "local_review_originals": {
+          "manifest": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T190905Z/radar/source-publication/manifest.json",
+          "review_receipt": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T190905Z/radar/source-publication/review.json",
+          "narrative": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T190905Z/radar/source-publication/narrative.md",
+          "raw_manifest": "C:/Users/somle/Documents/ChatGPT/AI 深度项目探索/reports/runs/20261102T190905Z/radar/openclaw-cancel-191261/manifest.json"
+        }
+      },
+      "fact": [
+        "Six hook sites now await the existing abort-aware helper before their downstream request construction/dispatch continuation. Non-undefined payload replacement is retained.",
+        "The helper checks caller abort, schedules/observes the callback promise through an optional host port, races abort and rechecks abort after success. It does not stop the callback.",
+        "Codex factors its body preparation into buildHookedRequestBody while preserving preserveUsers before hook and user restoration/compaction trigger/assertReplayFits after hook.",
+        "The matrix asserts aborted/code result while hook unfinished and observed work undrained; after late resolve/reject it awaits observed settlement, requires same terminal object and no mocked fetch dispatch."
+      ],
+      "author_claims": [
+        "Maintainer obviyus reports ordinary source-built Gateway/local SSE cancellation4926/5105ms on pinnedmain versus18/7ms on candidate,2/2uncancelled controls perbuild and26/26focusedtests. No independent execution, raw-log reproduction or CI verification here.",
+        "Author reports private request-helper non-reexport/public-contract audit. We checked the explicit package export map, not all package barrels."
+      ],
+      "distinctness_from_existing_sources": {
+        "baseline_count": 219,
+        "baseline_sha256": "ac1e1e24b7cb3fcdecc802faf912798f70ac3c74b65b90dfc373b66f45a64944",
+        "related_id": "openclaw-chat-payload-hook-cancellation-landed-191090",
+        "novel_contract": "191090 repaired Chat Completions payload waiting.191261 adds six remaining named hook sites: Google Interactions, shared Google Generate Content, Mistral, Codex Responses request owner, shared OpenAI Responses lifecycle, managed Responses client. Anthropic was already handled separately by191024; it is retained in the newmatrix, not a new six-site change.",
+        "scientific_state_change": false
+      },
+      "our_inference": "The same cancellation contract is now wired into six additional named provider request owners. Caller terminal, optional host-retained callback drain and durable effect reconciliation remain separate. Ten-entrypoint matrix design does not prove every provider/transport or production behavior.",
+      "engineering": {
+        "actual_caller": "OpenClaw built Gateway and reusable @openclaw/ai adapters invoked with host onPayload callback and caller AbortSignal.",
+        "scale_bottleneck": "Many cancelled turns can release their caller while accepted callback work continues, requiring separate retained-work/admission/drain accounting. This patch removes waiting at six named call sites but supplies no finite callback termination or global capacity bound.",
+        "integration_point": "Existing awaitProviderLifecycleCallback before named payload-hook request dispatch; no runtime adoption in our Pi caller.",
+        "future_acceptance": "Only a separately justified actual-runner intervention may test this boundary: freeze route/transport and hook outcomes, separate terminal/callback-drain/effect-confirmed deadlines, bound admission and pending work, check no late dispatch/terminal replacement and current authority/cancellation with two OS process reopens. Do not reopen the failed concurrent workload solely for green auditing.",
+        "validated_tier": "Immutable source and test-design review; author reported Gateway fixture timings are not our measurements.",
+        "rollback": "Source-only curation. No package adoption, scientific experiment or new observer prerequisite."
+      },
+      "local_review": {
+        "upstream_tests_executed": 0,
+        "scientific_experiments": 0,
+        "native_suites": 0,
+        "model_loads": 0,
+        "CI_verified": false
+      },
+      "limits": [
+        "Cancellation settlement is not callback termination or host drain; default library host omits the optional observer. No global pending-work/resource/production bound is proved.",
+        "No live-model/API/GPU/multi-host/current-tenant/concurrent-owner/general exactly-once or performance result. The author Gateway provider is a local SSE fixture.",
+        "Matrix exercises10named entrypoints and2late outcomes, not everyprovider, SDK path, websocket, retry/replay or compaction branch.",
+        "Source capture includes all12changed paths/22wholeversions; only6changedversions fully read,16scoped-only. Additional6wholeversions captured:3full(package,Google wrapper,LICENSE),3scoped(sharedowner,retry,host).",
+        "No upstream tests/native/model/scientific execution or hosted CI verification in thislane. One retained404source lookup does not indicate an upstream runtime defect."
+      ],
+      "curation_note": "One landed source/test-design supplement only. Preserve all219prior source objects, allhypotheses/currentnextgate and historical failed/accepted evidence; no runtime adoption."
     }
   ],
   "previous_observation_notes": [
@@ -8773,6 +8848,11 @@
       "recorded_at": "2026-11-02T17:34:30.603680+00:00",
       "observation_note": "All217 prior source objects preserved. One landed OpenClaw plugin session-notice source/test-design supplement distinguishes captured generation, current plugin authority and three independent effects. No new scientific execution, runtime adoption or status promotion; H1 negative and H2-H4 existing gates remain unchanged.",
       "reason": "Preserve prior source note before recording distinct failed concurrent native suite"
+    },
+    {
+      "recorded_at": "2026-11-02T17:34:30.603680+00:00",
+      "observation_note": "All218prior source objects preserved. One unique H2concurrent native suite failed frozen heterogeneous-event schema acceptance. Separate saved-only observations do not rescue acceptance; no native rerun, scientific generalization or H1/H3/H4 change.",
+      "reason": "Preserve failed concurrent native outcome before distinct source-only supplement."
     }
   ],
   "last_updated_at_history": [
@@ -8780,6 +8860,7 @@
     "2026-11-02T11:26:54.795287+00:00",
     "2026-11-02T13:22:17.804340+00:00",
     "2026-11-02T13:48:46.177997+00:00",
-    "2026-11-02T15:22:04.504189+00:00"
+    "2026-11-02T15:22:04.504189+00:00",
+    "2026-11-02T17:34:30.603680+00:00"
   ]
 }

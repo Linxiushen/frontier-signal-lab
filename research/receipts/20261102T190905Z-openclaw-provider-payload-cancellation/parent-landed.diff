@@ -1,0 +1,548 @@
+--- parent/config/assertion-safety-baseline.txt
++++ landed/config/assertion-safety-baseline.txt
+@@ -900,7 +900,7 @@
+ packages/ai/src/providers/google-shared.ts	2
+ packages/ai/src/providers/mistral.ts	1
+ packages/ai/src/providers/openai-chatgpt-responses-protocol.ts	1
+-packages/ai/src/providers/openai-chatgpt-responses.ts	16
++packages/ai/src/providers/openai-chatgpt-responses.ts	15
+ packages/ai/src/providers/openai-completions.ts	1
+ packages/ai/src/providers/openai-reasoning-effort.ts	5
+ packages/ai/src/providers/openai-responses-shared.ts	4
+--- parent/packages/ai/README.md
++++ landed/packages/ai/README.md
+@@ -35,10 +35,11 @@
+ invoke the callback before the first event. Retry and failover policy remains
+ with the application.
+ 
+-Anthropic Messages and OpenAI-compatible Chat Completions calls stop waiting for
+-payload and response hooks when the request signal aborts. A hook can continue
+-running after cancellation; embedding hosts can retain that work through
+-`observePendingProviderWork` until it settles.
++Anthropic Messages, OpenAI-compatible Chat Completions, Google, Mistral, and
++OpenAI Responses calls stop waiting for payload and response hooks when the
++request signal aborts. A hook can continue running after cancellation; embedding
++hosts can retain that work through `observePendingProviderWork` until it
++settles.
+ 
+ Hosts that attach request state to async contexts should supply
+ `runInDetachedAsyncContext` from a context-free root initialized before requests
+--- parent/packages/ai/src/anthropic-payload-cancellation.test.ts
++++ landed/packages/ai/src/anthropic-payload-cancellation.test.ts
+@@ -1,70 +0,0 @@
+-import { describe, expect, it, vi } from "vitest";
+-import { createDeferred, withinTest } from "../../../test/helpers/promise.js";
+-import { configureAiTransportHost, getAiTransportHost } from "./host.js";
+-import {
+-  anthropicEvents,
+-  anthropicModel,
+-  context,
+-  createAnthropicResponse,
+-  registerParityHostLifecycle,
+-} from "./provider-transport-parity.test-support.js";
+-import { streamAnthropic } from "./providers/anthropic.js";
+-import { createAnthropicMessagesTransportStreamFn } from "./transports/anthropic-transport-stream.js";
+-
+-registerParityHostLifecycle();
+-
+-describe.each([
+-  { route: "SDK", late: "resolve" },
+-  { route: "fetch", late: "reject" },
+-] as const)("$route payload hook's late $late", ({ route, late }) => {
+-  it("settles cancellation while retaining the unfinished hook", async ({ signal }) => {
+-    const controller = new AbortController();
+-    const entered = createDeferred();
+-    const hook = createDeferred();
+-    const observed: Promise<unknown>[] = [];
+-    let hookFinished = false;
+-    const fetch = vi.fn(async () => createAnthropicResponse(anthropicEvents));
+-    configureAiTransportHost({
+-      ...getAiTransportHost(),
+-      buildModelFetch: () => fetch,
+-      observePendingProviderWork: (pending) => observed.push(pending),
+-    });
+-    const options = {
+-      apiKey: "synthetic-request-key",
+-      signal: controller.signal,
+-      onPayload: async () => {
+-        entered.resolve();
+-        try {
+-          await hook.promise;
+-        } finally {
+-          hookFinished = true;
+-        }
+-      },
+-    };
+-    const stream = await (route === "SDK"
+-      ? streamAnthropic(anthropicModel, context, options)
+-      : createAnthropicMessagesTransportStreamFn()(anthropicModel, context, options));
+-    try {
+-      await withinTest(entered.promise, signal);
+-      controller.abort(Object.assign(new Error("payload cancelled"), { code: "caller_cancelled" }));
+-      const result = await withinTest(stream.result(), signal);
+-      expect(result).toMatchObject({ stopReason: "aborted", errorCode: "caller_cancelled" });
+-      expect(hookFinished).toBe(false);
+-      expect(observed).not.toHaveLength(0);
+-      expect(fetch).not.toHaveBeenCalled();
+-
+-      if (late === "resolve") {
+-        hook.resolve();
+-      } else {
+-        hook.reject(new Error("late payload failure"));
+-      }
+-      await Promise.allSettled(observed);
+-      expect(hookFinished).toBe(true);
+-      expect(await stream.result()).toBe(result);
+-      expect(fetch).not.toHaveBeenCalled();
+-    } finally {
+-      hook.resolve();
+-      await Promise.allSettled([...observed, stream.result()]);
+-    }
+-  });
+-});
+--- parent/packages/ai/src/provider-payload-cancellation.test.ts
++++ landed/packages/ai/src/provider-payload-cancellation.test.ts
+@@ -0,0 +1,137 @@
++import { describe, expect, it, vi } from "vitest";
++import {
++  awaitGateBeforeSettlement,
++  createDeferred,
++  nextEventLoopTurn,
++  withinTest,
++} from "../../../test/helpers/promise.js";
++import { configureAiTransportHost, getAiTransportHost } from "./host.js";
++import {
++  anthropicModel,
++  context,
++  registerParityHostLifecycle,
++} from "./provider-transport-parity.test-support.js";
++import { streamAnthropic } from "./providers/anthropic.js";
++import { streamGoogleInteractions } from "./providers/google-interactions.js";
++import { streamGoogle } from "./providers/google.js";
++import { streamMistral } from "./providers/mistral.js";
++import { streamOpenAICodexResponses } from "./providers/openai-chatgpt-responses.js";
++import { createJwt } from "./providers/openai-chatgpt-responses.test-helpers.js";
++import { streamOpenAICompletions } from "./providers/openai-completions.js";
++import { makeOpenAIProviderModel } from "./providers/openai-provider.test-support.js";
++import { streamOpenAIResponses } from "./providers/openai-responses.js";
++import { makeProviderModel } from "./providers/provider-model.test-support.js";
++import { createAnthropicMessagesTransportStreamFn } from "./transports/anthropic-transport-stream.js";
++import { createOpenAICompletionsTransportStreamFn } from "./transports/openai-completions-transport.js";
++import { createOpenAIResponsesTransportStreamFn } from "./transports/openai-responses-client.js";
++import type { StreamOptions } from "./types.js";
++
++registerParityHostLifecycle();
++const googleModel = makeProviderModel("google-generative-ai", "google", "gemini-3-pro");
++const interactionsModel = makeProviderModel("google-interactions", "google", "gemini-3-flash");
++const mistralModel = makeProviderModel("mistral-conversations", "mistral", "mistral-large");
++const responsesModel = makeOpenAIProviderModel("openai-responses");
++const completionsModel = makeOpenAIProviderModel("openai-completions");
++const codexModel = makeProviderModel("openai-chatgpt-responses", "openai-codex", "gpt-5.5-codex");
++const cases = [
++  ["Anthropic SDK", (o: StreamOptions) => streamAnthropic(anthropicModel, context, o)],
++  [
++    "Anthropic fetch",
++    (o: StreamOptions) => createAnthropicMessagesTransportStreamFn()(anthropicModel, context, o),
++  ],
++  [
++    "Completions direct",
++    (o: StreamOptions) => streamOpenAICompletions(completionsModel, context, o),
++  ],
++  [
++    "Completions managed",
++    (o: StreamOptions) => createOpenAICompletionsTransportStreamFn()(completionsModel, context, o),
++  ],
++  [
++    "Google interactions",
++    (o: StreamOptions) => streamGoogleInteractions(interactionsModel, context, o),
++  ],
++  ["Google generate content", (o: StreamOptions) => streamGoogle(googleModel, context, o)],
++  ["Mistral", (o: StreamOptions) => streamMistral(mistralModel, context, o)],
++  ["Responses direct", (o: StreamOptions) => streamOpenAIResponses(responsesModel, context, o)],
++  [
++    "Responses managed",
++    (o: StreamOptions) => createOpenAIResponsesTransportStreamFn()(responsesModel, context, o),
++  ],
++  [
++    "Codex Responses",
++    (o: StreamOptions) =>
++      streamOpenAICodexResponses(codexModel, context, {
++        ...o,
++        apiKey: createJwt(),
++        transport: "sse",
++      }),
++  ],
++] as const;
++
++describe.each(cases)("%s payload cancellation", (_name, stream) => {
++  it.for(["resolve", "reject"] as const)(
++    "retains a hook that will later %s",
++    async (late, { signal }) => {
++      const controller = new AbortController();
++      const entered = createDeferred();
++      const hook = createDeferred();
++      const observed: Promise<unknown>[] = [];
++      let hookFinished = false;
++      const fetch = vi.fn(async () => new Response(null, { status: 500 }));
++      configureAiTransportHost({
++        ...getAiTransportHost(),
++        buildModelFetch: () => fetch,
++        observePendingProviderWork: (pending) => observed.push(pending),
++      });
++      const result = await stream({
++        apiKey: "SYNTHETIC_FIXTURE_KEY",
++        signal: controller.signal,
++        onPayload: async () => {
++          entered.resolve();
++          try {
++            await hook.promise;
++          } finally {
++            hookFinished = true;
++          }
++        },
++      });
++      try {
++        await withinTest(
++          awaitGateBeforeSettlement(
++            entered.promise,
++            result.result(),
++            "Stream ended before payload hook",
++          ),
++          signal,
++        );
++        controller.abort(
++          Object.assign(new Error("payload cancelled"), { code: "caller_cancelled" }),
++        );
++        const settled = await withinTest(result.result(), signal);
++        expect(settled).toMatchObject({ stopReason: "aborted", errorCode: "caller_cancelled" });
++        expect(hookFinished).toBe(false);
++        expect(observed).not.toHaveLength(0);
++        let drained = false;
++        const draining = Promise.allSettled(observed).then(() => {
++          drained = true;
++        });
++        await nextEventLoopTurn();
++        expect(drained).toBe(false);
++        expect(fetch).not.toHaveBeenCalled();
++        if (late === "resolve") {
++          hook.resolve();
++        } else {
++          hook.reject(new Error("late payload failure"));
++        }
++        await draining;
++        expect(hookFinished).toBe(true);
++        expect(await result.result()).toBe(settled);
++        expect(fetch).not.toHaveBeenCalled();
++      } finally {
++        hook.resolve();
++        await Promise.allSettled([...observed, result.result()]);
++      }
++    },
++  );
++});
+--- parent/packages/ai/src/providers/google-interactions.ts
++++ landed/packages/ai/src/providers/google-interactions.ts
+@@ -17,6 +17,7 @@
+ import { buildGuardedModelFetch } from "../transports/host-policy.js";
+ import { parseJsonPreservingUnsafeIntegers } from "../transports/json-unsafe-integers.js";
+ import {
++  awaitProviderLifecycleCallback,
+   failTransportStream,
+   iterateSseFrames,
+   notifyProviderHttpResponse,
+@@ -110,7 +111,10 @@
+         : context;
+       const videoSlots: GoogleVideoSlots = new Map();
+       let body = buildGoogleInteractionsParams(model, providerContext, options, videoSlots);
+-      const nextBody = await options?.onPayload?.(body, model);
++      const nextBody = await awaitProviderLifecycleCallback(
++        options?.onPayload ? () => options.onPayload?.(body, model) : undefined,
++        options?.signal,
++      );
+       if (nextBody !== undefined) {
+         if (!isGoogleInteractionsRequestBody(nextBody)) {
+           throw new Error("Google Interactions onPayload returned an invalid request body");
+--- parent/packages/ai/src/providers/google-shared.ts
++++ landed/packages/ai/src/providers/google-shared.ts
+@@ -15,6 +15,7 @@
+ import { transformProviderMessages as transformMessages } from "../provider-transcript-transform.js";
+ import { googleFlashSupportsMinimalThinking } from "../transports/google-thinking-level.js";
+ import {
++  awaitProviderLifecycleCallback,
+   failTransportStream,
+   notifyProviderStreamOpened,
+   transportAbortError,
+@@ -76,7 +77,10 @@
+   try {
+     const client = params.createClient();
+     let requestParams = params.buildParams();
+-    const nextParams = await options?.onPayload?.(requestParams, model);
++    const nextParams = await awaitProviderLifecycleCallback(
++      options?.onPayload ? () => options.onPayload?.(requestParams, model) : undefined,
++      options?.signal,
++    );
+     if (nextParams !== undefined) {
+       requestParams = nextParams as GenerateContentParameters;
+     }
+--- parent/packages/ai/src/providers/mistral.ts
++++ landed/packages/ai/src/providers/mistral.ts
+@@ -17,6 +17,7 @@
+ import { transformProviderMessages as transformMessages } from "../provider-transcript-transform.js";
+ import { createAssistantOutput } from "../transports/assistant-output.js";
+ import {
++  awaitProviderLifecycleCallback,
+   assignTransportErrorDetails,
+   finalizeTerminalToolCallArguments,
+   finalizeTransportStream,
+@@ -189,7 +190,10 @@
+           content: sanitizeSurrogates(stripSystemPromptCacheBoundary(context.systemPrompt)),
+         });
+       }
+-      const nextPayload = await options?.onPayload?.(payload, model);
++      const nextPayload = await awaitProviderLifecycleCallback(
++        options?.onPayload ? () => options.onPayload?.(payload, model) : undefined,
++        options?.signal,
++      );
+       if (nextPayload !== undefined) {
+         payload = nextPayload as ChatCompletionStreamRequest;
+       }
+--- parent/packages/ai/src/providers/openai-chatgpt-responses-request.ts
++++ landed/packages/ai/src/providers/openai-chatgpt-responses-request.ts
+@@ -1,6 +1,8 @@
+ import type { ResponseCreateParamsStreaming } from "openai/resources/responses/responses.js";
+ import type { BaseOpenAIStreamOptions } from "../provider-options.js";
+ import type { OpenAIResponsesReplayMode } from "../transports/openai-responses-compaction-replay.js";
++import type { createResponsesV2CompactionCollector } from "../transports/openai-responses-compaction-v2.js";
++import { awaitProviderLifecycleCallback } from "../transports/transport-stream-shared.js";
+ import type { Context, Model } from "../types.js";
+ import { prepareSystemPrompt } from "../utils/system-prompt-cache-boundary.js";
+ import type { RequestBody } from "./openai-chatgpt-responses-websocket-state.js";
+@@ -22,6 +24,8 @@
+   serviceTier?: ResponseCreateParamsStreaming["service_tier"];
+   textVerbosity?: "low" | "medium" | "high";
+ }
++
++export const CODEX_TOOL_CALL_PROVIDERS = new Set(["openai", "opencode"]);
+ 
+ export function buildRequestBody(
+   model: Model<"openai-chatgpt-responses">,
+@@ -100,3 +104,38 @@
+ 
+   return body;
+ }
++
++/**
++ * Build the Codex request body, apply the host payload hook with caller
++ * cancellation, then restore the users a V2 compaction replay must keep.
++ */
++export async function buildHookedRequestBody(params: {
++  model: Model<"openai-chatgpt-responses">;
++  context: Context;
++  options?: OpenAICodexResponsesOptions;
++  replayMode: OpenAIResponsesReplayMode;
++  v2Compaction?: ReturnType<typeof createResponsesV2CompactionCollector>;
++}): Promise<RequestBody> {
++  let body = buildRequestBody(
++    params.model,
++    params.context,
++    CODEX_TOOL_CALL_PROVIDERS,
++    params.options,
++    params.replayMode,
++    Boolean(params.v2Compaction),
++  );
++  const restoreUsers = params.v2Compaction?.preserveUsers(body.input ?? []);
++  const nextBody = await awaitProviderLifecycleCallback(
++    params.options?.onPayload ? () => params.options?.onPayload?.(body, params.model) : undefined,
++    params.options?.signal,
++  );
++  if (nextBody !== undefined) {
++    // SAFETY: The host payload hook replaces this adapter's request body, preserving its wire shape.
++    body = nextBody as RequestBody;
++  }
++  if (restoreUsers) {
++    body.input = [...restoreUsers(body.input ?? []), { type: "compaction_trigger" }];
++    params.v2Compaction?.assertReplayFits(body.input, params.model);
++  }
++  return body;
++}
+--- parent/packages/ai/src/providers/openai-chatgpt-responses.ts
++++ landed/packages/ai/src/providers/openai-chatgpt-responses.ts
+@@ -86,7 +86,8 @@
+   resolveCodexUrl,
+ } from "./openai-chatgpt-responses-protocol.js";
+ import {
+-  buildRequestBody,
++  buildHookedRequestBody,
++  CODEX_TOOL_CALL_PROVIDERS,
+   type OpenAICodexResponsesOptions,
+ } from "./openai-chatgpt-responses-request.js";
+ import {
+@@ -125,7 +126,6 @@
+ const dynamicImport: DynamicImport = (specifier) => import(specifier);
+ 
+ const REQUEST_COMPRESSION_ZSTD_LEVEL = 3;
+-const CODEX_TOOL_CALL_PROVIDERS = new Set(["openai", "opencode"]);
+ const WEBSOCKET_TRANSPORT_ERROR_CODE = "ERR_WEBSOCKET_TRANSPORT";
+ // Only registered server/transport-unavailability closes may authorize retry or
+ // settled-turn finalization; peer policy/protocol rejections must fail closed.
+@@ -247,26 +247,8 @@
+       const optionHeaders = resolveAiTransportHeaderSentinels(options?.headers);
+ 
+       const accountId = extractOpenAICodexAccountId(apiKey);
+-      const buildBody = async (replayMode: OpenAIResponsesReplayMode) => {
+-        let body = buildRequestBody(
+-          model,
+-          context,
+-          CODEX_TOOL_CALL_PROVIDERS,
+-          options,
+-          replayMode,
+-          Boolean(v2Compaction),
+-        );
+-        const restoreUsers = v2Compaction?.preserveUsers(body.input ?? []);
+-        const nextBody = await options?.onPayload?.(body, model);
+-        if (nextBody !== undefined) {
+-          body = nextBody as RequestBody;
+-        }
+-        if (restoreUsers) {
+-          body.input = [...restoreUsers(body.input ?? []), { type: "compaction_trigger" }];
+-          v2Compaction?.assertReplayFits(body.input, model);
+-        }
+-        return body;
+-      };
++      const buildBody = (replayMode: OpenAIResponsesReplayMode) =>
++        buildHookedRequestBody({ model, context, options, replayMode, v2Compaction });
+       let semanticAttempt: ResponsesEncryptedContentAttempt<RequestBody> = {
+         kind: "initial",
+         request: await buildBody("checkpoint"),
+--- parent/packages/ai/src/providers/openai-responses-shared.ts
++++ landed/packages/ai/src/providers/openai-responses-shared.ts
+@@ -27,6 +27,7 @@
+ } from "../transports/openai-transport-params.js";
+ import { createOpenAIProviderAcceptanceHook } from "../transports/openai-transport-shared.js";
+ import {
++  awaitProviderLifecycleCallback,
+   failTransportStream,
+   finalizeTransportStream,
+   withProviderResponseHook,
+@@ -192,7 +193,10 @@
+     const encodeBody = prepareModelRequestBody(options);
+     const buildRequest = async (replayMode: OpenAIResponsesReplayMode) => {
+       let request = params.buildParams(model, replayMode);
+-      const nextRequest = await options?.onPayload?.(request, model);
++      const nextRequest = await awaitProviderLifecycleCallback(
++        options?.onPayload ? () => options.onPayload?.(request, model) : undefined,
++        options?.signal,
++      );
+       if (nextRequest !== undefined) {
+         request = nextRequest as OpenAIResponsesRequestParams;
+       }
+--- parent/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts
++++ landed/packages/ai/src/transports/openai-completions-transport.response-hook.test.ts
+@@ -1,10 +1,5 @@
+-import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from "vitest";
+-import {
+-  awaitGateBeforeSettlement,
+-  createDeferred,
+-  withinTest,
+-  nextEventLoopTurn,
+-} from "../../../../test/helpers/promise.js";
++import { afterEach, beforeEach, expect, it, type MockInstance, vi } from "vitest";
++import { createDeferred, withinTest, nextEventLoopTurn } from "../../../../test/helpers/promise.js";
+ import { configureAiTransportHost, getAiTransportHost } from "../host.js";
+ import { streamOpenAICompletions } from "../providers/openai-completions.js";
+ import type { AssistantMessageEventStreamLike, Context, StreamOptions } from "../types.js";
+@@ -195,72 +190,6 @@
+   lifecycle.assertListenersRemoved();
+ });
+ 
+-describe.each([
+-  { route: "direct", late: "resolve" },
+-  { route: "managed", late: "reject" },
+-] as const)("$route payload hook's late $late", ({ route, late }) => {
+-  it("returns cancellation before the hook settles without releasing its work", async ({
+-    signal,
+-  }) => {
+-    const controller = new AbortController();
+-    const entered = createDeferred();
+-    const hook = createDeferred();
+-    const observed: Promise<unknown>[] = [];
+-    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(
+-      new Response('data: {"choices":[{"delta":{},"finish_reason":"stop"}]}\n\ndata: [DONE]\n\n', {
+-        headers: { "content-type": "text/event-stream" },
+-      }),
+-    );
+-    configureAiTransportHost({
+-      ...getAiTransportHost(),
+-      buildModelFetch: () => fetch,
+-      observePendingProviderWork: (pending) => observed.push(pending),
+-    });
+-    const options = {
+-      signal: controller.signal,
+-      onPayload: () => {
+-        entered.resolve();
+-        return hook.promise;
+-      },
+-    };
+-    const stream =
+-      route === "direct"
+-        ? streamOpenAICompletions(model, context, { apiKey: "fixture-token", ...options })
+-        : createStream(options);
+-    try {
+-      await withinTest(
+-        awaitGateBeforeSettlement(
+-          entered.promise,
+-          stream.result(),
+-          "Stream ended before payload hook",
+-        ),
+-        signal,
+-      );
+-      controller.abort(Object.assign(new Error("payload canceled"), { code: "CALLER_ABORTED" }));
+-      const result = await withinTest(stream.result(), signal);
+-      expect(result).toMatchObject({ stopReason: "aborted", errorCode: "CALLER_ABORTED" });
+-      let drained = false;
+-      const draining = Promise.allSettled(observed).then(() => {
+-        drained = true;
+-      });
+-      await nextEventLoopTurn();
+-      expect(drained).toBe(false);
+-      expect(fetch).not.toHaveBeenCalled();
+-      if (late === "resolve") {
+-        hook.resolve();
+-      } else {
+-        hook.reject(new Error("late payload failure"));
+-      }
+-      await draining;
+-      expect(await stream.result()).toBe(result);
+-      expect(fetch).not.toHaveBeenCalled();
+-    } finally {
+-      hook.resolve();
+-      await Promise.allSettled([...observed, stream.result()]);
+-    }
+-  });
+-});
+-
+ it("keeps caller cancellation terminal after a late hook rejection", async ({ signal }) => {
+   const lifecycle = installResponse();
+   const controller = new AbortController();
+--- parent/packages/ai/src/transports/openai-responses-client.ts
++++ landed/packages/ai/src/transports/openai-responses-client.ts
+@@ -101,6 +101,7 @@
+ } from "./provider-transport-turn-state.js";
+ import { sanitizeResponsesImagePayload } from "./responses-image-payload-sanitizer.js";
+ import {
++  awaitProviderLifecycleCallback,
+   createWritableTransportEventStream,
+   failTransportStream,
+   finalizeTransportStream,
+@@ -229,7 +230,10 @@
+         const prepareRequest = async (request: ReturnType<typeof config.buildRequest>) => {
+           let params = request;
+           const preserveUsers = v2Compaction?.preserveUsers(request.input ?? []);
+-          const nextParams = await options?.onPayload?.(params, model);
++          const nextParams = await awaitProviderLifecycleCallback(
++            options?.onPayload ? () => options.onPayload?.(params, model) : undefined,
++            options?.signal,
++          );
+           if (nextParams !== undefined) {
+             params = nextParams as typeof params;
+           }

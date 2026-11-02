@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-02T19:24:48.207650+00:00",
+  "status": "landed_primary_source_and_test_design_review_only",
+  "PR_url": "https://github.com/openclaw/openclaw/pull/191261",
+  "parent": "f9478d593c96c955db06923f4aa6367fb2825b61",
+  "landed": "1c03d49956edc1f6f1b62726023bbc70e7bed355",
+  "head": "f205f1782ab4d18c1a739d02326f3f306ff5fafb",
+  "manifest": "research/receipts/20261102T190905Z-openclaw-provider-payload-cancellation/manifest.json",
+  "manifest_sha256": "de44f47d123a63b33b540c353fcec83fc322c83121aa28fc4d121e006349c99b",
+  "changed_paths": 12,
+  "whole_changed_path_versions_captured": 22,
+  "full_changed_path_versions_read": 6,
+  "scoped_only_changed_path_versions": 16,
+  "additional_whole_versions": 6,
+  "additional_full_versions_read": 3,
+  "additional_scoped_versions": 3,
+  "all_changed_path_diffs_read": true,
+  "exact_diff_checks": {
+    "landed_API_file_inventory_equals_PR_inventory": true,
+    "landed_commit_blobs_verified": 11,
+    "removed_path": "packages/ai/src/anthropic-payload-cancellation.test.ts",
+    "introduced_line_multiset_matches_PR_patches": 12,
+    "PR_head_blob_mismatches": [
+      "config/assertion-safety-baseline.txt"
+    ]
+  },
+  "shared_owner_scope": {
+    "path": "packages/ai/src/transports/transport-stream-shared.ts",
+    "lines": [
+      442,
+      459
+    ],
+    "read": "complete awaitProviderLifecycleCallback function, scoped file only"
+  },
+  "retry_scope": {
+    "path": "packages/retry/src/index.ts",
+    "lines": [
+      9,
+      42
+    ],
+    "read": "complete racePromiseWithAbortSignal function, scoped file only"
+  },
+  "host_scope": {
+    "path": "packages/ai/src/host.ts",
+    "lines": [
+      [
+        133,
+        147
+      ],
+      [
+        241,
+        280
+      ],
+      [
+        391,
+        394
+      ]
+    ],
+    "read": "optional observer port, inert defaults and current-host lookup; file scoped-only"
+  },
+  "routes": [
+    "Anthropic SDK",
+    "Anthropic fetch",
+    "Completions direct",
+    "Completions managed",
+    "Google interactions",
+    "Google generate content",
+    "Mistral",
+    "Responses direct",
+    "Responses managed",
+    "Codex Responses (SSE)"
+  ],
+  "matrix_cells": 20,
+  "matrix_scope": "Ten named real adapter/transport entrypoints x two late hook outcomes, mocked fetch. Codex forces SSE. No universal inventory of every provider/plugin/custom adapter or every transport/retry branch was performed.",
+  "new_behavior_relative_to_191090": "191090 repaired Chat Completions payload waiting.191261 adds six remaining named hook sites: Google Interactions, shared Google Generate Content, Mistral, Codex Responses request owner, shared OpenAI Responses lifecycle, managed Responses client. Anthropic was already handled separately by191024; it is retained in the newmatrix, not a new six-site change.",
+  "verified_source_facts": [
+    "Six hook sites now await the existing abort-aware helper before their downstream request construction/dispatch continuation. Non-undefined payload replacement is retained.",
+    "The helper checks caller abort, schedules/observes the callback promise through an optional host port, races abort and rechecks abort after success. It does not stop the callback.",
+    "Codex factors its body preparation into buildHookedRequestBody while preserving preserveUsers before hook and user restoration/compaction trigger/assertReplayFits after hook.",
+    "The matrix asserts aborted/code result while hook unfinished and observed work undrained; after late resolve/reject it awaits observed settlement, requires same terminal object and no mocked fetch dispatch.",
+    "The explicit package export map has no wildcard. Private-helper barrel non-reexport audit is an author claim, not independently completed here."
+  ],
+  "author_report": {
+    "url": "https://github.com/openclaw/openclaw/pull/191261#issuecomment-6584785004",
+    "reporter": "obviyus",
+    "created_at": "2026-11-02T18:17:51Z",
+    "candidate": "f205f1782ab4d18c1a739d02326f3f306ff5fafb",
+    "baseline": "7b7d6cf9eb6841127212e0eae5fb65a39a5cb123",
+    "environment": "Node24.22.1 secretless Docker, source-built Gateway, normal provider plugin slow onPayload, local Responses SSE, real chat.send/chat.abort",
+    "baseline_cancel_ms": [
+      4926,
+      5105
+    ],
+    "candidate_cancel_ms": [
+      18,
+      7
+    ],
+    "uncancelled_controls": "2/2 per build, one HTTP request and expected history reply",
+    "focused_tests_reported": "26/26",
+    "independently_executed": false,
+    "CI_independently_verified": false
+  },
+  "comments": {
+    "captured": 12,
+    "declared_at_metadata_read": 12,
+    "bound": 100,
+    "all_issue_comment_bodies_read": false,
+    "material_gateway_report_read_in_full": true,
+    "inline_review_threads_fetched": false
+  },
+  "engineering": {
+    "actual_caller": "OpenClaw built Gateway and reusable @openclaw/ai adapters invoked with host onPayload callback and caller AbortSignal.",
+    "scale_bottleneck": "Many cancelled turns can release their caller while accepted callback work continues, requiring separate retained-work/admission/drain accounting. This patch removes waiting at six named call sites but supplies no finite callback termination or global capacity bound.",
+    "integration_point": "Existing awaitProviderLifecycleCallback before named payload-hook request dispatch; no runtime adoption in our Pi caller.",
+    "future_acceptance": "Only a separately justified actual-runner intervention may test this boundary: freeze route/transport and hook outcomes, separate terminal/callback-drain/effect-confirmed deadlines, bound admission and pending work, check no late dispatch/terminal replacement and current authority/cancellation with two OS process reopens. Do not reopen the failed concurrent workload solely for green auditing.",
+    "validated_tier": "Immutable source and test-design review; author reported Gateway fixture timings are not our measurements.",
+    "rollback": "Source-only curation. No package adoption, scientific experiment or new observer prerequisite."
+  },
+  "state_guards": {
+    "H1_negative_results_and_invalid_RSS_preserved": true,
+    "H1_original_5GiB_gate_preserved": true,
+    "H2_concurrent_frozen_acceptance": false,
+    "H2_postoutcome_observation_not_acceptance": true,
+    "H2_next_gate_unchanged": true,
+    "H3_H4_unchanged": true
+  },
+  "limits": [
+    "Cancellation settlement is not callback termination or host drain; default library host omits the optional observer. No global pending-work/resource/production bound is proved.",
+    "No live-model/API/GPU/multi-host/current-tenant/concurrent-owner/general exactly-once or performance result. The author Gateway provider is a local SSE fixture.",
+    "Matrix exercises10named entrypoints and2late outcomes, not everyprovider, SDK path, websocket, retry/replay or compaction branch.",
+    "Source capture includes all12changed paths/22wholeversions; only6changedversions fully read,16scoped-only. Additional6wholeversions captured:3full(package,Google wrapper,LICENSE),3scoped(sharedowner,retry,host).",
+    "No upstream tests/native/model/scientific execution or hosted CI verification in thislane. One retained404source lookup does not indicate an upstream runtime defect."
+  ]
+}

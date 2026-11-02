@@ -1,0 +1,479 @@
+{
+  "reviewed_at": "2026-11-02T03:06:53.039006+00:00",
+  "status": "passed",
+  "reviewer": "maintenance_1102",
+  "source_sha256": {
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_generation_admission_audit.py": "e8e714855190fb16b7ab812750c85b21840a2be6c849f6556f554f186cb0dff1",
+    "experiments/pi_generation_cancellation_audit.py": "b5c2e048c3b2cc2bcb93129e3a570fb3df54436a0ad08fbce81b23cc5e63b474",
+    "experiments/pi_generation_cancellation_protocol.json": "1191a8a119acd5df34892e4e8f6b9f80a562188289d8ec812240dc3519cfa573",
+    "experiments/pi_generation_cancellation_service.mjs": "ab49996184db08cd28708f04e0308e78c089c7e182443443d7073451da156c7b",
+    "experiments/pi_generation_v2_audit.py": "bdf72eaccaf1030aa5f2f3aa221883c1e6d985d57fdf5170c939c501277ca9ae",
+    "scripts/check_pi_generation_cancellation.py": "44ff10c110e1d2f63410a047f0540eefcd5e378ec64f3b9ed86fe573fb61852c",
+    "scripts/pi_generation_cancellation_worker.mjs": "baa9b68a2df096143ab6b1e53d55e2f99bf98e80ab08ec2d83daf3927cc10380",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52",
+    "scripts/run_pi_generation_cancellation.py": "f34fb974076495f5ac21e7e4c9aa82798916916fc3225151da0e79dc68f6f8a1",
+    "tests/pi_generation_cancellation_service.test.mjs": "4e6a493a21a7bd0f1b8629186467f9074038266434009017e5d49c0b23d898b0",
+    "tests/test_pi_generation_cancellation_audit.py": "a8d98dd4cad2de8741624de8d1551a8dd8a147611e6baa4b5f3297cb74ea659e",
+    "tests/test_pi_generation_cancellation_freeze.py": "4aa416e474ce06095a5ae00bcdc0f3d4aef9ef925114c48848c3d933c725cc6f"
+  },
+  "freeze_sha256": "671099a61a306ae2e8d8dab61e5f9d0bda34e49c378003db3d352fc7cceee967",
+  "raw_directory": "reports/runs/20261102T025828Z/h2-cancellation-native",
+  "raw_files": 50,
+  "raw_bytes": 1496032,
+  "raw_manifest": {
+    "files": [
+      {
+        "path": "execution.json",
+        "bytes": 30295,
+        "sha256": "9f66248c6230cd8806b05039812fc427613f0386c4c413ea789ba3033e35597b"
+      },
+      {
+        "path": "identities.json",
+        "bytes": 9300,
+        "sha256": "18cf3c546404c8a39d467f3c98e33d7debf1e4f337aa14813a24fa9ff1b7e7e8"
+      },
+      {
+        "path": "service0-stage0-endpoint.json",
+        "bytes": 5023,
+        "sha256": "4bbf99e2158bc4c601be3d18fe25993087c3a3f68977e17dd223b687c55ed98b"
+      },
+      {
+        "path": "service0-stage0.sqlite",
+        "bytes": 122880,
+        "sha256": "b94a31b2ceb8330c68e50f92a4541f00babd493c61e2db86006d7b21957deadf"
+      },
+      {
+        "path": "service0-stage0.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service0-stage0.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service0-stage1-endpoint.json",
+        "bytes": 9582,
+        "sha256": "87a9a9c44543aca634042f2bfec1db8dfcb78f5e39f231bfe0365dbb6952bcca"
+      },
+      {
+        "path": "service0-stage1.sqlite",
+        "bytes": 122880,
+        "sha256": "e2bda3a876b1cb147338be7129069750c6951c708d55fd6cf645e43519dbc970"
+      },
+      {
+        "path": "service0-stage1.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service0-stage1.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service0-stage2-endpoint.json",
+        "bytes": 19394,
+        "sha256": "c89318427e4114bf69ccbb0712852878e18009eeba1e874807851e397e92ebc6"
+      },
+      {
+        "path": "service0-stage2.sqlite",
+        "bytes": 126976,
+        "sha256": "ba407a141433cf45af140858a1897cc33d3ec8909550dcde8752f1b250df6364"
+      },
+      {
+        "path": "service0-stage2.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service0-stage2.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service0.sqlite",
+        "bytes": 126976,
+        "sha256": "a77453a2c1f0e7df55b747c33fd2b7eae98ad1c2691442ad149bc9d508ef0125"
+      },
+      {
+        "path": "service0.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service0.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service1-stage0-endpoint.json",
+        "bytes": 5019,
+        "sha256": "fbd06cb89996e7b9b3d13ef8790cd2f24541dd6c730b44fb1a7cf36e364d8258"
+      },
+      {
+        "path": "service1-stage0.sqlite",
+        "bytes": 122880,
+        "sha256": "fe7dd5e99acf94cf5f7a905738581f988bf5216fa58d417523f6ac7794e78914"
+      },
+      {
+        "path": "service1-stage0.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service1-stage0.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service1-stage1-endpoint.json",
+        "bytes": 9575,
+        "sha256": "7ca92c50837d2af329aaa8cc214800959cf691bc329746dc4c7153e8c9f45d65"
+      },
+      {
+        "path": "service1-stage1.sqlite",
+        "bytes": 122880,
+        "sha256": "261664bde40959bf4eb747276ffa2a0f399a4621115cad00a1763b2716453a2d"
+      },
+      {
+        "path": "service1-stage1.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service1-stage1.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service1-stage2-endpoint.json",
+        "bytes": 19379,
+        "sha256": "ceab8adc66eddc0ac761ef20af0adf72bd1f20aba33016bcb776b1d183865720"
+      },
+      {
+        "path": "service1-stage2.sqlite",
+        "bytes": 126976,
+        "sha256": "d0039efaae616538027851786780cd5d3485a048eaa63deee50ad98decc4711d"
+      },
+      {
+        "path": "service1-stage2.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service1-stage2.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "service1.sqlite",
+        "bytes": 126976,
+        "sha256": "d281ecb555ade66a9a8a063ce67c49ea92adc4223b3b6f7a652b32be2875734b"
+      },
+      {
+        "path": "service1.sqlite-shm",
+        "bytes": 32768,
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+      },
+      {
+        "path": "service1.sqlite-wal",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage0-ready.json",
+        "bytes": 91,
+        "sha256": "58348a8d73bf726c708613bdf23ebf781a646d0a60d0af4710c7957243c8af8a"
+      },
+      {
+        "path": "stage0-sink.json",
+        "bytes": 108,
+        "sha256": "281e2a44ee34754c33be975d292a88bcc5947fe4c9569d2f1cb87080fba71c17"
+      },
+      {
+        "path": "stage0-snapshot.json",
+        "bytes": 3510,
+        "sha256": "1417810cf5211abc1435ae36d571c3e42514521aa3337f0399f9f67c63a53cc2"
+      },
+      {
+        "path": "stage0.jsonl",
+        "bytes": 13041,
+        "sha256": "515cc228c59cec069fb7a584a60f52af170d127767d2e691de0c58c00649cfc0"
+      },
+      {
+        "path": "stage0.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage0.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage1-ready.json",
+        "bytes": 91,
+        "sha256": "dfdfec9c4abbccccaf3660eeca1cafbc095b1b178c75dc7041dc8bad3eb493c6"
+      },
+      {
+        "path": "stage1-sink.json",
+        "bytes": 108,
+        "sha256": "4eaf52545ad4d8b7ff08561fe0b4af1b2b62cafc72ff644dd98b86e5bafbf6dc"
+      },
+      {
+        "path": "stage1-snapshot.json",
+        "bytes": 5840,
+        "sha256": "592f8678932201d695d3630f237a652f3307a8261012ef4b0c4088d576de299b"
+      },
+      {
+        "path": "stage1.jsonl",
+        "bytes": 33877,
+        "sha256": "baf937dc1cea37b4744003f94595008870d67e85d39e9fad99e127946bd543e6"
+      },
+      {
+        "path": "stage1.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage1.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage2-ready.json",
+        "bytes": 99,
+        "sha256": "1c4bfc61c2ee6cfabd07534a5a9b69fb203a70a03c11fd1c8e3003ed3c2b9c4d"
+      },
+      {
+        "path": "stage2-sink.json",
+        "bytes": 107,
+        "sha256": "0dde4fb7e2963155e185174c55557ec5ff33ea8a84203810ef279f78f1a7830a"
+      },
+      {
+        "path": "stage2-snapshot.json",
+        "bytes": 7568,
+        "sha256": "800537ff1f04e3d0e77ab8d1cd7d51bc0a7bbe439e7a75e6e6c4815a683dc9db"
+      },
+      {
+        "path": "stage2.jsonl",
+        "bytes": 62457,
+        "sha256": "83ac3d22231c003987ad0cf6f622cb815627f3e5d6c39f3b2075022e5218f0df"
+      },
+      {
+        "path": "stage2.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stage2.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "raw_originals_unchanged_after_review": true,
+  "accepted": {
+    "arrivals": 18,
+    "admitted": 12,
+    "overloaded": 6,
+    "native_generation_tasks": 8,
+    "native_tool_tasks": 8,
+    "faux_provider_calls": 8,
+    "local_effects": 6,
+    "denied_before_submit": 2,
+    "cancelled_before_submit": 2,
+    "cancel_mark_crash_checkpoints": 6,
+    "recovered_reservations": 8,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 12,
+      "p50": 1373,
+      "p95": 1486,
+      "p99": 1486
+    }
+  },
+  "copied_SQLite_reviews": [
+    {
+      "service": 0,
+      "stage": 0,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage0.sqlite",
+          "sha256": "b94a31b2ceb8330c68e50f92a4541f00babd493c61e2db86006d7b21957deadf"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage0.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage0.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 2,
+      "submissions": 1,
+      "entries": 3,
+      "document_sequences": [
+        16
+      ]
+    },
+    {
+      "service": 0,
+      "stage": 1,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage1.sqlite",
+          "sha256": "e2bda3a876b1cb147338be7129069750c6951c708d55fd6cf645e43519dbc970"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage1.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage1.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 4,
+      "submissions": 2,
+      "entries": 6,
+      "document_sequences": [
+        39
+      ]
+    },
+    {
+      "service": 0,
+      "stage": 2,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage2.sqlite",
+          "sha256": "ba407a141433cf45af140858a1897cc33d3ec8909550dcde8752f1b250df6364"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage2.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service0-stage2.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 8,
+      "submissions": 4,
+      "entries": 14,
+      "document_sequences": [
+        76
+      ]
+    },
+    {
+      "service": 1,
+      "stage": 0,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage0.sqlite",
+          "sha256": "fe7dd5e99acf94cf5f7a905738581f988bf5216fa58d417523f6ac7794e78914"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage0.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage0.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 2,
+      "submissions": 1,
+      "entries": 3,
+      "document_sequences": [
+        16
+      ]
+    },
+    {
+      "service": 1,
+      "stage": 1,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage1.sqlite",
+          "sha256": "261664bde40959bf4eb747276ffa2a0f399a4621115cad00a1763b2716453a2d"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage1.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage1.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 4,
+      "submissions": 2,
+      "entries": 6,
+      "document_sequences": [
+        39
+      ]
+    },
+    {
+      "service": 1,
+      "stage": 2,
+      "copied_inputs": [
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage2.sqlite",
+          "sha256": "d0039efaae616538027851786780cd5d3485a048eaa63deee50ad98decc4711d"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage2.sqlite-wal",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "reports/runs/20261102T025828Z/h2-cancellation-native/service1-stage2.sqlite-shm",
+          "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+        }
+      ],
+      "opened_only_isolated_copy": true,
+      "integrity": "ok",
+      "full_endpoint_equal": true,
+      "tasks": 8,
+      "submissions": 4,
+      "entries": 14,
+      "document_sequences": [
+        77
+      ]
+    }
+  ],
+  "preserved_previous_source_count": 54,
+  "previous_freeze_sources_and_source_hashes_preserved": true,
+  "resource_observations": {
+    "suite_elapsed_seconds": 4.436999999999898,
+    "full_controller_authentication_wall_seconds": null,
+    "full_wall_scope": "Outer monotonic timer not recorded for source/runtime authentication. Redirected output Creation/LastWrite timestamps are observational only, not authenticated duration. No full-wall throughput inferred.",
+    "private_peak_polled_bytes": 104742912,
+    "working_set_peak_polled_bytes": 80838656,
+    "OS_PeakWorkingSetSize_max_bytes": 80842752,
+    "memory_samples": 143,
+    "preflight_free_bytes": 19847909376
+  },
+  "findings": [],
+  "no_native_execution_or_test_rerun": true,
+  "scope": "Independent source/current-byte review plus JSON audit and six isolated SQLite copy integrity/full endpoint comparisons. One real earlier local native lifecycle suite with official Faux only; no additional experiment, real model/network, tenant authorization, concurrent owner, external exactly-once, GPU/multihost/production or comparative performance proof. Abort may implicitly resume scheduler; saved global events show no tool re-entry in this finite fixture."
+}

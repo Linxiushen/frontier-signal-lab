@@ -40,6 +40,10 @@ jobs:
         run: python -S scripts/check_pi_durable_load.py
       - name: Check native admission reconciliation pure decisions
         run: node --test tests/pi_generation_admission_service.test.mjs
+      - name: Check cancellation adapter ordering without loading the native runtime
+        run: node --test tests/pi_generation_cancellation_service.test.mjs
+      - name: Verify frozen pending-authority and cancellation saved bytes
+        run: python -S scripts/check_pi_generation_cancellation.py
       - name: Verify frozen admission reconciliation saved bytes
         run: python -S scripts/check_pi_generation_admission.py
       - name: Verify post-outcome admission identity supplement

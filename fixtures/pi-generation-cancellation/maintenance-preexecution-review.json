@@ -1,0 +1,49 @@
+{
+  "reviewed_at": "2026-11-02T03:02:18.916187+00:00",
+  "status": "passed_for_separate_freeze",
+  "reviewer": "maintenance_1102",
+  "source_sha256": {
+    "experiments/pi_durable_service_v2.mjs": "f5cf88f61234d60723ade2bf60c248f89df8955016e8e259df859f8025f47bce",
+    "experiments/pi_generation_admission_audit.py": "e8e714855190fb16b7ab812750c85b21840a2be6c849f6556f554f186cb0dff1",
+    "experiments/pi_generation_cancellation_audit.py": "b5c2e048c3b2cc2bcb93129e3a570fb3df54436a0ad08fbce81b23cc5e63b474",
+    "experiments/pi_generation_cancellation_protocol.json": "1191a8a119acd5df34892e4e8f6b9f80a562188289d8ec812240dc3519cfa573",
+    "experiments/pi_generation_cancellation_service.mjs": "ab49996184db08cd28708f04e0308e78c089c7e182443443d7073451da156c7b",
+    "experiments/pi_generation_v2_audit.py": "bdf72eaccaf1030aa5f2f3aa221883c1e6d985d57fdf5170c939c501277ca9ae",
+    "scripts/check_pi_generation_cancellation.py": "44ff10c110e1d2f63410a047f0540eefcd5e378ec64f3b9ed86fe573fb61852c",
+    "scripts/pi_generation_cancellation_worker.mjs": "baa9b68a2df096143ab6b1e53d55e2f99bf98e80ab08ec2d83daf3927cc10380",
+    "scripts/run_pi_durable_recovery_v3.py": "db3070457fdaeb78938dddb0db1a72aa5546ff740d129768570b5f0f43d09c52",
+    "scripts/run_pi_generation_cancellation.py": "f34fb974076495f5ac21e7e4c9aa82798916916fc3225151da0e79dc68f6f8a1",
+    "tests/pi_generation_cancellation_service.test.mjs": "4e6a493a21a7bd0f1b8629186467f9074038266434009017e5d49c0b23d898b0",
+    "tests/test_pi_generation_cancellation_audit.py": "a8d98dd4cad2de8741624de8d1551a8dd8a147611e6baa4b5f3297cb74ea659e",
+    "tests/test_pi_generation_cancellation_freeze.py": "4aa416e474ce06095a5ae00bcdc0f3d4aef9ef925114c48848c3d933c725cc6f"
+  },
+  "reviewed_sources_complete_byte_count": 134299,
+  "runtime_inventory": {
+    "path": "fixtures/pi-durable-service-v1/runtime-manifest.json",
+    "sha256": "98b4a1555d774b6a91be3c04eedde571704cf06955f6f25ebcb74206b0d8555e",
+    "files": 12765,
+    "complete_set_and_all_current_bytes_verified": true,
+    "semantic_scope": "Adapter caller and inherited pure helpers, native Harness open/resume/abort and scheduler abortConversation boundaries inspected; not a semantic audit of every dependency."
+  },
+  "node_sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "findings": [],
+  "review_points": [
+    "Durable host cancellation commits before optional after-cancel-mark hook; held hook is reached only after commit returns. Pending reservation rechecks durable cancellation/current authority before submitting.",
+    "Existing native links require original conversation/request/content/version identity; cancellation aborts original conversation then relinks original submission. Reconcile/reap release only terminal native or denied/cancelled host-only reservations.",
+    "Worker opens two distinct SQLite Harnesses and two conversations each, preserves 18 unique arrivals/12 admissions/6 overload refusals across three separately controlled PIDs and two kills; no old-output retry. Pending and cancel hooks stay live until controlled process loss.",
+    "Faux provider is official installed local implementation, dynamic/stable API identities separately bound to saved assistant/generation/tool records; no credentials/network/model/GPU proof. Global fetch denied, child environment limited.",
+    "Auditor pins exact submitted/native/host identities, pre/post kill endpoints, six durable cancellation hooks, four pending-reservation hooks, six effects count1 and no tool re-entry after restart. Exact 16 final tasks and 12 terminal hosts distinguish host-only denied/cancelled from real native requests.",
+    "Controller enforces original 1GiB free,90s suite,20s process,8s conditions,256MiB polled private,20MiB observed output; runtime/source/review closure validated before single output creation. Six copied SQLite endpoints include WAL backup and integrity.",
+    "Native Conversation.abort itself resumes scheduler before abortConversation transaction; no claim of globally paused native scheduler. Strict no-tool-reentry acceptance remains a real experimental condition, not assumed by this source review.",
+    "Synthetic mocked preparation tests and saved historical regressions read as preparation only; none rerun or upgraded into this experiment outcome."
+  ],
+  "limitations": [
+    "Pre-execution review only. No freeze written, no tests/native/runtime/model/database execution performed by reviewer.",
+    "Only single trusted host/single owner, controlled flushed process loss,local transactional effects. Concurrent authority-submit TOCTOU/native busy/submit errors/request collision are explicitly outside this finite suite.",
+    "SQLite deadlines and process memory are observed bounds, not an OS I/O interrupt or continuous resource proof; histories grow; no baseline/comparative performance/SLO or production claim."
+  ],
+  "scientific_suites_executed_by_reviewer": 0,
+  "native_executions_by_reviewer": 0,
+  "tests_executed_by_reviewer": 0,
+  "tracked_or_shared_ledger_writes": false
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-21",
+  "updated_on": "2026-11-02",
   "purpose": "Discovery candidates for substantive AI contributions; authenticate current official ownership, policy and exact base before work.",
   "heartbeat_hours": 2,
   "repository_screening_target_per_pass": [
@@ -196,6 +196,16 @@
       "observed_at": "2026-10-19T13:52:25.533774+00:00",
       "status": "prior_maintainer_acceptance_required",
       "rule": "Check current CONTRIBUTING.md: wait for status:accepted before implementing; respect one-open-PR rule until first merge. PIL schema lead overlaps existing work and is excluded."
+    },
+    {
+      "repository": "huggingface/transformers",
+      "observed_at": "2026-11-02T15:08:02.182844+00:00",
+      "head": "7c22a03f99fc47deab0aeaab2efe7720acebf03e",
+      "status": "excluded_autonomous_PRs_and_issues",
+      "evidence_url": "https://github.com/huggingface/transformers/blob/7c22a03f99fc47deab0aeaab2efe7720acebf03e/CONTRIBUTING.md",
+      "policy_sha256": "9a35a79b1e05be48d37777036a45c6a3b76d67e19eb81abc77b67d760e2675ea",
+      "quote": "We'd also ask autonomous agents not to open any PRs or issues for the moment.",
+      "rule": "Exclude autonomous PR/issue creation while this warning applies. The same guide also requires issue coordination/approval and human end-to-end review for AI-assisted contributions. Existing user authorization does not establish those upstream admission requirements. Recheck current policy before future admission; no issue or PR was created."
     }
   ]
 }

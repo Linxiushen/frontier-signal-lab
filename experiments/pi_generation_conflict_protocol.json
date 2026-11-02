@@ -1,0 +1,60 @@
+{
+  "suites_permitted": 1,
+  "retries": 0,
+  "suite_wall_seconds": 90,
+  "process_wall_seconds": 20,
+  "condition_seconds": 8,
+  "node_max_old_space_mib": 128,
+  "polled_process_private_bytes_ceiling": 268435456,
+  "output_bytes_ceiling": 20971520,
+  "min_free_disk_bytes": 1073741824,
+  "poll_seconds": 0.02,
+  "name": "pi-native-busy-and-request-identity-disposition",
+  "predeclared_at": "2026-11-02T11:09:32.265741+00:00",
+  "hypothesis": "H2",
+  "question": "Can the same two-Session caller retain busy reservations, consume current denial/cancel after restart, and boundedly quarantine native type/content collisions without adopting or aborting the original foreign native request?",
+  "engineering": {
+    "actual_caller": "Same optional two-SQLite-Session Harness/Conversation/GenerationTask/official local Faux/ToolTask service.",
+    "scale_bottleneck": "Native busy errors leave host capacity reserved; native request-ID deduplication is type/ID based and cannot authenticate content for host recovery. Blind cancellation can abort another native identity.",
+    "integration_point": "Same reconciliation and cancellation methods; exact input identity checked before abort, conflict permanently releases only host-owned capacity with original native ID recorded. No native store or runtime edits.",
+    "rollback": "Separate optional module and controller; all old source/freeze/result bytes retained. Do not swap an existing production caller implicitly.",
+    "validated_tier_if_passed": "Finite single-owner Windows native lifecycle using deterministic official local Faux; no real model, HTTP, tenant/concurrent-owner or external effect guarantee."
+  },
+  "workload": {
+    "native_sessions": 2,
+    "sqlite_databases": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "process_stages": 3,
+    "forced_kills_and_reopens": 2,
+    "total_unique_arrivals": 18,
+    "durable_host_reservations": 14,
+    "overloaded": 4,
+    "expected_native_submissions": 12,
+    "expected_native_generation_tasks": 10,
+    "expected_native_tool_tasks": 10,
+    "expected_faux_provider_calls": 10,
+    "expected_local_effects": 6,
+    "stages": [
+      "Each Session: hold one real native pre-effect tool; second host request to same busy Conversation must throw genuine ConversationBusy, retain exact pending reservation/capacity but create no native row; refuse overload. Service0 revokes current Conversation authority; service1 durably marks pending request cancelled. Both native controls durably cancel-marked before native abort, held until kill0. active2/effect0 each.",
+      "Reopen both Sessions: before explicit host harness.resume reconcile exact native controls via Conversation-wide abort after validating original native identity; retire busy requests by current denial/cancel without provider work. In each Session reserve type-collision host request, create original native display-only write, call native input/replay sameID and require genuine type error, quarantine host only. Reserve content-collision host request; create foreign-content native input, wait actual ToolTask, replay host-original content/sameID and require native sameID reuse. Host cancellation must quarantine without aborting or modifying foreign placed submission. After explicit unchanged-record observation, fixture owner explicitly aborts the uniquely in-flight Conversation and waits on that original submission ID; this is not native per-ID abort. Admit native post-effect control, commit one effect and hold durable cancel mark before abort until kill1. active1/effect1 each.",
+      "Reopen both Sessions, consume original post-effect cancel before explicit host harness.resume (Conversation.abort itself resumes the native scheduler); no replay/new effect. Admit two final native commits/Session, refuse overload and settle. Final14hostterminals,12nativesubmissions incl2writes,10Generation/10Tool/10Fauxcalls,20native terminaltasks (12aborted8completed),6local effects count1,active0."
+    ],
+    "provider": "Official pinned pi-ai fauxProvider, deterministic one toolCall/native input, finite16factoryresponses per Session/process; control.terminate avoids second generation, retries/compaction disabled, globalfetch denied and child environment sanitized. No credentials/network/purchases.",
+    "provider_api_identity_contract": {
+      "service0": "default-dynamic",
+      "service1": "frontier-faux-conflict"
+    }
+  },
+  "acceptance": [
+    "Exact18arrivals/14hostreservations/4overload. Genuine2ConversationBusy and2native type errors; two changed-content native same-ID reuses; four host identity quarantines. Quarantines release only host capacity, retain original host payload/version/cancel and original nativeID/type, never adopt foreignID as submissionId or automatically abort foreign chain.",
+    "Atkill0 two exact active reservations perSession, nativepre-effectcontrols durablycancelled, no effects; busy requests no native row, service0 currentauthority99false, service1 canceltrue. Atkill1 exactpost-effectcancelled originals remainactive1/effect1perSession; collisionchains already settled by explicitfixtureowner, exactforeign placedrecord equalbefore/afterhostcancel.",
+    "Three actual worker PIDs/two forcedkills and reopens. Six recoveredhostreservations; no host-onlybusy native submit, no toolreplay afterreopen. Exactfinaloriginal user/assistant/tool/tool-result/nativeIDs/APIstage joins,10actualprovider/toolentries,6effects exactnativeToolID,14host/20nativeterminals and finalactive0.",
+    "Complete runtime/node/source hashes, six SQLite copies/integrity/fullendpoint comparisons, raw inventories and observationcounts. Original90s suite/20s process/8s condition/256MiB polledprivate/20MiB output/1GiB disk gates unchanged. Record monotonic full-controller/authentication wall from before source/runtime validation separately from suitewall; fullcost cannot be inferred from suitewall."
+  ],
+  "metrics": [
+    "Report14hostterminal dispositions separately from4successfulnativecommits,2posteffectcancelled commits,4hostconflicts,2pre-effectaborts and2denied/cancelledbusyrequests; sixeffect throughput over both suitewall and completecontrollerwall. Nearest-rank14sample terminal p50/p95/p99 mixedcohort/restarts descriptive only.",
+    "Polledprivate and OSworking-setpeak/samplegaps, callback/flushcost, rawbytes. No matchedOFF/baseline or causal speedup/overhead/SLO claim; existing committed-state observer unchanged."
+  ],
+  "limits": "Single trusted Windows host/twoSQLiteSessions/official no-costlocalFaux, deterministicfixture. NativeID-only content reuse is observed contract, not automatically an upstream defect. Host quarantine is permanent and inspectable; foreign native disposal is fixtureowner conversation-wide abort after unique in-flight identity checks, not native per-ID abort. The semantically-equivalent-JSON post-quarantine effect guard has pure regression evidence only; current native collision fixture uses foreign payload bytes and holds before effect. Conversation.abort internally resumes the native scheduler; no globally paused-scheduler guarantee or native per-ID placed-input abort. Finite exact no-replay acceptance only. No native storage error/networktransport/realmodel/tenant/concurrentowner/externalexactlyonce/GPU/distributed/production/performance-comparison proof. Host serial arrival and controlled gates, historiesgrow, explicitreconcile/reap; SQLite deadlines observed rather than OSIOinterrupt. PriorH2failures/acceptedresults,H1negative/original5GiB,H3/H4 unchanged."
+}

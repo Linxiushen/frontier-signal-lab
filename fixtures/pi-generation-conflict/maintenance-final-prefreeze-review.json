@@ -1,0 +1,206 @@
+{
+  "status": "passed_for_separate_freeze",
+  "reviewed_at": "2026-11-02T11:19:09.329116+00:00",
+  "reviewer": "independent maintenance_resume subagent",
+  "scope": "Eight proposed H2 native busy/type/content-conflict preparation files accepted for separate immutable freeze. This is not native/scientific result acceptance.",
+  "source_sha256": {
+    "experiments/pi_generation_conflict_service.mjs": "3242bac1bbaf3a8293c852ad3e4f2b641f704760d9fcd933cb7e7ac9f49e9469",
+    "experiments/pi_generation_conflict_audit.py": "9ceb0677e0b07eb334a900a5c82180eef4ebc88e136c78be0e4045f00a22af78",
+    "experiments/pi_generation_conflict_protocol.json": "17f19fbb49e9664c8816d5dc7fa6256033adaa7c10dc351cb174e39e5ce2fd79",
+    "scripts/pi_generation_conflict_worker.mjs": "681f3a12b5df34e0bc42a6a3d572dbcffe96e07100e3910412deab221b168348",
+    "scripts/run_pi_generation_conflict.py": "7fa4599830edf2b337a8eb432d068aae17e33cf96c6a44a6a3ab4193c178c0a3",
+    "scripts/check_pi_generation_conflict.py": "c37bcc8d1a8cc8257174badd702aa66be28177995a645cc9048e348cd2e61ef4",
+    "tests/pi_generation_conflict_service.test.mjs": "cd279411f243d4146483faa17ece67c42acb24afd0cdd4b3dfe94b0cabb32a3e",
+    "tests/test_pi_generation_conflict.py": "e00a72076c0952a7f34dbfe6e9dad128725f5c9ccf2a21faf42108c6bfe66e4f"
+  },
+  "initial_review": {
+    "path": "reports/runs/20261102T110019Z/h2-review/maintenance-independent-initial-source-review.json",
+    "sha256": "c3484c2121dbdb328e0f1575c4dc2cc5d10412e2f43b8f68f06a99c777a43c6c"
+  },
+  "final_protocol_review": "Final protocol fully reread after last wording edits. Host reconciliation precedes explicit host harness.resume; Conversation.abort itself resumes scheduler. No globally paused scheduler or native per-ID placed-input abort guarantee.",
+  "resolved_findings": [
+    {
+      "finding": "Quarantined request could commit for semantically equivalent differently encoded JSON.",
+      "resolution": "effectDisposition terminal native-conflict guard blocks commit; actual quarantine then same-parsed-args pure regression passes.",
+      "tier": "Pure regression only; native workload uses different foreign payload held before effect."
+    },
+    {
+      "finding": "Foreign cleanup wording could imply native per-ID abort.",
+      "resolution": "Explicit fixture-owner Conversation-wide abort after uniquely in-flight original identity validation, then exact original-ID wait. Host quarantine itself never aborts/adopts foreign chain."
+    },
+    {
+      "finding": "Events could be placed in arbitrary worker stage.",
+      "resolution": "validate_event_stage enforces phase ownership; 14 wrong-stage mutation cases are rejected in pure tests."
+    },
+    {
+      "finding": "SQLite backup evidence lacked full stopped-source endpoint comparison.",
+      "resolution": "Controller reads source endpoint after stop, backups SQLite, reads copied endpoint, asserts full equality and saves six canonical endpoint/hash comparison receipts. Audit requires exact receipts."
+    },
+    {
+      "finding": "Suite timing excludes authentication.",
+      "resolution": "Controller monotonic timer begins before source/runtime authentication; interpreter startup excluded. Root must separately label external full CLI wrapper timing."
+    }
+  ],
+  "api_sources_reviewed": {
+    "runtime_directory": "local-state/pi-durable-20261031T100338Z",
+    "files": [
+      "dist/harness/submissions.js",
+      "dist/errors.js",
+      "dist/harness/harness.js ConversationImpl",
+      "dist/harness/scheduler.js abort/abortConversation"
+    ],
+    "findings": [
+      "Native known-ID reuse precedes content and busy checks.",
+      "Cross-type Error text matches installed source: Request ${requestId} already identifies a submission of type write.",
+      "Genuine ConversationBusy occurs before native submission creation.",
+      "SubmissionHandle.abort cannot cancel already_placed input.",
+      "Conversation.abort resumes then traverses Conversation; not per-ID placed-input cancellation."
+    ]
+  },
+  "predeclared_counts_not_observations": {
+    "sessions": 2,
+    "sqlite_databases": 2,
+    "conversations_per_session": 2,
+    "capacity_per_session": 2,
+    "processes": 3,
+    "forced_kills_and_reopens": 2,
+    "unique_arrivals": 18,
+    "host_reservations": 14,
+    "overload_refusals": 4,
+    "busy_errors": 2,
+    "native_type_errors": 2,
+    "content_same_id_reuses": 2,
+    "host_quarantines": 4,
+    "native_submissions": 12,
+    "display_only_writes": 2,
+    "generation_tasks": 10,
+    "tool_tasks": 10,
+    "official_faux_calls": 10,
+    "native_terminal_tasks": 20,
+    "aborted_native_tasks": 12,
+    "completed_native_tasks": 8,
+    "local_effects_count_one": 6,
+    "final_successful_native_commits": 4,
+    "posteffect_cancelled_commits": 2,
+    "host_terminals": 14,
+    "recovered_host_reservations": 6,
+    "final_active": 0
+  },
+  "dependency_closure": {
+    "prior_freeze_path": "fixtures/pi-generation-cancellation/implementation.json",
+    "prior_freeze_sha256": "671099a61a306ae2e8d8dab61e5f9d0bda34e49c378003db3d352fc7cceee967",
+    "prior_direct_source_count": 13,
+    "prior_preserved_source_count": 54,
+    "prior_unique_source_count": 63,
+    "all_63_old_source_hashes_reverified": true,
+    "new_unique_source_count": 8,
+    "combined_unique_source_count": 71,
+    "note": "63 unique old source pins plus prior freeze JSON means 64 files, not 64 old source pins. New Python/Node imports are covered by preserved sources/runtime manifest. Actual controller must authenticate full runtime inventory.",
+    "node_sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "runtime_manifest_path": "fixtures/pi-durable-service-v1/runtime-manifest.json",
+    "runtime_manifest_sha256": "98b4a1555d774b6a91be3c04eedde571704cf06955f6f25ebcb74206b0d8555e"
+  },
+  "validation": {
+    "pure_or_mocked_test_methods": 17,
+    "failed": 0,
+    "skipped": 0,
+    "python_ast_parsing_passed": true,
+    "receipts": [
+      {
+        "path": "reports/runs/20261102T110019Z/h2-review/maintenance-independent-python-pure.receipt.json",
+        "sha256": "4031ebfabb7a91ff49eab76559ec7ae892b7fe2c532160b102b1ea4e132f0c9a",
+        "test_count": 6,
+        "scope": "pure/mocked unittest methods",
+        "receipt": {
+          "started_at": "2026-11-02T11:14:11.297424+00:00",
+          "completed_at": "2026-11-02T11:14:12.012925+00:00",
+          "command": [
+            "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "-S",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_pi_generation_conflict.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 0.7180000000007567,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "596303163ee23abd3f2a919a101617ee024dd8d2bd72ddea7b7ce25ebe3bff44",
+          "scope": "Pure/mocked unit preparation only, no native runtime/SQLite/model/scientific execution."
+        }
+      },
+      {
+        "path": "reports/runs/20261102T110019Z/h2-review/maintenance-independent-node-mocked.receipt.json",
+        "sha256": "316d96e5ab6aa96bc92749d2a52c54034e611ecbb41035a0acbe325bda257bbf",
+        "test_count": 11,
+        "scope": "fake-Harness and helper Node tests",
+        "receipt": {
+          "started_at": "2026-11-02T11:14:11.361425+00:00",
+          "completed_at": "2026-11-02T11:14:11.866986+00:00",
+          "command": [
+            "C:/Program Files/nodejs/node.exe",
+            "--test",
+            "tests/pi_generation_conflict_service.test.mjs"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 0.5,
+          "stdout_sha256": "9feac39ceef256ae82385dd7f8499d601b7e15483172b79f12040c8cecef59e5",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "scope": "Pure/helper and fake-Harness tests only; no native runtime/SQLite/provider/model/scientific execution."
+        }
+      },
+      {
+        "path": "reports/runs/20261102T110019Z/h2-review/maintenance-worker-syntax.receipt.json",
+        "sha256": "d5445d5c98b40faac27c4bce917e38bd00635dedba3135d05423633047cbf114",
+        "test_count": null,
+        "scope": "Node syntax parsing only",
+        "receipt": {
+          "started_at": "2026-11-02T11:15:45.423252+00:00",
+          "completed_at": "2026-11-02T11:15:45.570814+00:00",
+          "command": [
+            "C:/Program Files/nodejs/node.exe",
+            "--check",
+            "scripts/pi_generation_conflict_worker.mjs"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 0.13999999999941792,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "scope": "Syntax parsing only; worker code not executed."
+        }
+      }
+    ],
+    "native_or_scientific_execution_by_reviewer": false
+  },
+  "resource_gates": {
+    "suites_permitted": 1,
+    "retries": 0,
+    "suite_wall_seconds": 90,
+    "process_wall_seconds": 20,
+    "condition_seconds": 8,
+    "node_max_old_space_mib": 128,
+    "polled_process_private_bytes_ceiling": 268435456,
+    "output_bytes_ceiling": 20971520,
+    "min_free_disk_bytes": 1073741824,
+    "poll_seconds": 0.02
+  },
+  "limitations": [
+    "No native worker, SQLite lifecycle, provider, real model, training or H1-H4 scientific suite executed by reviewer. Separate immutable freeze and single native run remain pending.",
+    "Finite single-owner Windows/two-Session official local Faux fixture only; no real model/HTTP/GPU/multinode/tenant/concurrent-owner/external exactly-once/production or causal performance claim.",
+    "Direct native type-error probe plus host preexisting-collision quarantine does not establish check/submit race coverage, native storage failures or network errors.",
+    "Semantically-equivalent-JSON post-quarantine guard is pure-tested only. Current native collision fixture uses foreign payload bytes held before effect.",
+    "Host arrivals are serial/controlled. Foreign native disposal is fixture-owner Conversation-wide abort after unchanged original record observation and uniquely in-flight identity checks; no native per-ID placed-input abort or globally paused scheduler guarantee.",
+    "SQLite deadlines observed rather than OS I/O interruption. Polled private and OS working-set endpoints are not GPU or complete peak resource measurements.",
+    "Internal complete-controller wall starts before authentication but excludes interpreter startup; root must report full CLI wrapper separately.",
+    "Prior H2 results and source bytes, H1 negative results/original 5GiB gate, H3/H4 remain preserved."
+  ],
+  "next_step": "Root may freeze these exact bytes in separate implementation/review artifacts then execute at most the one permitted suite. Source changes invalidate this source-specific review.",
+  "blockers": []
+}

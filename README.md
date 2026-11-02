@@ -173,3 +173,6 @@ stdlib-only recovery check: a copy can pass integrity checks while omitting
 committed messages; it preserves raw files and offers an offline receipt audit.
 
 MIT for original tooling and examples. No model weights are bundled.
+
+
+H2 native busy/error/collision (2026-11-02 11:20Z): one separately frozen two-Session suite passes, 18arrivals/14host reservations/4overload,2nativebusy/2typeerrors/2changed-content IDreuses/4hostquarantines; 10Generation/Tool/official localFaux chains plus2writes,6local effects count1,14host/20native taskterminals, 3PIDs/2forcedkills/reopens and finalactive0. Host quarantine never adopts/automatically aborts foreign native work; fixture cleanup is conversation-wide after exact original identity checks. Suite5.000s, controller44.032s and completeCLI44.328s (including authentication) are separate observations. Finite gate CLOSED; next separately preregister independent durable effects/transport at this native tool boundary, current authority/cancel/idempotency and two reopens, no observer detour. Official deterministic localFaux/single trusted Windows owner; no real model/HTTP/tenant/concurrent-owner/externalexactlyonce/GPU/production or causal performance proof. Old H1negative/invalidRSS/5GiB and H3/H4 unchanged. [Result](results/pi-generation-conflict/report.md).

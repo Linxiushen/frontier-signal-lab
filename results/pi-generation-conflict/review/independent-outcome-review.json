@@ -1,0 +1,693 @@
+{
+  "reviewer": "maintenance_resume independent saved-byte reviewer",
+  "started_at": "2026-11-02T11:26:44.326408+00:00",
+  "status": "passed_saved_byte_review",
+  "findings": [],
+  "checks": [
+    {
+      "name": "freeze_source_and_review_receipts",
+      "status": "passed",
+      "details": {
+        "new_sources": 8,
+        "preserved_unique_sources": 63,
+        "runtime_full_inventory_note": "Actual controller authenticated complete pinned runtime inventory before native execution; reviewer rechecked Node/manifest hashes, not a second full runtime rehash.",
+        "reservation_free_disk_bytes": 16834375680
+      }
+    },
+    {
+      "name": "one_shot_processes_limits_and_time_domains",
+      "status": "passed",
+      "details": {
+        "cli_exit": 0,
+        "PIDs": [
+          4836,
+          31468,
+          32200
+        ],
+        "raw_bytes": 1545013,
+        "raw_file_count": 56
+      }
+    },
+    {
+      "name": "six_immutable_SQLite_copies_full_endpoints",
+      "status": "passed",
+      "details": {
+        "copies": 6,
+        "live_final_DBs_also_equal_stage2": 2,
+        "connection": "mode=ro&immutable=1, verified empty WAL; no sidecar writes",
+        "historical_limit": "Checkpointing keeps only latest service revision per stage; intermediate callback states cannot all be rejoined to retained SQLite revision history."
+      }
+    },
+    {
+      "name": "independent_native_host_permission_cancel_capacity_event_joins",
+      "status": "passed",
+      "details": {
+        "native_chains": 10,
+        "all_three_stage_SQLite_endpoints_joined_to_latest_publication": true,
+        "intermediate_callback_states_checked_for_invariants": 61,
+        "native_tool_replays_observed": 0,
+        "cross_session_ID_note": "IDs are scoped per Session; duplicate numerical IDs across two DBs are expected."
+      }
+    },
+    {
+      "name": "frozen_acceptance_recomputed_without_native_execution",
+      "status": "passed",
+      "details": {
+        "arrivals": 18,
+        "durable_host_reservations": 14,
+        "overloaded": 4,
+        "native_busy_errors": 2,
+        "native_type_errors": 2,
+        "native_content_reuses": 2,
+        "host_quarantines": 4,
+        "native_submissions": 12,
+        "native_generation_tasks": 10,
+        "native_tool_tasks": 10,
+        "faux_provider_calls": 10,
+        "local_effects": 6,
+        "host_terminals": 14,
+        "native_terminal_tasks": 20,
+        "recovered_reservations": 6,
+        "maximum_active_per_session": 2,
+        "final_active": 0,
+        "terminal_latency_ms": {
+          "n": 14,
+          "p50": 57,
+          "p95": 1674,
+          "p99": 1674
+        }
+      }
+    }
+  ],
+  "native_executions_by_reviewer": 0,
+  "models_or_training_by_reviewer": 0,
+  "raw_directory": "reports/runs/20261102T110019Z/h2-native-conflict",
+  "original_frozen_execution_status": "passed",
+  "freeze_sha256": "5abc6b0586b65afc27d4b55b006ac732d5b76a83467ee8801782f4be31f60f39",
+  "source_sha256": {
+    "experiments/pi_generation_conflict_audit.py": "9ceb0677e0b07eb334a900a5c82180eef4ebc88e136c78be0e4045f00a22af78",
+    "experiments/pi_generation_conflict_protocol.json": "17f19fbb49e9664c8816d5dc7fa6256033adaa7c10dc351cb174e39e5ce2fd79",
+    "experiments/pi_generation_conflict_service.mjs": "3242bac1bbaf3a8293c852ad3e4f2b641f704760d9fcd933cb7e7ac9f49e9469",
+    "scripts/check_pi_generation_conflict.py": "c37bcc8d1a8cc8257174badd702aa66be28177995a645cc9048e348cd2e61ef4",
+    "scripts/pi_generation_conflict_worker.mjs": "681f3a12b5df34e0bc42a6a3d572dbcffe96e07100e3910412deab221b168348",
+    "scripts/run_pi_generation_conflict.py": "7fa4599830edf2b337a8eb432d068aae17e33cf96c6a44a6a3ab4193c178c0a3",
+    "tests/pi_generation_conflict_service.test.mjs": "cd279411f243d4146483faa17ece67c42acb24afd0cdd4b3dfe94b0cabb32a3e",
+    "tests/test_pi_generation_conflict.py": "e00a72076c0952a7f34dbfe6e9dad128725f5c9ccf2a21faf42108c6bfe66e4f"
+  },
+  "time_domains": {
+    "suite_seconds": 5.0,
+    "authentication_seconds": 39.03199999999924,
+    "complete_controller_seconds": 44.03199999999924,
+    "full_CLI_seconds": 44.32800000000134,
+    "suite_scope": "Workers/restarts/copies/acceptance, excludes authentication.",
+    "controller_scope": "Starts before source/runtime authentication, excludes Python interpreter startup.",
+    "CLI_scope": "Python process creation/startup/imports, source/runtime authentication, suite/workers/restarts/copies/audit/exit",
+    "excluded_from_CLI": "Protocol preparation, independent reviews, prior pure regressions and later publication/checks"
+  },
+  "process_resources": [
+    {
+      "stage": 0,
+      "pid": 4836,
+      "forced_termination": true,
+      "returncode": 1,
+      "wall_seconds": 1.5,
+      "samples": 64,
+      "polled_private_peak_bytes": 85942272,
+      "observed_OS_working_set_high_water_bytes": 86433792,
+      "maximum_sample_gap_seconds": 0.0319999999992433,
+      "initial_sample_delay_seconds": 0.046000000002095476,
+      "unsampled_tail_seconds": 0.0319999999992433
+    },
+    {
+      "stage": 1,
+      "pid": 31468,
+      "forced_termination": true,
+      "returncode": 1,
+      "wall_seconds": 1.6410000000032596,
+      "samples": 49,
+      "polled_private_peak_bytes": 85221376,
+      "observed_OS_working_set_high_water_bytes": 86913024,
+      "maximum_sample_gap_seconds": 0.04700000000593718,
+      "initial_sample_delay_seconds": 0.06300000000192085,
+      "unsampled_tail_seconds": 0.046999999998661224
+    },
+    {
+      "stage": 2,
+      "pid": 32200,
+      "forced_termination": false,
+      "returncode": 0,
+      "wall_seconds": 1.625,
+      "samples": 39,
+      "polled_private_peak_bytes": 104710144,
+      "observed_OS_working_set_high_water_bytes": 89030656,
+      "maximum_sample_gap_seconds": 0.04700000000593718,
+      "initial_sample_delay_seconds": 0.0629999999946449,
+      "unsampled_tail_seconds": 0.125
+    }
+  ],
+  "sqlite_checks": [
+    {
+      "service": 0,
+      "stage": 0,
+      "sqlite_sha256": "5d159c2929f0c586d9d3a4a90b6bc83208852276c39edb1d8fc6142595316184",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "b6e00ab4dda4cef16c4c616b08867e75dd700cb27bc602ba61980446e191ff62",
+      "retained_document_sequences": [
+        16
+      ],
+      "submissions": 1,
+      "tasks": 2,
+      "entries": 3
+    },
+    {
+      "service": 0,
+      "stage": 1,
+      "sqlite_sha256": "b39cd8c0be715db7ff20c87525896f59c936675eb07c41a3586f8017c7ca6af6",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "b6bfad36113051fe7aca8341a245bb704e6013ddcc1e8249af9dfb6233402b47",
+      "retained_document_sequences": [
+        54
+      ],
+      "submissions": 4,
+      "tasks": 6,
+      "entries": 11
+    },
+    {
+      "service": 0,
+      "stage": 2,
+      "sqlite_sha256": "5ccf74ca6e6a6c7f3f71873e6feafb63a210519423db123593a1515daf957ea8",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "4216b0bd0431f6d57db93f71b32224f53f9a7ea7be87332a9b2fa20c16b1f06b",
+      "retained_document_sequences": [
+        90
+      ],
+      "submissions": 6,
+      "tasks": 10,
+      "entries": 18
+    },
+    {
+      "service": 1,
+      "stage": 0,
+      "sqlite_sha256": "04b9ef4e505e80ff8f2080b5cdf3ea2890dc437ce7540d3b68b363136de5a26f",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "ae00af0617a7f1c801d4fa7eb0f65f3caedc1709530c035c18f21df901a630c2",
+      "retained_document_sequences": [
+        16
+      ],
+      "submissions": 1,
+      "tasks": 2,
+      "entries": 3
+    },
+    {
+      "service": 1,
+      "stage": 1,
+      "sqlite_sha256": "a3a09234b6897f2fcc5d4c36211208a962261f4fe06180836570085f5fa5e10c",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "da7212f9337b81c20a51725dca7f404fd99321442035279658f14e683bf3e56d",
+      "retained_document_sequences": [
+        54
+      ],
+      "submissions": 4,
+      "tasks": 6,
+      "entries": 11
+    },
+    {
+      "service": 1,
+      "stage": 2,
+      "sqlite_sha256": "58533e5c027c88b2ecda0d2ba76a81381cb96c9049fac050c989c8ce7c694d09",
+      "integrity_check": "ok",
+      "full_endpoint_equal_saved_json": true,
+      "source_copy_receipt_equal": true,
+      "canonical_endpoint_sha256": "c26482114666e4163874ce97c83b88549b03be3ef2f80dc238e426d88b124351",
+      "retained_document_sequences": [
+        91
+      ],
+      "submissions": 6,
+      "tasks": 10,
+      "entries": 18
+    }
+  ],
+  "native_chain_joins": [
+    {
+      "service": 0,
+      "key": "2:s0-db0-pre-abort-0",
+      "native_submission": 16,
+      "user_entry": 15,
+      "assistant_entry": 19,
+      "generation_task": 17,
+      "tool_task": 20,
+      "tool_result_entry": 21,
+      "provider_api": "faux:1793618455995:2xr6pnuo7f9",
+      "outcome": "aborted",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 0,
+      "key": "8:s1-db0-content-collision-1",
+      "native_submission": 25,
+      "user_entry": 24,
+      "assistant_entry": 28,
+      "generation_task": 26,
+      "tool_task": 29,
+      "tool_result_entry": 30,
+      "provider_api": "faux:1793618457580:k7b9m11jqj",
+      "outcome": "aborted",
+      "payload_scope": "foreign fixture original"
+    },
+    {
+      "service": 0,
+      "key": "2:s1-db0-post-abort-0",
+      "native_submission": 32,
+      "user_entry": 31,
+      "assistant_entry": 34,
+      "generation_task": 33,
+      "tool_task": 35,
+      "tool_result_entry": 36,
+      "provider_api": "faux:1793618457580:k7b9m11jqj",
+      "outcome": "aborted",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 0,
+      "key": "2:s2-db0-commit-0",
+      "native_submission": 38,
+      "user_entry": 37,
+      "assistant_entry": 43,
+      "generation_task": 39,
+      "tool_task": 44,
+      "tool_result_entry": 47,
+      "provider_api": "faux:1793618459322:9h8cv8ml65",
+      "outcome": "completed",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 0,
+      "key": "8:s2-db0-commit-1",
+      "native_submission": 41,
+      "user_entry": 40,
+      "assistant_entry": 45,
+      "generation_task": 42,
+      "tool_task": 46,
+      "tool_result_entry": 48,
+      "provider_api": "faux:1793618459322:9h8cv8ml65",
+      "outcome": "completed",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 1,
+      "key": "2:s0-db1-pre-abort-0",
+      "native_submission": 16,
+      "user_entry": 15,
+      "assistant_entry": 19,
+      "generation_task": 17,
+      "tool_task": 20,
+      "tool_result_entry": 21,
+      "provider_api": "frontier-faux-conflict",
+      "outcome": "aborted",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 1,
+      "key": "8:s1-db1-content-collision-1",
+      "native_submission": 25,
+      "user_entry": 24,
+      "assistant_entry": 28,
+      "generation_task": 26,
+      "tool_task": 29,
+      "tool_result_entry": 30,
+      "provider_api": "frontier-faux-conflict",
+      "outcome": "aborted",
+      "payload_scope": "foreign fixture original"
+    },
+    {
+      "service": 1,
+      "key": "2:s1-db1-post-abort-0",
+      "native_submission": 32,
+      "user_entry": 31,
+      "assistant_entry": 34,
+      "generation_task": 33,
+      "tool_task": 35,
+      "tool_result_entry": 36,
+      "provider_api": "frontier-faux-conflict",
+      "outcome": "aborted",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 1,
+      "key": "2:s2-db1-commit-0",
+      "native_submission": 38,
+      "user_entry": 37,
+      "assistant_entry": 43,
+      "generation_task": 39,
+      "tool_task": 44,
+      "tool_result_entry": 47,
+      "provider_api": "frontier-faux-conflict",
+      "outcome": "completed",
+      "payload_scope": "host original"
+    },
+    {
+      "service": 1,
+      "key": "8:s2-db1-commit-1",
+      "native_submission": 41,
+      "user_entry": 40,
+      "assistant_entry": 45,
+      "generation_task": 42,
+      "tool_task": 46,
+      "tool_result_entry": 48,
+      "provider_api": "frontier-faux-conflict",
+      "outcome": "completed",
+      "payload_scope": "host original"
+    }
+  ],
+  "event_counts": {
+    "provider-identity": 6,
+    "admission": 16,
+    "provider-request": 10,
+    "tool-enter": 10,
+    "native-busy": 2,
+    "cancel-mark-held": 5,
+    "committed-state": 61,
+    "ready": 3,
+    "recovery-before-resume": 6,
+    "terminal": 14,
+    "reservation-held": 4,
+    "native-type-error": 2,
+    "native-identity-conflict": 4,
+    "native-content-reuse": 2,
+    "fixture-native-dispose": 2,
+    "tool-effect": 6
+  },
+  "recomputed_frozen_acceptance": {
+    "arrivals": 18,
+    "durable_host_reservations": 14,
+    "overloaded": 4,
+    "native_busy_errors": 2,
+    "native_type_errors": 2,
+    "native_content_reuses": 2,
+    "host_quarantines": 4,
+    "native_submissions": 12,
+    "native_generation_tasks": 10,
+    "native_tool_tasks": 10,
+    "faux_provider_calls": 10,
+    "local_effects": 6,
+    "host_terminals": 14,
+    "native_terminal_tasks": 20,
+    "recovered_reservations": 6,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 14,
+      "p50": 57,
+      "p95": 1674,
+      "p99": 1674
+    }
+  },
+  "descriptive_metrics": {
+    "local_effects": 6,
+    "final_successful_native_commits": 4,
+    "posteffect_cancelled_commits": 2,
+    "host_terminal_dispositions": 14,
+    "effects_per_suite_second": 1.2,
+    "effects_per_complete_controller_second": 0.13626453488372328,
+    "effects_per_full_CLI_second": 0.1353546291283121,
+    "terminal_latency_ms": {
+      "n": 14,
+      "p50": 57,
+      "p95": 1674,
+      "p99": 1674
+    },
+    "callback_and_flush_ms": [
+      {
+        "callback_ms": 0.2197000000001026,
+        "flush_ms": 0.7588000000000648,
+        "bytes": 11087,
+        "events": 30
+      },
+      {
+        "callback_ms": 0.5162999999988642,
+        "flush_ms": 0.8313000000000557,
+        "bytes": 49051,
+        "events": 73
+      },
+      {
+        "callback_ms": 0.4071999999991931,
+        "flush_ms": 0.8586999999999989,
+        "bytes": 59891,
+        "events": 50
+      }
+    ],
+    "caution": "Mixed finite restart cohort, n=14; no baseline, causal overhead, speedup or SLO claim."
+  },
+  "raw_inventory": {
+    "execution.json": {
+      "bytes": 32591,
+      "sha256": "5173d8136be4d322eb13094cdcb6176db026323a4342ca279281aabfc5891490"
+    },
+    "identities.json": {
+      "bytes": 14979,
+      "sha256": "9ef28916964d64c9566ae1dc0e128d2f094363cf1972fd54426c792a244d7304"
+    },
+    "service0-stage0-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "3a3008e0cc3c2dd8416cfcd34faa904c1ea2c72e25fa9380a67ea1df65007073"
+    },
+    "service0-stage0-endpoint.json": {
+      "bytes": 5000,
+      "sha256": "bac3cecb4f0e5ee46a3d52bc535b66a31fdec2d2a3535a475ec9c1d006e813f9"
+    },
+    "service0-stage0.sqlite": {
+      "bytes": 122880,
+      "sha256": "5d159c2929f0c586d9d3a4a90b6bc83208852276c39edb1d8fc6142595316184"
+    },
+    "service0-stage0.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service0-stage0.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service0-stage1-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "9c21d2d39c3e1808e75a11474accb1c4b5f54706dcf0efcad94d0871b69afe32"
+    },
+    "service0-stage1-endpoint.json": {
+      "bytes": 14915,
+      "sha256": "f077a9813f18339546d4b379e5f33355b0c8c802d5ddbc3d5b13127c69946fbb"
+    },
+    "service0-stage1.sqlite": {
+      "bytes": 126976,
+      "sha256": "b39cd8c0be715db7ff20c87525896f59c936675eb07c41a3586f8017c7ca6af6"
+    },
+    "service0-stage1.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service0-stage1.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service0-stage2-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "10a2eb537efaa779a95e17e7fe952a6bfbc8c8a26f122c01ff5e69f86133cfd6"
+    },
+    "service0-stage2-endpoint.json": {
+      "bytes": 23703,
+      "sha256": "9cd626eba977dfe1079562f9c3eb49ebeb1ad3c2dd8ea67adb79c288d256b2f3"
+    },
+    "service0-stage2.sqlite": {
+      "bytes": 126976,
+      "sha256": "5ccf74ca6e6a6c7f3f71873e6feafb63a210519423db123593a1515daf957ea8"
+    },
+    "service0-stage2.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service0-stage2.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service0.sqlite": {
+      "bytes": 126976,
+      "sha256": "747059076d2447fcb9c9c702785217c68071e68c4addc9487826d2dc2cff4990"
+    },
+    "service0.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "026e75dd04184129121ac4eb1bb5a7fc419faa9436ba62669d11af9043b92e35"
+    },
+    "service0.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service1-stage0-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "5cd0f30a5638275992483af1e55ffa4119953643d7e9a1543c85fbdfcc259c35"
+    },
+    "service1-stage0-endpoint.json": {
+      "bytes": 5026,
+      "sha256": "09edf2c70f7031b072655240a1c6018252871abea4e690f97c339e1ff99475bb"
+    },
+    "service1-stage0.sqlite": {
+      "bytes": 122880,
+      "sha256": "04b9ef4e505e80ff8f2080b5cdf3ea2890dc437ce7540d3b68b363136de5a26f"
+    },
+    "service1-stage0.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service1-stage0.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service1-stage1-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "1dbfde1d1ba077fb8a4a82951ddb483e9a01fecf8d49fbc6d717d37557f57757"
+    },
+    "service1-stage1-endpoint.json": {
+      "bytes": 14930,
+      "sha256": "7e99500d8520257e70e9ecdb3b637996898bf623c72d4028c4145f0000a05a9c"
+    },
+    "service1-stage1.sqlite": {
+      "bytes": 126976,
+      "sha256": "a3a09234b6897f2fcc5d4c36211208a962261f4fe06180836570085f5fa5e10c"
+    },
+    "service1-stage1.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service1-stage1.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service1-stage2-copy-comparison.json": {
+      "bytes": 247,
+      "sha256": "4d487ccbcaae3253febfc249ff2c444d085069338bd2f90342dfa40027d3f1c0"
+    },
+    "service1-stage2-endpoint.json": {
+      "bytes": 23704,
+      "sha256": "8baae0a1f27f21874d4656eb3585d730568efdf67ef4810ce5a8fff91d89079d"
+    },
+    "service1-stage2.sqlite": {
+      "bytes": 126976,
+      "sha256": "58533e5c027c88b2ecda0d2ba76a81381cb96c9049fac050c989c8ce7c694d09"
+    },
+    "service1-stage2.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service1-stage2.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service1.sqlite": {
+      "bytes": 126976,
+      "sha256": "1728cc3111f1fc8c5a80596af7b8b3a5f62a061b13179c7f5e1c9f10ed513dd8"
+    },
+    "service1.sqlite-shm": {
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "service1.sqlite-wal": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage0-ready.json": {
+      "bytes": 102,
+      "sha256": "5b7f5890f506625dd0b89148d9eb4cdefc27bd935125a6a1b71aa6b118b52892"
+    },
+    "stage0-sink.json": {
+      "bytes": 107,
+      "sha256": "6372cbd8fcfd819a0d88c64e064ea8c2420dadbaf3028b2661314ec8e77363db"
+    },
+    "stage0-snapshot.json": {
+      "bytes": 3437,
+      "sha256": "3b2ce4b05e2604e7cf6c7e110e81e778c29c246869266d8eb3b1ffd0e3c312f6"
+    },
+    "stage0.jsonl": {
+      "bytes": 11087,
+      "sha256": "6466c2aa4516652eeaecaeee6e54976907df23424c6209fdcb8da8d7bbaa990c"
+    },
+    "stage0.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage0.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage1-ready.json": {
+      "bytes": 93,
+      "sha256": "445a30a336d9bdb50e05d03ed85333583b7b566bfe75aa878776c665292e0517"
+    },
+    "stage1-sink.json": {
+      "bytes": 107,
+      "sha256": "7b8884d45242f5406ea91be432462c6de91df375fc18e1b3c1f866c87c21f03d"
+    },
+    "stage1-snapshot.json": {
+      "bytes": 6227,
+      "sha256": "2bc3f7a848bc150dcef73d400e2a3626b1aa9fdd39f2c508219370c0fed60f29"
+    },
+    "stage1.jsonl": {
+      "bytes": 49051,
+      "sha256": "be520bee7806966ee364532e9792e22862fb005706df162b266fefa8bdea7612"
+    },
+    "stage1.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage1.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage2-ready.json": {
+      "bytes": 93,
+      "sha256": "5f546ec232c2be8c28bfdd51c75aa30aa1a18d27fcdb9f55df4067bec7a8bb8c"
+    },
+    "stage2-sink.json": {
+      "bytes": 107,
+      "sha256": "a11b9addb527c771f741a001c43639c7304eb180b6f106fe3c0f11de9bdf3348"
+    },
+    "stage2-snapshot.json": {
+      "bytes": 8621,
+      "sha256": "12cdc4e5d1111b23ff63437a0342118b15b846e79c83f205e8a7ef2e44a9ce57"
+    },
+    "stage2.jsonl": {
+      "bytes": 59891,
+      "sha256": "72584bd2fec68a617ad322ad9c8d3cd5b864a4fc7de9b799a73b8c7887491d2e"
+    },
+    "stage2.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage2.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "raw_inventory_canonical_sha256": "510b49c99b5af2a7b1b9b0a32abd9dc502a79ca03dbc4ce19f7a96ffb875cc3b",
+  "raw_unchanged_after_review": true,
+  "CLI_receipt_sha256": "94dd76a36f671be19d7b0ee228f57e7d654d97d09cebf18b5aeed3b6cfd49269",
+  "script_sha256": "ade876e2d7819d223babacce673bc7b1ee288dc76bfa7d4a8bb6c8f0f0001bde",
+  "outcome_scope": "Original frozen status passed, independently corroborated from immutable saved SQLite/JSON/events. Finite deterministic single-owner Windows native lifecycle only.",
+  "limitations": [
+    "No additional native, provider/model, scientific or training execution. No rerun or modification of original frozen status.",
+    "Official local Faux only, no real model/HTTP/GPU/multinode/tenant/concurrent owner/external exactly-once/production guarantee.",
+    "Conversation.abort internally resumes native scheduler and is Conversation-wide; fixture owner disposes exact original foreign chain after host unchanged placed-record observation. No globally paused scheduler or per-ID placed-input cancellation proof.",
+    "Different-byte semantically equivalent JSON guard remains pure/mocked regression evidence only. No native check/submit race, storage-error or transport-error coverage.",
+    "SQLite checkpoints retain latest service revision only per stage. All six full endpoints match saved DBs and source-copy receipts; intermediate callback states cannot all be rejoined to retained SQL history.",
+    "Polled private and observed OS working-set high-water have startup/tail/gap coverage limits. Callback/flush times are descriptive; no matched-off observer baseline or causal overhead claim.",
+    "Suite 5s excludes authentication. Controller and outer CLI cost are reported separately; preparation/reviews/prior tests/publication excluded from CLI.",
+    "No new upstream-defect claim inferred solely from native ID-only content reuse contract. Prior results and hypothesis statuses require root-owned evidence-aware updates."
+  ],
+  "completed_at": "2026-11-02T11:26:44.725024+00:00"
+}

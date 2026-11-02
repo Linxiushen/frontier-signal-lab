@@ -1,0 +1,119 @@
+{
+  "status": "passed_for_separate_freeze",
+  "reviewer": "/root/radar_resume",
+  "reviewed_at": "2026-11-02T11:19:05.911158+00:00",
+  "source_sha256": {
+    "experiments/pi_generation_conflict_service.mjs": "3242bac1bbaf3a8293c852ad3e4f2b641f704760d9fcd933cb7e7ac9f49e9469",
+    "experiments/pi_generation_conflict_audit.py": "9ceb0677e0b07eb334a900a5c82180eef4ebc88e136c78be0e4045f00a22af78",
+    "experiments/pi_generation_conflict_protocol.json": "17f19fbb49e9664c8816d5dc7fa6256033adaa7c10dc351cb174e39e5ce2fd79",
+    "scripts/pi_generation_conflict_worker.mjs": "681f3a12b5df34e0bc42a6a3d572dbcffe96e07100e3910412deab221b168348",
+    "scripts/run_pi_generation_conflict.py": "7fa4599830edf2b337a8eb432d068aae17e33cf96c6a44a6a3ab4193c178c0a3",
+    "scripts/check_pi_generation_conflict.py": "c37bcc8d1a8cc8257174badd702aa66be28177995a645cc9048e348cd2e61ef4",
+    "tests/pi_generation_conflict_service.test.mjs": "cd279411f243d4146483faa17ece67c42acb24afd0cdd4b3dfe94b0cabb32a3e",
+    "tests/test_pi_generation_conflict.py": "e00a72076c0952a7f34dbfe6e9dad128725f5c9ccf2a21faf42108c6bfe66e4f"
+  },
+  "source_read_scope": "All eight prepared source files were read completely. Native dependency methods were read at the scopes stated below.",
+  "findings": [],
+  "resolved_observations": [
+    {
+      "topic": "Native cancellation resumes scheduling and is conversation-wide",
+      "observation": "ConversationImpl.abort calls tasks.resume before abortConversation; submission handles can only withdraw queued inputs and return already_placed for placed inputs. Exact identity validation does not create a native per-ID placed-input abort.",
+      "resolution": "Root corrected the protocol before freeze to say before explicit host harness.resume, exact identity validation followed by Conversation-wide abort, and no globally paused-scheduler or native per-ID guarantee. The implementation, fixed workload and no-replay acceptance remain unchanged.",
+      "final_protocol_sha256": "17f19fbb49e9664c8816d5dc7fa6256033adaa7c10dc351cb174e39e5ce2fd79"
+    }
+  ],
+  "static_checks": [
+    "Exact 8-source mandatory closure; Python syntax compiled without executing controllers.",
+    "Every inherited preserved source and the prior runtime-manifest hash still match the already frozen cancellation implementation.",
+    "Read native request-ID lookup before busy checks: same type/ID returns existing identity without content authentication, changed type throws the exact expected Error, new reject-whenBusy input throws ConversationBusy before creating its native submission.",
+    "Native display-only fixture write is immediately done without model content; content fixture uses the same known native input identity and waits for a real ToolTask only in the future root-owned scientific suite.",
+    "Host quarantine deletes only the host active slot and records original native identity/type; it neither adopts the foreign submission nor invokes native abort. Cancellation validates identity before any Conversation-wide abort.",
+    "Post-quarantine effectDecision rejects even semantically equivalent foreign JSON arguments; the native foreign-payload fixture is held before effect and that stronger JSON scenario has pure evidence only.",
+    "Worker has three process stages, two fixed kill survivors, exact pending populations 4/2/0, durable cancellation checkpoints and six recovery identities.",
+    "Controller verifies sources/runtime/node before output creation, refuses existing output, sanitizes environment, launches hidden workers, enforces observed memory/time/output/disk gates, kills in finally, and compares stopped-source and copied full SQLite endpoints.",
+    "Auditor requires exact requests, current denial/cancellation without busy native rows, foreign placed record unchanged at host cancel, four quarantines, ten native generation/tool chains, six effects, twenty terminal tasks, two kills/three distinct PIDs, and no reopened tool execution.",
+    "Current fixed counts: 18 offered / 14 durable host reservations / 4 overload / 12 native submissions including two display writes / 10 GenerationTask + 10 ToolTask + 10 Faux calls / 6 local effects.",
+    "Freeze checker verifies runtime lineage, predeclaration/freeze ordering, review receipt hashes/source maps, final exact raw manifest, success versus failed state, accepted-only saved-byte audit and bounded metrics.",
+    "Negative controls cover identity/content/version mismatches, unknown requests, retained cancel intent before abort, quarantine foreign preservation, equivalent JSON effect guard, terminal stage mutations, missing/changed preserved/source paths, runtime/time/path escape and unapproved/empty reviewer receipts.",
+    "Resource/quality claims remain limited to deterministic local Faux / trusted single-host / two native SQLite Sessions if the separately frozen suite passes. No production, GPU, real model, concurrent owner, external exactly-once or causal performance claim is justified."
+  ],
+  "pure_regressions": {
+    "receipt_path": "reports/runs/20261102T110019Z/h2-review/radar-pure-regression-execution.json",
+    "receipt_sha256": "c3ce180775edfd97ca91ab0eb3609b0358d4caeb9f641c8bf957869bdfa1c548",
+    "node_fake_harness_tests_passed": 11,
+    "python_synthetic_freeze_auditor_tests_passed": 6,
+    "worker_node_check_exit_code": 0,
+    "runs": [
+      {
+        "argv": [
+          "C:/Program Files/nodejs/node.exe",
+          "--test",
+          "tests/pi_generation_conflict_service.test.mjs"
+        ],
+        "started_at": "2026-11-02T11:16:53.591986+00:00",
+        "completed_at": "2026-11-02T11:16:54.114089+00:00",
+        "exit_code": 0,
+        "log": "reports/runs/20261102T110019Z/h2-review/radar-pure-node.log",
+        "log_sha256": "66ebb726580c710e19eb958f7f1e64b3dffc48a65505adde5a6409a5c264efe5"
+      },
+      {
+        "argv": [
+          "C:/Users/somle/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+          "-X",
+          "utf8",
+          "-B",
+          "-S",
+          "-m",
+          "unittest",
+          "tests.test_pi_generation_conflict",
+          "-v"
+        ],
+        "started_at": "2026-11-02T11:16:54.114089+00:00",
+        "completed_at": "2026-11-02T11:16:54.744787+00:00",
+        "exit_code": 0,
+        "log": "reports/runs/20261102T110019Z/h2-review/radar-pure-python.log",
+        "log_sha256": "d1d137ef2e052471a21f2c9df04d450b3cecd1101798c536ee37ddb363fe5878"
+      }
+    ]
+  },
+  "native_source_evidence": {
+    "node_modules/@earendil-works/pi-durable/dist/harness/submissions.js": {
+      "sha256": "d171c6a0b3438471911277091117ad48d73f2af853d5b6b7a0f547c28782c9ac",
+      "bytes": 11045,
+      "read_scope": "full file"
+    },
+    "node_modules/@earendil-works/pi-durable/dist/harness/harness.js": {
+      "sha256": "472fe31f5525045ec4b27437a2049236f4f58cce4920aa9bd49e41445097574d",
+      "bytes": 17857,
+      "read_scope": "scoped relevant methods / exports; not an audit of the whole native package"
+    },
+    "node_modules/@earendil-works/pi-durable/dist/harness/scheduler.js": {
+      "sha256": "bd2c0675f5e2a4351f8c9065c7bc7b4aee219d8668269f50ff1fd844786a0824",
+      "bytes": 110202,
+      "read_scope": "scoped relevant methods / exports; not an audit of the whole native package"
+    },
+    "node_modules/@earendil-works/pi-durable/dist/errors.js": {
+      "sha256": "33692a2c85d38d5a693328dd04edd4aeba4780fb808588fb58d889ed75b72808",
+      "bytes": 2064,
+      "read_scope": "full file"
+    },
+    "node_modules/@earendil-works/pi-ai/dist/providers/faux.js": {
+      "sha256": "f305a512f2d90547e87b402f2b335ba0d8a9f1b7c535b8a44bfc6fce8250d26a",
+      "bytes": 20668,
+      "read_scope": "scoped relevant methods / exports; not an audit of the whole native package"
+    }
+  },
+  "execution_scope": {
+    "native_caller_runs": 0,
+    "model_runs": 0,
+    "scientific_suites": 0,
+    "frozen_or_executed_by_this_reviewer": false,
+    "root_exclusively_owns_future_freeze_and_one_scientific_suite": true
+  },
+  "limitations": [
+    "Static preparation approval plus 17 pure regressions is not evidence that the new native workload has executed or passed.",
+    "A future no-replay success is a finite observed result; Conversation.abort internally enables scheduler progress.",
+    "Controller full wall begins inside execute before authentication and excludes interpreter startup; root will separately save complete external CLI wall.",
+    "SQLite callbacks and polling bound observed work and samples, not uninterruptible OS I/O or unsampled instantaneous private-memory peaks."
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "stage": 0,
+  "pid": 4836,
+  "states": [
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 99,
+          "allowed": false
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db0-pre-abort-0": {
+          "fingerprint": "49b09b5cbc50df44b1f67f851bcdb822e3641ed9dc5a323a2227adc21640fcc9",
+          "conversation": 2,
+          "requestId": "s0-db0-pre-abort-0",
+          "payload": "payload-s0-db0-pre-abort-0",
+          "version": 1,
+          "submissionId": 16,
+          "cancelled": true
+        },
+        "2:s0-db0-busy-deny-0": {
+          "fingerprint": "2b714732f59405384be7e69d6c10efe2676544c75eb4b09ae660d57da4b04616",
+          "conversation": 2,
+          "requestId": "s0-db0-busy-deny-0",
+          "payload": "payload-s0-db0-busy-deny-0",
+          "version": 1
+        }
+      },
+      "active": {
+        "2:s0-db0-pre-abort-0": true,
+        "2:s0-db0-busy-deny-0": true
+      },
+      "effects": {}
+    },
+    {
+      "capacity": 2,
+      "authority": {
+        "2": {
+          "version": 1,
+          "allowed": true
+        },
+        "8": {
+          "version": 1,
+          "allowed": true
+        }
+      },
+      "requests": {
+        "2:s0-db1-pre-abort-0": {
+          "fingerprint": "80cc1eda1d05feae2a3b2373bc49d396df8bce28ddba5652c148ec5e356dfbb8",
+          "conversation": 2,
+          "requestId": "s0-db1-pre-abort-0",
+          "payload": "payload-s0-db1-pre-abort-0",
+          "version": 1,
+          "submissionId": 16,
+          "cancelled": true
+        },
+        "2:s0-db1-busy-cancel-0": {
+          "fingerprint": "50405ac2ea9209df9fabd35ed219f2a979c1031ef1d3158654ddfabe9594991e",
+          "conversation": 2,
+          "requestId": "s0-db1-busy-cancel-0",
+          "payload": "payload-s0-db1-busy-cancel-0",
+          "version": 1,
+          "cancelled": true
+        }
+      },
+      "active": {
+        "2:s0-db1-pre-abort-0": true,
+        "2:s0-db1-busy-cancel-0": true
+      },
+      "effects": {}
+    }
+  ],
+  "pending": [
+    {
+      "service": 0,
+      "conversation": 2,
+      "requestId": "s0-db0-pre-abort-0",
+      "intent": "pre-abort",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db0-pre-abort-0",
+      "payload": "payload-s0-db0-pre-abort-0",
+      "offered_epoch_ms": 1793618456066,
+      "status": "admit",
+      "submissionId": 16
+    },
+    {
+      "service": 0,
+      "conversation": 2,
+      "requestId": "s0-db0-busy-deny-0",
+      "intent": "busy-deny",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db0-busy-deny-0",
+      "payload": "payload-s0-db0-busy-deny-0",
+      "offered_epoch_ms": 1793618456089,
+      "status": "reserved-error"
+    },
+    {
+      "service": 1,
+      "conversation": 2,
+      "requestId": "s0-db1-pre-abort-0",
+      "intent": "pre-abort",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db1-pre-abort-0",
+      "payload": "payload-s0-db1-pre-abort-0",
+      "offered_epoch_ms": 1793618456097,
+      "status": "admit",
+      "submissionId": 16
+    },
+    {
+      "service": 1,
+      "conversation": 2,
+      "requestId": "s0-db1-busy-cancel-0",
+      "intent": "busy-cancel",
+      "stage": 0,
+      "version": 1,
+      "key": "2:s0-db1-busy-cancel-0",
+      "payload": "payload-s0-db1-busy-cancel-0",
+      "offered_epoch_ms": 1793618456110,
+      "status": "reserved-error"
+    }
+  ]
+}

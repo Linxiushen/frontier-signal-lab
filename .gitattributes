@@ -218,3 +218,15 @@ scripts/run_native_training_cost_evaluator_v5.py -text whitespace=cr-at-eol
 tests/test_native_training_cost_evaluator_v5.py -text whitespace=cr-at-eol
 # Unified-diff context spaces are retained evidence bytes.
 results/native-training-cost-scopes-v4/review/evaluator-v5-preparation/*.diff -whitespace
+
+# Preserve the separately frozen native busy/error/identity-disposition caller.
+experiments/pi_generation_conflict* -text whitespace=cr-at-eol
+scripts/*pi_generation_conflict* -text whitespace=cr-at-eol
+tests/*pi_generation_conflict* -text whitespace=cr-at-eol
+fixtures/pi-generation-conflict/** -text whitespace=cr-at-eol
+results/pi-generation-conflict/** -text whitespace=cr-at-eol
+research/2026-11-02-branch-summary-context-edits.md -text whitespace=cr-at-eol
+research/receipts/20261102T110019Z-pi-branch-summary* -text whitespace=cr-at-eol
+research/receipts/20261102T110019Z-pi-branch-summary-source/** -text whitespace=cr-at-eol
+# Literal immutable upstream patch context is evidence.
+research/receipts/20261102T110019Z-pi-branch-summary-source/*.diff -whitespace

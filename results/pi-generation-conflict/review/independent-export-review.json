@@ -1,0 +1,31 @@
+{
+  "status": "passed_exported_saved_byte_review",
+  "reviewed_at": "2026-11-02T11:27:49.116815+00:00",
+  "reviewer": "maintenance_resume",
+  "primary_review_path": "reports/runs/20261102T110019Z/h2-review/independent-outcome-review.json",
+  "primary_review_sha256": "d338382a36bdf03e20e754656bbc665019c211a3be638f24cd8f9ba41df69fde",
+  "raw_manifest_path": "results/pi-generation-conflict/raw-manifest.json",
+  "raw_manifest_sha256": "76a122825bdd8816ef5d99cb6f7d88d27bdb60932d132a960315ed8537d30842",
+  "original_raw_files": 56,
+  "exported_raw_files": 56,
+  "raw_bytes": 1545013,
+  "all_exported_raw_equal_original_and_primary_review_inventory": true,
+  "source_originals_unchanged": true,
+  "report_acceptance_and_metrics_match_independent_review": true,
+  "outer_CLI_receipt_and_logs_copied_exactly": true,
+  "reviewer_diagnostics_preserved": [
+    {
+      "path": "reports/runs/20261102T110019Z/h2-review/independent-outcome-review-diagnostic-sql-kind.json",
+      "sha256": "8dcb060ea5ee451cc0413d7b8d4c116b0a679f2385b17dd4a13c8a2f9a35172d",
+      "reason": "Reviewer originally compared JSON-encoded SQL kind to decoded record kind; fixed by json.loads. No native evidence changed."
+    },
+    {
+      "path": "reports/runs/20261102T110019Z/h2-review/independent-outcome-review-diagnostic-sql-request-id.json",
+      "sha256": "af2feb74cd9b190108b759c1e7b151beecc4f0d488482e73dc7fe429ce1a7079",
+      "reason": "Reviewer originally compared JSON-encoded SQL request_id to decoded record requestId; fixed by json.loads. No native evidence changed."
+    }
+  ],
+  "findings": [],
+  "native_or_model_execution": false,
+  "scope": "Verbatim export and current report accounting/limitations reviewed; parent may add final review annotations without changing raw. Original result remains passed, no native rerun."
+}

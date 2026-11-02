@@ -1,0 +1,306 @@
+{
+  "recorded_at": "2026-11-02T11:07:56.659334+00:00",
+  "repository": "earendil-works/pi",
+  "PR": 11680,
+  "merged_commit": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+  "parent": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+  "pr_head": "df88855d840269598b64d4a5387f80f972b2e978",
+  "pr_head_repository": "earendil-works/pi",
+  "pr_base": "c9f4c7b9fcd0f3e6b5bbc35c7c9b6cda35580eb8",
+  "merged_at": "2026-11-02T09:55:30Z",
+  "author": "robopipi[bot]",
+  "merger": "davidbrai",
+  "files": [
+    {
+      "filename": "packages/coding-agent/src/core/compaction/branch-summarization.ts",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 4,
+      "changes": 20,
+      "sha": "6f8bc0cb35f036f046cb2437c8887082025f4d38",
+      "patch": "@@ -15,7 +15,12 @@ import {\n \tcreateCompactionSummaryMessage,\n \tcreateCustomMessage,\n } from \"../messages.ts\";\n-import type { ReadonlySessionManager, SessionEntry } from \"../session-manager.ts\";\n+import {\n+\ttype ContextEditEntry,\n+\tprojectContextEntry,\n+\ttype ReadonlySessionManager,\n+\ttype SessionEntry,\n+} from \"../session-manager.ts\";\n import { completeSummarization, estimateTokens, getSummarizationFailure } from \"./compaction.ts\";\n import {\n \tcomputeFileLists,\n@@ -155,14 +160,15 @@ export function collectEntriesForBranchSummary(\n  * Extract AgentMessage from a session entry.\n  * Similar to getMessageFromEntry in compaction.ts but also handles compaction entries.\n  */\n-function getMessageFromEntry(entry: SessionEntry): AgentMessage | undefined {\n+function getMessageFromEntry(entry: SessionEntry, edit?: ContextEditEntry): AgentMessage | undefined {\n \tswitch (entry.type) {\n \t\tcase \"message\":\n \t\t\t// Skip tool results - context is in assistant's tool call\n \t\t\tif (entry.message.role === \"toolResult\") return undefined;\n-\t\t\treturn entry.message;\n+\t\t\treturn edit ? projectContextEntry(entry, edit)[0] : entry.message;\n \n \t\tcase \"custom_message\":\n+\t\t\tif (edit) return projectContextEntry(entry, edit)[0];\n \t\t\treturn createCustomMessage(entry.customType, entry.content, entry.display, entry.details, entry.timestamp);\n \n \t\tcase \"branch_summary\":\n@@ -217,10 +223,16 @@ export function prepareBranchEntries(entries: SessionEntry[], tokenBudget: numbe\n \t\t}\n \t}\n \n+\t// Context edits hide or replace earlier entries in model context; honor the latest edit per target.\n+\tconst edits = new Map<string, ContextEditEntry>();\n+\tfor (const entry of entries) {\n+\t\tif (entry.type === \"context_edit\") edits.set(entry.targetId, entry);\n+\t}\n+\n \t// Second pass: walk from newest to oldest, adding messages until token budget\n \tfor (let i = entries.length - 1; i >= 0; i--) {\n \t\tconst entry = entries[i];\n-\t\tconst message = getMessageFromEntry(entry);\n+\t\tconst message = getMessageFromEntry(entry, edits.get(entry.id));\n \t\tif (!message) continue;\n \n \t\t// Extract file ops from assistant messages (tool calls)",
+      "raw_url": "https://github.com/earendil-works/pi/raw/df88855d840269598b64d4a5387f80f972b2e978/packages%2Fcoding-agent%2Fsrc%2Fcore%2Fcompaction%2Fbranch-summarization.ts"
+    },
+    {
+      "filename": "packages/coding-agent/src/core/session-manager.ts",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "sha": "20b6edaa913f691b1bbbdbd8c824788b1f9ddd22",
+      "patch": "@@ -516,7 +516,8 @@ export function buildContextEntries(\n  * If leafId is provided, walks from that entry to root.\n  * Handles compaction and branch summaries along the path.\n  */\n-function projectContextEntry(entry: SessionEntry, edit: ContextEditEntry | undefined): AgentMessage[] {\n+/** Project one entry into model-visible messages, applying its latest context edit if any. */\n+export function projectContextEntry(entry: SessionEntry, edit: ContextEditEntry | undefined): AgentMessage[] {\n \tconst messages = sessionEntryToContextMessages(entry);\n \tif (!edit) return messages;\n \tconst replacement = edit.replacement;",
+      "raw_url": "https://github.com/earendil-works/pi/raw/df88855d840269598b64d4a5387f80f972b2e978/packages%2Fcoding-agent%2Fsrc%2Fcore%2Fsession-manager.ts"
+    },
+    {
+      "filename": "packages/coding-agent/test/branch-summarization.test.ts",
+      "status": "modified",
+      "additions": 51,
+      "deletions": 1,
+      "changes": 52,
+      "sha": "3164a8773456b3ba0a3fffd2e3e50c650a1f65f2",
+      "patch": "@@ -7,7 +7,7 @@ import {\n \ttype SimpleStreamOptions,\n } from \"@earendil-works/pi-ai\";\n import { describe, expect, it } from \"vitest\";\n-import { generateBranchSummary } from \"../src/core/compaction/index.ts\";\n+import { generateBranchSummary, prepareBranchEntries } from \"../src/core/compaction/index.ts\";\n import type { SessionEntry } from \"../src/core/session-manager.ts\";\n \n const model: Model<\"anthropic-messages\"> = {\n@@ -131,4 +131,54 @@ describe(\"branch summarization\", () => {\n \t\t\t\"Branch summarization failed: generation hit the token cap and the summary is incomplete\",\n \t\t);\n \t});\n+\n+\tit(\"applies context edits to branch entries\", () => {\n+\t\tconst ts = (n: number) => new Date(n).toISOString();\n+\t\tconst branch: SessionEntry[] = [\n+\t\t\t{\n+\t\t\t\ttype: \"message\",\n+\t\t\t\tid: \"u1\",\n+\t\t\t\tparentId: null,\n+\t\t\t\ttimestamp: ts(1),\n+\t\t\t\tmessage: { role: \"user\", content: \"Investigate login\", timestamp: 1 },\n+\t\t\t},\n+\t\t\t{\n+\t\t\t\ttype: \"message\",\n+\t\t\t\tid: \"failed\",\n+\t\t\t\tparentId: \"u1\",\n+\t\t\t\ttimestamp: ts(2),\n+\t\t\t\tmessage: fauxAssistantMessage(\"FAILED_ATTEMPT\", { stopReason: \"error\", errorMessage: \"lost\" }),\n+\t\t\t},\n+\t\t\t{\n+\t\t\t\ttype: \"context_edit\",\n+\t\t\t\tid: \"e1\",\n+\t\t\t\tparentId: \"failed\",\n+\t\t\t\ttimestamp: ts(3),\n+\t\t\t\ttargetId: \"failed\",\n+\t\t\t\treplacement: null,\n+\t\t\t},\n+\t\t\t{\n+\t\t\t\ttype: \"message\",\n+\t\t\t\tid: \"ok\",\n+\t\t\t\tparentId: \"e1\",\n+\t\t\t\ttimestamp: ts(4),\n+\t\t\t\tmessage: fauxAssistantMessage(\"ORIGINAL_TEXT\"),\n+\t\t\t},\n+\t\t\t{\n+\t\t\t\ttype: \"context_edit\",\n+\t\t\t\tid: \"e2\",\n+\t\t\t\tparentId: \"ok\",\n+\t\t\t\ttimestamp: ts(5),\n+\t\t\t\ttargetId: \"ok\",\n+\t\t\t\treplacement: { content: \"REPLACED_TEXT\" },\n+\t\t\t},\n+\t\t];\n+\n+\t\tconst serialized = JSON.stringify(prepareBranchEntries(branch).messages);\n+\n+\t\texpect(serialized).toContain(\"Investigate login\");\n+\t\texpect(serialized).not.toContain(\"FAILED_ATTEMPT\");\n+\t\texpect(serialized).not.toContain(\"ORIGINAL_TEXT\");\n+\t\texpect(serialized).toContain(\"REPLACED_TEXT\");\n+\t});\n });",
+      "raw_url": "https://github.com/earendil-works/pi/raw/df88855d840269598b64d4a5387f80f972b2e978/packages%2Fcoding-agent%2Ftest%2Fbranch-summarization.test.ts"
+    }
+  ],
+  "requests": [
+    {
+      "key": "pr",
+      "endpoint": "repos/earendil-works/pi/pulls/11680",
+      "method": "GET",
+      "started_at": "2026-11-02T11:07:55.100102+00:00",
+      "completed_at": "2026-11-02T11:07:56.659334+00:00",
+      "exit_code": 0,
+      "raw_sha256": "9a4b590f24c53b36b27e0967e897cedb808e8b1ea92a999196d5c3f5cc8d3c8e",
+      "stored_sha256": "f989a4554c8a8be1a133a631faced9a76a6782e61453473f911177116606bd67",
+      "raw_bytes": 18835,
+      "stored_bytes": 3068,
+      "path": "pi-branch-summary-11680/pr.json.gz",
+      "stderr": ""
+    },
+    {
+      "key": "merged-commit",
+      "endpoint": "repos/earendil-works/pi/commits/d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "method": "GET",
+      "started_at": "2026-11-02T11:07:55.100102+00:00",
+      "completed_at": "2026-11-02T11:07:56.447098+00:00",
+      "exit_code": 0,
+      "raw_sha256": "d8cfc3429a546d9d9afad12e9bb38cbdbbd7ace2027b744bce51bd58662ac5c0",
+      "stored_sha256": "44f79c4e4a59a54349eb11356517ccd98cd184415b153acace25f5dca6a2968d",
+      "raw_bytes": 15608,
+      "stored_bytes": 4565,
+      "path": "pi-branch-summary-11680/merged-commit.json.gz",
+      "stderr": ""
+    },
+    {
+      "key": "pr-files",
+      "endpoint": "repos/earendil-works/pi/pulls/11680/files?per_page=100",
+      "method": "GET",
+      "started_at": "2026-11-02T11:07:55.101070+00:00",
+      "completed_at": "2026-11-02T11:07:56.535281+00:00",
+      "exit_code": 0,
+      "raw_sha256": "4cf43515cdf8914736656203aba0675dfe0ad3c9a30bffe349370cf130680f9d",
+      "stored_sha256": "ffff63748c22e77d5a171f5baae3e2d76ee09474e856167c3530c367f7bc4dcd",
+      "raw_bytes": 7126,
+      "stored_bytes": 2134,
+      "path": "pi-branch-summary-11680/pr-files.json.gz",
+      "stderr": ""
+    },
+    {
+      "key": "issue-11602",
+      "endpoint": "repos/earendil-works/pi/issues/11602",
+      "method": "GET",
+      "started_at": "2026-11-02T11:07:55.101070+00:00",
+      "completed_at": "2026-11-02T11:07:56.472510+00:00",
+      "exit_code": 0,
+      "raw_sha256": "2d3fad378f79646983f9d514ded95096e7b2861760986f4aa1151c64b48ab72e",
+      "stored_sha256": "d2ff00d60b6307b594bdfe0bdb878e8c97056d290cc42c78a6c4048d83a58394",
+      "raw_bytes": 7439,
+      "stored_bytes": 1928,
+      "path": "pi-branch-summary-11680/issue-11602.json.gz",
+      "stderr": ""
+    }
+  ],
+  "versions": [
+    {
+      "label": "parent",
+      "ref": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "path": "packages/coding-agent/src/core/compaction/branch-summarization.ts",
+      "blob": "69bd751339533c166f0915c5f855f39a322ac561",
+      "bytes": 12832,
+      "sha256": "bc1f28fb9db0a35312862a92313eeb65934d5c51c7977b8aabf6c2bcdc7706bc",
+      "stored_path": "parent--packages__coding-agent__src__core__compaction__branch-summarization.ts.ts.gz",
+      "stored_bytes": 4459,
+      "stored_sha256": "4080c141a09ed0ba983123ee5225c6f3b1993cd092be60f3f66972d7ded09ad1",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/compaction/branch-summarization.ts?ref=6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "started_at": "2026-11-02T11:08:26.983432+00:00",
+      "completed_at": "2026-11-02T11:08:28.456414+00:00",
+      "full_source_read": true
+    },
+    {
+      "label": "parent",
+      "ref": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "path": "packages/coding-agent/src/core/session-manager.ts",
+      "blob": "822aad816ab1c0c7b8fa6d3bca20b04384c114f4",
+      "bytes": 64412,
+      "sha256": "51398209d139707e18c7c2d33a8225813d7db1337800631be410b0aca412e597",
+      "stored_path": "parent--packages__coding-agent__src__core__session-manager.ts.ts.gz",
+      "stored_bytes": 16333,
+      "stored_sha256": "2551bd910170e0a349c0a634d362d6a744013a8829d50d145b5bffa1c9efd40e",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/session-manager.ts?ref=6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "started_at": "2026-11-02T11:08:26.984429+00:00",
+      "completed_at": "2026-11-02T11:08:28.692408+00:00",
+      "full_source_read": false,
+      "review_scope": "Scoped functions/caller ranges and exact diff only; full file captured but not wholly read."
+    },
+    {
+      "label": "parent",
+      "ref": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "path": "packages/coding-agent/test/branch-summarization.test.ts",
+      "blob": "ade25dbfd3165f5dad0ccc81b51ac5dc028dcdfe",
+      "bytes": 3973,
+      "sha256": "a2a3d79974d66a2b22f7ef79ba9bdb0be265ce97f38df4044a2a4d2d6510e3e5",
+      "stored_path": "parent--packages__coding-agent__test__branch-summarization.test.ts.ts.gz",
+      "stored_bytes": 1260,
+      "stored_sha256": "98941d3f2d5bc046410f7f9d9172e82cb7154e88723c3b65ee8e5b1edcb7f2b6",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/test/branch-summarization.test.ts?ref=6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "started_at": "2026-11-02T11:08:26.984429+00:00",
+      "completed_at": "2026-11-02T11:08:28.326919+00:00",
+      "full_source_read": true
+    },
+    {
+      "label": "parent",
+      "ref": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "path": "packages/coding-agent/src/core/agent-session.ts",
+      "blob": "dbe36c3658a316d1156be664d5c192a3e7478432",
+      "bytes": 165185,
+      "sha256": "b7c24bf1c1366e931083100d921a80d390d66bacde4acf7472a7b57af1bb69aa",
+      "stored_path": "parent--packages__coding-agent__src__core__agent-session.ts.ts.gz",
+      "stored_bytes": 40964,
+      "stored_sha256": "826e8dbfa83ce697916353ccb654bb92532485e0ec54c257eee04b9b34c0075f",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/agent-session.ts?ref=6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "started_at": "2026-11-02T11:08:26.984429+00:00",
+      "completed_at": "2026-11-02T11:08:28.890879+00:00",
+      "full_source_read": false,
+      "review_scope": "Scoped functions/caller ranges and exact diff only; full file captured but not wholly read."
+    },
+    {
+      "label": "landed",
+      "ref": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "path": "packages/coding-agent/src/core/compaction/branch-summarization.ts",
+      "blob": "6f8bc0cb35f036f046cb2437c8887082025f4d38",
+      "bytes": 13295,
+      "sha256": "274e63efb0722fed8ccf8656f6ee7ed7e75c9e9aa3ebd5c673e7d57b12bd72de",
+      "stored_path": "landed--packages__coding-agent__src__core__compaction__branch-summarization.ts.ts.gz",
+      "stored_bytes": 4615,
+      "stored_sha256": "a755a199122b5ea7fa2d53094ff649b489ad5da21f864a8809e0accb54220404",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/compaction/branch-summarization.ts?ref=d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "started_at": "2026-11-02T11:08:28.326919+00:00",
+      "completed_at": "2026-11-02T11:08:29.530767+00:00",
+      "full_source_read": true
+    },
+    {
+      "label": "landed",
+      "ref": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "path": "packages/coding-agent/src/core/session-manager.ts",
+      "blob": "20b6edaa913f691b1bbbdbd8c824788b1f9ddd22",
+      "bytes": 64514,
+      "sha256": "444650a737052f0d710c19f9e50e115c24b49107130059d5bef458eacf3927c7",
+      "stored_path": "landed--packages__coding-agent__src__core__session-manager.ts.ts.gz",
+      "stored_bytes": 16357,
+      "stored_sha256": "ce71c7edbb442880cb4ba0298b848c0eb01d031415d0bb509ac82b97e30c9e65",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/session-manager.ts?ref=d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "started_at": "2026-11-02T11:08:28.456414+00:00",
+      "completed_at": "2026-11-02T11:08:29.867622+00:00",
+      "full_source_read": false,
+      "review_scope": "Scoped functions/caller ranges and exact diff only; full file captured but not wholly read."
+    },
+    {
+      "label": "landed",
+      "ref": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "path": "packages/coding-agent/test/branch-summarization.test.ts",
+      "blob": "3164a8773456b3ba0a3fffd2e3e50c650a1f65f2",
+      "bytes": 5237,
+      "sha256": "cf90d138bbc782c72fb73a1a1ee556bb9432aa9235c3e8fdaffd0904cc386b5f",
+      "stored_path": "landed--packages__coding-agent__test__branch-summarization.test.ts.ts.gz",
+      "stored_bytes": 1586,
+      "stored_sha256": "8d810e1f28a3df7999add565fcd8ecef02e36c4012445931fefeae109de14f58",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/test/branch-summarization.test.ts?ref=d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "started_at": "2026-11-02T11:08:28.692408+00:00",
+      "completed_at": "2026-11-02T11:08:29.714749+00:00",
+      "full_source_read": true
+    },
+    {
+      "label": "landed",
+      "ref": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "path": "packages/coding-agent/src/core/agent-session.ts",
+      "blob": "dbe36c3658a316d1156be664d5c192a3e7478432",
+      "bytes": 165185,
+      "sha256": "b7c24bf1c1366e931083100d921a80d390d66bacde4acf7472a7b57af1bb69aa",
+      "stored_path": "landed--packages__coding-agent__src__core__agent-session.ts.ts.gz",
+      "stored_bytes": 40964,
+      "stored_sha256": "826e8dbfa83ce697916353ccb654bb92532485e0ec54c257eee04b9b34c0075f",
+      "method": "GET",
+      "endpoint": "repos/earendil-works/pi/contents/packages/coding-agent/src/core/agent-session.ts?ref=d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "started_at": "2026-11-02T11:08:28.891431+00:00",
+      "completed_at": "2026-11-02T11:08:30.520699+00:00",
+      "full_source_read": false,
+      "review_scope": "Scoped functions/caller ranges and exact diff only; full file captured but not wholly read."
+    }
+  ],
+  "full_source_versions_captured": 8,
+  "reviewed_at": "2026-11-02T11:11:10.719973+00:00",
+  "full_source_versions_read": 4,
+  "full_source_paths_read": 2,
+  "scoped_only_versions": 4,
+  "scoped_read_ranges": {
+    "packages/coding-agent/src/core/session-manager.ts": {
+      "parent": [
+        [
+          170,
+          180
+        ],
+        [
+          400,
+          575
+        ]
+      ],
+      "landed": [
+        [
+          170,
+          180
+        ],
+        [
+          400,
+          575
+        ],
+        [
+          1366,
+          1409
+        ]
+      ]
+    },
+    "packages/coding-agent/src/core/agent-session.ts": {
+      "parent_and_landed_identical_bytes": true,
+      "landed": [
+        [
+          967,
+          1018
+        ],
+        [
+          1241,
+          1318
+        ],
+        [
+          3108,
+          3139
+        ],
+        [
+          3852,
+          3882
+        ],
+        [
+          4033,
+          4255
+        ]
+      ],
+      "complete_method_read": "navigateTree4045-4237 and _omitRecoveryAttempt1260-1288"
+    }
+  },
+  "static_checks": {
+    "session_manager_only_export_and_doc_comment_changed": true,
+    "actual_agent_session_caller_entire_bytes_unchanged": true,
+    "all_three_changed_path_diffs_read": true,
+    "captured8_source_versions_losslessly_verified": true,
+    "local_upstream_tests_executed": 0,
+    "native_or_model_runs": 0,
+    "scientific_suites": 0,
+    "output_truncation_recovered": "Initial combined display truncated landed imports; reread complete landed lines1-70. Other fully-read source text retained in full."
+  }
+}

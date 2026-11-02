@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-02T09:30:14.531327+00:00",
+  "last_updated_at": "2026-11-02T11:26:54.795287+00:00",
   "observation_note": "One failed native H1suite and separate saved-negative comparisons; one open proposal source/test-design review. Preserve all prior sources, no H2-H4 or general benefit upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -8346,6 +8346,126 @@
       ],
       "record": "research/2026-11-02-session-create-replay.md",
       "public_review_receipt": "research/receipts/20261102T065705Z-session-create-replay-source-review.json"
+    },
+    {
+      "id": "pi-branch-summary-context-edit-projection-landed-11680",
+      "url": "https://github.com/earendil-works/pi/commit/d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "type": "merged_primary_source_and_test_design_review_not_local_runtime_result",
+      "author": "robopipi[bot]",
+      "merger": "davidbrai",
+      "published_at": "2026-11-02T09:55:30Z",
+      "recorded_at": "2026-11-02T11:11:10.723973+00:00",
+      "parent": "6ab6c1e0e431a55ddfdd804f35c16073b1031e56",
+      "landed": "d0fe213089aef0599aa9c90bf910c8b562e0dcf8",
+      "PR_url": "https://github.com/earendil-works/pi/pull/11680",
+      "primary_evidence": {
+        "manifest": "research/receipts/20261102T110019Z-pi-branch-summary-source/manifest.json",
+        "bounded_public_manifest": "research/receipts/20261102T110019Z-pi-branch-summary-review.json",
+        "narrative": "research/2026-11-02-branch-summary-context-edits.md",
+        "changed_paths": 3,
+        "full_source_versions_captured": 8,
+        "full_source_versions_read": 4,
+        "full_source_paths_read": 2,
+        "scoped_only_versions": 4,
+        "local_review_originals": {
+          "manifest": "reports/runs/20261102T110019Z/radar/pi-branch-summary-11680/manifest.json",
+          "bounded_public_manifest": "reports/runs/20261102T110019Z/radar/pi-branch-summary-context-edits-review-manifest.json",
+          "narrative": "reports/runs/20261102T110019Z/radar/pi-branch-summary-context-edits-source-review.zh.md",
+          "changed_paths": 3,
+          "full_source_versions_captured": 8,
+          "full_source_versions_read": 4,
+          "full_source_paths_read": 2,
+          "scoped_only_versions": 4
+        }
+      },
+      "fact": [
+        "Landed prepareBranchEntries collects the latest context_edit per target in chronological collected branch entries before converting, extracting current-message file operations and estimating tokens.",
+        "Message/custom_message paths reuse existing projectContextEntry: null omits, replacement projects content; toolResult skip, old compaction/branch summary conversions and cumulative prior summary details remain distinct.",
+        "Shared projection function body unchanged; session-manager only exports it and adds a comment. Actual AgentSession caller bytes are unchanged across exact parent/landed commits.",
+        "Scoped native caller review traces auto-retry omission into appendContextEdit, and navigateTree into default generateBranchSummary with existing signal/auth/streamFn/retry settings.",
+        "New complete test source directly supplies one omitted and one replaced assistant entry to prepareBranchEntries. It is not an executed process/restart/provider test by this project."
+      ],
+      "author_claims": [
+        "PR reports targeted suites and faux-provider/AgentSession end-to-end before/after reproduction; reports six existing type errors on unmodified main. These executions were not performed or independently CI-verified here."
+      ],
+      "our_inference": "Use one version-aware projection before both summarization and budgeting to avoid resurrecting retry-hidden content through a secondary native caller. This source gate does not replace current native busy/submit-error/request-ID-content-collision acceptance.",
+      "source_gate": {
+        "status": "landed_source_design_only",
+        "actual_caller": "Pi AgentSession.navigateTree with summarize:true into generateBranchSummary/prepareBranchEntries",
+        "scale_bottleneck": "Long raw append-only history and branch scanning, summary-token and retry cost; added edit-target Map has no bounded-memory or throughput proof.",
+        "native_integration_point": "projectContextEntry shared between live projection and branch summary message conversion",
+        "future_acceptance": "Separately pin one actual AgentSession workload; after retries and two reopens match live projection and serialized summary request, latest edits and budget denominator; cover tool pairs, extension override, cancellation, identity/current authority. Require zero hidden-failed-content resurrection and exact final replacement; measure success/useful throughput/tails/resources.",
+        "validated_tier": "Immutable source/test-design and static-byte comparison only; no local upstream tests/native/model/two-restart run.",
+        "rollback": "No local runtime adoption; existing pinned native adapter/error-collision gate unchanged."
+      },
+      "local_review": {
+        "scientific_experiments": 0,
+        "native_suites": 0,
+        "model_loads": 0,
+        "upstream_tests_executed": 0,
+        "full_source_versions_read": 4,
+        "full_source_paths_read": 2,
+        "scoped_only_versions": 4,
+        "all_changed_path_diffs_read": true,
+        "full_dependency_closure_read": false
+      },
+      "limits": [
+        "Author execution claims distinguished; no independent hosted-CI or local runtime validation.",
+        "Default branch-summary input only; extensions and existing cumulative summary details remain distinct.",
+        "No two-restart/current-authorization/admission or performance result; current H2 error/collision gate unchanged.",
+        "Old issue creation2026-10-30 is not a new release; new merged commit09:55:30Z is after prior09:01cutoff.",
+        "No general status change proposed; preserve all213prior source objects, H1negative and H2next native error/collision gate."
+      ],
+      "curation_note": "This source review causes no scientific status promotion. The same pass separately executes the independently preregistered busy/error/collision caller; see its distinct result/source."
+    },
+    {
+      "id": "pi-native-busy-error-identity-quarantine-two-reopen-slice",
+      "url": "https://github.com/Linxiushen/frontier-signal-lab/blob/main/results/pi-generation-conflict/report.md",
+      "type": "own_preregistered_native_single_host_faux_result",
+      "author": "Linxiushen",
+      "recorded_at": "2026-11-02T11:26:54.788286+00:00",
+      "fact": [
+        "One immutable reviewed suite, two actual SQLite Sessions, three worker PIDs/two forced kills/reopens.",
+        "18 arrivals/14 durable host reservations/4 overload, two native busy errors/two native type errors/two native changed-content ID reuses/four host quarantines.",
+        "Ten actual Generation/Tool/official local Faux chains plus two native display-only writes; six local effects count one,14 host/20 native task terminal records, final active zero.",
+        "Conflict disposal retires host capacity, records native ID/type, preserves original host identity/intent, never adopts or automatically aborts the colliding native chain. Fixture owner later aborts its uniquely in-flight Conversation.",
+        "Frozen acceptance passed once. Raw bytes/source/runtime pins and copied SQLite endpoints retained. Full CLI44.328s includes authentication, suite5.000s is a separate endpoint."
+      ],
+      "our_inference": "Native request-ID reuse alone does not authenticate content. Reconciliation and cancellation need exact original identity and explicit host capacity disposition before touching native work.",
+      "record": "results/pi-generation-conflict/report.md",
+      "protocol": "experiments/pi_generation_conflict_protocol.json",
+      "implementation_freeze": "fixtures/pi-generation-conflict/implementation.json",
+      "acceptance": {
+        "arrivals": 18,
+        "durable_host_reservations": 14,
+        "overloaded": 4,
+        "native_busy_errors": 2,
+        "native_type_errors": 2,
+        "native_content_reuses": 2,
+        "host_quarantines": 4,
+        "native_submissions": 12,
+        "native_generation_tasks": 10,
+        "native_tool_tasks": 10,
+        "faux_provider_calls": 10,
+        "local_effects": 6,
+        "host_terminals": 14,
+        "native_terminal_tasks": 20,
+        "recovered_reservations": 6,
+        "maximum_active_per_session": 2,
+        "final_active": 0,
+        "terminal_latency_ms": {
+          "n": 14,
+          "p50": 57,
+          "p95": 1674,
+          "p99": 1674
+        }
+      },
+      "limits": "One trusted Windows host, two native SQLite Sessions, deterministic official local Faux, no real model or HTTP transport. Same-ID changed-content reuse is an observed native contract, not automatically an upstream defect. Quarantine releases only host capacity; fixture-owner cleanup uses Conversation-wide abort after observing the foreign placed record unchanged. Native abort itself resumes the scheduler: finite no-replay evidence is not a globally paused scheduler or native per-ID placed-input abort guarantee. Equivalent-JSON post-quarantine effect protection has pure regression evidence only. Authority check and native submit are separate commits; concurrent permission-change, owner and cancellation races, tenant authentication, native storage failure, arbitrary crash-log durability, independent/external effects, real network/model, distributed/GPU and production behavior remain untested. Arrival is serial and gates are controlled; histories grow and reconcile/reap are explicit. checkpointWhen checkpoints each service document revision, so each saved stage copy retains its latest service revision; intermediate committed-state events cannot all be independently joined to historical database rows. Event invariants and each stage latest full SQL endpoint/sequence/state plus stopped-source/copy equality were checked. Memory/output polling and SQLite deadline callbacks bound observations, not unsampled peaks or uninterruptible OS I/O. No matched baseline, observer-OFF arm, quality benchmark, communication benchmark, causal overhead/speedup or SLO proof. Prior H2 failures/results, H1 negative outcomes and original 5 GiB gate, and H3/H4 objects/states are unchanged.",
+      "next_gate": "CLOSED: the finite native busy/error/request-ID-collision caller has completed its preregistered gate. Do not repeat it or extend isolated observer/diagnostic prerequisites. Next H2 work must separately preregister the same native ToolTask boundary with a recoverable independently persisted effect and free local HTTP transport, current authority and idempotency across two process restarts, bounded admission/cancellation and explicit latency/resource/observation limits. This does not authorize a real model, paid API, production deployment or a concurrent-owner/external exactly-once claim.",
+      "scientific_suites": 1,
+      "native_suites": 1,
+      "model_loads": 0,
+      "retries": 0
     }
   ],
   "previous_observation_notes": [
@@ -8375,5 +8495,8 @@
       "reason": "Preserve prior H2-current note before H1 source addition current-pointer correction"
     },
     "Prior210sourceobjects preserved exactly;211total. One separately frozen H1 native complete-cost suite failed on its second case after dense64updates/two model loads;10cases/all evaluations unrun, no paired cost/quality. Separate versioned preservation-group caller preparation passes pure controls only, no v4freeze/native retry. Current composite environment explicitly includes scandir and changed authenticated base Python; no scandir-only attribution. H1 scientific status/old failures and H2/H3/H4 unchanged."
+  ],
+  "last_updated_at_history": [
+    "2026-11-02T09:30:14.531327+00:00"
   ]
 }

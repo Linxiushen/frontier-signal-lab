@@ -1,0 +1,190 @@
+{
+  "recorded_at": "2026-11-02T21:23:59.897042+00:00",
+  "kind": "ordinary engineering transport/store repair, not H2 scientific acceptance",
+  "baseline_head": "2a7eed62ac6676a1cf81beb6b04c696c93593f6f",
+  "baseline_real_http": {
+    "conversation": 1,
+    "canonical_key": "1:same-request",
+    "scopes": [
+      "service0",
+      "service1"
+    ],
+    "both_authorized": true,
+    "post_statuses": [
+      201,
+      409
+    ],
+    "error": "identity-conflict",
+    "server_exit": 0,
+    "security_claim": false
+  },
+  "caller": "unchanged openGenerationService/makeEffectDispatcher effectClient injection; optional construction wrapper source-reviewed only",
+  "bottleneck": "namespace collision prevents independent Session owners from making progress at a shared effect endpoint",
+  "change": "opt-in v2 composite (scope,key), scoped URI/hold/log, explicit stable client scope, full receipt checks and legacy refusal",
+  "repair_criteria": [
+    "same-key different-scope independence",
+    "same-scope replay count1 and conflicting identity409",
+    "current scoped authority403 for a new write",
+    "historic receipt after revoke or lost reply without another mutation",
+    "scope/key path-body mismatch and legacy protocol400",
+    "SQLite reopen preserves both counts1",
+    "legacy key-only schema refused without database byte changes"
+  ],
+  "final_tests": {
+    "python": {
+      "total": 12,
+      "new": 7,
+      "adjacent": 5,
+      "passed": 12,
+      "skipped": 0
+    },
+    "node": {
+      "total": 12,
+      "new": 3,
+      "adjacent": 9,
+      "passed": 12,
+      "skipped": 0
+    },
+    "initial_python_test_cleanup_error_retained": true,
+    "node_invocations": 2,
+    "python_invocations": 2
+  },
+  "validation": "actual background loopback HTTP/Python SQLite, original dispatcher with in-memory Harness test double; wrapper native composition only source-reviewed",
+  "exit_condition": "transport/store regression repair is complete; return to separately justified actual-runner or native authority/cancellation integration, not an unchanged-workload rerun",
+  "next_native_work_requires": "separate justified protocol retaining bounded admission/current authority/cancellation/two process reopens",
+  "rollback": "keep original module/database/protocol; v2 is opt-in, no migration",
+  "native_sessions": 0,
+  "scientific_experiments": 0,
+  "model_loads": 0,
+  "hypotheses_entire_file_unchanged": true,
+  "old_frozen_sources_results_unchanged": true,
+  "failed_concurrent_h2_acceptance_unchanged": true,
+  "source_objects": 220,
+  "source_ledger_unchanged": true,
+  "performance_comparison": null,
+  "limits": [
+    "trusted loopback fixture, not tenant authentication",
+    "no native cancellation or native restart validation this pass",
+    "no model/GPU/distributed/production evidence",
+    "no quality/throughput/tail latency/peak resource benefit claim"
+  ],
+  "files": {
+    "experiments/pi_scoped_effect_http_client.mjs": "b709fdbe238a0c463fd6e71d6637e47b0ad57d8a5c6e693c1af09f908d70357c",
+    "experiments/pi_scoped_effect_http_server.py": "8be6fdf9caeb2522d04792a294fcdca5f4ad5e481c6ff26a159f30b29688044f",
+    "tests/pi_scoped_effect_http.test.mjs": "62aab42650797c2578a3ae0d30b5acb122d39149f448f9de7e9b284652059cdf",
+    "tests/test_pi_scoped_effect_http_server.py": "b40f76d16d093ef044ccb900565eef70e1517ccff53b7ad26aff6d967f5ac4dd",
+    ".github/workflows/ci.yml": "a9c0566995dc13fa0c7a258238b5b9f18ba3e518dc5b791da9db685422d64167",
+    "README.md": "f8c2ff035315a21d471137c3311df79f4dd44ecfd5b813fec525f2ea4b37a380",
+    "research/2026-11-02-scoped-effect-namespace.md": "58bafa942aea3854290915fea39d74cccedf2857768beeb9438f3a793983de3e"
+  },
+  "artifacts": [
+    {
+      "path": "baseline-reproduction.json.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 765,
+      "stored_sha256": "b641ae3635644b34ac0345d8b7d7b99d586d6a1c5021a187b602cd9dc329b84a",
+      "raw_bytes": 2976,
+      "raw_sha256": "8bd48db0cd8cfd6ca1963492b9aba387e79fcdaec8465a5499dcf40e51207d67",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/base-reproduction/reproduction.json"
+    },
+    {
+      "path": "baseline-helper.py.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 1610,
+      "stored_sha256": "b0adae5b3974133511dd678fd85844fa312ae8b164b76f2a4d458b9bb27b5e94",
+      "raw_bytes": 3275,
+      "raw_sha256": "4b86f6e5d97c55d0e5a2d3608ba6f0d4e7b27bc6bc145c92873e1061ed24d29a",
+      "local_original": "reports/runs/20261102T210823Z/reproduce-effect-namespace.py"
+    },
+    {
+      "path": "baseline-server.stdout.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/base-reproduction/server.stdout"
+    },
+    {
+      "path": "baseline-server.stderr.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/base-reproduction/server.stderr"
+    },
+    {
+      "path": "node.stdout.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 615,
+      "stored_sha256": "37f1be7fbb0dec76abffc3cbc6c0283d5ec89766bca7369f710a614206a47188",
+      "raw_bytes": 1137,
+      "raw_sha256": "0b2a8527ed77ad75330c56999f03a13ffd4f93800f2c6f11e18ae3d9d9bcd2bf",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/node-regression-final/stdout"
+    },
+    {
+      "path": "node.stderr.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/node-regression-final/stderr"
+    },
+    {
+      "path": "python.stdout.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/python-review/unittest.stdout.txt"
+    },
+    {
+      "path": "python.stderr.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 556,
+      "stored_sha256": "b2baa05ea663310360229042703fea5a8d77d92953bf0a74108ee02f06b85c30",
+      "raw_bytes": 2437,
+      "raw_sha256": "69509904e8abb1a0c0d5df3daaedf6ca87d1b322d6632c3a694fb5fdc998c995",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/python-review/unittest.stderr.txt"
+    },
+    {
+      "path": "reviewed-diffs.patch.gz",
+      "encoding": "gzip lossless, mtime=0",
+      "stored_bytes": 9911,
+      "stored_sha256": "04275d024114a5013c56eda1d26c95ab1d59927d0a2b175cd5c6cb8ed2c8f654",
+      "raw_bytes": 37218,
+      "raw_sha256": "43568c5b8ced7acad500f5a407e9aa7a1936775f720384e87a48e91a97cf727f",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/python-review/reviewed-diffs.patch"
+    },
+    {
+      "path": "node-receipt.json",
+      "encoding": "selected JSON snapshot, UTF-8 LF",
+      "stored_bytes": 1152,
+      "stored_sha256": "643b09f78c240e4ed4676cff332fb592058226d1b1733564d1504b1adc16925e",
+      "local_original_bytes": 1152,
+      "local_original_sha256": "643b09f78c240e4ed4676cff332fb592058226d1b1733564d1504b1adc16925e",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/node-regression-final/receipt.json"
+    },
+    {
+      "path": "python-receipt.json",
+      "encoding": "selected JSON snapshot, UTF-8 LF",
+      "stored_bytes": 4467,
+      "stored_sha256": "f56ad9e74df13114dad054ef900cd1ec96a1bd31e402d413a1bb73bc6d5e3315",
+      "local_original_bytes": 4552,
+      "local_original_sha256": "307dd613ab91416e3da7f84999cb7213bd131a44d223e3468b4f2f2cd5d3a2de",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/python-review/unittest-result.json"
+    },
+    {
+      "path": "independent-review.json",
+      "encoding": "selected JSON snapshot, UTF-8 LF",
+      "stored_bytes": 5294,
+      "stored_sha256": "a7528be483d4b369ca1c0f816fc4d68a7ddef55aea9fd011374cd54fb9185846",
+      "local_original_bytes": 5379,
+      "local_original_sha256": "fab56e7e2d616b96cc291065bd68d7932926b38a37b2bd2b1c95c4cc84ef63f0",
+      "local_original": "reports/runs/20261102T210823Z/h2-namespace/python-review/independent-review.json"
+    }
+  ]
+}

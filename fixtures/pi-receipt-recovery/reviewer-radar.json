@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-03T03:34:41.937729+00:00",
+  "reviewer": "radar_resume child agent; source review before any native attempt",
+  "status": "passed_for_separate_freeze",
+  "source_sha256": {
+    "experiments/pi_generation_receipt_service.mjs": "a86a4fa60c3444533b32ac9cbd6fbea88820edff771f064f6f56f35182a12662",
+    "experiments/pi_receipt_recovery_audit.py": "ec4e1a11bbf71fbb7a0f4f754f3607fba6a7e1b68810251763f303957b598518",
+    "experiments/pi_receipt_recovery_barriers.mjs": "1eb83bdaa68a51a5dd7e46b7873947dc77951a4e2afcf8507f128608dda0cbc8",
+    "experiments/pi_receipt_recovery_protocol.json": "3516e43e176b6595fbbfa588693dee2de9d64c660c379b98d3cd6636ec5409ec",
+    "scripts/check_pi_receipt_recovery.py": "91e0b357296d6108f9773fdbc305ac44224aa8f394f65d59da3775adc09c971f",
+    "scripts/pi_receipt_recovery_worker.mjs": "d840c4f57ca584972b90a6ebde84ed6d96da11eacac66caf524c4a9f9a6b4b81",
+    "scripts/run_pi_receipt_recovery.py": "0c62ad909324be0a9a2c552848b8d468fbbd2505776e89a4baf75de4ccac5fd0",
+    "tests/pi_generation_receipt_service.test.mjs": "48516c84a693f91747bfb9d5cec13de5702f760b927932f27042d06a28a47108",
+    "tests/pi_receipt_recovery_barriers.test.mjs": "97dbdddf3bb49b6ad43b0367300fce11ec88b5949d9c5c47739eaba9c3fc2474",
+    "tests/test_pi_receipt_recovery_audit.py": "b89b74d2eaf11fabb0c69322e375e354393a0f242ef40492a1d7bd30af4ae3ce"
+  },
+  "source_bytes": {
+    "experiments/pi_generation_receipt_service.mjs": 15886,
+    "experiments/pi_receipt_recovery_audit.py": 28183,
+    "experiments/pi_receipt_recovery_barriers.mjs": 1527,
+    "experiments/pi_receipt_recovery_protocol.json": 6074,
+    "scripts/check_pi_receipt_recovery.py": 10456,
+    "scripts/pi_receipt_recovery_worker.mjs": 14420,
+    "scripts/run_pi_receipt_recovery.py": 9845,
+    "tests/pi_generation_receipt_service.test.mjs": 6247,
+    "tests/pi_receipt_recovery_barriers.test.mjs": 3098,
+    "tests/test_pi_receipt_recovery_audit.py": 13674
+  },
+  "authorship_disclosure": {
+    "authored_in_this_round": [
+      "experiments/pi_receipt_recovery_audit.py",
+      "tests/test_pi_receipt_recovery_audit.py"
+    ],
+    "independent_read_of_other_sources": 8,
+    "authored_sources_review": "Self review of2files; this is not a claim of independent review of my own audit/tests. Another reviewer is required by the frozen checker."
+  },
+  "full_source_read": true,
+  "files_reviewed": 10,
+  "protocol_id": "pi-receipt-recovery-native-v1",
+  "findings": [],
+  "review_checks": [
+    "Public factory opens actual pinned native Harness/SQLite/Faux and installs actual generation/tool extension; original source remains rollback boundary. Dispatcher validation binds exact host/intent identity and preserves already committed receipt over stale refusal.",
+    "Both actual concurrent public reconcile() callers are paused-owner recoveries. Service0 observes2realGET404s before firstPOST201; holdssecondreply until firstack andhostauthorityfalse. Service1 observesgenuinePOST403 while remoteauthorityfalse before anyeffectrow, restoresauthority for firstPOST201, revokesagain, then delivers saved403. No manufactured receipt or impossible denial after existing row.",
+    "Only callback delivery is gated. Barriers limit targetlookups2/applies1or2; unrelated identities pass through. Client restricts explicitloopback endpoint/timeout/bodyceilings; globalfetchfailsclosed.",
+    "Stage0 nativepair checkpoints and durablependingintents held; twoactualforcednativekills occur at separate stages, withstopped native/effectSQLcopies. Effectserver stops gracefully after nativeclientexit and reopens same scopedpersistentstore.",
+    "Preabort chooses complete exact paused nativechains before abort marks; first-conversation oldrequests retainhistorical receipts despite cancellation. Newnegative tooldecisionaborted is distinguishedfrom nativecompleted taskoutcome.",
+    "Auditor rereads immutableSQL through retained readers and joins exactscope+key+conversation+version+fingerprint+submission+generation+tool+assistant+result. It enforces12unique/8admit/4overload,16admissioncalls includingretries2/conflicts2,8pairs/8providerrequests/6effects/17HTTPattempts,2superseded/2refused, exactterminal/cardinality/drain andreceiptmonotonicity.",
+    "Serverevent sequence must match SQLglobalattemptorder. Client completion recordsmatch counts andper-scoped-key sequences, allowing independent cross-keyresponsecompletion reordering. Stage1stale callbacks have explicit happens-before constraints and exact rawresponsefacts.",
+    "Controller authenticates new10source hashes plus preserved completeancestry/runtimefiles, requiresabsentoutputdir andsinglesuite/zeroretry, enforcesfinite wall/private/output bounds, savesactual failures without rerun. Portablechecker rereads rawmanifest,authenticates source/review/runtimeinventory anddoesnot rerun native oroldfailedscientificgate.",
+    "Root first offlineunitrun reported7/7pass; this agent only inspected receipt/source, ran0tests/native/model/suite. Any laternative/controller/auditorfailure remainsafailure under frozenprotocol."
+  ],
+  "observed_validation": {
+    "root_unit_receipt": "reports/runs/20261103T031400Z/native-preparation/audit-unit-receipt.json",
+    "root_unit_exit_code": 0,
+    "root_unit_methods": 7,
+    "agent_native_runs": 0,
+    "agent_test_runs": 0,
+    "agent_model_loads": 0
+  },
+  "limits": "Finite controlled callback delivery, same trusted Windows owner, two native SQLite Sessions, loopback HTTP and official deterministic local Faux. No real-model quality, tenant authentication, concurrent native owners, arbitrary interleaving, remote linearizability, general external exactly-once, GPU/distributed/production or performance claim. Authority checks and external commit are not atomic; existing receipts are historical. Memory samples are observed maxima, not continuous peaks. The old concurrent freeze stays failed; all old negative scientific evidence, H1 original5GiB/invalidRSS, H3/H4 and closed gates remain unchanged.",
+  "gate": "Static and offline-evidence source review only. No runtime/scientific outcome accepted here. One separate freeze/one native suite may be attempted by root only after both hash-bound reviews.",
+  "source_reread_before_receipt": true
+}

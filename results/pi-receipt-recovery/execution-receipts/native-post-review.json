@@ -1,0 +1,613 @@
+{
+  "recorded_at": "2026-11-03T03:37:43.962190+00:00",
+  "started_at": "2026-11-03T03:37:40.555656+00:00",
+  "status": "passed_saved_byte_review",
+  "execution_status": "passed",
+  "execution_accepted": true,
+  "saved_only_status": "passed",
+  "scope": "Read-only rehash and saved-only immutable SQLite+JSON auditor invocation after the only nativecontroller finished. No controller/server/native/model/test invocation; no frozen/raw/shared/tracked edits. Audit/test author role retained; other reviewer independently checks full implementation.",
+  "freeze_path": "fixtures/pi-receipt-recovery/implementation.json",
+  "freeze_sha256": "480b2254f1279ef1371e5f747d45278e56dbfb8c0fbba0481da22aab6b0e9904",
+  "source_sha256": {
+    "experiments/pi_generation_receipt_service.mjs": "a86a4fa60c3444533b32ac9cbd6fbea88820edff771f064f6f56f35182a12662",
+    "experiments/pi_receipt_recovery_audit.py": "ec4e1a11bbf71fbb7a0f4f754f3607fba6a7e1b68810251763f303957b598518",
+    "experiments/pi_receipt_recovery_barriers.mjs": "1eb83bdaa68a51a5dd7e46b7873947dc77951a4e2afcf8507f128608dda0cbc8",
+    "experiments/pi_receipt_recovery_protocol.json": "3516e43e176b6595fbbfa588693dee2de9d64c660c379b98d3cd6636ec5409ec",
+    "scripts/check_pi_receipt_recovery.py": "91e0b357296d6108f9773fdbc305ac44224aa8f394f65d59da3775adc09c971f",
+    "scripts/pi_receipt_recovery_worker.mjs": "d840c4f57ca584972b90a6ebde84ed6d96da11eacac66caf524c4a9f9a6b4b81",
+    "scripts/run_pi_receipt_recovery.py": "0c62ad909324be0a9a2c552848b8d468fbbd2505776e89a4baf75de4ccac5fd0",
+    "tests/pi_generation_receipt_service.test.mjs": "48516c84a693f91747bfb9d5cec13de5702f760b927932f27042d06a28a47108",
+    "tests/pi_receipt_recovery_barriers.test.mjs": "97dbdddf3bb49b6ad43b0367300fce11ec88b5949d9c5c47739eaba9c3fc2474",
+    "tests/test_pi_receipt_recovery_audit.py": "b89b74d2eaf11fabb0c69322e375e354393a0f242ef40492a1d7bd30af4ae3ce"
+  },
+  "old_evidence_preservation_receipt": "reports/runs/20261103T031400Z/native-preparation/old-evidence-preservation.json",
+  "old_evidence_preservation_sha256": "914482d08ab11b6a0dc04b5345ab48d43ef80f07ee5a4c934dc68c78e3c0b086",
+  "old_evidence_verified_twice": {
+    "old_frozen_source_sha256": {
+      "count": 167,
+      "unchanged": true
+    },
+    "old_tracked_fixture_result_sha256": {
+      "count": 3782,
+      "unchanged": true
+    }
+  },
+  "raw_directory": "local-state/pi-receipt-recovery-20261103T031400Z",
+  "raw_files": 97,
+  "raw_bytes": 1907083,
+  "raw_inventory": {
+    "effect-server0-final.json": {
+      "sha256": "ccb4407609435a0982ef5675c580a7ba87123c228dcde25e76fadb5ae3ca3802",
+      "bytes": 315
+    },
+    "effect-server0-initial-snapshot.json": {
+      "sha256": "4c1b20c8aee01b1076c284822f2a73add61b41cbd64457ff07099e70368ee278",
+      "bytes": 56
+    },
+    "effect-server0-ready.json": {
+      "sha256": "0d98a3c96bf125ede7823f594d409182e5841aaef771b56799d424a962ddc7aa",
+      "bytes": 136
+    },
+    "effect-server0.jsonl": {
+      "sha256": "67548541d92b0cd5194a3a373916a9c3f8cf016c060ae88639fdb67f7debcc7b",
+      "bytes": 333
+    },
+    "effect-server0.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effect-server0.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effect-server1-final.json": {
+      "sha256": "b900691728fd2eba5dbee2b8b2872d210324b9018600ef3a06a520f168a365c8",
+      "bytes": 2391
+    },
+    "effect-server1-initial-snapshot.json": {
+      "sha256": "fd3e49eede2dc27beeb6e3848285fdece762a24f7f7556fae9be539c9a066736",
+      "bytes": 286
+    },
+    "effect-server1-ready.json": {
+      "sha256": "157fe76a5d68568b6e91539d3d510bdb9a5e8a5e95a28867579989336f1a28e1",
+      "bytes": 136
+    },
+    "effect-server1.jsonl": {
+      "sha256": "b3c364ea361e7b177826975fc891a5e1b3dfbb360d4da85be064983794bb47a7",
+      "bytes": 2400
+    },
+    "effect-server1.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effect-server1.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effect-server2-final.json": {
+      "sha256": "81ceb4b805622259a7f68446a4ece6096533b5be018f7f286f28c47d44f2eab1",
+      "bytes": 3499
+    },
+    "effect-server2-initial-snapshot.json": {
+      "sha256": "5ae017318b62cdc289f38eb7878479c00331387578fa25522d8cd7899fe8768f",
+      "bytes": 2247
+    },
+    "effect-server2-ready.json": {
+      "sha256": "8ebdcc35760de4d9871f4fbd91dda6fa10ee611fe635479f7a71368e1c36fb77",
+      "bytes": 136
+    },
+    "effect-server2.jsonl": {
+      "sha256": "1335e16be7892d203ecedc4b228b8f0ed082467bb1c55630971e96cbc1d6192f",
+      "bytes": 1475
+    },
+    "effect-server2.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effect-server2.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effects-scoped.sqlite": {
+      "sha256": "71e561e2b7ce5fecd6d6a1ffa9120623540e6bd44540f6cd8362c0204fbe91aa",
+      "bytes": 24576
+    },
+    "effects-scoped.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "effects-scoped.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effects-stage0-copy-comparison.json": {
+      "sha256": "af2f22c55d32f295ecb67d3ee765c0d50b1124e020e2a54e732b7ab6d95d8e06",
+      "bytes": 215
+    },
+    "effects-stage0-endpoint.json": {
+      "sha256": "ded83ab123fe95195968d4a9edcff6b760f1a5369bc48e60040ed2cbd8679b85",
+      "bytes": 317
+    },
+    "effects-stage0.sqlite": {
+      "sha256": "9a1dbf9e2fb54d80872c239fb559254d2df059bbc281ae55eb4db5687d5ea985",
+      "bytes": 24576
+    },
+    "effects-stage0.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "effects-stage0.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effects-stage1-copy-comparison.json": {
+      "sha256": "a26d29abbc7b9d00c3ea4872fb5ce390684a9b31c10266551051cb170029d39c",
+      "bytes": 215
+    },
+    "effects-stage1-endpoint.json": {
+      "sha256": "0798bc8963b72cd5488d17d38066a8b2275fe3d42e0590909a307688807bda52",
+      "bytes": 2393
+    },
+    "effects-stage1.sqlite": {
+      "sha256": "7139150bb42a573a7e2434320f6cd7ff00989a22a46aad37c0a37fedef3a95b6",
+      "bytes": 24576
+    },
+    "effects-stage1.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "effects-stage1.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "effects-stage2-copy-comparison.json": {
+      "sha256": "0664c64b7c5b3dd1cf2b76c8712765da683726eca32ead9bee70512de34255ef",
+      "bytes": 215
+    },
+    "effects-stage2-endpoint.json": {
+      "sha256": "950ad569ee1bcbff2d40d04eebf566bdb0c22a6eadb359407afa35643a5b892b",
+      "bytes": 3501
+    },
+    "effects-stage2.sqlite": {
+      "sha256": "0c9abc8c4199b413974ae0b266ebe7858840660e7e8dc70773ce66176b748ab7",
+      "bytes": 24576
+    },
+    "effects-stage2.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "effects-stage2.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "execution.json": {
+      "sha256": "b58be11709b453fe8eb44652471ba23735d70ff5635d212adf7050eefeacf4b3",
+      "bytes": 53976
+    },
+    "identities.json": {
+      "sha256": "ee01d3546d877815d2879255b87f6c3f9b4836c8db64dda7c853f796bac75943",
+      "bytes": 7456
+    },
+    "race0-acknowledged.json": {
+      "sha256": "aabfd9d2475da5c1db506a26affa33687a18d2178cad75bdbffc9f2aadfc09c7",
+      "bytes": 2772
+    },
+    "race0-preserved.json": {
+      "sha256": "939dd14362d2842d3485c603284453b5a107790c824079fec5dba0ea61737855",
+      "bytes": 2773
+    },
+    "race1-acknowledged.json": {
+      "sha256": "a9db2d197f86f660192637448e89cc62d3106eeaeba5a26c2e85617db3742605",
+      "bytes": 2772
+    },
+    "race1-preserved.json": {
+      "sha256": "a9db2d197f86f660192637448e89cc62d3106eeaeba5a26c2e85617db3742605",
+      "bytes": 2772
+    },
+    "service0-stage0-copy-comparison.json": {
+      "sha256": "4749fbd95ffd1bbb65957c09456852eaa5bf639fbf6dc45c6ba2f3b743820678",
+      "bytes": 247
+    },
+    "service0-stage0-endpoint.json": {
+      "sha256": "0c7889861fadc388715a23abfd76f5b7c2a96992d1d99567d2162075d45be6bf",
+      "bytes": 9379
+    },
+    "service0-stage0.sqlite": {
+      "sha256": "7deab987b4a54d5bc69e47cdc2fca6fd1dc9d0c7cc87d00aa34e32f347713ed2",
+      "bytes": 122880
+    },
+    "service0-stage0.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service0-stage0.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service0-stage1-copy-comparison.json": {
+      "sha256": "387994477c49620881878570b11d48f444cad11ded4b7552fae13100f5ff2593",
+      "bytes": 247
+    },
+    "service0-stage1-endpoint.json": {
+      "sha256": "5d7bdba73077ef4276c38daf8bc44bf2d80464de642c63970f01b46aaffe1844",
+      "bytes": 10909
+    },
+    "service0-stage1.sqlite": {
+      "sha256": "131025084f8ca06f7d0705b0c03f3addfbf4b4dda034eade779f998c93255578",
+      "bytes": 122880
+    },
+    "service0-stage1.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service0-stage1.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service0-stage2-copy-comparison.json": {
+      "sha256": "21e3c12fc54b12084db2381aeddfe6be4665eadf2c64918a103403ae105ba74a",
+      "bytes": 247
+    },
+    "service0-stage2-endpoint.json": {
+      "sha256": "1e35e0ab1588938ad3c73a30031dd96bc96b58da0db1bdc1e9f84c96d5ff6293",
+      "bytes": 21633
+    },
+    "service0-stage2.sqlite": {
+      "sha256": "fda67543db07a6b5630220744dc830bb4f2a66dc1fb1a6fa33ac17c57a8f4e37",
+      "bytes": 135168
+    },
+    "service0-stage2.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service0-stage2.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service0.sqlite": {
+      "sha256": "fafe6beacf9b1b1d4319971277f8320164fb95fefa2f0577c15aaaff3d4b314a",
+      "bytes": 135168
+    },
+    "service0.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service0.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service1-stage0-copy-comparison.json": {
+      "sha256": "bf56a33aedd4eb5d000c4896c095a75d82069de39cb711d95bb5fcacedfbed4e",
+      "bytes": 247
+    },
+    "service1-stage0-endpoint.json": {
+      "sha256": "dc1f6e5416a1658d027e2732495f491f08f0f36f8cd10d0c8dd30b2a47c3ccaf",
+      "bytes": 9365
+    },
+    "service1-stage0.sqlite": {
+      "sha256": "c394f1573cec0b3276f90eb6853888c0b7d2d398c611edf314f0b288ead91fce",
+      "bytes": 122880
+    },
+    "service1-stage0.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service1-stage0.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service1-stage1-copy-comparison.json": {
+      "sha256": "59afe98dc183ac28bc060bd7a580af259dfba891ac2aaeecdf102f38ca652896",
+      "bytes": 247
+    },
+    "service1-stage1-endpoint.json": {
+      "sha256": "dd96983082e540ab5f8105cdeeb1c7b9daebb2cf11b9e8536762e92a9697682e",
+      "bytes": 10894
+    },
+    "service1-stage1.sqlite": {
+      "sha256": "78ce2d38c278c4f6e318118e2966feb3d0610fe60fa8b1c73fa28e5916fa2604",
+      "bytes": 122880
+    },
+    "service1-stage1.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service1-stage1.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service1-stage2-copy-comparison.json": {
+      "sha256": "7deaf8c53fcb6c4747183647bcca4833d2f3adc9b6d0a328b74137171703b6a1",
+      "bytes": 247
+    },
+    "service1-stage2-endpoint.json": {
+      "sha256": "217c0bb8e75948fa0d2ed48dc1e77cf9cf2ec13b7d94579431fb42f018569bf2",
+      "bytes": 21597
+    },
+    "service1-stage2.sqlite": {
+      "sha256": "410d40d340e9cd3c771859af3133eb084e724c569d879b9f33c6fb7ebf57e084",
+      "bytes": 135168
+    },
+    "service1-stage2.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service1-stage2.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service1.sqlite": {
+      "sha256": "743d0615a32ae2297799db90b57ab291406cb0e5f36cddb68ad3dc65b79a3ee0",
+      "bytes": 135168
+    },
+    "service1.sqlite-shm": {
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768
+    },
+    "service1.sqlite-wal": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage0-ready.json": {
+      "sha256": "4907b2ac65dafa6811210e4fc51db42249868f6707d5cc78a6970a9c2b1fc92b",
+      "bytes": 103
+    },
+    "stage0-sink.json": {
+      "sha256": "6b082deea455247df367b5c2e8aa69b682395aa87448e5164d355e941c8df9f6",
+      "bytes": 107
+    },
+    "stage0-snapshot.json": {
+      "sha256": "02cb73303b28b43c78ccab16e4a8baa7ba84868f4215dadba218a3bc52cc712e",
+      "bytes": 5167
+    },
+    "stage0.jsonl": {
+      "sha256": "9a47210fb95d84599ec724a4c05c06a237e401723b3733c250effa149cb695da",
+      "bytes": 16631
+    },
+    "stage0.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage0.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage1-ready.json": {
+      "sha256": "50e503578a245408790c5bbc2f6e182a21adf16bfe50ab961673108ddebbd525",
+      "bytes": 103
+    },
+    "stage1-sink.json": {
+      "sha256": "03e1c6aa383e93738ed361e9a9069a67d68ef0c773446fc73447e8cc6f9f37d3",
+      "bytes": 107
+    },
+    "stage1-snapshot.json": {
+      "sha256": "ec6c9c5396458bb7d505c04290469373085151b6d848dd030426cf63fc253e2f",
+      "bytes": 10421
+    },
+    "stage1.jsonl": {
+      "sha256": "72d0783e27ea09d26a4aebade3dbb529a0d6718d079b25496a83ac219dce921d",
+      "bytes": 38795
+    },
+    "stage1.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage1.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage2-ready.json": {
+      "sha256": "08a2a35c84778e89a4768db24fb5cb4ac77bccd2c15c0ead04006b08de1a5544",
+      "bytes": 93
+    },
+    "stage2-recovered.json": {
+      "sha256": "3d458cfbbad974461e351ec5b961a672546a878ab920049d60185413731e7151",
+      "bytes": 9870
+    },
+    "stage2-sink.json": {
+      "sha256": "9b50fcece655597c80d20efa460ee04932786e99a6212cb263a0ab6bbe5622cd",
+      "bytes": 109
+    },
+    "stage2-snapshot.json": {
+      "sha256": "795daa6fc4fa76640f2227ca75b4a420f76b1996696c882d6d6746cd5adb0904",
+      "bytes": 16301
+    },
+    "stage2.jsonl": {
+      "sha256": "0386f313ac6d9a74cd369b548724a76f72c236c04a28bcb091ab14c1ef56b5ff",
+      "bytes": 107518
+    },
+    "stage2.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stage2.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "raw_before_after_equal": true,
+  "saved_sql_auditor_invocations": 1,
+  "acceptance": {
+    "arrivals": 12,
+    "admitted": 8,
+    "overloaded": 4,
+    "duplicate_retries": 2,
+    "conflicting_retries": 2,
+    "native_generation_tasks": 8,
+    "native_tool_tasks": 8,
+    "faux_provider_calls": 8,
+    "native_aborted_tasks": 4,
+    "native_completed_tasks": 12,
+    "local_effects": 6,
+    "http_effect_attempts": 17,
+    "stale_callback_superseded": 2,
+    "public_reconcile_calls_in_races": 4,
+    "recovered_reservations": 8,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 8,
+      "max": 5218,
+      "p50": 116,
+      "p95": 5218,
+      "p99": 5218
+    },
+    "admission_latency_ms": {
+      "n": 16,
+      "max": 15.641200000000026,
+      "p50": 1.597400000000107,
+      "p95": 15.641200000000026,
+      "scope": "All16 public admission calls, including2duplicate/2conflict retries."
+    },
+    "observed_http": {
+      "requests": 35,
+      "latency_ms_sum": 647.5403999999997,
+      "request_body_bytes": 1977,
+      "response_body_bytes": 7682
+    }
+  },
+  "independent_counts": {
+    "arrivals": 12,
+    "admitted": 8,
+    "overloaded": 4,
+    "effects": 6,
+    "attempts": 17,
+    "attempt_status_counts": {
+      "GET:404": 10,
+      "POST:201": 6,
+      "POST:403": 1
+    },
+    "native_task_kinds": {
+      "pi.generation": 8,
+      "pi.tool": 8
+    },
+    "native_task_outcomes": {
+      "aborted": 4,
+      "completed": 12
+    },
+    "host_terminals": 8,
+    "final_active": 0,
+    "superseded_events": 2,
+    "reconcile_start_events": 4,
+    "provider_request_events": 8,
+    "tool_enter_events": 10,
+    "tool_effect_events": 6,
+    "recovery_preaborts": 2,
+    "http_results": 35
+  },
+  "metrics": {
+    "fixture_effect_success": "6/6 eligible effects;2non-effect negatives reported separately; not model quality",
+    "overload": "4/12unique arrivals",
+    "useful_effects_per_suite_second_descriptive": 0.767950851146053,
+    "suite_elapsed_seconds": 7.812999999994645,
+    "full_controller_elapsed_seconds": 40.14099999998871,
+    "authentication_elapsed_seconds": 32.32799999999406,
+    "terminal_latency_ms": {
+      "n": 8,
+      "max": 5218,
+      "p50": 116,
+      "p95": 5218,
+      "p99": 5218
+    },
+    "admission_latency_ms": {
+      "n": 16,
+      "max": 15.641200000000026,
+      "p50": 1.597400000000107,
+      "p95": 15.641200000000026,
+      "scope": "All16 public admission calls, including2duplicate/2conflict retries."
+    },
+    "worker_http_observed": {
+      "requests": 35,
+      "latency_ms_sum": 647.5403999999997,
+      "request_body_bytes": 1977,
+      "response_body_bytes": 7682
+    },
+    "observer_sink": {
+      "callback_ms_sum": 2.036900000001154,
+      "flush_ms_sum": 3.6930999999999585,
+      "trace_bytes_sum": 162944,
+      "trace_event_count_sum": 226
+    },
+    "memory": {
+      "processes": {
+        "per_stage": [
+          {
+            "stage": 0,
+            "pid": 35044,
+            "elapsed_seconds": 1.7189999999973224,
+            "memory_samples": 55,
+            "sampled_max_private_bytes": 89915392,
+            "sampled_max_working_set_bytes": 92356608,
+            "sampled_max_reported_peak_working_set_bytes": 92360704
+          },
+          {
+            "stage": 1,
+            "pid": 23240,
+            "elapsed_seconds": 2.047000000005937,
+            "memory_samples": 33,
+            "sampled_max_private_bytes": 88444928,
+            "sampled_max_working_set_bytes": 89743360,
+            "sampled_max_reported_peak_working_set_bytes": 89747456
+          },
+          {
+            "stage": 2,
+            "pid": 34184,
+            "elapsed_seconds": 2.1710000000020955,
+            "memory_samples": 22,
+            "sampled_max_private_bytes": 108773376,
+            "sampled_max_working_set_bytes": 95121408,
+            "sampled_max_reported_peak_working_set_bytes": 95514624
+          }
+        ],
+        "all_stage_sampled_max_PrivateUsage": 108773376,
+        "all_stage_sampled_max_WorkingSetSize": 95121408,
+        "all_stage_sampled_max_PeakWorkingSetSize": 95514624
+      },
+      "servers": {
+        "per_stage": [
+          {
+            "stage": 0,
+            "pid": 27056,
+            "elapsed_seconds": 2.2660000000032596,
+            "memory_samples": 70,
+            "sampled_max_private_bytes": 15204352,
+            "sampled_max_working_set_bytes": 25632768,
+            "sampled_max_reported_peak_working_set_bytes": 25661440
+          },
+          {
+            "stage": 1,
+            "pid": 36236,
+            "elapsed_seconds": 2.562000000005355,
+            "memory_samples": 43,
+            "sampled_max_private_bytes": 15200256,
+            "sampled_max_working_set_bytes": 25575424,
+            "sampled_max_reported_peak_working_set_bytes": 25612288
+          },
+          {
+            "stage": 2,
+            "pid": 34516,
+            "elapsed_seconds": 2.6560000000026776,
+            "memory_samples": 29,
+            "sampled_max_private_bytes": 15327232,
+            "sampled_max_working_set_bytes": 25661440,
+            "sampled_max_reported_peak_working_set_bytes": 25714688
+          }
+        ],
+        "all_stage_sampled_max_PrivateUsage": 15327232,
+        "all_stage_sampled_max_WorkingSetSize": 25661440,
+        "all_stage_sampled_max_PeakWorkingSetSize": 25714688
+      }
+    },
+    "metrics_scope": "Fixed controlled Windows CPU/Faux/loopback workload with deliberate holds and2nativekills. Descriptive single-run metrics; no comparison,modelquality,GPU,distributed,production or causalobservercost inference. Sampled private/working-set maxima are not continuous peaks. WorkerHTTP counts exclude controllerstop requests."
+  },
+  "audit_failure": null,
+  "findings": [],
+  "agent_native_runs": 0,
+  "agent_servers": 0,
+  "agent_scientific_experiments": 0,
+  "agent_tests": 0,
+  "raw_mutations": 0,
+  "frozen_source_mutations": 0,
+  "shared_ledger_mutations": 0,
+  "result_copy_validation": "Root result/raw copy not yet required for this review; root must preserve exactly this stopped inventory and independently verify its manifest."
+}

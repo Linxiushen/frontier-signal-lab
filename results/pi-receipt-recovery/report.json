@@ -1,0 +1,243 @@
+{
+  "recorded_at": "2026-11-03T03:39:27.604062+00:00",
+  "execution_status": "passed",
+  "execution_accepted": true,
+  "result_label": "Finite same-owner native public recovery overlap preserves acknowledged receipts",
+  "scientific_suites": 1,
+  "native_suites": 1,
+  "model_loads": 0,
+  "retries": 0,
+  "acceptance": {
+    "arrivals": 12,
+    "admitted": 8,
+    "overloaded": 4,
+    "duplicate_retries": 2,
+    "conflicting_retries": 2,
+    "native_generation_tasks": 8,
+    "native_tool_tasks": 8,
+    "faux_provider_calls": 8,
+    "native_aborted_tasks": 4,
+    "native_completed_tasks": 12,
+    "local_effects": 6,
+    "http_effect_attempts": 17,
+    "stale_callback_superseded": 2,
+    "public_reconcile_calls_in_races": 4,
+    "recovered_reservations": 8,
+    "maximum_active_per_session": 2,
+    "final_active": 0,
+    "terminal_latency_ms": {
+      "n": 8,
+      "max": 5218,
+      "p50": 116,
+      "p95": 5218,
+      "p99": 5218
+    },
+    "admission_latency_ms": {
+      "n": 16,
+      "max": 15.641200000000026,
+      "p50": 1.597400000000107,
+      "p95": 15.641200000000026,
+      "scope": "All16 public admission calls, including2duplicate/2conflict retries."
+    },
+    "observed_http": {
+      "requests": 35,
+      "latency_ms_sum": 647.5403999999997,
+      "request_body_bytes": 1977,
+      "response_body_bytes": 7682
+    }
+  },
+  "metrics": {
+    "expected_eligible_effects": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "scope": "Exact finite fixture dispositions, including two historical cancelled receipts; not real-model quality."
+    },
+    "effects_per_admitted_request": {
+      "numerator": 6,
+      "denominator": 8,
+      "rate": 0.75
+    },
+    "overload_refusals_per_unique_arrival": {
+      "numerator": 4,
+      "denominator": 12,
+      "rate": 0.3333333333333333
+    },
+    "negative_controls": [
+      {
+        "service": 0,
+        "scope": "service0",
+        "key": "2:s2-negative",
+        "cancelled": false,
+        "effect_present": false,
+        "effect_intent_status": "denied",
+        "native_submission_status": "done",
+        "SQL_effect_attempts": [
+          [
+            12,
+            "GET",
+            "service0",
+            "2:s2-negative",
+            404
+          ]
+        ]
+      },
+      {
+        "service": 1,
+        "scope": "service1",
+        "key": "2:s2-negative",
+        "cancelled": true,
+        "effect_present": false,
+        "effect_intent_status": "aborted",
+        "native_submission_status": "done",
+        "SQL_effect_attempts": [
+          [
+            14,
+            "GET",
+            "service1",
+            "2:s2-negative",
+            404
+          ]
+        ]
+      }
+    ],
+    "suite_elapsed_seconds": 7.812999999994645,
+    "authentication_elapsed_seconds": 32.32799999999406,
+    "full_controller_elapsed_seconds": 40.14099999998871,
+    "complete_CLI_wall_seconds": 40.60899999999674,
+    "descriptive_fixture_effects_per_suite_second": 0.767950851146053,
+    "time_scope": "Suite includes three native/server stages, imposed callback gates, two native kills/reopens, stopped-SQL copies and frozen audit. Authentication is excluded from suite but included in full controller; complete CLI also includes interpreter startup/import/exit. Preparation/review/archive/publication excluded.",
+    "terminal_latency_ms": {
+      "n": 8,
+      "max": 5218,
+      "p50": 116,
+      "p95": 5218,
+      "p99": 5218
+    },
+    "terminal_latency_scope": "Host offer to observed native terminal, including deliberate holds/restarts/reaping; not inference latency or an SLO.",
+    "admission_latency_ms": {
+      "n": 16,
+      "max": 15.641200000000026,
+      "p50": 1.597400000000107,
+      "p95": 15.641200000000026,
+      "scope": "All16 public admission calls, including2duplicate/2conflict retries."
+    },
+    "native_process_memory": [
+      {
+        "stage": 0,
+        "pid": 35044,
+        "elapsed_seconds": 1.7189999999973224,
+        "samples": 55,
+        "maximum_sampled_private_bytes": 89915392,
+        "maximum_sampled_working_set_bytes": 92356608,
+        "maximum_observed_OS_peak_working_set_bytes": 92360704,
+        "maximum_observed_sample_gap_seconds": 0.04700000000593718
+      },
+      {
+        "stage": 1,
+        "pid": 23240,
+        "elapsed_seconds": 2.047000000005937,
+        "samples": 33,
+        "maximum_sampled_private_bytes": 88444928,
+        "maximum_sampled_working_set_bytes": 89743360,
+        "maximum_observed_OS_peak_working_set_bytes": 89747456,
+        "maximum_observed_sample_gap_seconds": 0.07799999999406282
+      },
+      {
+        "stage": 2,
+        "pid": 34184,
+        "elapsed_seconds": 2.1710000000020955,
+        "samples": 22,
+        "maximum_sampled_private_bytes": 108773376,
+        "maximum_sampled_working_set_bytes": 95121408,
+        "maximum_observed_OS_peak_working_set_bytes": 95514624,
+        "maximum_observed_sample_gap_seconds": 0.11000000000058208
+      }
+    ],
+    "server_process_memory": [
+      {
+        "stage": 0,
+        "pid": 27056,
+        "elapsed_seconds": 2.2660000000032596,
+        "samples": 70,
+        "maximum_sampled_private_bytes": 15204352,
+        "maximum_sampled_working_set_bytes": 25632768,
+        "maximum_observed_OS_peak_working_set_bytes": 25661440,
+        "maximum_observed_sample_gap_seconds": 0.062000000005355105
+      },
+      {
+        "stage": 1,
+        "pid": 36236,
+        "elapsed_seconds": 2.562000000005355,
+        "samples": 43,
+        "maximum_sampled_private_bytes": 15200256,
+        "maximum_sampled_working_set_bytes": 25575424,
+        "maximum_observed_OS_peak_working_set_bytes": 25612288,
+        "maximum_observed_sample_gap_seconds": 0.125
+      },
+      {
+        "stage": 2,
+        "pid": 34516,
+        "elapsed_seconds": 2.6560000000026776,
+        "samples": 29,
+        "maximum_sampled_private_bytes": 15327232,
+        "maximum_sampled_working_set_bytes": 25661440,
+        "maximum_observed_OS_peak_working_set_bytes": 25714688,
+        "maximum_observed_sample_gap_seconds": 0.125
+      }
+    ],
+    "memory_scope": "Separate native/server sampled private and working-set maxima, with OS peak-working-set counters and sample gaps; not continuous peak resources or combined simultaneous memory. Active capacity is bounded; histories grow.",
+    "observed_HTTP": {
+      "requests": 35,
+      "latency_ms_sum": 647.5403999999997,
+      "request_body_bytes": 1977,
+      "response_body_bytes": 7682
+    },
+    "HTTP_scope": "35 settled client results including17 effect operations and18 authority/snapshot controls. Encoded request/observed response bodies only; excludes headers/socket/wire traffic. No remote calls beyond explicit loopback HTTP.",
+    "event_sink": {
+      "events": 226,
+      "bytes": 162944,
+      "callback_ms_sum": 2.036900000001154,
+      "flush_ms_sum": 3.6930999999999585
+    },
+    "observation_scope": "Buffered JSON event callback and final flush costs only, no observer-OFF baseline/causal overhead or performance comparison."
+  },
+  "raw_files": 97,
+  "raw_bytes": 1907083,
+  "raw_manifest_sha256": "cddd7d93537690b44ecf9eafcd46965e6f5be4f371be320baa33af15d896d881",
+  "metadata_receipt_sha256": {
+    "execution-receipts/launch-native-once.py": "9b158cd216957053cd0e96665be60f49139fd369320f76a77c67ab3a74e47533",
+    "execution-receipts/native-launch-attempt.json": "be86f3c62bd8bd54d7a7156ef3abf90cd5fd349297794f19c7bb23d30a2e4608",
+    "execution-receipts/native-launch-result.json": "01b0c9eb0cbef218211d28558783f5ed52c8a857270525e2242d1e112a7d4b64",
+    "execution-receipts/native-launch.stdout": "00bfc3e137279ff6212afa2862ffe79b9b809d5f9d05a4226a862ac6e75a1b03",
+    "execution-receipts/native-launch.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "execution-receipts/native-post-review.json": "4b525dcf20ddfacde4e8a472d7243c4fdbe818f92862374e2e0d745c4dd40e8d",
+    "execution-receipts/audit-unit-receipt.json": "af643f11b3f39dca771447e465ba2b0330fac378345f90e1b7acfc8888b821c8",
+    "execution-receipts/audit-unit.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "execution-receipts/audit-unit.stderr": "776c3eaafb16f47cde87bd5b57a657b74bed7550232d0f980ff724518d630679",
+    "execution-receipts/root-pure-preparation-checks.json": "8c445fb3c331de1268e7149a386ab7e5c58fee843a1d34d9166a89a939d93b2f",
+    "execution-receipts/old-evidence-preservation.json": "914482d08ab11b6a0dc04b5345ab48d43ef80f07ee5a4c934dc68c78e3c0b086",
+    "execution-receipts/resources-before.json": "24ad8810bbe3d3e28dd1218dc9cbb143ae644dfbd4b716e93716bb43798c39d0",
+    "execution-receipts/freeze-receipt.json": "8ee1f6fa461e01eaeeea8c5cd3c66ad7e91711ecf84667096ae4a19740e29bd4"
+  },
+  "implementation_freeze": "fixtures/pi-receipt-recovery/implementation.json",
+  "implementation_freeze_sha256": "480b2254f1279ef1371e5f747d45278e56dbfb8c0fbba0481da22aab6b0e9904",
+  "independent_saved_byte_review": "execution-receipts/native-post-review.json",
+  "independent_saved_byte_review_sha256": "4b525dcf20ddfacde4e8a472d7243c4fdbe818f92862374e2e0d745c4dd40e8d",
+  "engineering": {
+    "caller": "openReceiptGenerationService public reconcile() invoked twice concurrently on the same reopened paused native Harness, with actual GenerationTask/ToolTask checkpoints, official local Faux, two SQLite Sessions and scoped-v2 loopback HTTP",
+    "scale_bottleneck": "Overlapping recovery callbacks can observe different historical HTTP responses; a late missing read or denial must not overwrite an acknowledged committed receipt or poison later cancellation/recovery. Repetition at a recovery entrypoint amplifies incorrect durable dispositions.",
+    "integration_point": "The published opt-in receipt-monotonic native factory replaces only the original dispatcher binding. Original openGenerationService and all old frozen suites remain the rollback/evidence boundary. No new observer prerequisite.",
+    "rollback": "Use original openGenerationService; no old source, runtime, schema or frozen result changed.",
+    "validated_tier": "Pinned actual native Harness/GenerationTask/ToolTask with official local deterministic Faux and real loopback HTTP/SQLite on one Windows owner."
+  },
+  "old_evidence": {
+    "old_frozen_sources_verified": 167,
+    "old_tracked_fixture_result_files_verified": 3782,
+    "old_failed_concurrent_result_accepted": false,
+    "old_result_acceptance_rescue": false
+  },
+  "next_gate": "CLOSED for this finite public-recovery callback receipt boundary. Preserve the earlier failed concurrent freeze. Future work requires a separately justified actual caller/defect and complete preregistration; do not repeat this suite for green acceptance or extend observer-only prerequisites.",
+  "limits": "Finite controlled callback delivery, same trusted Windows owner, two native SQLite Sessions, loopback HTTP and official deterministic local Faux. No real-model quality, tenant authentication, concurrent native owners, arbitrary interleaving, remote linearizability, general external exactly-once, GPU/distributed/production or performance claim. Authority checks and external commit are not atomic; existing receipts are historical. Memory samples are observed maxima, not continuous peaks. The old concurrent freeze stays failed; all old negative scientific evidence, H1 original5GiB/invalidRSS, H3/H4 and closed gates remain unchanged.",
+  "H1_H3_H4_unchanged": true
+}

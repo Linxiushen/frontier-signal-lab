@@ -38,8 +38,14 @@ jobs:
         run: node --test tests/pi_generation_receipt_service.test.mjs
       - name: Check receipt recovery callback barriers without the native runtime
         run: node --test tests/pi_receipt_recovery_barriers.test.mjs
+      - name: Select Python matching the frozen receipt auditor float semantics
+        id: receipt-auditor-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          update-environment: false
       - name: Audit native receipt recovery saved bytes without runtime execution
-        run: python -S scripts/check_pi_receipt_recovery.py
+        run: '"${{ steps.receipt-auditor-python.outputs.python-path }}" -S scripts/check_pi_receipt_recovery.py'
       - name: Audit scoped-v2 native integration saved bytes without runtime execution
         run: python -S scripts/check_pi_scoped_generation.py
       - name: Preserve the rejected durable-service attempt without runtime or database execution

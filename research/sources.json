@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-03T03:40:48.285914+00:00",
+  "last_updated_at": "2026-11-03T05:26:06.314719+00:00",
   "observation_note": "All 221 prior source objects preserved exactly. One own separately preregistered finite public receipt-recovery overlap suite was accepted once using actual native Harness checkpoints, official local Faux and real scoped loopback HTTP. Independent saved-byte review agrees. H2 records only this same-owner boundary; the earlier concurrent freeze remains failed and H1/H3/H4 are unchanged. Curation executes no native/server/model/scientific work.",
   "timezone": "Asia/Shanghai",
   "sources": [
@@ -8949,6 +8949,44 @@
       "limits": "Finite controlled callback delivery, same trusted Windows owner, two native SQLite Sessions, loopback HTTP and official deterministic local Faux. No real-model quality, tenant authentication, concurrent native owners, arbitrary interleaving, remote linearizability, general external exactly-once, GPU/distributed/production or performance claim. Authority checks and external commit are not atomic; existing receipts are historical. Memory samples are observed maxima, not continuous peaks. The old concurrent freeze stays failed; all old negative scientific evidence, H1 original5GiB/invalidRSS, H3/H4 and closed gates remain unchanged.",
       "next_gate": "CLOSED for this finite public-recovery callback receipt boundary. Preserve the earlier failed concurrent freeze. Future work requires a separately justified actual caller/defect and complete preregistration; do not repeat this suite for green acceptance or extend observer-only prerequisites.",
       "curation_note": "One completed own native finite integration. All221prior source objects and H1/H3/H4 objects preserved; no native execution during curation."
+    },
+    {
+      "id": "verifiers-vf-run-in-process-episodes-landed-3047",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/cf8a464a27dea1149784503293050d989c797327",
+      "PR_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/3047",
+      "type": "merged_primary_source_and_test_design_review_not_local_runtime_result",
+      "author": "mikasenghaas",
+      "published_at": "2026-11-03T02:07:00Z",
+      "recorded_at": "2026-11-03T05:26:06.314719+00:00",
+      "parent": "d2c3fcba1e5bf239dc9fc65dbdf55241dfa6b78d",
+      "landed": "cf8a464a27dea1149784503293050d989c797327",
+      "primary_evidence": {
+        "narrative": "research/2026-11-03-minimal-evaluation-runner.md",
+        "review_receipt": "research/receipts/20261103T051706Z-verifiers-minimal-runner-review.json",
+        "changed_paths": 11,
+        "whole_changed_and_license_versions_captured": 21,
+        "additional_dependency_versions_captured": 8,
+        "all_changed_path_diffs_read": true,
+        "full_dependency_closure_read": false,
+        "entrypoint_transition_versions_captured": 9,
+        "followup_PR_urls": [
+          "https://github.com/PrimeIntellect-ai/verifiers/pull/2610",
+          "https://github.com/PrimeIntellect-ai/verifiers/pull/3052"
+        ]
+      },
+      "fact": [
+        "Merged vf-run adds a real in-process RunnerConfig -> load_environment -> selected bounded taskset -> env.serving -> env.slots/run_slot -> on_complete/append_episode path. The integration run fixture and example CLI smoke calls now use it.",
+        "Every slot is scheduled eagerly with ensure_future and all returned episodes are retained by gather. max_concurrent defaults to128; Env.run_slot holds that semaphore per attempt, releases it before retry backoff and before persistence. This bounds active episode attempts, not the queued task list, retained histories, total model calls, tokens or scoring spend.",
+        "An exception from a rollout/taskset or another BaseException path cancels siblings and awaits their unwind before serving teardown. on_complete stamps EvalRunInfo on the episode and its traces; append_episode shields lock acquisition and its worker write against ordinary cancellation. An ordinary Episode(ok=False) is gathered with its siblings and causes the CLI nonzero exit only at summary; it is distinct from a raised exception.",
+        "The CLI and direct run_episodes reject an existing nonempty traces.jsonl. There is no resume implementation. save_config starts an empty trace file for a fresh run; write_episode uses an append file write without an fsync call in this reviewed path.",
+        "The summary reports episode.ok counts but averages Trace.reward across every trace, including all seats in multi-agent episodes. Trace.reward sums non-None reward values; this summary does not separately count scored, skipped, dropped or training-admitted traces.",
+        "Immediately subsequent landed PR2610 removes vf-eval at1bcdb8baeda8638125db5678c9d54d26a35cb64e, and its immediate child PR3052 removes vf-replay at2310f5d2aea89781b05815dc1b4a032417788859. Exact pyproject entries shrink6->5->4; docs direct short runs to vf-run, full evaluation to prime-rl uv run eval and saved-trace rescoring to library Task.rescore guidance. Earlier CLI/resume evidence stays historical and pinned."
+      ],
+      "our_inference": "vf-run supplies a concrete smaller integration target for future runner-bound H3/H4 budget/version work. Its active-attempt semaphore, persistence hook and cancellation unwind must be evaluated separately from durable global budgets, recovery, score membership and general scale behavior. This identifies a caller, not an accepted integration or a preregistered experiment.",
+      "local_scientific_experiments": 0,
+      "local_native_suites": 0,
+      "local_upstream_tests": 0,
+      "limits": "Source and author-test-design review only: no package installation, local upstream tests, native/model/provider/cloud execution, scientific suite, resource benchmark or crash/restart validation. Author-reported live inference checks are not our measurements. No complete dependency closure or system-call durability audit. Existing H1/H2 accepted and failed evidence, finite closed gates, and H3/H4 scientific statuses remain unchanged."
     }
   ],
   "previous_observation_notes": [
@@ -9018,6 +9056,7 @@
     "2026-11-02T15:22:04.504189+00:00",
     "2026-11-02T17:34:30.603680+00:00",
     "2026-11-02T19:28:00.776197+00:00",
-    "2026-11-02T23:39:21.019003+00:00"
+    "2026-11-02T23:39:21.019003+00:00",
+    "2026-11-03T03:40:48.285914+00:00"
   ]
 }

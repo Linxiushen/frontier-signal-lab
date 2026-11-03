@@ -125,3 +125,6 @@ H2 scoped-v2 native generation (2026-11-02 23:27Z): one separately frozen finite
 
 
 - Native receipt recovery overlap (2026-11-03 03:36Z): one separately frozen actual public-reconcile suite passes,2Sessions/2concurrent recovery pairs,2forced native kills/reopens. Genuine late404/403 callbacks preserve6eligible count1receipts;8admissions/4overloads,2newnegative controls,16native terminal tasks/finalactive0. Independent stopped-SQL/raw review preserves167old sources/3782oldfixture-result files. Finite same-owner/localFaux/loopback gate CLOSED; no real-model, arbitrary-interleaving, multi-owner, GPU/production or performance conclusion. Old concurrent failure and H1/H3/H4 unchanged. [Result](../results/pi-receipt-recovery/report.md).
+
+
+新增实际runner源码入口（2026-11-03）：Verifiers3047已落地`vf-run`，将typed config、有限taskset、实际`Env.run_slot`与episode落盘接到一个入口，现有integration fixture也采用它。active-attempt semaphore不限制全量预建Future、重试总预算或trace保留；取消等待与shielded append不是跨进程恢复或fsync保证。终端成功分母为episode，reward均值分母为全部trace，须另留scored/skipped/dropped/failed/admitted成员。紧随2610/3052已删除vf-eval/vf-replay CLI；短调用入口为vf-run，完整评测改指向prime-rl，Task.rescore仅保留库级文档指引，旧CLI依据保留为固定版本历史。未来H3/H4可据此提出实际调用方集成，但须先完整预注册固定任务/提供方、持久预算、版本、取消/恢复和资源边界；这里只核验源码/作者测试设计，零本地test/native/model/科学运行，不改变旧结果、H3/H4未满足门槛或重开H2。[完整源码依据与限制](2026-11-03-minimal-evaluation-runner.md)。

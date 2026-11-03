@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-11-03T01:21:26.260953+00:00",
+  "kind": "own_engineering_regression_fix_only",
+  "base_commit": "d6795d77e96147233f9d8edeb12c1ab963806896",
+  "status": "regressions_passed_independently_reviewed",
+  "scientific_experiments": 0,
+  "native_Harness_runs": 0,
+  "model_loads": 0,
+  "source_and_hypothesis_updates": 0,
+  "old_frozen_source_paths_verified": 167,
+  "all_tracked_existing_fixture_result_source_objects_unchanged": true,
+  "native_factory_body_mechanically_unchanged_except_name_and_dispatcher_binding": true,
+  "files": {
+    "experiments/pi_generation_receipt_service.mjs": {
+      "sha256": "a86a4fa60c3444533b32ac9cbd6fbea88820edff771f064f6f56f35182a12662",
+      "bytes": 15886
+    },
+    "tests/pi_generation_receipt_service.test.mjs": {
+      "sha256": "48516c84a693f91747bfb9d5cec13de5702f760b927932f27042d06a28a47108",
+      "bytes": 6247
+    },
+    "experiments/pi_generation_http_service.mjs": {
+      "sha256": "b82b0585d3638b80a1e5455659a3af44f2ee63eecb611f3a22a2f12fa2528af8",
+      "bytes": 22896
+    }
+  },
+  "validation": {
+    "baseline": {
+      "started_at": "2026-11-03T01:18:39.817923+00:00",
+      "completed_at": "2026-11-03T01:18:40.476810+00:00",
+      "args": [
+        "node",
+        "--test",
+        "C:\\Users\\somle\\Documents\\ChatGPT\\AI \u6df1\u5ea6\u9879\u76ee\u63a2\u7d22\\reports\\runs\\20261103T011121Z\\receipt-validation\\base-regressions.test.mjs"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "4beae2a57a603bc163cb563c40d8154909c7dbf09deeceba39f6cafb91d5dacd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "Own engineering regressions. Controlled in-memory host/transport doubles; adjacent tests include local loopback fixtures. No native Harness, model, scientific suite or external service execution."
+    },
+    "fixed": {
+      "started_at": "2026-11-03T01:18:39.832922+00:00",
+      "completed_at": "2026-11-03T01:18:40.470810+00:00",
+      "args": [
+        "node",
+        "--test",
+        "tests/pi_generation_receipt_service.test.mjs"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "b5c3133ca132d1df6e31b85b94baafc51b9ddc32d7b49cf1c360559c76b8d4e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "Own engineering regressions. Controlled in-memory host/transport doubles; adjacent tests include local loopback fixtures. No native Harness, model, scientific suite or external service execution."
+    },
+    "adjacent": {
+      "started_at": "2026-11-03T01:18:39.843927+00:00",
+      "completed_at": "2026-11-03T01:18:44.352154+00:00",
+      "args": [
+        "node",
+        "--test",
+        "tests/pi_effect_http.test.mjs",
+        "tests/pi_generation_http_recovery.test.mjs",
+        "tests/pi_generation_http_worker.test.mjs",
+        "tests/pi_scoped_effect_http.test.mjs"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "06722f4b3fa4e7c4e10f14b255536c9530af5bedd17a6eeedbf7bb4f3f734e25",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "Own engineering regressions. Controlled in-memory host/transport doubles; adjacent tests include local loopback fixtures. No native Harness, model, scientific suite or external service execution."
+    }
+  },
+  "counts": {
+    "baseline_node_test_nodes": 11,
+    "baseline_pass": 2,
+    "baseline_fail_including_parent_nodes": 9,
+    "fixed_pass": 11,
+    "adjacent_pass": 21
+  },
+  "scope": "Actual dispatcher code with controlled in-memory host/transport doubles; adjacent local loopback fixtures. New opt-in native factory not opened. No H2 native/scientific acceptance, unknown-outcome or general concurrency guarantee.",
+  "independent_review": {
+    "path": "reports/runs/20261103T011121Z/receipt-independent-review.json",
+    "sha256": "7eedc6ef3334e481dcbaf9c77a894570a9d386263b9fec35637714f2fb8fb62c",
+    "status": "passed",
+    "findings": [],
+    "scope": "Saved exact source/diff/command/evidence review; no extra test/native/model/scientific execution."
+  }
+}

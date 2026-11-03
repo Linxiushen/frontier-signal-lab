@@ -128,3 +128,6 @@ H2 scoped-v2 native generation (2026-11-02 23:27Z): one separately frozen finite
 
 
 新增实际runner源码入口（2026-11-03）：Verifiers3047已落地`vf-run`，将typed config、有限taskset、实际`Env.run_slot`与episode落盘接到一个入口，现有integration fixture也采用它。active-attempt semaphore不限制全量预建Future、重试总预算或trace保留；取消等待与shielded append不是跨进程恢复或fsync保证。终端成功分母为episode，reward均值分母为全部trace，须另留scored/skipped/dropped/failed/admitted成员。紧随2610/3052已删除vf-eval/vf-replay CLI；短调用入口为vf-run，完整评测改指向prime-rl，Task.rescore仅保留库级文档指引，旧CLI依据保留为固定版本历史。未来H3/H4可据此提出实际调用方集成，但须先完整预注册固定任务/提供方、持久预算、版本、取消/恢复和资源边界；这里只核验源码/作者测试设计，零本地test/native/model/科学运行，不改变旧结果、H3/H4未满足门槛或重开H2。[完整源码依据与限制](2026-11-03-minimal-evaluation-runner.md)。
+
+
+ReWY source review (2026-11-03): the new FLA RFC proposes a residual pullback for existing delta-rule backward, with a pinned public implementation and explicit original-backend rollback. Seven-to-three counts a local expanded WY graph; reported hardware gains are author measurements with separate low-level/operator/model and precision boundaries. Failed model trajectory diagnostics remain. This refines a possible cost mechanism, not residual-bank quality: no local code/model/scientific execution, no H1v4 rescue or H2-H4 gate change. [Review and proposed integration boundary](2026-11-03-residual-pullback-engineering-boundary.md).

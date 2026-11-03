@@ -131,3 +131,6 @@ H2 scoped-v2 native generation (2026-11-02 23:27Z): one separately frozen finite
 
 
 ReWY source review (2026-11-03): the new FLA RFC proposes a residual pullback for existing delta-rule backward, with a pinned public implementation and explicit original-backend rollback. Seven-to-three counts a local expanded WY graph; reported hardware gains are author measurements with separate low-level/operator/model and precision boundaries. Failed model trajectory diagnostics remain. This refines a possible cost mechanism, not residual-bank quality: no local code/model/scientific execution, no H1v4 rescue or H2-H4 gate change. [Review and proposed integration boundary](2026-11-03-residual-pullback-engineering-boundary.md).
+
+
+Pi message threads source review (2026-11-03): newly landed11545 connects server-side continuation to the actual Anthropic transport and isolates cache-warming replays. Selected normalized prefix fingerprints, per-send retry/fallback and process-local cleanup require separate wire/store/score receipts. This supplies a concrete H4 caller; fake test design and source reading do not establish native/provider, restart, authority, reward or performance correctness. All scientific states and existing unmet gates remain unchanged. [Review and proposed integration boundary](2026-11-03-message-threads-and-evaluation-identity.md).

@@ -1984,7 +1984,8 @@
         "openclaw-volatile-MCP-attribution-host-issued-context-proposal",
         "fla-shared-causal-lm-loss-token-normalization-merged",
         "verifiers-request-dialect-replay-view-overlap-merged",
-        "agentic-scientist-v1-evaluation-protocol-drift"
+        "agentic-scientist-v1-evaluation-protocol-drift",
+        "pi-anthropic-message-threads-landed-11545"
       ],
       "status": "planned_not_executed",
       "experiment": null,
@@ -2053,16 +2054,27 @@
         "gate": "Before candidate selection, freeze evaluator bytes, data IDs, pass@k, score aggregation/denominators and budget. An evaluation-only mutation negative control must be rejected before it can affect an accepted score or selected winner. Pin heldout unseal/checkpoint policy separately. This gate is proposed and unexecuted.",
         "falsifier": "With candidate training fixed, an evaluation-only change reaches an accepted score or changes selection before rejection.",
         "relationship_to_existing_gate": "Supplement only. Keep the existing unmet real Pi/ACP/MCP replay, scoring/service-quiescence and environment-version gates exactly as recorded; this source review supplies no runtime or training evidence."
+      },
+      "proposed_transport_continuation_source_gate": {
+        "recorded_at": "2026-11-03T13:51:31.699075+00:00",
+        "source_id": "pi-anthropic-message-threads-landed-11545",
+        "record": "research/2026-11-03-message-threads-and-evaluation-identity.md",
+        "review_receipt": "research/receipts/20261103T132610Z-pi-message-threads-source-review.json",
+        "status": "source_only_supplement_not_registered_or_executed",
+        "inference": "Transport continuation adds a second version boundary between immutable sampled transcript and the actual provider request. H4 must identify the full logical turn and every physical retry/fallback before attributing tokens, effects or scores; source-level continuation is not reward consistency.",
+        "next_gate": "Proposed supplement only: separately preregister actual adjacent packaged Pi transport with fixed task/model/account/config/score versions and total request/token/time/resource ceilings. Retain immutable store/wire attempts, semantic prefix changes, full-request rollback, configured retries, cache warming, stream acceptance/cancellation/cleanup and token-mask-reward attribution. Compare full path/continuation quality, effective throughput, end-to-end/tail latency, peak resources/communication and observation costs; preserve the existing unmet Pi/ACP/MCP and two-restart/current-authority gates.",
+        "existing_next_gate_unchanged": true
       }
     }
   ],
-  "last_updated_at": "2026-11-03T09:37:45.336853+00:00",
+  "last_updated_at": "2026-11-03T13:51:31.699075+00:00",
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
     "2026-11-02T11:26:54.797285+00:00",
     "2026-11-02T13:48:46.180030+00:00",
     "2026-11-02T17:34:30.605653+00:00",
     "2026-11-02T23:39:21.019003+00:00",
-    "2026-11-03T03:40:48.285914+00:00"
+    "2026-11-03T03:40:48.285914+00:00",
+    "2026-11-03T09:37:45.336853+00:00"
   ]
 }

@@ -134,3 +134,5 @@ ReWY source review (2026-11-03): the new FLA RFC proposes a residual pullback fo
 
 
 Pi message threads source review (2026-11-03): newly landed11545 connects server-side continuation to the actual Anthropic transport and isolates cache-warming replays. Selected normalized prefix fingerprints, per-send retry/fallback and process-local cleanup require separate wire/store/score receipts. This supplies a concrete H4 caller; fake test design and source reading do not establish native/provider, restart, authority, reward or performance correctness. All scientific states and existing unmet gates remain unchanged. [Review and proposed integration boundary](2026-11-03-message-threads-and-evaluation-identity.md).
+
+H3准备（2026-11-04）：已实现实际vf-run调用链的可选预算包装、评分版本检查、一次终评与两次重启控制器；7项stdlib回归通过。94包固定Linux环境及真实入口导入成功，仅关闭导入前置项。NullHarness真实脚本依赖缓存的Docker卷初始化在Python启动前因复制I/O错误退出125，之后daemon不可用且清理未核验。尚无freeze、原生episode/provider/score/model或科学实验；H3完整封闭评估/H4及H1/H2既有状态不变。下一步须先恢复资源/daemon健康，用显式volume-nocopy完成同一脚本lock，独立审查冻结后直接一次运行完整调用方，不扩展observer前置项。[实现与真实失败范围](2026-11-04-budgeted-native-evaluation-preparation.md)。

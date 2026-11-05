@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-03T13:51:31.699075+00:00",
-  "observation_note": "One newly landed Pi11545 native transport source review, created10/28. Selected request/prefix identity, full-request rollback, retry and cache-warmer boundaries retained. No runtime or scientific upgrade; all224prior source objects exact.",
+  "last_updated_at": "2026-11-05T00:54:58.234099+00:00",
+  "observation_note": "All225prior source objects preserved. Added one historical landed Pi MCP framing source review, not a new release or local benchmark. Concrete repeated-prefix mechanism and aggregate-resource limits retained; no experiment, observer prerequisite or H1-H4 change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9076,6 +9076,50 @@
       "next_gate": "Proposed supplement only: separately preregister actual adjacent packaged Pi transport with fixed task/model/account/config/score versions and total request/token/time/resource ceilings. Retain immutable store/wire attempts, semantic prefix changes, full-request rollback, configured retries, cache warming, stream acceptance/cancellation/cleanup and token-mask-reward attribution. Compare full path/continuation quality, effective throughput, end-to-end/tail latency, peak resources/communication and observation costs; preserve the existing unmet Pi/ACP/MCP and two-restart/current-authority gates.",
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/earendil-works/pi/pull/11545@a758f3ae4cdb193a6949c81318fe1b3caa4814a1"
+    },
+    {
+      "id": "pi-mcp-fragmented-line-reader-landed-11791",
+      "url": "https://github.com/earendil-works/pi/pull/11791",
+      "type": "merged_native_transport_source_review_not_local_performance_or_scientific_result",
+      "author": "robopipi[bot]",
+      "published_at": "2026-11-04T09:09:09Z",
+      "merged_at": "2026-11-04T09:09:24Z",
+      "recorded_at": "2026-11-05T00:54:58.234099+00:00",
+      "parent": "f4427f8a3edd0de0332e44fed9e53d4f37ae0953",
+      "landed": "f6278a472e9b97579e9e9ef512303aa91a926a67",
+      "repository_public": true,
+      "license": "MIT",
+      "primary_evidence": {
+        "narrative": "research/2026-11-05-fragmented-mcp-framing.md",
+        "review_receipt": "research/receipts/20261105T004019Z-pi-framing-source-review.json",
+        "immutable_source_policy_versions": 11,
+        "local_execution": false
+      },
+      "fact": [
+        "StdioTransport and PipeTransport feed the same JsonRpcLineReader. The parent copies and rescans the growing incomplete prefix for each input chunk.",
+        "The landed reader queues copied tails and a byte count, scans incoming bytes, and concatenates pending fragments once when a delimiter completes the line.",
+        "Four added test definitions cover concat count, finite chunk splits/mixed encoding, oversized-input recovery and incomplete final messages; tests were read, not executed."
+      ],
+      "author_report": "PR reports 1/4/12MiB framing microbenchmarks in64KiB chunks:5.4/49.9/348ms before and2.2/7.9/21.6ms after. Origin issue reports different-commit macOS/Node24.20 cumulative-copy/parser/subprocess measurements; these scopes are separate and not our validation.",
+      "our_inference": "Avoiding repeated-prefix work supplies a concrete large-tool-result receive-path mechanism. A per-reader pending-byte cap alone does not establish bounded process resources, aggregate admission or end-to-end improvement.",
+      "engineering": {
+        "caller": "Actual Pi MCP StdioTransport and PipeTransport stdout to JsonRpcLineReader",
+        "scale_bottleneck": "Repeated copy/scan of large incomplete frames, fragment overhead and aggregate concurrent-reader allocations",
+        "integration_point": "Pinned packages/mcp/src/transports/lines.ts; an eventual justified comparison can select parent/landed versions explicitly.",
+        "validated_tier": "Complete immutable source/policy and author-test-design review only; zero local execution"
+      },
+      "limits": [
+        "Author microbenchmarks and origin-issue measurements are separate external scopes; neither was run locally.",
+        "Reduced repeated-prefix work is a source inference; no peak-memory, end-to-end or quality result.",
+        "Pending bytes do not bound allocations, fragment overhead or all-reader/process resources.",
+        "Pi requires prior maintainer lgtm for new PRs; no issue, PR or comment was sent.",
+        "No new experiment gate or observer prerequisite; resume the same blocked actual evaluation runner when its existing resource gates are met.",
+        "No backpressure, current authority, durable effects, two-restart recovery, reward/version consistency or H1-H4 status upgrade.",
+        "Landed2026-11-04, first captured by interrupted previous round; not a new release today."
+      ],
+      "next_gate": "Proposed future caller criteria only: freeze actual MCP workload/chunk distribution and resource ceilings; compare decoded/error sequences, overflow semantics, useful throughput, terminal success/failure, cumulative work, end-to-end/tail latency, actual retained-process resource maxima and observation cost. Does not replace the blocked actual evaluation runner or reopen closed H2 workloads.",
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/earendil-works/pi/pull/11791@f6278a472e9b97579e9e9ef512303aa91a926a67"
     }
   ],
   "previous_observation_notes": [
@@ -9137,7 +9181,8 @@
     },
     "All 220 prior source objects preserved exactly. One own separately preregistered finite scoped-v2 native generation/real-loopback HTTP suite was accepted once; independent saved-byte audit agrees. H2 records only this bounded trusted-owner result. Its prior concurrent freeze remains failed; H1/H3/H4 unchanged. This curation invokes no native/server/model/scientific work.",
     "All 221 prior source objects preserved exactly. One own separately preregistered finite public receipt-recovery overlap suite was accepted once using actual native Harness checkpoints, official local Faux and real scoped loopback HTTP. Independent saved-byte review agrees. H2 records only this same-owner boundary; the earlier concurrent freeze remains failed and H1/H3/H4 are unchanged. Curation executes no native/server/model/scientific work.",
-    "One new primary ReWY preprint/implementation/RFC source review. Distinct arithmetic, operator, memory and full-model boundaries retained; no local experiment or scientific status upgrade. All223prior source objects preserved."
+    "One new primary ReWY preprint/implementation/RFC source review. Distinct arithmetic, operator, memory and full-model boundaries retained; no local experiment or scientific status upgrade. All223prior source objects preserved.",
+    "One newly landed Pi11545 native transport source review, created10/28. Selected request/prefix identity, full-request rollback, retry and cache-warmer boundaries retained. No runtime or scientific upgrade; all224prior source objects exact."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9150,6 +9195,7 @@
     "2026-11-02T23:39:21.019003+00:00",
     "2026-11-03T03:40:48.285914+00:00",
     "2026-11-03T05:26:06.314719+00:00",
-    "2026-11-03T09:37:45.336853+00:00"
+    "2026-11-03T09:37:45.336853+00:00",
+    "2026-11-03T13:51:31.699075+00:00"
   ]
 }

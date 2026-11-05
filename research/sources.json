@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-05T13:09:58.590641+00:00",
-  "observation_note": "All 226 prior source objects preserved exactly. Added one pinned Pi Chord state-before-answer source and author-test-design review. Replica application, durable state, current authority, effect completion and aggregate memory/admission bounds stay distinct. No upstream tests/runtime/model/scientific execution, native adoption, fixture rerun or H1-H4 status change.",
+  "last_updated_at": "2026-11-05T21:14:08.320442+00:00",
+  "observation_note": "All 227 prior source objects preserved exactly. Added one pinned Verifiers GEPA failed-episode admission source review. Standard evaluate refuses the whole batch after rollouts/persistence; direct reflection input, spent-budget accounting and durable recovery remain separate boundaries. No upstream tests/native/model/scientific execution, adoption, fixture rerun or H1-H4 status change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9165,6 +9165,55 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/earendil-works/pi/commit/d7a988d18d2a27f78f1cdcc0597154e916d95ed9@d7a988d18d2a27f78f1cdcc0597154e916d95ed9"
+    },
+    {
+      "id": "verifiers-3082-gepa-failed-episode-admission",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "type": "landed_optimizer_admission_source_review_not_local_execution_or_scientific_result",
+      "author": "xeophon / Florian Brand",
+      "published_at": "2026-11-05T20:34:37Z",
+      "recorded_at": "2026-11-05T21:14:08.320442+00:00",
+      "parent": "308619da69c2e918c6b7c96e68f746485a913dba",
+      "landed": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "repository_public": true,
+      "license": "MIT",
+      "primary_evidence": {
+        "narrative": "research/2026-11-05-gepa-failed-episode-admission.md",
+        "review_receipt": "research/receipts/20261105T205502Z-gepa-failed-episode-admission.json",
+        "immutable_source_versions": 16,
+        "local_execution": false
+      },
+      "fact": [
+        "One landed production file changes by +3/-1: docstring limits zero-score fallback to successful episodes; _episode_score adds if-not-episode.ok ValueError with episode id after the existing dropped-trace guard.",
+        "Standard GEPAAdapter.evaluate waits for _run_batch, then computes the score list before constructing EvaluationBatch. A failed episode aborts this evaluation call instead of selectively removing a seat or returning a partial score/trajectory batch.",
+        "_run_batch awaits asyncio.gather of all env.run_slot calls. run_slot executes whole-episode retry and awaits on_complete before returning; runner on_complete persists with append_episode. The new check occurs after those attempts and callbacks.",
+        "make_reflective_dataset is unchanged and lacks its own failure guard. Normal evaluate cannot return this failed batch, but an externally constructed EvaluationBatch is not independently validated there.",
+        "Task.score records task reward hooks before invoking plugged judges. Rollout.close catches scoring/finalization Exception into fail and stamps trace.ok from _failed. Env.run_episode stamps episode.ok from all final traces only after hooks/finalize succeed; errors return with false default.",
+        "Successful trace/episode retry may retain older error history. Agent.run and run_episode_with_retry preserve that history independently of current ok; the new guard checks current episode.ok, not errors emptiness.",
+        "The existing dropped-trace error takes precedence. Successful zero rewards, reward-less successful episodes, and recovered-error episodes still use the unchanged mean. The selection tests truthy trace.rewards, whose None-only seeds can be truthy while Trace.reward sums to zero."
+      ],
+      "author_proposal": [
+        "PR author describes rejecting failed episodes before candidate scores or reflection trajectories and preserving successful zero, recovered error history, and dropped rejection. This is author intent; scoped standard-path source inspection supports it.",
+        "Issue 2977 was created 2026-10-25, not a new November 5 report. Its reporter claims an offline Agent.run/Env.run_slot/GEPAAdapter reproduction at 9f0f03a, plus five original failures among thirteen offline cases and thirteen patched passes. These are reporter claims only, neither our execution nor independently audited CI."
+      ],
+      "our_inference": "GEPA score/trajectory admission must bind current episode verdict separately from trace rewards, drop status, retained retry history and persistence. This is a concrete native optimization boundary and a distinct acceptance obligation from previous dropped-only PR 2972. It narrows H3/H4 admission design without satisfying closed evaluation, durable replay, idempotence or model-quality gates.",
+      "engineering": {
+        "caller": "run_gepa -> optimize -> GEPAAdapter.evaluate -> Env.run_slot -> Task.score/plugged judges, with optional persisted episodes",
+        "scale_bottleneck": "An invalid partial reward can contaminate candidate selection; batch rejection happens after attempt cost and persistence, so repeated failures and retries require explicit accounting and admission denominators",
+        "integration_point": "Existing _episode_score failure guard reached by the native adapter, leaving reflection direct-input admission outside this guard",
+        "preregistered_here": false,
+        "proposed_acceptance": "Freeze authentic pre/post revisions, candidate/task/seat/judge versions, capture flag, concurrency, retry budgets and resource ceilings. Record attempted/completed/failed/dropped/scored/admitted sets, previous retry costs, persistence identities and score/trajectory return status. Require zero failed evaluation member in returned batches, unchanged successful controls, no silent denominator shrink, no duplicate effects across two restarts before durable status upgrade.",
+        "validated_tier": "Immutable source and adjacent test-design review only; no runtime validation"
+      },
+      "limits": [
+        "Whole standard evaluate call refusal, not selective failed-seat filtering, not rollback, not prevention/refund of prior model or runtime spend.",
+        "No independent failure check in make_reflective_dataset for arbitrary external batches; no new retry, persistence, version binding, resource ceiling or durable recovery implementation.",
+        "No local upstream import, tests, model, native runtime, GPU, multi-node or production execution; no CI-log verification; reporter and automated bot summaries are not local results.",
+        "No original experiment or full H1-H4 status upgrade. Existing negative results and unmet closed end-to-end/durable/model-quality gates retained.",
+        "Source review is scoped to full changed pair and explicitly captured adjacent paths. It does not prove all downstream GEPA optimizers, scorers or trainer admission."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/commit/d295ca87d6dacee7949ab68c665e023e5c36dbe3@d295ca87d6dacee7949ab68c665e023e5c36dbe3"
     }
   ],
   "previous_observation_notes": [
@@ -9228,7 +9277,11 @@
     "All 221 prior source objects preserved exactly. One own separately preregistered finite public receipt-recovery overlap suite was accepted once using actual native Harness checkpoints, official local Faux and real scoped loopback HTTP. Independent saved-byte review agrees. H2 records only this same-owner boundary; the earlier concurrent freeze remains failed and H1/H3/H4 are unchanged. Curation executes no native/server/model/scientific work.",
     "One new primary ReWY preprint/implementation/RFC source review. Distinct arithmetic, operator, memory and full-model boundaries retained; no local experiment or scientific status upgrade. All223prior source objects preserved.",
     "One newly landed Pi11545 native transport source review, created10/28. Selected request/prefix identity, full-request rollback, retry and cache-warmer boundaries retained. No runtime or scientific upgrade; all224prior source objects exact.",
-    "All225prior source objects preserved. Added one historical landed Pi MCP framing source review, not a new release or local benchmark. Concrete repeated-prefix mechanism and aggregate-resource limits retained; no experiment, observer prerequisite or H1-H4 change."
+    "All225prior source objects preserved. Added one historical landed Pi MCP framing source review, not a new release or local benchmark. Concrete repeated-prefix mechanism and aggregate-resource limits retained; no experiment, observer prerequisite or H1-H4 change.",
+    {
+      "last_updated_at": "2026-11-05T13:09:58.590641+00:00",
+      "observation_note": "All 226 prior source objects preserved exactly. Added one pinned Pi Chord state-before-answer source and author-test-design review. Replica application, durable state, current authority, effect completion and aggregate memory/admission bounds stay distinct. No upstream tests/runtime/model/scientific execution, native adoption, fixture rerun or H1-H4 status change."
+    }
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9243,6 +9296,7 @@
     "2026-11-03T05:26:06.314719+00:00",
     "2026-11-03T09:37:45.336853+00:00",
     "2026-11-03T13:51:31.699075+00:00",
-    "2026-11-05T00:54:58.234099+00:00"
+    "2026-11-05T00:54:58.234099+00:00",
+    "2026-11-05T13:09:58.590641+00:00"
   ]
 }

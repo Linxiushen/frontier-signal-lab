@@ -1,0 +1,476 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-05T03:14:15.111918+00:00",
+  "status": "failed_preregistered_native_fixture_attempt",
+  "acceptance_claimed": false,
+  "no_retry": true,
+  "source_repository": "https://github.com/PrimeIntellect-ai/verifiers",
+  "source_head": "f5f5c9ace86b9720049cb6e98d05d14d77042486",
+  "actual_caller": "run_episodes -> Env.run_slot -> genuine NullHarness subprocess -> EvalClient loopback HTTP -> EchoTask.echoed",
+  "public_freeze": {
+    "protocol.json": "fd1db89a69c83160210719c5e960092b22e1dd11f15cdbb4c0093247eea1c130",
+    "harness.lock": "1a25b155629bda996cc7b4e67fc448541e2419d876cb4d20d75d13f277fddaaa",
+    "packages.lock": "0a52948ebcfc23f2dfe24c196eb3e52cbe5dc1b1014f708c54df68bf5aa49ebe"
+  },
+  "observed_counts": {
+    "scientific_attempts": 1,
+    "native_entries": 2,
+    "completed_native_episodes": 1,
+    "failed_native_episodes": 1,
+    "completed_native_scores": 1,
+    "completed_rewards": [
+      0.0
+    ],
+    "development_reservations": 2,
+    "outstanding_reserved": 1,
+    "burned_reservations": 0,
+    "final_reservations": 0,
+    "HTTP_arrivals": 5,
+    "HTTP_accepted": 1,
+    "HTTP_failed_or_refused": 4,
+    "HTTP_saved_body_pairs": 2,
+    "distinct_worker_PIDs": [
+      8,
+      72
+    ],
+    "verified_forced_kills": 1,
+    "owner_restart_transitions_observed": 1,
+    "worker2_exit": "1 reported by stopped controller and AssertionErrorstderr; not recorded in processes array",
+    "worker3_started": false,
+    "winner_sealed": false,
+    "final_evaluation_executed": false
+  },
+  "partial_metrics": {
+    "actual_native_entries": 2,
+    "successful_native_episode_outputs": 1,
+    "failed_native_episode_outputs": 1,
+    "completed_ledger_attempts": 1,
+    "native_score_members": 1,
+    "native_entry_success_fraction": {
+      "numerator": 1,
+      "denominator": 2,
+      "scope": "deterministic fixture completion, not model quality"
+    },
+    "successful_runner_latency_seconds": [
+      8.130679990000317
+    ],
+    "successful_runner_latency_observations": 1,
+    "three_observation_latency_summary_available": false,
+    "failed_runner_full_latency_available": false,
+    "controller_suite_seconds": 36.496744147999834,
+    "host_CLI_seconds": 38.37117869999929,
+    "completed_entries_per_controller_second": 0.027399704366637426,
+    "partial_throughput_scope": "failed once-only finite fixture suite; startup/restart/failed work included; no performance comparison",
+    "sample_count": 355,
+    "sampled_memory_current_max_bytes": 354234368,
+    "sampled_pids_current_max": 37,
+    "sampled_monotonic_duration_seconds": 36.38959430799969,
+    "sample_interval_seconds": {
+      "minimum": 0.1005153760002031,
+      "median": 0.10081287200023326,
+      "maximum": 0.3938291949998529
+    },
+    "memory_peak_cgroup_bytes": null,
+    "observer_read_seconds": null,
+    "peak_and_observer_missing_reason": "Failure branch omits both metrics. Container was removed before audit, so cgroup peak and observer accumulator are unavailable; sample maximum is not a peak.",
+    "persisted_request_body_bytes": 522,
+    "persisted_response_body_bytes": 638,
+    "persisted_body_pairs": 2,
+    "all_HTTP_body_accounting_complete": false,
+    "successful_wire_response_bytes_known": false,
+    "body_accounting_scope": "Only arrivals1and2have saved request/response bytes; arrival1write broke. Arrivals3–5lack body files because frozen SQL/cap assertions run before persistence. Headers/TCP/interception and generated500bodies not fully accounted.",
+    "complete_output_artifact_bytes": 69737,
+    "complete_output_artifact_files": 22
+  },
+  "sqlite": {
+    "opened": "mode=ro&immutable=1",
+    "bytes_sha256_unchanged": "d8a2db801ca7c5182d01ebc77ef56eb9539954b34b214dae090608532f46510e",
+    "integrity_check": [
+      "ok"
+    ],
+    "journal_mode": "delete",
+    "schema": [
+      {
+        "name": "attempts",
+        "sql": "CREATE TABLE attempts(\n                key TEXT PRIMARY KEY, phase TEXT NOT NULL, model TEXT NOT NULL,\n                data_hash TEXT NOT NULL, status TEXT NOT NULL,\n                reward REAL, receipt TEXT)"
+      },
+      {
+        "name": "metadata",
+        "sql": "CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+      }
+    ],
+    "metadata": {
+      "identity": "fd1db89a69c83160210719c5e960092b22e1dd11f15cdbb4c0093247eea1c130",
+      "development_limit": "3"
+    },
+    "attempts": [
+      {
+        "key": "dev-bad",
+        "phase": "development",
+        "model": "fixture-bad",
+        "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+        "status": "completed",
+        "reward": 0.0,
+        "receipt": "{\"denominator\":1,\"episode_sha256\":\"05bc69ffae081919782a6d37fc4d66ca59afe9528344c2a89141573109b73f64\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":8.130679990000317,\"score_members\":[\"echoed\"]}"
+      },
+      {
+        "key": "dev-good",
+        "phase": "development",
+        "model": "fixture-good",
+        "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+        "status": "reserved",
+        "reward": null,
+        "receipt": null
+      }
+    ],
+    "no_mutation_by_auditor": true,
+    "sync_scope": "Frozen initializer sets synchronousFULL; stoppedDB cannot demonstrate host power-loss durability."
+  },
+  "HTTP_arrival_receipts": [
+    {
+      "error": "BrokenPipeError(32, 'Broken pipe')",
+      "index": 1,
+      "key": "dev-bad",
+      "monotonic": 4008.682724719,
+      "request_bytes": 261,
+      "request_sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+      "response_bytes": 319,
+      "response_sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61",
+      "status": "refused_or_failed",
+      "stream": true
+    },
+    {
+      "index": 2,
+      "key": "dev-bad",
+      "monotonic": 4008.732398723,
+      "request_bytes": 261,
+      "request_sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+      "response_bytes": 319,
+      "response_sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61",
+      "status": "accepted",
+      "stream": true
+    },
+    {
+      "error": "AssertionError()",
+      "index": 3,
+      "monotonic": 4022.766842188,
+      "status": "refused_or_failed"
+    },
+    {
+      "error": "AssertionError()",
+      "index": 4,
+      "monotonic": 4023.199184203,
+      "status": "refused_or_failed"
+    },
+    {
+      "error": "AssertionError()",
+      "index": 5,
+      "monotonic": 4023.956570687,
+      "status": "refused_or_failed"
+    }
+  ],
+  "acceptance": [
+    {
+      "criterion": "All four immutable reservations survive both verified prior-process deaths; statuses completed/completed/burned/completed and rewards 0/1/null/1.",
+      "status": "failed_or_not_reached",
+      "evidence": "Only completed/reserved2rows; no uncertain burn/final, only1kill."
+    },
+    {
+      "criterion": "Exactly three actual native episodes, one native trace and echoed score each, and exactly three accepted provider POSTs; no failed or hidden arrival.",
+      "status": "failed_or_not_reached",
+      "evidence": "2native entries/1completedscore and5arrivals(1accepted4failed), not3cleanepisodes/3scores/3acceptedrequests."
+    },
+    {
+      "criterion": "Version mismatch changes neither ledger nor provider count; exact replay, identity conflict, over-budget development, final repeat and late development are refused.",
+      "status": "partial_only",
+      "evidence": "Version refusal receipt and completed dev-bad replay control reached; identity/budget/final/late-dev refusals not reached. No independent before/after version-refusal DB or provider-count snapshots saved."
+    },
+    {
+      "criterion": "Winner committed before final-data read; no final observation is used to change candidates, budgets, evaluator or selection.",
+      "status": "failed_or_not_reached",
+      "evidence": "No winner metadata, selection.json or final output; frozen final-open ordering not exercised."
+    },
+    {
+      "criterion": "Three distinct worker PIDs, first two confirmed SIGKILL exits before next worker, third exit zero; all native runtime scopes closed at barriers.",
+      "status": "failed_or_not_reached",
+      "evidence": "Only2distinct workers,1verifiedSIGKILL; worker2natural failure, no3rdworker."
+    },
+    {
+      "criterion": "No re-run or threshold/auditor repair on the same freeze. A failure remains failed. Independent saved-byte and stopped-database review precedes any acceptance claim.",
+      "status": "no_retry_preserved_failure",
+      "evidence": "One attempt reported, no retry/rescue; this saved-only audit confirms failure and changes no acceptance threshold."
+    }
+  ],
+  "complete_native_output_file_manifest": [
+    {
+      "path": "result/barrier-1.json",
+      "bytes": 82,
+      "sha256": "0000981d828a3bad7e5e6c09ab1ec4f838c9802eea8b696c835fd8aad034a758"
+    },
+    {
+      "path": "result/budget.sqlite",
+      "bytes": 20480,
+      "sha256": "d8a2db801ca7c5182d01ebc77ef56eb9539954b34b214dae090608532f46510e"
+    },
+    {
+      "path": "result/dev-bad-episode.json",
+      "bytes": 4223,
+      "sha256": "05bc69ffae081919782a6d37fc4d66ca59afe9528344c2a89141573109b73f64"
+    },
+    {
+      "path": "result/dev-bad-receipt.json",
+      "bytes": 191,
+      "sha256": "ff5f1411fd8cc81c358d93e7edc575994766946ebdfef0b9520becfa49e216f0"
+    },
+    {
+      "path": "result/http-1-request.bin",
+      "bytes": 261,
+      "sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+    },
+    {
+      "path": "result/http-1-response.bin",
+      "bytes": 319,
+      "sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61"
+    },
+    {
+      "path": "result/http-2-request.bin",
+      "bytes": 261,
+      "sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+    },
+    {
+      "path": "result/http-2-response.bin",
+      "bytes": 319,
+      "sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61"
+    },
+    {
+      "path": "result/http-receipts.json",
+      "bytes": 939,
+      "sha256": "2c32ea5a7071ddeaecd57a059a99016f9d1d5fc33430f1747c4234d74ad74cab"
+    },
+    {
+      "path": "result/native/dev-bad/configs/resolved/run.json",
+      "bytes": 2281,
+      "sha256": "4de18b397c9cc20965f5387ff22df7dfb810059ce03775a915722abef5eb104f"
+    },
+    {
+      "path": "result/native/dev-bad/traces.jsonl",
+      "bytes": 4224,
+      "sha256": "80e450b78c28a47778eae11fd506efc3d554f869621785c1dda1983623b201db"
+    },
+    {
+      "path": "result/native/dev-good/configs/resolved/run.json",
+      "bytes": 2284,
+      "sha256": "c6735cc3fb5b79862138bbbf56bb0222ba2a24627cc6c3cb334261d6739dd1a3"
+    },
+    {
+      "path": "result/native/dev-good/traces.jsonl",
+      "bytes": 5453,
+      "sha256": "3cf73f81b35c82406dba2b9eab737e7ad193c1c2ba4030b28f30f25781036620"
+    },
+    {
+      "path": "result/resource-samples.json",
+      "bytes": 26169,
+      "sha256": "de1c748ab0d67edbd2936a1940acdb5832070a11eb7fd46dfc94cc4594eefb3e"
+    },
+    {
+      "path": "result/result.json",
+      "bytes": 1143,
+      "sha256": "4c58272eaeb412884d0a916d76a624093dff7aedef209e597eb28e1b51b85874"
+    },
+    {
+      "path": "result/version-refusal.json",
+      "bytes": 58,
+      "sha256": "1186fb6aea9ea4694afa2ecb35b0960844a0eecba3f1bf5333299108c1d09e56"
+    },
+    {
+      "path": "result/worker-1-start.json",
+      "bytes": 21,
+      "sha256": "9c9cd61f52aa2331df3169765d16cb0e02043d731527e1a339e438e6ff0f9f9e"
+    },
+    {
+      "path": "result/worker-1-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "result/worker-1-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "result/worker-2-start.json",
+      "bytes": 22,
+      "sha256": "ff6108dc1f8c9c305453f2b590cdc82c16f10f65773323e71b29736291847bc9"
+    },
+    {
+      "path": "result/worker-2-stderr.log",
+      "bytes": 1007,
+      "sha256": "acbdd473d3d82f686ea00ae923b1716070e591fd36c05f49a87eb786dfcd06a9"
+    },
+    {
+      "path": "result/worker-2-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "complete_native_output_manifest_sha256": "35350ced261db66c9b6e4d02bb20adf63d60058b63c9893ed88d6b7770593233",
+  "independent_audit": {
+    "integrity_checks_passed": 83,
+    "integrity_findings": [],
+    "experiment_status": "failed",
+    "saved_data_only": true
+  },
+  "diagnosis": {
+    "earliest_observed_failure": {
+      "fact": "The first dev-bad trace call ends in ProviderError504; later identical261-byte request succeeds in the same episode.",
+      "first_call_wall_seconds": 3.0246732234954834,
+      "frozen_upstream_read_timeout_seconds": 3.0,
+      "trace_error": {
+        "type": "ProviderError",
+        "message": "",
+        "status_code": 504
+      },
+      "source_mapping": "Pinned EvalClient._request maps httpx.TimeoutException to ProviderError504. The trace does not retain the exact httpx timeout subtype.",
+      "broken_pipe": "Fixture first response generation is saved, but sendall then raises BrokenPipeError. This is an observed late-write failure after the client-side timeout; it is not evidence that all319 response bytes were delivered.",
+      "saved_response_request_hash_equality": true
+    },
+    "confirmed_stream_boundary": {
+      "fact": "The second accepted dev-bad response has the same319-byte body as the first prepared response, a chat.completion.chunk with finish_reason stop, followed by [DONE]. Native trace consumes it and records one echoed0.0 reward.",
+      "malformed_stream_rejection_observed": false,
+      "scope": "Valid receipt and successful native consumption for this exact fixture response only; not a general dialect/protocol conformance test."
+    },
+    "retry_attribution": {
+      "observations": "Two provider calls in the one dev-bad trace (504 then success); three provider calls in the one dev-good trace (500,500,500), while resolved episode/agent retry settings are0.",
+      "pinned_source": "EvalClient directly uses HTTPX without a retry loop. The genuine bundled chat program constructs AsyncOpenAI without an explicit max_retries override and calls chat.completions.create; its comment and control flow distinguish SDK request-setup retries from separate transport/stream-consumption retries.",
+      "conclusion": "Repeated500 setup calls are attributable to the native harness SDK retry path, not new run_episodes/episode attempts. Native runner retry0 does not bound received provider HTTP arrivals to one per episode.",
+      "limit": "The installed SDK retry default itself was not opened from the stopped container or independently re-executed. Two repeated500 calls are observed; the precise internal retry scheduling/default is not separately measured."
+    },
+    "deterministic_fixture_identity_defect": {
+      "fact": "Frozen fixture uses the global received-arrival index to choose dev-good only when index==2; otherwise fixture-good selects final-once. Failed arrivals still consume that index.",
+      "source_derived_mechanism": "After dev-bad consumes arrivals1 and2, the next native dev-good call is arrival3. Its normal fixture-good request would select final-once, for which phase2 has no reservation; the exact-row assertion therefore returns500. Arrivals4and5 fail the existing index<=3 cap.",
+      "evidence_strength": "Native dev-good trace records three500 calls; receipts3to5 record AssertionError. No raw request or stack location was retained for those three failures because recording follows the assertions, so identification of arrival3 specifically with that SQL assertion is a source-derived diagnosis, rather than a directly logged assertion line.",
+      "independent_old_freeze_failure": "Even if arrival3 routing were repaired after the fact, this old freeze already violates exactly3 arrivals/no failed provider arrivals. It remains failed."
+    },
+    "earliest_delay_hypothesis": {
+      "classification": "plausible unmeasured inference",
+      "proposal": "The controller performs its first heavy ChatDialect/Verifiers import inside FixtureHandler.answer before sending any response. Cold import on the first provider request can explain crossing the3s read timeout; the retry reaches already imported code and succeeds.",
+      "support": "Exact frozen source places the import in the firstPOST path, the first call times out around3.025s, the first late write breaks, and the same request/body succeeds afterward.",
+      "unverified": "No import-duration/profile, original received monotonic, response-prepared timestamp or original timeout traceback was retained. The handler overwrites arrival monotonic when preparing a response. General scheduling/resource/transport delay remains an alternative; causal cold-import attribution is not established."
+    },
+    "future_interventions_not_executed": [
+      {
+        "change": "In a separately versioned complete caller, initialize the genuine dialect/bundle dependency before accepting provider requests, while including this cold initialization in the complete measured cost. Retain current timeout/resource caps.",
+        "acceptance": "Pure fixture regression demonstrates the first request path performs no lazy heavyweight import; explicitly record distinct received/prepared/sent/error timestamps to resolve the concrete deadline boundary. This is a bounded same-caller correction, not an independent observer project."
+      },
+      {
+        "change": "Bind fixture response identity to the actual reserved attempt and immutable model/content, rather than global arrival ordinal. Resolve exactly one owned currently reserved attempt; distinguish development/final using reservation/content identity even when model names match.",
+        "acceptance": "A pure regression with an earlier failed/duplicate arrival must still map a legitimate phase2 request to dev-good and refuse absent/conflicting reservations. Preserve every received HTTP attempt and the frozen total-arrival limit; do not hide retries or reclassify failed sends as accepted."
+      },
+      {
+        "change": "Preserve genuine SDK behavior and pre-register separate episode/score/HTTP-arrival accounting in any future complete protocol.",
+        "acceptance": "Exercise timeout/500/retry fixture behavior using bounded software controls before a future justified native study. Do not patch native SDK internals, widen thresholds after observation or rerun this same freeze."
+      }
+    ]
+  },
+  "environment": {
+    "main_installed_packages": 94,
+    "script_lock_records": 45,
+    "script_installed_packages": 35,
+    "composite_metadata_entries": 129,
+    "selected_import_precedence": "/env before script site-packages; verifiers from /source",
+    "UV_EXCLUDE_NEWER": "2026-11-04T00:00:00Z",
+    "scope": "Observed versions/lock identity and import paths, not hashes of every installed binary. No isolated35-package runtime claim or causal dependency attribution."
+  },
+  "preparation": {
+    "current_warm_attempts": 2,
+    "first_failed_due_lock_sync_cutoff_mismatch": true,
+    "second_succeeded_with_consistent_cutoff": true,
+    "offline_cache_checks": 1,
+    "host_installed45_assertion_failed": true,
+    "saved_only35_of45_lock_reconciliation_passed": true,
+    "prior_IOfailure_retained": true,
+    "resource_recovery_cause": "unknown; no daemon restart/prune/UI by this task"
+  },
+  "tests": {
+    "existing_stdlib_ledger_builder_cases": 7,
+    "passed": true,
+    "scope": "Not native acceptance"
+  },
+  "evidence": {
+    "execution-manifest.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/execution-manifest.json",
+      "sha256": "c523bd678b221addc546e24ed199916e52549db49944560910904bdf81255fab",
+      "bytes": 4681
+    },
+    "independent-freeze-review.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/independent-freeze-review.json",
+      "sha256": "3b77e1f2b5d78f57dbf6a40e182a69862374997933d17d3b6aade3ccd81350c1",
+      "bytes": 16321
+    },
+    "native-execution-intent.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/native-execution-intent.json",
+      "sha256": "907b51aa5cc304d583d55a10ad91649a59a434b6f5475374a34fe561b67a3b2d",
+      "bytes": 2230
+    },
+    "native-execution-receipt.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/native-execution-receipt.json",
+      "sha256": "472b3c53aa4885c9c16d2c3a6ba42a6578065a18042503c79e2c7a371235d110",
+      "bytes": 2133
+    },
+    "native-host-result.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/native-host-result.json",
+      "sha256": "63b83bc0f0c176f20741cb1f61d56db22ed179ebbcad68ecb2876e9fbc843059",
+      "bytes": 1738
+    },
+    "independent-native-audit.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/independent-native-audit.json",
+      "sha256": "ebb33fad1e9469702be3dc17266cf40892159329f580a04d28d89f108017c4cc",
+      "bytes": 21868
+    },
+    "native-failure-diagnosis.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/native-failure-diagnosis.json",
+      "sha256": "a5f883df7e2c22e08fb02177f9c4b8ff8c5b377d0e9a716ce3978e45a8d17fda",
+      "bytes": 11129
+    },
+    "native-failure-environment-supplement.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/native-failure-environment-supplement.json",
+      "sha256": "3ac89c0b61954fbf65c849fa040aa84f3969999ffdc35357bde67d24de633f69",
+      "bytes": 5004
+    },
+    "corrected/preparation-result.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/corrected/preparation-result.json",
+      "sha256": "97f0601c737e6a774028fc2913ff0ae673ca0cfc913cd3ca93911bcdc2c50ccf",
+      "bytes": 535
+    },
+    "cache-check-reconciliation.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/cache-check-reconciliation.json",
+      "sha256": "54cc0f0f31a36d649ac972164890759749975b9a816e084cc3620b2b004c7bd5",
+      "bytes": 1531
+    },
+    "cache-host-comparison-failure.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/cache-host-comparison-failure.json",
+      "sha256": "95587c868342ec5738b96c77cceb3c8e326390b884cd7421b5e4a8e7465aa2ab",
+      "bytes": 682
+    },
+    "unit-tests.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/unit-tests.json",
+      "sha256": "0a0b67b2dc173dc8f0c0da6b5376ae460619ae0fec216cf0f53e2b6893d15098",
+      "bytes": 470
+    },
+    "preparation-result.json": {
+      "path": "reports/runs/20261105T024419Z/research-feasibility/preparation-result.json",
+      "sha256": "35b52009b2640d022156a0f72605d88c7161bfc0eb87b62edf72ea54d2ed4cb0",
+      "bytes": 565
+    }
+  },
+  "raw_evidence_policy": "Complete22files/69737bytes retained under ignored reports/runs. Public receipt exports normalized observations and exact hashes, not raw rolling logs/database. Raw bodies absent for arrivals3-5 remain unavailable.",
+  "scientific_status": "One failed H3 engineering attempt. H3 adaptive-bias/model-quality experiment remains planned; full H3/H4 unmet. H1 negative/invalidRSS/original5GiB and H2 historical failures/closed gates unchanged.",
+  "limitations": [
+    "All provider behavior and usage tokens are deterministic fixtures; no real model, benchmark quality, paid service, GPU, distributed or production result.",
+    "Single trusted owner; recovery requires proof the prior owner is stopped. No concurrent-owner recovery, tenant authentication, hostile code isolation or external exactly-once guarantee.",
+    "Failure-close reservations may burn work and reduce availability. No refund or automatic retry of uncertain work.",
+    "Only two fixed crash boundaries: after committed completion and before native entry. No mid-provider, mid-scoring, power-loss or arbitrary-interleaving recovery claim.",
+    "Three development reservations bound this finite workload, not general history growth, scheduling capacity or performance improvement.",
+    "H3 full closed-evaluation gate and H4 remain unmet; H1 negative results/original5GiB endpoint and all H2 failures/closed finite gates remain unchanged."
+  ]
+}

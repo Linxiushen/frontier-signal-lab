@@ -13,3 +13,8 @@ The next action is to prepare the same authentic script dependencies using expli
 This preparation ran **zero native episodes, provider requests, native scores, models or scientific experiments**. The two public fixture files are separated logically and the worker opens final data after selection; they are not secret benchmark data or an adversarial sandbox. Even a future passing finite suite would cover only one trusted owner and the two fixed crash boundaries, with synthetic usage tokens. It would not establish model quality, arbitrary interleavings, power-loss durability, external exactly-once effects, GPU/distributed/production behavior or a performance improvement. Full H3 closed evaluation and H4 remain unmet; H1 negative results/invalid RSS/original 5 GiB gate, and H2 failures and closed finite gates, are unchanged.
 
 The [normalized preparation receipt](receipts/20261104T074015Z-verifiers-budget-preparation.json) binds the evidence hashes. Raw logs and rolling state remain local and ignored.
+
+
+## Follow-up on 2026-11-05
+
+The historical no-execution statements above describe the 4 November preparation. Resources later became available and the same caller proceeded after a corrected lock/sync cutoff, an offline locked-cache check and an independent exact freeze review. Its one native attempt failed: two entries, one completed score, five HTTP arrivals and one verified forced kill. No second forced-death boundary, selection or final evaluation was reached. The failed freeze was not rerun or repaired; see the [failed result, evidence and limits](../results/verifiers-budget-native-failed/report.md). The old I/O/Windows preparation failures remain retained, and full H3/H4 and H1/H2 historical scientific states remain unchanged.

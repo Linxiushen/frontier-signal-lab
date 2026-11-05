@@ -282,3 +282,9 @@ results/pi-receipt-recovery/** -text whitespace=cr-at-eol
 
 # Preserve the exact failed native-budget freeze and dependency input bytes.
 fixtures/verifiers-budget-native-failed/** -text whitespace=cr-at-eol
+
+# Preserve separately frozen native-budget v2 source and input bytes.
+experiments/*verifiers_budget*v2.py -text whitespace=cr-at-eol
+tests/test_verifiers_budget_fixture_v2.py -text whitespace=cr-at-eol
+research/protocols/verifiers-budget-v2.json -text whitespace=cr-at-eol
+fixtures/verifiers-budget-native-v2/** -text whitespace=cr-at-eol

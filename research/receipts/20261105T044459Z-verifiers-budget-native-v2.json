@@ -1,0 +1,1587 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-05T05:12:38.171136+00:00",
+  "kind": "finite_actual_runner_engineering_fixture_not_full_H3_H4",
+  "scientific_experiments": 1,
+  "no_retry": true,
+  "manifest_sha256": "344179cea18afae6057f02c8daf0b6ede9623268a9cac2c95857f858e70f4b93",
+  "protocol_sha256": "67caa844256994a74e1b8c373c899e38ecc74f08962d7ec28e38fa441e812819",
+  "freeze_review_sha256": "784c140ecca0aca7626173423efb7925ecd4345a5aab9f7a89e4910ffd379261",
+  "independent_audit_sha256": "de8ad6048423034ce4aa69b21c43a5b00845dfcb97144b23d164e447c4560711",
+  "execution": {
+    "started_at": "2026-11-05T05:01:02.769632+00:00",
+    "completed_at": "2026-11-05T05:01:53.547175+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "frontier-vfrun-suite-20261105t044459z",
+      "--pull",
+      "never",
+      "--network",
+      "none",
+      "--read-only",
+      "--memory",
+      "805306368",
+      "--cpus",
+      "1",
+      "--pids-limit",
+      "64",
+      "--tmpfs",
+      "/tmp:rw,size=402653184",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索,target=/project,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\local-state\\upstream\\verifiers-compaction-20261103T071243Z,target=/source,readonly",
+      "--mount",
+      "type=volume,source=frontier-vfrun-env-20261104t074015z,target=/env,readonly",
+      "--mount",
+      "type=volume,source=frontier-vfrun-cache-v2-20261105t024419z,target=/root/.cache,volume-nocopy",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T044459Z\\research-feasibility\\freeze,target=/inputs,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T044459Z\\research-feasibility\\native-output,target=/output",
+      "--env",
+      "PYTHONPATH=/project:/source:/source/tests/integration/fixtures:/env",
+      "--env",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "--env",
+      "UV_EXCLUDE_NEWER=2026-11-04T00:00:00Z",
+      "--env",
+      "FRONTIER_LOCAL_FIXTURE_KEY=local-deterministic-fixture-only",
+      "--entrypoint",
+      "python",
+      "sha256:913a1fae777596f41b6b08562b95bfcf596d5ac99389976cb2e40609daa364e3",
+      "/project/experiments/verifiers_budget_suite_v2.py",
+      "controller",
+      "/inputs/protocol.json",
+      "/output/result"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 50.777162399999725,
+    "stdout_sha256": "17c29b8ce8ab6c336fd30e72c109268033ad0b0012a736920b06643fa8b10a00",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "native_result": {
+    "burned_development": 1,
+    "completed_development": 2,
+    "development_reservations": 3,
+    "final_reservations": 1,
+    "finite_scope": "actual vf-run/NullHarness/EvalClient/Echo reward with deterministic loopback fixture and one trusted owner",
+    "fixture_final_reward": 1.0,
+    "fixture_initialization_seconds": 4.851375965999978,
+    "forced_kills": 2,
+    "limitations": [
+      "All provider behavior and usage tokens are deterministic fixtures; no real model, benchmark quality, paid service, GPU, distributed or production result.",
+      "Single trusted owner; recovery requires proof the prior owner is stopped. No concurrent-owner recovery, tenant authentication, hostile code isolation or external exactly-once guarantee.",
+      "Failure-close reservations may burn work and reduce availability. No refund or automatic retry of uncertain work.",
+      "Only two fixed crash boundaries: after committed completion and before native entry. No mid-provider, mid-scoring, power-loss or arbitrary-interleaving recovery claim.",
+      "Three development reservations bound this finite workload, not general history growth, scheduling capacity or performance improvement.",
+      "H3 full closed-evaluation gate and H4 remain unmet; H1 negative results/original5GiB endpoint and all H2 failures/closed finite gates remain unchanged."
+    ],
+    "memory_peak_cgroup_bytes": 501383168,
+    "native_episodes": 3,
+    "native_scores": 3,
+    "observer_read_seconds": 0.06736953999643447,
+    "processes": [
+      {
+        "forced_kill": true,
+        "phase": 1,
+        "pid": 29,
+        "returncode": -9
+      },
+      {
+        "forced_kill": true,
+        "phase": 2,
+        "pid": 71,
+        "returncode": -9
+      },
+      {
+        "forced_kill": false,
+        "phase": 3,
+        "pid": 107,
+        "returncode": 0
+      }
+    ],
+    "provider_requests": 3,
+    "request_body_bytes": 785,
+    "response_body_bytes": 945,
+    "status": "passed",
+    "suite_seconds": 48.85041533999902
+  },
+  "audit": {
+    "recorded_at": "2026-11-05T05:11:51.362677+00:00",
+    "status": "finite_native_fixture_pass_confirmed",
+    "acceptance_claimed": true,
+    "acceptance_scope": "Only six frozen criteria of one trusted-owner finite deterministic native fixture; full H3/H4 acceptance is not claimed.",
+    "full_H3_or_H4_acceptance_claimed": false,
+    "independent_saved_data_audit": true,
+    "integrity_checks_passed": 216,
+    "integrity_checks_total": 216,
+    "integrity_findings": [],
+    "checks": [
+      {
+        "name": "stopped host result rc0 with native passed but acceptance withheld",
+        "passed": true
+      },
+      {
+        "name": "exact one scientific execution and no retry",
+        "passed": true
+      },
+      {
+        "name": "raw native result matches host and captured stdout",
+        "passed": true
+      },
+      {
+        "name": "stdout JSON has exact native result",
+        "passed": true
+      },
+      {
+        "name": "stderr binding empty",
+        "passed": true
+      },
+      {
+        "name": "freeze and independent review exactly bound before execution",
+        "passed": true
+      },
+      {
+        "name": "18 current host frozen files",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:experiments/prepare_verifiers_budget_v2.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:research/protocols/verifiers-budget-v2.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:tests/test_verifiers_budget_fixture_v2.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.py",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/environment-actual-v2.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/environment-comparator-correction.json",
+        "passed": true
+      },
+      {
+        "name": "current host freeze:reports/runs/20261105T044459Z/research-feasibility/engineering-controls.json",
+        "passed": true
+      },
+      {
+        "name": "preserved v1 manifest exact",
+        "passed": true
+      },
+      {
+        "name": "20 prior host frozen files",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:experiments/verifiers_budget_suite.py",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:experiments/prepare_verifiers_budget.py",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:research/protocols/verifiers-budget-v1.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-preparation.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/corrected/preparation-result.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-warm-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/cache-check.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/cache-check-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/cache-check-reconciliation.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/correction-intent.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/correction-review.json",
+        "passed": true
+      },
+      {
+        "name": "prior host freeze:reports/runs/20261105T024419Z/research-feasibility/unit-tests.json",
+        "passed": true
+      },
+      {
+        "name": "22 prior raw files exactly",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/barrier-1.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-episode.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-request.bin",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-response.bin",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-request.bin",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-response.bin",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-receipts.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/resource-samples.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/result.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/version-refusal.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-start.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-start.json",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "prior failed raw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "v1 failed audit exact and failure retained",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/inputs/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/inputs/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/project/experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/project/experiments/prepare_verifiers_budget_v2.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/project/experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/project/research/protocols/verifiers-budget-v2.json",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/tests/integration/fixtures/echo.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/agent.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/cli/run.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/clients/eval.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/env.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/episode.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/harnesses/null/harness.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/harnesses/utils/launch.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/runtimes/backends/subprocess.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/runtimes/runtime.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/task.py",
+        "passed": true
+      },
+      {
+        "name": "accessible frozen endpoint:/source/verifiers/v1/trace.py",
+        "passed": true
+      },
+      {
+        "name": "only two destroyed-container cache endpoints not rehashed",
+        "passed": true
+      },
+      {
+        "name": "dataset hash:development",
+        "passed": true
+      },
+      {
+        "name": "dataset hash:final",
+        "passed": true
+      },
+      {
+        "name": "launcher exact frozen intent",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--network",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--pull",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--memory",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--cpus",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--pids-limit",
+        "passed": true
+      },
+      {
+        "name": "resource argv:--tmpfs",
+        "passed": true
+      },
+      {
+        "name": "exact image entrypoint asserts enabled",
+        "passed": true
+      },
+      {
+        "name": "six owned mounts only readonly inputs",
+        "passed": true
+      },
+      {
+        "name": "no external model or paid provider scope",
+        "passed": true
+      },
+      {
+        "name": "complete container wall below frozen deadline",
+        "passed": true
+      },
+      {
+        "name": "saved named-container absence exact query",
+        "passed": true
+      },
+      {
+        "name": "saved named-container absence successful after execution",
+        "passed": true
+      },
+      {
+        "name": "no sqlite WAL journal or SHM artifacts",
+        "passed": true
+      },
+      {
+        "name": "stopped SQLite integrity and bytes unchanged",
+        "passed": true
+      },
+      {
+        "name": "SQLite exact protocol identity limit and winner",
+        "passed": true
+      },
+      {
+        "name": "exact four final reservations and rewards",
+        "passed": true
+      },
+      {
+        "name": "reservation data bound:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "reservation data bound:dev-good",
+        "passed": true
+      },
+      {
+        "name": "reservation data bound:dev-uncertain",
+        "passed": true
+      },
+      {
+        "name": "reservation data bound:final-once",
+        "passed": true
+      },
+      {
+        "name": "burned allowance has no score or receipt",
+        "passed": true
+      },
+      {
+        "name": "worker final snapshot equals independently read database",
+        "passed": true
+      },
+      {
+        "name": "version mismatch before after exact byte equality",
+        "passed": true
+      },
+      {
+        "name": "version mismatch leaves exact previous completed attempt and identity",
+        "passed": true
+      },
+      {
+        "name": "mismatch explicit refused no native calls positive monotonic interval",
+        "passed": true
+      },
+      {
+        "name": "one actual native episode exact saved membership:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "one clean native trace:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "episode receipt DB hash denominator score membership:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native echoed exact reward weight and clean completion:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "source head actual native trace:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual native EchoTask exact frozen prompt answer:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess unborrowed runtime:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native call one actual no retries/errors model and usage:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native two nodes exact prompt and consumed response:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "resolved fixed workload native run identity:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native environment and agent retry0 timeouts limits:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact reservation headers and frozen timeout:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native timing complete ordered to scoring:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "one actual native episode exact saved membership:dev-good",
+        "passed": true
+      },
+      {
+        "name": "one clean native trace:dev-good",
+        "passed": true
+      },
+      {
+        "name": "episode receipt DB hash denominator score membership:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native echoed exact reward weight and clean completion:dev-good",
+        "passed": true
+      },
+      {
+        "name": "source head actual native trace:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual native EchoTask exact frozen prompt answer:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess unborrowed runtime:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native call one actual no retries/errors model and usage:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native two nodes exact prompt and consumed response:dev-good",
+        "passed": true
+      },
+      {
+        "name": "resolved fixed workload native run identity:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native environment and agent retry0 timeouts limits:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact reservation headers and frozen timeout:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native timing complete ordered to scoring:dev-good",
+        "passed": true
+      },
+      {
+        "name": "one actual native episode exact saved membership:final-once",
+        "passed": true
+      },
+      {
+        "name": "one clean native trace:final-once",
+        "passed": true
+      },
+      {
+        "name": "episode receipt DB hash denominator score membership:final-once",
+        "passed": true
+      },
+      {
+        "name": "native echoed exact reward weight and clean completion:final-once",
+        "passed": true
+      },
+      {
+        "name": "source head actual native trace:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual native EchoTask exact frozen prompt answer:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess unborrowed runtime:final-once",
+        "passed": true
+      },
+      {
+        "name": "native call one actual no retries/errors model and usage:final-once",
+        "passed": true
+      },
+      {
+        "name": "native two nodes exact prompt and consumed response:final-once",
+        "passed": true
+      },
+      {
+        "name": "resolved fixed workload native run identity:final-once",
+        "passed": true
+      },
+      {
+        "name": "native environment and agent retry0 timeouts limits:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact reservation headers and frozen timeout:final-once",
+        "passed": true
+      },
+      {
+        "name": "native timing complete ordered to scoring:final-once",
+        "passed": true
+      },
+      {
+        "name": "three distinct native trace/run identities",
+        "passed": true
+      },
+      {
+        "name": "only three native episode trace outputs",
+        "passed": true
+      },
+      {
+        "name": "exact3 delivered arrival records",
+        "passed": true
+      },
+      {
+        "name": "perarrival exact final receipt:1",
+        "passed": true
+      },
+      {
+        "name": "all request/response bytes complete bound:1",
+        "passed": true
+      },
+      {
+        "name": "arrival bound reserved key model dataset and delivery:1",
+        "passed": true
+      },
+      {
+        "name": "request exact native body and sampling:1",
+        "passed": true
+      },
+      {
+        "name": "body reconstructs exact canonical dataset bytes:1",
+        "passed": true
+      },
+      {
+        "name": "complete SSE one chunk then DONE:1",
+        "passed": true
+      },
+      {
+        "name": "delivered SSE exact native consumption model and usage:1",
+        "passed": true
+      },
+      {
+        "name": "received prepared writefinished timestamp ordering:1",
+        "passed": true
+      },
+      {
+        "name": "perarrival exact final receipt:2",
+        "passed": true
+      },
+      {
+        "name": "all request/response bytes complete bound:2",
+        "passed": true
+      },
+      {
+        "name": "arrival bound reserved key model dataset and delivery:2",
+        "passed": true
+      },
+      {
+        "name": "request exact native body and sampling:2",
+        "passed": true
+      },
+      {
+        "name": "body reconstructs exact canonical dataset bytes:2",
+        "passed": true
+      },
+      {
+        "name": "complete SSE one chunk then DONE:2",
+        "passed": true
+      },
+      {
+        "name": "delivered SSE exact native consumption model and usage:2",
+        "passed": true
+      },
+      {
+        "name": "received prepared writefinished timestamp ordering:2",
+        "passed": true
+      },
+      {
+        "name": "perarrival exact final receipt:3",
+        "passed": true
+      },
+      {
+        "name": "all request/response bytes complete bound:3",
+        "passed": true
+      },
+      {
+        "name": "arrival bound reserved key model dataset and delivery:3",
+        "passed": true
+      },
+      {
+        "name": "request exact native body and sampling:3",
+        "passed": true
+      },
+      {
+        "name": "body reconstructs exact canonical dataset bytes:3",
+        "passed": true
+      },
+      {
+        "name": "complete SSE one chunk then DONE:3",
+        "passed": true
+      },
+      {
+        "name": "delivered SSE exact native consumption model and usage:3",
+        "passed": true
+      },
+      {
+        "name": "received prepared writefinished timestamp ordering:3",
+        "passed": true
+      },
+      {
+        "name": "no extra HTTP raw arrival artifacts",
+        "passed": true
+      },
+      {
+        "name": "no HTTP arrival/handling overlap during version refusal interval",
+        "passed": true
+      },
+      {
+        "name": "three HTTP bodies sum to native counters",
+        "passed": true
+      },
+      {
+        "name": "three distinct started workers exact PID and recover burns",
+        "passed": true
+      },
+      {
+        "name": "two SIGKILL exits then successful third worker",
+        "passed": true
+      },
+      {
+        "name": "worker captured logs clean:1",
+        "passed": true
+      },
+      {
+        "name": "worker captured logs clean:2",
+        "passed": true
+      },
+      {
+        "name": "worker captured logs clean:3",
+        "passed": true
+      },
+      {
+        "name": "both declared crash barriers retained",
+        "passed": true
+      },
+      {
+        "name": "committed winner explicit before final open selection receipt",
+        "passed": true
+      },
+      {
+        "name": "winner independently recomputed from development only",
+        "passed": true
+      },
+      {
+        "name": "source verifies exact resolved native runner before awaiting actual entry",
+        "passed": true
+      },
+      {
+        "name": "source close barrier follows returned native runtime and committed receipt",
+        "passed": true
+      },
+      {
+        "name": "source owner kill and wait precede next loop owner",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:completed_exact_replay",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:burned_exact_replay",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:identity_conflict",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:development_over_budget",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:final_exact_replay",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:final_second_attempt",
+        "passed": true
+      },
+      {
+        "name": "frozen inline negative control reached on successful worker:late_development",
+        "passed": true
+      },
+      {
+        "name": "winner committed then selection saved before native final evaluate",
+        "passed": true
+      },
+      {
+        "name": "evaluate checks winner before final dataset read",
+        "passed": true
+      },
+      {
+        "name": "native runner scopes env serving before returning episodes",
+        "passed": true
+      },
+      {
+        "name": "observer metrics captured before finally teardown",
+        "passed": true
+      },
+      {
+        "name": "eager genuine formatter initialization before server start",
+        "passed": true
+      },
+      {
+        "name": "eager initialization receipt exact positive and included",
+        "passed": true
+      },
+      {
+        "name": "positive ordered cgroup samples",
+        "passed": true
+      },
+      {
+        "name": "memory peak endpoint positive under frozen cap and above samplemax",
+        "passed": true
+      },
+      {
+        "name": "observer read accumulator positive scoped below suite wall",
+        "passed": true
+      },
+      {
+        "name": "native result counter claims independently agree",
+        "passed": true
+      },
+      {
+        "name": "all native outputs unchanged through saved-byte audit",
+        "passed": true
+      }
+    ],
+    "bindings": {
+      "native-host-result.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/native-host-result.json",
+        "bytes": 2461,
+        "sha256": "a6b4a917500ee134072c29859e1761fa92456242a56bde7cff9753b7d13142b8"
+      },
+      "native-execution-receipt.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/native-execution-receipt.json",
+        "bytes": 2137,
+        "sha256": "cba21442baade52f55b352dd1d769e34b82fb7e382a71ebef1439d142cb9a442"
+      },
+      "native-execution-intent.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/native-execution-intent.json",
+        "bytes": 2233,
+        "sha256": "3e43e83397e49e6b7212714d91896c92800733a9ee404bee8bd4beb90c1ef788"
+      },
+      "execution-manifest.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/execution-manifest.json",
+        "bytes": 11748,
+        "sha256": "344179cea18afae6057f02c8daf0b6ede9623268a9cac2c95857f858e70f4b93"
+      },
+      "independent-freeze-review.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/independent-freeze-review.json",
+        "bytes": 17742,
+        "sha256": "784c140ecca0aca7626173423efb7925ecd4345a5aab9f7a89e4910ffd379261"
+      },
+      "freeze/protocol.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/freeze/protocol.json",
+        "bytes": 12367,
+        "sha256": "67caa844256994a74e1b8c373c899e38ecc74f08962d7ec28e38fa441e812819"
+      },
+      "freeze/packages.lock": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/freeze/packages.lock",
+        "bytes": 218454,
+        "sha256": "0a52948ebcfc23f2dfe24c196eb3e52cbe5dc1b1014f708c54df68bf5aa49ebe"
+      },
+      "freeze/harness.lock": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/freeze/harness.lock",
+        "bytes": 257637,
+        "sha256": "1a25b155629bda996cc7b4e67fc448541e2419d876cb4d20d75d13f277fddaaa"
+      },
+      "owned-container-readback-receipt.json": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/owned-container-readback-receipt.json",
+        "bytes": 497,
+        "sha256": "becc123277b893340390dd72c5e112448af7abd5b2ccb3e094bec591ee625df1"
+      },
+      "owned-container-readback-stdout.log": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/owned-container-readback-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "owned-container-readback-stderr.log": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/owned-container-readback-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native-execution-stdout.log": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/native-execution-stdout.log",
+        "bytes": 1686,
+        "sha256": "17c29b8ce8ab6c336fd30e72c109268033ad0b0012a736920b06643fa8b10a00"
+      },
+      "native-execution-stderr.log": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/native-execution-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "run-native.py": {
+        "path": "reports/runs/20261105T044459Z/research-feasibility/run-native.py",
+        "bytes": 4612,
+        "sha256": "fe298b7a5a740a8b0b360d67b439985dd9a0b012857789ec0dbd25d262abd5d3"
+      }
+    },
+    "native_output_root": "reports/runs/20261105T044459Z/research-feasibility/native-output",
+    "complete_native_output_file_manifest": [
+      {
+        "path": "result/barrier-1.json",
+        "bytes": 82,
+        "sha256": "0000981d828a3bad7e5e6c09ab1ec4f838c9802eea8b696c835fd8aad034a758"
+      },
+      {
+        "path": "result/barrier-2.json",
+        "bytes": 73,
+        "sha256": "56bce624394e32a8cb5d4110f3f0e4552c4b0eb87fca6ca76d32b9f8a0fb131d"
+      },
+      {
+        "path": "result/budget.sqlite",
+        "bytes": 20480,
+        "sha256": "cc74e59bae9cbe314e0bb3450c0f52d4e52285de7c036a06dafcd9545251b505"
+      },
+      {
+        "path": "result/dev-bad-episode.json",
+        "bytes": 4115,
+        "sha256": "1690a07f40ad14c7681023a47e1460bcf9ad935d0e4a299be2741376a5f2c73f"
+      },
+      {
+        "path": "result/dev-bad-receipt.json",
+        "bytes": 192,
+        "sha256": "191c483264a6ce30c758e86eb331c201baa58dc1a466b504f473752c7c02ca81"
+      },
+      {
+        "path": "result/dev-good-episode.json",
+        "bytes": 4115,
+        "sha256": "2aedecf8888fde78f9553fc89826f303b381d02e6a9c4776db0a3b0801c79ee9"
+      },
+      {
+        "path": "result/dev-good-receipt.json",
+        "bytes": 191,
+        "sha256": "db0c3a1d54192ff344eb160d71fb170dd3ea12587057be9d3a34fbe809641cd9"
+      },
+      {
+        "path": "result/final-once-episode.json",
+        "bytes": 4123,
+        "sha256": "b3002640eb9972213ecddec8065a7f9bc56c86dac60a1e5a4f3944189b701589"
+      },
+      {
+        "path": "result/final-once-receipt.json",
+        "bytes": 191,
+        "sha256": "53f2e0906b69c1cd7d7b8b2713952fa8d862bedb7995b6ab6135cd581b56e1c2"
+      },
+      {
+        "path": "result/fixture-initialization.json",
+        "bytes": 51,
+        "sha256": "362f0c6582a1c65292267fb35a5fb9ef57eded7e7bcdf3491c191c70edce942c"
+      },
+      {
+        "path": "result/http-1-arrival.json",
+        "bytes": 640,
+        "sha256": "820523e72ec3cfd364618c43d0d60c1c9ccbb74567bfc1a2cb60f697403b667e"
+      },
+      {
+        "path": "result/http-1-request.bin",
+        "bytes": 261,
+        "sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+      },
+      {
+        "path": "result/http-1-response.bin",
+        "bytes": 319,
+        "sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61"
+      },
+      {
+        "path": "result/http-2-arrival.json",
+        "bytes": 642,
+        "sha256": "948994a25a60e34cef5c7405455e2e3dc0a67f8262d2bdbfa2446b356f21a265"
+      },
+      {
+        "path": "result/http-2-request.bin",
+        "bytes": 262,
+        "sha256": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7"
+      },
+      {
+        "path": "result/http-2-response.bin",
+        "bytes": 313,
+        "sha256": "477c3603564e9d5ecbc38d87c3254223eb317480a63c6d915821059de3c00b68"
+      },
+      {
+        "path": "result/http-3-arrival.json",
+        "bytes": 645,
+        "sha256": "51714fd58eaa2d8c0bc5f13772fe549c26b789d059c42ab7e04b49779f55bc58"
+      },
+      {
+        "path": "result/http-3-request.bin",
+        "bytes": 262,
+        "sha256": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a"
+      },
+      {
+        "path": "result/http-3-response.bin",
+        "bytes": 313,
+        "sha256": "43027b11c567cc48748731166962cfd4e7a16bbfbf52b7883e17ea35d425cb63"
+      },
+      {
+        "path": "result/http-receipts.json",
+        "bytes": 1929,
+        "sha256": "a15640731f0f433c5e2258952699cc33f672a212e3a4023c514982e9163a708f"
+      },
+      {
+        "path": "result/native/dev-bad/configs/resolved/run.json",
+        "bytes": 2424,
+        "sha256": "4ade2483c18dbcbd19c7f3353f901664e2e6c007a2d68d869488a99e0fec82c0"
+      },
+      {
+        "path": "result/native/dev-bad/traces.jsonl",
+        "bytes": 4116,
+        "sha256": "fad9a13b27e555e128daa085a18de1f84beb4de625d9ea9d6315cb0f6e880793"
+      },
+      {
+        "path": "result/native/dev-good/configs/resolved/run.json",
+        "bytes": 2428,
+        "sha256": "6a424e95496c8ad793977256538226ff950ca4725a5a0a8c881c68aa70bb5d68"
+      },
+      {
+        "path": "result/native/dev-good/traces.jsonl",
+        "bytes": 4116,
+        "sha256": "c196b45edafeb9b0b2da79d18ca24d0987ef0760e99cd72cedcd72d3cfc3ed96"
+      },
+      {
+        "path": "result/native/final-once/configs/resolved/run.json",
+        "bytes": 2434,
+        "sha256": "48897ba60d882aa78f9af9d0f6a26170e2cbc727ca2a1c1b7e0d972e722b3b1c"
+      },
+      {
+        "path": "result/native/final-once/traces.jsonl",
+        "bytes": 4124,
+        "sha256": "05cd7f1c59dc7ce9e160def2a65baea6674c769f4d5ac15e312519beca445fa7"
+      },
+      {
+        "path": "result/resource-samples.json",
+        "bytes": 32642,
+        "sha256": "2c0566ab40c0b09711bb28a4692e27a80d9186ff279c2804984bcbfb451ee142"
+      },
+      {
+        "path": "result/result.json",
+        "bytes": 1686,
+        "sha256": "17c29b8ce8ab6c336fd30e72c109268033ad0b0012a736920b06643fa8b10a00"
+      },
+      {
+        "path": "result/selection.json",
+        "bytes": 95,
+        "sha256": "aa1e83d91e0e30fe9d29d226f98e317fc9766bbc7bc67cdbc079e96ec37bf132"
+      },
+      {
+        "path": "result/version-after.json",
+        "bytes": 525,
+        "sha256": "d91cf79715fab674d4eb494b6803d6c15e92e043ec738c4cc73d6489e167c5b8"
+      },
+      {
+        "path": "result/version-before.json",
+        "bytes": 525,
+        "sha256": "d91cf79715fab674d4eb494b6803d6c15e92e043ec738c4cc73d6489e167c5b8"
+      },
+      {
+        "path": "result/version-refusal.json",
+        "bytes": 127,
+        "sha256": "a38dacdad82ff60cf0f6ba075f2ab7b24685695cbbf3f97bd9f226e61ad27e5b"
+      },
+      {
+        "path": "result/worker-1-start.json",
+        "bytes": 22,
+        "sha256": "2c6c228ec162cb64cfb0a7afa04d865c332430befe9891a61d9b22d2b407cc9c"
+      },
+      {
+        "path": "result/worker-1-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-1-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-2-start.json",
+        "bytes": 22,
+        "sha256": "c4ad327dbb6d7f8063a2b556512c18bd0be67b172b7b9e3cfa8c8f32138c5ae5"
+      },
+      {
+        "path": "result/worker-2-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-2-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-3-start.json",
+        "bytes": 23,
+        "sha256": "a379961c4bd827c4e8189e358138d9972aa9b876549cee8d3743e655f8e7ee44"
+      },
+      {
+        "path": "result/worker-3-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-3-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-final.json",
+        "bytes": 1534,
+        "sha256": "e9adfbe4678ae9d271909ff265b372eeb25641a42a94379149d7c03ce1b551a8"
+      }
+    ],
+    "complete_native_output_manifest_sha256": "3046dc631d7772d659a837e0a88e5220456539ef8d996fdc140560df75d85ce2",
+    "frozen_accessible_version_endpoints_rehashed": [
+      "/inputs/harness.lock",
+      "/inputs/packages.lock",
+      "/project/experiments/eval_budget_runner.py",
+      "/project/experiments/prepare_verifiers_budget_v2.py",
+      "/project/experiments/verifiers_budget_suite_v2.py",
+      "/project/research/protocols/verifiers-budget-v2.json",
+      "/source/tests/integration/fixtures/echo.py",
+      "/source/verifiers/v1/agent.py",
+      "/source/verifiers/v1/cli/run.py",
+      "/source/verifiers/v1/clients/eval.py",
+      "/source/verifiers/v1/env.py",
+      "/source/verifiers/v1/episode.py",
+      "/source/verifiers/v1/harnesses/null/harness.py",
+      "/source/verifiers/v1/harnesses/utils/launch.py",
+      "/source/verifiers/v1/runtimes/backends/subprocess.py",
+      "/source/verifiers/v1/runtimes/runtime.py",
+      "/source/verifiers/v1/task.py",
+      "/source/verifiers/v1/trace.py"
+    ],
+    "frozen_cache_endpoints_not_reopened": [
+      "/root/.cache/verifiers/runtimes/scripts/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6.py",
+      "/root/.cache/verifiers/runtimes/scripts/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6.py.lock"
+    ],
+    "v1_preservation": {
+      "prior_manifest_sha256": "c523bd678b221addc546e24ed199916e52549db49944560910904bdf81255fab",
+      "host_files_rehashed": 20,
+      "raw_files_rehashed": 22,
+      "prior_raw_bytes": 69737,
+      "failed_audit_sha256": "ebb33fad1e9469702be3dc17266cf40892159329f580a04d28d89f108017c4cc",
+      "failed_experiment_retained": true
+    },
+    "sqlite": {
+      "opened": "mode=ro&immutable=1",
+      "bytes_sha256_unchanged": "cc74e59bae9cbe314e0bb3450c0f52d4e52285de7c036a06dafcd9545251b505",
+      "integrity_check": [
+        "ok"
+      ],
+      "journal_mode": "delete",
+      "schema": [
+        {
+          "name": "attempts",
+          "sql": "CREATE TABLE attempts(\n                key TEXT PRIMARY KEY, phase TEXT NOT NULL, model TEXT NOT NULL,\n                data_hash TEXT NOT NULL, status TEXT NOT NULL,\n                reward REAL, receipt TEXT)"
+        },
+        {
+          "name": "metadata",
+          "sql": "CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+        }
+      ],
+      "metadata": {
+        "identity": "67caa844256994a74e1b8c373c899e38ecc74f08962d7ec28e38fa441e812819",
+        "development_limit": "3",
+        "winner": "fixture-good"
+      },
+      "attempts": [
+        {
+          "key": "dev-bad",
+          "phase": "development",
+          "model": "fixture-bad",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "completed",
+          "reward": 0.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"1690a07f40ad14c7681023a47e1460bcf9ad935d0e4a299be2741376a5f2c73f\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":3.9523992159993213,\"score_members\":[\"echoed\"]}"
+        },
+        {
+          "key": "dev-good",
+          "phase": "development",
+          "model": "fixture-good",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "completed",
+          "reward": 1.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"2aedecf8888fde78f9553fc89826f303b381d02e6a9c4776db0a3b0801c79ee9\",\"num_turns\":1,\"reward\":1.0,\"runner_seconds\":3.156631734000257,\"score_members\":[\"echoed\"]}"
+        },
+        {
+          "key": "dev-uncertain",
+          "phase": "development",
+          "model": "fixture-unused",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "burned",
+          "reward": null,
+          "receipt": null
+        },
+        {
+          "key": "final-once",
+          "phase": "final",
+          "model": "fixture-good",
+          "data_hash": "a03e29410b5969aa06798e9f6872e151a0f7052e71d18d33a112ef0d2a63c9de",
+          "status": "completed",
+          "reward": 1.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"b3002640eb9972213ecddec8065a7f9bc56c86dac60a1e5a4f3944189b701589\",\"num_turns\":1,\"reward\":1.0,\"runner_seconds\":3.119078407999041,\"score_members\":[\"echoed\"]}"
+        }
+      ],
+      "no_mutation_by_auditor": true,
+      "sync_scope": "Frozen initializer sets synchronous=FULL; stopped DB and forced process deaths do not establish host power-loss durability."
+    },
+    "version_refusal": {
+      "before": {
+        "attempts": [
+          {
+            "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+            "key": "dev-bad",
+            "model": "fixture-bad",
+            "phase": "development",
+            "receipt": "{\"denominator\":1,\"episode_sha256\":\"1690a07f40ad14c7681023a47e1460bcf9ad935d0e4a299be2741376a5f2c73f\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":3.9523992159993213,\"score_members\":[\"echoed\"]}",
+            "reward": 0.0,
+            "status": "completed"
+          }
+        ],
+        "metadata": {
+          "development_limit": "3",
+          "identity": "67caa844256994a74e1b8c373c899e38ecc74f08962d7ec28e38fa441e812819"
+        }
+      },
+      "after": {
+        "attempts": [
+          {
+            "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+            "key": "dev-bad",
+            "model": "fixture-bad",
+            "phase": "development",
+            "receipt": "{\"denominator\":1,\"episode_sha256\":\"1690a07f40ad14c7681023a47e1460bcf9ad935d0e4a299be2741376a5f2c73f\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":3.9523992159993213,\"score_members\":[\"echoed\"]}",
+            "reward": 0.0,
+            "status": "completed"
+          }
+        ],
+        "metadata": {
+          "development_limit": "3",
+          "identity": "67caa844256994a74e1b8c373c899e38ecc74f08962d7ec28e38fa441e812819"
+        }
+      },
+      "refusal": {
+        "after_monotonic": 11036.630570793,
+        "before_monotonic": 11036.606845419,
+        "ledger_unchanged": true,
+        "native_calls": 0,
+        "refused": true
+      },
+      "provider_arrivals_before_interval": 1,
+      "provider_arrivals_after_interval": 2,
+      "overlapping_provider_requests": 0
+    },
+    "observed_counts": {
+      "scientific_attempts": 1,
+      "execution_attempts": 1,
+      "native_entries": 3,
+      "completed_native_episodes": 3,
+      "failed_native_episodes": 0,
+      "native_traces": 3,
+      "completed_native_score_members": 3,
+      "completed_rewards": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "development_reservations": 3,
+      "completed_development": 2,
+      "burned_reservations": 1,
+      "final_reservations": 1,
+      "completed_final": 1,
+      "outstanding_reserved": 0,
+      "HTTP_arrivals": 3,
+      "HTTP_delivered": 3,
+      "HTTP_failed_or_refused": 0,
+      "HTTP_saved_body_pairs": 3,
+      "native_provider_call_records": 3,
+      "distinct_worker_PIDs": [
+        29,
+        71,
+        107
+      ],
+      "verified_forced_kills": 2,
+      "owner_restart_transitions_observed": 2,
+      "winner_sealed": true,
+      "final_evaluation_executed": true,
+      "real_models": 0,
+      "external_provider_calls": 0
+    },
+    "metrics": {
+      "scope": "One finite deterministic loopback fixture on CPU under fixed one-CPU/768MiB/64PID cap; no performance comparison.",
+      "native_entry_completion_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "meaning": "episode completion, not model quality"
+      },
+      "fixture_rewards": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "development_reward_denominator": 2,
+      "final_reward_denominator": 1,
+      "burned_reservations_excluded_from_score_denominator": 1,
+      "run_episodes_latency_seconds": [
+        3.9523992159993213,
+        3.156631734000257,
+        3.119078407999041
+      ],
+      "run_episodes_latency_observations": 3,
+      "run_episodes_latency_median_seconds": 3.156631734000257,
+      "run_episodes_latency_maximum_seconds": 3.9523992159993213,
+      "run_episodes_latency_p95_nearest_rank_seconds": 3.9523992159993213,
+      "p95_convention": "nearest rank ceil(0.95*n); n=3 so this equals observed maximum, not an estimated population tail",
+      "native_trace_call_latency_seconds": [
+        0.05088162422180176,
+        0.04511904716491699,
+        0.046279191970825195
+      ],
+      "HTTP_received_to_finished_seconds": [
+        0.01792756000031659,
+        0.016766282999014948,
+        0.017131519000031403
+      ],
+      "controller_pre_teardown_seconds": 48.85041533999902,
+      "controller_wall_scope": "Includes eager formatter cold initialization, all worker startup/restarts, native work and fixed holds; ends before finally server.shutdown/server_close/thread.join and receipt serialization.",
+      "host_CLI_teardown_inclusive_seconds": 50.777162399999725,
+      "host_CLI_wall_scope": "Docker invocation through process return, including suite teardown/lifecycle/output finalization; excludes earlier environment/cache preparation, freeze/audit, and subsequent absence query.",
+      "completed_entries_per_host_CLI_second": 0.05908167881393893,
+      "completed_entries_per_controller_pre_teardown_second": 0.06141196505945737,
+      "fixture_initialization_seconds": 4.851375965999978,
+      "fixture_initialization_causal_attribution_to_v1_failure": false,
+      "sample_count": 436,
+      "sampled_memory_current_max_bytes": 501108736,
+      "sampled_pids_current_max": 38,
+      "sampled_monotonic_duration_seconds": 43.857112296000196,
+      "sample_interval_seconds": {
+        "minimum": 0.10021057300036773,
+        "median": 0.10063380899919139,
+        "maximum": 0.13892687400038994
+      },
+      "memory_peak_cgroup_bytes": 501383168,
+      "memory_peak_scope": "Whole-container cgroup memory.peak read once after third worker return but before suite finally teardown; includes pre-sampling formatter startup, excludes any later teardown peak. Not a complete-lifetime or GPU peak.",
+      "observer_read_seconds": 0.06736953999643447,
+      "observer_scope": "Accumulated perf_counter duration around 436 two-file cgroup sample reads; excludes sleep, memory.peak read, later serialization and observer interactions; not causal overhead.",
+      "request_body_bytes": 785,
+      "response_body_bytes": 945,
+      "all_observed_HTTP_body_pairs_and_deliveries_accounted": true,
+      "body_accounting_scope": "All three fixture provider POST body pairs, persisted hashes, completed writes and native consumption agree; excludes HTTP headers, TCP, local interception, disk/cache and external network traffic.",
+      "complete_output_artifact_files": 42,
+      "complete_output_artifact_bytes": 96042,
+      "scoring_retry_configuration": "EchoTask default scoring.max_retries=2 is present in actual task traces; env/agent retries=0. Three saved score members and successful scoring intervals are observed, not separate instrumentation of every scorer invocation."
+    },
+    "acceptance": [
+      {
+        "criterion": "All four immutable reservations survive both verified prior-process deaths; statuses completed/completed/burned/completed and rewards 0/1/null/1.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Stopped immutable SQLite independently reads4exact rows completed/completed/burned/completed, rewards0/1/null/1; worker-final snapshot exact and recovery receipts burned0/0/1."
+      },
+      {
+        "criterion": "Exactly three actual native episodes, one native trace and echoed score each, exactly three delivered provider POSTs bound to the expected reserved attempt/model/data; no failed or hidden arrival.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Three exact native episode/traces, one successful call and echoed member each; all3perarrival request/response bytes, delivery-completion timestamps and exact native consumed content agree. No extra observed arrival artifact."
+      },
+      {
+        "criterion": "Version mismatch changes neither ledger nor provider count; exact replay, identity conflict, over-budget development, final repeat and late development are refused.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Version before/after snapshot bytes equal, no HTTP handling overlaps its monotonic interval. Seven additional negative controls are inline source assertions reached by phase2/3success paths; per-control snapshots and exception payloads are not independently logged."
+      },
+      {
+        "criterion": "Winner committed before final-data read; no final observation is used to change candidates, budgets, evaluator or selection.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Winner recomputed from completed development only; selection explicitly precedes final-data open and frozen evaluate code checks committed winner before read. This is logical separation for one trusted owner, not OS access auditing or sealed benchmark data."
+      },
+      {
+        "criterion": "Three distinct worker PIDs, first two confirmed SIGKILL exits before next worker, third exit zero; all native runtime scopes closed at barriers.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Three distinct worker-start PIDs match controller exits-9/-9/0. Frozen sequential controller waits each old owner before spawning next; native run_episodes returns through env.serving context before barriers. No descendant process census or syscall attestation saved."
+      },
+      {
+        "criterion": "No re-run or threshold/auditor repair on the same freeze. A failure remains failed. Independent saved-byte and stopped-database review precedes any acceptance claim.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "One scientific intent/execution, frozen source/files preserved and independent saved-byte audit only. No same-freeze rerun, producer edit or threshold repair; v1failuremanifest/20hostfiles/22rawfiles/failed audit remain exact."
+      }
+    ],
+    "acceptance_conclusion": "All six frozen acceptance criteria supported for the declared one-owner finite deterministic native fixture, with direct saved-output evidence distinguished from inline-code success-path evidence.",
+    "scientific_status": "Finite native integration gate only; H3 full closed/adaptive-bias evaluation and H4 remain unmet. H1negative/original5GiB endpoint and H2history unchanged. No model quality, real model, GPU, distributed, production, performance-improvement or general exactly-once result.",
+    "reviewer_actions": {
+      "network_calls": 0,
+      "container_or_producer_runs": 0,
+      "tests_run": 0,
+      "model_calls": 0,
+      "scientific_experiments": 0,
+      "database_writes": 0,
+      "frozen_code_edits": 0,
+      "shared_ledger_edits": 0,
+      "UI_calls": 0
+    },
+    "missingness_and_limitations": [
+      "Host saved named-container absence readback is verified; reviewer did not perform a new Docker query or reopen destroyed container/cache volumes. Two cache files rely on preexecution frozen verification rather than a fresh audit rehash.",
+      "Saved receipts and source attest sequential SIGKILL/wait and returned runtime scopes; no independent syscall, process-descendant or filesystem access trace exists. Final-open order is code-plus-receipt evidence, not a separate access monitor.",
+      "Seven refusal controls rely on unchanged inline assertions and successful workers, with stopped4rowDB corroboration. Individual exception/DB snapshots are absent except explicit version-mismatch snapshots.",
+      "Arrival recorder preserves attempt/data headers but does not persist a complete raw HTTP-header block or Authorization value. Request body hashes, models, attempt keys and dataset identity are independently reconciled; authentication testing is not claimed.",
+      "memory.peak endpoint and controller duration precede finally teardown; no complete-lifetime memory peak or dedicated teardown latency exists. Host CLI wall covers teardown and lifecycle but excludes separate preparation and audit.",
+      "436samples start after eager formatter initialization and stop before teardown. Samplemaximum is not truepeak; observer_read_seconds is measured file-read duration, not causal overhead.",
+      "No separate scorer invocation log; actual task default scoring retries2 remains unchanged and three final echoed members are observed. Synthetic provider token counts are not real token measurement.",
+      "Three latency observations do not establish a population tail, scaling behavior or comparative performance. No causal attribution of v1failure recovery to eager initialization alone; request-identity and initialization changed together.",
+      "Only two fixed crash boundaries, one trusted sequential owner and three allowance ceiling; no mid-provider/mid-scoring/power-loss/arbitrary schedule, concurrent owner, multi-session runtime, tenant authorization, idempotent external effects or production proof."
+    ],
+    "executed_auditor": {
+      "path": "reports/runs/20261105T044459Z/research-feasibility/independent-native-auditor.py",
+      "sha256": "1f0965ce7e1fd145fdc75650d0522501178acd2a2056a8fb9c2df799575f9c99"
+    },
+    "preserved_reviewer_schema_failure": {
+      "path": "reports/runs/20261105T044459Z/research-feasibility/independent-native-auditor-v1-schema-failure.json",
+      "sha256": "c1aa2e67605a2554b4d5aaaa4b809ee305f53521be86bc72ee636becf6dcaaf9",
+      "failed_helper_sha256": "f2ee0bb997ed331e1bbfee33e3e536683db94626de638ba9124fdd8f143b0d84",
+      "scope": "First saved-byte audit stopped on KeyError for absent review protocol_sha256 field. Corrected reviewer binding to actual frozen manifest host-file protocol digest; no freeze/criteria/raw edits or native rerun."
+    }
+  },
+  "prior_v1_failure_preserved": true,
+  "full_H3_H4_unmet": true,
+  "source_count_unchanged": 226,
+  "scope": "Genuine pinned runner/harness/client/scorer, deterministic loopback provider, one trusted owner; no real model/GPU/tenant/multiowner/general exactly-once/performance improvement or v1 rescue."
+}

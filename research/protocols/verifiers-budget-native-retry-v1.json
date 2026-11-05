@@ -1,0 +1,120 @@
+{
+  "id": "verifiers-budget-native-retry-v1",
+  "status": "separate_native_retry_and_physical_admission_intervention_not_frozen_or_executed",
+  "hypothesis": "H3/H4 finite native HTTP retry integration; full gates remain unmet",
+  "actual_caller": "Pinned Verifiers vf-run run_episodes -> Env.run_slot -> real NullHarness subprocess -> EvalClient loopback HTTP -> EchoTask echoed reward",
+  "source_head": "f5f5c9ace86b9720049cb6e98d05d14d77042486",
+  "source_repository": "https://github.com/PrimeIntellect-ai/verifiers",
+  "native_integration": "Opt-in outer logical reservation plus separate FULL-synchronous physical HTTP ledger at the same actual EvalClient loopback boundary; no upstream monkeypatch. Prior v2 worker reused unchanged; original run_episodes remains independently callable.",
+  "workload": {
+    "candidate_order": [
+      "fixture-bad",
+      "fixture-good",
+      "fixture-unused"
+    ],
+    "development_data": "experiments/fixtures/eval-budget-development.json",
+    "final_data": "experiments/fixtures/eval-budget-final.json",
+    "tasks_per_native_entry": 1,
+    "rollouts": 1,
+    "active_native_entries": 1,
+    "pending_entries": 0,
+    "native_retry_max": 0,
+    "sdk_retry_scope": "Unmodified actual NullHarness SDK retries each preregistered first503. Each of three entered logical attempts must send exactly two byte-identical provider bodies (503 then200). Durable global ceiling6 and per-logical-attempt ceiling2 do not renew when HTTP listeners or native workers restart. Every complete-body request submitted to admission, including denied/conflicting/failed requests, consumes a physical ordinal; admission limits do not cap inbound traffic or logs.",
+    "development_episode_and_scoring_reservations": 3,
+    "final_episode_and_scoring_reservations": 1,
+    "expected_actual_native_entries_and_scores": 3,
+    "expected_http_requests": 6,
+    "selection": "Largest completed development reward; attempt key ascending tie-break. Burned reservations do not enter score denominator.",
+    "fixed_denominator": "One native trace and one real echoed reward per completed episode. Expected development scores 0 and 1; final fixture score 1. These are fixture correctness values, not model quality.",
+    "http_arrival_ceiling": 6,
+    "expected_injected_503": 3,
+    "physical_per_attempt_ceiling": 2
+  },
+  "recovery": {
+    "processes": 3,
+    "forced_kills_and_reopens": 2,
+    "first_kill": "After native development completion and FULL-synchronous SQLite score receipt commit, before owner acknowledgement. Completed attempt is not rerun.",
+    "second_kill": "After the third development episode/scoring allowance is reserved, before native entry. On verified prior-owner death, burn it without refund or replay.",
+    "final_repeat": "Reject both an exact final replay and a new final attempt; reject late development after selection.",
+    "version_control": "Hash actual evaluator and runner bytes before reservations/native entry; reject a mismatched evaluator digest before changing the ledger. Bind the generated complete protocol hash and fixed limits to SQLite identity.",
+    "sealed_data_scope": "Separate public fixture file, opened by the worker only after winner commit. This is logical single-owner separation; it is not hidden benchmark data or an OS/adversarial sandbox."
+  },
+  "resources": {
+    "docker_image": "sha256:913a1fae777596f41b6b08562b95bfcf596d5ac99389976cb2e40609daa364e3",
+    "image_pull": false,
+    "external_network_during_suite": false,
+    "memory_bytes": 805306368,
+    "cpus": 1,
+    "pids": 64,
+    "tmpfs_bytes": 402653184,
+    "worker_deadline_seconds": 55,
+    "complete_container_deadline_seconds": 180,
+    "max_output_tokens_per_turn": 16,
+    "max_turns": 1,
+    "setup_rollout_finalize_scoring_timeout_seconds": [
+      15,
+      10,
+      5,
+      5
+    ],
+    "provider_request_body_limit_bytes": 16384
+  },
+  "acceptance": [
+    "All four immutable reservations survive both verified prior-process deaths; statuses completed/completed/burned/completed and rewards 0/1/null/1.",
+    "Exactly3actualnative episodes and3echoed score members; exactly6physical providerPOSTs ordered [503,200,503,200,503,200], eachattempt pair exactwirebodyhash and immutable attempt/data identity; all6admissions committed beforeresponse and no additional/refused nativearrival.",
+    "Version mismatch changes neither ledger nor provider count; exact replay, identity conflict, over-budget development, final repeat and late development are refused.",
+    "Winner committed before final-data read; no final observation is used to change candidates, budgets, evaluator or selection.",
+    "Three distinct worker PIDs, first two confirmed SIGKILL exits before next worker, third exit zero; all native runtime scopes closed at barriers.",
+    "No re-run or threshold/auditor repair on the same freeze. A failure remains failed. Independent saved-byte and stopped-database review precedes any acceptance claim.",
+    "Three separate HTTP listeners reopen the same physicalledger at counts0,2,4; phase snapshots2,4,6. SQLite retains all three503 spends and three200 spends without resets/refunds. Native over-budget rejection is not asserted; separate stdlibcontrols exercise cap/conflict/concurrentadmission refusals."
+  ],
+  "required_metrics": [
+    "Three deterministic completed episode/scoremembers out of3entered; sixphysicalcalls including3transientfailures; no real-modelqualityclaim",
+    "Completed useful native episodes divided by full suite wall time; fixed holds, process startup and restarts included",
+    "Each complete run_episodes latency, observed median and maximum/p95 convention on only three observations; full controller and host CLI scope separately",
+    "Whole-container cgroup memory.peak and sampled memory.current/pids.current at 100ms; no peak GPU claim",
+    "All HTTP request/response body bytes and hashes; excludes headers, TCP and local interception traffic",
+    "Observer read time, sample count and persisted artifact sizes; no causal observer-overhead comparison",
+    "Perattempt first503-to-second200 interval, byteidentity, persistedphysicalspend and three listener snapshots; no causalcomparison"
+  ],
+  "pre_execution_requirements": [
+    "Docker must be healthy and exact pinned source clean; no automatic desktop restart, GUI or purchase.",
+    "Recheck at least2147483648bytes of free host disk immediately before both package installation and harness-cache preparation, and stop on unmet floor. This is a prerequisite, not an explanation of the retained I/O failure.",
+    "Freeze generated protocol with actual source/code/data/main-package-lock and harness-lock hashes after independent exact review, before any native runner/provider/score call.",
+    "Run the complete controller once under network-none using only owned inputs, with no unrelated-workspace mount.",
+    "Reuse exact already authenticated main94/script35 composite environment and existing warmedcache; no environment isolation intervention or dependency re-resolution.",
+    "Preserve both failedv1 and acceptedv2 source/protocol/raw bytes; no unchangedrerun. Complete read-only current exact compositeenvironment verification and independent retry-source/test/freeze review before a single new scientificsuite. No dependency install/re-resolution or imagepull.",
+    "Current environment provenance must authenticate94main+35cachedscript distributions, exactsixselectedimports, and one existing /project frontier-savescope0.2.0 metadata entry (130total) under actualnative PYTHONPATH. Keep the initial129baseline comparator failure; no dependency install or environment isolation claimed."
+  ],
+  "linux_mount_contract": {
+    "/project": "This repository, read-only",
+    "/source": "Exact clean pinned Verifiers checkout, read-only",
+    "/env": "Owned94-package Linux dependency volume, read-only",
+    "/inputs": "Generated protocol.json and completed harness.lock/packages.lock, read-only",
+    "/output": "New owned isolated result directory, writable",
+    "/root/.cache": "Reuse alreadyauthenticated owned warmedcache volume frontier-vfrun-cache-v2-20261105t024419z,explicitvolume-nocopy; no dependencyre-resolution; noexternalnetwork",
+    "PYTHONPATH": "/project:/source:/source/tests/integration/fixtures:/env",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "UV_EXCLUDE_NEWER": "2026-11-04T00:00:00Z",
+    "entrypoint": "python /project/experiments/verifiers_budget_retry_suite.py controller /inputs/protocol.json /output/result",
+    "optimization": "Do not use python -O: acceptance assertions must remain enabled."
+  },
+  "limitations": [
+    "All provider behavior and usage tokens are deterministic fixtures; no real model, benchmark quality, paid service, GPU, distributed or production result.",
+    "Single trusted owner; recovery requires proof the prior owner is stopped. No concurrent-owner recovery, tenant authentication, hostile code isolation or external exactly-once guarantee.",
+    "Failure-close reservations may burn work and reduce availability. No refund or automatic retry of uncertain work.",
+    "Only two fixed crash boundaries: after committed completion and before native entry. No mid-provider, mid-scoring, power-loss or arbitrary-interleaving recovery claim.",
+    "Three development reservations bound this finite workload, not general history growth, scheduling capacity or performance improvement.",
+    "H3 full closed-evaluation gate and H4 remain unmet; H1 negative results/original5GiB endpoint and all H2 failures/closed finite gates remain unchanged.",
+    "The extra provider is still a fixture; injected503 is not an actual externalprovider incident. Only the endpoint fixture implements physical admission. A caller bypassing it is outside the contract. Inbound/denied logs are not resource-bounded by admittedcall count.",
+    "Reuse priorv2worker unchanged, including scorermax_retries2 and inline negativecontrols. Scoremembercount is not independent instrumentation of every scorerinvocation. No mid-provider/mid-scoringcrash, timeoutorpartialstream injection; HTTPlistenerreconstruction is graceful in one controllerprocess, not processdeath/powerloss.",
+    "Content-Length parsing and bounded body-read occur before receive and outside its receipt scope. Malformed framing/body-read timeout can remain unrecorded and uncharged; no general inbound-network or all-failure accounting claim. Fixed valid native requests must all reach the complete-body boundary."
+  ],
+  "intervention": {
+    "prior_accepted_slice": "results/verifiers-budget-native-v2/report.md",
+    "concrete_unverified_boundary": "Priorv2 had only three clean calls and no native retry. Episode admission alone does not account for physical SDK attempts, and an in-memory HTTP ordinal renews at listener reconstruction.",
+    "native_failure": "Return HTTP503 on first physical call for each completed attempt; genuine SDK must retry once with identical actual provider bytes and exact attempt/data headers. No fake client or simulated native result.",
+    "durable_physical_budget": "Store every admitted-boundary ordinal/body identity and prepared/written status in FULL-synchronous SQLite before response; reopen three listener/budget objects using same identity and ceiling. Global total6, perattempt2, no refunds.",
+    "rollback": "Use priorv2 or originalnative caller independently; no original protocol/results/code rewritten."
+  }
+}

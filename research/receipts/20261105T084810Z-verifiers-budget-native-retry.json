@@ -1,0 +1,6227 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-05T09:20:29.834200+00:00",
+  "kind": "finite_actual_native_retry_and_physical_admission_not_full_H3_H4",
+  "scientific_experiments": 1,
+  "no_same_freeze_retry": true,
+  "manifest_sha256": "5cf960bcbece3cdcd59325b6ec0793cb4d771305c03dee532e85e1e724764cc1",
+  "protocol_sha256": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab",
+  "freeze_review_sha256": "483848add149c0546d8cafcf69bdbed78a560cfba960d63dd737180ec0bdc04d",
+  "independent_audit_sha256": "dd5b72cfeca5d306a90f6cb7a26ead59017f347cb58240107c4df9206bb1b71f",
+  "execution": {
+    "started_at": "2026-11-05T09:14:53.739019+00:00",
+    "completed_at": "2026-11-05T09:15:50.111906+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "frontier-vfrun-retry-20261105t084810z",
+      "--pull",
+      "never",
+      "--network",
+      "none",
+      "--read-only",
+      "--memory",
+      "805306368",
+      "--cpus",
+      "1",
+      "--pids-limit",
+      "64",
+      "--tmpfs",
+      "/tmp:rw,size=402653184",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索,target=/project,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\local-state\\upstream\\verifiers-compaction-20261103T071243Z,target=/source,readonly",
+      "--mount",
+      "type=volume,source=frontier-vfrun-env-20261104t074015z,target=/env,readonly",
+      "--mount",
+      "type=volume,source=frontier-vfrun-cache-v2-20261105t024419z,target=/root/.cache,volume-nocopy",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T084810Z\\research-feasibility\\freeze,target=/inputs,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T084810Z\\research-feasibility\\native-output,target=/output",
+      "--env",
+      "PYTHONPATH=/project:/source:/source/tests/integration/fixtures:/env",
+      "--env",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "--env",
+      "UV_EXCLUDE_NEWER=2026-11-04T00:00:00Z",
+      "--env",
+      "FRONTIER_LOCAL_FIXTURE_KEY=local-deterministic-fixture-only",
+      "--entrypoint",
+      "python",
+      "sha256:913a1fae777596f41b6b08562b95bfcf596d5ac99389976cb2e40609daa364e3",
+      "/project/experiments/verifiers_budget_retry_suite.py",
+      "controller",
+      "/inputs/protocol.json",
+      "/output/result"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 56.37291379999806,
+    "stdout_sha256": "5f4c6ff12d339547aab95164965aac6a520921e1285c4b3b8af270cfd44081b7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "native_result": {
+    "burned_development": 1,
+    "completed_development": 2,
+    "delivered_200": 3,
+    "development_reservations": 3,
+    "final_reservations": 1,
+    "finite_scope": "actual native SDK transient retries; durable physical admission across three listeners and two worker reopens",
+    "fixture_final_reward": 1.0,
+    "fixture_initialization_seconds": 5.096842071998253,
+    "forced_kills": 2,
+    "injected_503": 3,
+    "limitations": [
+      "All provider behavior and usage tokens are deterministic fixtures; no real model, benchmark quality, paid service, GPU, distributed or production result.",
+      "Single trusted owner; recovery requires proof the prior owner is stopped. No concurrent-owner recovery, tenant authentication, hostile code isolation or external exactly-once guarantee.",
+      "Failure-close reservations may burn work and reduce availability. No refund or automatic retry of uncertain work.",
+      "Only two fixed crash boundaries: after committed completion and before native entry. No mid-provider, mid-scoring, power-loss or arbitrary-interleaving recovery claim.",
+      "Three development reservations bound this finite workload, not general history growth, scheduling capacity or performance improvement.",
+      "H3 full closed-evaluation gate and H4 remain unmet; H1 negative results/original5GiB endpoint and all H2 failures/closed finite gates remain unchanged.",
+      "The extra provider is still a fixture; injected503 is not an actual externalprovider incident. Only the endpoint fixture implements physical admission. A caller bypassing it is outside the contract. Inbound/denied logs are not resource-bounded by admittedcall count.",
+      "Reuse priorv2worker unchanged, including scorermax_retries2 and inline negativecontrols. Scoremembercount is not independent instrumentation of every scorerinvocation. No mid-provider/mid-scoringcrash, timeoutorpartialstream injection; HTTPlistenerreconstruction is graceful in one controllerprocess, not processdeath/powerloss.",
+      "Content-Length parsing and bounded body-read occur before receive and outside its receipt scope. Malformed framing/body-read timeout can remain unrecorded and uncharged; no general inbound-network or all-failure accounting claim. Fixed valid native requests must all reach the complete-body boundary."
+    ],
+    "memory_peak_cgroup_bytes": 555843584,
+    "native_episodes": 3,
+    "native_scores": 3,
+    "observer_read_seconds": 0.07439705306387623,
+    "processes": [
+      {
+        "forced_kill": true,
+        "phase": 1,
+        "pid": 29,
+        "returncode": -9
+      },
+      {
+        "forced_kill": true,
+        "phase": 2,
+        "pid": 74,
+        "returncode": -9
+      },
+      {
+        "forced_kill": false,
+        "phase": 3,
+        "pid": 112,
+        "returncode": 0
+      }
+    ],
+    "provider_requests": 6,
+    "request_body_bytes": 1570,
+    "response_body_bytes": 1200,
+    "status": "passed",
+    "suite_seconds": 54.42935979300091
+  },
+  "audit": {
+    "recorded_at": "2026-11-05T09:19:24.066902+00:00",
+    "status": "finite_native_retry_fixture_pass_confirmed",
+    "acceptance_claimed": true,
+    "acceptance_scope": "Only seven frozen finite deterministic native retry/admission criteria, one trusted owner. Full H3/H4 remain unmet.",
+    "full_H3_or_H4_acceptance_claimed": false,
+    "independent_saved_data_audit": true,
+    "integrity_checks_passed": 297,
+    "integrity_checks_total": 297,
+    "integrity_findings": [],
+    "findings": [],
+    "checks": [
+      {
+        "name": "stopped host rc0 with passed suite and no prior acceptance",
+        "passed": true
+      },
+      {
+        "name": "exact one scientific execution no retry",
+        "passed": true
+      },
+      {
+        "name": "native raw result host stdout exact",
+        "passed": true
+      },
+      {
+        "name": "native host stderr empty and bound",
+        "passed": true
+      },
+      {
+        "name": "exact preexecution manifest and review binding",
+        "passed": true
+      },
+      {
+        "name": "29 current host bound files",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/prepare_verifiers_budget_retry.py",
+        "passed": true
+      },
+      {
+        "name": "current:research/protocols/verifiers-budget-native-retry-v1.json",
+        "passed": true
+      },
+      {
+        "name": "current:tests/test_eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "name": "current:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "name": "current:pyproject.toml",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/dependency_links.txt",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/entry_points.txt",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/PKG-INFO",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/requires.txt",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/SOURCES.txt",
+        "passed": true
+      },
+      {
+        "name": "current:frontier_savescope.egg-info/top_level.txt",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-check.py",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-check-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-actual.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-provenance.py",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-provenance.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/environment-provenance-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/prefreeze-scope-clarification-before.json",
+        "passed": true
+      },
+      {
+        "name": "current:reports/runs/20261105T084810Z/research-feasibility/engineering-controls.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "v1host:experiments/verifiers_budget_suite.py",
+        "passed": true
+      },
+      {
+        "name": "v1host:experiments/prepare_verifiers_budget.py",
+        "passed": true
+      },
+      {
+        "name": "v1host:research/protocols/verifiers-budget-v1.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-preparation.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/corrected/preparation-result.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-warm-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/cache-check.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/cache-check-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/cache-check-reconciliation.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/correction-intent.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/correction-review.json",
+        "passed": true
+      },
+      {
+        "name": "v1host:reports/runs/20261105T024419Z/research-feasibility/unit-tests.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:experiments/prepare_verifiers_budget_v2.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:research/protocols/verifiers-budget-v2.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:tests/test_verifiers_budget_fixture_v2.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.py",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/environment-actual-v2.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/environment-comparator-correction.json",
+        "passed": true
+      },
+      {
+        "name": "v2host:reports/runs/20261105T044459Z/research-feasibility/engineering-controls.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/barrier-1.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-episode.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-request.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-response.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-request.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-response.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-receipts.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/resource-samples.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/result.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/version-refusal.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-start.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-start.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/barrier-1.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/barrier-2.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-bad-episode.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-bad-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-good-episode.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-good-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/final-once-episode.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/final-once-receipt.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/fixture-initialization.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-arrival.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-request.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-response.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-arrival.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-request.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-response.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-arrival.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-request.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-response.bin",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-receipts.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-bad/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-bad/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-good/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-good/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/final-once/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/final-once/traces.jsonl",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/resource-samples.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/result.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/selection.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-after.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-before.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-refusal.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-start.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-start.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-start.json",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-stderr.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-stdout.log",
+        "passed": true
+      },
+      {
+        "name": "priorraw:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-final.json",
+        "passed": true
+      },
+      {
+        "name": "exact prior raw64 file set",
+        "passed": true
+      },
+      {
+        "name": "prior v1 failed audit unchanged retained",
+        "passed": true
+      },
+      {
+        "name": "prior v2 accepted audit unchanged retained",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/inputs/harness.lock",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/inputs/packages.lock",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/experiments/prepare_verifiers_budget_retry.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/PKG-INFO",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/SOURCES.txt",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/dependency_links.txt",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/entry_points.txt",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/requires.txt",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/frontier_savescope.egg-info/top_level.txt",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/pyproject.toml",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/project/research/protocols/verifiers-budget-native-retry-v1.json",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/tests/integration/fixtures/echo.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/agent.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/cli/run.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/clients/eval.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/env.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/episode.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/harnesses/null/harness.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/harnesses/utils/launch.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/runtimes/backends/subprocess.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/runtimes/runtime.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/task.py",
+        "passed": true
+      },
+      {
+        "name": "frozen endpoint:/source/verifiers/v1/trace.py",
+        "passed": true
+      },
+      {
+        "name": "only two cache endpoints unavailable stopped",
+        "passed": true
+      },
+      {
+        "name": "launcher matches intent",
+        "passed": true
+      },
+      {
+        "name": "resource:--network",
+        "passed": true
+      },
+      {
+        "name": "resource:--pull",
+        "passed": true
+      },
+      {
+        "name": "resource:--memory",
+        "passed": true
+      },
+      {
+        "name": "resource:--cpus",
+        "passed": true
+      },
+      {
+        "name": "resource:--pids-limit",
+        "passed": true
+      },
+      {
+        "name": "resource:--tmpfs",
+        "passed": true
+      },
+      {
+        "name": "exact read-only image asserted entrypoint",
+        "passed": true
+      },
+      {
+        "name": "six owned mounts read-only inputs",
+        "passed": true
+      },
+      {
+        "name": "bounded full CLI wall no paid external models",
+        "passed": true
+      },
+      {
+        "name": "saved exact stopped container absence",
+        "passed": true
+      },
+      {
+        "name": "environment unchanged94 main35 six imports",
+        "passed": true
+      },
+      {
+        "name": "current130 provenance distinct one existing project",
+        "passed": true
+      },
+      {
+        "name": "old129 comparator failure retained no installation",
+        "passed": true
+      },
+      {
+        "name": "no journal companions:budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "stopped integrity and no mutation:budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "logical exact protocol identity and winner",
+        "passed": true
+      },
+      {
+        "name": "four immutable logical reservations outcomes",
+        "passed": true
+      },
+      {
+        "name": "reserved dataset:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "reserved dataset:dev-good",
+        "passed": true
+      },
+      {
+        "name": "reserved dataset:dev-uncertain",
+        "passed": true
+      },
+      {
+        "name": "reserved dataset:final-once",
+        "passed": true
+      },
+      {
+        "name": "burned no score or receipt",
+        "passed": true
+      },
+      {
+        "name": "final snapshot exact stopped database",
+        "passed": true
+      },
+      {
+        "name": "version refusal unchanged previous completed state",
+        "passed": true
+      },
+      {
+        "name": "one exact clean native episode:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual receipt echoed score DB hash:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual frozen EchoTask input:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual two native exchanges first503 then success:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "exact consumed two native message nodes:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "fixed native workload and retry limits:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact frozen header and timeout:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "native timing through actual scoring:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "one exact clean native episode:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual receipt echoed score DB hash:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual frozen EchoTask input:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual two native exchanges first503 then success:dev-good",
+        "passed": true
+      },
+      {
+        "name": "exact consumed two native message nodes:dev-good",
+        "passed": true
+      },
+      {
+        "name": "fixed native workload and retry limits:dev-good",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact frozen header and timeout:dev-good",
+        "passed": true
+      },
+      {
+        "name": "native timing through actual scoring:dev-good",
+        "passed": true
+      },
+      {
+        "name": "one exact clean native episode:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual receipt echoed score DB hash:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual frozen EchoTask input:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual native NullHarness subprocess:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual two native exchanges first503 then success:final-once",
+        "passed": true
+      },
+      {
+        "name": "exact consumed two native message nodes:final-once",
+        "passed": true
+      },
+      {
+        "name": "fixed native workload and retry limits:final-once",
+        "passed": true
+      },
+      {
+        "name": "actual EvalClient exact frozen header and timeout:final-once",
+        "passed": true
+      },
+      {
+        "name": "native timing through actual scoring:final-once",
+        "passed": true
+      },
+      {
+        "name": "three distinct native trace and run identities",
+        "passed": true
+      },
+      {
+        "name": "no journal companions:http-budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "stopped integrity and no mutation:http-budget.sqlite",
+        "passed": true
+      },
+      {
+        "name": "physical exact canonical protocol identity ceiling",
+        "passed": true
+      },
+      {
+        "name": "six actual physical requests fixed order503200",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:1",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:1",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:1",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:1",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:1",
+        "passed": true
+      },
+      {
+        "name": "injected exact first503 JSON:1",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:1",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:2",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:2",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:2",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:2",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:2",
+        "passed": true
+      },
+      {
+        "name": "complete final200 SSE then DONE:2",
+        "passed": true
+      },
+      {
+        "name": "SSE exact consumed native content:2",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:2",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:3",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:3",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:3",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:3",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:3",
+        "passed": true
+      },
+      {
+        "name": "injected exact first503 JSON:3",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:3",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:4",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:4",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:4",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:4",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:4",
+        "passed": true
+      },
+      {
+        "name": "complete final200 SSE then DONE:4",
+        "passed": true
+      },
+      {
+        "name": "SSE exact consumed native content:4",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:4",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:5",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:5",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:5",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:5",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:5",
+        "passed": true
+      },
+      {
+        "name": "injected exact first503 JSON:5",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:5",
+        "passed": true
+      },
+      {
+        "name": "arrival receipt exact:6",
+        "passed": true
+      },
+      {
+        "name": "all physical wire bytes complete bound:6",
+        "passed": true
+      },
+      {
+        "name": "physical SQLite exact spent delivered row:6",
+        "passed": true
+      },
+      {
+        "name": "arrival immutable request identity:6",
+        "passed": true
+      },
+      {
+        "name": "native wire exact frozen prompt sampling:6",
+        "passed": true
+      },
+      {
+        "name": "complete final200 SSE then DONE:6",
+        "passed": true
+      },
+      {
+        "name": "SSE exact consumed native content:6",
+        "passed": true
+      },
+      {
+        "name": "request response finished timestamp order:6",
+        "passed": true
+      },
+      {
+        "name": "retry pair exact bytes and identity:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "retry pair exact bytes and identity:dev-good",
+        "passed": true
+      },
+      {
+        "name": "retry pair exact bytes and identity:final-once",
+        "passed": true
+      },
+      {
+        "name": "three listeners exact before counts0 2 4",
+        "passed": true
+      },
+      {
+        "name": "physical restart exact prefix before/after:1",
+        "passed": true
+      },
+      {
+        "name": "actual client binds phase listener:dev-bad",
+        "passed": true
+      },
+      {
+        "name": "physical restart exact prefix before/after:2",
+        "passed": true
+      },
+      {
+        "name": "actual client binds phase listener:dev-good",
+        "passed": true
+      },
+      {
+        "name": "physical restart exact prefix before/after:3",
+        "passed": true
+      },
+      {
+        "name": "actual client binds phase listener:final-once",
+        "passed": true
+      },
+      {
+        "name": "no physical handling in version refusal interval",
+        "passed": true
+      },
+      {
+        "name": "body sums exact counters",
+        "passed": true
+      },
+      {
+        "name": "three distinct actual workers recover0 0 1",
+        "passed": true
+      },
+      {
+        "name": "two SIGKILL exits before third zero",
+        "passed": true
+      },
+      {
+        "name": "two exact fixed barrier receipts",
+        "passed": true
+      },
+      {
+        "name": "selection before final data receipt and independent winner",
+        "passed": true
+      },
+      {
+        "name": "unchanged v2 worker exact original",
+        "passed": true
+      },
+      {
+        "name": "native entry reservation complete barrier and winner order",
+        "passed": true
+      },
+      {
+        "name": "kill wait exact sequential source listener joins",
+        "passed": true
+      },
+      {
+        "name": "pre-admission unrecorded framing limitation frozen",
+        "passed": true
+      },
+      {
+        "name": "initialization positive included before listen",
+        "passed": true
+      },
+      {
+        "name": "ordered resource samples within limits",
+        "passed": true
+      },
+      {
+        "name": "cgroup peak above samplemax below cap",
+        "passed": true
+      },
+      {
+        "name": "observer scope less than suite and host wall",
+        "passed": true
+      },
+      {
+        "name": "complete exact56 output file set no extra native or HTTP artifact",
+        "passed": true
+      },
+      {
+        "name": "native counter claims reconciled",
+        "passed": true
+      },
+      {
+        "name": "all output bytes unchanged during audit",
+        "passed": true
+      }
+    ],
+    "bindings": {
+      "native-host-result.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/native-host-result.json",
+        "bytes": 3437,
+        "sha256": "b4ab68f33d7af8a3f2b984d378b20631178a3145e8d90c3b790c3d6afe175dc7"
+      },
+      "native-execution-receipt.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/native-execution-receipt.json",
+        "bytes": 2139,
+        "sha256": "f3c2462baef3fb36da9fcf88b0fe42a744dbe4ebd8df8b6c1efe70176ddfec57"
+      },
+      "native-execution-intent.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/native-execution-intent.json",
+        "bytes": 2236,
+        "sha256": "32799483c3bf4a5878d8a305678692ec8349fad2fedd3252e2b96c5541e9899b"
+      },
+      "execution-manifest.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/execution-manifest.json",
+        "bytes": 22820,
+        "sha256": "5cf960bcbece3cdcd59325b6ec0793cb4d771305c03dee532e85e1e724764cc1"
+      },
+      "independent-freeze-review.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/independent-freeze-review.json",
+        "bytes": 34503,
+        "sha256": "483848add149c0546d8cafcf69bdbed78a560cfba960d63dd737180ec0bdc04d"
+      },
+      "independent-code-review.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/independent-code-review.json",
+        "bytes": 5452,
+        "sha256": "aee714e526bf83a0dfb1c192d5801c0321844e3b6c336a686825a12bed4f3e5e"
+      },
+      "freeze/protocol.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/freeze/protocol.json",
+        "bytes": 16594,
+        "sha256": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab"
+      },
+      "freeze/packages.lock": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/freeze/packages.lock",
+        "bytes": 218454,
+        "sha256": "0a52948ebcfc23f2dfe24c196eb3e52cbe5dc1b1014f708c54df68bf5aa49ebe"
+      },
+      "freeze/harness.lock": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/freeze/harness.lock",
+        "bytes": 257637,
+        "sha256": "1a25b155629bda996cc7b4e67fc448541e2419d876cb4d20d75d13f277fddaaa"
+      },
+      "owned-container-readback-receipt.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/owned-container-readback-receipt.json",
+        "bytes": 496,
+        "sha256": "f9ac3a25b85eecc1bc950a20490cf7a7cc4d973aaad7d3bad4a556e418daaf0c"
+      },
+      "owned-container-readback-stdout.log": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/owned-container-readback-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "owned-container-readback-stderr.log": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/owned-container-readback-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native-execution-stdout.log": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/native-execution-stdout.log",
+        "bytes": 2629,
+        "sha256": "5f4c6ff12d339547aab95164965aac6a520921e1285c4b3b8af270cfd44081b7"
+      },
+      "native-execution-stderr.log": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/native-execution-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "run-native.py": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/run-native.py",
+        "bytes": 4672,
+        "sha256": "b0e9b16e9cad7ee17826d58990e5dde658882c251e904efa1abd3202c969ed71"
+      },
+      "environment-provenance.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/environment-provenance.json",
+        "bytes": 31128,
+        "sha256": "eac7729ff6e42355d5b9e32027949d2f53ef8163c5dab2d1730ecb0ce80ef495"
+      },
+      "environment-provenance-receipt.json": {
+        "path": "reports/runs/20261105T084810Z/research-feasibility/environment-provenance-receipt.json",
+        "bytes": 2034,
+        "sha256": "0e2b2dd552658f23e033ad1c8a45e6e8aadfd168cc537d80d0c510b27e72813f"
+      }
+    },
+    "native_output_root": "reports/runs/20261105T084810Z/research-feasibility/native-output",
+    "complete_native_output_file_manifest": [
+      {
+        "path": "result/barrier-1.json",
+        "bytes": 82,
+        "sha256": "0000981d828a3bad7e5e6c09ab1ec4f838c9802eea8b696c835fd8aad034a758"
+      },
+      {
+        "path": "result/barrier-2.json",
+        "bytes": 73,
+        "sha256": "56bce624394e32a8cb5d4110f3f0e4552c4b0eb87fca6ca76d32b9f8a0fb131d"
+      },
+      {
+        "path": "result/budget.sqlite",
+        "bytes": 20480,
+        "sha256": "37881d6aaf0832c2f1d9d3254f5cea586cf2c28263a9c89d9c049c8902421cc6"
+      },
+      {
+        "path": "result/dev-bad-episode.json",
+        "bytes": 4455,
+        "sha256": "32fa4698671159c52628d9bcfb5b0c81eba07d1cdfebddb3c9f236a88d044e05"
+      },
+      {
+        "path": "result/dev-bad-receipt.json",
+        "bytes": 188,
+        "sha256": "d9c6f5760a4534d0fdd4d5b07faa4b7d5263cf69b7d09635e7d55dc38f1909b4"
+      },
+      {
+        "path": "result/dev-good-episode.json",
+        "bytes": 4446,
+        "sha256": "f45f5e14ce565823864021e989d39b0232ace0cf07931e96bb6248c11768b4d8"
+      },
+      {
+        "path": "result/dev-good-receipt.json",
+        "bytes": 191,
+        "sha256": "7797dc9274284931ca30779bad1bb45aee4f22db2ca7d4bd60125db8fc574ee8"
+      },
+      {
+        "path": "result/final-once-episode.json",
+        "bytes": 4458,
+        "sha256": "52f6daed2fe9a62883790519157cbd5b168b581f9526fc0116c5fde03bf1faab"
+      },
+      {
+        "path": "result/final-once-receipt.json",
+        "bytes": 192,
+        "sha256": "6c75191282dae34e1d7fff0849bc8e4db21d83f6378df731971aa618763f9157"
+      },
+      {
+        "path": "result/fixture-initialization.json",
+        "bytes": 51,
+        "sha256": "ad9b845d9151307884a652896a8fca95f8b2b15f95a4b6311cda474ea8915d03"
+      },
+      {
+        "path": "result/http-1-arrival.json",
+        "bytes": 738,
+        "sha256": "9565b685018070cbdc855a94d483a15dd8b30052d27db3afc50bb55829659e20"
+      },
+      {
+        "path": "result/http-1-request.bin",
+        "bytes": 261,
+        "sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+      },
+      {
+        "path": "result/http-1-response.bin",
+        "bytes": 85,
+        "sha256": "54d97309a2aaa513fab91c38eeb33ce549d010aa1270d15b5d9075078979a614"
+      },
+      {
+        "path": "result/http-2-arrival.json",
+        "bytes": 713,
+        "sha256": "945426a6bdeae1abee97269e8893ecd0819c90a5197953465651e6ecd07d4fde"
+      },
+      {
+        "path": "result/http-2-request.bin",
+        "bytes": 261,
+        "sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+      },
+      {
+        "path": "result/http-2-response.bin",
+        "bytes": 319,
+        "sha256": "29afb8c48e669b845aae43d9017065e46caa40710890ba46fa95774971abce61"
+      },
+      {
+        "path": "result/http-3-arrival.json",
+        "bytes": 740,
+        "sha256": "d06d6af05fbc23e4e28aef732e3eea6795ca124a3f330ed45247669df0f1b938"
+      },
+      {
+        "path": "result/http-3-request.bin",
+        "bytes": 262,
+        "sha256": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7"
+      },
+      {
+        "path": "result/http-3-response.bin",
+        "bytes": 85,
+        "sha256": "54d97309a2aaa513fab91c38eeb33ce549d010aa1270d15b5d9075078979a614"
+      },
+      {
+        "path": "result/http-4-arrival.json",
+        "bytes": 715,
+        "sha256": "a66735c90d25b7bc2112f65a8616792528301ae5cb58224f303eb9887f3d6a0d"
+      },
+      {
+        "path": "result/http-4-request.bin",
+        "bytes": 262,
+        "sha256": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7"
+      },
+      {
+        "path": "result/http-4-response.bin",
+        "bytes": 313,
+        "sha256": "477c3603564e9d5ecbc38d87c3254223eb317480a63c6d915821059de3c00b68"
+      },
+      {
+        "path": "result/http-5-arrival.json",
+        "bytes": 744,
+        "sha256": "bbb94c85b14c553e58317cf29f2998f3b22d588e5347ef2e1351bb6a1c7b9fce"
+      },
+      {
+        "path": "result/http-5-request.bin",
+        "bytes": 262,
+        "sha256": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a"
+      },
+      {
+        "path": "result/http-5-response.bin",
+        "bytes": 85,
+        "sha256": "54d97309a2aaa513fab91c38eeb33ce549d010aa1270d15b5d9075078979a614"
+      },
+      {
+        "path": "result/http-6-arrival.json",
+        "bytes": 719,
+        "sha256": "9d82d6562fd6c89598cb1d6c923eeba59d004e403f0efffb835ddc60b3faf753"
+      },
+      {
+        "path": "result/http-6-request.bin",
+        "bytes": 262,
+        "sha256": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a"
+      },
+      {
+        "path": "result/http-6-response.bin",
+        "bytes": 313,
+        "sha256": "43027b11c567cc48748731166962cfd4e7a16bbfbf52b7883e17ea35d425cb63"
+      },
+      {
+        "path": "result/http-budget-phase-1.json",
+        "bytes": 544,
+        "sha256": "e999762c239c7b45fdb8ba3db4b9f63c182dd32dbc45847b8f8a317778d5f10b"
+      },
+      {
+        "path": "result/http-budget-phase-2.json",
+        "bytes": 954,
+        "sha256": "4745a3ec8982d4f87bfdc576173cea477fe86fdb1bd91cb744a01475c3cc4802"
+      },
+      {
+        "path": "result/http-budget-phase-3.json",
+        "bytes": 1368,
+        "sha256": "85521214c0b951607f98e86767176a9ad1ec3c6a1c3ca3f4ad822ef73e7e8b17"
+      },
+      {
+        "path": "result/http-budget.sqlite",
+        "bytes": 16384,
+        "sha256": "54956d5d75c19ea599b433a4dd12ba80e08d9287fa1298f9f920482774d0e9fd"
+      },
+      {
+        "path": "result/http-receipts.json",
+        "bytes": 4371,
+        "sha256": "1f02ea44e5352604d68b11df542b5996849806e03802b5cf71f4230017059ec3"
+      },
+      {
+        "path": "result/listener-restarts.json",
+        "bytes": 1739,
+        "sha256": "c523c4e555a3a7c53906a9ac3bf743d8ad86aae2e9bdfd93662e6e09985c05d5"
+      },
+      {
+        "path": "result/native/dev-bad/configs/resolved/run.json",
+        "bytes": 2424,
+        "sha256": "6508fa83bf2196009d48a22446f0fdd36bee53216cc6907f55a7ba2103b2c4f8"
+      },
+      {
+        "path": "result/native/dev-bad/traces.jsonl",
+        "bytes": 4456,
+        "sha256": "47feb4ce2d29e46f0a039e4bb2953656ad7fda75d1b623018a0fbf9efac62bf3"
+      },
+      {
+        "path": "result/native/dev-good/configs/resolved/run.json",
+        "bytes": 2428,
+        "sha256": "e345cf8ea683ae35129cf1e6d390a4c8ff3534b67636e3bfa913924d149b1548"
+      },
+      {
+        "path": "result/native/dev-good/traces.jsonl",
+        "bytes": 4447,
+        "sha256": "dc61b7d2ff51ebf6f5bd15aca2e95e81a0e14c68dd39327b6277d6ba24cc9625"
+      },
+      {
+        "path": "result/native/final-once/configs/resolved/run.json",
+        "bytes": 2434,
+        "sha256": "5cbff3ee6da3271c2ee2faa832ece8c355a8fc2289d5820851509952c9f20a37"
+      },
+      {
+        "path": "result/native/final-once/traces.jsonl",
+        "bytes": 4459,
+        "sha256": "e6aa00868724340b987b7ef8543c9a1623380e60f29dd47250acc192264b3e79"
+      },
+      {
+        "path": "result/resource-samples.json",
+        "bytes": 35358,
+        "sha256": "0c57526a8856190d24b8bf51bfcd6e9dd210ef72cbb422fe1075628847ccdcd5"
+      },
+      {
+        "path": "result/result.json",
+        "bytes": 2629,
+        "sha256": "5f4c6ff12d339547aab95164965aac6a520921e1285c4b3b8af270cfd44081b7"
+      },
+      {
+        "path": "result/selection.json",
+        "bytes": 95,
+        "sha256": "aa1e83d91e0e30fe9d29d226f98e317fc9766bbc7bc67cdbc079e96ec37bf132"
+      },
+      {
+        "path": "result/version-after.json",
+        "bytes": 521,
+        "sha256": "18881e96758f7e9c8c928ac46a70e1b0a4b6f08093fddaa2e43d63694c04f326"
+      },
+      {
+        "path": "result/version-before.json",
+        "bytes": 521,
+        "sha256": "18881e96758f7e9c8c928ac46a70e1b0a4b6f08093fddaa2e43d63694c04f326"
+      },
+      {
+        "path": "result/version-refusal.json",
+        "bytes": 127,
+        "sha256": "8f7736277dff2bfc8ccb8c3c6be7cbc09542f92b31387a49004114323884a73f"
+      },
+      {
+        "path": "result/worker-1-start.json",
+        "bytes": 22,
+        "sha256": "2c6c228ec162cb64cfb0a7afa04d865c332430befe9891a61d9b22d2b407cc9c"
+      },
+      {
+        "path": "result/worker-1-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-1-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-2-start.json",
+        "bytes": 22,
+        "sha256": "0c1940b63cb2b3421f1f81763262ecc5d002ee93448541b75d539cb8548f61e1"
+      },
+      {
+        "path": "result/worker-2-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-2-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-3-start.json",
+        "bytes": 23,
+        "sha256": "1cae05c36cdec64dccd829ddf8aa6c0ef484bdf95f8077fb01b94b9569daaf30"
+      },
+      {
+        "path": "result/worker-3-stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-3-stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "result/worker-final.json",
+        "bytes": 1531,
+        "sha256": "6b25f2aff6fa9573a10f65e3837f148d74d34a3fbfd16f89ea1ed101decab43f"
+      }
+    ],
+    "complete_native_output_manifest_sha256": "91a756f5981dd4bcac1044cd0d9febffc1dddee380e165df528776ede9c0628a",
+    "frozen_accessible_version_endpoints_rehashed": [
+      "/inputs/harness.lock",
+      "/inputs/packages.lock",
+      "/project/experiments/eval_budget_runner.py",
+      "/project/experiments/eval_http_budget.py",
+      "/project/experiments/prepare_verifiers_budget_retry.py",
+      "/project/experiments/verifiers_budget_retry_suite.py",
+      "/project/experiments/verifiers_budget_suite_v2.py",
+      "/project/frontier_savescope.egg-info/PKG-INFO",
+      "/project/frontier_savescope.egg-info/SOURCES.txt",
+      "/project/frontier_savescope.egg-info/dependency_links.txt",
+      "/project/frontier_savescope.egg-info/entry_points.txt",
+      "/project/frontier_savescope.egg-info/requires.txt",
+      "/project/frontier_savescope.egg-info/top_level.txt",
+      "/project/pyproject.toml",
+      "/project/research/protocols/verifiers-budget-native-retry-v1.json",
+      "/source/tests/integration/fixtures/echo.py",
+      "/source/verifiers/v1/agent.py",
+      "/source/verifiers/v1/cli/run.py",
+      "/source/verifiers/v1/clients/eval.py",
+      "/source/verifiers/v1/env.py",
+      "/source/verifiers/v1/episode.py",
+      "/source/verifiers/v1/harnesses/null/harness.py",
+      "/source/verifiers/v1/harnesses/utils/launch.py",
+      "/source/verifiers/v1/runtimes/backends/subprocess.py",
+      "/source/verifiers/v1/runtimes/runtime.py",
+      "/source/verifiers/v1/task.py",
+      "/source/verifiers/v1/trace.py"
+    ],
+    "frozen_cache_endpoints_not_reopened": [
+      "/root/.cache/verifiers/runtimes/scripts/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6.py",
+      "/root/.cache/verifiers/runtimes/scripts/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6.py.lock"
+    ],
+    "v1_preservation": {
+      "host_files_rehashed": 20,
+      "raw_files_rehashed": 22,
+      "failed_audit_sha256": "ebb33fad1e9469702be3dc17266cf40892159329f580a04d28d89f108017c4cc",
+      "failed_experiment_retained": true
+    },
+    "v2_preservation": {
+      "host_files_rehashed": 18,
+      "raw_files_rehashed": 42,
+      "accepted_audit_sha256": "de8ad6048423034ce4aa69b21c43a5b00845dfcb97144b23d164e447c4560711",
+      "accepted_experiment_retained": true
+    },
+    "sqlite": {
+      "opened": "mode=ro&immutable=1",
+      "bytes_sha256_unchanged": "37881d6aaf0832c2f1d9d3254f5cea586cf2c28263a9c89d9c049c8902421cc6",
+      "integrity_check": [
+        "ok"
+      ],
+      "metadata": {
+        "identity": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab",
+        "development_limit": "3",
+        "winner": "fixture-good"
+      },
+      "schema": [
+        {
+          "name": "attempts",
+          "sql": "CREATE TABLE attempts(\n                key TEXT PRIMARY KEY, phase TEXT NOT NULL, model TEXT NOT NULL,\n                data_hash TEXT NOT NULL, status TEXT NOT NULL,\n                reward REAL, receipt TEXT)"
+        },
+        {
+          "name": "metadata",
+          "sql": "CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+        }
+      ],
+      "journal_mode": "delete",
+      "no_mutation_by_auditor": true,
+      "attempts": [
+        {
+          "key": "dev-bad",
+          "phase": "development",
+          "model": "fixture-bad",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "completed",
+          "reward": 0.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"32fa4698671159c52628d9bcfb5b0c81eba07d1cdfebddb3c9f236a88d044e05\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":4.449829115998,\"score_members\":[\"echoed\"]}"
+        },
+        {
+          "key": "dev-good",
+          "phase": "development",
+          "model": "fixture-good",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "completed",
+          "reward": 1.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"f45f5e14ce565823864021e989d39b0232ace0cf07931e96bb6248c11768b4d8\",\"num_turns\":1,\"reward\":1.0,\"runner_seconds\":5.203656434001459,\"score_members\":[\"echoed\"]}"
+        },
+        {
+          "key": "dev-uncertain",
+          "phase": "development",
+          "model": "fixture-unused",
+          "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+          "status": "burned",
+          "reward": null,
+          "receipt": null
+        },
+        {
+          "key": "final-once",
+          "phase": "final",
+          "model": "fixture-good",
+          "data_hash": "a03e29410b5969aa06798e9f6872e151a0f7052e71d18d33a112ef0d2a63c9de",
+          "status": "completed",
+          "reward": 1.0,
+          "receipt": "{\"denominator\":1,\"episode_sha256\":\"52f6daed2fe9a62883790519157cbd5b168b581f9526fc0116c5fde03bf1faab\",\"num_turns\":1,\"reward\":1.0,\"runner_seconds\":3.9092636599998514,\"score_members\":[\"echoed\"]}"
+        }
+      ]
+    },
+    "physical_sqlite": {
+      "opened": "mode=ro&immutable=1",
+      "bytes_sha256_unchanged": "54956d5d75c19ea599b433a4dd12ba80e08d9287fa1298f9f920482774d0e9fd",
+      "integrity_check": [
+        "ok"
+      ],
+      "metadata": {
+        "identity": "763e4a1fa31e718cc3b1fe07177ad3007c69ce67d7d798e8d9d2b5f39c718787",
+        "total": "6",
+        "per_attempt": "2"
+      },
+      "schema": [
+        {
+          "name": "arrivals",
+          "sql": "CREATE TABLE arrivals(\n                    seq INTEGER PRIMARY KEY, attempt TEXT NOT NULL, body_hash TEXT NOT NULL,\n                    admitted INTEGER NOT NULL, reason TEXT NOT NULL, attempt_ordinal INTEGER NOT NULL,\n                    response_status INTEGER, write_completed INTEGER NOT NULL DEFAULT 0)"
+        },
+        {
+          "name": "metadata",
+          "sql": "CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL)"
+        }
+      ],
+      "journal_mode": "delete",
+      "no_mutation_by_auditor": true,
+      "arrivals": [
+        {
+          "seq": 1,
+          "attempt": "dev-bad",
+          "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 1,
+          "response_status": 503,
+          "write_completed": 1
+        },
+        {
+          "seq": 2,
+          "attempt": "dev-bad",
+          "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 2,
+          "response_status": 200,
+          "write_completed": 1
+        },
+        {
+          "seq": 3,
+          "attempt": "dev-good",
+          "body_hash": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 1,
+          "response_status": 503,
+          "write_completed": 1
+        },
+        {
+          "seq": 4,
+          "attempt": "dev-good",
+          "body_hash": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 2,
+          "response_status": 200,
+          "write_completed": 1
+        },
+        {
+          "seq": 5,
+          "attempt": "final-once",
+          "body_hash": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 1,
+          "response_status": 503,
+          "write_completed": 1
+        },
+        {
+          "seq": 6,
+          "attempt": "final-once",
+          "body_hash": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a",
+          "admitted": 1,
+          "reason": "admitted",
+          "attempt_ordinal": 2,
+          "response_status": 200,
+          "write_completed": 1
+        }
+      ]
+    },
+    "listener_restarts": [
+      {
+        "before": {
+          "arrivals": [],
+          "metadata": {
+            "identity": "763e4a1fa31e718cc3b1fe07177ad3007c69ce67d7d798e8d9d2b5f39c718787",
+            "per_attempt": "2",
+            "total": "6"
+          }
+        },
+        "phase": 1,
+        "port": 41663
+      },
+      {
+        "before": {
+          "arrivals": [
+            {
+              "admitted": 1,
+              "attempt": "dev-bad",
+              "attempt_ordinal": 1,
+              "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+              "reason": "admitted",
+              "response_status": 503,
+              "seq": 1,
+              "write_completed": 1
+            },
+            {
+              "admitted": 1,
+              "attempt": "dev-bad",
+              "attempt_ordinal": 2,
+              "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+              "reason": "admitted",
+              "response_status": 200,
+              "seq": 2,
+              "write_completed": 1
+            }
+          ],
+          "metadata": {
+            "identity": "763e4a1fa31e718cc3b1fe07177ad3007c69ce67d7d798e8d9d2b5f39c718787",
+            "per_attempt": "2",
+            "total": "6"
+          }
+        },
+        "phase": 2,
+        "port": 39379
+      },
+      {
+        "before": {
+          "arrivals": [
+            {
+              "admitted": 1,
+              "attempt": "dev-bad",
+              "attempt_ordinal": 1,
+              "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+              "reason": "admitted",
+              "response_status": 503,
+              "seq": 1,
+              "write_completed": 1
+            },
+            {
+              "admitted": 1,
+              "attempt": "dev-bad",
+              "attempt_ordinal": 2,
+              "body_hash": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7",
+              "reason": "admitted",
+              "response_status": 200,
+              "seq": 2,
+              "write_completed": 1
+            },
+            {
+              "admitted": 1,
+              "attempt": "dev-good",
+              "attempt_ordinal": 1,
+              "body_hash": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7",
+              "reason": "admitted",
+              "response_status": 503,
+              "seq": 3,
+              "write_completed": 1
+            },
+            {
+              "admitted": 1,
+              "attempt": "dev-good",
+              "attempt_ordinal": 2,
+              "body_hash": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7",
+              "reason": "admitted",
+              "response_status": 200,
+              "seq": 4,
+              "write_completed": 1
+            }
+          ],
+          "metadata": {
+            "identity": "763e4a1fa31e718cc3b1fe07177ad3007c69ce67d7d798e8d9d2b5f39c718787",
+            "per_attempt": "2",
+            "total": "6"
+          }
+        },
+        "phase": 3,
+        "port": 34301
+      }
+    ],
+    "version_refusal": {
+      "before": {
+        "attempts": [
+          {
+            "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+            "key": "dev-bad",
+            "model": "fixture-bad",
+            "phase": "development",
+            "receipt": "{\"denominator\":1,\"episode_sha256\":\"32fa4698671159c52628d9bcfb5b0c81eba07d1cdfebddb3c9f236a88d044e05\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":4.449829115998,\"score_members\":[\"echoed\"]}",
+            "reward": 0.0,
+            "status": "completed"
+          }
+        ],
+        "metadata": {
+          "development_limit": "3",
+          "identity": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab"
+        }
+      },
+      "after": {
+        "attempts": [
+          {
+            "data_hash": "56eda8faac92221878cdd0fa33540276e3e09e62c17e35490ebcf0a0b54c5765",
+            "key": "dev-bad",
+            "model": "fixture-bad",
+            "phase": "development",
+            "receipt": "{\"denominator\":1,\"episode_sha256\":\"32fa4698671159c52628d9bcfb5b0c81eba07d1cdfebddb3c9f236a88d044e05\",\"num_turns\":1,\"reward\":0.0,\"runner_seconds\":4.449829115998,\"score_members\":[\"echoed\"]}",
+            "reward": 0.0,
+            "status": "completed"
+          }
+        ],
+        "metadata": {
+          "development_limit": "3",
+          "identity": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab"
+        }
+      },
+      "refusal": {
+        "after_monotonic": 26270.342380564,
+        "before_monotonic": 26270.276831449,
+        "ledger_unchanged": true,
+        "native_calls": 0,
+        "refused": true
+      },
+      "overlapping_provider_requests": 0
+    },
+    "environment_provenance": {
+      "main_count": 94,
+      "script_count": 35,
+      "current_metadata_count": 130,
+      "project_metadata_count": 1,
+      "selected_imports": {
+        "openai": {
+          "path": "/env/openai/__init__.py",
+          "version": "2.54.0"
+        },
+        "pydantic": {
+          "path": "/env/pydantic/__init__.py",
+          "version": "2.13.4"
+        },
+        "httpx": {
+          "path": "/env/httpx/__init__.py",
+          "version": "0.28.1"
+        },
+        "httpx2": {
+          "path": "/env/httpx2/__init__.py",
+          "version": "2.12.0"
+        },
+        "mcp": {
+          "path": "/env/mcp/__init__.py",
+          "version": null
+        },
+        "verifiers": {
+          "path": "/source/verifiers/__init__.py",
+          "version": "0.0.0+unknown"
+        }
+      },
+      "provenance_sha256": "eac7729ff6e42355d5b9e32027949d2f53ef8163c5dab2d1730ecb0ce80ef495",
+      "old129_comparator_failure_preserved": true,
+      "installation": false
+    },
+    "observed_counts": {
+      "scientific_attempts": 1,
+      "execution_attempts": 1,
+      "native_entries": 3,
+      "completed_native_episodes": 3,
+      "native_traces": 3,
+      "completed_native_score_members": 3,
+      "completed_rewards": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "development_reservations": 3,
+      "completed_development": 2,
+      "burned_reservations": 1,
+      "final_reservations": 1,
+      "outstanding_reserved": 0,
+      "HTTP_arrivals": 6,
+      "HTTP_delivered": 6,
+      "HTTP_503": 3,
+      "HTTP_200": 3,
+      "physical_admitted_rows": 6,
+      "HTTP_failed_or_refused": 0,
+      "native_provider_call_records": 6,
+      "native_503_call_records": 3,
+      "distinct_worker_PIDs": [
+        29,
+        74,
+        112
+      ],
+      "verified_forced_kills": 2,
+      "listener_instances": 3,
+      "real_models": 0,
+      "external_provider_calls": 0
+    },
+    "metrics": {
+      "scope": "One deterministic CPU loopback fixture with fixed oneCPU/768MiB/64PID cap; no causal or scaling comparison.",
+      "native_entry_completion_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "meaning": "episode completion, not model quality"
+      },
+      "fixture_rewards": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "development_reward_denominator": 2,
+      "final_reward_denominator": 1,
+      "burned_reservations_excluded_from_score_denominator": 1,
+      "run_episodes_latency_seconds": [
+        4.449829115998,
+        5.203656434001459,
+        3.9092636599998514
+      ],
+      "run_episodes_latency_observations": 3,
+      "run_episodes_latency_median_seconds": 4.449829115998,
+      "run_episodes_latency_maximum_seconds": 5.203656434001459,
+      "run_episodes_latency_p95_nearest_rank_seconds": 5.203656434001459,
+      "p95_convention": "nearest rank ceil(.95*n); n3 equals observed maximum, not population tail estimate",
+      "HTTP_received_to_finished_seconds": [
+        0.06414195499746711,
+        0.06357982999907108,
+        0.7728143829990586,
+        0.14473696300046868,
+        0.06114720899859094,
+        0.06489946800138569
+      ],
+      "retry_intervals": [
+        {
+          "attempt": "dev-bad",
+          "first503_received_to_second200_received_seconds": 0.4778177139996842,
+          "first503_finished_to_second200_received_seconds": 0.4136757590022171,
+          "wire_body_sha256": "46c43b82f552e946b6c17137def2d799255212b9dad0ca8f2a4c7df3d17fb2b7"
+        },
+        {
+          "attempt": "dev-good",
+          "first503_received_to_second200_received_seconds": 1.2992642620010884,
+          "first503_finished_to_second200_received_seconds": 0.5264498790020298,
+          "wire_body_sha256": "b62755dfaf2407a809586bb810d66094e819b8343903e5d829b010b7d59d47b7"
+        },
+        {
+          "attempt": "final-once",
+          "first503_received_to_second200_received_seconds": 0.5355135979989427,
+          "first503_finished_to_second200_received_seconds": 0.4743663890003518,
+          "wire_body_sha256": "7cb2d884f9747c519681ec97088411a89bda779c8727f5e45464051f791d5b3a"
+        }
+      ],
+      "controller_pre_final_serialization_seconds": 54.42935979300091,
+      "controller_wall_scope": "Includes formatter initialization, workers, native retries and all three in-loop listener shutdowns/restarts; excludes finally receipts and result serialization.",
+      "host_CLI_teardown_inclusive_seconds": 56.37291379999806,
+      "host_CLI_wall_scope": "Docker invocation through return includes container lifecycle and outputs; excludes prior environment/freeze and subsequent absence/audit.",
+      "completed_entries_per_host_CLI_second": 0.05321704694285473,
+      "completed_entries_per_controller_second": 0.05511731189580831,
+      "fixture_initialization_seconds": 5.096842071998253,
+      "sample_count": 472,
+      "sampled_memory_current_max_bytes": 555843584,
+      "sampled_pids_current_max": 40,
+      "sampled_monotonic_duration_seconds": 48.65867911699752,
+      "sample_interval_seconds": {
+        "minimum": 0.10020418999920366,
+        "median": 0.1006074990000343,
+        "maximum": 0.6570676730007108
+      },
+      "memory_peak_cgroup_bytes": 555843584,
+      "memory_peak_scope": "Whole-container cgroup memory.peak read after all listener teardown and finally receipt writes, before result serialization/process exit; not complete-lifetime/GPU peak.",
+      "observer_read_seconds": 0.07439705306387623,
+      "observer_scope": "Accumulated two-cgroup-file read durations only; excludes sleep/peak read/serialization and is not causal overhead.",
+      "request_body_bytes": 1570,
+      "response_body_bytes": 1200,
+      "body_accounting_scope": "Six complete fixture provider body pairs including three503 JSON errors and three200 SSE replies; excludes headers/TCP/interception/disk/cache traffic.",
+      "complete_output_artifact_files": 56,
+      "complete_output_artifact_bytes": 128612,
+      "scoring_retry_configuration": "Unchanged EchoTask scorer max_retries2; three saved final echoed members are not independent logs of every scoring invocation."
+    },
+    "acceptance": [
+      {
+        "criterion": "All four immutable reservations survive both verified prior-process deaths; statuses completed/completed/burned/completed and rewards 0/1/null/1.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Stopped logical SQLite has exactly four bound reservations, completed/completed/burned/completed, rewards0/1/null/1, with independently matched episode/receipt hashes."
+      },
+      {
+        "criterion": "Exactly3actualnative episodes and3echoed score members; exactly6physical providerPOSTs ordered [503,200,503,200,503,200], eachattempt pair exactwirebodyhash and immutable attempt/data identity; all6admissions committed beforeresponse and no additional/refused nativearrival.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Three actual clean native episodes and echoed members; six native call records show503/error then success per episode, six exact physical requests/deliveries and pair byte identities."
+      },
+      {
+        "criterion": "Version mismatch changes neither ledger nor provider count; exact replay, identity conflict, over-budget development, final repeat and late development are refused.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Explicit version-refusal before/after snapshots and no overlapping physical HTTP. Seven other unchanged inline logical negative controls reached on successful worker paths; separate stdlib cap/conflict/concurrency controls remain engineering evidence."
+      },
+      {
+        "criterion": "Winner committed before final-data read; no final observation is used to change candidates, budgets, evaluator or selection.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Winner recomputed from completed development; unchanged source checks committed winner before final file read. Logical single-owner separation, no OS access attestation/hidden benchmark."
+      },
+      {
+        "criterion": "Three distinct worker PIDs, first two confirmed SIGKILL exits before next worker, third exit zero; all native runtime scopes closed at barriers.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Three distinct worker starts match exits-9/-9/0. Frozen controller SIGKILL/waits before next phase; returned native runtime scopes and joined listener threads. No independent descendant/syscall census."
+      },
+      {
+        "criterion": "No re-run or threshold/auditor repair on the same freeze. A failure remains failed. Independent saved-byte and stopped-database review precedes any acceptance claim.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "One immutable intent/execution; no same-freeze rerun or producer/criteria change. v1/v2 frozen hosts,64raws and prior audits remain exact. Reviewer-only preexecution newline-format failure retained."
+      },
+      {
+        "criterion": "Three separate HTTP listeners reopen the same physicalledger at counts0,2,4; phase snapshots2,4,6. SQLite retains all three503 spends and three200 spends without resets/refunds. Native over-budget rejection is not asserted; separate stdlibcontrols exercise cap/conflict/concurrentadmission refusals.",
+        "status": "supported_in_finite_fixture_scope",
+        "evidence": "Physical SQLite has six admitted spends/statuses503/200x3 and no refunds. Three listeners reopen exact prefixes0/2/4 and persist2/4/6. Native exhaustion is not exercised; pre-admission framing/read failures can remain uncharged."
+      }
+    ],
+    "acceptance_conclusion": "Seven frozen criteria supported only within the stated finite native fixture.",
+    "scientific_status": "Native retry/admission integration slice only; full H3 closed evaluation and H4 remain unmet. No real model quality, GPU, production, general exactly-once, comparative performance or H1/H2 status upgrade.",
+    "reviewer_actions": {
+      "network_calls": 0,
+      "container_or_producer_runs": 0,
+      "tests_run": 0,
+      "model_calls": 0,
+      "scientific_experiments": 0,
+      "database_writes": 0,
+      "frozen_code_edits": 0,
+      "shared_ledger_edits": 0,
+      "UI_calls": 0
+    },
+    "missingness_and_limitations": [
+      "All provider behavior and usage tokens are deterministic fixtures; no real model, benchmark quality, paid service, GPU, distributed or production result.",
+      "Single trusted owner; recovery requires proof the prior owner is stopped. No concurrent-owner recovery, tenant authentication, hostile code isolation or external exactly-once guarantee.",
+      "Failure-close reservations may burn work and reduce availability. No refund or automatic retry of uncertain work.",
+      "Only two fixed crash boundaries: after committed completion and before native entry. No mid-provider, mid-scoring, power-loss or arbitrary-interleaving recovery claim.",
+      "Three development reservations bound this finite workload, not general history growth, scheduling capacity or performance improvement.",
+      "H3 full closed-evaluation gate and H4 remain unmet; H1 negative results/original5GiB endpoint and all H2 failures/closed finite gates remain unchanged.",
+      "The extra provider is still a fixture; injected503 is not an actual externalprovider incident. Only the endpoint fixture implements physical admission. A caller bypassing it is outside the contract. Inbound/denied logs are not resource-bounded by admittedcall count.",
+      "Reuse priorv2worker unchanged, including scorermax_retries2 and inline negativecontrols. Scoremembercount is not independent instrumentation of every scorerinvocation. No mid-provider/mid-scoringcrash, timeoutorpartialstream injection; HTTPlistenerreconstruction is graceful in one controllerprocess, not processdeath/powerloss.",
+      "Content-Length parsing and bounded body-read occur before receive and outside its receipt scope. Malformed framing/body-read timeout can remain unrecorded and uncharged; no general inbound-network or all-failure accounting claim. Fixed valid native requests must all reach the complete-body boundary.",
+      "Saved container-absence receipt checked; reviewer ran no Docker query and did not reopen two cache-volume paths. Preexecution provenance/source checks are the available evidence for those paths.",
+      "No independent descendant process/syscall/access monitor or full raw HTTP header block; final-read order and seven logical refusals combine frozen source assertions with successful-path receipts.",
+      "Scorer default retries2 and synthetic provider token usage retained; final member count does not prove independent scoring invocation count.",
+      "memory.peak excludes any later result serialization/process-exit peak; samples omit initial formatter start and listener/restart gaps. Three latencies do not estimate a population tail or scaling behavior."
+    ],
+    "executed_auditor": {
+      "path": "reports/runs/20261105T084810Z/research-feasibility/independent-native-auditor.py",
+      "sha256": "e33b61547bfac617899678aff99861aa0377d5e8cf1bfb2e71ecf1bafe1aacd5"
+    },
+    "preserved_reviewer_format_failure": {
+      "reason": "Initial reviewer helper incorrectly required LF for saved initial spec text and generated protocol. Original spec reconstruction with CRLF matches its original hash exactly; generated protocol equals canonical JSON plus Windows CRLF and retains exact bound raw hash. No producer/source/freeze/outcome changes.",
+      "native_executions_before_correction": 0,
+      "initial_review_conditions_passed": 223,
+      "initial_review_conditions_checked": 225,
+      "preserved_files_sha256": {
+        "independent-review-static-initial-format-check.py": "f0d56850831712cd52564974f0112e329e1aa0db5705a953aa33fa0bf92ec25c",
+        "independent-code-review-initial-format-check.json": "b78bb978a03723fe29923b279964c3838c5f7c35b7c82a7dca97503c6c6b633a",
+        "independent-freeze-review-initial-format-check.json": "b37fa22d339fe62876cbe7078b3aed93712b0f885b79e55feb46112c85375eed"
+      },
+      "initial_spec_raw_sha256": "be062a1360e6f569e6ee8024803382cd4ef932daaadff556bf572741996bb001",
+      "initial_spec_LF_text_sha256": "2b5c7102363c17f84e6e0602cd4296a61365b85a07792076b6c989831715ad39",
+      "frozen_protocol_raw_sha256": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab",
+      "frozen_protocol_canonical_LF_sha256": "415e6cc8ee0bf90b9970a4388c85408cfc69b0c2b924a9cf5f9967c4ff539e85"
+    }
+  },
+  "environment_provenance": {
+    "selected_imports": {
+      "openai": {
+        "path": "/env/openai/__init__.py",
+        "version": "2.54.0"
+      },
+      "pydantic": {
+        "path": "/env/pydantic/__init__.py",
+        "version": "2.13.4"
+      },
+      "httpx": {
+        "path": "/env/httpx/__init__.py",
+        "version": "0.28.1"
+      },
+      "httpx2": {
+        "path": "/env/httpx2/__init__.py",
+        "version": "2.12.0"
+      },
+      "mcp": {
+        "path": "/env/mcp/__init__.py",
+        "version": null
+      },
+      "verifiers": {
+        "path": "/source/verifiers/__init__.py",
+        "version": "0.0.0+unknown"
+      }
+    },
+    "sys_path": [
+      "",
+      "/project",
+      "/source",
+      "/source/tests/integration/fixtures",
+      "/env",
+      "/usr/local/lib/python312.zip",
+      "/usr/local/lib/python3.12",
+      "/usr/local/lib/python3.12/lib-dynload",
+      "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages"
+    ],
+    "script_only_distributions": [
+      [
+        "PyJWT",
+        "2.15.1"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "anyio",
+        "4.16.0"
+      ],
+      [
+        "attrs",
+        "26.1.0"
+      ],
+      [
+        "certifi",
+        "2026.10.23"
+      ],
+      [
+        "cffi",
+        "2.1.1"
+      ],
+      [
+        "click",
+        "8.5.0"
+      ],
+      [
+        "cryptography",
+        "50.0.2"
+      ],
+      [
+        "h11",
+        "0.16.0"
+      ],
+      [
+        "httpcore",
+        "1.0.9"
+      ],
+      [
+        "httpcore2",
+        "2.16.0"
+      ],
+      [
+        "httpx",
+        "0.28.1"
+      ],
+      [
+        "httpx2",
+        "2.16.0"
+      ],
+      [
+        "idna",
+        "3.20"
+      ],
+      [
+        "jiter",
+        "0.18.0"
+      ],
+      [
+        "jsonschema",
+        "4.26.0"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1"
+      ],
+      [
+        "mcp",
+        "2.3.0"
+      ],
+      [
+        "mcp-types",
+        "2.3.0"
+      ],
+      [
+        "openai",
+        "3.44.0"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.2"
+      ],
+      [
+        "pycparser",
+        "3.12"
+      ],
+      [
+        "pydantic",
+        "2.14.2"
+      ],
+      [
+        "pydantic_core",
+        "2.50.2"
+      ],
+      [
+        "python-multipart",
+        "0.0.33"
+      ],
+      [
+        "referencing",
+        "0.37.0"
+      ],
+      [
+        "rpds-py",
+        "2026.9.1"
+      ],
+      [
+        "sniffio",
+        "1.3.1"
+      ],
+      [
+        "sse-starlette",
+        "3.6.0"
+      ],
+      [
+        "starlette",
+        "1.10.0"
+      ],
+      [
+        "tenacity",
+        "9.2.1"
+      ],
+      [
+        "truststore",
+        "0.10.5"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "uvicorn",
+        "0.54.0"
+      ]
+    ],
+    "harness_distributions": [
+      [
+        "Jinja2",
+        "3.1.6"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.3"
+      ],
+      [
+        "PyJWT",
+        "2.15.0"
+      ],
+      [
+        "PyJWT",
+        "2.15.1"
+      ],
+      [
+        "PyYAML",
+        "6.0.3"
+      ],
+      [
+        "Pygments",
+        "2.21.0"
+      ],
+      [
+        "aiofiles",
+        "25.1.0"
+      ],
+      [
+        "aiohappyeyeballs",
+        "2.7.1"
+      ],
+      [
+        "aiohttp",
+        "3.14.4"
+      ],
+      [
+        "aiosignal",
+        "1.4.0"
+      ],
+      [
+        "annotated-doc",
+        "0.0.5"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "anthropic",
+        "1.0.0"
+      ],
+      [
+        "antlr4-python3-runtime",
+        "4.13.2"
+      ],
+      [
+        "anyio",
+        "4.14.2"
+      ],
+      [
+        "anyio",
+        "4.16.0"
+      ],
+      [
+        "attrs",
+        "26.1.0"
+      ],
+      [
+        "attrs",
+        "26.1.0"
+      ],
+      [
+        "certifi",
+        "2026.10.19"
+      ],
+      [
+        "certifi",
+        "2026.10.23"
+      ],
+      [
+        "cffi",
+        "2.1.1"
+      ],
+      [
+        "cffi",
+        "2.1.1"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.1"
+      ],
+      [
+        "click",
+        "8.4.2"
+      ],
+      [
+        "click",
+        "8.5.0"
+      ],
+      [
+        "connectrpc",
+        "0.11.1"
+      ],
+      [
+        "cryptography",
+        "50.0.1"
+      ],
+      [
+        "cryptography",
+        "50.0.2"
+      ],
+      [
+        "distro",
+        "1.9.0"
+      ],
+      [
+        "docstring_parser",
+        "0.18.0"
+      ],
+      [
+        "filelock",
+        "4.2.1"
+      ],
+      [
+        "frontier-savescope",
+        "0.2.0"
+      ],
+      [
+        "frozenlist",
+        "1.8.0"
+      ],
+      [
+        "fsspec",
+        "2026.6.0"
+      ],
+      [
+        "gepa",
+        "0.1.4"
+      ],
+      [
+        "h11",
+        "0.16.0"
+      ],
+      [
+        "h11",
+        "0.16.0"
+      ],
+      [
+        "hf-xet",
+        "1.6.0"
+      ],
+      [
+        "httpcore",
+        "1.0.9"
+      ],
+      [
+        "httpcore",
+        "1.0.9"
+      ],
+      [
+        "httpcore2",
+        "2.12.0"
+      ],
+      [
+        "httpcore2",
+        "2.16.0"
+      ],
+      [
+        "httpx",
+        "0.28.1"
+      ],
+      [
+        "httpx",
+        "0.28.1"
+      ],
+      [
+        "httpx2",
+        "2.12.0"
+      ],
+      [
+        "httpx2",
+        "2.16.0"
+      ],
+      [
+        "huggingface_hub",
+        "1.28.0"
+      ],
+      [
+        "idna",
+        "3.19"
+      ],
+      [
+        "idna",
+        "3.20"
+      ],
+      [
+        "jiter",
+        "0.16.0"
+      ],
+      [
+        "jiter",
+        "0.18.0"
+      ],
+      [
+        "jsonschema",
+        "4.26.0"
+      ],
+      [
+        "jsonschema",
+        "4.26.0"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1"
+      ],
+      [
+        "latex2sympy2_extended",
+        "1.11.0"
+      ],
+      [
+        "loguru",
+        "0.7.3"
+      ],
+      [
+        "markdown-it-py",
+        "4.2.0"
+      ],
+      [
+        "math-verify",
+        "0.9.0"
+      ],
+      [
+        "mcp",
+        "2.2.0"
+      ],
+      [
+        "mcp",
+        "2.3.0"
+      ],
+      [
+        "mcp-types",
+        "2.2.0"
+      ],
+      [
+        "mcp-types",
+        "2.3.0"
+      ],
+      [
+        "mdurl",
+        "0.1.2"
+      ],
+      [
+        "mpmath",
+        "1.3.0"
+      ],
+      [
+        "msgpack",
+        "1.2.3"
+      ],
+      [
+        "multidict",
+        "6.9.1"
+      ],
+      [
+        "numpy",
+        "2.5.2"
+      ],
+      [
+        "openai",
+        "2.54.0"
+      ],
+      [
+        "openai",
+        "3.44.0"
+      ],
+      [
+        "openai-harmony",
+        "0.0.8"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.1"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.2"
+      ],
+      [
+        "orjson",
+        "3.12.0"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "pillow",
+        "12.3.0"
+      ],
+      [
+        "prime-pydantic-config",
+        "0.4.3"
+      ],
+      [
+        "prime-sandboxes",
+        "0.5.5"
+      ],
+      [
+        "prime-tunnel",
+        "0.1.17"
+      ],
+      [
+        "propcache",
+        "0.5.2"
+      ],
+      [
+        "protobuf",
+        "6.33.6"
+      ],
+      [
+        "protobuf-py",
+        "0.1.1"
+      ],
+      [
+        "protobuf-py-ext",
+        "0.1.1"
+      ],
+      [
+        "pycparser",
+        "3.0"
+      ],
+      [
+        "pycparser",
+        "3.12"
+      ],
+      [
+        "pydantic",
+        "2.13.4"
+      ],
+      [
+        "pydantic",
+        "2.14.2"
+      ],
+      [
+        "pydantic_core",
+        "2.46.4"
+      ],
+      [
+        "pydantic_core",
+        "2.50.2"
+      ],
+      [
+        "pyqwest",
+        "0.10.0"
+      ],
+      [
+        "python-multipart",
+        "0.0.32"
+      ],
+      [
+        "python-multipart",
+        "0.0.33"
+      ],
+      [
+        "pyzmq",
+        "27.2.0"
+      ],
+      [
+        "referencing",
+        "0.37.0"
+      ],
+      [
+        "referencing",
+        "0.37.0"
+      ],
+      [
+        "regex",
+        "2026.7.19"
+      ],
+      [
+        "renderers",
+        "0.1.13.dev17"
+      ],
+      [
+        "requests",
+        "2.34.2"
+      ],
+      [
+        "rich",
+        "15.0.0"
+      ],
+      [
+        "rpds-py",
+        "2026.6.3"
+      ],
+      [
+        "rpds-py",
+        "2026.9.1"
+      ],
+      [
+        "safetensors",
+        "0.8.0"
+      ],
+      [
+        "shellingham",
+        "1.5.4"
+      ],
+      [
+        "sniffio",
+        "1.3.1"
+      ],
+      [
+        "sniffio",
+        "1.3.1"
+      ],
+      [
+        "sse-starlette",
+        "3.4.8"
+      ],
+      [
+        "sse-starlette",
+        "3.6.0"
+      ],
+      [
+        "starlette",
+        "1.10.0"
+      ],
+      [
+        "starlette",
+        "1.6.0"
+      ],
+      [
+        "sympy",
+        "1.14.0"
+      ],
+      [
+        "tenacity",
+        "9.1.4"
+      ],
+      [
+        "tenacity",
+        "9.2.1"
+      ],
+      [
+        "tiktoken",
+        "0.14.0"
+      ],
+      [
+        "tokenizers",
+        "0.22.2"
+      ],
+      [
+        "tomli",
+        "2.4.1"
+      ],
+      [
+        "tomli_w",
+        "1.2.0"
+      ],
+      [
+        "tqdm",
+        "4.70.0"
+      ],
+      [
+        "transformers",
+        "5.15.1"
+      ],
+      [
+        "truststore",
+        "0.10.4"
+      ],
+      [
+        "truststore",
+        "0.10.5"
+      ],
+      [
+        "typer",
+        "0.27.1"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "urllib3",
+        "2.8.0"
+      ],
+      [
+        "uvicorn",
+        "0.52.4"
+      ],
+      [
+        "uvicorn",
+        "0.54.0"
+      ],
+      [
+        "yarl",
+        "1.25.1"
+      ]
+    ],
+    "distribution_provenance": [
+      [
+        "Jinja2",
+        "3.1.6",
+        "/env/jinja2-3.1.6.dist-info"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.3",
+        "/env/markupsafe-3.0.3.dist-info"
+      ],
+      [
+        "PyJWT",
+        "2.15.0",
+        "/env/pyjwt-2.15.0.dist-info"
+      ],
+      [
+        "PyJWT",
+        "2.15.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/pyjwt-2.15.1.dist-info"
+      ],
+      [
+        "PyYAML",
+        "6.0.3",
+        "/env/pyyaml-6.0.3.dist-info"
+      ],
+      [
+        "Pygments",
+        "2.21.0",
+        "/env/pygments-2.21.0.dist-info"
+      ],
+      [
+        "aiofiles",
+        "25.1.0",
+        "/env/aiofiles-25.1.0.dist-info"
+      ],
+      [
+        "aiohappyeyeballs",
+        "2.7.1",
+        "/env/aiohappyeyeballs-2.7.1.dist-info"
+      ],
+      [
+        "aiohttp",
+        "3.14.4",
+        "/env/aiohttp-3.14.4.dist-info"
+      ],
+      [
+        "aiosignal",
+        "1.4.0",
+        "/env/aiosignal-1.4.0.dist-info"
+      ],
+      [
+        "annotated-doc",
+        "0.0.5",
+        "/env/annotated_doc-0.0.5.dist-info"
+      ],
+      [
+        "annotated-types",
+        "0.8.0",
+        "/env/annotated_types-0.8.0.dist-info"
+      ],
+      [
+        "annotated-types",
+        "0.8.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/annotated_types-0.8.0.dist-info"
+      ],
+      [
+        "anthropic",
+        "1.0.0",
+        "/env/anthropic-1.0.0.dist-info"
+      ],
+      [
+        "antlr4-python3-runtime",
+        "4.13.2",
+        "/env/antlr4_python3_runtime-4.13.2.dist-info"
+      ],
+      [
+        "anyio",
+        "4.14.2",
+        "/env/anyio-4.14.2.dist-info"
+      ],
+      [
+        "anyio",
+        "4.16.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/anyio-4.16.0.dist-info"
+      ],
+      [
+        "attrs",
+        "26.1.0",
+        "/env/attrs-26.1.0.dist-info"
+      ],
+      [
+        "attrs",
+        "26.1.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/attrs-26.1.0.dist-info"
+      ],
+      [
+        "certifi",
+        "2026.10.19",
+        "/env/certifi-2026.10.19.dist-info"
+      ],
+      [
+        "certifi",
+        "2026.10.23",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/certifi-2026.10.23.dist-info"
+      ],
+      [
+        "cffi",
+        "2.1.1",
+        "/env/cffi-2.1.1.dist-info"
+      ],
+      [
+        "cffi",
+        "2.1.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/cffi-2.1.1.dist-info"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.1",
+        "/env/charset_normalizer-3.5.1.dist-info"
+      ],
+      [
+        "click",
+        "8.4.2",
+        "/env/click-8.4.2.dist-info"
+      ],
+      [
+        "click",
+        "8.5.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/click-8.5.0.dist-info"
+      ],
+      [
+        "connectrpc",
+        "0.11.1",
+        "/env/connectrpc-0.11.1.dist-info"
+      ],
+      [
+        "cryptography",
+        "50.0.1",
+        "/env/cryptography-50.0.1.dist-info"
+      ],
+      [
+        "cryptography",
+        "50.0.2",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/cryptography-50.0.2.dist-info"
+      ],
+      [
+        "distro",
+        "1.9.0",
+        "/env/distro-1.9.0.dist-info"
+      ],
+      [
+        "docstring_parser",
+        "0.18.0",
+        "/env/docstring_parser-0.18.0.dist-info"
+      ],
+      [
+        "filelock",
+        "4.2.1",
+        "/env/filelock-4.2.1.dist-info"
+      ],
+      [
+        "frontier-savescope",
+        "0.2.0",
+        "/project/frontier_savescope.egg-info"
+      ],
+      [
+        "frozenlist",
+        "1.8.0",
+        "/env/frozenlist-1.8.0.dist-info"
+      ],
+      [
+        "fsspec",
+        "2026.6.0",
+        "/env/fsspec-2026.6.0.dist-info"
+      ],
+      [
+        "gepa",
+        "0.1.4",
+        "/env/gepa-0.1.4.dist-info"
+      ],
+      [
+        "h11",
+        "0.16.0",
+        "/env/h11-0.16.0.dist-info"
+      ],
+      [
+        "h11",
+        "0.16.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/h11-0.16.0.dist-info"
+      ],
+      [
+        "hf-xet",
+        "1.6.0",
+        "/env/hf_xet-1.6.0.dist-info"
+      ],
+      [
+        "httpcore",
+        "1.0.9",
+        "/env/httpcore-1.0.9.dist-info"
+      ],
+      [
+        "httpcore",
+        "1.0.9",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/httpcore-1.0.9.dist-info"
+      ],
+      [
+        "httpcore2",
+        "2.12.0",
+        "/env/httpcore2-2.12.0.dist-info"
+      ],
+      [
+        "httpcore2",
+        "2.16.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/httpcore2-2.16.0.dist-info"
+      ],
+      [
+        "httpx",
+        "0.28.1",
+        "/env/httpx-0.28.1.dist-info"
+      ],
+      [
+        "httpx",
+        "0.28.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/httpx-0.28.1.dist-info"
+      ],
+      [
+        "httpx2",
+        "2.12.0",
+        "/env/httpx2-2.12.0.dist-info"
+      ],
+      [
+        "httpx2",
+        "2.16.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/httpx2-2.16.0.dist-info"
+      ],
+      [
+        "huggingface_hub",
+        "1.28.0",
+        "/env/huggingface_hub-1.28.0.dist-info"
+      ],
+      [
+        "idna",
+        "3.19",
+        "/env/idna-3.19.dist-info"
+      ],
+      [
+        "idna",
+        "3.20",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/idna-3.20.dist-info"
+      ],
+      [
+        "jiter",
+        "0.16.0",
+        "/env/jiter-0.16.0.dist-info"
+      ],
+      [
+        "jiter",
+        "0.18.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/jiter-0.18.0.dist-info"
+      ],
+      [
+        "jsonschema",
+        "4.26.0",
+        "/env/jsonschema-4.26.0.dist-info"
+      ],
+      [
+        "jsonschema",
+        "4.26.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/jsonschema-4.26.0.dist-info"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1",
+        "/env/jsonschema_specifications-2025.9.1.dist-info"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/jsonschema_specifications-2025.9.1.dist-info"
+      ],
+      [
+        "latex2sympy2_extended",
+        "1.11.0",
+        "/env/latex2sympy2_extended-1.11.0.dist-info"
+      ],
+      [
+        "loguru",
+        "0.7.3",
+        "/env/loguru-0.7.3.dist-info"
+      ],
+      [
+        "markdown-it-py",
+        "4.2.0",
+        "/env/markdown_it_py-4.2.0.dist-info"
+      ],
+      [
+        "math-verify",
+        "0.9.0",
+        "/env/math_verify-0.9.0.dist-info"
+      ],
+      [
+        "mcp",
+        "2.2.0",
+        "/env/mcp-2.2.0.dist-info"
+      ],
+      [
+        "mcp",
+        "2.3.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/mcp-2.3.0.dist-info"
+      ],
+      [
+        "mcp-types",
+        "2.2.0",
+        "/env/mcp_types-2.2.0.dist-info"
+      ],
+      [
+        "mcp-types",
+        "2.3.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/mcp_types-2.3.0.dist-info"
+      ],
+      [
+        "mdurl",
+        "0.1.2",
+        "/env/mdurl-0.1.2.dist-info"
+      ],
+      [
+        "mpmath",
+        "1.3.0",
+        "/env/mpmath-1.3.0.dist-info"
+      ],
+      [
+        "msgpack",
+        "1.2.3",
+        "/env/msgpack-1.2.3.dist-info"
+      ],
+      [
+        "multidict",
+        "6.9.1",
+        "/env/multidict-6.9.1.dist-info"
+      ],
+      [
+        "numpy",
+        "2.5.2",
+        "/env/numpy-2.5.2.dist-info"
+      ],
+      [
+        "openai",
+        "2.54.0",
+        "/env/openai-2.54.0.dist-info"
+      ],
+      [
+        "openai",
+        "3.44.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/openai-3.44.0.dist-info"
+      ],
+      [
+        "openai-harmony",
+        "0.0.8",
+        "/env/openai_harmony-0.0.8.dist-info"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.1",
+        "/env/opentelemetry_api-1.45.1.dist-info"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.2",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/opentelemetry_api-1.45.2.dist-info"
+      ],
+      [
+        "orjson",
+        "3.12.0",
+        "/env/orjson-3.12.0.dist-info"
+      ],
+      [
+        "packaging",
+        "26.3",
+        "/env/packaging-26.3.dist-info"
+      ],
+      [
+        "pillow",
+        "12.3.0",
+        "/env/pillow-12.3.0.dist-info"
+      ],
+      [
+        "prime-pydantic-config",
+        "0.4.3",
+        "/env/prime_pydantic_config-0.4.3.dist-info"
+      ],
+      [
+        "prime-sandboxes",
+        "0.5.5",
+        "/env/prime_sandboxes-0.5.5.dist-info"
+      ],
+      [
+        "prime-tunnel",
+        "0.1.17",
+        "/env/prime_tunnel-0.1.17.dist-info"
+      ],
+      [
+        "propcache",
+        "0.5.2",
+        "/env/propcache-0.5.2.dist-info"
+      ],
+      [
+        "protobuf",
+        "6.33.6",
+        "/env/protobuf-6.33.6.dist-info"
+      ],
+      [
+        "protobuf-py",
+        "0.1.1",
+        "/env/protobuf_py-0.1.1.dist-info"
+      ],
+      [
+        "protobuf-py-ext",
+        "0.1.1",
+        "/env/protobuf_py_ext-0.1.1.dist-info"
+      ],
+      [
+        "pycparser",
+        "3.0",
+        "/env/pycparser-3.0.dist-info"
+      ],
+      [
+        "pycparser",
+        "3.12",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/pycparser-3.12.dist-info"
+      ],
+      [
+        "pydantic",
+        "2.13.4",
+        "/env/pydantic-2.13.4.dist-info"
+      ],
+      [
+        "pydantic",
+        "2.14.2",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/pydantic-2.14.2.dist-info"
+      ],
+      [
+        "pydantic_core",
+        "2.46.4",
+        "/env/pydantic_core-2.46.4.dist-info"
+      ],
+      [
+        "pydantic_core",
+        "2.50.2",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/pydantic_core-2.50.2.dist-info"
+      ],
+      [
+        "pyqwest",
+        "0.10.0",
+        "/env/pyqwest-0.10.0.dist-info"
+      ],
+      [
+        "python-multipart",
+        "0.0.32",
+        "/env/python_multipart-0.0.32.dist-info"
+      ],
+      [
+        "python-multipart",
+        "0.0.33",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/python_multipart-0.0.33.dist-info"
+      ],
+      [
+        "pyzmq",
+        "27.2.0",
+        "/env/pyzmq-27.2.0.dist-info"
+      ],
+      [
+        "referencing",
+        "0.37.0",
+        "/env/referencing-0.37.0.dist-info"
+      ],
+      [
+        "referencing",
+        "0.37.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/referencing-0.37.0.dist-info"
+      ],
+      [
+        "regex",
+        "2026.7.19",
+        "/env/regex-2026.7.19.dist-info"
+      ],
+      [
+        "renderers",
+        "0.1.13.dev17",
+        "/env/renderers-0.1.13.dev17.dist-info"
+      ],
+      [
+        "requests",
+        "2.34.2",
+        "/env/requests-2.34.2.dist-info"
+      ],
+      [
+        "rich",
+        "15.0.0",
+        "/env/rich-15.0.0.dist-info"
+      ],
+      [
+        "rpds-py",
+        "2026.6.3",
+        "/env/rpds_py-2026.6.3.dist-info"
+      ],
+      [
+        "rpds-py",
+        "2026.9.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/rpds_py-2026.9.1.dist-info"
+      ],
+      [
+        "safetensors",
+        "0.8.0",
+        "/env/safetensors-0.8.0.dist-info"
+      ],
+      [
+        "shellingham",
+        "1.5.4",
+        "/env/shellingham-1.5.4.dist-info"
+      ],
+      [
+        "sniffio",
+        "1.3.1",
+        "/env/sniffio-1.3.1.dist-info"
+      ],
+      [
+        "sniffio",
+        "1.3.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/sniffio-1.3.1.dist-info"
+      ],
+      [
+        "sse-starlette",
+        "3.4.8",
+        "/env/sse_starlette-3.4.8.dist-info"
+      ],
+      [
+        "sse-starlette",
+        "3.6.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/sse_starlette-3.6.0.dist-info"
+      ],
+      [
+        "starlette",
+        "1.10.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/starlette-1.10.0.dist-info"
+      ],
+      [
+        "starlette",
+        "1.6.0",
+        "/env/starlette-1.6.0.dist-info"
+      ],
+      [
+        "sympy",
+        "1.14.0",
+        "/env/sympy-1.14.0.dist-info"
+      ],
+      [
+        "tenacity",
+        "9.1.4",
+        "/env/tenacity-9.1.4.dist-info"
+      ],
+      [
+        "tenacity",
+        "9.2.1",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/tenacity-9.2.1.dist-info"
+      ],
+      [
+        "tiktoken",
+        "0.14.0",
+        "/env/tiktoken-0.14.0.dist-info"
+      ],
+      [
+        "tokenizers",
+        "0.22.2",
+        "/env/tokenizers-0.22.2.dist-info"
+      ],
+      [
+        "tomli",
+        "2.4.1",
+        "/env/tomli-2.4.1.dist-info"
+      ],
+      [
+        "tomli_w",
+        "1.2.0",
+        "/env/tomli_w-1.2.0.dist-info"
+      ],
+      [
+        "tqdm",
+        "4.70.0",
+        "/env/tqdm-4.70.0.dist-info"
+      ],
+      [
+        "transformers",
+        "5.15.1",
+        "/env/transformers-5.15.1.dist-info"
+      ],
+      [
+        "truststore",
+        "0.10.4",
+        "/env/truststore-0.10.4.dist-info"
+      ],
+      [
+        "truststore",
+        "0.10.5",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/truststore-0.10.5.dist-info"
+      ],
+      [
+        "typer",
+        "0.27.1",
+        "/env/typer-0.27.1.dist-info"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4",
+        "/env/typing_inspection-0.4.4.dist-info"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/typing_inspection-0.4.4.dist-info"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0",
+        "/env/typing_extensions-4.16.0.dist-info"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info"
+      ],
+      [
+        "urllib3",
+        "2.8.0",
+        "/env/urllib3-2.8.0.dist-info"
+      ],
+      [
+        "uvicorn",
+        "0.52.4",
+        "/env/uvicorn-0.52.4.dist-info"
+      ],
+      [
+        "uvicorn",
+        "0.54.0",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages/uvicorn-0.54.0.dist-info"
+      ],
+      [
+        "yarl",
+        "1.25.1",
+        "/env/yarl-1.25.1.dist-info"
+      ]
+    ],
+    "main_distributions": [
+      [
+        "Jinja2",
+        "3.1.6"
+      ],
+      [
+        "MarkupSafe",
+        "3.0.3"
+      ],
+      [
+        "PyJWT",
+        "2.15.0"
+      ],
+      [
+        "PyYAML",
+        "6.0.3"
+      ],
+      [
+        "Pygments",
+        "2.21.0"
+      ],
+      [
+        "aiofiles",
+        "25.1.0"
+      ],
+      [
+        "aiohappyeyeballs",
+        "2.7.1"
+      ],
+      [
+        "aiohttp",
+        "3.14.4"
+      ],
+      [
+        "aiosignal",
+        "1.4.0"
+      ],
+      [
+        "annotated-doc",
+        "0.0.5"
+      ],
+      [
+        "annotated-types",
+        "0.8.0"
+      ],
+      [
+        "anthropic",
+        "1.0.0"
+      ],
+      [
+        "antlr4-python3-runtime",
+        "4.13.2"
+      ],
+      [
+        "anyio",
+        "4.14.2"
+      ],
+      [
+        "attrs",
+        "26.1.0"
+      ],
+      [
+        "certifi",
+        "2026.10.19"
+      ],
+      [
+        "cffi",
+        "2.1.1"
+      ],
+      [
+        "charset-normalizer",
+        "3.5.1"
+      ],
+      [
+        "click",
+        "8.4.2"
+      ],
+      [
+        "connectrpc",
+        "0.11.1"
+      ],
+      [
+        "cryptography",
+        "50.0.1"
+      ],
+      [
+        "distro",
+        "1.9.0"
+      ],
+      [
+        "docstring_parser",
+        "0.18.0"
+      ],
+      [
+        "filelock",
+        "4.2.1"
+      ],
+      [
+        "frozenlist",
+        "1.8.0"
+      ],
+      [
+        "fsspec",
+        "2026.6.0"
+      ],
+      [
+        "gepa",
+        "0.1.4"
+      ],
+      [
+        "h11",
+        "0.16.0"
+      ],
+      [
+        "hf-xet",
+        "1.6.0"
+      ],
+      [
+        "httpcore",
+        "1.0.9"
+      ],
+      [
+        "httpcore2",
+        "2.12.0"
+      ],
+      [
+        "httpx",
+        "0.28.1"
+      ],
+      [
+        "httpx2",
+        "2.12.0"
+      ],
+      [
+        "huggingface_hub",
+        "1.28.0"
+      ],
+      [
+        "idna",
+        "3.19"
+      ],
+      [
+        "jiter",
+        "0.16.0"
+      ],
+      [
+        "jsonschema",
+        "4.26.0"
+      ],
+      [
+        "jsonschema-specifications",
+        "2025.9.1"
+      ],
+      [
+        "latex2sympy2_extended",
+        "1.11.0"
+      ],
+      [
+        "loguru",
+        "0.7.3"
+      ],
+      [
+        "markdown-it-py",
+        "4.2.0"
+      ],
+      [
+        "math-verify",
+        "0.9.0"
+      ],
+      [
+        "mcp",
+        "2.2.0"
+      ],
+      [
+        "mcp-types",
+        "2.2.0"
+      ],
+      [
+        "mdurl",
+        "0.1.2"
+      ],
+      [
+        "mpmath",
+        "1.3.0"
+      ],
+      [
+        "msgpack",
+        "1.2.3"
+      ],
+      [
+        "multidict",
+        "6.9.1"
+      ],
+      [
+        "numpy",
+        "2.5.2"
+      ],
+      [
+        "openai",
+        "2.54.0"
+      ],
+      [
+        "openai-harmony",
+        "0.0.8"
+      ],
+      [
+        "opentelemetry-api",
+        "1.45.1"
+      ],
+      [
+        "orjson",
+        "3.12.0"
+      ],
+      [
+        "packaging",
+        "26.3"
+      ],
+      [
+        "pillow",
+        "12.3.0"
+      ],
+      [
+        "prime-pydantic-config",
+        "0.4.3"
+      ],
+      [
+        "prime-sandboxes",
+        "0.5.5"
+      ],
+      [
+        "prime-tunnel",
+        "0.1.17"
+      ],
+      [
+        "propcache",
+        "0.5.2"
+      ],
+      [
+        "protobuf",
+        "6.33.6"
+      ],
+      [
+        "protobuf-py",
+        "0.1.1"
+      ],
+      [
+        "protobuf-py-ext",
+        "0.1.1"
+      ],
+      [
+        "pycparser",
+        "3.0"
+      ],
+      [
+        "pydantic",
+        "2.13.4"
+      ],
+      [
+        "pydantic_core",
+        "2.46.4"
+      ],
+      [
+        "pyqwest",
+        "0.10.0"
+      ],
+      [
+        "python-multipart",
+        "0.0.32"
+      ],
+      [
+        "pyzmq",
+        "27.2.0"
+      ],
+      [
+        "referencing",
+        "0.37.0"
+      ],
+      [
+        "regex",
+        "2026.7.19"
+      ],
+      [
+        "renderers",
+        "0.1.13.dev17"
+      ],
+      [
+        "requests",
+        "2.34.2"
+      ],
+      [
+        "rich",
+        "15.0.0"
+      ],
+      [
+        "rpds-py",
+        "2026.6.3"
+      ],
+      [
+        "safetensors",
+        "0.8.0"
+      ],
+      [
+        "shellingham",
+        "1.5.4"
+      ],
+      [
+        "sniffio",
+        "1.3.1"
+      ],
+      [
+        "sse-starlette",
+        "3.4.8"
+      ],
+      [
+        "starlette",
+        "1.6.0"
+      ],
+      [
+        "sympy",
+        "1.14.0"
+      ],
+      [
+        "tenacity",
+        "9.1.4"
+      ],
+      [
+        "tiktoken",
+        "0.14.0"
+      ],
+      [
+        "tokenizers",
+        "0.22.2"
+      ],
+      [
+        "tomli",
+        "2.4.1"
+      ],
+      [
+        "tomli_w",
+        "1.2.0"
+      ],
+      [
+        "tqdm",
+        "4.70.0"
+      ],
+      [
+        "transformers",
+        "5.15.1"
+      ],
+      [
+        "truststore",
+        "0.10.4"
+      ],
+      [
+        "typer",
+        "0.27.1"
+      ],
+      [
+        "typing-inspection",
+        "0.4.4"
+      ],
+      [
+        "typing_extensions",
+        "4.16.0"
+      ],
+      [
+        "urllib3",
+        "2.8.0"
+      ],
+      [
+        "uvicorn",
+        "0.52.4"
+      ],
+      [
+        "yarl",
+        "1.25.1"
+      ]
+    ],
+    "status": "current_launch_environment_with_project_metadata_authenticated",
+    "old_probe_metadata_count": 129,
+    "current_metadata_count": 130,
+    "main_count": 94,
+    "script_count": 35,
+    "project_metadata_count": 1,
+    "project_metadata_files": {
+      "/project/frontier_savescope.egg-info/PKG-INFO": "33f65df2b80bbf10325de748507fa6bb0918513e399246ef7c912688b8621f8f",
+      "/project/frontier_savescope.egg-info/SOURCES.txt": "eccf99f4d35ed6b136d77cdc46008342a2ea4c7579d2a6c25203df41456ecc66",
+      "/project/frontier_savescope.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "/project/frontier_savescope.egg-info/entry_points.txt": "103b07ba6d16fc5cb734414f1b3f9b4cb8f4ed1515d07d76ec67a22fc70d894d",
+      "/project/frontier_savescope.egg-info/requires.txt": "1e1b79d184669aa1227a2310ae7f24840936cf251a31d9022e3b99387562678d",
+      "/project/frontier_savescope.egg-info/top_level.txt": "e7932e0ed2c59da59b2ce58c0ac8d165c7804f84f29dd18077263099b17eb780"
+    },
+    "pyproject_sha256": "47b0f6452557c800071f7f84acceeb53497e9e75241dd1767de5bc9053183a28",
+    "script_sha256": "7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6",
+    "harness_lock_sha256": "1a25b155629bda996cc7b4e67fc448541e2419d876cb4d20d75d13f277fddaaa",
+    "native_entries": 0,
+    "provider_calls": 0,
+    "scientific_experiments": 0,
+    "installation": false,
+    "scope": "Exact same six selected imports, main94 and script35. Actual launch paths add existing project metadata1; not the old129probe. Previous comparator failure retained. No install or environment isolation claim."
+  },
+  "failed_environment_comparator": {
+    "receipt": {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "frontier-vfrun-envread-20261105t084810z",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--read-only",
+        "--memory",
+        "805306368",
+        "--cpus",
+        "1",
+        "--pids-limit",
+        "64",
+        "--tmpfs",
+        "/tmp:rw,size=402653184",
+        "--mount",
+        "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索,target=/project,readonly",
+        "--mount",
+        "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\local-state\\upstream\\verifiers-compaction-20261103T071243Z,target=/source,readonly",
+        "--mount",
+        "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T024419Z\\research-feasibility,target=/old,readonly",
+        "--mount",
+        "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T084810Z\\research-feasibility,target=/records",
+        "--mount",
+        "type=volume,source=frontier-vfrun-env-20261104t074015z,target=/env,readonly",
+        "--mount",
+        "type=volume,source=frontier-vfrun-cache-v2-20261105t024419z,target=/root/.cache,readonly,volume-nocopy",
+        "--env",
+        "PYTHONPATH=/project:/source:/source/tests/integration/fixtures:/env",
+        "--env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--entrypoint",
+        "python",
+        "sha256:913a1fae777596f41b6b08562b95bfcf596d5ac99389976cb2e40609daa364e3",
+        "/records/environment-check.py"
+      ],
+      "started_at": "2026-11-05T08:59:31.262248+00:00",
+      "completed_at": "2026-11-05T08:59:39.790335+00:00",
+      "returncode": 1,
+      "elapsed_seconds": 8.528007799999614,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "572e9ce791319abf70d28f0d22c55e9457bb0aa56ab661aec25e4adea0ca3f04",
+      "native_entries": 0,
+      "scientific_experiments": 0,
+      "installation": false
+    },
+    "actual": {
+      "selected_imports": {
+        "openai": {
+          "path": "/env/openai/__init__.py",
+          "version": "2.54.0"
+        },
+        "pydantic": {
+          "path": "/env/pydantic/__init__.py",
+          "version": "2.13.4"
+        },
+        "httpx": {
+          "path": "/env/httpx/__init__.py",
+          "version": "0.28.1"
+        },
+        "httpx2": {
+          "path": "/env/httpx2/__init__.py",
+          "version": "2.12.0"
+        },
+        "mcp": {
+          "path": "/env/mcp/__init__.py",
+          "version": null
+        },
+        "verifiers": {
+          "path": "/source/verifiers/__init__.py",
+          "version": "0.0.0+unknown"
+        }
+      },
+      "sys_path": [
+        "",
+        "/project",
+        "/source",
+        "/source/tests/integration/fixtures",
+        "/env",
+        "/usr/local/lib/python312.zip",
+        "/usr/local/lib/python3.12",
+        "/usr/local/lib/python3.12/lib-dynload",
+        "/root/.cache/uv/environments-v2/7e0a18fafe258bc6bf279850bc3a2024edad966982b2541ff727898c915cbcc6-55964856425e839a/lib/python3.12/site-packages"
+      ],
+      "script_only_distributions": [
+        [
+          "PyJWT",
+          "2.15.1"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "anyio",
+          "4.16.0"
+        ],
+        [
+          "attrs",
+          "26.1.0"
+        ],
+        [
+          "certifi",
+          "2026.10.23"
+        ],
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "click",
+          "8.5.0"
+        ],
+        [
+          "cryptography",
+          "50.0.2"
+        ],
+        [
+          "h11",
+          "0.16.0"
+        ],
+        [
+          "httpcore",
+          "1.0.9"
+        ],
+        [
+          "httpcore2",
+          "2.16.0"
+        ],
+        [
+          "httpx",
+          "0.28.1"
+        ],
+        [
+          "httpx2",
+          "2.16.0"
+        ],
+        [
+          "idna",
+          "3.20"
+        ],
+        [
+          "jiter",
+          "0.18.0"
+        ],
+        [
+          "jsonschema",
+          "4.26.0"
+        ],
+        [
+          "jsonschema-specifications",
+          "2025.9.1"
+        ],
+        [
+          "mcp",
+          "2.3.0"
+        ],
+        [
+          "mcp-types",
+          "2.3.0"
+        ],
+        [
+          "openai",
+          "3.44.0"
+        ],
+        [
+          "opentelemetry-api",
+          "1.45.2"
+        ],
+        [
+          "pycparser",
+          "3.12"
+        ],
+        [
+          "pydantic",
+          "2.14.2"
+        ],
+        [
+          "pydantic_core",
+          "2.50.2"
+        ],
+        [
+          "python-multipart",
+          "0.0.33"
+        ],
+        [
+          "referencing",
+          "0.37.0"
+        ],
+        [
+          "rpds-py",
+          "2026.9.1"
+        ],
+        [
+          "sniffio",
+          "1.3.1"
+        ],
+        [
+          "sse-starlette",
+          "3.6.0"
+        ],
+        [
+          "starlette",
+          "1.10.0"
+        ],
+        [
+          "tenacity",
+          "9.2.1"
+        ],
+        [
+          "truststore",
+          "0.10.5"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "uvicorn",
+          "0.54.0"
+        ]
+      ],
+      "harness_distributions": [
+        [
+          "Jinja2",
+          "3.1.6"
+        ],
+        [
+          "MarkupSafe",
+          "3.0.3"
+        ],
+        [
+          "PyJWT",
+          "2.15.0"
+        ],
+        [
+          "PyJWT",
+          "2.15.1"
+        ],
+        [
+          "PyYAML",
+          "6.0.3"
+        ],
+        [
+          "Pygments",
+          "2.21.0"
+        ],
+        [
+          "aiofiles",
+          "25.1.0"
+        ],
+        [
+          "aiohappyeyeballs",
+          "2.7.1"
+        ],
+        [
+          "aiohttp",
+          "3.14.4"
+        ],
+        [
+          "aiosignal",
+          "1.4.0"
+        ],
+        [
+          "annotated-doc",
+          "0.0.5"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "anthropic",
+          "1.0.0"
+        ],
+        [
+          "antlr4-python3-runtime",
+          "4.13.2"
+        ],
+        [
+          "anyio",
+          "4.14.2"
+        ],
+        [
+          "anyio",
+          "4.16.0"
+        ],
+        [
+          "attrs",
+          "26.1.0"
+        ],
+        [
+          "attrs",
+          "26.1.0"
+        ],
+        [
+          "certifi",
+          "2026.10.19"
+        ],
+        [
+          "certifi",
+          "2026.10.23"
+        ],
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "charset-normalizer",
+          "3.5.1"
+        ],
+        [
+          "click",
+          "8.4.2"
+        ],
+        [
+          "click",
+          "8.5.0"
+        ],
+        [
+          "connectrpc",
+          "0.11.1"
+        ],
+        [
+          "cryptography",
+          "50.0.1"
+        ],
+        [
+          "cryptography",
+          "50.0.2"
+        ],
+        [
+          "distro",
+          "1.9.0"
+        ],
+        [
+          "docstring_parser",
+          "0.18.0"
+        ],
+        [
+          "filelock",
+          "4.2.1"
+        ],
+        [
+          "frontier-savescope",
+          "0.2.0"
+        ],
+        [
+          "frozenlist",
+          "1.8.0"
+        ],
+        [
+          "fsspec",
+          "2026.6.0"
+        ],
+        [
+          "gepa",
+          "0.1.4"
+        ],
+        [
+          "h11",
+          "0.16.0"
+        ],
+        [
+          "h11",
+          "0.16.0"
+        ],
+        [
+          "hf-xet",
+          "1.6.0"
+        ],
+        [
+          "httpcore",
+          "1.0.9"
+        ],
+        [
+          "httpcore",
+          "1.0.9"
+        ],
+        [
+          "httpcore2",
+          "2.12.0"
+        ],
+        [
+          "httpcore2",
+          "2.16.0"
+        ],
+        [
+          "httpx",
+          "0.28.1"
+        ],
+        [
+          "httpx",
+          "0.28.1"
+        ],
+        [
+          "httpx2",
+          "2.12.0"
+        ],
+        [
+          "httpx2",
+          "2.16.0"
+        ],
+        [
+          "huggingface_hub",
+          "1.28.0"
+        ],
+        [
+          "idna",
+          "3.19"
+        ],
+        [
+          "idna",
+          "3.20"
+        ],
+        [
+          "jiter",
+          "0.16.0"
+        ],
+        [
+          "jiter",
+          "0.18.0"
+        ],
+        [
+          "jsonschema",
+          "4.26.0"
+        ],
+        [
+          "jsonschema",
+          "4.26.0"
+        ],
+        [
+          "jsonschema-specifications",
+          "2025.9.1"
+        ],
+        [
+          "jsonschema-specifications",
+          "2025.9.1"
+        ],
+        [
+          "latex2sympy2_extended",
+          "1.11.0"
+        ],
+        [
+          "loguru",
+          "0.7.3"
+        ],
+        [
+          "markdown-it-py",
+          "4.2.0"
+        ],
+        [
+          "math-verify",
+          "0.9.0"
+        ],
+        [
+          "mcp",
+          "2.2.0"
+        ],
+        [
+          "mcp",
+          "2.3.0"
+        ],
+        [
+          "mcp-types",
+          "2.2.0"
+        ],
+        [
+          "mcp-types",
+          "2.3.0"
+        ],
+        [
+          "mdurl",
+          "0.1.2"
+        ],
+        [
+          "mpmath",
+          "1.3.0"
+        ],
+        [
+          "msgpack",
+          "1.2.3"
+        ],
+        [
+          "multidict",
+          "6.9.1"
+        ],
+        [
+          "numpy",
+          "2.5.2"
+        ],
+        [
+          "openai",
+          "2.54.0"
+        ],
+        [
+          "openai",
+          "3.44.0"
+        ],
+        [
+          "openai-harmony",
+          "0.0.8"
+        ],
+        [
+          "opentelemetry-api",
+          "1.45.1"
+        ],
+        [
+          "opentelemetry-api",
+          "1.45.2"
+        ],
+        [
+          "orjson",
+          "3.12.0"
+        ],
+        [
+          "packaging",
+          "26.3"
+        ],
+        [
+          "pillow",
+          "12.3.0"
+        ],
+        [
+          "prime-pydantic-config",
+          "0.4.3"
+        ],
+        [
+          "prime-sandboxes",
+          "0.5.5"
+        ],
+        [
+          "prime-tunnel",
+          "0.1.17"
+        ],
+        [
+          "propcache",
+          "0.5.2"
+        ],
+        [
+          "protobuf",
+          "6.33.6"
+        ],
+        [
+          "protobuf-py",
+          "0.1.1"
+        ],
+        [
+          "protobuf-py-ext",
+          "0.1.1"
+        ],
+        [
+          "pycparser",
+          "3.0"
+        ],
+        [
+          "pycparser",
+          "3.12"
+        ],
+        [
+          "pydantic",
+          "2.13.4"
+        ],
+        [
+          "pydantic",
+          "2.14.2"
+        ],
+        [
+          "pydantic_core",
+          "2.46.4"
+        ],
+        [
+          "pydantic_core",
+          "2.50.2"
+        ],
+        [
+          "pyqwest",
+          "0.10.0"
+        ],
+        [
+          "python-multipart",
+          "0.0.32"
+        ],
+        [
+          "python-multipart",
+          "0.0.33"
+        ],
+        [
+          "pyzmq",
+          "27.2.0"
+        ],
+        [
+          "referencing",
+          "0.37.0"
+        ],
+        [
+          "referencing",
+          "0.37.0"
+        ],
+        [
+          "regex",
+          "2026.7.19"
+        ],
+        [
+          "renderers",
+          "0.1.13.dev17"
+        ],
+        [
+          "requests",
+          "2.34.2"
+        ],
+        [
+          "rich",
+          "15.0.0"
+        ],
+        [
+          "rpds-py",
+          "2026.6.3"
+        ],
+        [
+          "rpds-py",
+          "2026.9.1"
+        ],
+        [
+          "safetensors",
+          "0.8.0"
+        ],
+        [
+          "shellingham",
+          "1.5.4"
+        ],
+        [
+          "sniffio",
+          "1.3.1"
+        ],
+        [
+          "sniffio",
+          "1.3.1"
+        ],
+        [
+          "sse-starlette",
+          "3.4.8"
+        ],
+        [
+          "sse-starlette",
+          "3.6.0"
+        ],
+        [
+          "starlette",
+          "1.10.0"
+        ],
+        [
+          "starlette",
+          "1.6.0"
+        ],
+        [
+          "sympy",
+          "1.14.0"
+        ],
+        [
+          "tenacity",
+          "9.1.4"
+        ],
+        [
+          "tenacity",
+          "9.2.1"
+        ],
+        [
+          "tiktoken",
+          "0.14.0"
+        ],
+        [
+          "tokenizers",
+          "0.22.2"
+        ],
+        [
+          "tomli",
+          "2.4.1"
+        ],
+        [
+          "tomli_w",
+          "1.2.0"
+        ],
+        [
+          "tqdm",
+          "4.70.0"
+        ],
+        [
+          "transformers",
+          "5.15.1"
+        ],
+        [
+          "truststore",
+          "0.10.4"
+        ],
+        [
+          "truststore",
+          "0.10.5"
+        ],
+        [
+          "typer",
+          "0.27.1"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "urllib3",
+          "2.8.0"
+        ],
+        [
+          "uvicorn",
+          "0.52.4"
+        ],
+        [
+          "uvicorn",
+          "0.54.0"
+        ],
+        [
+          "yarl",
+          "1.25.1"
+        ]
+      ],
+      "main_distributions": [
+        [
+          "Jinja2",
+          "3.1.6"
+        ],
+        [
+          "MarkupSafe",
+          "3.0.3"
+        ],
+        [
+          "PyJWT",
+          "2.15.0"
+        ],
+        [
+          "PyYAML",
+          "6.0.3"
+        ],
+        [
+          "Pygments",
+          "2.21.0"
+        ],
+        [
+          "aiofiles",
+          "25.1.0"
+        ],
+        [
+          "aiohappyeyeballs",
+          "2.7.1"
+        ],
+        [
+          "aiohttp",
+          "3.14.4"
+        ],
+        [
+          "aiosignal",
+          "1.4.0"
+        ],
+        [
+          "annotated-doc",
+          "0.0.5"
+        ],
+        [
+          "annotated-types",
+          "0.8.0"
+        ],
+        [
+          "anthropic",
+          "1.0.0"
+        ],
+        [
+          "antlr4-python3-runtime",
+          "4.13.2"
+        ],
+        [
+          "anyio",
+          "4.14.2"
+        ],
+        [
+          "attrs",
+          "26.1.0"
+        ],
+        [
+          "certifi",
+          "2026.10.19"
+        ],
+        [
+          "cffi",
+          "2.1.1"
+        ],
+        [
+          "charset-normalizer",
+          "3.5.1"
+        ],
+        [
+          "click",
+          "8.4.2"
+        ],
+        [
+          "connectrpc",
+          "0.11.1"
+        ],
+        [
+          "cryptography",
+          "50.0.1"
+        ],
+        [
+          "distro",
+          "1.9.0"
+        ],
+        [
+          "docstring_parser",
+          "0.18.0"
+        ],
+        [
+          "filelock",
+          "4.2.1"
+        ],
+        [
+          "frozenlist",
+          "1.8.0"
+        ],
+        [
+          "fsspec",
+          "2026.6.0"
+        ],
+        [
+          "gepa",
+          "0.1.4"
+        ],
+        [
+          "h11",
+          "0.16.0"
+        ],
+        [
+          "hf-xet",
+          "1.6.0"
+        ],
+        [
+          "httpcore",
+          "1.0.9"
+        ],
+        [
+          "httpcore2",
+          "2.12.0"
+        ],
+        [
+          "httpx",
+          "0.28.1"
+        ],
+        [
+          "httpx2",
+          "2.12.0"
+        ],
+        [
+          "huggingface_hub",
+          "1.28.0"
+        ],
+        [
+          "idna",
+          "3.19"
+        ],
+        [
+          "jiter",
+          "0.16.0"
+        ],
+        [
+          "jsonschema",
+          "4.26.0"
+        ],
+        [
+          "jsonschema-specifications",
+          "2025.9.1"
+        ],
+        [
+          "latex2sympy2_extended",
+          "1.11.0"
+        ],
+        [
+          "loguru",
+          "0.7.3"
+        ],
+        [
+          "markdown-it-py",
+          "4.2.0"
+        ],
+        [
+          "math-verify",
+          "0.9.0"
+        ],
+        [
+          "mcp",
+          "2.2.0"
+        ],
+        [
+          "mcp-types",
+          "2.2.0"
+        ],
+        [
+          "mdurl",
+          "0.1.2"
+        ],
+        [
+          "mpmath",
+          "1.3.0"
+        ],
+        [
+          "msgpack",
+          "1.2.3"
+        ],
+        [
+          "multidict",
+          "6.9.1"
+        ],
+        [
+          "numpy",
+          "2.5.2"
+        ],
+        [
+          "openai",
+          "2.54.0"
+        ],
+        [
+          "openai-harmony",
+          "0.0.8"
+        ],
+        [
+          "opentelemetry-api",
+          "1.45.1"
+        ],
+        [
+          "orjson",
+          "3.12.0"
+        ],
+        [
+          "packaging",
+          "26.3"
+        ],
+        [
+          "pillow",
+          "12.3.0"
+        ],
+        [
+          "prime-pydantic-config",
+          "0.4.3"
+        ],
+        [
+          "prime-sandboxes",
+          "0.5.5"
+        ],
+        [
+          "prime-tunnel",
+          "0.1.17"
+        ],
+        [
+          "propcache",
+          "0.5.2"
+        ],
+        [
+          "protobuf",
+          "6.33.6"
+        ],
+        [
+          "protobuf-py",
+          "0.1.1"
+        ],
+        [
+          "protobuf-py-ext",
+          "0.1.1"
+        ],
+        [
+          "pycparser",
+          "3.0"
+        ],
+        [
+          "pydantic",
+          "2.13.4"
+        ],
+        [
+          "pydantic_core",
+          "2.46.4"
+        ],
+        [
+          "pyqwest",
+          "0.10.0"
+        ],
+        [
+          "python-multipart",
+          "0.0.32"
+        ],
+        [
+          "pyzmq",
+          "27.2.0"
+        ],
+        [
+          "referencing",
+          "0.37.0"
+        ],
+        [
+          "regex",
+          "2026.7.19"
+        ],
+        [
+          "renderers",
+          "0.1.13.dev17"
+        ],
+        [
+          "requests",
+          "2.34.2"
+        ],
+        [
+          "rich",
+          "15.0.0"
+        ],
+        [
+          "rpds-py",
+          "2026.6.3"
+        ],
+        [
+          "safetensors",
+          "0.8.0"
+        ],
+        [
+          "shellingham",
+          "1.5.4"
+        ],
+        [
+          "sniffio",
+          "1.3.1"
+        ],
+        [
+          "sse-starlette",
+          "3.4.8"
+        ],
+        [
+          "starlette",
+          "1.6.0"
+        ],
+        [
+          "sympy",
+          "1.14.0"
+        ],
+        [
+          "tenacity",
+          "9.1.4"
+        ],
+        [
+          "tiktoken",
+          "0.14.0"
+        ],
+        [
+          "tokenizers",
+          "0.22.2"
+        ],
+        [
+          "tomli",
+          "2.4.1"
+        ],
+        [
+          "tomli_w",
+          "1.2.0"
+        ],
+        [
+          "tqdm",
+          "4.70.0"
+        ],
+        [
+          "transformers",
+          "5.15.1"
+        ],
+        [
+          "truststore",
+          "0.10.4"
+        ],
+        [
+          "typer",
+          "0.27.1"
+        ],
+        [
+          "typing-inspection",
+          "0.4.4"
+        ],
+        [
+          "typing_extensions",
+          "4.16.0"
+        ],
+        [
+          "urllib3",
+          "2.8.0"
+        ],
+        [
+          "uvicorn",
+          "0.52.4"
+        ],
+        [
+          "yarl",
+          "1.25.1"
+        ]
+      ]
+    }
+  },
+  "successful_environment_provenance_receipt": {
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "frontier-vfrun-envprovenance-20261105t084810z",
+      "--pull",
+      "never",
+      "--network",
+      "none",
+      "--read-only",
+      "--memory",
+      "805306368",
+      "--cpus",
+      "1",
+      "--pids-limit",
+      "64",
+      "--tmpfs",
+      "/tmp:rw,size=402653184",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索,target=/project,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\local-state\\upstream\\verifiers-compaction-20261103T071243Z,target=/source,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T024419Z\\research-feasibility,target=/old,readonly",
+      "--mount",
+      "type=bind,source=C:\\Users\\somle\\Documents\\ChatGPT\\AI 深度项目探索\\reports\\runs\\20261105T084810Z\\research-feasibility,target=/records",
+      "--mount",
+      "type=volume,source=frontier-vfrun-env-20261104t074015z,target=/env,readonly",
+      "--mount",
+      "type=volume,source=frontier-vfrun-cache-v2-20261105t024419z,target=/root/.cache,readonly,volume-nocopy",
+      "--env",
+      "PYTHONPATH=/project:/source:/source/tests/integration/fixtures:/env",
+      "--env",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "--entrypoint",
+      "python",
+      "sha256:913a1fae777596f41b6b08562b95bfcf596d5ac99389976cb2e40609daa364e3",
+      "/records/environment-provenance.py"
+    ],
+    "started_at": "2026-11-05T09:03:56.130565+00:00",
+    "completed_at": "2026-11-05T09:04:00.626441+00:00",
+    "returncode": 0,
+    "elapsed_seconds": 4.496101400000043,
+    "stdout_sha256": "7472d37fce5203b5cbe79657ee3c6386bd876aa19429f00d643d3fd1d8232c14",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_entries": 0,
+    "scientific_experiments": 0,
+    "installation": false
+  },
+  "independent_prefreeze_review": {
+    "recorded_at": "2026-11-05T09:13:04.898753+00:00",
+    "status": "passed",
+    "findings": [],
+    "manifest_sha256": "5cf960bcbece3cdcd59325b6ec0793cb4d771305c03dee532e85e1e724764cc1",
+    "launcher_sha256": "b0e9b16e9cad7ee17826d58990e5dde658882c251e904efa1abd3202c969ed71",
+    "protocol_sha256": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab",
+    "code_review_sha256": "aee714e526bf83a0dfb1c192d5801c0321844e3b6c336a686825a12bed4f3e5e",
+    "bound_host_files": 29,
+    "preserved_prior_v2_host_files": 18,
+    "preserved_prior_v1_host_files": 20,
+    "preserved_prior_raw_files": 64,
+    "protocol_version_files": 29,
+    "conditions_checked": 225,
+    "conditions_passed": 225,
+    "checks": [
+      {
+        "condition": "manifest exact requested hash",
+        "passed": true
+      },
+      {
+        "condition": "host file count29",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/prepare_verifiers_budget_retry.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:research/protocols/verifiers-budget-native-retry-v1.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:tests/test_eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:pyproject.toml",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/dependency_links.txt",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/entry_points.txt",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/PKG-INFO",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/requires.txt",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/SOURCES.txt",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:frontier_savescope.egg-info/top_level.txt",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-check.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-check-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-actual.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-provenance.py",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-provenance.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/environment-provenance-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/prefreeze-scope-clarification-before.json",
+        "passed": true
+      },
+      {
+        "condition": "current bound file:reports/runs/20261105T084810Z/research-feasibility/engineering-controls.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 manifest exact",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 mappings unchanged",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 mappings unchanged",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:experiments/prepare_verifiers_budget_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:research/protocols/verifiers-budget-v2.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:tests/test_verifiers_budget_fixture_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/environment-actual-v2.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/environment-check-v2-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/environment-comparator-correction.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v2 host:reports/runs/20261105T044459Z/research-feasibility/engineering-controls.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:experiments/verifiers_budget_suite.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:experiments/prepare_verifiers_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:research/protocols/verifiers-budget-v1.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:experiments/fixtures/eval-budget-development.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:experiments/fixtures/eval-budget-final.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/freeze-native.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/run-native.py",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/freeze/protocol.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/freeze/harness.lock",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/freeze/packages.lock",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-preparation.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/corrected/preparation-result.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/corrected/harness-warm-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/cache-check.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/cache-check-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/cache-check-reconciliation.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/correction-intent.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/correction-review.json",
+        "passed": true
+      },
+      {
+        "condition": "prior v1 host:reports/runs/20261105T024419Z/research-feasibility/unit-tests.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw count64",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/barrier-1.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/budget.sqlite",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-episode.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/dev-bad-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-request.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-1-response.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-request.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-2-response.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/http-receipts.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-bad/traces.jsonl",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/native/dev-good/traces.jsonl",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/resource-samples.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/result.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/version-refusal.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-start.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stderr.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-1-stdout.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-start.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stderr.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T024419Z/research-feasibility/native-output/result/worker-2-stdout.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/barrier-1.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/barrier-2.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/budget.sqlite",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-bad-episode.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-bad-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-good-episode.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/dev-good-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/final-once-episode.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/final-once-receipt.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/fixture-initialization.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-arrival.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-request.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-1-response.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-arrival.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-request.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-2-response.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-arrival.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-request.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-3-response.bin",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/http-receipts.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-bad/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-bad/traces.jsonl",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-good/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/dev-good/traces.jsonl",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/final-once/configs/resolved/run.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/native/final-once/traces.jsonl",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/resource-samples.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/result.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/selection.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-after.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-before.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/version-refusal.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-start.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-stderr.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-1-stdout.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-start.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-stderr.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-2-stdout.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-start.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-stderr.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-3-stdout.log",
+        "passed": true
+      },
+      {
+        "condition": "prior raw64:reports/runs/20261105T044459Z/research-feasibility/native-output/result/worker-final.json",
+        "passed": true
+      },
+      {
+        "condition": "prior raw exact full file set",
+        "passed": true
+      },
+      {
+        "condition": "prior preservation receipt original",
+        "passed": true
+      },
+      {
+        "condition": "initial code review original",
+        "passed": true
+      },
+      {
+        "condition": "initial preserved text exact LF or reconstructed CRLF:experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "initial preserved text exact LF or reconstructed CRLF:experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "condition": "initial preserved text exact LF or reconstructed CRLF:research/protocols/verifiers-budget-native-retry-v1.json",
+        "passed": true
+      },
+      {
+        "condition": "runtime AST unchanged since controls:experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "runtime AST unchanged since controls:experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "condition": "initial bytes unchanged:tests/test_eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "initial bytes unchanged:experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "initial bytes unchanged:experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "generated spec exact",
+        "passed": true
+      },
+      {
+        "condition": "generated limitations exact",
+        "passed": true
+      },
+      {
+        "condition": "canonical generated protocol content LF or Windows CRLF",
+        "passed": true
+      },
+      {
+        "condition": "resource binding exact",
+        "passed": true
+      },
+      {
+        "condition": "resources finite",
+        "passed": true
+      },
+      {
+        "condition": "image and no paid/external suite",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/inputs/harness.lock",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/inputs/packages.lock",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/experiments/eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/experiments/eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/experiments/prepare_verifiers_budget_retry.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/experiments/verifiers_budget_retry_suite.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/experiments/verifiers_budget_suite_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/PKG-INFO",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/SOURCES.txt",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/dependency_links.txt",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/entry_points.txt",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/requires.txt",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/frontier_savescope.egg-info/top_level.txt",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/pyproject.toml",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/project/research/protocols/verifiers-budget-native-retry-v1.json",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/tests/integration/fixtures/echo.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/agent.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/cli/run.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/clients/eval.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/env.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/episode.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/harnesses/null/harness.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/harnesses/utils/launch.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/runtimes/backends/subprocess.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/runtimes/runtime.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/task.py",
+        "passed": true
+      },
+      {
+        "condition": "protocol exact version:/source/verifiers/v1/trace.py",
+        "passed": true
+      },
+      {
+        "condition": "prepared script hash bound",
+        "passed": true
+      },
+      {
+        "condition": "prepared script lock bound",
+        "passed": true
+      },
+      {
+        "condition": "dataset exact:development",
+        "passed": true
+      },
+      {
+        "condition": "dataset exact:final",
+        "passed": true
+      },
+      {
+        "condition": "source HEAD exact",
+        "passed": true
+      },
+      {
+        "condition": "source clean exact",
+        "passed": true
+      },
+      {
+        "condition": "environment exact:selected_imports",
+        "passed": true
+      },
+      {
+        "condition": "environment exact:main_distributions",
+        "passed": true
+      },
+      {
+        "condition": "environment exact:script_only_distributions",
+        "passed": true
+      },
+      {
+        "condition": "main94 script35 current130",
+        "passed": true
+      },
+      {
+        "condition": "130 tuple provenance equals census",
+        "passed": true
+      },
+      {
+        "condition": "metadata exact one added existing local project",
+        "passed": true
+      },
+      {
+        "condition": "project metadata actual exact path",
+        "passed": true
+      },
+      {
+        "condition": "all130 metadata path ownership",
+        "passed": true
+      },
+      {
+        "condition": "project version",
+        "passed": true
+      },
+      {
+        "condition": "pyproject binding current",
+        "passed": true
+      },
+      {
+        "condition": "metadata full exact six files",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/dependency_links.txt",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/entry_points.txt",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/PKG-INFO",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/requires.txt",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/SOURCES.txt",
+        "passed": true
+      },
+      {
+        "condition": "project metadata bound:/project/frontier_savescope.egg-info/top_level.txt",
+        "passed": true
+      },
+      {
+        "condition": "environment-provenance saved stdout hash",
+        "passed": true
+      },
+      {
+        "condition": "environment-provenance saved stderr hash",
+        "passed": true
+      },
+      {
+        "condition": "environment-provenance expected returncode",
+        "passed": true
+      },
+      {
+        "condition": "environment-provenance no install/native/science",
+        "passed": true
+      },
+      {
+        "condition": "environment-provenance background read-only source/volumes networknone",
+        "passed": true
+      },
+      {
+        "condition": "environment-check saved stdout hash",
+        "passed": true
+      },
+      {
+        "condition": "environment-check saved stderr hash",
+        "passed": true
+      },
+      {
+        "condition": "environment-check expected returncode",
+        "passed": true
+      },
+      {
+        "condition": "environment-check no install/native/science",
+        "passed": true
+      },
+      {
+        "condition": "environment-check background read-only source/volumes networknone",
+        "passed": true
+      },
+      {
+        "condition": "three control suites15tests",
+        "passed": true
+      },
+      {
+        "condition": "saved successful controls:test_eval_http_budget.py",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_eval_http_budget.py:stdout",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_eval_http_budget.py:stderr",
+        "passed": true
+      },
+      {
+        "condition": "saved successful controls:test_eval_budget_runner.py",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_eval_budget_runner.py:stdout",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_eval_budget_runner.py:stderr",
+        "passed": true
+      },
+      {
+        "condition": "saved successful controls:test_verifiers_budget_fixture_v2.py",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_verifiers_budget_fixture_v2.py:stdout",
+        "passed": true
+      },
+      {
+        "condition": "saved controls hash:test_verifiers_budget_fixture_v2.py:stderr",
+        "passed": true
+      },
+      {
+        "condition": "not executed at review",
+        "passed": true
+      }
+    ],
+    "current_source_spec_test_sha256": {
+      "experiments/eval_http_budget.py": "62d4b28a3dc141968b81a3563a7d24e87278519854590f0edc2a20aad036fde6",
+      "experiments/verifiers_budget_retry_suite.py": "afb41b7482927bcf86328eb1b446dc30b14c806f2d6818899adb51be0f69e713",
+      "experiments/prepare_verifiers_budget_retry.py": "70ad27321da9ebb09bbf3e0f6f436539ce15e707b3a1a3c0b8957205c1015fd5",
+      "research/protocols/verifiers-budget-native-retry-v1.json": "e9344b70d8b6483e6b6dda77c8efe68c324e4d4bf50304e50b24dab9d2c400fc",
+      "tests/test_eval_http_budget.py": "4c1d917080ba81e279df1a0248b55cd89b25dd170497464b8284290dc756c6c7",
+      "experiments/verifiers_budget_suite_v2.py": "d030fac58bdd6b2b9134c9c55cdef73dce56c8443109d2610cc72c85c90fa46a",
+      "experiments/eval_budget_runner.py": "0737db01acc38e8c99ff9ca82aac79af89053b2e264fffd0087c811d1780aa87"
+    },
+    "evidence_scope": [
+      "Static source/spec/test/launcher review and saved-byte verification only; reviewer imported/executed no producers, tests, native/science, Docker or network.",
+      "Proposed intervention is genuine pinned native SDK 503/200 retry, six fixed valid loopback bodies, and physical SQLite admission across three gracefully reconstructed listeners; no native over-budget or mid-I/O failure proof.",
+      "Single trusted owner, two existing worker crash boundaries, fixture rewards and synthetic token usage; full H3/H4, real model quality, GPU, production, external exactly-once, hostile traffic/resource and causal performance gates remain unmet.",
+      "Content-Length/body-read failures before receive may remain unrecorded/uncharged; current code/spec explicitly preserve this blind spot.",
+      "Six selected imports and package94/script35 inventories exactly match old baseline. Current130 metadata includes existing /project frontier-savescope0.2.0; old129 comparator failure retained, with no install/isolation claim."
+    ],
+    "native_accepted": false,
+    "native_executions": 0,
+    "scientific_experiments": 0,
+    "tests_executed_by_reviewer": 0,
+    "producer_imports": 0,
+    "network_calls": 0,
+    "source_or_shared_edits": 0,
+    "independent_stopped_raw_database_audit_required_after_single_execution": true,
+    "no_same_freeze_retry": true,
+    "reviewer_format_correction": {
+      "reason": "Initial reviewer helper incorrectly required LF for saved initial spec text and generated protocol. Original spec reconstruction with CRLF matches its original hash exactly; generated protocol equals canonical JSON plus Windows CRLF and retains exact bound raw hash. No producer/source/freeze/outcome changes.",
+      "native_executions_before_correction": 0,
+      "initial_review_conditions_passed": 223,
+      "initial_review_conditions_checked": 225,
+      "preserved_files_sha256": {
+        "independent-review-static-initial-format-check.py": "f0d56850831712cd52564974f0112e329e1aa0db5705a953aa33fa0bf92ec25c",
+        "independent-code-review-initial-format-check.json": "b78bb978a03723fe29923b279964c3838c5f7c35b7c82a7dca97503c6c6b633a",
+        "independent-freeze-review-initial-format-check.json": "b37fa22d339fe62876cbe7078b3aed93712b0f885b79e55feb46112c85375eed"
+      },
+      "initial_spec_raw_sha256": "be062a1360e6f569e6ee8024803382cd4ef932daaadff556bf572741996bb001",
+      "initial_spec_LF_text_sha256": "2b5c7102363c17f84e6e0602cd4296a61365b85a07792076b6c989831715ad39",
+      "frozen_protocol_raw_sha256": "15dc2e23c260458f8dbf91ecf5814e03e4faa05c645be330e6da8ac97a1c78ab",
+      "frozen_protocol_canonical_LF_sha256": "415e6cc8ee0bf90b9970a4388c85408cfc69b0c2b924a9cf5f9967c4ff539e85"
+    }
+  },
+  "seed_policy": "No model or generated-data RNG; fixed public phrases. No seed override was set for the unchanged native SDK retry jitter. Exact backoff/timing reproduction is not claimed.",
+  "engineering_controls": [
+    {
+      "pattern": "test_eval_http_budget.py",
+      "argv": [
+        "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_eval_http_budget.py"
+      ],
+      "started_at": "2026-11-05T08:58:07.896941+00:00",
+      "completed_at": "2026-11-05T08:58:10.847253+00:00",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dac2f41fc951e554b9d97f6f3a3988ddc70568f26c5f1f29c12b1189d9126a01",
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 2.418s\r\n\r\nOK\r\n"
+    },
+    {
+      "pattern": "test_eval_budget_runner.py",
+      "argv": [
+        "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_eval_budget_runner.py"
+      ],
+      "started_at": "2026-11-05T08:58:10.847253+00:00",
+      "completed_at": "2026-11-05T08:58:11.961561+00:00",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e9247b2e7a47ac0dbd880c265e84e7d03bf6812cc16347ae8a6b3712b7c63e8a",
+      "stderr": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.888s\r\n\r\nOK\r\n"
+    },
+    {
+      "pattern": "test_verifiers_budget_fixture_v2.py",
+      "argv": [
+        "C:\\Users\\somle\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_verifiers_budget_fixture_v2.py"
+      ],
+      "started_at": "2026-11-05T08:58:11.961561+00:00",
+      "completed_at": "2026-11-05T08:58:13.303347+00:00",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "348f1fe1a4b04723b86241d740d3522bd7a472dacd9e7718a4ecf643b9775cf2",
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 1.026s\r\n\r\nOK\r\n"
+    }
+  ],
+  "prior_failed_v1_and_accepted_v2_preserved": true,
+  "full_H3_H4_unmet": true,
+  "source_count_unchanged": 226,
+  "scope": "Genuine pinned runner/harness/SDK/scorer with deterministic loopback provider; one trusted owner. Six admitted complete-body calls and graceful listener reconstruction. No real model, native cap-exhaustion, mid-I/O crash, general exactly-once or performance-improvement claim."
+}

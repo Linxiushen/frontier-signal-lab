@@ -288,3 +288,10 @@ experiments/*verifiers_budget*v2.py -text whitespace=cr-at-eol
 tests/test_verifiers_budget_fixture_v2.py -text whitespace=cr-at-eol
 research/protocols/verifiers-budget-v2.json -text whitespace=cr-at-eol
 fixtures/verifiers-budget-native-v2/** -text whitespace=cr-at-eol
+
+# Preserve native retry freeze source, protocol and metadata bytes.
+experiments/eval_http_budget.py -text whitespace=cr-at-eol
+experiments/*verifiers_budget_retry*.py -text whitespace=cr-at-eol
+tests/test_eval_http_budget.py -text whitespace=cr-at-eol
+research/protocols/verifiers-budget-native-retry-v1.json -text whitespace=cr-at-eol
+fixtures/verifiers-budget-native-retry/** -text whitespace=cr-at-eol

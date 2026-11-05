@@ -1,0 +1,909 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-05T13:00:54.632008+00:00",
+  "status": "complete_pinned_source_and_author_test_design_review_only",
+  "repository": "earendil-works/pi",
+  "URL": "https://github.com/earendil-works/pi/commit/d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+  "author": "badlogic",
+  "author_date": "2026-11-05T10:45:39Z",
+  "committer_date": "2026-11-05T10:45:40Z",
+  "parent": "af79b0c3d75c099d37365dcbc033414b5c384835",
+  "landed": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+  "package": "@earendil-works/chord",
+  "source_package_version": "1.5.0",
+  "installed_runtime_unchanged": true,
+  "npm_release_verified": false,
+  "public": true,
+  "license": "MIT",
+  "changed_files": 13,
+  "immutable_source_versions": [
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/CHANGELOG.md",
+      "blob": "e3e8c0632950acc40e2f32fd1d20851fe3226051",
+      "bytes": 63229,
+      "sha256": "6f91ad550c3552c326e5604c23d51b0e4b0bd01e4c0c0f16ae82db64588026fe",
+      "saved": "after/packages/chord/CHANGELOG.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/CHANGELOG.md",
+      "blob": "81e4ff6e8f90421cd0f29451a00dbdcf8c39aa17",
+      "bytes": 62257,
+      "sha256": "76a5ad304a320fa7950de0bcf4ec7a91f93b16bc91a6af571399cc3ba2e547ec",
+      "saved": "before/packages/chord/CHANGELOG.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/docs/design.md",
+      "blob": "d4839b51d57440f8089e305f9895deb29c5cd467",
+      "bytes": 262298,
+      "sha256": "ae3a3cfff9dbddc7dcb2dfcdc2072dfce6b081ca3debc03fa6655d6b72a520a8",
+      "saved": "after/packages/chord/docs/design.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/docs/design.md",
+      "blob": "77ea35e9619c72a70a71a90a7c5893edad553f83",
+      "bytes": 260002,
+      "sha256": "40d9239e11e50ce20d3af342377b480da854ead4925de88d72c91ad0a8b63e1d",
+      "saved": "before/packages/chord/docs/design.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/docs/guide-plugins-hosts/book.md",
+      "blob": "031f9c87662926d0e196c78687e4570f93dd05e2",
+      "bytes": 57272,
+      "sha256": "91b80097d2c15e45622aff0d3ed84b01269db446d3898109d840585a8d2be5e3",
+      "saved": "after/packages/chord/docs/guide-plugins-hosts/book.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/docs/guide-plugins-hosts/book.md",
+      "blob": "98287cebfbf91432a1333fe63edfc11671d804af",
+      "bytes": 54184,
+      "sha256": "feb5aa97f2557eba802b4186562f004bfc02032d258be366e239856016679d3e",
+      "saved": "before/packages/chord/docs/guide-plugins-hosts/book.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/docs/guide-plugins-hosts/index.html",
+      "blob": "b996483555d60dffda9537b42e9b7c4d17425463",
+      "bytes": 103105,
+      "sha256": "360aa68c6d55bb85331d3b3071cce7b21162f2eb1af83291a3bddba89d5e4991",
+      "saved": "after/packages/chord/docs/guide-plugins-hosts/index.html",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/docs/guide-plugins-hosts/index.html",
+      "blob": "bab3c7ffebac16c17c9b3b3fd653c10cef4aec91",
+      "bytes": 98832,
+      "sha256": "0ee09445c9d23caeda67b29e0f38de80719582cd565d41e88f83b111f2f9eeab",
+      "saved": "before/packages/chord/docs/guide-plugins-hosts/index.html",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/react/README.md",
+      "blob": "0231750f4e37d66d6552ad3e59c8a40a404d85b3",
+      "bytes": 2010,
+      "sha256": "893f6319205aa3319c5c75418f19bad6503640a26e226fbd5bb340c0afccc5c5",
+      "saved": "after/packages/chord/src/react/README.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/src/react/README.md",
+      "blob": "de4919eec7f6e4ddf7904a0cbf83bd5374af9d17",
+      "bytes": 1482,
+      "sha256": "3487a96f5ce2a0dad77e9e3de18b8f7b056462c2a672662ddc8c68bf593c285f",
+      "saved": "before/packages/chord/src/react/README.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/provider.ts",
+      "blob": "45762627d39c31d7ecf0b4009ffde36b66d8afd6",
+      "bytes": 25515,
+      "sha256": "42cae8f02ee55ae5bc60933554892846e1e6c79c70763c796407321d54a43495",
+      "saved": "after/packages/chord/src/remote/provider.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/src/remote/provider.ts",
+      "blob": "afce4c7d83641198085ec3b61c94d968ef71c33a",
+      "bytes": 24462,
+      "sha256": "dbad648e1aa271be2285b8bfc7e1406d374b3164c679116da25d84561345e3b5",
+      "saved": "before/packages/chord/src/remote/provider.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/tui/README.md",
+      "blob": "0f1491b94b251a4bf47f969974362f4bf052413a",
+      "bytes": 2392,
+      "sha256": "bd2af5a574cc99c66557e827e0aa194ffca111eb801763d5d1177b116847860c",
+      "saved": "after/packages/chord/src/tui/README.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/src/tui/README.md",
+      "blob": "437cfeea35ee9147247df7233c6ba028fba3f9d6",
+      "bytes": 2262,
+      "sha256": "1cf2069763acdca09661826edbd9c633c8b5273aa0668e7127aa7e3c7b0f9b52",
+      "saved": "before/packages/chord/src/tui/README.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/tui/scope.ts",
+      "blob": "078bdc61250e5a813de4efc5daca4a3bbc02d8a8",
+      "bytes": 6414,
+      "sha256": "500f63e494a1a13b2d23254460e64ff587e2d9a8a0e1b353c45892cdebdd049a",
+      "saved": "after/packages/chord/src/tui/scope.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/src/tui/scope.ts",
+      "blob": "ba4e0ab2db9210cb95dd6616e496830bdf8ed68f",
+      "bytes": 5237,
+      "sha256": "e74dfd6face7d69f70650d145d25884ab51f86d6dfd9043a0676b025ef1591fa",
+      "saved": "before/packages/chord/src/tui/scope.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/test/examples/63-optimistic-answers.ts",
+      "blob": "ceff74a645ebdc46ede76729b2d343adda485084",
+      "bytes": 8333,
+      "sha256": "126c98d184caed486f9c9d178f5abd01901eda97d376c48f532a6e6328c3ef63",
+      "saved": "after/packages/chord/test/examples/63-optimistic-answers.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/test/remote/hold.test.ts",
+      "blob": "84e50f41d2ce34c6368c0eaba656baeda9e33ae4",
+      "bytes": 79819,
+      "sha256": "8770035fe95dda388420d270f7937f166acad2539b0a57b336e09005d312e9da",
+      "saved": "after/packages/chord/test/remote/hold.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/test/remote/hold.test.ts",
+      "blob": "129a115386785e8a97d9df84b3d035e091343a3f",
+      "bytes": 79597,
+      "sha256": "c4284a3f464fa3550b9dafbfa358f17c04c965d000538bd580aa1b62d78b8574",
+      "saved": "before/packages/chord/test/remote/hold.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/test/remote/provider.test.ts",
+      "blob": "2d63209e8e8e6c7c5c86acffc492b8fc8818f344",
+      "bytes": 45674,
+      "sha256": "b4334184a9e99a8c379646328759dc83085df93f7841288ae66308c43da38ffd",
+      "saved": "after/packages/chord/test/remote/provider.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/test/remote/provider.test.ts",
+      "blob": "64dd630f52b4683254cb7e541d44cd4b6abbc46b",
+      "bytes": 42300,
+      "sha256": "1b0f9b24518a7b2b02db4a55bf8507747f1b98276e2a4fa4cdb631b1a5623886",
+      "saved": "before/packages/chord/test/remote/provider.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/test/remote/relay.test.ts",
+      "blob": "619556ff2da8574e141841959e73794da2f62658",
+      "bytes": 34276,
+      "sha256": "3a793a320f2a3c123cd9356490f5c35106c5b9d95a325b910853cabadd0a2c4d",
+      "saved": "after/packages/chord/test/remote/relay.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/test/remote/relay.test.ts",
+      "blob": "899af70916438053e0a8e800abb5ebed0f183d39",
+      "bytes": 32038,
+      "sha256": "8760daa4ad714f1407ad198ff4643a72b44b7588e6d5f2fe635051ca39488d8b",
+      "saved": "before/packages/chord/test/remote/relay.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/test/tui/scope.test.ts",
+      "blob": "70b827a394eb48bca43d504ee1feb1cd24c036a1",
+      "bytes": 7082,
+      "sha256": "ff360c5bb1956881eacc47310ea022dd3031d817ed067e096123fcd076aff32d",
+      "saved": "after/packages/chord/test/tui/scope.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "before",
+      "revision": "af79b0c3d75c099d37365dcbc033414b5c384835",
+      "path": "packages/chord/test/tui/scope.test.ts",
+      "blob": "6a3582bf7f1c634faa7c491c17ff0b4733043724",
+      "bytes": 5054,
+      "sha256": "3af632b345620dab7b80770cf4e121957dedd7d503bc7867360952636301c9d7",
+      "saved": "before/packages/chord/test/tui/scope.test.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/calls.ts",
+      "blob": "dc415da51eb2cd073de56b36ca4c83472cb0cba8",
+      "bytes": 2232,
+      "sha256": "0d35145aaa39e69ffedf6bdcba300cc54723cdbdc7afba89ef2e943d588a8823",
+      "saved": "after/packages/chord/src/remote/calls.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/consumer.ts",
+      "blob": "b663d4800246e9e2549998a883d85145ee8d248e",
+      "bytes": 14084,
+      "sha256": "175e23007412d1125db7990c85c7a734f0f60093e07c5d2900f455159b445b43",
+      "saved": "after/packages/chord/src/remote/consumer.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/hold.ts",
+      "blob": "e83692b8ff63b8690b99924cf412275655e636d1",
+      "bytes": 30502,
+      "sha256": "4966c2f4abb28330c78606f5bfc7b6d91c5daea04a90026c40ac68defd4e279d",
+      "saved": "after/packages/chord/src/remote/hold.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/host-link.ts",
+      "blob": "4f9dcfab2fa93a933feb72baa7ef75f1d3b72a10",
+      "bytes": 8628,
+      "sha256": "c682a523653e5bd87a1e1be8bff040e20519980f65f4f2a0d59ea91e2cef2d5e",
+      "saved": "after/packages/chord/src/remote/host-link.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/internal.ts",
+      "blob": "351624e9dd82afb22d57ecbe9e775ad0408fe04e",
+      "bytes": 427,
+      "sha256": "710c96d6aff32bd2c5215a519c650a3035575195f091b1835a696b9a7d2e79b3",
+      "saved": "after/packages/chord/src/remote/internal.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/path.ts",
+      "blob": "f1f345dd56b733634f7771c98ba4bc068cdd9b3f",
+      "bytes": 3327,
+      "sha256": "5ac81481f75e45a71aa76db8df29364a3283b8cd4c0bcd54dc838c36298f95ed",
+      "saved": "after/packages/chord/src/remote/path.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/relay.ts",
+      "blob": "6da71db219c1fc080b2cc919f510317bf90b908b",
+      "bytes": 9934,
+      "sha256": "ca66e15c4545b7048da0f58ac5220fc07298a0a02681f2ed300c7506c9d6f9ae",
+      "saved": "after/packages/chord/src/remote/relay.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/remote-object.ts",
+      "blob": "b5ffb8a24326ac0e3862a76159d307025e6f4b05",
+      "bytes": 22186,
+      "sha256": "1b9d95dce1209180f2a74600c560fb33aec916ea0ec761582b817fb3cadd7ee1",
+      "saved": "after/packages/chord/src/remote/remote-object.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/remote/replica.ts",
+      "blob": "203334611c879b779a87f8c19ea3af6322e3c846",
+      "bytes": 6077,
+      "sha256": "32462ae60f6b0220949c75a8279f7a398924f011e8268097a7a8d895d18c971a",
+      "saved": "after/packages/chord/src/remote/replica.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "LICENSE",
+      "blob": "b0a8e9b81083294360c69b4ec45d3d39a2b28197",
+      "bytes": 1069,
+      "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48",
+      "saved": "after/LICENSE",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "CONTRIBUTING.md",
+      "blob": "c6d76f1c574c1c85cb2bb519ef4d21cb8e34623e",
+      "bytes": 5033,
+      "sha256": "ce0c1456c55404c729c632221f9159ea3b463e6b3974a1c22446e9315388490c",
+      "saved": "after/CONTRIBUTING.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "AGENTS.md",
+      "blob": "eda34ed1b4c6afe325205a1dda9a2275be05055f",
+      "bytes": 13186,
+      "sha256": "3679a5ece5f5ebe72a845b7ab4ec04bffcd3ea543f44f5636f0e6825ba60c12a",
+      "saved": "after/AGENTS.md",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/package.json",
+      "blob": "c0076c7e9d15784f791fddedb35ca6c3aa0b88dc",
+      "bytes": 4645,
+      "sha256": "0e609420b163d4d1d380606e081b1a5f2e165b1a14864288398b14815bf4cbee",
+      "saved": "after/packages/chord/package.json",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "package.json",
+      "blob": "badb6e965dd9669846a0f11495faf12680af843f",
+      "bytes": 4991,
+      "sha256": "07ddb63ab4f169676bf040297dfd6cb45f454d3ba660228456db74818689141f",
+      "saved": "after/package.json",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/link/channel.ts",
+      "blob": "365d008f00008fe9a84306c6fc2c7e05be8a997b",
+      "bytes": 9989,
+      "sha256": "47fe2a6d3cba15602fd256c4214a76944108e79b226e82095e15ff11ad8e2ef6",
+      "saved": "after/packages/chord/src/link/channel.ts",
+      "complete_saved_bytes_read": true
+    },
+    {
+      "role": "after",
+      "revision": "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "path": "packages/chord/src/link/internal.ts",
+      "blob": "1c63f57aad68724662a13af1f56d1a884fd82d8f",
+      "bytes": 955,
+      "sha256": "55ec7dcce180652a80f8594bcd3d88970f1787876494e32d978dd6d2ff4c33c1",
+      "saved": "after/packages/chord/src/link/internal.ts",
+      "complete_saved_bytes_read": true
+    }
+  ],
+  "source_version_count": 41,
+  "source_bytes": 1502391,
+  "source_requests": [
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/after-tree.receipt.json",
+      "sha256": "5711b380bb497860083bfd331f9cdf545929fd3f7b319c24ebca03f53ac5eb77",
+      "endpoint": "repos/earendil-works/pi/git/trees/d7a988d18d2a27f78f1cdcc0597154e916d95ed9?recursive=1",
+      "raw_sha256": "79f83e3eafa0b170bb0e76c26b0b449ac7b54da7420858dd65c5d21c078c1224",
+      "stored_sha256": "968abecbb28bc41b2ded025cf4df559824b8992f63cbba511dc8d5bc6649a64e",
+      "started_at": "2026-11-05T12:55:44.081791+00:00",
+      "completed_at": "2026-11-05T12:55:46.196724+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/associated-prs.receipt.json",
+      "sha256": "8c10d91e98156181980fe2c0ebe504a24b9851b1d9a4f571c85c09d2c7b3f7c3",
+      "endpoint": "repos/earendil-works/pi/commits/d7a988d18d2a27f78f1cdcc0597154e916d95ed9/pulls?per_page=100",
+      "raw_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "stored_sha256": "61663fde99b3394d71653f41c19fe91269442622a4a6695f8352a70fbf5ca4c1",
+      "started_at": "2026-11-05T12:55:00.266257+00:00",
+      "completed_at": "2026-11-05T12:55:01.642959+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/before-tree.receipt.json",
+      "sha256": "1f35889f13e72b645aa5c165a9df802e59d139b94a10fc26cea26ff100b364e1",
+      "endpoint": "repos/earendil-works/pi/git/trees/af79b0c3d75c099d37365dcbc033414b5c384835?recursive=1",
+      "raw_sha256": "bfdfe2b63f68ff4ce0f7a74115f5e27bce987de1749c6c3539ca6e292053985e",
+      "stored_sha256": "d9f401fc9bfd7a1f908ee4d5b7be1ee494b0abf4a7b63d6fc8dd96f30a27619f",
+      "started_at": "2026-11-05T12:55:44.081791+00:00",
+      "completed_at": "2026-11-05T12:55:46.197246+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-0231750f4e37d66d6552ad3e59c8a40a404d85b3.receipt.json",
+      "sha256": "6d192c5bb37a9ee3b45da438652195d86e0d45f55c62296b62ce99d82f83710f",
+      "endpoint": "repos/earendil-works/pi/git/blobs/0231750f4e37d66d6552ad3e59c8a40a404d85b3",
+      "raw_sha256": "faedbc6cfdfdda63c186002b589831a41957dea3196fb71ac697fec63d50e05b",
+      "stored_sha256": "f17691b2632c1ede90c574fdf7a87eeae86933b47ab90ca3d3f8ec9fe744a74b",
+      "started_at": "2026-11-05T12:55:46.212812+00:00",
+      "completed_at": "2026-11-05T12:55:47.736421+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-031f9c87662926d0e196c78687e4570f93dd05e2.receipt.json",
+      "sha256": "b25aaa9857aa06baf8a8dd56260923e4687605c3d5256a3b5385071adbaa6ec0",
+      "endpoint": "repos/earendil-works/pi/git/blobs/031f9c87662926d0e196c78687e4570f93dd05e2",
+      "raw_sha256": "06fd0c960285e0097caa01cdc09000d7e9e6c9d7f68f8c20ba0c5d453ea86d56",
+      "stored_sha256": "56a1b74874006f6decdd144c5bf47e76285e4e1f0f8f1365200cd92964bcc470",
+      "started_at": "2026-11-05T12:55:46.212812+00:00",
+      "completed_at": "2026-11-05T12:55:48.140996+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-078bdc61250e5a813de4efc5daca4a3bbc02d8a8.receipt.json",
+      "sha256": "6525d6ad1182f695a3c8b10fa5857af1ed0a964228299296591d63fa3144f2ca",
+      "endpoint": "repos/earendil-works/pi/git/blobs/078bdc61250e5a813de4efc5daca4a3bbc02d8a8",
+      "raw_sha256": "a3d51a97bd502f2f00df8be0cfc4c8933c34964f3ce106b320857bfd05be281d",
+      "stored_sha256": "c25761f28f68df1a84b68117a492a0a527b7a6ddb6278a51a4bdc147b13170c1",
+      "started_at": "2026-11-05T12:55:46.213330+00:00",
+      "completed_at": "2026-11-05T12:55:47.718825+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-0f1491b94b251a4bf47f969974362f4bf052413a.receipt.json",
+      "sha256": "61cf9e9fe0b27f8d2ae9d207b386d45d5d2c93f737f38cfdeb9cb2121f085b9c",
+      "endpoint": "repos/earendil-works/pi/git/blobs/0f1491b94b251a4bf47f969974362f4bf052413a",
+      "raw_sha256": "a8b1365e4744f262cb575afaf7be6672505d2fe361e395f131532ed27cef73f3",
+      "stored_sha256": "626c27f4f366be3f6c61f85c9250b6a580ae60c4528322e47eb431fb8d426542",
+      "started_at": "2026-11-05T12:55:46.213330+00:00",
+      "completed_at": "2026-11-05T12:55:47.716825+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-129a115386785e8a97d9df84b3d035e091343a3f.receipt.json",
+      "sha256": "8dd999f71c4a0432084beed83c067bbec1d141464fcc369ff78d7b183917952c",
+      "endpoint": "repos/earendil-works/pi/git/blobs/129a115386785e8a97d9df84b3d035e091343a3f",
+      "raw_sha256": "15680799a7b92ea793db23386b2b1683466d0977c8bea4531dbcbe6b4f3714ee",
+      "stored_sha256": "3987903c2fdcfca414d0a8ef3f54c76a1b488e76938042597dc5ca243d9f0ce0",
+      "started_at": "2026-11-05T12:55:46.213330+00:00",
+      "completed_at": "2026-11-05T12:55:48.219311+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-203334611c879b779a87f8c19ea3af6322e3c846.receipt.json",
+      "sha256": "8bfce38d3dd0794caf91b34476dc7ba3e0c7403223b06eb546b78d8b596067e0",
+      "endpoint": "repos/earendil-works/pi/git/blobs/203334611c879b779a87f8c19ea3af6322e3c846",
+      "raw_sha256": "51158cab8a154bc5e738d01bba62933756a4fe55f165c7b8baae7a36465861a4",
+      "stored_sha256": "fb484f827c3dae0e1751886c91cc55d8a8d99337f661cfea15826a783429ebdb",
+      "started_at": "2026-11-05T12:55:47.717825+00:00",
+      "completed_at": "2026-11-05T12:55:48.984707+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-2d63209e8e8e6c7c5c86acffc492b8fc8818f344.receipt.json",
+      "sha256": "2f8cab5bc1a6f5c4a499b28eda5c24f25e8fe8d43f3e2e9532b482f2ef429223",
+      "endpoint": "repos/earendil-works/pi/git/blobs/2d63209e8e8e6c7c5c86acffc492b8fc8818f344",
+      "raw_sha256": "a2c3a2e8cecd8a4d6f72754d834677d6960aae1750a79c55b72480ea51e4fcfd",
+      "stored_sha256": "48b5b46608eda0cc3f3449bf9008a16c254eeb65aa338f852c6bb5d373cf2f24",
+      "started_at": "2026-11-05T12:55:47.719825+00:00",
+      "completed_at": "2026-11-05T12:55:49.209455+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-351624e9dd82afb22d57ecbe9e775ad0408fe04e.receipt.json",
+      "sha256": "abbae15d95b6800c79f0e34f05c4e8e2003d6488a88120fd4fc89df4d06cf12b",
+      "endpoint": "repos/earendil-works/pi/git/blobs/351624e9dd82afb22d57ecbe9e775ad0408fe04e",
+      "raw_sha256": "a0cc46ea052ce9454e4e97411b00b92040d9b2cea1f682a59ca4f6b92f5e541d",
+      "stored_sha256": "0744791e98b5a41b92f8de0a332399613698ca62c1f187202396e6fca8f99936",
+      "started_at": "2026-11-05T12:55:47.736979+00:00",
+      "completed_at": "2026-11-05T12:55:49.002659+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-437cfeea35ee9147247df7233c6ba028fba3f9d6.receipt.json",
+      "sha256": "06f89381f9d4963f44654ddae277ea4b9d937334b3fb4a5489280cce350e863c",
+      "endpoint": "repos/earendil-works/pi/git/blobs/437cfeea35ee9147247df7233c6ba028fba3f9d6",
+      "raw_sha256": "1628996ebd16da437e8c95f55ab40015852ba5d361707b5f3cb36c97a60ad1c6",
+      "stored_sha256": "89c6a4b5119e1a60cc8fe9faca400ec921951f7895521fb1e68e333543033ed8",
+      "started_at": "2026-11-05T12:55:48.142740+00:00",
+      "completed_at": "2026-11-05T12:55:49.305461+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-45762627d39c31d7ecf0b4009ffde36b66d8afd6.receipt.json",
+      "sha256": "a86f1cf65bd2428d733a1206a3a2e2ed498ec554fda3df39100931c17d5654e3",
+      "endpoint": "repos/earendil-works/pi/git/blobs/45762627d39c31d7ecf0b4009ffde36b66d8afd6",
+      "raw_sha256": "2e16ea97baccb4b2c426fe469b427e064fca63fa6b3a5ac3947a57c11253eb97",
+      "stored_sha256": "a79d3d4c9ef38ca18e2e87860f70a339f249fce9407cea32d989d58875ef589a",
+      "started_at": "2026-11-05T12:55:48.220894+00:00",
+      "completed_at": "2026-11-05T12:55:49.564891+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-4f9dcfab2fa93a933feb72baa7ef75f1d3b72a10.receipt.json",
+      "sha256": "a52a2af9c4fcb478bcccd842d3570bf3e6ab470ef1db0da42716720b114e7a41",
+      "endpoint": "repos/earendil-works/pi/git/blobs/4f9dcfab2fa93a933feb72baa7ef75f1d3b72a10",
+      "raw_sha256": "a2efe3dc6fd6ce2438962c0dceb4d66818358fc7c7848cdf4d13408e7e1b6d70",
+      "stored_sha256": "eb6a313e909af42ab11dd6c2c4e44f8bc408116a91ce67746707c0a3f1025e36",
+      "started_at": "2026-11-05T12:55:48.987704+00:00",
+      "completed_at": "2026-11-05T12:55:50.340780+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-619556ff2da8574e141841959e73794da2f62658.receipt.json",
+      "sha256": "33f1a8768a335a527ae4a54727bf6802492d3b040ca10c32aab36d67cdb99154",
+      "endpoint": "repos/earendil-works/pi/git/blobs/619556ff2da8574e141841959e73794da2f62658",
+      "raw_sha256": "c8553c748b462f74ac8458970495c350b45e2718f2e504a5a5d72ddec766e92c",
+      "stored_sha256": "b2d410a2dd567402f079dfa614d6deafc59a0bae256fc97877059622e7aab266",
+      "started_at": "2026-11-05T12:55:49.004801+00:00",
+      "completed_at": "2026-11-05T12:55:50.508508+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-64dd630f52b4683254cb7e541d44cd4b6abbc46b.receipt.json",
+      "sha256": "d2797af437dc41fb59bbdb9ab5b377bee905a344de149d1ea63792697eae753f",
+      "endpoint": "repos/earendil-works/pi/git/blobs/64dd630f52b4683254cb7e541d44cd4b6abbc46b",
+      "raw_sha256": "2f2ca97c3b0bde4176c06083c727ab8de2c56310538e48033eb7ded80fd1a43c",
+      "stored_sha256": "a26b8c443aecdcafe79dc29dfc1e355e91a54ce459f613c9611948da33266b06",
+      "started_at": "2026-11-05T12:55:49.210463+00:00",
+      "completed_at": "2026-11-05T12:55:50.703674+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-6a3582bf7f1c634faa7c491c17ff0b4733043724.receipt.json",
+      "sha256": "9f4f26656df793fa2ad602aee7e1eb7885e595b703111eaeef13e92e3899ab16",
+      "endpoint": "repos/earendil-works/pi/git/blobs/6a3582bf7f1c634faa7c491c17ff0b4733043724",
+      "raw_sha256": "b315afa418770cd5b105d032434c5a75519e48cfd6194bb655a208c2f049bb10",
+      "stored_sha256": "06bf76a6a300ac8cb9247fe261d0a8da93e29b19035ccc8ca88bbf2773041803",
+      "started_at": "2026-11-05T12:55:49.306517+00:00",
+      "completed_at": "2026-11-05T12:55:50.540079+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-6da71db219c1fc080b2cc919f510317bf90b908b.receipt.json",
+      "sha256": "ff6fb77d00aeff2190dbe011f285b931afe60ba873484e36df1643f1683a7914",
+      "endpoint": "repos/earendil-works/pi/git/blobs/6da71db219c1fc080b2cc919f510317bf90b908b",
+      "raw_sha256": "814d8b1e01d861f2c773127b397eb742c29a16a6884689d5234af3ec62e51668",
+      "stored_sha256": "2b9621744169aa5b541d4c5482303b5d27438fa5e409776676183d592d3ab71b",
+      "started_at": "2026-11-05T12:55:49.567891+00:00",
+      "completed_at": "2026-11-05T12:55:50.758952+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-70b827a394eb48bca43d504ee1feb1cd24c036a1.receipt.json",
+      "sha256": "e0c523afcecec0ea6a8ba0dcac4175453dfe09f0b53f61666e4d956979a685d8",
+      "endpoint": "repos/earendil-works/pi/git/blobs/70b827a394eb48bca43d504ee1feb1cd24c036a1",
+      "raw_sha256": "0026dec87dd91dbd8c9bde159dcbf24c521845e3005f77dc81bd31e4330c8b0e",
+      "stored_sha256": "2e45b6e6849dcdd49ad16e083c24f128652ea2d53447ab022b3786f4e89cef32",
+      "started_at": "2026-11-05T12:55:50.341779+00:00",
+      "completed_at": "2026-11-05T12:55:51.540081+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-77ea35e9619c72a70a71a90a7c5893edad553f83.receipt.json",
+      "sha256": "ac29783fb11aec1650683bceae76bbc437a48c1410baf15e5fb88f40fba1eebf",
+      "endpoint": "repos/earendil-works/pi/git/blobs/77ea35e9619c72a70a71a90a7c5893edad553f83",
+      "raw_sha256": "b87d7cbc411ab4c3c5b573a3ef49d0c8d8a78fdb24e288bd8b19e25ec16b9856",
+      "stored_sha256": "80ec78b117c95705c11682f3bb0123f830c625bd9355ed327d933adbe02cfecc",
+      "started_at": "2026-11-05T12:55:50.509507+00:00",
+      "completed_at": "2026-11-05T12:55:52.395393+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-81e4ff6e8f90421cd0f29451a00dbdcf8c39aa17.receipt.json",
+      "sha256": "bac3d09f6336b9818a9f4ddbdb0642ce614937b96861df0bb5ffe1b2a7420d6b",
+      "endpoint": "repos/earendil-works/pi/git/blobs/81e4ff6e8f90421cd0f29451a00dbdcf8c39aa17",
+      "raw_sha256": "c022675db9cdae7795b84ca5604c495636f0573246cacc7a3fb80c32b837498e",
+      "stored_sha256": "5086fa5037d08b242ff9c785072cf7d09ab545361d9499f7c45e83232076827e",
+      "started_at": "2026-11-05T12:55:50.541079+00:00",
+      "completed_at": "2026-11-05T12:55:52.215670+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-84e50f41d2ce34c6368c0eaba656baeda9e33ae4.receipt.json",
+      "sha256": "a03b0d3c821c0750f303f5e3cf3ea4a9a8ce718c8606f2bbb37ba2683d766fae",
+      "endpoint": "repos/earendil-works/pi/git/blobs/84e50f41d2ce34c6368c0eaba656baeda9e33ae4",
+      "raw_sha256": "07d1f7294b13aa5acef579a40eee122d834073a96d28db10df3b53a9cc46e75f",
+      "stored_sha256": "06ea75579133a21b8f2356a0d527a1d28b2ff23724042c2e60d08ea0755de61b",
+      "started_at": "2026-11-05T12:55:50.703674+00:00",
+      "completed_at": "2026-11-05T12:55:52.450850+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-899af70916438053e0a8e800abb5ebed0f183d39.receipt.json",
+      "sha256": "7562fb533a213423076b6781c2ad9b67992614c5ff45520aef0cfb3d09b04d7a",
+      "endpoint": "repos/earendil-works/pi/git/blobs/899af70916438053e0a8e800abb5ebed0f183d39",
+      "raw_sha256": "7e024b670e7abfb8c0d17c2aae012d235f44e23867d83c6cd4d8a0137d2ded31",
+      "stored_sha256": "8092528d03e70eb3441c97c031c973bd810d71b7a9d5053976f7075f32f05199",
+      "started_at": "2026-11-05T12:55:50.760038+00:00",
+      "completed_at": "2026-11-05T12:55:52.252535+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-98287cebfbf91432a1333fe63edfc11671d804af.receipt.json",
+      "sha256": "91c7383e6a29a515b11e6f5030ce208016c15d97ee160123ce56590458bcf4dc",
+      "endpoint": "repos/earendil-works/pi/git/blobs/98287cebfbf91432a1333fe63edfc11671d804af",
+      "raw_sha256": "b8b8407aad89d49e1cc40e7c18ed8e13752ef86c6825bd5dbecea3cb7ac5d6b7",
+      "stored_sha256": "60f69d9c85cd21720edec051130976e2d1d38be81580e5e321dd59bab6e5d20d",
+      "started_at": "2026-11-05T12:55:51.540609+00:00",
+      "completed_at": "2026-11-05T12:55:52.942004+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-afce4c7d83641198085ec3b61c94d968ef71c33a.receipt.json",
+      "sha256": "9a642446745683923acea8a38d439468e468ed2342f1d136ea0aaaf561a04304",
+      "endpoint": "repos/earendil-works/pi/git/blobs/afce4c7d83641198085ec3b61c94d968ef71c33a",
+      "raw_sha256": "7d050156160dcf7d245bcb3ada9ae450d9db7e74a3d2c7164b52f0f938cbd65f",
+      "stored_sha256": "7ba4c5206c6c2373d7410a8528108d6e48b4d50159313cdd523e62d5ee59a786",
+      "started_at": "2026-11-05T12:55:52.216668+00:00",
+      "completed_at": "2026-11-05T12:55:53.727075+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-b0a8e9b81083294360c69b4ec45d3d39a2b28197.receipt.json",
+      "sha256": "ee5b60591dd4f13ba88a6e85f71d8da6b3fc0ccafdc1ed47e3b1129fe1e34a3e",
+      "endpoint": "repos/earendil-works/pi/git/blobs/b0a8e9b81083294360c69b4ec45d3d39a2b28197",
+      "raw_sha256": "3851e42c54a9bf0438d661556b094065b09ecb84bddab0691b1f0a109d0a9ff9",
+      "stored_sha256": "04ac173a0aed7ee42ac3c0867b9d267795922b3f4ed81913a188cf5fe45cb34b",
+      "started_at": "2026-11-05T12:55:52.253536+00:00",
+      "completed_at": "2026-11-05T12:55:53.522666+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-b5ffb8a24326ac0e3862a76159d307025e6f4b05.receipt.json",
+      "sha256": "5141769b71d764eae0afc6419f230f77f06fedb389dc8aac9c50f6ccdcd1a04f",
+      "endpoint": "repos/earendil-works/pi/git/blobs/b5ffb8a24326ac0e3862a76159d307025e6f4b05",
+      "raw_sha256": "41384f3e47b3cbfb84fc3974f3ed9ed8bef5bb672ab0f09544026e2d09ad2bf3",
+      "stored_sha256": "3c8c1c804fdea5c754adba56685842f808ad4ae4077200a5a8e6b2c3a212d416",
+      "started_at": "2026-11-05T12:55:52.398074+00:00",
+      "completed_at": "2026-11-05T12:55:54.043308+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-b663d4800246e9e2549998a883d85145ee8d248e.receipt.json",
+      "sha256": "41e37724e07fa8572de794fe79dbe5ccb19c967c6ed1835539741775dcba2623",
+      "endpoint": "repos/earendil-works/pi/git/blobs/b663d4800246e9e2549998a883d85145ee8d248e",
+      "raw_sha256": "38d3774ba5d5098ec924882829d51484fe0f4be3805a86118934a7e2ff28b833",
+      "stored_sha256": "3b0dc84c5d0ef5e35a05801a0e36abb3da3f4fe77cb71ce0fb1690b8adfd6674",
+      "started_at": "2026-11-05T12:55:52.451894+00:00",
+      "completed_at": "2026-11-05T12:55:53.977718+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-b996483555d60dffda9537b42e9b7c4d17425463.receipt.json",
+      "sha256": "1518f3551ca1c36ca75d5046f744895226b836c22473bc7f126878f3d500ac87",
+      "endpoint": "repos/earendil-works/pi/git/blobs/b996483555d60dffda9537b42e9b7c4d17425463",
+      "raw_sha256": "20aebe7305b8cea76d7e495e951eef7a62e146d3111ad6691b66b17873807f4c",
+      "stored_sha256": "8ba536894aefc78a6d0ba87a9c582d8451e5f3bc4abedfd5fc7c7b2b9337cebc",
+      "started_at": "2026-11-05T12:55:52.943571+00:00",
+      "completed_at": "2026-11-05T12:55:54.720730+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-ba4e0ab2db9210cb95dd6616e496830bdf8ed68f.receipt.json",
+      "sha256": "3a895b47910811c0593d09d4713e7b92303c41919db94e06507583ad87c2f507",
+      "endpoint": "repos/earendil-works/pi/git/blobs/ba4e0ab2db9210cb95dd6616e496830bdf8ed68f",
+      "raw_sha256": "33f170dfbe31f82ffcae1079266c2181ae68c88cebb65ac069e78bd1871c2049",
+      "stored_sha256": "d461c08b4e3e2ebdf82a07eded8a49f370ead666f95e6036e2c56dbd073f6c86",
+      "started_at": "2026-11-05T12:55:53.523672+00:00",
+      "completed_at": "2026-11-05T12:55:54.716926+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-bab3c7ffebac16c17c9b3b3fd653c10cef4aec91.receipt.json",
+      "sha256": "8504235a27735c37d457f240229cc4857328e878fbbd24bbc6752cc069e1f30e",
+      "endpoint": "repos/earendil-works/pi/git/blobs/bab3c7ffebac16c17c9b3b3fd653c10cef4aec91",
+      "raw_sha256": "234d5b2620c165f88025eda12c27998e2b0e06d8b6f9acabfb85ce65bffa7dd8",
+      "stored_sha256": "5407a76804e09b1b47abe3569f068b4cf0b35af5ada20af2f0d0e6abe2912930",
+      "started_at": "2026-11-05T12:55:53.728076+00:00",
+      "completed_at": "2026-11-05T12:55:55.357702+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-badb6e965dd9669846a0f11495faf12680af843f.receipt.json",
+      "sha256": "45932b4de976f39b1cb134a742312e5265f5ac296067c4740b12e1e09b743f45",
+      "endpoint": "repos/earendil-works/pi/git/blobs/badb6e965dd9669846a0f11495faf12680af843f",
+      "raw_sha256": "f034a66d6e8d4810cb427590ba8745fc1dfdb432bd296eecdfa2bac4d4d38364",
+      "stored_sha256": "206396125ef2aedd7c654ff8352641c0f18f301497f3aef250d7b1401c1773a9",
+      "started_at": "2026-11-05T12:55:53.978719+00:00",
+      "completed_at": "2026-11-05T12:55:55.172715+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-c0076c7e9d15784f791fddedb35ca6c3aa0b88dc.receipt.json",
+      "sha256": "9fc201e1a91eaa074e90a09407fa0ea79d7bca0046f72e93acd06d97b8f20dbc",
+      "endpoint": "repos/earendil-works/pi/git/blobs/c0076c7e9d15784f791fddedb35ca6c3aa0b88dc",
+      "raw_sha256": "d2a89afa9d06850fff5cf7eeb678496878cbb5a5687756e12c797506e059f05f",
+      "stored_sha256": "a9c7523a5cb99c5342218b8e524cd599d5db248f27eb9e3cddf713f9c11df565",
+      "started_at": "2026-11-05T12:55:54.044891+00:00",
+      "completed_at": "2026-11-05T12:55:55.243568+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-c6d76f1c574c1c85cb2bb519ef4d21cb8e34623e.receipt.json",
+      "sha256": "2b30f28610efc935cda948e3e3f0bbd29b6d222e7ce480cdeba581d6102128a0",
+      "endpoint": "repos/earendil-works/pi/git/blobs/c6d76f1c574c1c85cb2bb519ef4d21cb8e34623e",
+      "raw_sha256": "bf8e865a9f19d8b8eba5e0ce84318f29ac39a3c30683e81d4e2db975523cf015",
+      "stored_sha256": "f4c8f17d7daeb72a6a5dd925d7a0e59ad8d901eaba64ebc5536eaf525f094bd6",
+      "started_at": "2026-11-05T12:55:54.718487+00:00",
+      "completed_at": "2026-11-05T12:55:55.950584+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-ceff74a645ebdc46ede76729b2d343adda485084.receipt.json",
+      "sha256": "e91a1c50e448f7ece87eb914338cdc793df8afafd2b35ceaf3c1976882e71b6b",
+      "endpoint": "repos/earendil-works/pi/git/blobs/ceff74a645ebdc46ede76729b2d343adda485084",
+      "raw_sha256": "b0b7a174f598e35bbe3f470f21372e9f8e6d10bdafe8ba9facd37702a5372bdb",
+      "stored_sha256": "e1eb798b5d3bca786355e2878ceb72ad7029d0a6c81776d6d3ee08376e2afe97",
+      "started_at": "2026-11-05T12:55:54.722324+00:00",
+      "completed_at": "2026-11-05T12:55:55.963038+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-d4839b51d57440f8089e305f9895deb29c5cd467.receipt.json",
+      "sha256": "dbcd7a91d3575129f471ffd3f15ce67cc28022038d9ac96d58c8dff0a32ddbd6",
+      "endpoint": "repos/earendil-works/pi/git/blobs/d4839b51d57440f8089e305f9895deb29c5cd467",
+      "raw_sha256": "954a5a86e113ad895f33292fd4051acea62ca4298532afa0865beefe9d26700e",
+      "stored_sha256": "0383250d5caa8e66213636d86436cdefc2bf1e5c4dc4448946ac441e9dc4e37a",
+      "started_at": "2026-11-05T12:55:55.173762+00:00",
+      "completed_at": "2026-11-05T12:55:57.074858+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-dc415da51eb2cd073de56b36ca4c83472cb0cba8.receipt.json",
+      "sha256": "eb7ecd467683da5da9fdbb5d4b5751edc1eb599eadbec489abda3b99746d6981",
+      "endpoint": "repos/earendil-works/pi/git/blobs/dc415da51eb2cd073de56b36ca4c83472cb0cba8",
+      "raw_sha256": "3b579d238929a33740df6be0397fad0ee85462878dd6789ab519bd8b5c4ad253",
+      "stored_sha256": "33739dcee7c6d2382945574bb5713dd302eea34a7169bc40482d27638d31440c",
+      "started_at": "2026-11-05T12:55:55.244566+00:00",
+      "completed_at": "2026-11-05T12:55:56.427682+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-de4919eec7f6e4ddf7904a0cbf83bd5374af9d17.receipt.json",
+      "sha256": "9b99e485717d072d9d50edd23eff65d4bf99db0f8b869b140db8e524c1d0a567",
+      "endpoint": "repos/earendil-works/pi/git/blobs/de4919eec7f6e4ddf7904a0cbf83bd5374af9d17",
+      "raw_sha256": "44a8ee00c736791d1f533b945494bdad626d1dce92c76ec5a3c0fe010b12c40e",
+      "stored_sha256": "3579f2b581c4fbf602190ba3b457c4534d93f261091cac4c14b1808720c32c06",
+      "started_at": "2026-11-05T12:55:55.358942+00:00",
+      "completed_at": "2026-11-05T12:55:56.564767+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-e3e8c0632950acc40e2f32fd1d20851fe3226051.receipt.json",
+      "sha256": "d45e03078f05878d595310c0d1ae38aafc42c79ae8adc46c081f5087c68619d7",
+      "endpoint": "repos/earendil-works/pi/git/blobs/e3e8c0632950acc40e2f32fd1d20851fe3226051",
+      "raw_sha256": "25c6aaf505f4f32f285b3d05c742f5afa76ea1eaa87e9f23a01988b9e1fc0319",
+      "stored_sha256": "29a6d6d42b48702228184000bb5ce9876d5dc06052f9ff9f17eea5b941c80f8f",
+      "started_at": "2026-11-05T12:55:55.951585+00:00",
+      "completed_at": "2026-11-05T12:55:57.639384+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-e83692b8ff63b8690b99924cf412275655e636d1.receipt.json",
+      "sha256": "4c32c0bcecb5861c89a8c1e94ad5f9140d12ad70f5f0653bdaa5bec49bcaa1e0",
+      "endpoint": "repos/earendil-works/pi/git/blobs/e83692b8ff63b8690b99924cf412275655e636d1",
+      "raw_sha256": "edd9fd0655a1ac118ccda39d3800bac6183f11b405b10a5e5ac7d07027e23d2e",
+      "stored_sha256": "4eefa78c7b006dfeaa2410d45d228d5bc5155be45ab32510dc921f55f5ffcd97",
+      "started_at": "2026-11-05T12:55:55.964038+00:00",
+      "completed_at": "2026-11-05T12:55:57.381602+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-eda34ed1b4c6afe325205a1dda9a2275be05055f.receipt.json",
+      "sha256": "a7e6ed00bf15e5a056dd2b49f623783e0e20ff70ce81fbca7ecbbd481044fa33",
+      "endpoint": "repos/earendil-works/pi/git/blobs/eda34ed1b4c6afe325205a1dda9a2275be05055f",
+      "raw_sha256": "0439200f97b7d7ff43afbdd5646d207660c3b7192602268ae794f6a9a9aa0caf",
+      "stored_sha256": "e8e0f656da9613db5af78524ddfb4b6c46a7bc4f0e806d2cfa78e3408e8eab13",
+      "started_at": "2026-11-05T12:55:56.430749+00:00",
+      "completed_at": "2026-11-05T12:55:57.647427+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/blob-f1f345dd56b733634f7771c98ba4bc068cdd9b3f.receipt.json",
+      "sha256": "7845f23c051337c04b7d70c353fef39c7c8889691874bb5026d80bcf40a79bca",
+      "endpoint": "repos/earendil-works/pi/git/blobs/f1f345dd56b733634f7771c98ba4bc068cdd9b3f",
+      "raw_sha256": "4721cd59eb1b1716b61aed57acdf67bc44f8432c8f3ceb26a27329b86ae85cbe",
+      "stored_sha256": "bac73e28e4c2f6148ba84dd48247ec9920358c62362010b33b1d7e5583468dbd",
+      "started_at": "2026-11-05T12:55:56.565286+00:00",
+      "completed_at": "2026-11-05T12:55:57.715718+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/channel-channel.receipt.json",
+      "sha256": "2e098cebadc9026b250609c1413914d347df6a66b6b18bc9d89291e01e687945",
+      "endpoint": "repos/earendil-works/pi/git/blobs/365d008f00008fe9a84306c6fc2c7e05be8a997b",
+      "raw_sha256": "6ba0f24b88253f015a4f780bde602a1afacf2605905b77915ebdd9089c36ee38",
+      "stored_sha256": "8da87ae6a48b0b6be4cf03e84f5ed6126d5ebb33d5f3480399164b5ab1f448a2",
+      "started_at": "2026-11-05T12:57:40.798840+00:00",
+      "completed_at": "2026-11-05T12:57:42.017257+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/channel-internal.receipt.json",
+      "sha256": "b0f9fab12cd0320b30245c94076c82818cb01ef4244623649369f12ca6b6392f",
+      "endpoint": "repos/earendil-works/pi/git/blobs/1c63f57aad68724662a13af1f56d1a884fd82d8f",
+      "raw_sha256": "d7d1e2f216892f6b1df07421b4af39f5b13fe04a93714916bf9b0c8b75175dfa",
+      "stored_sha256": "7dc010f185e15004648ef2b062aae3f8770918f3ccf45a4177b82e6dadddd1ab",
+      "started_at": "2026-11-05T12:57:40.798840+00:00",
+      "completed_at": "2026-11-05T12:57:42.013255+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/commit.receipt.json",
+      "sha256": "f42046c05ccddfb0c55dcd2f7b4a87bc8ca0c50d58b1275e32cdfaef3c2b29d5",
+      "endpoint": "repos/earendil-works/pi/commits/d7a988d18d2a27f78f1cdcc0597154e916d95ed9?per_page=100",
+      "raw_sha256": "b740dd3ef7357c563cee9b39724482abcbf439c57f2fc57776f6fa820e4d015b",
+      "stored_sha256": "d7b929c7f1387be5ca31c140110013ba4279fdb99fc9dfe99a6db086afbd6db9",
+      "started_at": "2026-11-05T12:55:00.266257+00:00",
+      "completed_at": "2026-11-05T12:55:01.892333+00:00"
+    },
+    {
+      "path": "reports/runs/20261105T125316Z/source-inquiry/metadata.receipt.json",
+      "sha256": "c7ff694cb454e96ec03ce3d4b63204889397d5716dc9b5d479707fcd8b3c29f6",
+      "endpoint": "repos/earendil-works/pi",
+      "raw_sha256": "ab150a0cbda11d7c13e67da3535671423b2ff9807148860b74cb2bffd2de1894",
+      "stored_sha256": "80c4713e062e39ce8ef9ea53b48a853ec033801372d8ec79655c69f9a2c02f06",
+      "started_at": "2026-11-05T12:55:00.265251+00:00",
+      "completed_at": "2026-11-05T12:55:01.656751+00:00"
+    }
+  ],
+  "GETs": 46,
+  "successful_GETs": 46,
+  "failed_GETs": 0,
+  "retries": 0,
+  "remote_interval": {
+    "start": "2026-11-05T12:55:00.265251+00:00",
+    "end": "2026-11-05T12:57:42.017257+00:00"
+  },
+  "narrative": {
+    "path": "research/2026-11-05-chord-state-before-answer.md",
+    "sha256": "790d5de3c07b0a0e5aed1d3848fab3d8446e6039dc6d409a7237d7a0300f6841"
+  },
+  "source_dedup": {
+    "objects_checked": 226,
+    "terms": [
+      "d7a988d18d2a27f78f1cdcc0597154e916d95ed9",
+      "a call's answer follows its state",
+      "pi-chord-state-before-answer"
+    ],
+    "matches": [],
+    "method": "Full-object exact case-insensitive identity and mechanism text scan; broad prior optimistic mention is unrelated."
+  },
+  "verified_level": "Complete immutable bytes, direct source path and author-test-design review; no local runtime correctness/performance result.",
+  "tests_executed": 0,
+  "native_runs": 0,
+  "model_loads": 0,
+  "scientific_experiments": 0,
+  "upstream_changes": 0,
+  "issue_PR_comment_actions": 0,
+  "UI_calls": 0,
+  "paid_resources": 0,
+  "scientific_status_changed": false,
+  "preparation_errors": [
+    "capture-channel.py fetched and hashed two successful responses but local output parent directory did not exist. Reconciled those exact saved raw bodies with fresh tree; no network retry, no upstream execution or acceptance claim."
+  ],
+  "limitations": [
+    "Every source hash authenticates saved bytes; raw rolling evidence remains ignored, not a distributable runtime.",
+    "Provider/relay state ordering covers the documented committed state of answering/relaying hosts, with refusal/rebinding/late-effect boundaries.",
+    "K/N source count arguments are not independently stress-tested queue/byte/process-memory or adversarial-peer bounds.",
+    "No durable commit, authority, effect, restart, model/scoring or performance acceptance; no new observer prerequisite or reopened finite gate.",
+    "Pinned Pi policy requires lgtm for PR admission; no admission/public interaction attempted."
+  ],
+  "curated_at": "2026-11-05T13:09:58.590641+00:00",
+  "draft_narrative_sha256": "b8b956ab232b18dd3ed1405e1053b103e13e3f60e9368e18519b1e6c217c10d4",
+  "independent_source_review": {
+    "path": "reports/runs/20261105T125316Z/independent-review/source-inquiry-by-screen.json",
+    "sha256": "eac93fc60b519b985f9a30807ee563f2aa5247fff29eeffb9d14ee5d51c557ea",
+    "status": "passed_saved_byte_and_source_claim_review",
+    "scope": "Saved bytes and source semantics only; not upstream test/runtime execution"
+  },
+  "existing_local_package_manifest": {
+    "path": "local-state/pi-durable-20261031T100338Z/node_modules/@earendil-works/chord/package.json",
+    "sha256": "9b53ee7df3745848da9cf734b1fb117a29590536f07e8198538711e73906dcf1",
+    "name": "@earendil-works/chord",
+    "version": "1.4.0",
+    "read_only": true,
+    "source_change_adopted": false,
+    "runtime_executed": false
+  },
+  "parent_tree_authentication_scope": "Parent identity comes from the pinned child commit. The complete Git trees response requested by that parent commit alias is reconstructed, including every subtree/root; no additional separate parent-commit GET was made."
+}

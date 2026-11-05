@@ -1,0 +1,40 @@
+# Native HTTP exhaustion and terminal failure receipts
+
+One separately preregistered suite passed its finite criteria on 2026-11-05. The actual pinned `run_episodes -> Env.run_slot -> NullHarness subprocess -> EvalClient HTTP -> EchoTask` caller entered four episodes. One completed with echoed reward 0; three failed with one native trace error each, zero assistant turns and empty named reward maps. The outer ledger keeps failed entries at NULL reward and excludes them from selection. A failed final still spends the sole final allowance. This is fixture correctness, with no real-model quality measurement; full H3 and H4 remain unmet.
+
+The [previous retry study](../verifiers-budget-native-retry/report.md) admitted all native calls. Its stdlib denial controls did not establish how the genuine SDK, native trace or selection handled exhaustion. This intervention tests that missing boundary in the same caller, using a separate optional [failure ledger](../../experiments/eval_budget_outcomes.py) and [native driver](../../experiments/verifiers_budget_exhaustion.py). Original runner, ledger and prior suites are unchanged rollback paths. At larger evaluation loads, retries can spend physical work while failed episodes distort the score denominator; no scaling or performance improvement is measured here.
+
+## Fixed workload and result
+
+The [specification](../../research/protocols/verifiers-budget-native-exhaustion-v1.json), [builder](../../experiments/prepare_verifiers_budget_exhaustion.py) and [exact frozen input](../../fixtures/verifiers-budget-native-exhaustion/protocol.json) fix three development allowances, one final allowance, one active entry, no pending entry, one task/rollout/turn and 16 output tokens per entry. Episode and agent retries are zero; the actual SDK retry policy is unchanged. The global physical ordinal admission budget is 3 and per-attempt budget 1. Denials also consume ordinals: only two calls are admitted in this workload. The inherited specification key `http_arrival_ceiling` names that ordinal admission budget; the same preregistration explicitly expects five arrivals and excludes any bound on inbound traffic or denial logs.
+
+| Native attempt | Physical response(s) | Terminal ledger | Accepted score members |
+|---|---|---|---:|
+| dev-ok / fixture-bad | 200 | completed, reward 0 | 1 |
+| dev-attempt-cap / fixture-good | 503, 403 attempt_exhausted | failed, reward NULL | 0 |
+| dev-total-cap / fixture-good | 403 total_exhausted | failed, reward NULL | 0 |
+| final-once / fixture-bad | 403 total_exhausted | failed, reward NULL | 0 |
+
+The retry pair has byte-identical request bodies and immutable logical attempt/data binding. HTTP 403 is terminal in the authenticated OpenAI 2.54.0 SDK; 409 would itself trigger another retry. All five complete-body arrivals and prepared/written responses are persisted in FULL-synchronous SQLite. Three gracefully reconstructed listeners reopen counts 0, 1 and 3, then retain snapshots 1, 3 and 5. No admitted-call cap bounds network arrivals, log growth or all service resources. Framing and body-read errors before admission remain outside the receipt boundary.
+
+Three distinct native worker PIDs exit -9, -9 and 0. Kill one follows committed completion; kill two follows committed native failure. Both prior owners are confirmed dead before reopening. Exact failed-receipt replay leaves the ledger unchanged and grants no native entry. Only the completed development score participates in selection, so fixture-bad wins with score 0. Selection precedes the separate public final-phrase read. This is trusted-owner access ordering, with no adversarial concealment or held-out quality claim. Final exact replay grants no entry, and a new final attempt is refused.
+
+The failed traces contain no named rewards in this run. Their derived aggregate zero is not an observed echoed score and is never inserted into the accepted score denominator. Every original episode, native reward map and error remains retained. The optional failure API validates a 64-character artifact digest and commits the exact canonical receipt; it relies on its trusted caller to authenticate the underlying artifact.
+
+## Costs and validation scope
+
+- Complete host Docker CLI: 56.155906 s; useful completion rate 0.017808 episodes/s.
+- Controller: 54.147923 s, including initialization, worker startup/restarts, retry and validation; useful completion rate 0.018468 episodes/s. Initial module import/file verification and final serialization/teardown are outside this controller timer.
+- Four complete run_episodes durations: 3.825805, 3.715198, 3.135949, 3.042212 s. Median 3.425573; observed max and nearest-rank p95 3.825805 s. Four observations provide no population tail estimate; the last three are failed entries.
+- Whole-container cgroup memory.peak: 557,223,936 bytes before final serialization and teardown. Sampled memory.current maximum 556,326,912 bytes and pids.current maximum 39, from 473 samples at approximately 100 ms. No GPU endpoint.
+- HTTP body bytes: 1308 request / 485 response across five calls. Headers, TCP, cache and native interception traffic are excluded. First503-to-terminal403 arrival interval: 0.528225 s. SDK jitter is unseeded; fixture data/provider behavior use no generated-data/model RNG or seed override.
+- Cgroup-read accumulator: 0.071422 s; excludes sleeping, serialization and other observer work. No causal observer-overhead comparison.
+- All 55 native output files / 141,744 bytes are retained locally and hash-bound in the [receipt](../../research/receipts/20261105T144849Z-verifiers-budget-native-exhaustion.json). Raw reports and local SQLite files stay ignored.
+
+Seventeen separate stdlib engineering controls pass: terminal failure immutability/ownership, no score replacement/refund, uncertain recovery, physical denial spend, actual loopback HTTP binding, nearby logical/physical budget and admission concurrency. They use no native runner or model. Independent pre-execution review found a clean-exit polling race in the first unexecuted freeze. Its exact 32 source/input copies and manifest are preserved; the replacement freeze corrected the race before any native execution. This is not a failed scientific run or a post-outcome repair. The sole native suite was not rerun. Independent saved-episode, HTTP and stopped-SQL audit precedes this acceptance claim.
+
+The Linux container used one CPU, 768 MiB, 64 PIDs, 384 MiB tmpfs, 55 s per worker and 180 s outer deadline, with network disabled and no image pull. It reused the authenticated 94-main/35-cached-harness/one-project-metadata composite environment (130 records), fixed source [f5f5c9a](https://github.com/PrimeIntellect-ai/verifiers/tree/f5f5c9ace86b9720049cb6e98d05d14d77042486), source/SDK bytes and dependency locks. No install, purchase or resource relaxation occurred. Metadata copies and full launch argv are retained for reconstruction; the owned local image/cache volumes are prerequisites, not publicly hosted artifacts. The earlier 129-record comparator failure remains preserved.
+
+The generated protocol hash is `9bc80b2f57707ab47e112e7e7d87ed6e3608dd135d34616670d1680192622e2d`; execution manifest `9c5098caef05244911766d0a3a5af71d2384badeec9fbd8acdd55d2c9bb21c38`; independent native audit `c384a953f2636205898bf2ca9aa2791e2575139f0532e63e48b36ee2e4ea5097`. All 120 raw files from prior failed v1, accepted v2 and accepted retry remain unchanged, alongside all earlier H1 negative/invalid-RSS/original-5-GiB and H2 finite/failure gates.
+
+This finite exhaustion/failure-receipt gate is closed. Do not repeat the unchanged fixture for green observations or expand standalone diagnostics. Any further native study needs a separately justified untested actual scoring/transport ambiguity or real evaluation integration, fixed total attempt/token/time/cancellation limits and a new preregistration. No mid-provider/scoring crash, power loss, concurrent owner, tenant authentication, general external exactly-once, real-model, GPU, distributed or production conclusion follows.

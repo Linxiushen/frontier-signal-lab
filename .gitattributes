@@ -295,3 +295,10 @@ experiments/*verifiers_budget_retry*.py -text whitespace=cr-at-eol
 tests/test_eval_http_budget.py -text whitespace=cr-at-eol
 research/protocols/verifiers-budget-native-retry-v1.json -text whitespace=cr-at-eol
 fixtures/verifiers-budget-native-retry/** -text whitespace=cr-at-eol
+
+# Preserve the separately frozen native exhaustion code and input bytes.
+experiments/eval_budget_outcomes.py -text whitespace=cr-at-eol
+experiments/*verifiers_budget_exhaustion.py -text whitespace=cr-at-eol
+tests/test_eval_budget_outcomes.py -text whitespace=cr-at-eol
+research/protocols/verifiers-budget-native-exhaustion-v1.json -text whitespace=cr-at-eol
+fixtures/verifiers-budget-native-exhaustion/** -text whitespace=cr-at-eol

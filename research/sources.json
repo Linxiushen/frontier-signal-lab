@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-06T11:04:40.723915+00:00",
-  "observation_note": "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change.",
+  "last_updated_at": "2026-11-06T15:01:27.081849+00:00",
+  "observation_note": "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9314,6 +9314,49 @@
       "next_gate": "Proposed only, not registered: require a concrete actual Pi remote-tool caller before a separately frozen adjacent-version comparison. Bound local and unresolved-remote admissions, total attempts/payload/resources and cancellation/two-restart schedule; distinguish local-settled, remote-terminal and unknown-effect receipts. Measure success/usefulthroughput/end-to-end/tails/resources/communication/observationcost; retain current authority and no duplicate committed effect. No unchanged rerun or isolated observer expansion.",
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/earendil-works/pi/commit/c96e368e265f886820a68b651b2ec086ecf3906b@c96e368e265f886820a68b651b2ec086ecf3906b"
+    },
+    {
+      "id": "openclaw-doctor-scoped-state-image-reuse-9f5e817",
+      "url": "https://github.com/openclaw/openclaw/commit/9f5e817557791c720626bbe7e6e7671c22a93925",
+      "type": "landed_state_read_source_and_test_design_review_not_execution",
+      "author": "steipete",
+      "published_at": "2026-11-06T12:02:59Z",
+      "recorded_at": "2026-11-06T15:00:18.046443+00:00",
+      "parent": "9bad48bececbfddcc07fc4a36c9d70659564cea2",
+      "landed": "9f5e817557791c720626bbe7e6e7671c22a93925",
+      "repository_public": true,
+      "license": "MIT",
+      "primary_evidence": {
+        "narrative": "research/2026-11-06-reused-state-read-images.md",
+        "review_receipt": "research/receipts/20261106T145232Z-openclaw-state-image-reuse.json",
+        "review_receipt_sha256": "86957b1722104d53a270c3b5c93896338b46a7a01a267e8fb25282927858018c",
+        "complete_immutable_versions": 46,
+        "local_execution": false
+      },
+      "fact": [
+        "Doctor and delegated Doctor execution enable scoped reuse for opted-in read-only state callers.",
+        "A canonical-source fingerprint of main and nonempty WAL files governs reuse, with a two-second initial quiescence gate and rollback-journal refusal.",
+        "Retirement removes the current cache entry but existing image leases retain cleanup custody until release.",
+        "Single-flight publication retains the producer observation; logical-only owner backups are not lent as exact artifact-preserving images.",
+        "New tests use plain files, fake retirement callbacks and a mocked snapshot worker; definitions were reviewed but not run."
+      ],
+      "author_report": "Commit reports400MB database/88GiB writes/94percent snapshot copies; unreplicated here.",
+      "our_inference": "Avoiding repeated database copies can remove a concrete read-amplification mechanism, but one current image per source does not bound all retained image bytes, databases or old leased images. No measured benefit or general recovery guarantee follows.",
+      "engineering": {
+        "caller": "Doctor/update schema, lease and state-row inspections in the actual native state read path.",
+        "scale_bottleneck": "Whole-database copying for repeated small read queries amplifies physical I/O and can lengthen update outage.",
+        "integration_point": "Opt-in prepareSqliteReadOnlyLocation calls, canonical-source image custody, owned logical backup and explicit one-shot Doctor scope.",
+        "validated_tier": "Pinned complete source and author test-design review only; no local tests/native/model/benchmark execution."
+      },
+      "limits": [
+        "Source fingerprint is not content hashing or universal mutation/isolation proof.",
+        "No global image/disk/lease/database budget; old leased retired images can coexist with the current entry.",
+        "No local physical-I/O/quality/throughput/tail/peak-resource/restart/production measurement.",
+        "No installed runtime, scientific status or existing gate change; no added observer prerequisite."
+      ],
+      "next_gate": "Proposed only: a concrete justified caller then separate fixed database/WAL/read/replacement/authority/cancellation/two-reopen study with success/usefulthroughput/fullupdateandtailtime/physicalbytes/peakresources/retirement/observationcost. Do not rerun unchanged closed fixtures.",
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/openclaw/openclaw/commit/9f5e817557791c720626bbe7e6e7671c22a93925@9f5e817557791c720626bbe7e6e7671c22a93925"
     }
   ],
   "previous_observation_notes": [
@@ -9389,7 +9432,8 @@
     {
       "last_updated_at": "2026-11-06T01:16:26.939382+00:00",
       "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change."
-    }
+    },
+    "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9407,6 +9451,7 @@
     "2026-11-05T00:54:58.234099+00:00",
     "2026-11-05T13:09:58.590641+00:00",
     "2026-11-05T21:14:08.320442+00:00",
-    "2026-11-06T01:16:26.939382+00:00"
+    "2026-11-06T01:16:26.939382+00:00",
+    "2026-11-06T11:04:40.723915+00:00"
   ]
 }

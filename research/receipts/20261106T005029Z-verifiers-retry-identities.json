@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-06T01:16:26.939382+00:00",
+  "status": "immutable_source_review_only_not_runtime_or_scientific_validation",
+  "identity": {
+    "repository": "PrimeIntellect-ai/verifiers",
+    "source_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/3057",
+    "author_login": "mikasenghaas",
+    "author_name": "Mika Senghaas",
+    "PR_created_at": "2026-11-03T05:53:23Z",
+    "PR_merged_at": "2026-11-06T00:46:39Z",
+    "parent": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+    "landed": "f167a92e3730d017f591dcaac0e94c437f238733",
+    "PR_head": "624d5a7eecee16a314bbeef0fd494d963c21be4a",
+    "repository_public": true,
+    "license": "MIT"
+  },
+  "source_review_sha256": "78ffbd1385b4ccea4377d87b7bdb973e0d269ec0c4f25aa4bf63496050f45bfc",
+  "raw_evidence": {
+    "run_directory": "reports/runs/20261106T005029Z",
+    "review": "reports/runs/20261106T005029Z/radar/retry-source-review.json",
+    "handoff_sha256": "140bd43d2a87ce744afcfb8ef706da9a26c79296731cf5a9aed95262c69c277d",
+    "custody_refs": [
+      {
+        "path": "primary/capture-summary.json",
+        "sha256": "096cb8f3fc113c5dba2aaf0b4c5bf6f3436677cffba2860b66bd0014de2cc4d2",
+        "bytes": 28625
+      },
+      {
+        "path": "retry-source-manifest-final.json",
+        "sha256": "e79cf12b92eccf87e66b7abb9ccceb2cd8ac950d789fc56195d127a78f636997",
+        "bytes": 14564
+      },
+      {
+        "path": "retry-exact-source.diff",
+        "sha256": "16feab6977447c085f0b85a171688dcf9fd7a56dad8598e3b718c723ec5f1409",
+        "bytes": 12288
+      }
+    ],
+    "rolling_raw_committed": false
+  },
+  "independent_source_review": {
+    "receipt": "reports/runs/20261106T005029Z/screening/retry-source-independent-review.json",
+    "receipt_sha256": "ab531c6ed27282dd88cd0b4e530d50ff9c2d74f8a5803fca12a9628ca06eb450"
+  },
+  "immutable_sources": [
+    {
+      "path": "tests/unit/test_retry_ids.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/tests/unit/test_retry_ids.py",
+      "blob_sha1": "80cb35978e1f63df54bc9a307a923e5b1556b0c7",
+      "sha256": "4d4c1f09f7f8c2c447efa19e261f15bc97a45f3c9a78f4b395d3762e45974851",
+      "bytes": 2956
+    },
+    {
+      "path": "verifiers/v1/agent.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "bytes": 47693
+    },
+    {
+      "path": "verifiers/v1/agent.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/agent.py",
+      "blob_sha1": "311746de9278ff21a2690d316b489f2c770227e5",
+      "sha256": "fcf05688eddd980190bc3e2b09be52216ea72ef61dec106c3dfd6ac6c4085cfc",
+      "bytes": 47290
+    },
+    {
+      "path": "verifiers/v1/env.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "bytes": 18631
+    },
+    {
+      "path": "verifiers/v1/env.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/env.py",
+      "blob_sha1": "dc5c1d34572003d54be682fee85fa70ab78b5289",
+      "sha256": "3bc4f6d91e563bf6bcfc24a38d1a7824b07edc25416d348d218a990aa917f7f8",
+      "bytes": 18088
+    },
+    {
+      "path": "verifiers/v1/episode.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/episode.py",
+      "blob_sha1": "acad6a25a4626996cd786511a7fd97ffb9b1f2bf",
+      "sha256": "53ceed51b00a6d960ac8d24b5e2da1dbfb57d2ed78647815d829a9cd83baec08",
+      "bytes": 6944
+    },
+    {
+      "path": "verifiers/v1/episode.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/episode.py",
+      "blob_sha1": "922508a070d449e97500165cb05267024a8da957",
+      "sha256": "6d09de96fee60af21ddd23f9f154c3a4f9283c320d3fd3404c45835ad67a00f4",
+      "bytes": 6790
+    },
+    {
+      "path": "verifiers/v1/rollout.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/rollout.py",
+      "blob_sha1": "c3229a8c2b148bc929e1fe7e1a445277999aeebf",
+      "sha256": "89c223a7ad902a422657227eca998d875263daa769296019e990eb9a0e787aff",
+      "bytes": 46206
+    },
+    {
+      "path": "verifiers/v1/rollout.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/rollout.py",
+      "blob_sha1": "4b83a53f739c63c3d19c9fce90b65b0fa194de27",
+      "sha256": "2d8cd23b7f538d65810f53f5f01ee97ca569b5a7dfeb43a9d5fefbf14f9553c7",
+      "bytes": 46048
+    },
+    {
+      "path": "verifiers/v1/runtimes/backends/subprocess.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/runtimes/backends/subprocess.py",
+      "blob_sha1": "fc27b7c6102e607a0c3bde8fc883eedc0a1ff670",
+      "sha256": "9da39624699c68e96ed997516d4c212627097710120d10148434f48f30df7f7c",
+      "bytes": 8591
+    },
+    {
+      "path": "verifiers/v1/runtimes/backends/subprocess.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/runtimes/backends/subprocess.py",
+      "blob_sha1": "43b781bc8ef66d257952deaf3c5c1a105ecf3faf",
+      "sha256": "7427dace8c891f0adf6f67cc351bfa4330fa12c6256577040d3d31fbc300a772",
+      "bytes": 8419
+    },
+    {
+      "path": "verifiers/v1/trace.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/trace.py",
+      "blob_sha1": "f526c17d5ab8a53fa209387c4da9a6548f6fe10a",
+      "sha256": "e0e0b5dde7b4a015a4043433676188181a54c20303dcb9293effa37ec7f861c7",
+      "bytes": 40767
+    },
+    {
+      "path": "verifiers/v1/trace.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/trace.py",
+      "blob_sha1": "251cdfa6c494c34f40f22a4e5040a74d4b642e66",
+      "sha256": "ba2a664d15fddc57216d06b483fcedd318527315d3e32b019b7099f96a3f4462",
+      "bytes": 40650
+    },
+    {
+      "path": "verifiers/v1/utils/retries.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/retries.py",
+      "blob_sha1": "3c0c3240c7f0d4da19d4fb700aef3aa0842027b7",
+      "sha256": "7a8605d6be1209655d02af2d110904e19246065cf2e6bf075a5950a8c0d37585",
+      "bytes": 6071
+    },
+    {
+      "path": "verifiers/v1/utils/retries.py",
+      "revision": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/d295ca87d6dacee7949ab68c665e023e5c36dbe3/verifiers/v1/utils/retries.py",
+      "blob_sha1": "cdd1a2c11c7c024137eee10570510f0791aeeccd",
+      "sha256": "c530dd3917fd06616aec787112336486e76e39255e9029789767a2f599502084",
+      "bytes": 6052
+    },
+    {
+      "path": "AGENTS.md",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/AGENTS.md",
+      "blob_sha1": "ff18014eb4e2c6564ec993822b2474be2a455498",
+      "sha256": "ff4aa2a4964758326f87a8564749292233664bd83596763ef1595531682bc529",
+      "bytes": 2431
+    },
+    {
+      "path": "LICENSE",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/LICENSE",
+      "blob_sha1": "fc56d94758d989faa0316d627fe5d95807855c4b",
+      "sha256": "bf446b52c755dc80e8661ad171edbdec85d2df1307349fbf2dd2e91405166fd9",
+      "bytes": 1072
+    },
+    {
+      "path": "verifiers/v1/cli/run.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/cli/run.py",
+      "blob_sha1": "36d38a52809c7d4c94bda4fd8f7902c858ce4fd4",
+      "sha256": "8946b8d265d6b51e6fea4be560705f00243124f69b3c139afd26a71c5b39c9c0",
+      "bytes": 4998
+    },
+    {
+      "path": "verifiers/v1/clients/eval.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/clients/eval.py",
+      "blob_sha1": "30e2cbc8d30c33535e18293fa687aa33408d4f7c",
+      "sha256": "a561e09d153c41013a8e78c977024d76f47c05e27ecff39f8c8075b5cc0ba647",
+      "bytes": 8340
+    },
+    {
+      "path": "verifiers/v1/clients/client.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/clients/client.py",
+      "blob_sha1": "f08bc0bf4774ebd77501395491fd5b04ddd09092",
+      "sha256": "1d3dda4223b26188efcff70a117721b54483d3bfb855e85e6d65092fd03238df",
+      "bytes": 3166
+    },
+    {
+      "path": "verifiers/v1/runtimes/runtime.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/runtimes/runtime.py",
+      "blob_sha1": "628bc9b0cdee175e69216da33b6861bc645c7b40",
+      "sha256": "f82be11f8db2d05d1d3de3600d154179a8e444afef658a76ab1298d5755ffacd",
+      "bytes": 9897
+    },
+    {
+      "path": "tests/unit/test_agent.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/tests/unit/test_agent.py",
+      "blob_sha1": "d9cebddb1f7d08baecb12f88eb9ca83c633afb48",
+      "sha256": "0509e9c416350668d3c2869cee180c53e14e1182d387af0668510dd3644f1260",
+      "bytes": 3031
+    },
+    {
+      "path": "tests/unit/test_trace.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/tests/unit/test_trace.py",
+      "blob_sha1": "2aeaef36372db1e819347e923857d61c004c9d37",
+      "sha256": "c6b402b19590c627522596e4116453fdb1c4ffa1a139fb8f4fefd4923be7954d",
+      "bytes": 17790
+    },
+    {
+      "path": "verifiers/v1/utils/trace_store.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/trace_store.py",
+      "blob_sha1": "febb7a2c5b46c8a86893677a8cdc00a4cac0cbca",
+      "sha256": "428f6abec24097c3e84546af8d001f501d95371994b5842d5367a32ca3f363d7",
+      "bytes": 3382
+    },
+    {
+      "path": "verifiers/v1/configs/retries.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/configs/retries.py",
+      "blob_sha1": "e84ebf4972f13fb123b16f78e7b245e1a8edd93a",
+      "sha256": "188af04b496730a9e543f5a3d59d89e8d94460ae235f9c1e6716264262dca542",
+      "bytes": 1793
+    },
+    {
+      "path": "verifiers/v1/clients/base.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/clients/base.py",
+      "blob_sha1": "9b61cd78af75e6e10bd9bdfe195c9c9236bf858d",
+      "sha256": "0b41b99519b79f1b75c663e80367307818029cdd8a70b7a998262ad6f743ae75",
+      "bytes": 1691
+    },
+    {
+      "path": "verifiers/v1/runtimes/backends/docker.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/runtimes/backends/docker.py",
+      "blob_sha1": "3cb6b298fa4b3ccb54fb83f961243209968c11c3",
+      "sha256": "4bac70098511f11c0d71d1b8e47d01c3f94d0e8effd38f4c1b46370b39e832d3",
+      "bytes": 31476
+    },
+    {
+      "path": "verifiers/v1/runtimes/backends/prime.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/runtimes/backends/prime.py",
+      "blob_sha1": "19a004c1cb4afc78e1191032048f6e98d400f025",
+      "sha256": "2dff765a8eb85bdae07a34c4e4a055645a9f0836906264588809a2c869e7f52f",
+      "bytes": 24444
+    },
+    {
+      "path": "tests/unit/test_runtimes.py",
+      "revision": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/tests/unit/test_runtimes.py",
+      "blob_sha1": "c5d744b513c738dcb5e8f7f5b1075422ab45dac9",
+      "sha256": "87d5414537ca75f375f955e7332c750abc4871f1e067ee1764c1fee41432e23f",
+      "bytes": 20196
+    }
+  ],
+  "exact_change": {
+    "paths": [
+      "tests/unit/test_retry_ids.py",
+      "verifiers/v1/agent.py",
+      "verifiers/v1/env.py",
+      "verifiers/v1/episode.py",
+      "verifiers/v1/rollout.py",
+      "verifiers/v1/runtimes/backends/subprocess.py",
+      "verifiers/v1/trace.py",
+      "verifiers/v1/utils/retries.py"
+    ],
+    "stats": {
+      "total": 156,
+      "additions": 144,
+      "deletions": 12
+    },
+    "diff_sha256": "16feab6977447c085f0b85a171688dcf9fd7a56dad8598e3b718c723ec5f1409",
+    "tree_proofs": {
+      "parent": {
+        "root": "162b0066935c7d59936459545ca7eab3e098f907",
+        "response_sha": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+        "entries": 473,
+        "directories_verified": 107,
+        "truncated": false,
+        "root_identity_rule": "Reconstructed Git tree SHA1 matches pinned commit.tree.sha; endpoint response.sha may echo a supplied commitish."
+      },
+      "landed": {
+        "root": "c313cdf83e5c6a1fc70e013be8435d1e0b115d1c",
+        "response_sha": "c313cdf83e5c6a1fc70e013be8435d1e0b115d1c",
+        "entries": 474,
+        "directories_verified": 107,
+        "truncated": false,
+        "root_identity_rule": "Reconstructed Git tree SHA1 matches pinned commit.tree.sha; endpoint response.sha may echo a supplied commitish."
+      }
+    }
+  },
+  "anchors": [
+    {
+      "id": "slot_id",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 62,
+      "needle": "id: str = field(default_factory=lambda: uuid.uuid4().hex)",
+      "exact_line": "    id: str = field(default_factory=lambda: uuid.uuid4().hex)",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L62"
+    },
+    {
+      "id": "episode_id_injection",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 245,
+      "needle": "episode_id: str | None = None",
+      "exact_line": "        episode_id: str | None = None,",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L245"
+    },
+    {
+      "id": "fresh_episode_agents",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 268,
+      "needle": "agents = self._episode_agents",
+      "exact_line": "        agents = self._episode_agents(ctx, episode.traces, on_trace, on_discard)",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L268"
+    },
+    {
+      "id": "slot_trace_reset",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 336,
+      "needle": "slot.traces = []",
+      "exact_line": "            slot.traces = []  # a retry shows the fresh attempt's traces",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L336"
+    },
+    {
+      "id": "slot_id_per_episode_retry",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 355,
+      "needle": "episode_id=slot.id",
+      "exact_line": "                    episode_id=slot.id,",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L355"
+    },
+    {
+      "id": "episode_attempt",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 356,
+      "needle": "attempt=attempts",
+      "exact_line": "                    attempt=attempts,",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L356"
+    },
+    {
+      "id": "final_episode_retry_return",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 359,
+      "needle": "episode = await run_episode_with_retry",
+      "exact_line": "        episode = await run_episode_with_retry(attempt, self.config.retries)",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L359"
+    },
+    {
+      "id": "final_completion_only",
+      "side": "landed",
+      "path": "verifiers/v1/env.py",
+      "line": 364,
+      "needle": "await on_complete(episode)",
+      "exact_line": "            await on_complete(episode)",
+      "blob_sha1": "1f943574fa501a1df3ad9cce4672d6497be78312",
+      "decoded_sha256": "71308ae5fe203cd05f5184f646d204b0c82c95882dcd7b5a9b672808fb0ecea7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/env.py#L364"
+    },
+    {
+      "id": "trace_id_per_agent_run",
+      "side": "landed",
+      "path": "verifiers/v1/agent.py",
+      "line": 688,
+      "needle": "trace_id = uuid.uuid4().hex",
+      "exact_line": "        trace_id = uuid.uuid4().hex",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "decoded_sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py#L688"
+    },
+    {
+      "id": "agent_retry_loop",
+      "side": "landed",
+      "path": "verifiers/v1/agent.py",
+      "line": 689,
+      "needle": "for attempt in range(retry_state.max_retries + 1)",
+      "exact_line": "        for attempt in range(retry_state.max_retries + 1):",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "decoded_sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py#L689"
+    },
+    {
+      "id": "discard_abandoned_agent_attempt",
+      "side": "landed",
+      "path": "verifiers/v1/agent.py",
+      "line": 942,
+      "needle": "self._on_discard(last)",
+      "exact_line": "                self._on_discard(last)",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "decoded_sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py#L942"
+    },
+    {
+      "id": "replace_live_trace",
+      "side": "landed",
+      "path": "verifiers/v1/agent.py",
+      "line": 947,
+      "needle": "self._on_trace(trace)",
+      "exact_line": "                self._on_trace(trace)",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "decoded_sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py#L947"
+    },
+    {
+      "id": "completed_final_trace",
+      "side": "landed",
+      "path": "verifiers/v1/agent.py",
+      "line": 1008,
+      "needle": "self._completed.append(trace)",
+      "exact_line": "        self._completed.append(trace)",
+      "blob_sha1": "ba94921c36710094d39d70cf2b7ff2fd6083b70f",
+      "decoded_sha256": "33925ae6f53b7450695f7a5c05f1fa06a0ef0181e343c1844d0f9abc321e933c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/agent.py#L1008"
+    },
+    {
+      "id": "episode_attempt_default",
+      "side": "landed",
+      "path": "verifiers/v1/episode.py",
+      "line": 50,
+      "needle": "attempt: int = 1",
+      "exact_line": "    attempt: int = 1",
+      "blob_sha1": "acad6a25a4626996cd786511a7fd97ffb9b1f2bf",
+      "decoded_sha256": "53ceed51b00a6d960ac8d24b5e2da1dbfb57d2ed78647815d829a9cd83baec08",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/episode.py#L50"
+    },
+    {
+      "id": "trace_attempt_default",
+      "side": "landed",
+      "path": "verifiers/v1/trace.py",
+      "line": 580,
+      "needle": "attempt: int = 1",
+      "exact_line": "    attempt: int = 1",
+      "blob_sha1": "f526c17d5ab8a53fa209387c4da9a6548f6fe10a",
+      "decoded_sha256": "e0e0b5dde7b4a015a4043433676188181a54c20303dcb9293effa37ec7f861c7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/trace.py#L580"
+    },
+    {
+      "id": "runtime_logical_name",
+      "side": "landed",
+      "path": "verifiers/v1/rollout.py",
+      "line": 255,
+      "needle": "name=self.trace.id",
+      "exact_line": "            self.runtime = make_backend(self.runtime_config, name=self.trace.id).bind()",
+      "blob_sha1": "c3229a8c2b148bc929e1fe7e1a445277999aeebf",
+      "decoded_sha256": "89c223a7ad902a422657227eca998d875263daa769296019e990eb9a0e787aff",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/rollout.py#L255"
+    },
+    {
+      "id": "native_score_hook_unchanged",
+      "side": "landed",
+      "path": "verifiers/v1/rollout.py",
+      "line": 923,
+      "needle": "await self._scoring_task.score(",
+      "exact_line": "                                await self._scoring_task.score(",
+      "blob_sha1": "c3229a8c2b148bc929e1fe7e1a445277999aeebf",
+      "decoded_sha256": "89c223a7ad902a422657227eca998d875263daa769296019e990eb9a0e787aff",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/rollout.py#L923"
+    },
+    {
+      "id": "current_trace_verdict_unchanged",
+      "side": "landed",
+      "path": "verifiers/v1/rollout.py",
+      "line": 951,
+      "needle": "trace.ok = not self._failed",
+      "exact_line": "            trace.ok = not self._failed",
+      "blob_sha1": "c3229a8c2b148bc929e1fe7e1a445277999aeebf",
+      "decoded_sha256": "89c223a7ad902a422657227eca998d875263daa769296019e990eb9a0e787aff",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/rollout.py#L951"
+    },
+    {
+      "id": "unique_subprocess_workdir",
+      "side": "landed",
+      "path": "verifiers/v1/runtimes/backends/subprocess.py",
+      "line": 106,
+      "needle": "tempfile.mkdtemp(prefix=f\"{self.name}-\", dir=root)",
+      "exact_line": "        self.workdir = Path(tempfile.mkdtemp(prefix=f\"{self.name}-\", dir=root))",
+      "blob_sha1": "fc27b7c6102e607a0c3bde8fc883eedc0a1ff670",
+      "decoded_sha256": "9da39624699c68e96ed997516d4c212627097710120d10148434f48f30df7f7c",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/runtimes/backends/subprocess.py#L106"
+    },
+    {
+      "id": "process_local_retry_state",
+      "side": "landed",
+      "path": "verifiers/v1/utils/retries.py",
+      "line": 77,
+      "needle": "class RetryState:",
+      "exact_line": "class RetryState:",
+      "blob_sha1": "3c0c3240c7f0d4da19d4fb700aef3aa0842027b7",
+      "decoded_sha256": "7a8605d6be1209655d02af2d110904e19246065cf2e6bf075a5950a8c0d37585",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/retries.py#L77"
+    },
+    {
+      "id": "whole_episode_retry_loop",
+      "side": "landed",
+      "path": "verifiers/v1/utils/retries.py",
+      "line": 130,
+      "needle": "for attempt in range(state.max_retries + 1)",
+      "exact_line": "    for attempt in range(state.max_retries + 1):",
+      "blob_sha1": "3c0c3240c7f0d4da19d4fb700aef3aa0842027b7",
+      "decoded_sha256": "7a8605d6be1209655d02af2d110904e19246065cf2e6bf075a5950a8c0d37585",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/retries.py#L130"
+    },
+    {
+      "id": "native_retry_default_off",
+      "side": "landed",
+      "path": "verifiers/v1/configs/retries.py",
+      "line": 45,
+      "needle": "max_retries: int = Field(0, ge=0)",
+      "exact_line": "    max_retries: int = Field(0, ge=0)",
+      "blob_sha1": "e84ebf4972f13fb123b16f78e7b245e1a8edd93a",
+      "decoded_sha256": "188af04b496730a9e543f5a3d59d89e8d94460ae235f9c1e6716264262dca542",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/configs/retries.py#L45"
+    },
+    {
+      "id": "openai_client_retry_default_zero",
+      "side": "landed",
+      "path": "verifiers/v1/clients/base.py",
+      "line": 15,
+      "needle": "MAX_RETRIES = 0",
+      "exact_line": "MAX_RETRIES = 0",
+      "blob_sha1": "9b61cd78af75e6e10bd9bdfe195c9c9236bf858d",
+      "decoded_sha256": "0b41b99519b79f1b75c663e80367307818029cdd8a70b7a998262ad6f743ae75",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/clients/base.py#L15"
+    },
+    {
+      "id": "runner_final_persistence",
+      "side": "landed",
+      "path": "verifiers/v1/cli/run.py",
+      "line": 68,
+      "needle": "await append_episode(out, episode, write_lock)",
+      "exact_line": "        await append_episode(out, episode, write_lock)",
+      "blob_sha1": "36d38a52809c7d4c94bda4fd8f7902c858ce4fd4",
+      "decoded_sha256": "8946b8d265d6b51e6fea4be560705f00243124f69b3c139afd26a71c5b39c9c0",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/cli/run.py#L68"
+    },
+    {
+      "id": "trace_store_append",
+      "side": "landed",
+      "path": "verifiers/v1/utils/trace_store.py",
+      "line": 41,
+      "needle": "open(\"ab\")",
+      "exact_line": "    with (results_dir / TRACES_FILE).open(\"ab\") as f:",
+      "blob_sha1": "febb7a2c5b46c8a86893677a8cdc00a4cac0cbca",
+      "decoded_sha256": "428f6abec24097c3e84546af8d001f501d95371994b5842d5367a32ca3f363d7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/trace_store.py#L41"
+    },
+    {
+      "id": "trace_store_cancel_shield",
+      "side": "landed",
+      "path": "verifiers/v1/utils/trace_store.py",
+      "line": 79,
+      "needle": "await run_shielded(persist())",
+      "exact_line": "    await run_shielded(persist())",
+      "blob_sha1": "febb7a2c5b46c8a86893677a8cdc00a4cac0cbca",
+      "decoded_sha256": "428f6abec24097c3e84546af8d001f501d95371994b5842d5367a32ca3f363d7",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/f167a92e3730d017f591dcaac0e94c437f238733/verifiers/v1/utils/trace_store.py#L79"
+    }
+  ],
+  "facts": [
+    "RunSlot owns one UUID episode id. Each in-process run_slot whole-episode retry receives that slot id and a 1-based episode attempt. The live slot trace list resets on each whole-episode attempt, and on_complete is awaited once after the retry helper returns the final episode.",
+    "Agent.run generates one UUID trace id before its own retry loop. Its rollout attempts receive the same trace id and 1-based trace attempt. The _EpisodeAgent watcher calls on_discard for an abandoned attempt before on_trace for the replacement; only the returned final trace is appended to the episode's completed trace list.",
+    "Whole-episode retry calls run_episode again, builds fresh episode agents, and can call Agent.run anew. That new Agent.run mints a new trace id and resets its trace-attempt counter. Stable episode identity does not imply stable trace identity across whole-episode retries or process restarts.",
+    "Episode and Trace add plain integer attempt fields defaulting to 1; UUID defaults and optional episode/trace id injection do not persist an identity allocator or attempts across processes. The agent private _run_once signature now requires trace_id and attempt keyword arguments.",
+    "Owned rollout backends receive the logical trace id as name. SubprocessBackend.start replaces fixed root/name directories with tempfile.mkdtemp(prefix=name+'-', dir=root), producing a fresh physical workdir per backend start while retaining the logical name. Docker creates its own UUID container name; Prime retains service-returned sandbox ids. Cleanup and service behavior were not run here.",
+    "The agent and episode retry helpers retain previous errors on the final object independently of current ok. They do not in these loops merge abandoned attempts' complete trace graphs, rewards, usage or artifact payloads into a spend journal. Current retained trace usage/rewards cannot account for every retry's physical request or runtime cost.",
+    "The changed retries.py hunk updates documentation only: framework agent/episode retries are off by default and are separate from SDK per-call model/runtime retries. RetryState counters are process-local. Captured OpenAI client construction uses MAX_RETRIES=0; SDK/harness transport retries can have different ownership. Logical attempt counts do not measure every physical transmission.",
+    "The CLI final completion callback records run identity and appends the final episode. The existing trace writer serializes attempt fields and writes artifact paths keyed by trace id, then appends JSONL under an async lock with cancellation shielding. It contains no fsync, dedup/upsert transaction or durable budget/attempt reservation; CLI ensure_fresh rejects nonempty existing traces instead of implementing resume.",
+    "The exact diff changes no scoring policy, judge/version binding, admission denominator or durable replay algorithm. Per-trace scoring remains in Rollout.close; environment finalization remains in Env.run_episode; only final retained trace content feeds existing episode summaries. Earlier costs are not refunded or made durably idempotent by stable ids."
+  ],
+  "author_reporter_claims": [
+    "PR author reports passing unit tests except PRIME_API_KEY/harbor skips, same-name Prime sandboxes with distinct ids/deletion, and vf-run plus prime-rl evaluations on gsm8k and terminal-bench fix-git. These are author claims; no local execution or CI-log audit was performed.",
+    "PR author reports a forced bogus-model case with one agent retry and one episode retry, four total rollout attempts, stable episode id but a new agent-run trace id, final attempt counters of two, and no stale prime-rl live files. The linked prime-rl companion PR4376 was not captured or independently inspected.",
+    "PR author says old readers ignore the added field. The reviewed schema defines the defaults; cross-version reader compatibility was not executed here. Automated PR summaries are evidence of reported intent, not a second validation source."
+  ],
+  "our_inference": "H3/H4 accounting and H2 recovery should distinguish (logical episode id, episode attempt), (Agent.run trace id, trace attempt), physical runtime id/workdir and SDK transmission ids. Source3057 is a concrete integration signal, distinct from source3082's current episode.ok optimizer admission gate. Stable ids improve correlation but require separate all-attempt cost custody, version admission and two-restart durability evidence before those engineering claims can upgrade.",
+  "engineering": {
+    "caller": "CLI run_episodes -> Env.run_slot -> Env.run_episode -> _EpisodeAgent/Agent.run -> Rollout -> owned backend and final append_episode; H3/H4 runner/score accounting and H2 recovery observers",
+    "scale_bottleneck": "Concurrent retry streams can correlate one logical unit to several runtime allocations while final-only storage omits prior attempt costs; whole-episode retries create new trace identities and can repeat score/effect work",
+    "integration_point": "RunSlot.id + Episode.attempt, per-Agent.run Trace.id + Trace.attempt, on_discard/on_trace transitions, backend physical identity/workdir and final on_complete JSONL writer",
+    "preregistered_here": false,
+    "proposed_acceptance": "Before any native upgrade, freeze caller/task/judge/version, concurrency, transport/framework retry policies and resource ceilings. Observe every physical attempt and live discard/replacement, final stored score/usage and cleanup; require intended per-scope identity and monotonic attempt invariants, all-attempt cost custody, current admission, unchanged successful controls, bounded backlog/cancellation, and no duplicate effect or budget reset through two process restarts. Report success/quality, effective throughput, end-to-end/tail latency, resource/communication peaks and observer overhead only for executed endpoints.",
+    "validated_tier": "Pinned full source and test-definition inspection; no runtime validation"
+  },
+  "limits": [
+    "Immutable parent/landed source and adjacent test-design review only; 35 read-only GETs, 29 full decoded source versions, 8 changed blobs, +144/-12. No source import or local upstream tests, model/native/SDK/runtime/scientific execution, GPU, multi-node, production or CI-log verification.",
+    "The two added async test definitions use a monkeypatched FakeRollout and FakeEnv.run_episode respectively, checking three logical attempts and retained error history. They are not evidence of an executed native harness, HTTP retry, subprocess workdir, scoring, cancellation or restart test; no new same-name-workdir regression is present in that changed test file.",
+    "No durable resume/attempt counter, global budget, exactly-once effect, authority freshness, bounded cleanup or all-attempt cost guarantee follows from these ids. Unique temporary directories avoid a name collision but do not establish cleanup or a bounded leak.",
+    "Review scoped to captured paths; actual Session transport callsite and linked prime-rl companion were not expanded. Header-affinity wording in client docs is not independent packet evidence.",
+    "The existing native f5f5c9 budget-exhaustion experiment stays pinned to its historical revision and negative results; no dependency adoption, hypothesis status change, experiment or new preregistration in this round."
+  ],
+  "test_definition_count": 2,
+  "source_refinement": "Clarified source fact9: Rollout.close owns per-trace scoring; Env.run_episode owns environment finalization. Narrative rewritten as connected prose with immutable source links and bounded-scheduling distinction.",
+  "local_execution": {
+    "scientific_experiments": 0,
+    "native_suites": 0,
+    "upstream_tests": 0,
+    "model_loads": 0
+  },
+  "scientific_status_change": false
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-05T21:14:08.320442+00:00",
-  "observation_note": "All 227 prior source objects preserved exactly. Added one pinned Verifiers GEPA failed-episode admission source review. Standard evaluate refuses the whole batch after rollouts/persistence; direct reflection input, spent-budget accounting and durable recovery remain separate boundaries. No upstream tests/native/model/scientific execution, adoption, fixture rerun or H1-H4 status change.",
+  "last_updated_at": "2026-11-06T01:16:26.939382+00:00",
+  "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9214,6 +9214,61 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/commit/d295ca87d6dacee7949ab68c665e023e5c36dbe3@d295ca87d6dacee7949ab68c665e023e5c36dbe3"
+    },
+    {
+      "id": "verifiers-3057-logical-retry-identity-and-attempt-boundary",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/commit/f167a92e3730d017f591dcaac0e94c437f238733",
+      "type": "landed_logical_retry_identity_source_review_not_local_execution_or_scientific_result",
+      "author": "mikasenghaas / Mika Senghaas",
+      "published_at": "2026-11-06T00:46:38Z",
+      "recorded_at": "2026-11-06T01:16:26.939382+00:00",
+      "PR_created_at": "2026-11-03T05:53:23Z",
+      "PR_merged_at": "2026-11-06T00:46:39Z",
+      "parent": "d295ca87d6dacee7949ab68c665e023e5c36dbe3",
+      "landed": "f167a92e3730d017f591dcaac0e94c437f238733",
+      "repository_public": true,
+      "license": "MIT",
+      "primary_evidence": {
+        "narrative": "research/2026-11-06-stable-native-retry-identities.md",
+        "review_receipt": "research/receipts/20261106T005029Z-verifiers-retry-identities.json",
+        "immutable_source_versions": 29,
+        "changed_paths": 8,
+        "local_execution": false
+      },
+      "fact": [
+        "RunSlot owns one UUID episode id. Each in-process run_slot whole-episode retry receives that slot id and a 1-based episode attempt. The live slot trace list resets on each whole-episode attempt, and on_complete is awaited once after the retry helper returns the final episode.",
+        "Agent.run generates one UUID trace id before its own retry loop. Its rollout attempts receive the same trace id and 1-based trace attempt. The _EpisodeAgent watcher calls on_discard for an abandoned attempt before on_trace for the replacement; only the returned final trace is appended to the episode's completed trace list.",
+        "Whole-episode retry calls run_episode again, builds fresh episode agents, and can call Agent.run anew. That new Agent.run mints a new trace id and resets its trace-attempt counter. Stable episode identity does not imply stable trace identity across whole-episode retries or process restarts.",
+        "Episode and Trace add plain integer attempt fields defaulting to 1; UUID defaults and optional episode/trace id injection do not persist an identity allocator or attempts across processes. The agent private _run_once signature now requires trace_id and attempt keyword arguments.",
+        "Owned rollout backends receive the logical trace id as name. SubprocessBackend.start replaces fixed root/name directories with tempfile.mkdtemp(prefix=name+'-', dir=root), producing a fresh physical workdir per backend start while retaining the logical name. Docker creates its own UUID container name; Prime retains service-returned sandbox ids. Cleanup and service behavior were not run here.",
+        "The agent and episode retry helpers retain previous errors on the final object independently of current ok. They do not in these loops merge abandoned attempts' complete trace graphs, rewards, usage or artifact payloads into a spend journal. Current retained trace usage/rewards cannot account for every retry's physical request or runtime cost.",
+        "The changed retries.py hunk updates documentation only: framework agent/episode retries are off by default and are separate from SDK per-call model/runtime retries. RetryState counters are process-local. Captured OpenAI client construction uses MAX_RETRIES=0; SDK/harness transport retries can have different ownership. Logical attempt counts do not measure every physical transmission.",
+        "The CLI final completion callback records run identity and appends the final episode. The existing trace writer serializes attempt fields and writes artifact paths keyed by trace id, then appends JSONL under an async lock with cancellation shielding. It contains no fsync, dedup/upsert transaction or durable budget/attempt reservation; CLI ensure_fresh rejects nonempty existing traces instead of implementing resume.",
+        "The exact diff changes no scoring policy, judge/version binding, admission denominator or durable replay algorithm. Per-trace scoring remains in Rollout.close; environment finalization remains in Env.run_episode; only final retained trace content feeds existing episode summaries. Earlier costs are not refunded or made durably idempotent by stable ids."
+      ],
+      "author_proposal": [
+        "PR author reports passing unit tests except PRIME_API_KEY/harbor skips, same-name Prime sandboxes with distinct ids/deletion, and vf-run plus prime-rl evaluations on gsm8k and terminal-bench fix-git. These are author claims; no local execution or CI-log audit was performed.",
+        "PR author reports a forced bogus-model case with one agent retry and one episode retry, four total rollout attempts, stable episode id but a new agent-run trace id, final attempt counters of two, and no stale prime-rl live files. The linked prime-rl companion PR4376 was not captured or independently inspected.",
+        "PR author says old readers ignore the added field. The reviewed schema defines the defaults; cross-version reader compatibility was not executed here. Automated PR summaries are evidence of reported intent, not a second validation source."
+      ],
+      "our_inference": "H3/H4 accounting and H2 recovery should distinguish (logical episode id, episode attempt), (Agent.run trace id, trace attempt), physical runtime id/workdir and SDK transmission ids. Source3057 is a concrete integration signal, distinct from source3082's current episode.ok optimizer admission gate. Stable ids improve correlation but require separate all-attempt cost custody, version admission and two-restart durability evidence before those engineering claims can upgrade.",
+      "engineering": {
+        "caller": "CLI run_episodes -> Env.run_slot -> Env.run_episode -> _EpisodeAgent/Agent.run -> Rollout -> owned backend and final append_episode; H3/H4 runner/score accounting and H2 recovery observers",
+        "scale_bottleneck": "Concurrent retry streams can correlate one logical unit to several runtime allocations while final-only storage omits prior attempt costs; whole-episode retries create new trace identities and can repeat score/effect work",
+        "integration_point": "RunSlot.id + Episode.attempt, per-Agent.run Trace.id + Trace.attempt, on_discard/on_trace transitions, backend physical identity/workdir and final on_complete JSONL writer",
+        "preregistered_here": false,
+        "proposed_acceptance": "Before any native upgrade, freeze caller/task/judge/version, concurrency, transport/framework retry policies and resource ceilings. Observe every physical attempt and live discard/replacement, final stored score/usage and cleanup; require intended per-scope identity and monotonic attempt invariants, all-attempt cost custody, current admission, unchanged successful controls, bounded backlog/cancellation, and no duplicate effect or budget reset through two process restarts. Report success/quality, effective throughput, end-to-end/tail latency, resource/communication peaks and observer overhead only for executed endpoints.",
+        "validated_tier": "Pinned full source and test-definition inspection; no runtime validation"
+      },
+      "limits": [
+        "Immutable parent/landed source and adjacent test-design review only; 35 read-only GETs, 29 full decoded source versions, 8 changed blobs, +144/-12. No source import or local upstream tests, model/native/SDK/runtime/scientific execution, GPU, multi-node, production or CI-log verification.",
+        "The two added async test definitions use a monkeypatched FakeRollout and FakeEnv.run_episode respectively, checking three logical attempts and retained error history. They are not evidence of an executed native harness, HTTP retry, subprocess workdir, scoring, cancellation or restart test; no new same-name-workdir regression is present in that changed test file.",
+        "No durable resume/attempt counter, global budget, exactly-once effect, authority freshness, bounded cleanup or all-attempt cost guarantee follows from these ids. Unique temporary directories avoid a name collision but do not establish cleanup or a bounded leak.",
+        "Review scoped to captured paths; actual Session transport callsite and linked prime-rl companion were not expanded. Header-affinity wording in client docs is not independent packet evidence.",
+        "The existing native f5f5c9 budget-exhaustion experiment stays pinned to its historical revision and negative results; no dependency adoption, hypothesis status change, experiment or new preregistration in this round."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/commit/f167a92e3730d017f591dcaac0e94c437f238733@f167a92e3730d017f591dcaac0e94c437f238733"
     }
   ],
   "previous_observation_notes": [
@@ -9281,6 +9336,10 @@
     {
       "last_updated_at": "2026-11-05T13:09:58.590641+00:00",
       "observation_note": "All 226 prior source objects preserved exactly. Added one pinned Pi Chord state-before-answer source and author-test-design review. Replica application, durable state, current authority, effect completion and aggregate memory/admission bounds stay distinct. No upstream tests/runtime/model/scientific execution, native adoption, fixture rerun or H1-H4 status change."
+    },
+    {
+      "last_updated_at": "2026-11-05T21:14:08.320442+00:00",
+      "observation_note": "All 227 prior source objects preserved exactly. Added one pinned Verifiers GEPA failed-episode admission source review. Standard evaluate refuses the whole batch after rollouts/persistence; direct reflection input, spent-budget accounting and durable recovery remain separate boundaries. No upstream tests/native/model/scientific execution, adoption, fixture rerun or H1-H4 status change."
     }
   ],
   "last_updated_at_history": [
@@ -9297,6 +9356,7 @@
     "2026-11-03T09:37:45.336853+00:00",
     "2026-11-03T13:51:31.699075+00:00",
     "2026-11-05T00:54:58.234099+00:00",
-    "2026-11-05T13:09:58.590641+00:00"
+    "2026-11-05T13:09:58.590641+00:00",
+    "2026-11-05T21:14:08.320442+00:00"
   ]
 }

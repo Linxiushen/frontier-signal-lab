@@ -212,3 +212,6 @@ Native HTTP exhaustion (2026-11-05): one separately frozen actual Verifiers suit
 
 
 GEPA failed-episode admission source review (2026-11-05): landed Verifiers PR3082 rejects a failed episode before the standard adapter returns candidate scores/trajectories, including a partial reward followed by judge failure. The entire batch is refused after rollouts and persistence; spent calls remain spent and direct reflection inputs have no separate guard. Sixteen immutable source versions reviewed; no upstream tests, native/model run or H1-H4 upgrade. [Review and proposed integration boundary](research/2026-11-05-gepa-failed-episode-admission.md).
+
+
+Native retry identity source review (2026-11-06): newly landed Verifiers PR3057 keeps episode IDs stable within a RunSlot retry loop and trace IDs within one Agent.run retry loop, with separate attempt counters and fresh subprocess workdirs. Whole-episode retries can mint new trace IDs; final-only storage does not account for every physical spend or prove durable recovery. Twenty-nine immutable source versions reviewed; no tests/native/model run or H1-H4 upgrade. [Review and proposed native acceptance](research/2026-11-06-stable-native-retry-identities.md).

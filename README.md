@@ -215,3 +215,6 @@ GEPA failed-episode admission source review (2026-11-05): landed Verifiers PR308
 
 
 Native retry identity source review (2026-11-06): newly landed Verifiers PR3057 keeps episode IDs stable within a RunSlot retry loop and trace IDs within one Agent.run retry loop, with separate attempt counters and fresh subprocess workdirs. Whole-episode retries can mint new trace IDs; final-only storage does not account for every physical spend or prove durable recovery. Twenty-nine immutable source versions reviewed; no tests/native/model run or H1-H4 upgrade. [Review and proposed native acceptance](research/2026-11-06-stable-native-retry-identities.md).
+
+
+Remote cancellation source review (2026-11-06): Pi c96e368 lets local startup waits and silent sent requests settle on cancellation, with a one-second request grace and an exec timeout. Shared startup can continue and a settled local call does not establish remote termination or an effect receipt. Fourteen immutable source/policy versions reviewed; seven author test definitions were read, not run. Package release/adoption, actual SSH reboot, bounded remote work and two-restart effects remain unverified; no tests/native/model run or H1-H4 change. [Review and proposed integration boundary](research/2026-11-06-remote-abort-settlement.md).

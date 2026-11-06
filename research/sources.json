@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-06T01:16:26.939382+00:00",
-  "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change.",
+  "last_updated_at": "2026-11-06T11:04:40.723915+00:00",
+  "observation_note": "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9269,6 +9269,51 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/commit/f167a92e3730d017f591dcaac0e94c437f238733@f167a92e3730d017f591dcaac0e94c437f238733"
+    },
+    {
+      "id": "pi-remote-abort-local-settlement-c96e368",
+      "url": "https://github.com/earendil-works/pi/commit/c96e368e265f886820a68b651b2ec086ecf3906b",
+      "type": "landed_remote_environment_source_review_not_execution_or_scientific_result",
+      "author": "badlogic",
+      "published_at": "2026-11-06T07:55:34Z",
+      "recorded_at": "2026-11-06T11:01:21.499526+00:00",
+      "parent": "d07548004ae12d8dfc3d5817cdbb4f975356aede",
+      "landed": "c96e368e265f886820a68b651b2ec086ecf3906b",
+      "repository_public": true,
+      "license": "MIT",
+      "primary_evidence": {
+        "narrative": "research/2026-11-06-remote-abort-settlement.md",
+        "review_receipt": "research/receipts/20261106T105340Z-remote-abort-settlement.json",
+        "review_receipt_sha256": "4e5e7b7b3ef94c80da9a4eb9cc47d2513f8e08a1af94b6029fd435612c436811",
+        "immutable_source_policy_versions": 14,
+        "local_execution": false
+      },
+      "fact": [
+        "Signal-aware startup waits can reject locally while the shared connection startup continues.",
+        "A sent cancellation transmits CANCEL; an unanswered request rejects after a1000ms grace and drops later answers. A daemon reply during grace can still settle normally.",
+        "RemoteExecutionEnv.exec starts its local timeout before optional cwd resolution and clears local tracking on settlement. Signal-aware info/path/listFiles waits do not guarantee every subsequent file request is cancellable.",
+        "SSH construction adds ConnectTimeout=15; package metadata remains1.5.0 with an unreleased changelog entry.",
+        "Seven author test cases use scripted Node subprocesses; definitions were read, not run."
+      ],
+      "author_report": "Commit message reports a bash-tool wait while a remote host rebooted; no local reproduction of that incident.",
+      "our_inference": "Local wait settlement can free host bookkeeping while remote terminal effects remain unknown. Bounded agent admission needs separate accounting of unresolved remote work, current authority and durable effect identity before replay; this is not a demonstrated new upstream defect or exactly-once guarantee.",
+      "engineering": {
+        "caller": "Actual RemoteExecutionEnv to Connection protocol and remote daemon; SSH startup path separately inspected.",
+        "scale_bottleneck": "Remote silence retains local tool/admission slots; releasing them can leave unresolved remote work and startup costs outside local pending counts.",
+        "integration_point": "Pinned connection startup/request cancellation and exec local timeout, with explicit original-version rollback in a future justified native caller.",
+        "validated_tier": "Complete changed-source identity and policy capture plus all changed behavior/direct caller/test-design review; zero native/SSH/model/test execution."
+      },
+      "limits": [
+        "Local cancellation settlement is not remote termination, effect rollback or a durable receipt.",
+        "One-second grace and Node scheduling do not establish a hard end-to-end timeout; SSH15s does not bound the whole deployment.",
+        "Not universal file-operation cancellation; createTempDir still has later unsignalled waits/requests.",
+        "No aggregate call/byte/startup/resource ceiling, matched performance, actual SSH reboot, two-restart or model/scoring result.",
+        "No installed runtime upgrade, scientific status change or new observer prerequisite. Existing finite H2/evaluation slices and H1negative/invalidRSS/fullH3-H4 gates remain.",
+        "Pinned Pi contribution gate requires prior maintainer lgtm; no issue/PR/comment or admission request sent."
+      ],
+      "next_gate": "Proposed only, not registered: require a concrete actual Pi remote-tool caller before a separately frozen adjacent-version comparison. Bound local and unresolved-remote admissions, total attempts/payload/resources and cancellation/two-restart schedule; distinguish local-settled, remote-terminal and unknown-effect receipts. Measure success/usefulthroughput/end-to-end/tails/resources/communication/observationcost; retain current authority and no duplicate committed effect. No unchanged rerun or isolated observer expansion.",
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/earendil-works/pi/commit/c96e368e265f886820a68b651b2ec086ecf3906b@c96e368e265f886820a68b651b2ec086ecf3906b"
     }
   ],
   "previous_observation_notes": [
@@ -9340,6 +9385,10 @@
     {
       "last_updated_at": "2026-11-05T21:14:08.320442+00:00",
       "observation_note": "All 227 prior source objects preserved exactly. Added one pinned Verifiers GEPA failed-episode admission source review. Standard evaluate refuses the whole batch after rollouts/persistence; direct reflection input, spent-budget accounting and durable recovery remain separate boundaries. No upstream tests/native/model/scientific execution, adoption, fixture rerun or H1-H4 status change."
+    },
+    {
+      "last_updated_at": "2026-11-06T01:16:26.939382+00:00",
+      "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change."
     }
   ],
   "last_updated_at_history": [
@@ -9357,6 +9406,7 @@
     "2026-11-03T13:51:31.699075+00:00",
     "2026-11-05T00:54:58.234099+00:00",
     "2026-11-05T13:09:58.590641+00:00",
-    "2026-11-05T21:14:08.320442+00:00"
+    "2026-11-05T21:14:08.320442+00:00",
+    "2026-11-06T01:16:26.939382+00:00"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-07T05:25:19.930244+00:00",
-  "observation_note": "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change.",
+  "last_updated_at": "2026-11-07T07:26:10.898074+00:00",
+  "observation_note": "Added one fresh collaborator review with pinned native replay/dispatch source corroboration; no upstream execution, scientific result or H1-H4 gate change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9423,6 +9423,45 @@
       "next_gate": "Source-only signal. Await reporter public patch; any justified actual training integration requires a separate complete protocol. Existing H1 negative and H2-H4 finite/unmet gates remain unchanged; no observer detour.",
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/fla-org/flash-linear-attention/issues/1683@2026-11-07T04:20:22Z"
+    },
+    {
+      "id": "fla-compact-state-graph-and-dispatch-contracts-review1681",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1681#pullrequestreview-5810606177",
+      "type": "primary_collaborator_review_and_pinned_source_not_reproduction",
+      "author": "zhiyuan1i",
+      "published_at": "2026-11-07T06:44:52Z",
+      "recorded_at": "2026-11-07T07:26:10.898074+00:00",
+      "license": "MIT",
+      "reviewed_head": "99f2e46b373bd1d96f5228d6dbbf84fb1e93faf2",
+      "primary_evidence": {
+        "narrative": "research/2026-11-07-compact-state-native-contracts.md",
+        "review_receipt": "research/receipts/20261107T071356Z-fla-compact-state-contracts.json",
+        "review_receipt_sha256": "d7d078cb6040e8900bfc41bf70b8727ee43ec8c0f2af10b9f1bbe62d66665bf8",
+        "complete_source_and_license_versions": 10,
+        "local_execution": false
+      },
+      "fact": [
+        "NVIDIA contiguous CP singleton branch selects last_sequence_idx=len(cu_seqlens)-2; common backward kernel reads singleton dht only where i_n equals that selector. Graph test pads static cu_seqlens with repeated final offsets, while CP forward preprocessing computes last-nonempty selection on device.",
+        "Compact fused call supplies compact_h/compact_dh/dht/last_sequence_idx. TileLang verifier and implementation accept none of these keywords and no catch-all kwargs. Backend verification catches exceptions as rejection; registry logs one INFO rejection and tries other backends before original fallback."
+      ],
+      "reviewer_report": "CHANGES_REQUESTED: last-nonempty cross-rank gradient selection under empty-tail graph replay; TileLang and intra-card CP backend contracts. The intra-card adapter allegation is not independently corroborated here.",
+      "author_proposal": "Token-indexed checkpoints and singleton contiguous CP state; open PR, no released fix or locally verified memory/quality result.",
+      "our_inference": "Compaction needs both device-side sequence identity and explicit selected-backend verification in the real caller; a correct output comparison can conceal fallback.",
+      "engineering": {
+        "caller": "Packed varlen KDA training with contiguous CP and CUDA Graph replay",
+        "scale_bottleneck": "Per-document rounded checkpoints, cross-rank singleton-state identity and optional backend routing",
+        "integration_point": "Existing KDA public entry, common backward state selector, backend verifier/dispatch and native CP graph regression; explicit pinned fallback",
+        "acceptance_metrics": "Proposed only: separately pin complete protocol/resources; intended public route, replay/full-gradient and rollback semantics, matched held-out quality, useful end-to-end throughput, step/tail latency, peak device resources, communication/observation and cold/capture costs.",
+        "validated_tier": "Complete review attribution and ten authenticated source/license files; source reading only."
+      },
+      "limits": [
+        "Actual zero-tail gradient error magnitude or failing GPU graph test; no upstream code imported or run.",
+        "Reviewer intra-card CP verifier allegation was not independently identified in the captured source. Captured Ascend CP adapter is a different NPU-only path with catch-all kwargs and does not establish that allegation.",
+        "Actual selected backend or fallback in a live caller, measured peak memory, speed, communication, full training quality."
+      ],
+      "next_gate": "No experiment admitted; direct justified native caller with complete separate preregistration, no observer detour or unchanged closed-suite rerun.",
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1681#pullrequestreview-5810606177@99f2e46b373bd1d96f5228d6dbbf84fb1e93faf2"
     }
   ],
   "previous_observation_notes": [
@@ -9500,7 +9539,8 @@
       "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change."
     },
     "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change.",
-    "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change."
+    "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change.",
+    "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9520,6 +9560,7 @@
     "2026-11-05T21:14:08.320442+00:00",
     "2026-11-06T01:16:26.939382+00:00",
     "2026-11-06T11:04:40.723915+00:00",
-    "2026-11-06T15:01:27.081849+00:00"
+    "2026-11-06T15:01:27.081849+00:00",
+    "2026-11-07T05:25:19.930244+00:00"
   ]
 }

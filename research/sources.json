@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-07T09:35:09.671258+00:00",
-  "observation_note": "Added fresh evaluator-entropy report with pinned successful qualification-path corroboration; reported score variation is unreplicated, no native execution or scientific gate change.",
+  "last_updated_at": "2026-11-07T11:39:11.003729+00:00",
+  "observation_note": "Added pinned compact-state replay revision and explicit backend rejection contracts; external H200 claims unreplicated, scientific gates unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9508,6 +9508,54 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/SakanaAI/AI-Scientist-v3/issues/5@df8313889a004f8a44a472e19a833cd547bb828a"
+    },
+    {
+      "id": "fla-compact-state-replay-revision1681",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1681#issuecomment-6706003166",
+      "type": "primary_author_revision_and_pinned_native_source_review",
+      "published_at": "2026-11-07T11:06:39Z",
+      "recorded_at": "2026-11-07T11:39:11.003729+00:00",
+      "license": "MIT",
+      "reviewed_head": "881d2cc5bb6a0f791bf83b3a9de4aeb941efe08d",
+      "reviewed_parent": "99f2e46b373bd1d96f5228d6dbbf84fb1e93faf2",
+      "primary_evidence": {
+        "narrative": "research/2026-11-07-compact-state-replay-revision.md",
+        "review_receipt": "research/receipts/20261107T111151Z-fla-replay-revision.json",
+        "review_receipt_sha256": "46cec1b4c0ace62f31715f5458abfde40ad5b1dcdf0e3e184351fcd18a805796",
+        "complete_pinned_versions": 12,
+        "local_execution": false
+      },
+      "fact": [
+        "Direct child881d2cc5 of reviewed99f2e46b replaces the singleton contiguous-CP host selector with torch.searchsorted(cu_seqlens, cu_seqlens[-1])-1 and passes a tensor consumed by tl.load in both relevant backward kernels; the prior host range check is removed.",
+        "TileLang verifier explicitly names compact_h/compact_dh/dht/last_sequence_idx and rejects compact_h or compact_dh with a compact-layout reason. This remains a rejection/fallback contract, not TileLang compact support.",
+        "The separate Triton-Ascend CP verifier first requires NPU input and now rejects use_singleton_state. This identifies the changed NPU adapter, not an independently verified NVIDIA intra-card adapter.",
+        "Three new compact-state test definitions check verifier acceptance/rejection and compare public-entry tensors with TileLang availability/enabled patched. The routing test does not record selected-backend identity. Existing CP KDA graph test bytes are unchanged from the reviewed parent."
+      ],
+      "author_report": [
+        "Author says both review concerns are addressed and reports H200 compact-state17passes, CP11+6passes, graph2passes, and fullKDA227passes/15skips/5lower-bound dA failures.",
+        "Author reports the same5lower-bound failures and2graphpasses on the PR base. No raw native outputs or local reproduction are supplied by this project."
+      ],
+      "author_proposal": "Compact packed KDA checkpoint states and singleton cross-rank state, revised to select the nonempty sequence on device and decline unsupported backend layouts.",
+      "our_inference": "The source-level selector and explicit rejection contracts advance; native replay correctness, actual backend route, resource/performance and training quality remain unvalidated here.",
+      "engineering": {
+        "caller": "Packed variable-length KDA training backward, contiguous context parallelism and CUDA Graph replay.",
+        "load": "Short-document packed batches with changing sequence boundaries and repeated trailing offsets in static graph metadata.",
+        "bottleneck": "Compact checkpoints reduce logical state slots, but sequence identity and explicit backend capability must survive replay and dispatch; logical slot savings alone omit full-step memory, communication and quality costs.",
+        "native_integration": "Existing chunk_kda_bwd, common backward kernel, TileLang verifier, NPU Ascend CP verifier and existing native compact-state/graph suites; no new observer prerequisite.",
+        "acceptance": "Future execution only after a separate fixed protocol: exact patch/fallback and intended route, dtype/seeds/shapes/packed lengths/CP ranks, device/software and resource ceilings; forward/full-gradient tolerances, replay changes and rollback; matched held-out quality, useful throughput, end-to-end/tail latency, peak resources/communication and observation cost, with compilation/capture accounted separately.",
+        "preregistration": "No experiment or integration repair preregistered or executed by this source followup.",
+        "validated_tier": "Pinned complete source and primary author-comment review only; no upstream imports or native/model/GPU execution."
+      },
+      "limits": [
+        "Open PR branch revision; no merged release or maintainer acceptance is established by the captured author comment.",
+        "Static device-selector and verifier changes do not establish replay gradient correctness, actual route selection, NPU behavior, peak memory, speed, communication or training quality.",
+        "The test CP verifier input is a SimpleNamespace with device.type=npu, not an NPU execution. The route comparison patches availability/enabled and checks tensors, without an independent route witness.",
+        "The captured graph fixture calls chunk_kda without an explicit compact_h argument; the public wrapper activation/default threading was outside this bounded capture, so compact-layout coverage is not independently established.",
+        "Author H200 test counts and same-base failure comparison are external reports, not this project test or CI results.",
+        "No upstream code imported, GPU/model/native/scientific suite executed, dependency adopted, competing upstream repair submitted, or scientific gate changed."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1681@881d2cc5bb6a0f791bf83b3a9de4aeb941efe08d"
     }
   ],
   "previous_observation_notes": [
@@ -9587,7 +9635,8 @@
     "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change.",
     "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change.",
     "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change.",
-    "Added one fresh collaborator review with pinned native replay/dispatch source corroboration; no upstream execution, scientific result or H1-H4 gate change."
+    "Added one fresh collaborator review with pinned native replay/dispatch source corroboration; no upstream execution, scientific result or H1-H4 gate change.",
+    "Added fresh evaluator-entropy report with pinned successful qualification-path corroboration; reported score variation is unreplicated, no native execution or scientific gate change."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9609,6 +9658,7 @@
     "2026-11-06T11:04:40.723915+00:00",
     "2026-11-06T15:01:27.081849+00:00",
     "2026-11-07T05:25:19.930244+00:00",
-    "2026-11-07T07:26:10.898074+00:00"
+    "2026-11-07T07:26:10.898074+00:00",
+    "2026-11-07T09:35:09.671258+00:00"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-07T11:39:11.003729+00:00",
-  "observation_note": "Added pinned compact-state replay revision and explicit backend rejection contracts; external H200 claims unreplicated, scientific gates unchanged.",
+  "last_updated_at": "2026-11-07T13:36:17.286520+00:00",
+  "observation_note": "Added merged Standard/AttnRes residual interface source review; existing GLA remains inline, external accelerator claims unreplicated and scientific gates unchanged.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9556,6 +9556,56 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1681@881d2cc5bb6a0f791bf83b3a9de4aeb941efe08d"
+    },
+    {
+      "id": "fla-merged-standard-attnres-residual-modules1645",
+      "url": "https://github.com/fla-org/flash-linear-attention/pull/1645",
+      "type": "primary_merge_and_pinned_residual_interface_source_review",
+      "published_at": "2026-11-07T12:24:40Z",
+      "recorded_at": "2026-11-07T13:36:17.286520+00:00",
+      "license": "MIT",
+      "reviewed_head": "de66a30ca8f7224ba3261b92f1a02ab0cb0fa98f",
+      "reviewed_parent": "38db7118235871e782ebf0a81dbaa431cffda36f",
+      "primary_evidence": {
+        "narrative": "research/2026-11-07-native-residual-module-boundary.md",
+        "review_receipt": "research/receipts/20261107T131324Z-fla-residual-modules.json",
+        "review_receipt_sha256": "480a3528f1d61d0ef8846592ad922099a8cd1f2f022821b32a65c6cb9d32c30b",
+        "complete_pinned_versions": 13,
+        "local_execution": false
+      },
+      "fact": [
+        "PR1645 by feiyunzhang merged2026-11-07T12:24:40Z asde66a30; directparent38db7118. Eight changed paths add the generic residual interface, implementations, exports and two numerical test definitions.",
+        "BaseResidual provides initialize/pre/post/readout and normalized forward; model caller owns branch computation and order, and state/context retain autograd connections.",
+        "StandardResidual delays addition when requested; fused add/normalization and unfused addition have explicit different dtype/rounding contracts.",
+        "AttentionResidual stores embedding and branch/block sources, counts branch outputs rather than transformer layers, casts embedding at firstpost, zero-initializes query and declares nonreentrant-only checkpoint support.",
+        "Pinned GLA retains inline optional AttnRes and does not consume the new classes. Model and kernel paths are unchanged by this merge.",
+        "Two numerical definitions cover8Standard/5Attention configurations over6connectedSiLU branches, inputs/state/output/dtypes and gradients including matchingunusedNone, withCPUskip and0.005tolerance."
+      ],
+      "author_report": [
+        "Body reports13GB200casepasses atddc122a8 and unchangedtestfunctions; A2residualcases pass at246eec37 with an unrelated full-suiteGroupLinearfloat64failure.",
+        "Earlier-revision GB200benchmarks use6BF16SiLUbranches,seed42 and3alternatingrounds includingSiLU/gradientclearing; smallregressions are retained, H100smokeunverified andNCUunrun."
+      ],
+      "author_proposal": "Shared residual aggregation/normalization/state interface; existing models and kernels unchanged, model integration separate.",
+      "our_inference": "Reusable upstream residual interface availability advances; native model adoption, compression quality and complete cost/resource benefits remain unvalidated here.",
+      "engineering": {
+        "caller": "Existing transformer attention/MLP branch loop and optional GLA AttnRes path; common residual interface is a candidate integration seam, not yet adopted by the captured GLA caller.",
+        "load": "Full/Block depth aggregation across attention and MLP outputs, mixed dtypes, fused or unfused addition/normalization, and gradient-checkpointed training.",
+        "bottleneck": "State/source retention and aggregation/normalization cost can grow with branches; differing dtype, block and checkpoint semantics must be preserved before any memory/quality comparison.",
+        "native_integration": "Merged BaseResidual/StandardResidual/AttentionResidual pre -> actual branch -> post and outputreadout/normalization, with existing implementation as explicit rollback; separate1422 remains outside this review.",
+        "acceptance": "Separate future fixed protocol: exactmodel/data/optimizer/branchorder/blocksize/dtype/fusion/checkpoint/versions and token/time/resourceceilings; fullforward/backward/update checks and applicable recovery, heldoutquality, usefulthroughput, endtoend/tails, measuredpeakresources/communication andobservationcost.",
+        "preregistration": "None admitted or executed by this source review.",
+        "validated_tier": "Pinned complete source and test-definition review only; no upstream runtime or model execution."
+      },
+      "limits": [
+        "Merged source/interface only, not a tagged release, model adoption or measured training benefit.",
+        "Current GLA already has optional inline AttnRes; the new common residual classes are not used by that captured caller. Separate1422 source was not reviewed.",
+        "Both numerical tests skip CPU; definitions and13parameter cases were read, not executed. No checkpointed/full-model training or held-out quality test is established.",
+        "Author GB200/A2 counts and earlier-revision timings remain unreplicated. No merged-head upstream CI audit, H100 smoke, NCU or local accelerator result.",
+        "Logical block entries are not peak memory, and small-module timings are not model-throughput or causal performance evidence.",
+        "No upstream imports/tests, dependency adoption, native/model/GPU/Docker/scientific run, new observer prerequisite or scientific-status change."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1645@de66a30ca8f7224ba3261b92f1a02ab0cb0fa98f"
     }
   ],
   "previous_observation_notes": [
@@ -9636,7 +9686,8 @@
     "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change.",
     "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change.",
     "Added one fresh collaborator review with pinned native replay/dispatch source corroboration; no upstream execution, scientific result or H1-H4 gate change.",
-    "Added fresh evaluator-entropy report with pinned successful qualification-path corroboration; reported score variation is unreplicated, no native execution or scientific gate change."
+    "Added fresh evaluator-entropy report with pinned successful qualification-path corroboration; reported score variation is unreplicated, no native execution or scientific gate change.",
+    "Added pinned compact-state replay revision and explicit backend rejection contracts; external H200 claims unreplicated, scientific gates unchanged."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9659,6 +9710,7 @@
     "2026-11-06T15:01:27.081849+00:00",
     "2026-11-07T05:25:19.930244+00:00",
     "2026-11-07T07:26:10.898074+00:00",
-    "2026-11-07T09:35:09.671258+00:00"
+    "2026-11-07T09:35:09.671258+00:00",
+    "2026-11-07T11:39:11.003729+00:00"
   ]
 }

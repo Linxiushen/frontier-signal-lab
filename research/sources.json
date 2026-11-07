@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-06T15:01:27.081849+00:00",
-  "observation_note": "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change.",
+  "last_updated_at": "2026-11-07T05:25:19.930244+00:00",
+  "observation_note": "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9357,6 +9357,72 @@
       "next_gate": "Proposed only: a concrete justified caller then separate fixed database/WAL/read/replacement/authority/cancellation/two-reopen study with success/usefulthroughput/fullupdateandtailtime/physicalbytes/peakresources/retirement/observationcost. Do not rerun unchanged closed fixtures.",
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/openclaw/openclaw/commit/9f5e817557791c720626bbe7e6e7671c22a93925@9f5e817557791c720626bbe7e6e7671c22a93925"
+    },
+    {
+      "id": "fla-wide-cp-state-materialization-issue1683",
+      "url": "https://github.com/fla-org/flash-linear-attention/issues/1683",
+      "type": "primary_author_report_and_pinned_kernel_source_review_not_reproduction",
+      "author": "NuojCheng",
+      "published_at": "2026-11-07T04:20:22Z",
+      "recorded_at": "2026-11-07T05:25:19.930244+00:00",
+      "repository_public": true,
+      "license": "MIT",
+      "reported_base": "fbe2c383c191cdbdd7656864305c9eadee1a6756",
+      "primary_evidence": {
+        "narrative": "research/2026-11-07-wide-cp-state-cost.md",
+        "review_receipt": "research/receipts/20261107T051013Z-fla-wide-cp-state.json",
+        "review_receipt_sha256": "d0d79a9fac1e757eb888978d5c38ada6518067d343ee0d1a3892f97584952df4",
+        "full_issue_snapshot_sha256": "03555aa0a6b0244a36caa95aa8c1d6818d881af4afa073cde3a33ba02f093bfe",
+        "complete_kernel_versions": 2,
+        "local_execution": false
+      },
+      "fact": [
+        "The reported short base resolves to a public MIT-licensed commit; both complete CP kernel files and LICENSE were captured and read.",
+        "Native wrappers split local-state and transform column grids. At K>64 BV=64; transform branches construct square BK-by-BK tensors and compose them with FP32 transform tiles.",
+        "The issue supplies a single-GPU baseline script but no complete proposed strip patch; the reporter offers to submit their own PR."
+      ],
+      "author_report": {
+        "environment": "A100-SXM4-80GB; Torch2.15.0+cu132; Triton3.9.0; Python3.12.13; FLA0.6.0/main",
+        "timing_workload": "T16384/H1/V256/BT64; one GPU, public CP state functions, K128 versus K256",
+        "warm_fwd_ms": [
+          4.33,
+          228.52
+        ],
+        "warm_bwd_ms": [
+          3.6,
+          251.58
+        ],
+        "first_fwd_seconds": [
+          65,
+          909
+        ],
+        "first_bwd_seconds": [
+          70,
+          936
+        ],
+        "proposed_fixed_config": "Four warps/two stages with64-row transform strips;7.6ms both kernels in a separate table; full patch absent.",
+        "separate_numerical_workload": "T2048/H2/weak decay; h/dh reportedly bit-identical; M/dM relativeL2 differences1.2e-5(K128)/2.4e-5(K256)."
+      },
+      "author_proposal": "Reassociate gated transition composition into diagonal row scaling and nested products; split M into64-row strips; preserve corresponding DPLR plus/bg path.",
+      "our_inference": "Pinned source corroborates square transition materialization, not compiled live registers or measured speed. Shape-dependent native work and cold-autotune costs warrant separate accounting; CP summaries do not establish residual-bank benefit.",
+      "engineering": {
+        "caller": "chunk_cp_fwd_h/chunk_cp_bwd_dh local affine summaries for CP training state boundaries",
+        "scale_bottleneck": "Wide-key square transition intermediates and repeated per-column-tile composition; reported compile/autotune and spill costs.",
+        "integration_point": "Existing transform branches with explicit pinned-baseline fallback, conditional on a public patch and justified actual caller.",
+        "acceptance_metrics": "Proposed only, not preregistered: fixed shapes/gates/dtype/seeds/resources and patch; predeclared numerical/full-gradient/held-out-quality tolerances, useful end-to-end throughput, step/tail time, peak device resources, communication and observation costs, cold/warm separately.",
+        "validated_tier": "Primary author report plus two pinned complete kernel source files; no local GPU/kernel/model/distributed run."
+      },
+      "limits": [
+        "All performance, spill and numerical figures are author reports, not our measurements.",
+        "Source-level tensor shapes do not prove compiler liveness/spills; reported spill bytes are not peak device memory.",
+        "Fixed-config versus autotuned first-call comparisons confound compile-only or strip-only attribution.",
+        "Reassociation changes floating-point order; separate weak-decay check is not full-gradient or training-quality evidence.",
+        "No claimed fourfold operation scaling, multi-rank speedup, end-to-end training result or H1 residual-bank benefit.",
+        "No dependency adoption, upstream patch/PR, scientific execution, gate reopening or status upgrade."
+      ],
+      "next_gate": "Source-only signal. Await reporter public patch; any justified actual training integration requires a separate complete protocol. Existing H1 negative and H2-H4 finite/unmet gates remain unchanged; no observer detour.",
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/fla-org/flash-linear-attention/issues/1683@2026-11-07T04:20:22Z"
     }
   ],
   "previous_observation_notes": [
@@ -9433,7 +9499,8 @@
       "last_updated_at": "2026-11-06T01:16:26.939382+00:00",
       "observation_note": "All228prior source objects preserved exactly. Added one pinned Verifiers3057 source review of nested episode/Agent.run identities, attempt fields and physical subprocess workdirs. Final-only persistence and logical counters do not establish all-attempt costs or durable recovery. No tests/native/model/scientific execution, dependency adoption or H1-H4 status change."
     },
-    "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change."
+    "All229prior source objects preserved exactly. Added one pinned Pi c96e368 source review of remote startup/request cancellation and exec timeout. Local settlement does not acknowledge remote termination or effects; future bounded admission needs separate unresolved-remote accounting. Fourteen immutable versions reviewed, zero tests/native/SSH/model/scientific execution, no installed upgrade or H1-H4 state change.",
+    "All230prior source objects preserved exactly. Added one pinned OpenClaw9f5e817 review of scoped read-image reuse and source/lease ownership. Author physical-I/O numbers remain unreplicated; sourcefingerprints and onecurrentimage percanonicalsource do not establish a globalresource ceiling.46immutableversions reviewed; zero tests/native/model/scientific execution or scientificstate change."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9452,6 +9519,7 @@
     "2026-11-05T13:09:58.590641+00:00",
     "2026-11-05T21:14:08.320442+00:00",
     "2026-11-06T01:16:26.939382+00:00",
-    "2026-11-06T11:04:40.723915+00:00"
+    "2026-11-06T11:04:40.723915+00:00",
+    "2026-11-06T15:01:27.081849+00:00"
   ]
 }

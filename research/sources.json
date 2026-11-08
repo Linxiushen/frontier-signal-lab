@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-07T13:36:17.286520+00:00",
-  "observation_note": "Added merged Standard/AttnRes residual interface source review; existing GLA remains inline, external accelerator claims unreplicated and scientific gates unchanged.",
+  "last_updated_at": "2026-11-08T07:44:15.759438+00:00",
+  "observation_note": "Added2first-party November8 source records: unbuilt Pi session-resource design and OpenClaw author-reported held-out compaction acceptance failure. External measurement remains unreplicated; zero native/model/scientific execution or scientific-state change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9606,6 +9606,86 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1645@de66a30ca8f7224ba3261b92f1a02ab0cb0fa98f"
+    },
+    {
+      "id": "pi-p3-session-resource-authority-design-20261108",
+      "url": "https://github.com/earendil-works/pi/commit/306fdf536282a96947dfbec636e33174d9a47092",
+      "type": "primary_fixed_documentation_design_decision_and_unbuilt_sketch",
+      "published_at": "2026-11-08T07:25:00Z",
+      "recorded_at": "2026-11-08T07:44:15.759438+00:00",
+      "reviewed_head": "e49b1495045f06643a7cc4c93330fabc2ab37ce4",
+      "reviewed_parent": "306fdf536282a96947dfbec636e33174d9a47092",
+      "primary_evidence": {
+        "narrative": "research/2026-11-08-session-resources-and-compaction-negative-result.md",
+        "review_receipt": "research/receipts/20261108T072710Z-session-resources-compaction.json",
+        "review_receipt_sha256": "d91f3747ffdf961ad8d2a3a14795f0d56bc709d8298ea18d6e33da204b0aa11e",
+        "local_execution": false
+      },
+      "fact": [
+        "Mario Zechner/badlogic committed a p3 owner decision selecting session resources rather than per-run origin as the proposed authority unit.",
+        "The direct child adds a code sketch explicitly Not decided, not built and a data-model paper review explicitly written without building anything."
+      ],
+      "author_proposal": "Live include/restrict selection, worker-principal session identity, server-side resource call checks and server-refreshed expiring worker request credentials.",
+      "our_inference": "A future implemented caller must state its authority unit and separately verify revocation, in-flight calls, cancellation, effects and restart budgets. Existing local permissions are unchanged.",
+      "engineering": {
+        "caller": "Proposed p3 Chord/Durable session worker resource views and tool/provider registries",
+        "load": "Multiple sessions and changing resource bindings; no measured workload or resource ceiling",
+        "bottleneck": "Selector recomputation and server-side delivery; current selection versus already-started operations and retained credentials",
+        "native_integration": "Selection/Selectors, SessionMcp.call and worker ModelProviders/Extensions; sketch only",
+        "acceptance": "Separately freeze implemented versions/authority/arrivals/resource ceilings, successful-task denominator, admission/backpressure, revoke/cancel/idempotence and two restarts; useful throughput/end-to-end and tails/peaks/communication/observation cost with rollback",
+        "preregistration": "None selected or executed by this source review",
+        "validated_tier": "Fixed-commit documentation only"
+      },
+      "limits": [
+        "No p3 implementation, native/model/load test, dependency adoption or full p2 source audit.",
+        "The paper review is not an ML stress test; estimates are not measured cost.",
+        "Third-party owner instructions do not govern this task. Current local runtime authority and all scientific gates are unchanged."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/earendil-works/pi/commit/e49b1495045f06643a7cc4c93330fabc2ab37ce4"
+    },
+    {
+      "id": "openclaw-compaction195028-heldout-negative-20261108",
+      "url": "https://github.com/openclaw/openclaw/issues/194408#issuecomment-6718738842",
+      "type": "primary_collaborator_report_of_offline_acceptance_failure",
+      "published_at": "2026-11-08T07:27:54Z",
+      "recorded_at": "2026-11-08T07:44:15.759438+00:00",
+      "reviewed_head": "2d4ec7bf48c91a42753e698c6a2f77dad5dcd766",
+      "primary_evidence": {
+        "narrative": "research/2026-11-08-session-resources-and-compaction-negative-result.md",
+        "review_receipt": "research/receipts/20261108T072710Z-session-resources-compaction.json",
+        "review_receipt_sha256": "d91f3747ffdf961ad8d2a3a14795f0d56bc709d8298ea18d6e33da204b0aa11e",
+        "local_execution": false
+      },
+      "fact": [
+        "PR195028 by obviyus merged06:08:12Z; the same collaborator posted an acceptance bar06:28:56Z then an explicit fail report07:27:54Z.",
+        "Captured full public comments/PR prose and merge metadata/patches, without full runtime/source dependency closure."
+      ],
+      "author_report": [
+        "20 held-out compactions: later-used identifier retention46.5% to46.5% (+0pp versus required+3pp); >=main in20/20 does not satisfy the separate gain criterion.",
+        "23 later-used IDs absent from fixed summary:13lost before summarizer160k-character sampling,10omitted by model,0cut by16k budget;23is not retention denominator.",
+        "Chained3sessions x3compactions:11/68 to25/68;30blindquestions score40/60 to46/60;shortened-output provisional0/5;offline marker13/20=65%.",
+        "Fix not deployed; online7day after-window and re-touch reduction pending."
+      ],
+      "author_proposal": "Deterministic identifier list or older-transcript retrieval pointer, plus chunked summarization instead of single-pass160k sampling.",
+      "our_inference": "Measure downstream information use and loss location in the actual runner; a fixed final cap boundary need not fix upstream sampling/summarization loss. Do not infer a general larger-cap remedy.",
+      "engineering": {
+        "caller": "OpenClaw native compaction safeguard and later tool use; no local adoption",
+        "load": "Reported20held-out compactions outside16development cases; native online workload and full denominators unverified",
+        "bottleneck": "Source sampling, model omissions and generated-body/preserved-turn budget allocation are distinct loss boundaries",
+        "native_integration": "Existing compaction safeguard -> stored summary/tail -> next20tool calls, with transcript/ID retrieval as proposed rollback-capable alternative",
+        "acceptance": "Before a new native study freeze spans/sampling/model/cache/version identities, complete eligible/task denominators, retrieval/retry/resume allowances, quality/success, useful throughput/latency tails/peak resources/communication and observation cost under fixed ceilings",
+        "preregistration": "External author calls acceptance preregistered; public comment order verified, measurement timing/compliance not independently established; no local protocol",
+        "validated_tier": "First-party external offline report only, not this project execution"
+      },
+      "limits": [
+        "Full46.5% denominator/aggregation and raw held-out traces/responses/seeds/scorer are unavailable; numbers unreplicated.",
+        "Before result-post order does not establish the actual measurement start; merged does not mean deployed.",
+        "30questions and60score points are different denominators;0/5 is provisional and development16 differs from held-out20.",
+        "No native/model/scientific experiment, production or general-quality upgrade; H1 negative results, closed H2 and full H3/H4 unmet gates preserved."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/openclaw/openclaw/issues/194408#issuecomment-6718738842"
     }
   ],
   "previous_observation_notes": [
@@ -9687,7 +9767,8 @@
     "All231prior source objects preserved exactly. Added primary FLA1683 report and two pinned CP kernel source reviews: concrete wide-state transition materialization, author-only timing/spill/numerical claims. No local GPU/model/scientific work, competing patch, new observer prerequisite or H1-H4/gate change.",
     "Added one fresh collaborator review with pinned native replay/dispatch source corroboration; no upstream execution, scientific result or H1-H4 gate change.",
     "Added fresh evaluator-entropy report with pinned successful qualification-path corroboration; reported score variation is unreplicated, no native execution or scientific gate change.",
-    "Added pinned compact-state replay revision and explicit backend rejection contracts; external H200 claims unreplicated, scientific gates unchanged."
+    "Added pinned compact-state replay revision and explicit backend rejection contracts; external H200 claims unreplicated, scientific gates unchanged.",
+    "Added merged Standard/AttnRes residual interface source review; existing GLA remains inline, external accelerator claims unreplicated and scientific gates unchanged."
   ],
   "last_updated_at_history": [
     "2026-11-02T09:30:14.531327+00:00",
@@ -9711,6 +9792,7 @@
     "2026-11-07T05:25:19.930244+00:00",
     "2026-11-07T07:26:10.898074+00:00",
     "2026-11-07T09:35:09.671258+00:00",
-    "2026-11-07T11:39:11.003729+00:00"
+    "2026-11-07T11:39:11.003729+00:00",
+    "2026-11-07T13:36:17.286520+00:00"
   ]
 }

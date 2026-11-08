@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-08T17:41:41.834090+00:00",
-  "observation_note": "Preserved240prior source objects exactly. Added2openFLA native ReWY/PHBA integration source reviews; author-only performance, failed/unchecked gates, historicalrevision/lr0/noquality limits retained. Zero upstreamtests/native/model/scientificexecution or H1-H4/gatechange.",
+  "last_updated_at": "2026-11-08T22:00:26.218774+00:00",
+  "observation_note": "Preserved242prior source objects. Added one pinned implemented p2 local-owner authentication/revocation source review; per-cookie/live-link/admitted-work and shared-host cookie limits retained. No local tests/native/model/scientific work, dependency adoption or H1-H4/gate upgrade.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9860,6 +9860,49 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/fla-org/flash-linear-attention/pull/1704@da0260d2a7831df9d1ba2a88ea727976e64ed2fa"
+    },
+    {
+      "id": "pi-p2-local-owner-authentication-revocation-20261108",
+      "url": "https://github.com/earendil-works/pi/commit/7d073328e44337d3292a7db9b0f0308f679c5e97",
+      "type": "landed_p2_local_owner_authentication_and_revocation_source_review",
+      "author": "mitsuhiko",
+      "published_at": "2026-11-08T21:26:20Z",
+      "recorded_at": "2026-11-08T22:00:26.218774+00:00",
+      "license": "MIT",
+      "reviewed_head": "7d073328e44337d3292a7db9b0f0308f679c5e97",
+      "reviewed_parent": "9879bb44754ce42f52800371aac8cfbccf521cb7",
+      "primary_evidence": {
+        "narrative": "research/2026-11-08-p2-local-owner-authority.md",
+        "review_receipt": "research/receipts/20261108T213301Z-p2-local-owner.json",
+        "review_receipt_sha256": "1c381ccce25adcfbf98a7fba8c4d36ce4bb1b7dabdcc3077f856fa585328d20a",
+        "complete_head_files": 10,
+        "complete_parent_contexts": 3,
+        "local_execution": false
+      },
+      "fact": [
+        "Captured main equals7d073328; actual p2 request resolver removes parent cookieless loopback-owner fallback. Parent already had signed remote-device cookies and revocation.",
+        "Signed local sessions require a loopback origin and owner-link redemption or data-directory owner-key challenge proof. HMAC binds port/challenge; valid-format wrong proof consumes one-use challenge. Challenges are max32/60seconds/in-memory.",
+        "Individual local logout revokes cookie ID but deliberately leaves live links under the shared local principal. Logout-all rotates key and invokes both remote/local owner-class revocation.",
+        "README states admitted work continues, cookies remain exposed to other ports on the same host, and p2 is an unsupported experimental prototype.",
+        "Devices test definitions cover cookieless HTTP/WS refusal with open health, proof controls, local renewal/logout and OwnerAccess reopen. Definitions read, no tests run."
+      ],
+      "our_inference": "Implemented request authentication is a concrete H2 caller boundary, while cookie admission, live-link revocation, current effect authority and custody of admitted work remain separate. This does not upgrade earlier trusted-owner Harness fixtures.",
+      "engineering": {
+        "caller": "p2 browser/TUI/local scripts -> HTTP/WebSocket principal resolver -> devices OwnerAccess",
+        "load": "Shared machine users and concurrent owner sessions; no workload/resource ceiling executed",
+        "scale_bottleneck": "Authentication challenge bounds do not bound agent admission/queues; shared local identity separates cookie revocation from live work.",
+        "native_integration": "Existing authenticate/resolveAccess, devices Authenticator/PageCookies/logout and localOwnerSignIn; no dependency adopted",
+        "acceptance": "Future separate fixed protocol: runtime/OS/data-directory/identity epochs/arrivals/resource caps, admission-backpressure, individual/all-session revoke, in-flight cancellation and idempotent effects across two actual process restarts; success/quality/useful throughput/E2E/tails/peaks/communication/observation cost and rollback.",
+        "preregistration": "None frozen or run by this source review",
+        "validated_tier": "Pinned selected source and test definitions only"
+      },
+      "limits": [
+        "10of98 changed files plus3parent contexts and license, not complete dependency/security audit.",
+        "No stable production contract, tenant-isolation proof, two process restarts under load, physical cancellation/effect atomicity, local native/model/GPU/quality/performance validation.",
+        "Prior p3 sketches, closed H2 slices/concurrent audit failure and H1negative/invalidRSS/resource/H3/H4 gates remain unchanged."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/earendil-works/pi/commit/7d073328e44337d3292a7db9b0f0308f679c5e97@7d073328e44337d3292a7db9b0f0308f679c5e97"
     }
   ],
   "previous_observation_notes": [
@@ -9954,6 +9997,10 @@
     {
       "last_updated_at": "2026-11-08T11:45:02.830777+00:00",
       "observation_note": "Preserved239prior source objects exactly. Added landedOpenClaw195164 native restart terminal-reply/prewriter settlement source review, with retained rawwork and negative author syntheticcosts. Zero upstreamtests/native/model/scientificexecution,adoptionorH1-H4/gatechange."
+    },
+    {
+      "last_updated_at": "2026-11-08T17:41:41.834090+00:00",
+      "observation_note": "Preserved240prior source objects exactly. Added2openFLA native ReWY/PHBA integration source reviews; author-only performance, failed/unchecked gates, historicalrevision/lr0/noquality limits retained. Zero upstreamtests/native/model/scientificexecution or H1-H4/gatechange."
     }
   ],
   "last_updated_at_history": [
@@ -9982,6 +10029,7 @@
     "2026-11-07T13:36:17.286520+00:00",
     "2026-11-08T07:44:15.759438+00:00",
     "2026-11-08T09:49:34.115212+00:00",
-    "2026-11-08T11:45:02.830777+00:00"
+    "2026-11-08T11:45:02.830777+00:00",
+    "2026-11-08T17:41:41.834090+00:00"
   ]
 }

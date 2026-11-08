@@ -1,0 +1,42 @@
+# Two FLA integration proposals: native entry points and measurement limits
+
+Two November 8 proposals move existing attention methods toward actual FLA callers. [ReWY #1703](https://github.com/fla-org/flash-linear-attention/pull/1703) is an open draft at `7608606ab33ee4fc570dd3999053a34851761636`; [PHBA #1704](https://github.com/fla-org/flash-linear-attention/pull/1704) is open and unmerged at `da0260d2a7831df9d1ba2a88ea727976e64ed2fa`. Both were read against base `98193113ecb7835143252a786e06933e371b67cc`. These are new integration proposals, not new papers, accepted upstream implementations or measurements reproduced here. The earlier [ReWY manuscript/RFC review](2026-11-03-residual-pullback-engineering-boundary.md) remains a separate source.
+
+ReWY now has a concrete native backward boundary. The proposal extracts `chunk_gated_delta_rule_bwd_dqkvbg` from the existing GDN backward and registers a default-off replacement through `fla.backends`. The public autograd backward invokes this stage after the reverse state scan and before the reverse gate cumulative sum. The original forward, saved tensors, state scans and subsequent normalization/gate derivatives remain in the caller. This makes the replaceable local derivative stage explicit without implying a complete optimizer-step improvement.
+
+`FLA_REWY=1` selects matching FP16/BF16 Q/K/V on NVIDIA, equal key/value head counts, value width at most 128 and chunk size 16, 32 or 64. The verifier rejects context parallelism and unsupported capabilities. Registry rejection continues to other candidates or the original function; this fallback does not catch arbitrary failures after a selected kernel starts. The kernel shares the residual sensitivity across consumers, keeps value/beta reductions in FP32 and preserves explicit low-precision key-gradient rounding. Keeping the whole value tile live and looping over key tiles still creates a resource/scheduling tradeoff. Fewer local products alone cannot establish total training cost.
+
+The new test definitions include a dispatch spy, independent recurrent output/state/six-gradient comparisons, packed short segments, zero beta, both layouts/dtypes and bitwise disabled/rejected-call fallback. We read these definitions; we ran none. The author reports 114 candidate versus 100 baseline GDN passes on an RTX laptop and 110 versus 96 on A800, with the extra 14 cases. Four dependent GDP variable-length **forward** comparisons fail identically in both arms before backward. That dependency gate remains unchecked. Six offline SM80/SM90 compilations do not establish SM90 execution. Five captured production-kernel memchecks reportedly have zero errors, while the full reference process exits nonzero with cuBLAS API errors also reproduced in a separate control.
+
+The author reports these A800 operator medians, under matched recomputation with final-state output and initial-state gradients. CUDA Graph timing excludes Python dispatch.
+
+| Workload | Public backward, baseline → ReWY (µs) | Forward + backward, baseline → ReWY (µs) |
+| --- | ---: | ---: |
+| Dense FP16 | 167.11 → 146.13 | 220.90 → 199.50 |
+| Dense BF16 | 2578.83 → 2556.43 | 2745.75 → 2726.85 |
+| Packed FP16 | 161.57 → 145.24 | 214.92 → 199.90 |
+| Packed BF16 | 1691.40 → 1666.97 | 1822.99 → 1798.24 |
+
+The reported maximum between-process median spread is 6.470%; the small BF16 differences remain preliminary. Additional eager allocated peaks reportedly fall 15.0–18.1% for backward and 13.2–15.2% for forward/backward, with live-input/forward-graph exclusions. Those endpoints are distinct from total model peak memory. NCU and repository-required datacenter SM90+ measurements remain open. The linked raw benchmark logs were not independently reanalysed here.
+
+PHBA reaches a different native boundary: `PHBAForCausalLM → PHBABlock → PHBA → chunk_phba`. The captured entry builds discrete routes and gated prefix states, then calls joint block-major attention. The proposal jointly normalizes local tokens, selected historical token blocks and prefix-state slots. The operator accepts CUDA FP16/BF16 inputs; the model permits FP32 parameters under autocast. Persistent decoding cache and materialized attention weights are explicitly refused. Equal Q/K/V heads and bounded head/slot/chunk/top-k shapes are required. Cache-free greedy generation is a supported author path, with full-prefix work still relevant to future serving cost.
+
+Its model resolves one sequence geometry plan for reuse across layers. The documentation describes geometry ownership rather than activation caching; we did not audit the plan implementation or the full routing/kernel closure. Padding/packed tests explicitly mask padding and the first label of each sequence to prevent shifted targets crossing boundaries. Plan isolation alone does not supply this label policy. We inspected registration/save-load, checkpoint-gradient, cache rejection, padding, generation and packed-equivalence test designs, not the entire 551-line model test file or the operator/projection suites.
+
+The optional H20 projection path is narrower than general PHBA support. Captured code checks the exact device, PyTorch 2.9.0, CUDA 12.8, cuBLASLt library hash, screened geometry and actual 16-byte operand alignment. Unsupported capability/geometry/alignment uses native operations; initialization errors are handled separately from selected execution failures. Packaged C++ sources and algorithm descriptors avoid a machine-specific binary in the Python source package. We reviewed the loader/resources and wrappers but did not build a wheel, compile an extension or exercise a GPU.
+
+The author reports 94 source tests and 95 installed-wheel tests, with several test/measurement revision hashes. The complete-step table compares baseline `9e0a4649` with measured revision `9a2a5b54`, **not the current reviewed head**. It uses a 1,264,423,936-parameter, 24-layer model, B1×8192, FP32 parameters/BF16 autocast, no activation checkpointing, three paired seeds and 20 warmup/50 measured steps. The synchronized interval includes zero-grad, forward/loss, backward, clipping, optimizer, allocations and dispatch.
+
+| Workload | Baseline tokens/s | Candidate tokens/s |
+| --- | ---: | ---: |
+| Dense C64/K16 | 7872.60 | 7864.23 |
+| Dense C128/K8 | 9640.89 | 9629.95 |
+| Dense C256/K4 | 10582.27 | 10559.89 |
+| Dense C512/K2 | 10931.07 | 10927.47 |
+| Packed C128/K8 | 10460.22 | 10443.82 |
+
+All five reported candidate means are lower. Their magnitude does not establish a statistically reliable regression without run dispersion. AdamW uses **learning rate zero** throughout the 70 steps: matched gradients, optimizer states and final parameters establish no learning, convergence or quality benefit. Candidate allocated peaks are 38.013–41.294 GiB and reserved peaks 39.266–43.855 GiB; the table omits baseline memory, so no reduction follows. H100/PyTorch 2.12 CI is pending. We have not reviewed the October PHBA paper or independently replicated these author results.
+
+For H1, the concrete caller/load is a pinned native causal-LM training job with fixed model, sequence geometry, saving/recomputation policy and actual backward dispatch. Scaling concerns include live tiles, saved activations, packed-route metadata, recurrent/prefix state, optimizer memory and repeated cache-free prefill. ReWY offers a reversible local derivative implementation; PHBA introduces model architecture and a narrowly screened projection backend. Neither is an interchangeable residual-bank treatment. Any future study must freeze its own matched workload, versions, seeds, data, resource ceilings and rollback interface before execution, and measure applicable quality/success, effective throughput, complete and tail latency, total peak resources/communication and observation cost. Attribution must separate architecture, derivative algebra and hardware-specific scheduling.
+
+This source review registers no experiment and adds no observer prerequisite. The existing H1 v4 failed evaluator acceptance, saved negative 0/6 comparisons, invalid historical RSS endpoint and original resource gates remain intact. H2–H4 statuses and closed finite gates also remain intact. The [review receipt](receipts/20261108T173117Z-fla-native-rewy-phba.json) binds metadata, captured bytes and the deliberately scoped reading. Local upstream tests, native/model/GPU execution and scientific experiments: **zero**.

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-08T22:00:26.218774+00:00",
-  "observation_note": "Preserved242prior source objects. Added one pinned implemented p2 local-owner authentication/revocation source review; per-cookie/live-link/admitted-work and shared-host cookie limits retained. No local tests/native/model/scientific work, dependency adoption or H1-H4/gate upgrade.",
+  "last_updated_at": "2026-11-09T01:58:08.519222+00:00",
+  "observation_note": "Preserved243prior source objects. Added one pinned landed OpenClaw Doctor native-yield/batch-progress source review; author-only measurements, cardinality/oversized-row/partial-session limits retained. Zero local upstream tests/native/model/scientific execution, dependency adoption or H1-H4/gate changes.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9903,6 +9903,50 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/earendil-works/pi/commit/7d073328e44337d3292a7db9b0f0308f679c5e97@7d073328e44337d3292a7db9b0f0308f679c5e97"
+    },
+    {
+      "id": "openclaw-doctor-native-yield-batch-progress-20261109",
+      "url": "https://github.com/openclaw/openclaw/pull/195459",
+      "type": "landed_doctor_native_yield_batch_progress_source_review",
+      "author": "steipete",
+      "published_at": "2026-11-09T00:15:32Z",
+      "recorded_at": "2026-11-09T01:58:08.519222+00:00",
+      "license": "MIT",
+      "reviewed_head": "56493a1a999c7f813d13a4431ef8f66fbf22c7c7",
+      "reviewed_parent": "a272894e35656b6aa92d9d5dbea2f18a99459726",
+      "primary_evidence": {
+        "narrative": "research/2026-11-09-doctor-transcript-yield-progress.md",
+        "review_receipt": "research/receipts/20261109T013612Z-doctor-transcript.json",
+        "review_receipt_sha256": "afe6654416b767c52dd4b936ef3b3a2003bd212df110fc6bfb00d7e9bed9afe0",
+        "complete_changed_head_files": 11,
+        "complete_parent_contexts": 3,
+        "extra_iterator_helper": 1,
+        "local_execution": false
+      },
+      "fact": [
+        "SQLite projected predicate yields every physical row; session projection returns nonmatching rows as null to JavaScript. Native handle release is author rationale, not locally measured.",
+        "64row/4MiB original+rewritten batch, oversized row alone; limits do not bound total heap.",
+        "Atomic row/provider-receipt batch commit and cursor only on session complete; PostgreSQL bridge remains buffered."
+      ],
+      "author_evidence": "Author reports35.19GiB/10800sessions/212274events Doctor completion1148.013s; sampled825.32MiB main/303.41MiB owner, 20.095GB cumulativeallocation, 4192MiB heaplimit; no E2Espeedup; none locallyreproduced.",
+      "our_inference": "A native yield boundary and batch progress cursor can bound decoded scan retention and preserve unfinished work; batch bounds do not prove a total process/resource/admission bound.",
+      "engineering": {
+        "caller": "Offline Doctor historical transcript repair during maintenance/update",
+        "scale_bottleneck": "Native UDF allocation lifetime within a single next()/all(), eager plans, provider DISTINCT",
+        "native_integration": "migrateHistoricalTranscriptDirectives -> list/plan -> existing transaction/authority/receipts/cursor",
+        "future_acceptance": "Separate preregistration: pinned engine/decoded sizes/cardinalities/ceilings, payload+receipt equality, no skipped suffix/duplicate effects, two process restarts, success/usefulthroughput/E2E/tails/heap/RSS/storage/communication/observercost",
+        "validated_tier": "Pinned source and test-definition review only"
+      },
+      "limits": [
+        "Session ID Set/sorted array, cached provider maps and full undo receipt retain cardinality dependence; byte threshold permits one oversized row and transient lookahead.",
+        "Native handle retention explanation and large runs are author claims supported by source design, not locally reproduced measurements.",
+        "Current recursive tree is truncated; selected direct content and license verified, not complete policy/dependency/security inventory.",
+        "One wrong assumed dependency path returned404, retained and not retried; actual helper is in kysely-sync.ts.",
+        "Inspected upstream tests/CI claims are not this project test results. No two-process-restart workload, model/GPU/distributed/production/performance validation.",
+        "No dependency adoption, competing PR or H1-H4/scientific-gate upgrade. Historical negative/failure/resource evidence retained."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/openclaw/openclaw/pull/195459@56493a1a999c7f813d13a4431ef8f66fbf22c7c7"
     }
   ],
   "previous_observation_notes": [
@@ -10001,6 +10045,10 @@
     {
       "last_updated_at": "2026-11-08T17:41:41.834090+00:00",
       "observation_note": "Preserved240prior source objects exactly. Added2openFLA native ReWY/PHBA integration source reviews; author-only performance, failed/unchecked gates, historicalrevision/lr0/noquality limits retained. Zero upstreamtests/native/model/scientificexecution or H1-H4/gatechange."
+    },
+    {
+      "last_updated_at": "2026-11-08T22:00:26.218774+00:00",
+      "observation_note": "Preserved242prior source objects. Added one pinned implemented p2 local-owner authentication/revocation source review; per-cookie/live-link/admitted-work and shared-host cookie limits retained. No local tests/native/model/scientific work, dependency adoption or H1-H4/gate upgrade."
     }
   ],
   "last_updated_at_history": [
@@ -10030,6 +10078,7 @@
     "2026-11-08T07:44:15.759438+00:00",
     "2026-11-08T09:49:34.115212+00:00",
     "2026-11-08T11:45:02.830777+00:00",
-    "2026-11-08T17:41:41.834090+00:00"
+    "2026-11-08T17:41:41.834090+00:00",
+    "2026-11-08T22:00:26.218774+00:00"
   ]
 }

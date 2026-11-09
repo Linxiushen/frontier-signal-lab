@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-09T01:58:08.519222+00:00",
-  "observation_note": "Preserved243prior source objects. Added one pinned landed OpenClaw Doctor native-yield/batch-progress source review; author-only measurements, cardinality/oversized-row/partial-session limits retained. Zero local upstream tests/native/model/scientific execution, dependency adoption or H1-H4/gate changes.",
+  "last_updated_at": "2026-11-09T10:02:21.876496+00:00",
+  "observation_note": "Preserved244prior source objects. Added one pinned Pi scheduler consume-before-await lost-notification source review with two generic-task in-memory regression definitions. No local test/native/model/scientific execution, dependency adoption or H1-H4 gate change; all negative results retained.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -9947,6 +9947,52 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/openclaw/openclaw/pull/195459@56493a1a999c7f813d13a4431ef8f66fbf22c7c7"
+    },
+    {
+      "id": "pi-scheduler-publication-notification-liveness-20261109",
+      "url": "https://github.com/earendil-works/pi/commit/e50dc7af97b1a57d72e737b5f066260e2e946ee9",
+      "type": "landed_native_scheduler_lost_notification_source_review",
+      "author": "badlogic",
+      "published_at": "2026-11-09T08:42:28Z",
+      "recorded_at": "2026-11-09T10:02:21.876496+00:00",
+      "license": "MIT",
+      "reviewed_head": "e50dc7af97b1a57d72e737b5f066260e2e946ee9",
+      "reviewed_parent": "a77207d9ceaf47aeb270d293b6ebc75e3e3ed6b3",
+      "primary_evidence": {
+        "narrative": "research/2026-11-09-pi-scheduler-publication-liveness.md",
+        "review_receipt": "research/receipts/20261109T093855Z-pi-scheduler.json",
+        "review_receipt_sha256": "535ef075a808d8d907d0ec2f63ac184cc1db9451d9afbaae0115f80f39bdb91d",
+        "complete_selected_head_source_files": 4,
+        "parent_contexts": 1,
+        "license_verified": true,
+        "local_execution": false
+      },
+      "fact": [
+        "Finalize checks are snapshotted and cleared before the awaited decision region; later notifications remain pending.",
+        "Reservation candidates move to a separate Set before await. Finally merges old non-dropped/live/non-completing candidates and all fresh notifications, including the same ID freshly reenqueued.",
+        "Two new generic-task Harness definitions hold publication through ControlledStorage, SessionImpl.touch and queueMicrotask; expect holder/waiter terminal states.",
+        "ControlledStorage extends MemoryStorage; openTasks installs task registry and supplies models registry. These two task bodies do not issue model/provider requests."
+      ],
+      "our_inference": "Live publication/wake-up delivery is a distinct H2 liveness boundary from durable record recovery. The landed consume-before-await repair informs a future actual-caller intervention without upgrading closed fixtures.",
+      "engineering": {
+        "caller": "TaskScheduler reservation/finalization; applicable generation waiting on parallel tools is author caller description",
+        "scale_bottleneck": "Lost wake-up during awaited planning may strand dependency-complete tasks and idle waits. No incidence, throughput, tail-latency or memory measurement.",
+        "integration": "Existing #finalize/#reserve -> #planCandidates/#planReservation and publication notification sets",
+        "validation_tier": "Pinned parent/head code and test definitions only",
+        "future_acceptance": "Separately freeze runtime, workload/resource ceilings, terminal deadlines, bounded admission, permission/cancellation/receipts and two process restarts; report success/usefulthroughput/E2E/tails/peakresources/communication/observercost",
+        "preregistration": "None frozen or run; current runtime retained, no adoption"
+      },
+      "limits": [
+        "No reproduction on untouched base was run in this lane.",
+        "No scheduler or native suite executed; no local/CI pass acquisition.",
+        "No process boundary, SQLite/JSONL persistence, model/provider request, multi-session backpressure, permission or external-effect proof in these two test sources.",
+        "Source package version1.5.0 context is distinct from locally installed1.4.0 fixture.",
+        "Closed H2 preregistration, negative results and allowed future work remain unchanged.",
+        "Reviewed four selected head source/test files plus license and parent scheduler; not whole dependency, scheduling correctness or security audit.",
+        "Source1.5.0 changelog context is not our earlier installed1.4.0 fixture. No local or remoteCI acquisition for upstream tests."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/earendil-works/pi/commit/e50dc7af97b1a57d72e737b5f066260e2e946ee9@e50dc7af97b1a57d72e737b5f066260e2e946ee9"
     }
   ],
   "previous_observation_notes": [
@@ -10049,6 +10095,10 @@
     {
       "last_updated_at": "2026-11-08T22:00:26.218774+00:00",
       "observation_note": "Preserved242prior source objects. Added one pinned implemented p2 local-owner authentication/revocation source review; per-cookie/live-link/admitted-work and shared-host cookie limits retained. No local tests/native/model/scientific work, dependency adoption or H1-H4/gate upgrade."
+    },
+    {
+      "last_updated_at": "2026-11-09T01:58:08.519222+00:00",
+      "observation_note": "Preserved243prior source objects. Added one pinned landed OpenClaw Doctor native-yield/batch-progress source review; author-only measurements, cardinality/oversized-row/partial-session limits retained. Zero local upstream tests/native/model/scientific execution, dependency adoption or H1-H4/gate changes."
     }
   ],
   "last_updated_at_history": [
@@ -10079,6 +10129,7 @@
     "2026-11-08T09:49:34.115212+00:00",
     "2026-11-08T11:45:02.830777+00:00",
     "2026-11-08T17:41:41.834090+00:00",
-    "2026-11-08T22:00:26.218774+00:00"
+    "2026-11-08T22:00:26.218774+00:00",
+    "2026-11-09T01:58:08.519222+00:00"
   ]
 }

@@ -156,3 +156,6 @@ Native HTTP exhaustion (2026-11-05): one separately frozen actual Verifiers suit
 
 
 会话资源与摘要负结果一手更新（2026-11-08）：Mario在p3文档选择会话资源selection作为拟议权限单位，资源sketch明确未定稿／未实现，paper model stress不是运行测试。OpenClaw作者另报告20个held-out compaction的后续所需ID保留率46.5%→46.5%，未达+3pp验收；23个缺失ID中13在160k字符采样前丢失、10被模型遗漏、0由16k cap切断。完整分母／原始回放未公开，在线after-window未部署，均非本项目实测。后续只在具体原生调用方预固定权限单位、各丢失边界、实际使用分母及预算／重试／恢复与成本门槛，不重开已关闭夹具；当前本地权限合同、H1负结果和H2–H4科学状态不变。[来源、数据口径和待验收边界](2026-11-08-session-resources-and-compaction-negative-result.md)。
+
+
+Verifiers isolated grading source review (2026-11-10): landed3115 rebuilds Python-validated artifact members into fresh PAX bytes before clearing runtime roots, and isolated/wipe Harbor staging clears the whole verifier log directory. Exact adjacent sources and actual grade_task/rollout/reward paths reviewed; private RL reward1withouttests and reported unit passes remain author-only, Docker/Prime E2E explicitly unrun. Original/normalized/scoring identity, stale-output provenance and retained-archive resource cost are distinct future acceptance boundaries; no local tests/native/model/scientific execution, dependency adoption or new freeze. Preserve H1negative/invalidRSS, H2closed/failed finite slices and fullH3/H4 unmet gates; no unchanged fixture rerun. [Source, test scope and engineering gate](2026-11-10-grading-artifact-representation.md).

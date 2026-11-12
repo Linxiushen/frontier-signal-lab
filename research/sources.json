@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-12T02:56:31.191126+00:00",
-  "observation_note": "Preserved247prior source objects exactly. Added one pinned open draft Verifiers scoring-session proposal after complete author-body/15changed-patch review. Author238unit/9Prime/181rubric claims remain unreplicated; no source-review local execution, dependency adoption, new freeze or scientific gate change.",
+  "last_updated_at": "2026-11-12T04:37:48.221272+00:00",
+  "observation_note": "Preserved all248prior source objects exactly. Proposed one pinned OpenClaw RPC-writer/final-delivery custody source after11complete unified patches and new test-design review; zero complete existing-source versions, localtests/native/model/science or restart execution. Source-only evidence, no dependency adoption, new freeze or H1-H4/gate change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -10150,6 +10150,62 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/pull/3158@8cdc3ea6bfccbb4e29dd2b59274ef36a2c1df3b4"
+    },
+    {
+      "id": "openclaw-rpc-writer-final-delivery-custody-20261112",
+      "url": "https://github.com/openclaw/openclaw/commit/c659d0e8349a8a41f97522b87441be5c7fbee9a8",
+      "type": "landed_rpc_writer_final_delivery_custody_patch_and_test_design_review",
+      "author": "vincentkoc",
+      "published_at": "2026-11-12T02:41:08Z",
+      "published_at_kind": "commit author/committer timestamp; PR merged_at not separately queried",
+      "recorded_at": "2026-11-12T04:36:42.751848+00:00",
+      "license": "MIT",
+      "reviewed_head": "c659d0e8349a8a41f97522b87441be5c7fbee9a8",
+      "reviewed_parent": "55cac5900c1501824b6e28b11e026805a4a8997b",
+      "primary_evidence": {
+        "narrative": "research/2026-11-12-rpc-writer-final-delivery-custody.md",
+        "review_receipt": "research/receipts/20261112T042249Z-rpc-writer-final-delivery-custody.json",
+        "review_receipt_sha256": "b9816943ceebc89d63b39e982db2304b8db1c03965f6f1c2c760b2b16130772a",
+        "complete_changed_file_patches": 11,
+        "complete_existing_source_versions": 0,
+        "complete_added_file_patch_versions": 2,
+        "changed_test_bearing_files": 6,
+        "license_verified": false,
+        "license_metadata_only": true,
+        "local_execution": false
+      },
+      "fact": [
+        "The captured default-branch commit feed and pinned commit API identify c659d0e8349a8a41f97522b87441be5c7fbee9a8, adjacent parent55cac5900c1501824b6e28b11e026805a4a8997b and commit author/committer time2026-11-12T02:41:08Z. This is a commit timestamp; fresh PR merged_at metadata was not separately acquired.",
+        "The runner adds publishClaimedSessionWriter at the persisted session-admission callback. Its complete new helper publishes a durable count0 fact using the committed entry sessionId/lifecycleRevision/activeWriterRunId and target agent/session-key/store identity.",
+        "The actual post-run finalizer now passes compactionFact.target, falling back to the original admitted delivery source, into persistPendingFinalDeliveryMarker. The marker removes its separate transition-replay loop and takes that admitted source as expected identity. The shown post-run assertCurrent/operator-authority callback remains; complete unchanged owner implementations were not reread.",
+        "Changed regression patches add writer-replaced/lifecycle-replaced modes, explicitly claim the writer before accounting, expect the count0 writer fact before a handled before_agent_reply hook and before initial model admission refuses, and update recovery-accounting expectations to include the initial writer fact. Existing assertions outside the shown patch context are not claimed fully reviewed.",
+        "The complete252-line newly added conformance test source creates a Gateway child process, existing session via RPC and an agent deliver request; it serves scripted local Responses SSE and pauses a local sink. Separate native database reads check the changed writer, queued transport-only final-delivery marker and exactly one queue row with matching session/intent/delivery IDs. After releasing the sink it expects one recorded send, successful completion and removal of both marker and queue row.",
+        "The new conformance source selects real SQLite by default, with a PostgreSQL branch only when supplied conformance connection data. Neither branch was run here. The test does not restart the Gateway or kill it at the observed custody window.",
+        "All11changed-file unified patches are complete by per-hunk old/new counts, per-file additions/deletions and commit-total equality:404additions/37deletions. Six test-bearing files change; the new test and two-line allocation file are complete added-file patches. Zero complete pre-existing source blobs or repository trees were fetched."
+      ],
+      "author_report": [
+        "The immutable commit message labels a reproducing RPC custody test, a custody fix and a writer-before-accounting test. No numerical execution result is supplied in the captured commit narrative; no author runtime result was independently replicated."
+      ],
+      "our_inference": "The committed writer identity is a concrete handoff boundary in an actual final-delivery chain. It sharpens future H2 custody/unknown-outcome controls without establishing local recovery correctness, bounded liveness or a new scientific result.",
+      "engineering": {
+        "caller": "OpenClaw public Gateway agent RPC for an existing session -> embedded runner persisted writer claim/accounting -> command post-run -> pending-final marker -> durable delivery queue and sink completion.",
+        "workload": "Real session/delivery caller; the reviewed test uses one session, one scripted local response and one gated sink. A future independently fixed multi-session workload must state sizes, concurrency, transport failure window and resource ceilings.",
+        "scale_bottleneck": "A writer claim changes durable source identity after initial admission. Lost handoff to final-delivery custody can leave a completed transport effect without a retained recovery obligation; more concurrent sessions increase the number of accepted obligations and shutdown work requiring separately bounded admission.",
+        "integration": "Use existing committed-writer accounting and pending-final-delivery owners at the real finalizer. Preserve prior runtime/version as rollback; this review neither adopts a dependency nor changes the existing pending-authority/cancel-mark integration priority.",
+        "validation_tier": "Complete immutable changed patches and complete newly added test-source design; no local runtime execution.",
+        "future_acceptance": "Proposed only, not frozen: pin adjacent baseline/candidate, exact native session/history/load/seed/SQLite-or-PostgreSQL version and resource caps. Include pre/post writer claim, marker persistence and unknown transport outcome, current authority/revocation, cancellation and two actual process restarts. Require exact durable session/intent/delivery binding and explicit delivered/failed/unknown denominators; compare applicable success, useful throughput, end-to-end/tail latency, appropriate peak resources/communication and observation cost. Do not rerun unchanged closed fixtures merely to pass.",
+        "preregistration": "None frozen or run; existing failed/closed finite gates and original runtime retained"
+      },
+      "limits": [
+        "Source and test-design evidence only: zero local tests, native runs, models, scientific experiments, dependency adoption or CI acquisition. A commit test label is not an independently observed passing test.",
+        "Only the complete immutable commit message was acquired as author narrative; the PR body/reviews/CI logs and exact PR merge time were not separately fetched. MIT is current scanner repository metadata, not a newly acquired license blob.",
+        "Complete changed patches do not include complete unchanged caller, marker-guard, transport, recovery-owner, SQLite/PostgreSQL or cleanup implementations. This is not a full authority/transaction/dependency audit.",
+        "The deterministic local provider/sink test is not live Telegram, real-model reliability, arbitrary external exactly-once delivery, concurrent multi-session admission/backpressure, cancellation/revocation, crash recovery or two-process-restart evidence.",
+        "No useful-throughput, end-to-end/p95/p99 latency, peak process/GPU memory, communication/physical-I/O or observer-cost measurement was obtained. No performance or production claim follows.",
+        "Existing H1 negative cost/quality and invalid parent-RSS result, H2 closed finite slice and failed concurrent freeze remain unchanged. Full H3/H4 scientific gates remain unmet; their existing completed and failed native finite slices are preserved. This source introduces no new prerequisite tool and does not reopen an unchanged closed fixture."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/openclaw/openclaw/commit/c659d0e8349a8a41f97522b87441be5c7fbee9a8@c659d0e8349a8a41f97522b87441be5c7fbee9a8"
     }
   ],
   "previous_observation_notes": [
@@ -10304,6 +10360,10 @@
     {
       "last_updated_at": "2026-11-10T06:21:52.562400+00:00",
       "observation_note": "Preserved246prior source objects exactly. Added one pinned landed OpenClaw consumed-input residency/durable-replay source review with actual worker/caller and test-definition boundaries. Author tests/heap diagnostic remain author-only; zero local tests/native/model/scientific execution, dependency adoption, new freeze or H1-H4/gate change."
+    },
+    {
+      "last_updated_at": "2026-11-12T02:56:31.191126+00:00",
+      "observation_note": "Preserved247prior source objects exactly. Added one pinned open draft Verifiers scoring-session proposal after complete author-body/15changed-patch review. Author238unit/9Prime/181rubric claims remain unreplicated; no source-review local execution, dependency adoption, new freeze or scientific gate change."
     }
   ]
 }

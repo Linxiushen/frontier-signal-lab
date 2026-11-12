@@ -1,0 +1,349 @@
+{
+  "status": "bounded_pinned_landed_commit_patch_and_test_design_review",
+  "recorded_at": "2026-11-12T04:36:42.751848+00:00",
+  "url": "https://github.com/openclaw/openclaw/commit/c659d0e8349a8a41f97522b87441be5c7fbee9a8",
+  "commit": "c659d0e8349a8a41f97522b87441be5c7fbee9a8",
+  "adjacent_parent": "55cac5900c1501824b6e28b11e026805a4a8997b",
+  "commit_time": "2026-11-12T02:41:08Z",
+  "commit_time_kind": "author/committer timestamp, not separately verified PR merged_at",
+  "primary_commit_message_complete_read": true,
+  "PR_body_acquired": false,
+  "complete_changed_file_patches_read": 11,
+  "complete_existing_source_versions_fetched": 0,
+  "complete_added_file_patch_versions": 2,
+  "complete_repository_trees": 0,
+  "changed_test_bearing_files": 6,
+  "local_execution": false,
+  "local_tests": 0,
+  "native_runs": 0,
+  "models": 0,
+  "scientific_experiments": 0,
+  "CI_independently_acquired": false,
+  "license": "MIT",
+  "license_evidence": "Current bounded scanner repository metadata only; no newly acquired license blob or code/dependency adoption.",
+  "run_local_review": {
+    "receipt": "reports/runs/20261112T042249Z/radar/materiality-review.json",
+    "receipt_sha256": "2e68e5d62645667394da0e70e36a470d2df846fc2d7165af55089a8debc2a31d"
+  },
+  "source_capture": {
+    "receipt": "reports/runs/20261112T042249Z/radar/custody-source.stdout.gz",
+    "receipt_sha256": "eb95c28f5bc9472930d66106ee2937544923491a7425668f18bc05841ac76987"
+  },
+  "source_transport": {
+    "receipt": "reports/runs/20261112T042249Z/radar/custody-source-receipt.json",
+    "receipt_sha256": "0cd6c576273f02269b40da3e6cd1fc48d54db64de72a832bcf4d6cb3f1ce4580"
+  },
+  "changed_files": [
+    {
+      "path": "config/test-lines-allocations/rpc-writer-delivery-custody.txt",
+      "git_blob_sha": "276ac8e08707578bb7922e29f5ed9610e17322de",
+      "status": "added",
+      "additions": 2,
+      "deletions": 0,
+      "patch_sha256": "656d5717c64e4c7cfe507b5e32dc1ae45eaa94b0ee5622f402f3d345874d1ac1",
+      "hunks": [
+        {
+          "old_start": 0,
+          "expected_old": 0,
+          "new_start": 1,
+          "expected_new": 2,
+          "observed_old": 0,
+          "observed_new": 2
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": true,
+      "test_bearing": false
+    },
+    {
+      "path": "src/agents/agent-command.compaction-custody.test.ts",
+      "git_blob_sha": "b1b5eb7601611622689c9911e5d39abaead6078f",
+      "status": "modified",
+      "additions": 41,
+      "deletions": 3,
+      "patch_sha256": "05953c65764aa497b5057311e36e5f6842712e246b7572f7e8af747925808c3a",
+      "hunks": [
+        {
+          "old_start": 38,
+          "expected_old": 14,
+          "new_start": 38,
+          "expected_new": 25,
+          "observed_old": 14,
+          "observed_new": 25
+        },
+        {
+          "old_start": 98,
+          "expected_old": 7,
+          "new_start": 109,
+          "expected_new": 28,
+          "observed_old": 7,
+          "observed_new": 28
+        },
+        {
+          "old_start": 119,
+          "expected_old": 6,
+          "new_start": 151,
+          "expected_new": 12,
+          "observed_old": 6,
+          "observed_new": 12
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": true
+    },
+    {
+      "path": "src/agents/agent-command.compaction.test-support.ts",
+      "git_blob_sha": "554f2ca04c32a36d4ccb5416997a243c2d65657c",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "patch_sha256": "da3e04e11006535fb9b660f7b1f2659ed34ff6eca70b2047f485a85bbc6a139d",
+      "hunks": [
+        {
+          "old_start": 22,
+          "expected_old": 6,
+          "new_start": 22,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        },
+        {
+          "old_start": 405,
+          "expected_old": 6,
+          "new_start": 406,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": true
+    },
+    {
+      "path": "src/agents/command/post-run.ts",
+      "git_blob_sha": "007aa18cf7b4bc15763bcbdafbb3e6dba76b177d",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch_sha256": "f95845f354f8ee435e1c211f9602ec186e0d569c63b25dab880e40444b26e95e",
+      "hunks": [
+        {
+          "old_start": 267,
+          "expected_old": 8,
+          "new_start": 267,
+          "expected_new": 8,
+          "observed_old": 8,
+          "observed_new": 8
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": false
+    },
+    {
+      "path": "src/agents/embedded-agent-runner/run-orchestrator.ts",
+      "git_blob_sha": "84bcc3fcfb43db4a096571e4d6b11d8ba13ce3e1",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "patch_sha256": "8e3f8c1776c69a290ac72f3911e7f3e908e34e5f3852910e892f6b1acc337235",
+      "hunks": [
+        {
+          "old_start": 74,
+          "expected_old": 6,
+          "new_start": 74,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        },
+        {
+          "old_start": 192,
+          "expected_old": 6,
+          "new_start": 193,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": false
+    },
+    {
+      "path": "src/agents/embedded-agent-runner/run.before-agent-reply-cron.test-support.ts",
+      "git_blob_sha": "96804cc7d8fcc290549378231f87cd867ea712bf",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 1,
+      "patch_sha256": "be2f977dcb5e89ab87feb9b83bf4ae5b7287ca7208353d5ac626a3a5b920a937",
+      "hunks": [
+        {
+          "old_start": 16,
+          "expected_old": 6,
+          "new_start": 16,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        },
+        {
+          "old_start": 105,
+          "expected_old": 8,
+          "new_start": 106,
+          "expected_new": 24,
+          "observed_old": 8,
+          "observed_new": 24
+        },
+        {
+          "old_start": 117,
+          "expected_old": 7,
+          "new_start": 134,
+          "expected_new": 7,
+          "observed_old": 7,
+          "observed_new": 7
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": true
+    },
+    {
+      "path": "src/agents/embedded-agent-runner/run.plugin-runtime-refresh.integration.test.ts",
+      "git_blob_sha": "796d3f31abd51c4362c64443b47a150e25db78e8",
+      "status": "modified",
+      "additions": 47,
+      "deletions": 0,
+      "patch_sha256": "d8cd7eca6d799032559042cc43724bc5101cc378761369642bf34c007cd8ec22",
+      "hunks": [
+        {
+          "old_start": 1,
+          "expected_old": 3,
+          "new_start": 1,
+          "expected_new": 4,
+          "observed_old": 3,
+          "observed_new": 4
+        },
+        {
+          "old_start": 21,
+          "expected_old": 6,
+          "new_start": 22,
+          "expected_new": 7,
+          "observed_old": 6,
+          "observed_new": 7
+        },
+        {
+          "old_start": 168,
+          "expected_old": 6,
+          "new_start": 170,
+          "expected_new": 51,
+          "observed_old": 6,
+          "observed_new": 51
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": true
+    },
+    {
+      "path": "src/agents/embedded-agent-runner/run.recovery-cancellation.test-support.ts",
+      "git_blob_sha": "d56b75404a760d0a0a6d50830620997f4da03fb4",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 10,
+      "patch_sha256": "04c0e446813220d492a6d9116c44b116394d7b3b58d0f4f830ef2d58123ec337",
+      "hunks": [
+        {
+          "old_start": 371,
+          "expected_old": 16,
+          "new_start": 371,
+          "expected_new": 22,
+          "observed_old": 16,
+          "observed_new": 22
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": true
+    },
+    {
+      "path": "src/agents/embedded-agent-runner/run/compaction-accounting-bridge.ts",
+      "git_blob_sha": "2628e57bc4b2056dcb8f5e142b3022c1144ff81c",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 0,
+      "patch_sha256": "42b3c67dea37c716a363adb2562d7a0f7745f1d9e31fbb8b08ea8beeaeb8a61e",
+      "hunks": [
+        {
+          "old_start": 6,
+          "expected_old": 6,
+          "new_start": 6,
+          "expected_new": 27,
+          "observed_old": 6,
+          "observed_new": 27
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": false
+    },
+    {
+      "path": "src/agents/pending-final-delivery-marker.ts",
+      "git_blob_sha": "d1fe26cb31995a7634cbe1e04a20dee15d01bc2d",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 21,
+      "patch_sha256": "f2ab1e525b50870db41f5556f3524bd4aeef4609703f1c844629b1f06740e173",
+      "hunks": [
+        {
+          "old_start": 20,
+          "expected_old": 7,
+          "new_start": 20,
+          "expected_new": 6,
+          "observed_old": 7,
+          "observed_new": 6
+        },
+        {
+          "old_start": 74,
+          "expected_old": 26,
+          "new_start": 73,
+          "expected_new": 7,
+          "observed_old": 26,
+          "observed_new": 7
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": false,
+      "test_bearing": false
+    },
+    {
+      "path": "src/infra/database-engine/agent-command-delivery.conformance.test.ts",
+      "git_blob_sha": "225c0fdcba74b3f1536b481258c9b8c8fcd9c019",
+      "status": "added",
+      "additions": 252,
+      "deletions": 0,
+      "patch_sha256": "598d571162fdbf457615f8c628a084e177521851d7a822e6e927d191a4d41222",
+      "hunks": [
+        {
+          "old_start": 0,
+          "expected_old": 0,
+          "new_start": 1,
+          "expected_new": 252,
+          "observed_old": 0,
+          "observed_new": 252
+        }
+      ],
+      "complete_changed_patch": true,
+      "complete_added_file_via_patch": true,
+      "test_bearing": true
+    }
+  ],
+  "limits": [
+    "Source and test-design evidence only: zero local tests, native runs, models, scientific experiments, dependency adoption or CI acquisition. A commit test label is not an independently observed passing test.",
+    "Only the complete immutable commit message was acquired as author narrative; the PR body/reviews/CI logs and exact PR merge time were not separately fetched. MIT is current scanner repository metadata, not a newly acquired license blob.",
+    "Complete changed patches do not include complete unchanged caller, marker-guard, transport, recovery-owner, SQLite/PostgreSQL or cleanup implementations. This is not a full authority/transaction/dependency audit.",
+    "The deterministic local provider/sink test is not live Telegram, real-model reliability, arbitrary external exactly-once delivery, concurrent multi-session admission/backpressure, cancellation/revocation, crash recovery or two-process-restart evidence.",
+    "No useful-throughput, end-to-end/p95/p99 latency, peak process/GPU memory, communication/physical-I/O or observer-cost measurement was obtained. No performance or production claim follows.",
+    "Existing H1 negative cost/quality and invalid parent-RSS result, H2 closed finite slice and failed concurrent freeze remain unchanged. Full H3/H4 scientific gates remain unmet; their existing completed and failed native finite slices are preserved. This source introduces no new prerequisite tool and does not reopen an unchanged closed fixture."
+  ]
+}

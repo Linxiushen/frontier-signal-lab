@@ -221,3 +221,6 @@ Remote cancellation source review (2026-11-06): Pi c96e368 lets local startup wa
 
 
 Verifiers packaged-grader source review (2026-11-12): draft3158 routes optional grader calls through host scoring sessions, with temporary inference capabilities and separate judge usage. Complete author body and15changed patches reviewed; no committed test-file delta or local/provider execution. Author238unit/9Prime/181rubric claims remain unreplicated. This gives H3/H4 a concrete future judge-budget/version/recovery integration point; existing scientific gates and negative results remain unchanged. [Source scope and proposed acceptance](research/2026-11-12-packaged-grader-scoring-sessions.md).
+
+
+Verifiers eval-cache source review (2026-11-12): landed3161 copies eligible bodies before actual HTTPX serialization; resolved environment retention and proposed3162 tool/function shape repair are distinct from original trace/config identity. Thirteen complete pinned versions reviewed; wiring tests mock the request boundary and author live-cache results remain unreplicated. Bind post-transform requests in the existing native budget/retry runner before any new acceptance; no tests/native/model/scientific run, new freeze, dependency adoption or H1-H4 status change. [Source and integration limits](research/2026-11-12-eval-cache-request-identity.md).

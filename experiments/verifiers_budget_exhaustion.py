@@ -82,6 +82,8 @@ def worker(protocol_path, output, phase, endpoint):
                         if reward is not None else None for name, reward in trace.rewards.items()}}
                        for trace in episode.traces]}
         assert episode.ok == expected_ok
+        # Reject version drift before committing either terminal outcome.
+        verify_files(protocol["versions"])
         if expected_ok:
             assert len(episode.traces) == 1
             trace = episode.traces[0]
@@ -94,7 +96,6 @@ def worker(protocol_path, output, phase, endpoint):
             evidence.update(outcome="native_failure", accepted_score_denominator=0, reward=None)
             ledger.fail(key, evidence)
         save(output / f"{key}-receipt.json", evidence)
-        verify_files(protocol["versions"])
 
     if phase == 1:
         asyncio.run(evaluate("dev-ok", "fixture-bad", "development", True))

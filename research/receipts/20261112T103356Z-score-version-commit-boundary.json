@@ -1,0 +1,41 @@
+{
+  "recorded_at": "2026-11-12T10:44:20.492680+00:00",
+  "status": "portable_actual_worker_acceptance_order_repair",
+  "base_commit": "fcb9fe8cc7703103ca22ebb5249cab3972b9240e",
+  "base_source_sha256": "204a831c7c3bfd0f0bfacf6008ceb60ea8955c43586451495c58b55965b0a7cf",
+  "candidate_source": {
+    "path": "experiments/verifiers_budget_exhaustion.py",
+    "sha256": "5407b0491916907b981e12b1b11798990d7981682b1bfba965c2fe5d4d144a50"
+  },
+  "regression_source": {
+    "path": "tests/test_verifiers_score_boundary.py",
+    "sha256": "50fdff29b099e7b72b7fd968623e77b3e4c67bfa0587bc43a6f66894be351224"
+  },
+  "baseline": {
+    "tests": 4,
+    "expected_target_failures": 2,
+    "unchanged_controls_passed": 2,
+    "returncode": 1,
+    "stderr_sha256": "31b04164c2d37075730c3c2304ab53cf3cd2d2cdb308538b1dd336238e2589fa"
+  },
+  "candidate": {
+    "tests_passed": 4,
+    "returncode": 0,
+    "stderr_sha256": "7521c713b246aa4eaba589c0d8f7caab8120486ea695d4ddda2c8c727ddb38a5"
+  },
+  "nearby": {
+    "tests_passed": 21,
+    "returncode": 0,
+    "stderr_sha256": "98fcf5e173c99fcbb97a0433120b3fab1d85cd0748d7926760edc4e4a894672d"
+  },
+  "scientific_experiments": 0,
+  "native_runner_executions": 0,
+  "models": 0,
+  "GPU_runs": 0,
+  "source_count": 250,
+  "scientific_gates_changed": false,
+  "initial_harness_diagnostic": "First test harness failed on Windows/Linux import-path comparison before reaching the runner. It is not the defect reproduction. The corrected portable mapping produced the two target failures on unchanged code.",
+  "scope": "Real project worker and SQLite with stubbed run_episodes, Echo, config and native import location. File drift detection precedes terminal commit; no atomic snapshot, hostile-caller protection, loaded-code identity, real scoring or native recovery claim.",
+  "local_evidence_directory": "reports/runs/20261112T103356Z/score-boundary",
+  "future_native_requirement": "New exact version-bound preregistration; never replace source in a historical freeze."
+}

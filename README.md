@@ -224,3 +224,6 @@ Verifiers packaged-grader source review (2026-11-12): draft3158 routes optional 
 
 
 Verifiers eval-cache source review (2026-11-12): landed3161 copies eligible bodies before actual HTTPX serialization; resolved environment retention and proposed3162 tool/function shape repair are distinct from original trace/config identity. Thirteen complete pinned versions reviewed; wiring tests mock the request boundary and author live-cache results remain unreplicated. Bind post-transform requests in the existing native budget/retry runner before any new acceptance; no tests/native/model/scientific run, new freeze, dependency adoption or H1-H4 status change. [Source and integration limits](research/2026-11-12-eval-cache-request-identity.md).
+
+
+Evaluation outcome commit repair (2026-11-12): the actual project worker now checks frozen files before accepting success/failure in SQLite. Two target regressions fail on the unchanged driver; all four worker controls and21neighboring tests pass after repair. Runner/scorer imports are stubs in these portable controls; no native/model/scientific execution or H3/H4 gate upgrade. [Repair, validation and limits](research/2026-11-12-score-version-commit-boundary.md).

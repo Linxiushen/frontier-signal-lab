@@ -218,3 +218,6 @@ Native retry identity source review (2026-11-06): newly landed Verifiers PR3057 
 
 
 Remote cancellation source review (2026-11-06): Pi c96e368 lets local startup waits and silent sent requests settle on cancellation, with a one-second request grace and an exec timeout. Shared startup can continue and a settled local call does not establish remote termination or an effect receipt. Fourteen immutable source/policy versions reviewed; seven author test definitions were read, not run. Package release/adoption, actual SSH reboot, bounded remote work and two-restart effects remain unverified; no tests/native/model run or H1-H4 change. [Review and proposed integration boundary](research/2026-11-06-remote-abort-settlement.md).
+
+
+Verifiers packaged-grader source review (2026-11-12): draft3158 routes optional grader calls through host scoring sessions, with temporary inference capabilities and separate judge usage. Complete author body and15changed patches reviewed; no committed test-file delta or local/provider execution. Author238unit/9Prime/181rubric claims remain unreplicated. This gives H3/H4 a concrete future judge-budget/version/recovery integration point; existing scientific gates and negative results remain unchanged. [Source scope and proposed acceptance](research/2026-11-12-packaged-grader-scoring-sessions.md).

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "created_at": "2026-10-15T10:17:36Z",
-  "last_updated_at": "2026-11-10T06:21:52.562400+00:00",
-  "observation_note": "Preserved246prior source objects exactly. Added one pinned landed OpenClaw consumed-input residency/durable-replay source review with actual worker/caller and test-definition boundaries. Author tests/heap diagnostic remain author-only; zero local tests/native/model/scientific execution, dependency adoption, new freeze or H1-H4/gate change.",
+  "last_updated_at": "2026-11-12T02:56:31.191126+00:00",
+  "observation_note": "Preserved247prior source objects exactly. Added one pinned open draft Verifiers scoring-session proposal after complete author-body/15changed-patch review. Author238unit/9Prime/181rubric claims remain unreplicated; no source-review local execution, dependency adoption, new freeze or scientific gate change.",
   "timezone": "Asia/Shanghai",
   "sources": [
     {
@@ -10094,6 +10094,62 @@
       ],
       "scientific_status_change": false,
       "dedupe_key": "https://github.com/openclaw/openclaw/pull/196277@472d77826c564f5868c46d53a2fd6d4b5997b2ee"
+    },
+    {
+      "id": "verifiers-packaged-grader-scoring-sessions-20261112",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/3158",
+      "type": "draft_packaged_grader_native_scoring_session_source_review",
+      "author": "xeophon",
+      "published_at": "2026-11-12T01:13:41Z",
+      "recorded_at": "2026-11-12T02:43:14.530029+00:00",
+      "license": "MIT",
+      "publication_state": "open_draft_unmerged_at_capture",
+      "reviewed_head": "8cdc3ea6bfccbb4e29dd2b59274ef36a2c1df3b4",
+      "reviewed_parent": "ae5e56bc4e714c782817b4bde822fa084fc319d2",
+      "reviewed_target_base": "d275fdf693f979794cdf7e49dc130c9f529c1493",
+      "primary_evidence": {
+        "narrative": "research/2026-11-12-packaged-grader-scoring-sessions.md",
+        "review_receipt": "research/receipts/20261112T022614Z-scoring-sessions.json",
+        "review_receipt_sha256": "eea6978635e4ce47acdda57b40e330ca90af8246278cb6626e7d78f900438c47",
+        "complete_changed_file_patches": 15,
+        "complete_source_versions": 0,
+        "changed_test_files": 0,
+        "license_verified": false,
+        "license_metadata_only": true,
+        "local_execution": false
+      },
+      "fact": [
+        "Pinned authored patch adds ScoringJudgeConfig and wires actual Rollout.close, grade_task and vf-validate scoring calls into scoring_session. Default judge=None returns the existing runtime.",
+        "scoring_session constructs JudgeSession with the host ModelContext/client, binds a temporary endpoint/token into the grader environment, blanks mapped provider credential variables during setup and drops a local interception pool for remote verifier handoffs.",
+        "InferenceSession shares request-idempotence and handler-release machinery. Judge sessions receive inference capability without rollout task-state/tool capabilities; handle_judge uses the native host client and records response objects and reported extra usage outside solver graph/stop state.",
+        "Release cancels active handler tasks and guards trace mutation after release. These code paths concern an in-memory session; they do not add durable budget, receipt recovery or two-process-restart acceptance.",
+        "Changed file set contains docs and production paths only; no committed test-file delta. All15patch addition/deletion counts equal the API file counts. Complete unchanged caller/provider implementations were not fetched or claimed reread."
+      ],
+      "author_report": [
+        "238 unit passes with18runtime skips",
+        "9livePrime checks",
+        "3LABRewardKit runs/181rubric calls",
+        "Temporary localHTTP/concurrency/idempotence/credential/revocation smoke scripts"
+      ],
+      "our_inference": "A concrete optional integration point for future H3/H4 judge-call budget and score-version work in the actual evaluator; a draft implementation proposal with source evidence, not locally validated behavior or an accepted replacement for existing gates.",
+      "engineering": {
+        "caller": "Verifiers Rollout.close/grade_task/vf-validate -> packaged Harbor grader -> scoring_session/JudgeSession -> existing host inference client",
+        "workload": "Existing actual evaluation runner; a future separately fixed set of solver episodes and packaged judge requests, including concurrent/retried requests, scoring failure, cancellation, token revocation and two process restarts.",
+        "scale_bottleneck": "Judge fan-out, provider retries and retained raw/streamed responses add separate spend, handler concurrency, memory and lifetime beyond solver turn/token limits.",
+        "integration": "Optional ScoringConfig.judge plus host JudgeSession admission/accounting and immutable task/model/provider/score/request bindings; retain judge=None rollback.",
+        "validation_tier": "Complete pinned PR author body and15changed-file unified patches only. No local test/native/provider/model/GPU/production execution.",
+        "future_acceptance": "Before any experiment, fix exact workload/provider/version/seed/resource ceilings and judge-attempt budget. Require exact immutable wire/store/score binding, no admission after revoke, defined replay receipts across two process restarts and explicit failed/unscored denominators; report applicable correctness, useful throughput, E2E/p95 latency, peak memory/communication and observer cost against a matched baseline.",
+        "preregistration": "None frozen or run; prior negative results, failed freezes and closed finite gates remain unchanged"
+      },
+      "limits": [
+        "GitHub compare uses merge-base ae5e56...->head; requested base d275... is the current target context and is not the direct patch root.",
+        "Public draft may change after capture; no CI checks were independently fetched and author live/provider measurements were not replicated.",
+        "No changed test-file definitions or independently acquired CI evidence. All reported238unit/9Prime/181rubric checks are author-only and unreplicated.",
+        "No local test/native/provider/model/scientific execution or dependency adoption. In-memory release/idempotence is not durable budget, two-process restart, general exactly-once or production proof.",
+        "Future workloads, budgets and performance/correctness gates are proposed acceptance requirements, not preregistered or measured results."
+      ],
+      "scientific_status_change": false,
+      "dedupe_key": "https://github.com/PrimeIntellect-ai/verifiers/pull/3158@8cdc3ea6bfccbb4e29dd2b59274ef36a2c1df3b4"
     }
   ],
   "previous_observation_notes": [
@@ -10233,7 +10289,8 @@
     "2026-11-08T22:00:26.218774+00:00",
     "2026-11-09T01:58:08.519222+00:00",
     "2026-11-09T10:02:21.876496+00:00",
-    "2026-11-10T04:10:08.074950+00:00"
+    "2026-11-10T04:10:08.074950+00:00",
+    "2026-11-10T06:21:52.562400+00:00"
   ],
   "observation_note_history": [
     {
@@ -10243,6 +10300,10 @@
     {
       "last_updated_at": "2026-11-10T04:10:08.074950+00:00",
       "observation_note": "Preserved245prior source objects exactly. Added one pinned landed Verifiers archive-representation/log-provenance source review in the actual isolated grading chain. Private RL/reward and unit-test statements remain author-only; zero local tests/native/model/scientific execution, dependency adoption or H1-H4/gate change."
+    },
+    {
+      "last_updated_at": "2026-11-10T06:21:52.562400+00:00",
+      "observation_note": "Preserved246prior source objects exactly. Added one pinned landed OpenClaw consumed-input residency/durable-replay source review with actual worker/caller and test-definition boundaries. Author tests/heap diagnostic remain author-only; zero local tests/native/model/scientific execution, dependency adoption, new freeze or H1-H4/gate change."
     }
   ]
 }
